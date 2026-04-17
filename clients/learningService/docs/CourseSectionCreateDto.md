@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **icon** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
 **course_id** | **String** |  | 
-**business_id** | **String** |  | 
 **release_date_time** | Option<**String**> |  | [optional]
 **hide_from_students** | Option<**bool**> |  | [optional]
 

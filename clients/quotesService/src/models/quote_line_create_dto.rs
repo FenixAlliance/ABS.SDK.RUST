@@ -29,10 +29,6 @@ pub struct QuoteLineCreateDto {
     pub item_primary_image_url: Option<Option<String>>,
     #[serde(rename = "shippingPolicyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub shipping_policy_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -203,8 +199,6 @@ pub struct QuoteLineCreateDto {
     pub location_id: Option<Option<String>>,
     #[serde(rename = "quoteItemRecordId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub quote_item_record_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "parentBillingItemRecordId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_billing_item_record_id: Option<Option<String>>,
     #[serde(rename = "quoteId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -222,8 +216,6 @@ impl QuoteLineCreateDto {
             item_short_description: None,
             item_primary_image_url: None,
             shipping_policy_id: None,
-            tenant_id: None,
-            enrollment_id: None,
             currency_id: None,
             description: None,
             quantity: None,
@@ -309,7 +301,6 @@ impl QuoteLineCreateDto {
             shipping_location_id: None,
             location_id: None,
             quote_item_record_id: None,
-            business_profile_record_id: None,
             parent_billing_item_record_id: None,
             quote_id: None,
         }

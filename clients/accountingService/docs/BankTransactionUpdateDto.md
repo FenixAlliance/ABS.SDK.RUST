@@ -15,8 +15,6 @@ Name | Type | Description | Notes
 **unit_id** | Option<**String**> |  | [optional]
 **transaction_category_id** | Option<**String**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 **bank_profile_id** | Option<**String**> |  | [optional]
 **bank_account_id** | Option<**String**> |  | [optional]
 

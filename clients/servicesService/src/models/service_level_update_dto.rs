@@ -115,8 +115,6 @@ pub struct ServiceLevelUpdateDto {
     pub on_discount: Option<bool>,
     #[serde(rename = "totalTax", skip_serializing_if = "Option::is_none")]
     pub total_tax: Option<f64>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "permalink", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub permalink: Option<Option<String>>,
     #[serde(rename = "brandName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -165,8 +163,6 @@ pub struct ServiceLevelUpdateDto {
     pub has_variations: Option<bool>,
     #[serde(rename = "questionsCount", skip_serializing_if = "Option::is_none")]
     pub questions_count: Option<i32>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "supplierCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub supplier_code: Option<Option<String>>,
     #[serde(rename = "auctionEnd", skip_serializing_if = "Option::is_none")]
@@ -415,7 +411,6 @@ impl ServiceLevelUpdateDto {
             material: None,
             on_discount: None,
             total_tax: None,
-            tenant_id: None,
             permalink: None,
             brand_name: None,
             reviews_count: None,
@@ -440,7 +435,6 @@ impl ServiceLevelUpdateDto {
             custom_tax_value: None,
             has_variations: None,
             questions_count: None,
-            enrollment_id: None,
             supplier_code: None,
             auction_end: None,
             purchase_note: None,

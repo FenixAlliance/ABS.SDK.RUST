@@ -19,14 +19,10 @@ pub struct CourseCertificateTemplateCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "courseID")]
     pub course_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "webPortalID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub web_portal_id: Option<Option<String>>,
     #[serde(rename = "websiteThemeID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub website_theme_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "socialProfileID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub social_profile_id: Option<Option<String>>,
     #[serde(rename = "parentWebContentID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -36,15 +32,13 @@ pub struct CourseCertificateTemplateCreateDto {
 }
 
 impl CourseCertificateTemplateCreateDto {
-    pub fn new(course_id: String, business_id: String) -> CourseCertificateTemplateCreateDto {
+    pub fn new(course_id: String) -> CourseCertificateTemplateCreateDto {
         CourseCertificateTemplateCreateDto {
             id: None,
             timestamp: None,
             course_id,
-            business_id,
             web_portal_id: None,
             website_theme_id: None,
-            business_profile_record_id: None,
             social_profile_id: None,
             parent_web_content_id: None,
             parent_web_content_version_id: None,

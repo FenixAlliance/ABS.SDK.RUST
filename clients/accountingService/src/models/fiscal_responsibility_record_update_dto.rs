@@ -17,10 +17,6 @@ pub struct FiscalResponsibilityRecordUpdateDto {
     pub fiscal_responsibility_id: Option<Option<String>>,
     #[serde(rename = "billingProfileId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub billing_profile_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl FiscalResponsibilityRecordUpdateDto {
@@ -28,8 +24,6 @@ impl FiscalResponsibilityRecordUpdateDto {
         FiscalResponsibilityRecordUpdateDto {
             fiscal_responsibility_id: None,
             billing_profile_id: None,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 **title** | Option<**String**> |  | [optional]
 **code** | Option<**String**> |  | [optional]
 **published** | Option<**bool**> |  | [optional]

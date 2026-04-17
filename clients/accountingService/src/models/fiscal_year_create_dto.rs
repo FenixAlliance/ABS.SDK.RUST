@@ -23,14 +23,12 @@ pub struct FiscalYearCreateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "closed", skip_serializing_if = "Option::is_none")]
     pub closed: Option<bool>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "endDate", skip_serializing_if = "Option::is_none")]
     pub end_date: Option<String>,
     #[serde(rename = "startDate", skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
+    #[serde(rename = "fiscalAuthorityId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub fiscal_authority_id: Option<Option<String>>,
 }
 
 impl FiscalYearCreateDto {
@@ -41,10 +39,9 @@ impl FiscalYearCreateDto {
             name: None,
             description: None,
             closed: None,
-            tenant_id: None,
-            enrollment_id: None,
             end_date: None,
             start_date: None,
+            fiscal_authority_id: None,
         }
     }
 }

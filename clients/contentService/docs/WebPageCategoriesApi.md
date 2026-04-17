@@ -4,12 +4,45 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**count_web_page_categories_async**](WebPageCategoriesApi.md#count_web_page_categories_async) | **GET** /api/v2/ContentService/WebPageCategories/Count | Count web page categories
 [**create_web_page_category_async**](WebPageCategoriesApi.md#create_web_page_category_async) | **POST** /api/v2/ContentService/WebPageCategories | Create a web page category
 [**delete_web_page_category_async**](WebPageCategoriesApi.md#delete_web_page_category_async) | **DELETE** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Delete a web page category
 [**get_web_page_categories_async**](WebPageCategoriesApi.md#get_web_page_categories_async) | **GET** /api/v2/ContentService/WebPageCategories | Get web page categories
 [**get_web_page_category_by_id_async**](WebPageCategoriesApi.md#get_web_page_category_by_id_async) | **GET** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Get web page category by ID
 [**update_web_page_category_async**](WebPageCategoriesApi.md#update_web_page_category_async) | **PUT** /api/v2/ContentService/WebPageCategories/{webPageCategoryId} | Update a web page category
 
+
+
+## count_web_page_categories_async
+
+> models::Int32Envelope count_web_page_categories_async(tenant_id, api_version, x_api_version)
+Count web page categories
+
+Counts all web page categories for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_web_page_category_async

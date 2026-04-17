@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **name** | Option<**String**> |  | [optional]
 **title** | Option<**String**> |  | [optional]
 **avatar_url** | Option<**String**> |  | [optional]

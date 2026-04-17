@@ -19,12 +19,8 @@ pub struct SocialMediaPostUpdateDto {
     pub content: Option<Option<String>>,
     #[serde(rename = "featuredImageUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub featured_image_url: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "socialPostBucketId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub social_post_bucket_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl SocialMediaPostUpdateDto {
@@ -33,9 +29,7 @@ impl SocialMediaPostUpdateDto {
             title: None,
             content: None,
             featured_image_url: None,
-            tenant_id: None,
             social_post_bucket_id: None,
-            enrollment_id: None,
         }
     }
 }

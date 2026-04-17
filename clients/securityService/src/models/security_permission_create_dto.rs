@@ -19,19 +19,16 @@ pub struct SecurityPermissionCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "tenantId")]
-    pub tenant_id: String,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
 }
 
 impl SecurityPermissionCreateDto {
-    pub fn new(name: String, tenant_id: String) -> SecurityPermissionCreateDto {
+    pub fn new(name: String) -> SecurityPermissionCreateDto {
         SecurityPermissionCreateDto {
             id: None,
             timestamp: None,
             name,
-            tenant_id,
             description: None,
         }
     }

@@ -27,10 +27,6 @@ pub struct DiscountCreateDto {
     pub percent: Option<f64>,
     #[serde(rename = "value", skip_serializing_if = "Option::is_none")]
     pub value: Option<f64>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "discountListId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub discount_list_id: Option<Option<String>>,
 }
@@ -45,8 +41,6 @@ impl DiscountCreateDto {
             end_quantity: None,
             percent: None,
             value: None,
-            tenant_id: None,
-            enrollment_id: None,
             discount_list_id: None,
         }
     }

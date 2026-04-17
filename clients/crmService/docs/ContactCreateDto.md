@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
-**tenant_id** | **String** |  | 
 **r#type** | **String** |  | 
 **first_name** | **String** |  | 
 **last_name** | Option<**String**> |  | [optional]

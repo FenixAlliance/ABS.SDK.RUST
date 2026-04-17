@@ -37,10 +37,6 @@ pub struct InvoiceEnumerationRangeCreateDto {
     pub valid_to: String,
     #[serde(rename = "fiscalAuthorityId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub fiscal_authority_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "documentType", skip_serializing_if = "Option::is_none")]
     pub document_type: Option<DocumentType>,
 }
@@ -60,8 +56,6 @@ impl InvoiceEnumerationRangeCreateDto {
             valid_from,
             valid_to,
             fiscal_authority_id: None,
-            tenant_id: None,
-            enrollment_id: None,
             document_type: None,
         }
     }

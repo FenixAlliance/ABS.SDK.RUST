@@ -71,12 +71,8 @@ pub struct InstructorProfileCreateDto {
     pub data9: Option<Option<String>>,
     #[serde(rename = "data9Label", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub data9_label: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
     #[serde(rename = "contactID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
 }
 
 impl InstructorProfileCreateDto {
@@ -111,9 +107,7 @@ impl InstructorProfileCreateDto {
             data8_label: None,
             data9: None,
             data9_label: None,
-            business_id: None,
             contact_id: None,
-            business_profile_record_id: None,
         }
     }
 }

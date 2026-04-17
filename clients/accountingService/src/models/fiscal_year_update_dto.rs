@@ -23,6 +23,8 @@ pub struct FiscalYearUpdateDto {
     pub end_date: Option<String>,
     #[serde(rename = "startDate", skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
+    #[serde(rename = "fiscalAuthorityId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub fiscal_authority_id: Option<Option<String>>,
 }
 
 impl FiscalYearUpdateDto {
@@ -33,6 +35,7 @@ impl FiscalYearUpdateDto {
             closed: None,
             end_date: None,
             start_date: None,
+            fiscal_authority_id: None,
         }
     }
 }

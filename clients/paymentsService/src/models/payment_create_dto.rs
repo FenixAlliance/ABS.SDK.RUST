@@ -19,8 +19,6 @@ pub struct PaymentCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "invoiceId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub invoice_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "emisorWalletId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub emisor_wallet_id: Option<Option<String>>,
     #[serde(rename = "receiverWalletId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -123,8 +121,6 @@ pub struct PaymentCreateDto {
     pub payment_gateway_id: Option<Option<String>>,
     #[serde(rename = "bankAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub bank_account_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "bankId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub bank_id: Option<Option<String>>,
     #[serde(rename = "paymentTokenId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -141,7 +137,6 @@ impl PaymentCreateDto {
             id: None,
             timestamp: None,
             invoice_id: None,
-            tenant_id: None,
             emisor_wallet_id: None,
             receiver_wallet_id: None,
             currency_id: None,
@@ -193,7 +188,6 @@ impl PaymentCreateDto {
             accounting_entry_id: None,
             payment_gateway_id: None,
             bank_account_id: None,
-            enrollment_id: None,
             bank_id: None,
             payment_token_id: None,
             emisor_wallet_account_id: None,

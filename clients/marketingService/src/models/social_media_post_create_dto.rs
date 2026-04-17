@@ -13,29 +13,29 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SocialMediaPostCreateDto {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<uuid::Uuid>,
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<String>,
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
     #[serde(rename = "content", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub content: Option<Option<String>>,
     #[serde(rename = "featuredImageUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub featured_image_url: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "socialPostBucketId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub social_post_bucket_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl SocialMediaPostCreateDto {
     pub fn new() -> SocialMediaPostCreateDto {
         SocialMediaPostCreateDto {
+            id: None,
+            timestamp: None,
             title: None,
             content: None,
             featured_image_url: None,
-            tenant_id: None,
             social_post_bucket_id: None,
-            enrollment_id: None,
         }
     }
 }

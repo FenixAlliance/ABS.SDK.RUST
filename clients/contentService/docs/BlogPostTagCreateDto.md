@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **image_url** | Option<**String**> |  | [optional]
 **image** | Option<**String**> |  | [optional]
 **web_portal_id** | Option<**String**> |  | [optional]
-**business_id** | Option<**String**> |  | [optional]
-**business_profile_record_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

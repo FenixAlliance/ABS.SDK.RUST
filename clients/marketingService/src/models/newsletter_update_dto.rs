@@ -17,10 +17,6 @@ pub struct NewsletterUpdateDto {
     pub code: Option<Option<String>>,
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub name: Option<Option<String>>,
 }
@@ -30,8 +26,6 @@ impl NewsletterUpdateDto {
         NewsletterUpdateDto {
             code: None,
             title: None,
-            tenant_id: None,
-            enrollment_id: None,
             name: None,
         }
     }

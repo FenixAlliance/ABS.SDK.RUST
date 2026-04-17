@@ -17,10 +17,6 @@ pub struct AccountTypeUpdateDto {
     pub name: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl AccountTypeUpdateDto {
@@ -28,8 +24,6 @@ impl AccountTypeUpdateDto {
         AccountTypeUpdateDto {
             name: None,
             description: None,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

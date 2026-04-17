@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
-**business_id** | **String** |  | 
-**business_profile_record_id** | **String** |  | 
 **business_team_id** | **String** |  | 
 **contact_id** | **String** |  | 
 

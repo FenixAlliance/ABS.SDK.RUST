@@ -37,8 +37,6 @@ pub struct LocationUpdateDto {
     pub postal_code: Option<Option<String>>,
     #[serde(rename = "countryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub country_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "longitude", skip_serializing_if = "Option::is_none")]
     pub longitude: Option<f64>,
     #[serde(rename = "latitude", skip_serializing_if = "Option::is_none")]
@@ -74,7 +72,6 @@ impl LocationUpdateDto {
             state_id: None,
             postal_code: None,
             country_id: None,
-            tenant_id: None,
             longitude: None,
             latitude: None,
             is_routable: None,

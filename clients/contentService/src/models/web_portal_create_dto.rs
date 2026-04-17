@@ -25,16 +25,12 @@ pub struct WebPortalCreateDto {
     pub domain: Option<Option<String>>,
     #[serde(rename = "disabled", skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
     #[serde(rename = "websiteThemeID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub website_theme_id: Option<Option<String>>,
     #[serde(rename = "businessDomainID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub business_domain_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "businessPortalApplicationID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub business_portal_application_id: Option<Option<String>>,
 }
@@ -48,11 +44,9 @@ impl WebPortalCreateDto {
             title: None,
             domain: None,
             disabled: None,
-            business_id: None,
             description: None,
             website_theme_id: None,
             business_domain_id: None,
-            business_profile_record_id: None,
             business_portal_application_id: None,
         }
     }

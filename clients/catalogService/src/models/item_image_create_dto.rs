@@ -17,10 +17,6 @@ pub struct ItemImageCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "itemID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub item_id: Option<Option<String>>,
     #[serde(rename = "isItemMozaicBG", skip_serializing_if = "Option::is_none")]
@@ -53,17 +49,13 @@ pub struct ItemImageCreateDto {
     pub social_profile_id: Option<Option<String>>,
     #[serde(rename = "parentFileUploadID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_file_upload_id: Option<Option<String>>,
-    #[serde(rename = "accountHolderID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_holder_id: Option<Option<String>>,
 }
 
 impl ItemImageCreateDto {
-    pub fn new(business_id: String, file_name: String) -> ItemImageCreateDto {
+    pub fn new(file_name: String) -> ItemImageCreateDto {
         ItemImageCreateDto {
             id: None,
             timestamp: None,
-            business_id,
-            business_profile_record_id: None,
             item_id: None,
             is_item_mozaic_bg: None,
             m_d5_hash: None,
@@ -80,7 +72,6 @@ impl ItemImageCreateDto {
             valid_response: None,
             social_profile_id: None,
             parent_file_upload_id: None,
-            account_holder_id: None,
         }
     }
 }

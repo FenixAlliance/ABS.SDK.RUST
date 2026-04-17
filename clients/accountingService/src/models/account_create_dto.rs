@@ -29,12 +29,8 @@ pub struct AccountCreateDto {
     pub path: Option<Option<String>>,
     #[serde(rename = "prefix", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub prefix: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "currencyId")]
     pub currency_id: String,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "accountTypeId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub account_type_id: Option<Option<String>>,
     #[serde(rename = "parentAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -54,9 +50,7 @@ impl AccountCreateDto {
             code: None,
             path: None,
             prefix: None,
-            tenant_id: None,
             currency_id,
-            enrollment_id: None,
             account_type_id: None,
             parent_account_id: None,
             account_category,

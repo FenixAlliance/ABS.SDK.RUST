@@ -29,12 +29,10 @@ pub struct CourseFileCreateDto {
     pub file_length: Option<i64>,
     #[serde(rename = "courseID")]
     pub course_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
 }
 
 impl CourseFileCreateDto {
-    pub fn new(title: String, file_name: String, file_upload_url: String, course_id: String, business_id: String) -> CourseFileCreateDto {
+    pub fn new(title: String, file_name: String, file_upload_url: String, course_id: String) -> CourseFileCreateDto {
         CourseFileCreateDto {
             id: None,
             timestamp: None,
@@ -44,7 +42,6 @@ impl CourseFileCreateDto {
             content_type: None,
             file_length: None,
             course_id,
-            business_id,
         }
     }
 }

@@ -21,8 +21,6 @@ pub struct SupportTicketTypeCreateDto {
     pub title: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
 }
 
 impl SupportTicketTypeCreateDto {
@@ -32,7 +30,6 @@ impl SupportTicketTypeCreateDto {
             timestamp: None,
             title: None,
             description: None,
-            business_id: None,
         }
     }
 }

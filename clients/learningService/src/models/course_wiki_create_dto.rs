@@ -23,8 +23,6 @@ pub struct CourseWikiCreateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "courseID")]
     pub course_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "courseUnitID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub course_unit_id: Option<Option<String>>,
     #[serde(rename = "releaseDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -32,14 +30,13 @@ pub struct CourseWikiCreateDto {
 }
 
 impl CourseWikiCreateDto {
-    pub fn new(title: String, course_id: String, business_id: String) -> CourseWikiCreateDto {
+    pub fn new(title: String, course_id: String) -> CourseWikiCreateDto {
         CourseWikiCreateDto {
             id: None,
             timestamp: None,
             title,
             description: None,
             course_id,
-            business_id,
             course_unit_id: None,
             release_date_time: None,
         }

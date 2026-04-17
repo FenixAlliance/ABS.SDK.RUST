@@ -21,8 +21,6 @@ pub struct CostCentreUpdateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "costCentreType", skip_serializing_if = "Option::is_none")]
     pub cost_centre_type: Option<CostCentreType>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "costCentresGroupId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cost_centres_group_id: Option<Option<String>>,
     #[serde(rename = "parentCostCentreId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -36,7 +34,6 @@ impl CostCentreUpdateDto {
             disabled: None,
             description: None,
             cost_centre_type: None,
-            tenant_id: None,
             cost_centres_group_id: None,
             parent_cost_centre_id: None,
         }

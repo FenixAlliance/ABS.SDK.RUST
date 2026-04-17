@@ -19,8 +19,6 @@ pub struct BudgetCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub name: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "fiscalYearId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub fiscal_year_id: Option<Option<String>>,
 }
@@ -31,7 +29,6 @@ impl BudgetCreateDto {
             id: None,
             timestamp: None,
             name: None,
-            tenant_id: None,
             fiscal_year_id: None,
         }
     }

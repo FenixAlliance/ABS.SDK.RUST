@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **timestamp** | Option<**String**> |  | [optional]
 **student_profile_id** | **String** |  | 
 **course_enrollment_id** | **String** |  | 
-**business_id** | Option<**String**> |  | [optional]
-**business_profile_record_id** | Option<**String**> |  | [optional]
 **course_completion_certificate_template_id** | Option<**String**> |  | [optional]
 **course_id** | Option<**String**> |  | [optional]
 

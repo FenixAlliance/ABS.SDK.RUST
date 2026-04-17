@@ -19,14 +19,10 @@ pub struct InvoiceUpdateDto {
     pub title: Option<Option<String>>,
     #[serde(rename = "userId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub user_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "priceListId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub price_list_id: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "individualId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub individual_id: Option<Option<String>>,
     #[serde(rename = "paymentTermId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -167,10 +163,8 @@ impl InvoiceUpdateDto {
             closed: None,
             title: None,
             user_id: None,
-            tenant_id: None,
             price_list_id: None,
             description: None,
-            enrollment_id: None,
             individual_id: None,
             payment_term_id: None,
             organization_id: None,

@@ -17,8 +17,6 @@ pub struct TenantEnrollmentCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "userId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub user_id: Option<Option<String>>,
 }
@@ -28,7 +26,6 @@ impl TenantEnrollmentCreateDto {
         TenantEnrollmentCreateDto {
             id: None,
             timestamp: None,
-            tenant_id: None,
             user_id: None,
         }
     }

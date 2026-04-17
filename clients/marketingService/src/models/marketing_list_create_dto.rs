@@ -35,10 +35,6 @@ pub struct MarketingListCreateDto {
     pub last_used_on: Option<String>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "marketingListType", skip_serializing_if = "Option::is_none")]
     pub marketing_list_type: Option<MarketingListType>,
     #[serde(rename = "marketingListTarget", skip_serializing_if = "Option::is_none")]
@@ -59,8 +55,6 @@ impl MarketingListCreateDto {
             modified_on: None,
             last_used_on: None,
             currency_id: None,
-            tenant_id: None,
-            enrollment_id: None,
             marketing_list_type: None,
             marketing_list_target: None,
         }

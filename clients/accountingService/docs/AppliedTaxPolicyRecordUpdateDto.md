@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tenant_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 **tax_policy_id** | Option<**String**> |  | [optional]
 **invoice_id** | Option<**String**> |  | [optional]
 **item_id** | Option<**String**> |  | [optional]

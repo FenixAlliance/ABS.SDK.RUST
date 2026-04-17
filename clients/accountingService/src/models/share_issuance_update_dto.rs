@@ -13,10 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ShareIssuanceUpdateDto {
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "unitPrice", skip_serializing_if = "Option::is_none")]
     pub unit_price: Option<i32>,
     #[serde(rename = "quantity", skip_serializing_if = "Option::is_none")]
@@ -28,8 +24,6 @@ pub struct ShareIssuanceUpdateDto {
 impl ShareIssuanceUpdateDto {
     pub fn new() -> ShareIssuanceUpdateDto {
         ShareIssuanceUpdateDto {
-            tenant_id: None,
-            enrollment_id: None,
             unit_price: None,
             quantity: None,
             currency_id: None,

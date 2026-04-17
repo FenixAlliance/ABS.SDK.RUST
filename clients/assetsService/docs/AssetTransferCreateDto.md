@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **asset_id** | Option<**String**> |  | [optional]
 **is_root_transfer** | Option<**bool**> |  | [optional]
 **serial_list** | Option<**String**> |  | [optional]

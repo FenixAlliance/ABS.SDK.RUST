@@ -19,8 +19,6 @@ pub struct TenantPositionUpdateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub r#type: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
 }
 
 impl TenantPositionUpdateDto {
@@ -29,7 +27,6 @@ impl TenantPositionUpdateDto {
             title: None,
             description: None,
             r#type: None,
-            business_profile_record_id: None,
         }
     }
 }

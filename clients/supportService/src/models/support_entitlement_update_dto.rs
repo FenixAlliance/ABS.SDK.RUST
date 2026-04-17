@@ -89,18 +89,12 @@ pub struct SupportEntitlementUpdateDto {
     pub data9: Option<Option<String>>,
     #[serde(rename = "data9Label", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub data9_label: Option<Option<String>>,
-    #[serde(rename = "accountHolderID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_holder_id: Option<Option<String>>,
     #[serde(rename = "individualID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub individual_id: Option<Option<String>>,
     #[serde(rename = "organizationID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<Option<String>>,
     #[serde(rename = "receiverBusinessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub receiver_business_id: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "paymentTokenID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub payment_token_id: Option<Option<String>>,
     #[serde(rename = "walletAccountID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -150,12 +144,9 @@ impl SupportEntitlementUpdateDto {
             data8_label: None,
             data9: None,
             data9_label: None,
-            account_holder_id: None,
             individual_id: None,
             organization_id: None,
             receiver_business_id: None,
-            business_id: None,
-            business_profile_record_id: None,
             payment_token_id: None,
             wallet_account_id: None,
             security_certificate_id: None,

@@ -13,6 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SocialGroupCreateDto {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<uuid::Uuid>,
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<String>,
     #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub name: Option<Option<String>>,
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -26,6 +30,8 @@ pub struct SocialGroupCreateDto {
 impl SocialGroupCreateDto {
     pub fn new() -> SocialGroupCreateDto {
         SocialGroupCreateDto {
+            id: None,
+            timestamp: None,
             name: None,
             title: None,
             avatar_url: None,

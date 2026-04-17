@@ -17,8 +17,6 @@ pub struct ContactCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "tenantId")]
-    pub tenant_id: String,
     #[serde(rename = "type")]
     pub r#type: Type,
     #[serde(rename = "firstName")]
@@ -102,11 +100,10 @@ pub struct ContactCreateDto {
 }
 
 impl ContactCreateDto {
-    pub fn new(tenant_id: String, r#type: Type, first_name: String, email: String) -> ContactCreateDto {
+    pub fn new(r#type: Type, first_name: String, email: String) -> ContactCreateDto {
         ContactCreateDto {
             id: None,
             timestamp: None,
-            tenant_id,
             r#type,
             first_name,
             last_name: None,

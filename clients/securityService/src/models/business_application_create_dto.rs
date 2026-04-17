@@ -43,10 +43,6 @@ pub struct BusinessApplicationCreateDto {
     pub privacy_policy_url: Option<Option<String>>,
     #[serde(rename = "termsAndConditionsURL", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub terms_and_conditions_url: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "requireHttps", skip_serializing_if = "Option::is_none")]
     pub require_https: Option<bool>,
     #[serde(rename = "requireAppSecret", skip_serializing_if = "Option::is_none")]
@@ -111,8 +107,6 @@ impl BusinessApplicationCreateDto {
             contact_email: None,
             privacy_policy_url: None,
             terms_and_conditions_url: None,
-            business_id: None,
-            business_profile_record_id: None,
             require_https: None,
             require_app_secret: None,
             enable_client_oauth_login: None,

@@ -13,6 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AssetTransferCreateDto {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<uuid::Uuid>,
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<String>,
     #[serde(rename = "assetId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub asset_id: Option<Option<String>>,
     #[serde(rename = "isRootTransfer", skip_serializing_if = "Option::is_none")]
@@ -42,6 +46,8 @@ pub struct AssetTransferCreateDto {
 impl AssetTransferCreateDto {
     pub fn new() -> AssetTransferCreateDto {
         AssetTransferCreateDto {
+            id: None,
+            timestamp: None,
             asset_id: None,
             is_root_transfer: None,
             serial_list: None,

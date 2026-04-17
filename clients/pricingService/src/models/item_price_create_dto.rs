@@ -21,16 +21,12 @@ pub struct ItemPriceCreateDto {
     pub item_id: String,
     #[serde(rename = "unitId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub unit_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
     #[serde(rename = "priceListId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub price_list_id: Option<Option<String>>,
     #[serde(rename = "unitGroupId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub unit_group_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "discountListId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub discount_list_id: Option<Option<String>>,
     #[serde(rename = "roundingPolicyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -48,11 +44,9 @@ impl ItemPriceCreateDto {
             timestamp: None,
             item_id,
             unit_id: None,
-            tenant_id: None,
             currency_id: None,
             price_list_id: None,
             unit_group_id: None,
-            enrollment_id: None,
             discount_list_id: None,
             rounding_policy_id: None,
             price: None,

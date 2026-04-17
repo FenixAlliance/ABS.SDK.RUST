@@ -19,8 +19,6 @@ pub struct DealUnitFlowStageUpdateDto {
     pub name: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "dealUnitFlowId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub deal_unit_flow_id: Option<Option<String>>,
     #[serde(rename = "parentBusinessProcessStageId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -33,7 +31,6 @@ impl DealUnitFlowStageUpdateDto {
             order: None,
             name: None,
             description: None,
-            enrollment_id: None,
             deal_unit_flow_id: None,
             parent_business_process_stage_id: None,
         }

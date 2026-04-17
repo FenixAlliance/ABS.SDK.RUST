@@ -41,8 +41,6 @@ pub struct WebPageTagCreateDto {
     pub image: Option<Option<String>>,
     #[serde(rename = "webPortalID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub web_portal_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
 }
 
 impl WebPageTagCreateDto {
@@ -62,7 +60,6 @@ impl WebPageTagCreateDto {
             image_url: None,
             image: None,
             web_portal_id: None,
-            business_profile_record_id: None,
         }
     }
 }

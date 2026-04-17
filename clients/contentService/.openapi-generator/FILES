@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 Cargo.toml
 README.md
@@ -156,6 +155,7 @@ docs/WebPagesApi.md
 docs/WebPortalCreateDto.md
 docs/WebPortalDto.md
 docs/WebPortalDtoEnvelope.md
+docs/WebPortalDtoListEnvelope.md
 docs/WebPortalUpdateDto.md
 docs/WebTemplateCreateDto.md
 docs/WebTemplateDto.md
@@ -322,6 +322,7 @@ src/models/web_page_update_dto.rs
 src/models/web_portal_create_dto.rs
 src/models/web_portal_dto.rs
 src/models/web_portal_dto_envelope.rs
+src/models/web_portal_dto_list_envelope.rs
 src/models/web_portal_update_dto.rs
 src/models/web_template_create_dto.rs
 src/models/web_template_dto.rs

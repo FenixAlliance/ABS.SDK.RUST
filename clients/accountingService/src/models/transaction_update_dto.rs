@@ -35,10 +35,6 @@ pub struct TransactionUpdateDto {
     pub transaction_category_id: Option<Option<String>>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl TransactionUpdateDto {
@@ -55,8 +51,6 @@ impl TransactionUpdateDto {
             unit_id: None,
             transaction_category_id: None,
             currency_id: None,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

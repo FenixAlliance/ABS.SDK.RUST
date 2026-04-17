@@ -17,10 +17,6 @@ pub struct ShareIssuanceCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "unitPrice", skip_serializing_if = "Option::is_none")]
     pub unit_price: Option<i32>,
     #[serde(rename = "quantity", skip_serializing_if = "Option::is_none")]
@@ -34,8 +30,6 @@ impl ShareIssuanceCreateDto {
         ShareIssuanceCreateDto {
             id: None,
             timestamp: None,
-            tenant_id: None,
-            enrollment_id: None,
             unit_price: None,
             quantity: None,
             currency_id: None,

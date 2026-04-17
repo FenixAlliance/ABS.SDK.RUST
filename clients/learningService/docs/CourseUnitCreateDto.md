@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **content** | Option<**String**> |  | [optional]
 **course_id** | **String** |  | 
 **course_section_id** | **String** |  | 
-**business_id** | **String** |  | 
 **course_content_group_id** | Option<**String**> |  | [optional]
 **release_date_time** | Option<**String**> |  | [optional]
 

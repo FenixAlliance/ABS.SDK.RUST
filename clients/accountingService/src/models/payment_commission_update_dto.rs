@@ -25,10 +25,6 @@ pub struct PaymentCommissionUpdateDto {
     pub added_amount: Option<f64>,
     #[serde(rename = "taxComission", skip_serializing_if = "Option::is_none")]
     pub tax_comission: Option<f64>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "salaryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub salary_id: Option<Option<String>>,
     #[serde(rename = "emisorWalletAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -52,8 +48,6 @@ impl PaymentCommissionUpdateDto {
             added_percent: None,
             added_amount: None,
             tax_comission: None,
-            tenant_id: None,
-            enrollment_id: None,
             salary_id: None,
             emisor_wallet_account_id: None,
             receiver_wallet_account_id: None,

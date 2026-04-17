@@ -18,7 +18,6 @@ Name | Type | Description | Notes
 **state_id** | Option<**String**> |  | [optional]
 **postal_code** | Option<**String**> |  | [optional]
 **country_id** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
 **longitude** | Option<**f64**> |  | [optional]
 **latitude** | Option<**f64**> |  | [optional]
 **is_routable** | Option<**bool**> |  | [optional]

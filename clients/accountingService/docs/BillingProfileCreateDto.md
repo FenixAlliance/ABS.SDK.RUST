@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
 **contact_id** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
 **tax_id** | **String** |  | 
 **phone** | **String** |  | 
 **email** | **String** |  | 

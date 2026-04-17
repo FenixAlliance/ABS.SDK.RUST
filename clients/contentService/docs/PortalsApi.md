@@ -4,10 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**count_portals_async**](PortalsApi.md#count_portals_async) | **GET** /api/v2/ContentService/Portals/Count | Count portals
 [**create_web_portal_async**](PortalsApi.md#create_web_portal_async) | **POST** /api/v2/ContentService/Portals | Create a new web portal
 [**delete_web_portal_async**](PortalsApi.md#delete_web_portal_async) | **DELETE** /api/v2/ContentService/Portals/{portalId} | Delete a web portal
 [**get_current_web_portal_async**](PortalsApi.md#get_current_web_portal_async) | **GET** /api/v2/ContentService/Portals/Current | Get the current portal
 [**get_current_web_portal_options_async**](PortalsApi.md#get_current_web_portal_options_async) | **GET** /api/v2/ContentService/Portals/Current/Options | Get the current portal's options
+[**get_portals_async**](PortalsApi.md#get_portals_async) | **GET** /api/v2/ContentService/Portals | Get portals
 [**get_root_web_portal_async**](PortalsApi.md#get_root_web_portal_async) | **GET** /api/v2/ContentService/Portals/Root | Get the root portal
 [**get_web_portal_by_id_async**](PortalsApi.md#get_web_portal_by_id_async) | **GET** /api/v2/ContentService/Portals/{portalId} | Get a web portal by its ID
 [**get_web_portal_options_async**](PortalsApi.md#get_web_portal_options_async) | **GET** /api/v2/ContentService/Portals/{portalId}/Options | Get a web portal's options by its ID
@@ -17,6 +19,38 @@ Method | HTTP request | Description
 [**search_web_portal_async**](PortalsApi.md#search_web_portal_async) | **GET** /api/v2/ContentService/Portals/Search | Search for a portal by its domain
 [**update_web_portal_async**](PortalsApi.md#update_web_portal_async) | **PUT** /api/v2/ContentService/Portals/{portalId} | Update an existing web portal
 
+
+
+## count_portals_async
+
+> models::Int32Envelope count_portals_async(tenant_id, api_version, x_api_version)
+Count portals
+
+Counts all portals for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_web_portal_async
@@ -134,6 +168,38 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::PortalOptionsEnvelope**](PortalOptionsEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_portals_async
+
+> models::WebPortalDtoListEnvelope get_portals_async(tenant_id, api_version, x_api_version)
+Get portals
+
+Retrieves all portals for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::WebPortalDtoListEnvelope**](WebPortalDtoListEnvelope.md)
 
 ### Authorization
 

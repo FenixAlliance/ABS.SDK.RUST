@@ -5,9 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | Option<**String**> |  | [optional]
-**account_holder_id** | Option<**String**> |  | [optional]
 **contact_id** | Option<**String**> |  | [optional]
-**business_profile_record_id** | Option<**String**> |  | [optional]
 **support_ticket_type_id** | Option<**String**> |  | [optional]
 **support_entitlement_id** | Option<**String**> |  | [optional]
 **support_priority_id** | Option<**String**> |  | [optional]

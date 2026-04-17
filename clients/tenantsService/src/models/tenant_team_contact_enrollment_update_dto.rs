@@ -13,10 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct TenantTeamContactEnrollmentUpdateDto {
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "businessTeamID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub business_team_id: Option<Option<String>>,
     #[serde(rename = "contactID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -26,8 +22,6 @@ pub struct TenantTeamContactEnrollmentUpdateDto {
 impl TenantTeamContactEnrollmentUpdateDto {
     pub fn new() -> TenantTeamContactEnrollmentUpdateDto {
         TenantTeamContactEnrollmentUpdateDto {
-            business_id: None,
-            business_profile_record_id: None,
             business_team_id: None,
             contact_id: None,
         }

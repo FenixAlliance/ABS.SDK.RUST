@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **title** | **String** |  | 
 **description** | Option<**String**> |  | [optional]
 **course_id** | **String** |  | 
-**business_id** | **String** |  | 
 **course_unit_id** | Option<**String**> |  | [optional]
 **release_date_time** | Option<**String**> |  | [optional]
 

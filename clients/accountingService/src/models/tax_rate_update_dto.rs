@@ -41,8 +41,6 @@ pub struct TaxRateUpdateDto {
     pub fiscal_authority_id: Option<Option<String>>,
     #[serde(rename = "fiscalYearId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub fiscal_year_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "countryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub country_id: Option<Option<String>>,
     #[serde(rename = "taxClassId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -51,8 +49,6 @@ pub struct TaxRateUpdateDto {
     pub currency_id: Option<Option<String>>,
     #[serde(rename = "taxPolicyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tax_policy_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl TaxRateUpdateDto {
@@ -72,12 +68,10 @@ impl TaxRateUpdateDto {
             cumulative_transaction_threshold: None,
             fiscal_authority_id: None,
             fiscal_year_id: None,
-            tenant_id: None,
             country_id: None,
             tax_class_id: None,
             currency_id: None,
             tax_policy_id: None,
-            enrollment_id: None,
         }
     }
 }

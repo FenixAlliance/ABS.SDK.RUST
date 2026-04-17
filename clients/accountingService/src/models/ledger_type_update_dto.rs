@@ -17,10 +17,6 @@ pub struct LedgerTypeUpdateDto {
     pub name: Option<Option<String>>,
     #[serde(rename = "ledgerClass", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub ledger_class: Option<Option<LedgerClass>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl LedgerTypeUpdateDto {
@@ -28,8 +24,6 @@ impl LedgerTypeUpdateDto {
         LedgerTypeUpdateDto {
             name: None,
             ledger_class: None,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

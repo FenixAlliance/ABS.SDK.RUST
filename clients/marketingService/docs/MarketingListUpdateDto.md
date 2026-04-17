@@ -13,8 +13,6 @@ Name | Type | Description | Notes
 **modified_on** | Option<**String**> |  | [optional]
 **last_used_on** | Option<**String**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 **marketing_list_type** | Option<**String**> |  | [optional]
 **marketing_list_target** | Option<**String**> |  | [optional]
 

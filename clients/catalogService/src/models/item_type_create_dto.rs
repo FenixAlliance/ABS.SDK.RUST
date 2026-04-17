@@ -27,8 +27,6 @@ pub struct ItemTypeCreateDto {
     pub image_url: Option<Option<String>>,
     #[serde(rename = "googleCategoryTaxonomy", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub google_category_taxonomy: Option<Option<String>>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "itemCategoryID")]
     pub item_category_id: String,
     #[serde(rename = "itemGoogleCategoryID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -36,7 +34,7 @@ pub struct ItemTypeCreateDto {
 }
 
 impl ItemTypeCreateDto {
-    pub fn new(business_id: String, item_category_id: String) -> ItemTypeCreateDto {
+    pub fn new(item_category_id: String) -> ItemTypeCreateDto {
         ItemTypeCreateDto {
             id: None,
             timestamp: None,
@@ -45,7 +43,6 @@ impl ItemTypeCreateDto {
             description: None,
             image_url: None,
             google_category_taxonomy: None,
-            business_id,
             item_category_id,
             item_google_category_id: None,
         }

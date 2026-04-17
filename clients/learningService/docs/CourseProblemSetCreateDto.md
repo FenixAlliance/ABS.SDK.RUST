@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **description** | Option<**String**> |  | [optional]
 **overall_score** | Option<**f64**> |  | [optional]
 **course_id** | **String** |  | 
-**business_id** | **String** |  | 
 **course_unit_id** | Option<**String**> |  | [optional]
 **course_grading_rubric_id** | Option<**String**> |  | [optional]
 **release_date_time** | Option<**String**> |  | [optional]

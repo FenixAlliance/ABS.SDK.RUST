@@ -23,10 +23,6 @@ pub struct JournalCreateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "dateTime", skip_serializing_if = "Option::is_none")]
     pub date_time: Option<String>,
-    #[serde(rename = "tenantID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "parentJournalID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_journal_id: Option<Option<String>>,
     #[serde(rename = "journalTypeID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -43,8 +39,6 @@ impl JournalCreateDto {
             name,
             description: None,
             date_time: None,
-            tenant_id: None,
-            enrollment_id: None,
             parent_journal_id: None,
             journal_type_id: None,
             ledger_id: None,

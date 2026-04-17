@@ -23,10 +23,6 @@ pub struct DealUnitFlowCreateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "parentBusinessProcessId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_business_process_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "tenantEnrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_enrollment_id: Option<Option<String>>,
 }
 
 impl DealUnitFlowCreateDto {
@@ -37,8 +33,6 @@ impl DealUnitFlowCreateDto {
             name: None,
             description: None,
             parent_business_process_id: None,
-            tenant_id: None,
-            tenant_enrollment_id: None,
         }
     }
 }

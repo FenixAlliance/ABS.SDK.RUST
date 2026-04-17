@@ -23,19 +23,16 @@ pub struct CourseForumCreateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "courseID")]
     pub course_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
 }
 
 impl CourseForumCreateDto {
-    pub fn new(title: String, course_id: String, business_id: String) -> CourseForumCreateDto {
+    pub fn new(title: String, course_id: String) -> CourseForumCreateDto {
         CourseForumCreateDto {
             id: None,
             timestamp: None,
             title,
             description: None,
             course_id,
-            business_id,
         }
     }
 }

@@ -27,8 +27,6 @@ pub struct CourseUnitCreateDto {
     pub course_id: String,
     #[serde(rename = "courseSectionID")]
     pub course_section_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "courseContentGroupID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub course_content_group_id: Option<Option<String>>,
     #[serde(rename = "releaseDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -36,7 +34,7 @@ pub struct CourseUnitCreateDto {
 }
 
 impl CourseUnitCreateDto {
-    pub fn new(title: String, course_id: String, course_section_id: String, business_id: String) -> CourseUnitCreateDto {
+    pub fn new(title: String, course_id: String, course_section_id: String) -> CourseUnitCreateDto {
         CourseUnitCreateDto {
             id: None,
             timestamp: None,
@@ -45,7 +43,6 @@ impl CourseUnitCreateDto {
             content: None,
             course_id,
             course_section_id,
-            business_id,
             course_content_group_id: None,
             release_date_time: None,
         }

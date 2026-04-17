@@ -13,10 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AppliedTaxPolicyRecordUpdateDto {
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "taxPolicyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tax_policy_id: Option<Option<String>>,
     #[serde(rename = "invoiceId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -32,8 +28,6 @@ pub struct AppliedTaxPolicyRecordUpdateDto {
 impl AppliedTaxPolicyRecordUpdateDto {
     pub fn new() -> AppliedTaxPolicyRecordUpdateDto {
         AppliedTaxPolicyRecordUpdateDto {
-            tenant_id: None,
-            enrollment_id: None,
             tax_policy_id: None,
             invoice_id: None,
             item_id: None,

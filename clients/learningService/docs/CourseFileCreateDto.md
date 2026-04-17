@@ -12,7 +12,6 @@ Name | Type | Description | Notes
 **content_type** | Option<**String**> |  | [optional]
 **file_length** | Option<**i64**> |  | [optional]
 **course_id** | **String** |  | 
-**business_id** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

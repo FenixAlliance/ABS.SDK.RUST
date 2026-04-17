@@ -25,8 +25,6 @@ pub struct CourseSectionCreateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "courseID")]
     pub course_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "releaseDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub release_date_time: Option<Option<String>>,
     #[serde(rename = "hideFromStudents", skip_serializing_if = "Option::is_none")]
@@ -34,7 +32,7 @@ pub struct CourseSectionCreateDto {
 }
 
 impl CourseSectionCreateDto {
-    pub fn new(name: String, course_id: String, business_id: String) -> CourseSectionCreateDto {
+    pub fn new(name: String, course_id: String) -> CourseSectionCreateDto {
         CourseSectionCreateDto {
             id: None,
             timestamp: None,
@@ -42,7 +40,6 @@ impl CourseSectionCreateDto {
             icon: None,
             description: None,
             course_id,
-            business_id,
             release_date_time: None,
             hide_from_students: None,
         }

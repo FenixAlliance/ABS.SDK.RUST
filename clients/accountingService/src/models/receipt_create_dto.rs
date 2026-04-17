@@ -13,10 +13,12 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ReceiptCreateDto {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<uuid::Uuid>,
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<String>,
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
-    #[serde(rename = "userId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<Option<String>>,
     #[serde(rename = "priceListId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub price_list_id: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -49,12 +51,6 @@ pub struct ReceiptCreateDto {
     pub state_id: Option<Option<String>>,
     #[serde(rename = "cityId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub city_id: Option<Option<String>>,
-    #[serde(rename = "billingLocationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub billing_location_id: Option<Option<String>>,
-    #[serde(rename = "shippingLocationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub shipping_location_id: Option<Option<String>>,
-    #[serde(rename = "shippingMethodId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub shipping_method_id: Option<Option<String>>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
     #[serde(rename = "totalDetail", skip_serializing_if = "Option::is_none")]
@@ -73,22 +69,14 @@ pub struct ReceiptCreateDto {
     pub total_surcharges: Option<f64>,
     #[serde(rename = "totalSurchargesCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub total_surcharges_currency_id: Option<Option<String>>,
-    #[serde(rename = "totalShippingTax", skip_serializing_if = "Option::is_none")]
-    pub total_shipping_tax: Option<f64>,
-    #[serde(rename = "totalShippingTaxCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub total_shipping_tax_currency_id: Option<Option<String>>,
     #[serde(rename = "totalShippingCost", skip_serializing_if = "Option::is_none")]
     pub total_shipping_cost: Option<f64>,
     #[serde(rename = "totalShippingCostCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub total_shipping_cost_currency_id: Option<Option<String>>,
-    #[serde(rename = "totalGlobalDiscounts", skip_serializing_if = "Option::is_none")]
-    pub total_global_discounts: Option<f64>,
-    #[serde(rename = "totalGlobalDiscountsCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub total_global_discounts_currency_id: Option<Option<String>>,
-    #[serde(rename = "totalGlobalSurcharges", skip_serializing_if = "Option::is_none")]
-    pub total_global_surcharges: Option<f64>,
-    #[serde(rename = "totalGlobalSurchargesCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub total_global_surcharges_currency_id: Option<Option<String>>,
+    #[serde(rename = "totalShippingTax", skip_serializing_if = "Option::is_none")]
+    pub total_shipping_tax: Option<f64>,
+    #[serde(rename = "totalShippingTaxCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_shipping_tax_currency_id: Option<Option<String>>,
     #[serde(rename = "totalWithheldTax", skip_serializing_if = "Option::is_none")]
     pub total_withheld_tax: Option<f64>,
     #[serde(rename = "totalWithheldTaxCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -101,6 +89,14 @@ pub struct ReceiptCreateDto {
     pub total_taxes: Option<f64>,
     #[serde(rename = "totalTaxesCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub total_taxes_currency_id: Option<Option<String>>,
+    #[serde(rename = "totalGlobalSurcharges", skip_serializing_if = "Option::is_none")]
+    pub total_global_surcharges: Option<f64>,
+    #[serde(rename = "totalGlobalSurchargesCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_global_surcharges_currency_id: Option<Option<String>>,
+    #[serde(rename = "totalGlobalDiscounts", skip_serializing_if = "Option::is_none")]
+    pub total_global_discounts: Option<f64>,
+    #[serde(rename = "totalGlobalDiscountsCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_global_discounts_currency_id: Option<Option<String>>,
     #[serde(rename = "total", skip_serializing_if = "Option::is_none")]
     pub total: Option<f64>,
     #[serde(rename = "totalCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -111,8 +107,6 @@ pub struct ReceiptCreateDto {
     pub tax_calculation_method: Option<TaxCalculationMethod>,
     #[serde(rename = "paymentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub payment_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
     pub forex_rate: Option<f64>,
     #[serde(rename = "totalAmount", skip_serializing_if = "Option::is_none")]
@@ -121,12 +115,8 @@ pub struct ReceiptCreateDto {
     pub total_amount_in_usd: Option<f64>,
     #[serde(rename = "closed", skip_serializing_if = "Option::is_none")]
     pub closed: Option<bool>,
-    #[serde(rename = "accountHolderId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_holder_id: Option<Option<String>>,
     #[serde(rename = "contactId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "receiptType", skip_serializing_if = "Option::is_none")]
     pub receipt_type: Option<ReceiptType>,
     #[serde(rename = "orderId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -138,8 +128,9 @@ pub struct ReceiptCreateDto {
 impl ReceiptCreateDto {
     pub fn new() -> ReceiptCreateDto {
         ReceiptCreateDto {
+            id: None,
+            timestamp: None,
             title: None,
-            user_id: None,
             price_list_id: None,
             description: None,
             individual_id: None,
@@ -156,9 +147,6 @@ impl ReceiptCreateDto {
             country_id: None,
             state_id: None,
             city_id: None,
-            billing_location_id: None,
-            shipping_location_id: None,
-            shipping_method_id: None,
             currency_id: None,
             total_detail: None,
             total_detail_currency_id: None,
@@ -168,33 +156,30 @@ impl ReceiptCreateDto {
             total_discounts_currency_id: None,
             total_surcharges: None,
             total_surcharges_currency_id: None,
-            total_shipping_tax: None,
-            total_shipping_tax_currency_id: None,
             total_shipping_cost: None,
             total_shipping_cost_currency_id: None,
-            total_global_discounts: None,
-            total_global_discounts_currency_id: None,
-            total_global_surcharges: None,
-            total_global_surcharges_currency_id: None,
+            total_shipping_tax: None,
+            total_shipping_tax_currency_id: None,
             total_withheld_tax: None,
             total_withheld_tax_currency_id: None,
             total_tax_base: None,
             total_tax_base_currency_id: None,
             total_taxes: None,
             total_taxes_currency_id: None,
+            total_global_surcharges: None,
+            total_global_surcharges_currency_id: None,
+            total_global_discounts: None,
+            total_global_discounts_currency_id: None,
             total: None,
             total_currency_id: None,
             cost_calculation_method: None,
             tax_calculation_method: None,
             payment_id: None,
-            tenant_id: None,
             forex_rate: None,
             total_amount: None,
             total_amount_in_usd: None,
             closed: None,
-            account_holder_id: None,
             contact_id: None,
-            enrollment_id: None,
             receipt_type: None,
             order_id: None,
             invoice_id: None,

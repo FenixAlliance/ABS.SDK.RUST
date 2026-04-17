@@ -6,8 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **student_profile_id** | Option<**String**> |  | [optional]
 **course_enrollment_id** | Option<**String**> |  | [optional]
-**business_id** | Option<**String**> |  | [optional]
-**business_profile_record_id** | Option<**String**> |  | [optional]
 **course_completion_certificate_template_id** | Option<**String**> |  | [optional]
 **course_id** | Option<**String**> |  | [optional]
 

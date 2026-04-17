@@ -13,8 +13,6 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderUpdateDto {
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "firstName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub first_name: Option<Option<String>>,
     #[serde(rename = "lastName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -101,8 +99,6 @@ pub struct OrderUpdateDto {
     pub forex_rate: Option<f64>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "individualId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub individual_id: Option<Option<String>>,
     #[serde(rename = "organizationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -134,7 +130,6 @@ pub struct OrderUpdateDto {
 impl OrderUpdateDto {
     pub fn new() -> OrderUpdateDto {
         OrderUpdateDto {
-            tenant_id: None,
             first_name: None,
             last_name: None,
             company_name: None,
@@ -178,7 +173,6 @@ impl OrderUpdateDto {
             user_id: None,
             forex_rate: None,
             currency_id: None,
-            enrollment_id: None,
             individual_id: None,
             organization_id: None,
             total_amount_in_usd: None,

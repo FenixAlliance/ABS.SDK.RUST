@@ -19,10 +19,6 @@ pub struct TenantInvitationCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "userEmail")]
     pub user_email: String,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl TenantInvitationCreateDto {
@@ -31,8 +27,6 @@ impl TenantInvitationCreateDto {
             id: None,
             timestamp: None,
             user_email,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

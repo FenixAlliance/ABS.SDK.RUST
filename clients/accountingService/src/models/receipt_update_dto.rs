@@ -15,8 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct ReceiptUpdateDto {
     #[serde(rename = "paymentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub payment_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
     pub forex_rate: Option<f64>,
     #[serde(rename = "totalAmount", skip_serializing_if = "Option::is_none")]
@@ -27,12 +25,8 @@ pub struct ReceiptUpdateDto {
     pub closed: Option<bool>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
-    #[serde(rename = "accountHolderId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_holder_id: Option<Option<String>>,
     #[serde(rename = "contactId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "orderId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub order_id: Option<Option<String>>,
     #[serde(rename = "invoiceId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -43,15 +37,12 @@ impl ReceiptUpdateDto {
     pub fn new() -> ReceiptUpdateDto {
         ReceiptUpdateDto {
             payment_id: None,
-            tenant_id: None,
             forex_rate: None,
             total_amount: None,
             total_amount_in_usd: None,
             closed: None,
             currency_id: None,
-            account_holder_id: None,
             contact_id: None,
-            enrollment_id: None,
             order_id: None,
             invoice_id: None,
         }

@@ -19,14 +19,8 @@ pub struct SupportTicketCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "accountHolderID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_holder_id: Option<Option<String>>,
     #[serde(rename = "contactID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "supportTicketTypeID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub support_ticket_type_id: Option<Option<String>>,
     #[serde(rename = "supportEntitlementID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -41,10 +35,7 @@ impl SupportTicketCreateDto {
             id: None,
             timestamp: None,
             description: None,
-            account_holder_id: None,
             contact_id: None,
-            business_id: None,
-            business_profile_record_id: None,
             support_ticket_type_id: None,
             support_entitlement_id: None,
             support_priority_id: None,

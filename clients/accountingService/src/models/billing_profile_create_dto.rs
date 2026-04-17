@@ -19,8 +19,6 @@ pub struct BillingProfileCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "contactId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "taxId")]
     pub tax_id: String,
     #[serde(rename = "phone")]
@@ -67,7 +65,6 @@ impl BillingProfileCreateDto {
             id: None,
             timestamp: None,
             contact_id: None,
-            tenant_id: None,
             tax_id,
             phone,
             email,

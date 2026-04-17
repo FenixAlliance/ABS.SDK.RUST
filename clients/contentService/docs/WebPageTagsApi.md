@@ -4,12 +4,45 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**count_web_page_tags_async**](WebPageTagsApi.md#count_web_page_tags_async) | **GET** /api/v2/ContentService/WebPageTags/Count | Count web page tags
 [**create_web_page_tag_async**](WebPageTagsApi.md#create_web_page_tag_async) | **POST** /api/v2/ContentService/WebPageTags | Create a web page tag
 [**delete_web_page_tag_async**](WebPageTagsApi.md#delete_web_page_tag_async) | **DELETE** /api/v2/ContentService/WebPageTags/{webPageTagId} | Delete a web page tag
 [**get_web_page_tag_by_id_async**](WebPageTagsApi.md#get_web_page_tag_by_id_async) | **GET** /api/v2/ContentService/WebPageTags/{webPageTagId} | Get web page tag by ID
 [**get_web_page_tags_async**](WebPageTagsApi.md#get_web_page_tags_async) | **GET** /api/v2/ContentService/WebPageTags | Get web page tags
 [**update_web_page_tag_async**](WebPageTagsApi.md#update_web_page_tag_async) | **PUT** /api/v2/ContentService/WebPageTags/{webPageTagId} | Update a web page tag
 
+
+
+## count_web_page_tags_async
+
+> models::Int32Envelope count_web_page_tags_async(tenant_id, api_version, x_api_version)
+Count web page tags
+
+Counts all web page tags for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_web_page_tag_async

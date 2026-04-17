@@ -178,7 +178,7 @@ No authorization required
 
 ## update_grant_async
 
-> models::EmptyEnvelope update_grant_async(tenant_id, grant_id, api_version, x_api_version, grant_update_dto)
+> models::EmptyEnvelope update_grant_async(tenant_id, grant_id, api_version, x_api_version, body)
 Update grant
 
 Updates an existing grant identified by its ID.
@@ -192,7 +192,7 @@ Name | Type | Description  | Required | Notes
 **grant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**grant_update_dto** | Option<[**GrantUpdateDto**](GrantUpdateDto.md)> |  |  |
+**body** | Option<**serde_json::Value**> |  |  |
 
 ### Return type
 

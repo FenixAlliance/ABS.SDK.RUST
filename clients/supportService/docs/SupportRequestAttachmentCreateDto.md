@@ -16,8 +16,6 @@ Name | Type | Description | Notes
 **valid_response** | Option<**bool**> |  | [optional]
 **parent_file_upload_id** | Option<**String**> |  | [optional]
 **file_path** | Option<**String**> |  | [optional]
-**business_id** | Option<**String**> |  | [optional]
-**business_profile_record_id** | Option<**String**> |  | [optional]
 **metadata** | Option<**String**> |  | [optional]
 **support_request_id** | Option<**String**> |  | [optional]
 

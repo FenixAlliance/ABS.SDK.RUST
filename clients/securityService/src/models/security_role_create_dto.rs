@@ -19,19 +19,16 @@ pub struct SecurityRoleCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "name")]
     pub name: String,
-    #[serde(rename = "tenantId")]
-    pub tenant_id: uuid::Uuid,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
 }
 
 impl SecurityRoleCreateDto {
-    pub fn new(name: String, tenant_id: uuid::Uuid) -> SecurityRoleCreateDto {
+    pub fn new(name: String) -> SecurityRoleCreateDto {
         SecurityRoleCreateDto {
             id: None,
             timestamp: None,
             name,
-            tenant_id,
             description: None,
         }
     }

@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **timestamp** | Option<**String**> |  | [optional]
 **name** | **String** |  | 
 **course_id** | **String** |  | 
-**business_id** | **String** |  | 
 **start_date_time** | Option<**String**> |  | [optional]
 **end_date_time** | Option<**String**> |  | [optional]
 **expected_start_date_time** | Option<**String**> |  | [optional]

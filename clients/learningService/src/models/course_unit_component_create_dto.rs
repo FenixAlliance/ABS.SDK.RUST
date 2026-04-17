@@ -27,14 +27,12 @@ pub struct CourseUnitComponentCreateDto {
     pub order: Option<i32>,
     #[serde(rename = "courseID")]
     pub course_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "courseUnitID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub course_unit_id: Option<Option<String>>,
 }
 
 impl CourseUnitComponentCreateDto {
-    pub fn new(title: String, course_id: String, business_id: String) -> CourseUnitComponentCreateDto {
+    pub fn new(title: String, course_id: String) -> CourseUnitComponentCreateDto {
         CourseUnitComponentCreateDto {
             id: None,
             timestamp: None,
@@ -43,7 +41,6 @@ impl CourseUnitComponentCreateDto {
             content: None,
             order: None,
             course_id,
-            business_id,
             course_unit_id: None,
         }
     }

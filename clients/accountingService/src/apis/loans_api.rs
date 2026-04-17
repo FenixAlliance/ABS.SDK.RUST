@@ -477,7 +477,7 @@ pub async fn get_loans_count_async(configuration: &configuration::Configuration,
 }
 
 /// Updates the specified loan application.
-pub async fn update_loan_application_async(configuration: &configuration::Configuration, tenant_id: &str, application_id: &str, loan_application_update_dto: models::LoanApplicationUpdateDto, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<UpdateLoanApplicationAsyncError>> {
+pub async fn update_loan_application_async(configuration: &configuration::Configuration, tenant_id: &str, application_id: &str, body: serde_json::Value, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<UpdateLoanApplicationAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -495,7 +495,7 @@ pub async fn update_loan_application_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&loan_application_update_dto);
+    local_var_req_builder = local_var_req_builder.json(&body);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

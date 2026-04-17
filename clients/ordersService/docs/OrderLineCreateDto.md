@@ -12,8 +12,6 @@ Name | Type | Description | Notes
 **item_short_description** | Option<**String**> |  | [optional]
 **item_primary_image_url** | Option<**String**> |  | [optional]
 **shipping_policy_id** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
 **quantity** | Option<**f64**> |  | [optional]
@@ -99,7 +97,6 @@ Name | Type | Description | Notes
 **shipping_location_id** | Option<**String**> |  | [optional]
 **location_id** | Option<**String**> |  | [optional]
 **quote_item_record_id** | Option<**String**> |  | [optional]
-**business_profile_record_id** | Option<**String**> |  | [optional]
 **parent_billing_item_record_id** | Option<**String**> |  | [optional]
 **order_id** | Option<**String**> |  | [optional]
 

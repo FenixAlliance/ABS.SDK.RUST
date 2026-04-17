@@ -21,18 +21,15 @@ pub struct ItemTagCreateDto {
     pub title: String,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
 }
 
 impl ItemTagCreateDto {
-    pub fn new(title: String, business_id: String) -> ItemTagCreateDto {
+    pub fn new(title: String) -> ItemTagCreateDto {
         ItemTagCreateDto {
             id: None,
             timestamp: None,
             title,
             description: None,
-            business_id,
         }
     }
 }

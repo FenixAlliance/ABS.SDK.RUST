@@ -10,8 +10,6 @@ Name | Type | Description | Notes
 **added_percent** | Option<**f64**> |  | [optional]
 **added_amount** | Option<**f64**> |  | [optional]
 **tax_comission** | Option<**f64**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 **salary_id** | Option<**String**> |  | [optional]
 **emisor_wallet_account_id** | Option<**String**> |  | [optional]
 **receiver_wallet_account_id** | Option<**String**> |  | [optional]

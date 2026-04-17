@@ -23,10 +23,6 @@ pub struct EmailGroupCreateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "enabled", skip_serializing_if = "Option::is_none")]
     pub enabled: Option<bool>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl EmailGroupCreateDto {
@@ -37,8 +33,6 @@ impl EmailGroupCreateDto {
             name: None,
             description: None,
             enabled: None,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

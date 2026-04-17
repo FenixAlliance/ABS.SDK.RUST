@@ -8,7 +8,6 @@ Name | Type | Description | Notes
 **disabled** | Option<**bool**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
 **cost_centre_type** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
 **cost_centres_group_id** | Option<**String**> |  | [optional]
 **parent_cost_centre_id** | Option<**String**> |  | [optional]
 

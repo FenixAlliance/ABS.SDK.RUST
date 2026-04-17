@@ -13,6 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AssetDepreciationRecordCreateDto {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<uuid::Uuid>,
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<String>,
     #[serde(rename = "assetId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub asset_id: Option<Option<String>>,
     #[serde(rename = "assetDepreciationPolicyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -34,6 +38,8 @@ pub struct AssetDepreciationRecordCreateDto {
 impl AssetDepreciationRecordCreateDto {
     pub fn new() -> AssetDepreciationRecordCreateDto {
         AssetDepreciationRecordCreateDto {
+            id: None,
+            timestamp: None,
             asset_id: None,
             asset_depreciation_policy_id: None,
             depreciation_amount: None,

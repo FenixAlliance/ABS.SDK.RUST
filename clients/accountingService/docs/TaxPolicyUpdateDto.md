@@ -25,8 +25,6 @@ Name | Type | Description | Notes
 **custom_state** | Option<**String**> |  | [optional]
 **custom_city** | Option<**String**> |  | [optional]
 **city_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
 **zero** | Option<**bool**> |  | [optional]
 **reduced** | Option<**bool**> |  | [optional]
 **withholding** | Option<**bool**> |  | [optional]

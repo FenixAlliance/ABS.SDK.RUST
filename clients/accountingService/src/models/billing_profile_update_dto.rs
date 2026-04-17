@@ -15,8 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct BillingProfileUpdateDto {
     #[serde(rename = "contactId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "taxId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tax_id: Option<Option<String>>,
     #[serde(rename = "phone", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -61,7 +59,6 @@ impl BillingProfileUpdateDto {
     pub fn new() -> BillingProfileUpdateDto {
         BillingProfileUpdateDto {
             contact_id: None,
-            tenant_id: None,
             tax_id: None,
             phone: None,
             email: None,

@@ -280,6 +280,8 @@ pub mod web_portal_dto;
 pub use self::web_portal_dto::WebPortalDto;
 pub mod web_portal_dto_envelope;
 pub use self::web_portal_dto_envelope::WebPortalDtoEnvelope;
+pub mod web_portal_dto_list_envelope;
+pub use self::web_portal_dto_list_envelope::WebPortalDtoListEnvelope;
 pub mod web_portal_update_dto;
 pub use self::web_portal_update_dto::WebPortalUpdateDto;
 pub mod web_template_create_dto;

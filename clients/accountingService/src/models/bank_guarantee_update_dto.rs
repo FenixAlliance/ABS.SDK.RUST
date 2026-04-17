@@ -31,12 +31,8 @@ pub struct BankGuaranteeUpdateDto {
     pub end_date: Option<String>,
     #[serde(rename = "validityInDays", skip_serializing_if = "Option::is_none")]
     pub validity_in_days: Option<i32>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "bankGuaranteeType", skip_serializing_if = "Option::is_none")]
     pub bank_guarantee_type: Option<BankGuaranteeType>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "contactId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
     #[serde(rename = "projectId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -63,9 +59,7 @@ impl BankGuaranteeUpdateDto {
             start_date: None,
             end_date: None,
             validity_in_days: None,
-            tenant_id: None,
             bank_guarantee_type: None,
-            enrollment_id: None,
             contact_id: None,
             project_id: None,
             order_id: None,

@@ -17,10 +17,6 @@ pub struct TenantTeamProjectEnrollmentCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
-    #[serde(rename = "businessProfileRecordID")]
-    pub business_profile_record_id: String,
     #[serde(rename = "businessTeamID")]
     pub business_team_id: String,
     #[serde(rename = "projectID")]
@@ -28,12 +24,10 @@ pub struct TenantTeamProjectEnrollmentCreateDto {
 }
 
 impl TenantTeamProjectEnrollmentCreateDto {
-    pub fn new(business_id: String, business_profile_record_id: String, business_team_id: String, project_id: String) -> TenantTeamProjectEnrollmentCreateDto {
+    pub fn new(business_team_id: String, project_id: String) -> TenantTeamProjectEnrollmentCreateDto {
         TenantTeamProjectEnrollmentCreateDto {
             id: None,
             timestamp: None,
-            business_id,
-            business_profile_record_id,
             business_team_id,
             project_id,
         }

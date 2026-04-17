@@ -21,8 +21,6 @@ pub struct CourseCohortCreateDto {
     pub name: String,
     #[serde(rename = "courseID")]
     pub course_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "startDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub start_date_time: Option<Option<String>>,
     #[serde(rename = "endDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -34,13 +32,12 @@ pub struct CourseCohortCreateDto {
 }
 
 impl CourseCohortCreateDto {
-    pub fn new(name: String, course_id: String, business_id: String) -> CourseCohortCreateDto {
+    pub fn new(name: String, course_id: String) -> CourseCohortCreateDto {
         CourseCohortCreateDto {
             id: None,
             timestamp: None,
             name,
             course_id,
-            business_id,
             start_date_time: None,
             end_date_time: None,
             expected_start_date_time: None,

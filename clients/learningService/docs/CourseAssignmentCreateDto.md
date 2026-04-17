@@ -11,7 +11,6 @@ Name | Type | Description | Notes
 **instructions** | Option<**String**> |  | [optional]
 **points** | Option<**f64**> |  | [optional]
 **course_id** | **String** |  | 
-**business_id** | **String** |  | 
 **course_unit_id** | Option<**String**> |  | [optional]
 **course_cohort_id** | Option<**String**> |  | [optional]
 **course_assignment_type_id** | Option<**String**> |  | [optional]

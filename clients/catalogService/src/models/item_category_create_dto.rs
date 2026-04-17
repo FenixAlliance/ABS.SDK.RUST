@@ -23,24 +23,18 @@ pub struct ItemCategoryCreateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "imageURL", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub image_url: Option<Option<String>>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "parentItemCategoryID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_item_category_id: Option<Option<String>>,
 }
 
 impl ItemCategoryCreateDto {
-    pub fn new(title: String, business_id: String) -> ItemCategoryCreateDto {
+    pub fn new(title: String) -> ItemCategoryCreateDto {
         ItemCategoryCreateDto {
             id: None,
             timestamp: None,
             title,
             description: None,
             image_url: None,
-            business_id,
-            business_profile_record_id: None,
             parent_item_category_id: None,
         }
     }

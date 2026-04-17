@@ -15,8 +15,6 @@ Name | Type | Description | Notes
 **credit_months** | Option<**f64**> |  | [optional]
 **credit_years** | Option<**f64**> |  | [optional]
 **payment_mode_id** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

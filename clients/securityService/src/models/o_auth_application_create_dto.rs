@@ -13,6 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OAuthApplicationCreateDto {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<uuid::Uuid>,
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<String>,
     #[serde(rename = "displayName")]
     pub display_name: String,
     #[serde(rename = "clientId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -31,15 +35,13 @@ pub struct OAuthApplicationCreateDto {
     pub post_logout_redirect_uris: Option<Option<String>>,
     #[serde(rename = "logo", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub logo: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
 }
 
 impl OAuthApplicationCreateDto {
     pub fn new(display_name: String) -> OAuthApplicationCreateDto {
         OAuthApplicationCreateDto {
+            id: None,
+            timestamp: None,
             display_name,
             client_id: None,
             client_secret: None,
@@ -49,8 +51,6 @@ impl OAuthApplicationCreateDto {
             redirect_uris: None,
             post_logout_redirect_uris: None,
             logo: None,
-            business_id: None,
-            business_profile_record_id: None,
         }
     }
 }

@@ -19,10 +19,6 @@ pub struct JournalTypeCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub name: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl JournalTypeCreateDto {
@@ -31,8 +27,6 @@ impl JournalTypeCreateDto {
             id: None,
             timestamp: None,
             name: None,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

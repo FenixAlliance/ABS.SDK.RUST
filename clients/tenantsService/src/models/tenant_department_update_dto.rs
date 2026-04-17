@@ -19,8 +19,6 @@ pub struct TenantDepartmentUpdateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "disabled", skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "organizationProfileID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub organization_profile_id: Option<Option<String>>,
     #[serde(rename = "parentDepartmentID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -33,7 +31,6 @@ impl TenantDepartmentUpdateDto {
             name: None,
             description: None,
             disabled: None,
-            business_profile_record_id: None,
             organization_profile_id: None,
             parent_department_id: None,
         }

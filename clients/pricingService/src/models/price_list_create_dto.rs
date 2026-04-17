@@ -31,10 +31,6 @@ pub struct PriceListCreateDto {
     pub unit_id: Option<Option<String>>,
     #[serde(rename = "unitGroupId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub unit_group_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl PriceListCreateDto {
@@ -49,8 +45,6 @@ impl PriceListCreateDto {
             currency_id: None,
             unit_id: None,
             unit_group_id: None,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

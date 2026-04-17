@@ -77,8 +77,6 @@ pub struct SubscriptionPlanCreateDto {
     pub features: Option<Option<String>>,
     #[serde(rename = "material", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub material: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "permalink", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub permalink: Option<Option<String>>,
     #[serde(rename = "brandName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -380,7 +378,6 @@ impl SubscriptionPlanCreateDto {
             pattern: None,
             features: None,
             material: None,
-            tenant_id: None,
             permalink: None,
             brand_name: None,
             variations: None,

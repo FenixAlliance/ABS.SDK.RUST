@@ -17,10 +17,6 @@ pub struct CourseCompletionCertificateUpdateDto {
     pub student_profile_id: Option<Option<String>>,
     #[serde(rename = "courseEnrollmentID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub course_enrollment_id: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "courseCompletionCertificateTemplateID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub course_completion_certificate_template_id: Option<Option<String>>,
     #[serde(rename = "courseID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -32,8 +28,6 @@ impl CourseCompletionCertificateUpdateDto {
         CourseCompletionCertificateUpdateDto {
             student_profile_id: None,
             course_enrollment_id: None,
-            business_id: None,
-            business_profile_record_id: None,
             course_completion_certificate_template_id: None,
             course_id: None,
         }

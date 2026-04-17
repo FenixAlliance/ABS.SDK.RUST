@@ -23,8 +23,6 @@ pub struct CourseEnrollmentCreateDto {
     pub course_cohort_id: Option<Option<String>>,
     #[serde(rename = "studentProfileID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub student_profile_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "courseCompletionCertificateID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub course_completion_certificate_id: Option<Option<String>>,
 }
@@ -37,7 +35,6 @@ impl CourseEnrollmentCreateDto {
             course_id: None,
             course_cohort_id: None,
             student_profile_id: None,
-            business_profile_record_id: None,
             course_completion_certificate_id: None,
         }
     }

@@ -13,6 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct DealUnitLineCreateDto {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<uuid::Uuid>,
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<String>,
     #[serde(rename = "closed", skip_serializing_if = "Option::is_none")]
     pub closed: Option<bool>,
     #[serde(rename = "itemId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -25,10 +29,6 @@ pub struct DealUnitLineCreateDto {
     pub item_primary_image_url: Option<Option<String>>,
     #[serde(rename = "shippingPolicyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub shipping_policy_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -141,22 +141,22 @@ pub struct DealUnitLineCreateDto {
     pub total_detail: Option<f64>,
     #[serde(rename = "totalDetailCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub total_detail_currency_id: Option<Option<String>>,
-    #[serde(rename = "totalProfit", skip_serializing_if = "Option::is_none")]
-    pub total_profit: Option<f64>,
-    #[serde(rename = "totalProfitCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub total_profit_currency_id: Option<Option<String>>,
     #[serde(rename = "totalDiscounts", skip_serializing_if = "Option::is_none")]
     pub total_discounts: Option<f64>,
     #[serde(rename = "totalDiscountsCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub total_discounts_currency_id: Option<Option<String>>,
-    #[serde(rename = "totalSurcharges", skip_serializing_if = "Option::is_none")]
-    pub total_surcharges: Option<f64>,
-    #[serde(rename = "totalSurchargesCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub total_surcharges_currency_id: Option<Option<String>>,
     #[serde(rename = "totalTaxBase", skip_serializing_if = "Option::is_none")]
     pub total_tax_base: Option<f64>,
     #[serde(rename = "totalTaxBaseCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub total_tax_base_currency_id: Option<Option<String>>,
+    #[serde(rename = "totalSurcharges", skip_serializing_if = "Option::is_none")]
+    pub total_surcharges: Option<f64>,
+    #[serde(rename = "totalSurchargesCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_surcharges_currency_id: Option<Option<String>>,
+    #[serde(rename = "totalProfit", skip_serializing_if = "Option::is_none")]
+    pub total_profit: Option<f64>,
+    #[serde(rename = "totalProfitCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_profit_currency_id: Option<Option<String>>,
     #[serde(rename = "totalShippingCost", skip_serializing_if = "Option::is_none")]
     pub total_shipping_cost: Option<f64>,
     #[serde(rename = "totalShippingCostCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -199,8 +199,6 @@ pub struct DealUnitLineCreateDto {
     pub location_id: Option<Option<String>>,
     #[serde(rename = "quoteItemRecordId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub quote_item_record_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "parentBillingItemRecordId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_billing_item_record_id: Option<Option<String>>,
     #[serde(rename = "dealUnitId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -210,14 +208,14 @@ pub struct DealUnitLineCreateDto {
 impl DealUnitLineCreateDto {
     pub fn new() -> DealUnitLineCreateDto {
         DealUnitLineCreateDto {
+            id: None,
+            timestamp: None,
             closed: None,
             item_id: None,
             item_title: None,
             item_short_description: None,
             item_primary_image_url: None,
             shipping_policy_id: None,
-            tenant_id: None,
-            enrollment_id: None,
             currency_id: None,
             description: None,
             quantity: None,
@@ -274,14 +272,14 @@ impl DealUnitLineCreateDto {
             custom_global_discounts_amount_currency_id: None,
             total_detail: None,
             total_detail_currency_id: None,
-            total_profit: None,
-            total_profit_currency_id: None,
             total_discounts: None,
             total_discounts_currency_id: None,
-            total_surcharges: None,
-            total_surcharges_currency_id: None,
             total_tax_base: None,
             total_tax_base_currency_id: None,
+            total_surcharges: None,
+            total_surcharges_currency_id: None,
+            total_profit: None,
+            total_profit_currency_id: None,
             total_shipping_cost: None,
             total_shipping_cost_currency_id: None,
             total_shipping_tax: None,
@@ -303,7 +301,6 @@ impl DealUnitLineCreateDto {
             shipping_location_id: None,
             location_id: None,
             quote_item_record_id: None,
-            business_profile_record_id: None,
             parent_billing_item_record_id: None,
             deal_unit_id: None,
         }

@@ -29,12 +29,10 @@ pub struct ItemBrandCreateDto {
     pub featured: Option<bool>,
     #[serde(rename = "trending", skip_serializing_if = "Option::is_none")]
     pub trending: Option<bool>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
 }
 
 impl ItemBrandCreateDto {
-    pub fn new(name: String, business_id: String) -> ItemBrandCreateDto {
+    pub fn new(name: String) -> ItemBrandCreateDto {
         ItemBrandCreateDto {
             id: None,
             timestamp: None,
@@ -44,7 +42,6 @@ impl ItemBrandCreateDto {
             website_url: None,
             featured: None,
             trending: None,
-            business_id,
         }
     }
 }

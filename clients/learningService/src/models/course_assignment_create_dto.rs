@@ -27,8 +27,6 @@ pub struct CourseAssignmentCreateDto {
     pub points: Option<f64>,
     #[serde(rename = "courseID")]
     pub course_id: String,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "courseUnitID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub course_unit_id: Option<Option<String>>,
     #[serde(rename = "courseCohortID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -44,7 +42,7 @@ pub struct CourseAssignmentCreateDto {
 }
 
 impl CourseAssignmentCreateDto {
-    pub fn new(title: String, course_id: String, business_id: String) -> CourseAssignmentCreateDto {
+    pub fn new(title: String, course_id: String) -> CourseAssignmentCreateDto {
         CourseAssignmentCreateDto {
             id: None,
             timestamp: None,
@@ -53,7 +51,6 @@ impl CourseAssignmentCreateDto {
             instructions: None,
             points: None,
             course_id,
-            business_id,
             course_unit_id: None,
             course_cohort_id: None,
             course_assignment_type_id: None,

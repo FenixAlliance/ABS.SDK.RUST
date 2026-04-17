@@ -13,12 +13,14 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SupportTicketPriorityCreateDto {
+    #[serde(rename = "id", skip_serializing_if = "Option::is_none")]
+    pub id: Option<uuid::Uuid>,
+    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<String>,
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
     #[serde(rename = "supportEntitlementID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub support_entitlement_id: Option<Option<String>>,
 }
@@ -26,9 +28,10 @@ pub struct SupportTicketPriorityCreateDto {
 impl SupportTicketPriorityCreateDto {
     pub fn new() -> SupportTicketPriorityCreateDto {
         SupportTicketPriorityCreateDto {
+            id: None,
+            timestamp: None,
             title: None,
             description: None,
-            business_id: None,
             support_entitlement_id: None,
         }
     }

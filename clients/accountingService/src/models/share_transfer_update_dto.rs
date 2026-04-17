@@ -23,10 +23,6 @@ pub struct ShareTransferUpdateDto {
     pub former_share_holder_id: Option<Option<String>>,
     #[serde(rename = "shareTransferReasonId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub share_transfer_reason_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
 }
 
 impl ShareTransferUpdateDto {
@@ -37,8 +33,6 @@ impl ShareTransferUpdateDto {
             new_share_holder_id: None,
             former_share_holder_id: None,
             share_transfer_reason_id: None,
-            enrollment_id: None,
-            tenant_id: None,
         }
     }
 }

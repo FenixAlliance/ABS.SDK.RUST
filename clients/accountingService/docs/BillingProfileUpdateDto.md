@@ -5,7 +5,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contact_id** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
 **tax_id** | Option<**String**> |  | [optional]
 **phone** | Option<**String**> |  | [optional]
 **email** | Option<**String**> |  | [optional]

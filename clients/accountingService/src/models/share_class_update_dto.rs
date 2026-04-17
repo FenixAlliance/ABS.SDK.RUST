@@ -23,10 +23,6 @@ pub struct ShareClassUpdateDto {
     pub forex_rates: Option<Option<String>>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl ShareClassUpdateDto {
@@ -37,8 +33,6 @@ impl ShareClassUpdateDto {
             description: None,
             forex_rates: None,
             currency_id: None,
-            tenant_id: None,
-            enrollment_id: None,
         }
     }
 }

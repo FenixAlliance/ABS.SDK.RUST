@@ -19,8 +19,6 @@ pub struct CostCentreGroupUpdateDto {
     pub description: Option<Option<String>>,
     #[serde(rename = "disabled", skip_serializing_if = "Option::is_none")]
     pub disabled: Option<bool>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "parentCostCentresGroupId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_cost_centres_group_id: Option<Option<String>>,
 }
@@ -31,7 +29,6 @@ impl CostCentreGroupUpdateDto {
             name: None,
             description: None,
             disabled: None,
-            tenant_id: None,
             parent_cost_centres_group_id: None,
         }
     }

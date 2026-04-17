@@ -12,9 +12,7 @@ Name | Type | Description | Notes
 **code** | Option<**String**> |  | [optional]
 **path** | Option<**String**> |  | [optional]
 **prefix** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
 **currency_id** | **String** |  | 
-**enrollment_id** | Option<**String**> |  | [optional]
 **account_type_id** | Option<**String**> |  | [optional]
 **parent_account_id** | Option<**String**> |  | [optional]
 **account_category** | **String** |  | 

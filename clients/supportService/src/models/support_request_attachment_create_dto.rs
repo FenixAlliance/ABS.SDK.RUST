@@ -37,10 +37,6 @@ pub struct SupportRequestAttachmentCreateDto {
     pub parent_file_upload_id: Option<Option<String>>,
     #[serde(rename = "filePath", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub file_path: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "metadata", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub metadata: Option<Option<String>>,
     #[serde(rename = "supportRequestID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -62,8 +58,6 @@ impl SupportRequestAttachmentCreateDto {
             valid_response: None,
             parent_file_upload_id: None,
             file_path: None,
-            business_id: None,
-            business_profile_record_id: None,
             metadata: None,
             support_request_id: None,
         }

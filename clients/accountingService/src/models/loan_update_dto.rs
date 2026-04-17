@@ -27,8 +27,6 @@ pub struct LoanUpdateDto {
     pub loan_type_id: Option<Option<String>>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
 }
 
 impl LoanUpdateDto {
@@ -41,7 +39,6 @@ impl LoanUpdateDto {
             is_compund_interest_rate: None,
             loan_type_id: None,
             currency_id: None,
-            enrollment_id: None,
         }
     }
 }

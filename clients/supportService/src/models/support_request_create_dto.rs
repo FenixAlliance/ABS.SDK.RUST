@@ -25,16 +25,10 @@ pub struct SupportRequestCreateDto {
     pub approved: Option<bool>,
     #[serde(rename = "approvedTimestamp", skip_serializing_if = "Option::is_none")]
     pub approved_timestamp: Option<String>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
     #[serde(rename = "supportEntitlementID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub support_entitlement_id: Option<Option<String>>,
     #[serde(rename = "contactID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
-    #[serde(rename = "accountHolderID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_holder_id: Option<Option<String>>,
 }
 
 impl SupportRequestCreateDto {
@@ -46,11 +40,8 @@ impl SupportRequestCreateDto {
             description: None,
             approved: None,
             approved_timestamp: None,
-            business_id: None,
-            business_profile_record_id: None,
             support_entitlement_id: None,
             contact_id: None,
-            account_holder_id: None,
         }
     }
 }

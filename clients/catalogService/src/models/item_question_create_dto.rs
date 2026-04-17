@@ -25,14 +25,12 @@ pub struct ItemQuestionCreateDto {
     pub question: String,
     #[serde(rename = "socialProfileID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub social_profile_id: Option<Option<String>>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
     #[serde(rename = "itemID")]
     pub item_id: String,
 }
 
 impl ItemQuestionCreateDto {
-    pub fn new(title: String, needs_revision: bool, question: String, business_id: String, item_id: String) -> ItemQuestionCreateDto {
+    pub fn new(title: String, needs_revision: bool, question: String, item_id: String) -> ItemQuestionCreateDto {
         ItemQuestionCreateDto {
             id: None,
             timestamp: None,
@@ -40,7 +38,6 @@ impl ItemQuestionCreateDto {
             needs_revision,
             question,
             social_profile_id: None,
-            business_id,
             item_id,
         }
     }

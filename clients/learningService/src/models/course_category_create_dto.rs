@@ -25,12 +25,10 @@ pub struct CourseCategoryCreateDto {
     pub image_url: Option<Option<String>>,
     #[serde(rename = "isFeatured", skip_serializing_if = "Option::is_none")]
     pub is_featured: Option<bool>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
 }
 
 impl CourseCategoryCreateDto {
-    pub fn new(title: String, business_id: String) -> CourseCategoryCreateDto {
+    pub fn new(title: String) -> CourseCategoryCreateDto {
         CourseCategoryCreateDto {
             id: None,
             timestamp: None,
@@ -38,7 +36,6 @@ impl CourseCategoryCreateDto {
             description: None,
             image_url: None,
             is_featured: None,
-            business_id,
         }
     }
 }

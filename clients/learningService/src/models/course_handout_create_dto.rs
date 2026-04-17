@@ -31,12 +31,10 @@ pub struct CourseHandoutCreateDto {
     pub course_id: String,
     #[serde(rename = "courseUnitID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub course_unit_id: Option<Option<String>>,
-    #[serde(rename = "businessID")]
-    pub business_id: String,
 }
 
 impl CourseHandoutCreateDto {
-    pub fn new(name: String, course_id: String, business_id: String) -> CourseHandoutCreateDto {
+    pub fn new(name: String, course_id: String) -> CourseHandoutCreateDto {
         CourseHandoutCreateDto {
             id: None,
             timestamp: None,
@@ -47,7 +45,6 @@ impl CourseHandoutCreateDto {
             release_date_time: None,
             course_id,
             course_unit_id: None,
-            business_id,
         }
     }
 }

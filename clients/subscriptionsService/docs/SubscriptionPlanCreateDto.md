@@ -36,7 +36,6 @@ Name | Type | Description | Notes
 **pattern** | Option<**String**> |  | [optional]
 **features** | Option<**String**> |  | [optional]
 **material** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
 **permalink** | Option<**String**> |  | [optional]
 **brand_name** | Option<**String**> |  | [optional]
 **variations** | Option<**String**> |  | [optional]

@@ -59,10 +59,6 @@ pub struct TaxPolicyCreateDto {
     pub custom_city: Option<Option<String>>,
     #[serde(rename = "cityId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub city_id: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
     #[serde(rename = "zero", skip_serializing_if = "Option::is_none")]
     pub zero: Option<bool>,
     #[serde(rename = "reduced", skip_serializing_if = "Option::is_none")]
@@ -99,8 +95,6 @@ impl TaxPolicyCreateDto {
             custom_state: None,
             custom_city: None,
             city_id: None,
-            enrollment_id: None,
-            tenant_id: None,
             zero: None,
             reduced: None,
             withholding: None,

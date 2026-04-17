@@ -9,8 +9,6 @@ Name | Type | Description | Notes
 **name** | **String** |  | 
 **description** | Option<**String**> |  | [optional]
 **date_time** | Option<**String**> |  | [optional]
-**tenant_id** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 **parent_journal_id** | Option<**String**> |  | [optional]
 **journal_type_id** | Option<**String**> |  | [optional]
 **ledger_id** | Option<**String**> |  | [optional]

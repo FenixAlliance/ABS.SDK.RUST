@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **description** | Option<**String**> |  | [optional]
 **course_id** | **String** |  | 
 **course_unit_id** | Option<**String**> |  | [optional]
-**business_id** | **String** |  | 
 **release_date_time** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

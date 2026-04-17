@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 **order** | Option<**i32**> |  | [optional]
 **name** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
-**enrollment_id** | Option<**String**> |  | [optional]
 **deal_unit_flow_id** | Option<**String**> |  | [optional]
 **parent_business_process_stage_id** | Option<**String**> |  | [optional]
 

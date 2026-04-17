@@ -21,8 +21,6 @@ pub struct TenantIndustryCreateDto {
     pub name: Option<Option<String>>,
     #[serde(rename = "parentBusinessIndustryID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_business_industry_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
 }
 
 impl TenantIndustryCreateDto {
@@ -32,7 +30,6 @@ impl TenantIndustryCreateDto {
             timestamp: None,
             name: None,
             parent_business_industry_id: None,
-            business_profile_record_id: None,
         }
     }
 }

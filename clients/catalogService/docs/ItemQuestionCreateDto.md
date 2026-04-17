@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **needs_revision** | **bool** |  | 
 **question** | **String** |  | 
 **social_profile_id** | Option<**String**> |  | [optional]
-**business_id** | **String** |  | 
 **item_id** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

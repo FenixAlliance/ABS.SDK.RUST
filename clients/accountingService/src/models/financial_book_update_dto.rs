@@ -17,8 +17,6 @@ pub struct FinancialBookUpdateDto {
     pub name: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
 }
 
 impl FinancialBookUpdateDto {
@@ -26,7 +24,6 @@ impl FinancialBookUpdateDto {
         FinancialBookUpdateDto {
             name: None,
             description: None,
-            tenant_id: None,
         }
     }
 }

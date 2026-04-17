@@ -347,7 +347,7 @@ No authorization required
 
 ## update_loan_application_async
 
-> models::EmptyEnvelope update_loan_application_async(tenant_id, application_id, loan_application_update_dto, api_version, x_api_version)
+> models::EmptyEnvelope update_loan_application_async(tenant_id, application_id, body, api_version, x_api_version)
 Updates a loan application
 
 Updates the specified loan application.
@@ -359,7 +359,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **application_id** | **uuid::Uuid** |  | [required] |
-**loan_application_update_dto** | [**LoanApplicationUpdateDto**](LoanApplicationUpdateDto.md) |  | [required] |
+**body** | **serde_json::Value** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

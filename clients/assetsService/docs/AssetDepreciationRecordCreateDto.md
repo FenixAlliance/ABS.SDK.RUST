@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **asset_id** | Option<**String**> |  | [optional]
 **asset_depreciation_policy_id** | Option<**String**> |  | [optional]
 **depreciation_amount** | Option<**f64**> |  | [optional]

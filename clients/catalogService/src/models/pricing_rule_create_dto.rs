@@ -59,10 +59,6 @@ pub struct PricingRuleCreateDto {
     pub custom_city: Option<Option<String>>,
     #[serde(rename = "cityID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub city_id: Option<Option<String>>,
-    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
 }
 
 impl PricingRuleCreateDto {
@@ -91,8 +87,6 @@ impl PricingRuleCreateDto {
             custom_state: None,
             custom_city: None,
             city_id: None,
-            business_id: None,
-            business_profile_record_id: None,
         }
     }
 }
