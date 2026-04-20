@@ -6,11 +6,11 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
-**title** | Option<**String**> |  | [optional]
-**code** | Option<**String**> |  | [optional]
+**title** | **String** |  | 
 **published** | Option<**bool**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
-**html_content** | Option<**String**> |  | [optional]
+**code** | Option<**String**> |  | [optional]
+**markup** | Option<**String**> |  | [optional]
 **featured_image_url** | Option<**String**> |  | [optional]
 **code_type** | Option<**String**> |  | [optional]
 **web_template_id** | Option<**String**> |  | [optional]

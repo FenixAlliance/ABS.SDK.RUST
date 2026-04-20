@@ -17,36 +17,36 @@ pub struct BlogPostCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub title: Option<Option<String>>,
-    #[serde(rename = "code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub code: Option<Option<String>>,
+    #[serde(rename = "title")]
+    pub title: String,
     #[serde(rename = "published", skip_serializing_if = "Option::is_none")]
     pub published: Option<bool>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "htmlContent", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub html_content: Option<Option<String>>,
+    #[serde(rename = "code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub code: Option<Option<String>>,
+    #[serde(rename = "markup", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub markup: Option<Option<String>>,
     #[serde(rename = "featuredImageUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub featured_image_url: Option<Option<String>>,
     #[serde(rename = "codeType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub code_type: Option<Option<CodeType>>,
-    #[serde(rename = "blogPostCategoryID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "blogPostCategoryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub blog_post_category_id: Option<Option<String>>,
-    #[serde(rename = "webTemplateID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "webTemplateId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub web_template_id: Option<Option<String>>,
 }
 
 impl BlogPostCreateDto {
-    pub fn new() -> BlogPostCreateDto {
+    pub fn new(title: String) -> BlogPostCreateDto {
         BlogPostCreateDto {
             id: None,
             timestamp: None,
-            title: None,
-            code: None,
+            title,
             published: None,
             description: None,
-            html_content: None,
+            code: None,
+            markup: None,
             featured_image_url: None,
             code_type: None,
             blog_post_category_id: None,
@@ -69,6 +69,8 @@ pub enum CodeType {
     Html5,
     #[serde(rename = "Markdown")]
     Markdown,
+    #[serde(rename = "Markup")]
+    Markup,
 }
 
 impl Default for CodeType {

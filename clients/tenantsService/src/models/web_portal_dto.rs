@@ -29,13 +29,13 @@ pub struct WebPortalDto {
     pub tenant_id: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
-    #[serde(rename = "websiteThemeID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enrollment_id: Option<Option<String>>,
+    #[serde(rename = "websiteThemeId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub website_theme_id: Option<Option<String>>,
-    #[serde(rename = "businessDomainID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "businessDomainId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub business_domain_id: Option<Option<String>>,
-    #[serde(rename = "businessProfileRecordID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub business_profile_record_id: Option<Option<String>>,
-    #[serde(rename = "businessPortalApplicationID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "businessPortalApplicationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub business_portal_application_id: Option<Option<String>>,
 }
 
@@ -50,9 +50,9 @@ impl WebPortalDto {
             disabled: None,
             tenant_id: None,
             description: None,
+            enrollment_id: None,
             website_theme_id: None,
             business_domain_id: None,
-            business_profile_record_id: None,
             business_portal_application_id: None,
         }
     }

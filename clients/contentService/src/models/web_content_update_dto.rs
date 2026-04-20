@@ -198,6 +198,8 @@ pub enum CodeType {
     Html5,
     #[serde(rename = "Markdown")]
     Markdown,
+    #[serde(rename = "Markup")]
+    Markup,
 }
 
 impl Default for CodeType {

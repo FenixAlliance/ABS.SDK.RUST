@@ -58,6 +58,8 @@ Name | Type | Description | Notes
 **cornerstone_content** | Option<**bool**> |  | [optional]
 **is_essential_content** | Option<**bool**> |  | [optional]
 **allow_search_engine_indexing** | Option<**bool**> |  | [optional]
+**blog_post_category_id** | Option<**String**> |  | [optional]
+**web_template_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

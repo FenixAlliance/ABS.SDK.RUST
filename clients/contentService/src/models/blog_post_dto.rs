@@ -131,9 +131,9 @@ pub struct BlogPostDto {
     pub parent_web_content_id: Option<Option<String>>,
     #[serde(rename = "parentWebContentVersionId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_web_content_version_id: Option<Option<String>>,
-    #[serde(rename = "blogPostCategoryID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "blogPostCategoryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub blog_post_category_id: Option<Option<String>>,
-    #[serde(rename = "webTemplateID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "webTemplateId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub web_template_id: Option<Option<String>>,
 }
 
@@ -219,6 +219,8 @@ pub enum CodeType {
     Html5,
     #[serde(rename = "Markdown")]
     Markdown,
+    #[serde(rename = "Markup")]
+    Markup,
 }
 
 impl Default for CodeType {

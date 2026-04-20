@@ -121,6 +121,10 @@ pub struct BlogPostUpdateDto {
     pub is_essential_content: Option<bool>,
     #[serde(rename = "allowSearchEngineIndexing", skip_serializing_if = "Option::is_none")]
     pub allow_search_engine_indexing: Option<bool>,
+    #[serde(rename = "blogPostCategoryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub blog_post_category_id: Option<Option<String>>,
+    #[serde(rename = "webTemplateId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub web_template_id: Option<Option<String>>,
 }
 
 impl BlogPostUpdateDto {
@@ -180,6 +184,8 @@ impl BlogPostUpdateDto {
             cornerstone_content: None,
             is_essential_content: None,
             allow_search_engine_indexing: None,
+            blog_post_category_id: None,
+            web_template_id: None,
         }
     }
 }
@@ -198,6 +204,8 @@ pub enum CodeType {
     Html5,
     #[serde(rename = "Markdown")]
     Markdown,
+    #[serde(rename = "Markup")]
+    Markup,
 }
 
 impl Default for CodeType {
