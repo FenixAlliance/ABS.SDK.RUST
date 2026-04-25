@@ -15,7 +15,7 @@ docs/ExtendedTenantDto.md
 docs/ExtendedTenantDtoEnvelope.md
 docs/ExtendedTenantEnrollmentDto.md
 docs/ExtendedTenantEnrollmentDtoEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/IndustriesApi.md
@@ -160,7 +160,7 @@ src/apis/configuration.rs
 src/apis/departments_api.rs
 src/apis/employee_enrollments_api.rs
 src/apis/enrollments_api.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/industries_api.rs
 src/apis/invitations_api.rs
 src/apis/mod.rs

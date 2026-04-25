@@ -9,7 +9,7 @@ docs/ExchangeApi.md
 docs/ExchangeRate.md
 docs/ExchangeRateEnvelope.md
 docs/ExchangeVApi.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForexRatesDto.md
 docs/ForexRatesDtoEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -30,7 +30,7 @@ git_push.sh
 src/apis/configuration.rs
 src/apis/exchange_api.rs
 src/apis/exchange_v_api.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/mod.rs
 src/apis/rates_api.rs
 src/lib.rs

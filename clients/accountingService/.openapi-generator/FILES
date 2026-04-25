@@ -103,7 +103,7 @@ docs/CreateLedgerDto.md
 docs/CurrencyId.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/FinancialBookCreateDto.md
 docs/FinancialBookDto.md
 docs/FinancialBookDtoEnvelope.md
@@ -287,7 +287,7 @@ src/apis/budgets_api.rs
 src/apis/commissions_api.rs
 src/apis/configuration.rs
 src/apis/cost_centres_api.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/financial_books_api.rs
 src/apis/fiscal_authorities_api.rs
 src/apis/fiscal_authority_years_api.rs

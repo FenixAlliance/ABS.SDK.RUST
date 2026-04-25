@@ -94,6 +94,6 @@ pub mod asset_categories_api;
 pub mod asset_transfers_api;
 pub mod asset_types_api;
 pub mod assets_api;
-pub mod fenix_alliance_abp_web_api;
+pub mod fenix_alliance_abs_web_api;
 
 pub mod configuration;

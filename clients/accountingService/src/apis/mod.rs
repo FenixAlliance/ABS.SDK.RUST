@@ -98,7 +98,7 @@ pub mod billing_profiles_api;
 pub mod budgets_api;
 pub mod commissions_api;
 pub mod cost_centres_api;
-pub mod fenix_alliance_abp_web_api;
+pub mod fenix_alliance_abs_web_api;
 pub mod financial_books_api;
 pub mod fiscal_authorities_api;
 pub mod fiscal_authority_years_api;

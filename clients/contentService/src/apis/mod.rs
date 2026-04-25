@@ -95,7 +95,7 @@ pub mod blog_post_categories_api;
 pub mod blog_post_tags_api;
 pub mod blog_posts_api;
 pub mod business_domains_api;
-pub mod fenix_alliance_abp_web_api;
+pub mod fenix_alliance_abs_web_api;
 pub mod portals_api;
 pub mod themes_api;
 pub mod web_contents_api;

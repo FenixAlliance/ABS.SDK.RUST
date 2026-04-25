@@ -175,19 +175,23 @@ Class | Method | HTTP request | Description
 *CoursesApi* | [**get_student_profiles_by_course_async**](docs/CoursesApi.md#get_student_profiles_by_course_async) | **GET** /api/v2/LearningService/Courses/{courseId}/Students | Get student profiles by course
 *CoursesApi* | [**get_student_profiles_by_course_count_async**](docs/CoursesApi.md#get_student_profiles_by_course_count_async) | **GET** /api/v2/LearningService/Courses/{courseId}/Students/Count | Get student profiles by course count
 *CoursesApi* | [**update_course_async**](docs/CoursesApi.md#update_course_async) | **PUT** /api/v2/LearningService/Courses/{courseId} | Update a course
-*FenixAllianceAbpWebApi* | [**forgot_password_post**](docs/FenixAllianceAbpWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
-*FenixAllianceAbpWebApi* | [**health_get**](docs/FenixAllianceAbpWebApi.md#health_get) | **GET** /health | 
-*FenixAllianceAbpWebApi* | [**hello_get**](docs/FenixAllianceAbpWebApi.md#hello_get) | **GET** /hello | 
-*FenixAllianceAbpWebApi* | [**login_post**](docs/FenixAllianceAbpWebApi.md#login_post) | **POST** /login | 
-*FenixAllianceAbpWebApi* | [**manage2fa_post**](docs/FenixAllianceAbpWebApi.md#manage2fa_post) | **POST** /manage/2fa | 
-*FenixAllianceAbpWebApi* | [**manage_info_get**](docs/FenixAllianceAbpWebApi.md#manage_info_get) | **GET** /manage/info | 
-*FenixAllianceAbpWebApi* | [**manage_info_post**](docs/FenixAllianceAbpWebApi.md#manage_info_post) | **POST** /manage/info | 
-*FenixAllianceAbpWebApi* | [**map_identity_api_slash_confirm_email**](docs/FenixAllianceAbpWebApi.md#map_identity_api_slash_confirm_email) | **GET** /confirmEmail | 
-*FenixAllianceAbpWebApi* | [**refresh_post**](docs/FenixAllianceAbpWebApi.md#refresh_post) | **POST** /refresh | 
-*FenixAllianceAbpWebApi* | [**register_post**](docs/FenixAllianceAbpWebApi.md#register_post) | **POST** /register | 
-*FenixAllianceAbpWebApi* | [**resend_confirmation_email_post**](docs/FenixAllianceAbpWebApi.md#resend_confirmation_email_post) | **POST** /resendConfirmationEmail | 
-*FenixAllianceAbpWebApi* | [**reset_password_post**](docs/FenixAllianceAbpWebApi.md#reset_password_post) | **POST** /resetPassword | 
-*FenixAllianceAbpWebApi* | [**version_get**](docs/FenixAllianceAbpWebApi.md#version_get) | **GET** /version | 
+*FenixAllianceAbsWebApi* | [**account_logout_post**](docs/FenixAllianceAbsWebApi.md#account_logout_post) | **POST** /Account/Logout | 
+*FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
+*FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
+*FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
+*FenixAllianceAbsWebApi* | [**login_post**](docs/FenixAllianceAbsWebApi.md#login_post) | **POST** /login | 
+*FenixAllianceAbsWebApi* | [**manage2fa_post**](docs/FenixAllianceAbsWebApi.md#manage2fa_post) | **POST** /manage/2fa | 
+*FenixAllianceAbsWebApi* | [**manage_info_get**](docs/FenixAllianceAbsWebApi.md#manage_info_get) | **GET** /manage/info | 
+*FenixAllianceAbsWebApi* | [**manage_info_post**](docs/FenixAllianceAbsWebApi.md#manage_info_post) | **POST** /manage/info | 
+*FenixAllianceAbsWebApi* | [**map_identity_api_slash_confirm_email**](docs/FenixAllianceAbsWebApi.md#map_identity_api_slash_confirm_email) | **GET** /confirmEmail | 
+*FenixAllianceAbsWebApi* | [**refresh_post**](docs/FenixAllianceAbsWebApi.md#refresh_post) | **POST** /refresh | 
+*FenixAllianceAbsWebApi* | [**register_post**](docs/FenixAllianceAbsWebApi.md#register_post) | **POST** /register | 
+*FenixAllianceAbsWebApi* | [**resend_confirmation_email_post**](docs/FenixAllianceAbsWebApi.md#resend_confirmation_email_post) | **POST** /resendConfirmationEmail | 
+*FenixAllianceAbsWebApi* | [**reset_password_post**](docs/FenixAllianceAbsWebApi.md#reset_password_post) | **POST** /resetPassword | 
+*FenixAllianceAbsWebApi* | [**version_get**](docs/FenixAllianceAbsWebApi.md#version_get) | **GET** /version | 
 *InstructorProfilesApi* | [**api_v2_learning_service_instructor_profiles_count_get**](docs/InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_count_get) | **GET** /api/v2/LearningService/InstructorProfiles/Count | 
 *InstructorProfilesApi* | [**api_v2_learning_service_instructor_profiles_get**](docs/InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_get) | **GET** /api/v2/LearningService/InstructorProfiles | 
 *InstructorProfilesApi* | [**api_v2_learning_service_instructor_profiles_instructor_profile_id_delete**](docs/InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_instructor_profile_id_delete) | **DELETE** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 

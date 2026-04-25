@@ -91,7 +91,7 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 }
 
 pub mod contacts_api;
-pub mod fenix_alliance_abp_web_api;
+pub mod fenix_alliance_abs_web_api;
 pub mod options_api;
 pub mod sync_api;
 

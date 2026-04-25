@@ -6,7 +6,7 @@ docs/AccessTokenResponse.md
 docs/ContactDto.md
 docs/ContactDtoListEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -21,7 +21,7 @@ docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 git_push.sh
 src/apis/configuration.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/mod.rs
 src/apis/stock_api.rs
 src/lib.rs

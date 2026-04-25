@@ -8,7 +8,7 @@ docs/AuthorizationResult.md
 docs/AuthorizationResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -41,7 +41,7 @@ git_push.sh
 src/apis/applications_api.rs
 src/apis/checker_api.rs
 src/apis/configuration.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/mod.rs
 src/apis/o_auth_api.rs
 src/apis/resource_api.rs

@@ -24,7 +24,7 @@ docs/CurrencyDto.md
 docs/CurrencyDtoEnvelope.md
 docs/CurrencyDtoListEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -46,7 +46,7 @@ git_push.sh
 src/apis/configuration.rs
 src/apis/countries_api.rs
 src/apis/currencies_api.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/languages_api.rs
 src/apis/mod.rs
 src/apis/timezones_api.rs

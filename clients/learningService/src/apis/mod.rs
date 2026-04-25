@@ -108,7 +108,7 @@ pub mod course_units_api;
 pub mod course_updates_api;
 pub mod course_wikis_api;
 pub mod courses_api;
-pub mod fenix_alliance_abp_web_api;
+pub mod fenix_alliance_abs_web_api;
 pub mod instructor_profiles_api;
 pub mod student_profiles_api;
 

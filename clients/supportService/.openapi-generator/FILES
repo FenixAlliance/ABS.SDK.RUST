@@ -5,7 +5,7 @@ README.md
 docs/AccessTokenResponse.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -62,7 +62,7 @@ docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 git_push.sh
 src/apis/configuration.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/mod.rs
 src/apis/support_entitlements_api.rs
 src/apis/support_request_attachments_api.rs

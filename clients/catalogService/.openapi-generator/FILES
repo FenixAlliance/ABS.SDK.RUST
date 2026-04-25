@@ -11,7 +11,7 @@ docs/CatalogItemUpdateDto.md
 docs/CurrencyId.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -123,7 +123,7 @@ docs/TwoFactorResponse.md
 docs/UpdateProductPrimaryImageAsyncRequest.md
 git_push.sh
 src/apis/configuration.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/item_attachments_api.rs
 src/apis/item_attributes_api.rs
 src/apis/item_brands_api.rs

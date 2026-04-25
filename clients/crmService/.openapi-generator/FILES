@@ -20,7 +20,7 @@ docs/ErrorEnvelope.md
 docs/ExtendedContactDto.md
 docs/ExtendedContactDtoEnvelope.md
 docs/ExtendedContactDtoListEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -50,7 +50,7 @@ docs/WalletDtoEnvelope.md
 git_push.sh
 src/apis/configuration.rs
 src/apis/contacts_api.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/mod.rs
 src/apis/options_api.rs
 src/apis/sync_api.rs

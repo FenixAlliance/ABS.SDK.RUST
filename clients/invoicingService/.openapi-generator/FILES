@@ -10,7 +10,7 @@ docs/Envelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedInvoiceDto.md
 docs/ExtendedInvoiceDtoListEnvelope.md
-docs/FenixAllianceAbpWebApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForexRates.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -60,7 +60,7 @@ docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 git_push.sh
 src/apis/configuration.rs
-src/apis/fenix_alliance_abp_web_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/invoices_api.rs
 src/apis/mod.rs
 src/lib.rs

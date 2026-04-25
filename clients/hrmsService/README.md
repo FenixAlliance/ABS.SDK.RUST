@@ -39,19 +39,23 @@ Class | Method | HTTP request | Description
 *EmployersApi* | [**get_employers_async**](docs/EmployersApi.md#get_employers_async) | **GET** /api/v2/HrmsService/Employers | Get employers
 *EmployersApi* | [**get_employers_count_async**](docs/EmployersApi.md#get_employers_count_async) | **GET** /api/v2/HrmsService/Employers/Count | Count employers
 *EmployersApi* | [**update_employer_async**](docs/EmployersApi.md#update_employer_async) | **PUT** /api/v2/HrmsService/Employers/{employerId} | Update an employer
-*FenixAllianceAbpWebApi* | [**forgot_password_post**](docs/FenixAllianceAbpWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
-*FenixAllianceAbpWebApi* | [**health_get**](docs/FenixAllianceAbpWebApi.md#health_get) | **GET** /health | 
-*FenixAllianceAbpWebApi* | [**hello_get**](docs/FenixAllianceAbpWebApi.md#hello_get) | **GET** /hello | 
-*FenixAllianceAbpWebApi* | [**login_post**](docs/FenixAllianceAbpWebApi.md#login_post) | **POST** /login | 
-*FenixAllianceAbpWebApi* | [**manage2fa_post**](docs/FenixAllianceAbpWebApi.md#manage2fa_post) | **POST** /manage/2fa | 
-*FenixAllianceAbpWebApi* | [**manage_info_get**](docs/FenixAllianceAbpWebApi.md#manage_info_get) | **GET** /manage/info | 
-*FenixAllianceAbpWebApi* | [**manage_info_post**](docs/FenixAllianceAbpWebApi.md#manage_info_post) | **POST** /manage/info | 
-*FenixAllianceAbpWebApi* | [**map_identity_api_slash_confirm_email**](docs/FenixAllianceAbpWebApi.md#map_identity_api_slash_confirm_email) | **GET** /confirmEmail | 
-*FenixAllianceAbpWebApi* | [**refresh_post**](docs/FenixAllianceAbpWebApi.md#refresh_post) | **POST** /refresh | 
-*FenixAllianceAbpWebApi* | [**register_post**](docs/FenixAllianceAbpWebApi.md#register_post) | **POST** /register | 
-*FenixAllianceAbpWebApi* | [**resend_confirmation_email_post**](docs/FenixAllianceAbpWebApi.md#resend_confirmation_email_post) | **POST** /resendConfirmationEmail | 
-*FenixAllianceAbpWebApi* | [**reset_password_post**](docs/FenixAllianceAbpWebApi.md#reset_password_post) | **POST** /resetPassword | 
-*FenixAllianceAbpWebApi* | [**version_get**](docs/FenixAllianceAbpWebApi.md#version_get) | **GET** /version | 
+*FenixAllianceAbsWebApi* | [**account_logout_post**](docs/FenixAllianceAbsWebApi.md#account_logout_post) | **POST** /Account/Logout | 
+*FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
+*FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
+*FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
+*FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
+*FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
+*FenixAllianceAbsWebApi* | [**login_post**](docs/FenixAllianceAbsWebApi.md#login_post) | **POST** /login | 
+*FenixAllianceAbsWebApi* | [**manage2fa_post**](docs/FenixAllianceAbsWebApi.md#manage2fa_post) | **POST** /manage/2fa | 
+*FenixAllianceAbsWebApi* | [**manage_info_get**](docs/FenixAllianceAbsWebApi.md#manage_info_get) | **GET** /manage/info | 
+*FenixAllianceAbsWebApi* | [**manage_info_post**](docs/FenixAllianceAbsWebApi.md#manage_info_post) | **POST** /manage/info | 
+*FenixAllianceAbsWebApi* | [**map_identity_api_slash_confirm_email**](docs/FenixAllianceAbsWebApi.md#map_identity_api_slash_confirm_email) | **GET** /confirmEmail | 
+*FenixAllianceAbsWebApi* | [**refresh_post**](docs/FenixAllianceAbsWebApi.md#refresh_post) | **POST** /refresh | 
+*FenixAllianceAbsWebApi* | [**register_post**](docs/FenixAllianceAbsWebApi.md#register_post) | **POST** /register | 
+*FenixAllianceAbsWebApi* | [**resend_confirmation_email_post**](docs/FenixAllianceAbsWebApi.md#resend_confirmation_email_post) | **POST** /resendConfirmationEmail | 
+*FenixAllianceAbsWebApi* | [**reset_password_post**](docs/FenixAllianceAbsWebApi.md#reset_password_post) | **POST** /resetPassword | 
+*FenixAllianceAbsWebApi* | [**version_get**](docs/FenixAllianceAbsWebApi.md#version_get) | **GET** /version | 
 *GigsApi* | [**create_gig_async**](docs/GigsApi.md#create_gig_async) | **POST** /api/v2/HrmsService/Gigs | Create a gig
 *GigsApi* | [**delete_gig_async**](docs/GigsApi.md#delete_gig_async) | **DELETE** /api/v2/HrmsService/Gigs/{gigId} | Delete a gig
 *GigsApi* | [**get_gig_by_id_async**](docs/GigsApi.md#get_gig_by_id_async) | **GET** /api/v2/HrmsService/Gigs/{gigId} | Get gig by ID
