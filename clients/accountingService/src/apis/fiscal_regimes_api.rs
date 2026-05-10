@@ -71,7 +71,7 @@ pub enum UpdateFiscalRegimeError {
 
 
 /// Creates a new fiscal regime for a fiscal authority.
-pub async fn create_fiscal_regime(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_regime_create_dto: Option<models::FiscalRegimeCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalRegimeError>> {
+pub async fn create_fiscal_regime(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_regime_create_dto: Option<models::FiscalRegimeCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalRegimeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -107,7 +107,7 @@ pub async fn create_fiscal_regime(configuration: &configuration::Configuration, 
 }
 
 /// Deletes a fiscal regime identified by its unique identifier.
-pub async fn delete_fiscal_regime(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, regime_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalRegimeError>> {
+pub async fn delete_fiscal_regime(configuration: &configuration::Configuration, tenant_id: &str, regime_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalRegimeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -142,7 +142,7 @@ pub async fn delete_fiscal_regime(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves a specific fiscal regime by its unique identifier.
-pub async fn get_fiscal_regime(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, regime_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalRegimeDtoEnvelope, Error<GetFiscalRegimeError>> {
+pub async fn get_fiscal_regime(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, regime_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalRegimeDtoEnvelope, Error<GetFiscalRegimeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -246,7 +246,7 @@ pub async fn get_fiscal_regimes_count(configuration: &configuration::Configurati
 }
 
 /// Updates an existing fiscal regime identified by its unique identifier.
-pub async fn update_fiscal_regime(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, regime_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_regime_update_dto: Option<models::FiscalRegimeUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalRegimeError>> {
+pub async fn update_fiscal_regime(configuration: &configuration::Configuration, tenant_id: &str, regime_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_regime_update_dto: Option<models::FiscalRegimeUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalRegimeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -15,10 +15,16 @@ use serde::{Deserialize, Serialize};
 pub struct ShipmentDto {
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub id: Option<Option<String>>,
+    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<Option<String>>,
     #[serde(rename = "trackingCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tracking_code: Option<Option<String>>,
     #[serde(rename = "isInternational", skip_serializing_if = "Option::is_none")]
     pub is_international: Option<bool>,
+    #[serde(rename = "shipped", skip_serializing_if = "Option::is_none")]
+    pub shipped: Option<bool>,
+    #[serde(rename = "delivered", skip_serializing_if = "Option::is_none")]
+    pub delivered: Option<bool>,
     #[serde(rename = "shipmentTimestamp", skip_serializing_if = "Option::is_none")]
     pub shipment_timestamp: Option<String>,
     #[serde(rename = "deliveryTimestamp", skip_serializing_if = "Option::is_none")]
@@ -27,19 +33,65 @@ pub struct ShipmentDto {
     pub expected_shipping_date: Option<String>,
     #[serde(rename = "expectedDeliveryDate", skip_serializing_if = "Option::is_none")]
     pub expected_delivery_date: Option<String>,
+    #[serde(rename = "shippingTerms", skip_serializing_if = "Option::is_none")]
+    pub shipping_terms: Option<ShippingTerms>,
+    #[serde(rename = "orderID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub order_id: Option<Option<String>>,
+    #[serde(rename = "businessID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub business_id: Option<Option<String>>,
 }
 
 impl ShipmentDto {
     pub fn new() -> ShipmentDto {
         ShipmentDto {
             id: None,
+            timestamp: None,
             tracking_code: None,
             is_international: None,
+            shipped: None,
+            delivered: None,
             shipment_timestamp: None,
             delivery_timestamp: None,
             expected_shipping_date: None,
             expected_delivery_date: None,
+            shipping_terms: None,
+            order_id: None,
+            business_id: None,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum ShippingTerms {
+    #[serde(rename = "NC")]
+    Nc,
+    #[serde(rename = "EXW")]
+    Exw,
+    #[serde(rename = "FCA")]
+    Fca,
+    #[serde(rename = "FOB")]
+    Fob,
+    #[serde(rename = "FAS")]
+    Fas,
+    #[serde(rename = "CFR")]
+    Cfr,
+    #[serde(rename = "CIF")]
+    Cif,
+    #[serde(rename = "CPT")]
+    Cpt,
+    #[serde(rename = "CIP")]
+    Cip,
+    #[serde(rename = "DDP")]
+    Ddp,
+    #[serde(rename = "DAP")]
+    Dap,
+    #[serde(rename = "DPU")]
+    Dpu,
+}
+
+impl Default for ShippingTerms {
+    fn default() -> ShippingTerms {
+        Self::Nc
     }
 }
 

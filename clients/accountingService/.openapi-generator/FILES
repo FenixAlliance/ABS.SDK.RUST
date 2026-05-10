@@ -34,6 +34,10 @@ docs/AccountingPeriodDtoListEnvelope.md
 docs/AccountingPeriodUpdateDto.md
 docs/AccountingPeriodsApi.md
 docs/AccountsApi.md
+docs/AppliedItemTaxRecordCreateDto.md
+docs/AppliedItemTaxRecordDto.md
+docs/AppliedItemTaxRecordDtoIReadOnlyListEnvelope.md
+docs/AppliedItemTaxRecordUpdateDto.md
 docs/AppliedTaxPolicyRecordCreateDto.md
 docs/AppliedTaxPolicyRecordDto.md
 docs/AppliedTaxPolicyRecordDtoEnvelope.md
@@ -60,6 +64,7 @@ docs/BankTransactionDtoListEnvelope.md
 docs/BankTransactionUpdateDto.md
 docs/BankUpdateDto.md
 docs/BankingApi.md
+docs/BillableLineTaxesApi.md
 docs/BillingProfileCreateDto.md
 docs/BillingProfileDto.md
 docs/BillingProfileDtoEnvelope.md
@@ -282,6 +287,7 @@ src/apis/account_groups_api.rs
 src/apis/accounting_periods_api.rs
 src/apis/accounts_api.rs
 src/apis/banking_api.rs
+src/apis/billable_line_taxes_api.rs
 src/apis/billing_profiles_api.rs
 src/apis/budgets_api.rs
 src/apis/commissions_api.rs
@@ -341,6 +347,10 @@ src/models/accounting_period_dto.rs
 src/models/accounting_period_dto_envelope.rs
 src/models/accounting_period_dto_list_envelope.rs
 src/models/accounting_period_update_dto.rs
+src/models/applied_item_tax_record_create_dto.rs
+src/models/applied_item_tax_record_dto.rs
+src/models/applied_item_tax_record_dto_i_read_only_list_envelope.rs
+src/models/applied_item_tax_record_update_dto.rs
 src/models/applied_tax_policy_record_create_dto.rs
 src/models/applied_tax_policy_record_dto.rs
 src/models/applied_tax_policy_record_dto_envelope.rs

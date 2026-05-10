@@ -35,6 +35,12 @@ docs/MarketingCampaignDto.md
 docs/MarketingCampaignDtoEnvelope.md
 docs/MarketingCampaignUpdateDto.md
 docs/MarketingCampaignsApi.md
+docs/MarketingLeadCreateDto.md
+docs/MarketingLeadDto.md
+docs/MarketingLeadDtoEnvelope.md
+docs/MarketingLeadDtoListEnvelope.md
+docs/MarketingLeadUpdateDto.md
+docs/MarketingLeadsApi.md
 docs/MarketingListCreateDto.md
 docs/MarketingListDto.md
 docs/MarketingListDtoEnvelope.md
@@ -74,6 +80,7 @@ src/apis/email_signatures_api.rs
 src/apis/email_templates_api.rs
 src/apis/fenix_alliance_abs_web_api.rs
 src/apis/marketing_campaigns_api.rs
+src/apis/marketing_leads_api.rs
 src/apis/marketing_lists_api.rs
 src/apis/mod.rs
 src/apis/newsletters_api.rs
@@ -109,6 +116,11 @@ src/models/marketing_campaign_create_dto.rs
 src/models/marketing_campaign_dto.rs
 src/models/marketing_campaign_dto_envelope.rs
 src/models/marketing_campaign_update_dto.rs
+src/models/marketing_lead_create_dto.rs
+src/models/marketing_lead_dto.rs
+src/models/marketing_lead_dto_envelope.rs
+src/models/marketing_lead_dto_list_envelope.rs
+src/models/marketing_lead_update_dto.rs
 src/models/marketing_list_create_dto.rs
 src/models/marketing_list_dto.rs
 src/models/marketing_list_dto_envelope.rs

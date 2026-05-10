@@ -339,6 +339,34 @@ pub struct CourseDto {
     pub selected_attributes_options: Option<Option<Vec<String>>>,
     #[serde(rename = "selectedSellingMarginPolicies", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub selected_selling_margin_policies: Option<Option<Vec<String>>>,
+    #[serde(rename = "code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub code: Option<Option<String>>,
+    #[serde(rename = "version", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub version: Option<Option<String>>,
+    #[serde(rename = "courseCategoryID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub course_category_id: Option<Option<String>>,
+    #[serde(rename = "courseCategoryName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub course_category_name: Option<Option<String>>,
+    #[serde(rename = "instructorProfileID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub instructor_profile_id: Option<Option<String>>,
+    #[serde(rename = "instructorProfileName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub instructor_profile_name: Option<Option<String>>,
+    #[serde(rename = "maxCourseEnrollments", skip_serializing_if = "Option::is_none")]
+    pub max_course_enrollments: Option<i32>,
+    #[serde(rename = "totalEffortInWeeks", skip_serializing_if = "Option::is_none")]
+    pub total_effort_in_weeks: Option<i32>,
+    #[serde(rename = "totalHoursPerWeek", skip_serializing_if = "Option::is_none")]
+    pub total_hours_per_week: Option<i32>,
+    #[serde(rename = "totalEffortInHours", skip_serializing_if = "Option::is_none")]
+    pub total_effort_in_hours: Option<i32>,
+    #[serde(rename = "startDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub start_date_time: Option<Option<String>>,
+    #[serde(rename = "endDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub end_date_time: Option<Option<String>>,
+    #[serde(rename = "inscriptionsStartDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub inscriptions_start_date_time: Option<Option<String>>,
+    #[serde(rename = "inscriptionsEndDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub inscriptions_end_date_time: Option<Option<String>>,
 }
 
 impl CourseDto {
@@ -507,6 +535,20 @@ impl CourseDto {
             selected_shipment_policies: None,
             selected_attributes_options: None,
             selected_selling_margin_policies: None,
+            code: None,
+            version: None,
+            course_category_id: None,
+            course_category_name: None,
+            instructor_profile_id: None,
+            instructor_profile_name: None,
+            max_course_enrollments: None,
+            total_effort_in_weeks: None,
+            total_hours_per_week: None,
+            total_effort_in_hours: None,
+            start_date_time: None,
+            end_date_time: None,
+            inscriptions_start_date_time: None,
+            inscriptions_end_date_time: None,
         }
     }
 }

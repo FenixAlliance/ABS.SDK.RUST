@@ -25,7 +25,7 @@ Creates a new fiscal period associated with a fiscal year.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **fiscal_period_create_dto** | Option<[**FiscalPeriodCreateDto**](FiscalPeriodCreateDto.md)> |  |  |
@@ -58,7 +58,7 @@ Deletes a fiscal period identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_period_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -91,7 +91,7 @@ Retrieves a specific fiscal period by its unique identifier within a fiscal year
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **fiscal_year_id** | **uuid::Uuid** |  | [required] |
 **fiscal_period_id** | **uuid::Uuid** |  | [required] |
@@ -126,7 +126,7 @@ Retrieves all fiscal periods for the specified fiscal year within a fiscal autho
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **fiscal_year_id** | **uuid::Uuid** |  | [required] |
 **authority_id** | **String** |  | [required] |
@@ -161,7 +161,7 @@ Returns the total count of fiscal periods for the specified fiscal year.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **fiscal_year_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -195,7 +195,7 @@ Updates an existing fiscal period identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_period_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

@@ -31,6 +31,7 @@ Name | Type | Description | Notes
 **tax_calculation_method** | Option<**String**> |  | [optional]
 **cost_calculation_method** | Option<**String**> |  | [optional]
 **forex_rate** | Option<**f64**> |  | [optional]
+**forex_rates_snapshot** | Option<**String**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
 **total_detail** | Option<**f64**> |  | [optional]
 **total_detail_currency_id** | Option<**String**> |  | [optional]

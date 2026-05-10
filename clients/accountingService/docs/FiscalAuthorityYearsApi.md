@@ -25,7 +25,7 @@ Creates a new fiscal year associated with a fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **fiscal_year_create_dto** | Option<[**FiscalYearCreateDto**](FiscalYearCreateDto.md)> |  |  |
@@ -58,7 +58,7 @@ Deletes a fiscal year identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_year_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -91,7 +91,7 @@ Retrieves a specific fiscal year by its unique identifier within a fiscal author
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **fiscal_year_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -125,7 +125,7 @@ Retrieves all fiscal years associated with the specified fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **authority_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -159,7 +159,7 @@ Returns the total count of fiscal years for the specified fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -192,7 +192,7 @@ Updates an existing fiscal year identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_year_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

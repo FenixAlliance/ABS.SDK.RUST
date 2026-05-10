@@ -91,6 +91,13 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 }
 
 pub mod fenix_alliance_abs_web_api;
+pub mod item_shipping_policies_api;
 pub mod shipments_api;
+pub mod shipping_classes_api;
+pub mod shipping_couriers_api;
+pub mod shipping_labels_api;
+pub mod shipping_methods_api;
+pub mod shipping_regions_api;
+pub mod shipping_zones_api;
 
 pub mod configuration;

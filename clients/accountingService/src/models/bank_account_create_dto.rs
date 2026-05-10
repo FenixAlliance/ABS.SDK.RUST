@@ -17,26 +17,8 @@ pub struct BankAccountCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
-    pub group: Option<bool>,
-    #[serde(rename = "frozen", skip_serializing_if = "Option::is_none")]
-    pub frozen: Option<bool>,
-    #[serde(rename = "name")]
-    pub name: String,
-    #[serde(rename = "code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub code: Option<Option<String>>,
-    #[serde(rename = "path", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub path: Option<Option<String>>,
-    #[serde(rename = "prefix", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub prefix: Option<Option<String>>,
-    #[serde(rename = "currencyId")]
-    pub currency_id: String,
-    #[serde(rename = "accountTypeId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_type_id: Option<Option<String>>,
-    #[serde(rename = "parentAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub parent_account_id: Option<Option<String>>,
-    #[serde(rename = "accountCategory")]
-    pub account_category: AccountCategory,
+    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub name: Option<Option<String>>,
     #[serde(rename = "iban", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub iban: Option<Option<String>>,
     #[serde(rename = "swift", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -54,20 +36,11 @@ pub struct BankAccountCreateDto {
 }
 
 impl BankAccountCreateDto {
-    pub fn new(name: String, currency_id: String, account_category: AccountCategory) -> BankAccountCreateDto {
+    pub fn new() -> BankAccountCreateDto {
         BankAccountCreateDto {
             id: None,
             timestamp: None,
-            group: None,
-            frozen: None,
-            name,
-            code: None,
-            path: None,
-            prefix: None,
-            currency_id,
-            account_type_id: None,
-            parent_account_id: None,
-            account_category,
+            name: None,
             iban: None,
             swift: None,
             branch_code: None,
@@ -76,26 +49,6 @@ impl BankAccountCreateDto {
             bank_id: None,
             bank_profile_id: None,
         }
-    }
-}
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AccountCategory {
-    #[serde(rename = "Assets")]
-    Assets,
-    #[serde(rename = "Equity")]
-    Equity,
-    #[serde(rename = "Revenue")]
-    Revenue,
-    #[serde(rename = "Expense")]
-    Expense,
-    #[serde(rename = "Liabilities")]
-    Liabilities,
-}
-
-impl Default for AccountCategory {
-    fn default() -> AccountCategory {
-        Self::Assets
     }
 }
 

@@ -552,7 +552,7 @@ pub async fn get_course_assignments_by_course_count_async(configuration: &config
 }
 
 /// Retrieves a specific course by its ID.
-pub async fn get_course_by_id_async(configuration: &configuration::Configuration, tenant_id: &str, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CourseDto, Error<GetCourseByIdAsyncError>> {
+pub async fn get_course_by_id_async(configuration: &configuration::Configuration, course_id: &str, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CourseDto, Error<GetCourseByIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -560,7 +560,9 @@ pub async fn get_course_by_id_async(configuration: &configuration::Configuration
     let local_var_uri_str = format!("{}/api/v2/LearningService/Courses/{courseId}", local_var_configuration.base_path, courseId=crate::apis::urlencode(course_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
-    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = tenant_id {
+        local_var_req_builder = local_var_req_builder.query(&[("tenantId", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }

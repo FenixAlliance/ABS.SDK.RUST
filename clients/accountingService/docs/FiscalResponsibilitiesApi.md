@@ -25,7 +25,7 @@ Creates a new fiscal responsibility for a fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **fiscal_responsibility_create_dto** | Option<[**FiscalResponsibilityCreateDto**](FiscalResponsibilityCreateDto.md)> |  |  |
@@ -58,7 +58,7 @@ Deletes a fiscal responsibility identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_responsibility_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -156,7 +156,7 @@ Retrieves a specific fiscal responsibility by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **fiscal_responsibility_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -190,7 +190,7 @@ Updates an existing fiscal responsibility identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_responsibility_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

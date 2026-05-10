@@ -71,7 +71,7 @@ pub enum UpdateFiscalIdentificationTypeError {
 
 
 /// Creates a new fiscal identification type for a fiscal authority.
-pub async fn create_fiscal_identification_type(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_identification_type_create_dto: Option<models::FiscalIdentificationTypeCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalIdentificationTypeError>> {
+pub async fn create_fiscal_identification_type(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_identification_type_create_dto: Option<models::FiscalIdentificationTypeCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalIdentificationTypeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -107,7 +107,7 @@ pub async fn create_fiscal_identification_type(configuration: &configuration::Co
 }
 
 /// Deletes a fiscal identification type identified by its unique identifier.
-pub async fn delete_fiscal_identification_type(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, identification_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalIdentificationTypeError>> {
+pub async fn delete_fiscal_identification_type(configuration: &configuration::Configuration, tenant_id: &str, identification_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalIdentificationTypeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -142,7 +142,7 @@ pub async fn delete_fiscal_identification_type(configuration: &configuration::Co
 }
 
 /// Retrieves a specific fiscal identification type by its unique identifier.
-pub async fn get_fiscal_identification_type(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, identification_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalIdentificationTypeDtoEnvelope, Error<GetFiscalIdentificationTypeError>> {
+pub async fn get_fiscal_identification_type(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, identification_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalIdentificationTypeDtoEnvelope, Error<GetFiscalIdentificationTypeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -245,7 +245,7 @@ pub async fn get_fiscal_identification_types_count(configuration: &configuration
 }
 
 /// Updates an existing fiscal identification type identified by its unique identifier.
-pub async fn update_fiscal_identification_type(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, identification_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_identification_type_update_dto: Option<models::FiscalIdentificationTypeUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalIdentificationTypeError>> {
+pub async fn update_fiscal_identification_type(configuration: &configuration::Configuration, tenant_id: &str, identification_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_identification_type_update_dto: Option<models::FiscalIdentificationTypeUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalIdentificationTypeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

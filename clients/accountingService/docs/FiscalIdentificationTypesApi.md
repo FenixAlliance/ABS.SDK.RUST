@@ -25,7 +25,7 @@ Creates a new fiscal identification type for a fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **fiscal_identification_type_create_dto** | Option<[**FiscalIdentificationTypeCreateDto**](FiscalIdentificationTypeCreateDto.md)> |  |  |
@@ -58,7 +58,7 @@ Deletes a fiscal identification type identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **identification_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -91,7 +91,7 @@ Retrieves a specific fiscal identification type by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **identification_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -189,7 +189,7 @@ Updates an existing fiscal identification type identified by its unique identifi
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **identification_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

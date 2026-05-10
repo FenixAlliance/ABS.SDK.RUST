@@ -91,18 +91,23 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 }
 
 pub mod course_articles_api;
+pub mod course_assignment_components_api;
+pub mod course_assignment_types_api;
 pub mod course_assignments_api;
 pub mod course_categories_api;
 pub mod course_certificates_api;
 pub mod course_cohorts_api;
+pub mod course_content_groups_api;
 pub mod course_enrollments_api;
 pub mod course_files_api;
 pub mod course_forums_api;
+pub mod course_grading_rubrics_api;
 pub mod course_handouts_api;
 pub mod course_libraries_api;
 pub mod course_pages_api;
 pub mod course_problem_sets_api;
 pub mod course_sections_api;
+pub mod course_team_memberships_api;
 pub mod course_unit_components_api;
 pub mod course_units_api;
 pub mod course_updates_api;
@@ -110,6 +115,7 @@ pub mod course_wikis_api;
 pub mod courses_api;
 pub mod fenix_alliance_abs_web_api;
 pub mod instructor_profiles_api;
+pub mod me_api;
 pub mod student_profiles_api;
 
 pub mod configuration;

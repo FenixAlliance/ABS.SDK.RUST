@@ -71,7 +71,7 @@ pub enum UpdateInvoiceEnumerationRangeError {
 
 
 /// Creates a new invoice enumeration range for a fiscal authority.
-pub async fn create_invoice_enumeration_range(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, api_version: Option<&str>, x_api_version: Option<&str>, invoice_enumeration_range_create_dto: Option<models::InvoiceEnumerationRangeCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateInvoiceEnumerationRangeError>> {
+pub async fn create_invoice_enumeration_range(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_enumeration_range_create_dto: Option<models::InvoiceEnumerationRangeCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateInvoiceEnumerationRangeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -107,7 +107,7 @@ pub async fn create_invoice_enumeration_range(configuration: &configuration::Con
 }
 
 /// Deletes an invoice enumeration range identified by its unique identifier.
-pub async fn delete_invoice_enumeration_range(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, enumeration_range_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteInvoiceEnumerationRangeError>> {
+pub async fn delete_invoice_enumeration_range(configuration: &configuration::Configuration, tenant_id: &str, enumeration_range_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteInvoiceEnumerationRangeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -142,7 +142,7 @@ pub async fn delete_invoice_enumeration_range(configuration: &configuration::Con
 }
 
 /// Retrieves a specific invoice enumeration range by its unique identifier.
-pub async fn get_invoice_enumeration_range(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, enumeration_range_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::InvoiceEnumerationRangeDtoEnvelope, Error<GetInvoiceEnumerationRangeError>> {
+pub async fn get_invoice_enumeration_range(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, enumeration_range_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::InvoiceEnumerationRangeDtoEnvelope, Error<GetInvoiceEnumerationRangeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -246,7 +246,7 @@ pub async fn get_invoice_enumeration_ranges_count(configuration: &configuration:
 }
 
 /// Updates an existing invoice enumeration range identified by its unique identifier.
-pub async fn update_invoice_enumeration_range(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, enumeration_range_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_enumeration_range_update_dto: Option<models::InvoiceEnumerationRangeUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateInvoiceEnumerationRangeError>> {
+pub async fn update_invoice_enumeration_range(configuration: &configuration::Configuration, tenant_id: &str, enumeration_range_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_enumeration_range_update_dto: Option<models::InvoiceEnumerationRangeUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateInvoiceEnumerationRangeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

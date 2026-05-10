@@ -4,6 +4,15 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**closed** | Option<**bool**> |  | [optional]
+**title** | Option<**String**> |  | [optional]
+**user_id** | Option<**String**> |  | [optional]
+**price_list_id** | Option<**String**> |  | [optional]
+**description** | Option<**String**> |  | [optional]
+**individual_id** | Option<**String**> |  | [optional]
+**payment_term_id** | Option<**String**> |  | [optional]
+**organization_id** | Option<**String**> |  | [optional]
+**receiver_tenant_id** | Option<**String**> |  | [optional]
 **first_name** | Option<**String**> |  | [optional]
 **last_name** | Option<**String**> |  | [optional]
 **company_name** | Option<**String**> |  | [optional]
@@ -17,6 +26,8 @@ Name | Type | Description | Notes
 **billing_location_id** | Option<**String**> |  | [optional]
 **shipping_location_id** | Option<**String**> |  | [optional]
 **shipping_method_id** | Option<**String**> |  | [optional]
+**forex_rate** | Option<**f64**> |  | [optional]
+**currency_id** | Option<**String**> |  | [optional]
 **total_detail** | Option<**f64**> |  | [optional]
 **total_detail_currency_id** | Option<**String**> |  | [optional]
 **total_profit** | Option<**f64**> |  | [optional]
@@ -44,22 +55,11 @@ Name | Type | Description | Notes
 **cost_calculation_method** | Option<**String**> |  | [optional]
 **tax_calculation_method** | Option<**String**> |  | [optional]
 **cart_id** | Option<**String**> |  | [optional]
-**user_id** | Option<**String**> |  | [optional]
-**forex_rate** | Option<**f64**> |  | [optional]
-**currency_id** | Option<**String**> |  | [optional]
-**individual_id** | Option<**String**> |  | [optional]
-**organization_id** | Option<**String**> |  | [optional]
 **total_amount_in_usd** | Option<**f64**> |  | [optional]
 **total_taxes_in_usd** | Option<**f64**> |  | [optional]
-**receiver_tenant_id** | Option<**String**> |  | [optional]
-**closed** | Option<**bool**> |  | [optional]
-**price_list_id** | Option<**String**> |  | [optional]
-**payment_term_id** | Option<**String**> |  | [optional]
 **quote_status** | Option<**String**> |  | [optional]
 **effective_to** | Option<**String**> |  | [optional]
 **effective_from** | Option<**String**> |  | [optional]
-**description** | Option<**String**> |  | [optional]
-**title** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

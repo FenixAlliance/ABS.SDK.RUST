@@ -71,7 +71,7 @@ pub enum UpdateFiscalResponsibilityError {
 
 
 /// Creates a new fiscal responsibility for a fiscal authority.
-pub async fn create_fiscal_responsibility(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_responsibility_create_dto: Option<models::FiscalResponsibilityCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalResponsibilityError>> {
+pub async fn create_fiscal_responsibility(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_responsibility_create_dto: Option<models::FiscalResponsibilityCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalResponsibilityError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -107,7 +107,7 @@ pub async fn create_fiscal_responsibility(configuration: &configuration::Configu
 }
 
 /// Deletes a fiscal responsibility identified by its unique identifier.
-pub async fn delete_fiscal_responsibility(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_responsibility_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalResponsibilityError>> {
+pub async fn delete_fiscal_responsibility(configuration: &configuration::Configuration, tenant_id: &str, fiscal_responsibility_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalResponsibilityError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -211,7 +211,7 @@ pub async fn get_fiscal_responsibilities_count(configuration: &configuration::Co
 }
 
 /// Retrieves a specific fiscal responsibility by its unique identifier.
-pub async fn get_fiscal_responsibility(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, fiscal_responsibility_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalResponsibilityDtoEnvelope, Error<GetFiscalResponsibilityError>> {
+pub async fn get_fiscal_responsibility(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_responsibility_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalResponsibilityDtoEnvelope, Error<GetFiscalResponsibilityError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -246,7 +246,7 @@ pub async fn get_fiscal_responsibility(configuration: &configuration::Configurat
 }
 
 /// Updates an existing fiscal responsibility identified by its unique identifier.
-pub async fn update_fiscal_responsibility(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_responsibility_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_responsibility_update_dto: Option<models::FiscalResponsibilityUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalResponsibilityError>> {
+pub async fn update_fiscal_responsibility(configuration: &configuration::Configuration, tenant_id: &str, fiscal_responsibility_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_responsibility_update_dto: Option<models::FiscalResponsibilityUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalResponsibilityError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

@@ -15,12 +15,66 @@ use serde::{Deserialize, Serialize};
 pub struct CourseUpdateDto {
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
+    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub description: Option<Option<String>>,
+    #[serde(rename = "sku", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub sku: Option<Option<String>>,
+    #[serde(rename = "summary", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub summary: Option<Option<String>>,
+    #[serde(rename = "code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub code: Option<Option<String>>,
+    #[serde(rename = "version", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub version: Option<Option<String>>,
+    #[serde(rename = "courseCategoryID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub course_category_id: Option<Option<String>>,
+    #[serde(rename = "instructorProfileID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub instructor_profile_id: Option<Option<String>>,
+    #[serde(rename = "currencyID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub currency_id: Option<Option<String>>,
+    #[serde(rename = "regularPrice", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub regular_price: Option<Option<f64>>,
+    #[serde(rename = "maxCourseEnrollments", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub max_course_enrollments: Option<Option<i32>>,
+    #[serde(rename = "totalEffortInWeeks", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_effort_in_weeks: Option<Option<i32>>,
+    #[serde(rename = "totalHoursPerWeek", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_hours_per_week: Option<Option<i32>>,
+    #[serde(rename = "totalEffortInHours", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub total_effort_in_hours: Option<Option<i32>>,
+    #[serde(rename = "startDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub start_date_time: Option<Option<String>>,
+    #[serde(rename = "endDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub end_date_time: Option<Option<String>>,
+    #[serde(rename = "inscriptionsStartDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub inscriptions_start_date_time: Option<Option<String>>,
+    #[serde(rename = "inscriptionsEndDateTime", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub inscriptions_end_date_time: Option<Option<String>>,
+    #[serde(rename = "published", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub published: Option<Option<bool>>,
 }
 
 impl CourseUpdateDto {
     pub fn new() -> CourseUpdateDto {
         CourseUpdateDto {
             title: None,
+            description: None,
+            sku: None,
+            summary: None,
+            code: None,
+            version: None,
+            course_category_id: None,
+            instructor_profile_id: None,
+            currency_id: None,
+            regular_price: None,
+            max_course_enrollments: None,
+            total_effort_in_weeks: None,
+            total_hours_per_week: None,
+            total_effort_in_hours: None,
+            start_date_time: None,
+            end_date_time: None,
+            inscriptions_start_date_time: None,
+            inscriptions_end_date_time: None,
+            published: None,
         }
     }
 }

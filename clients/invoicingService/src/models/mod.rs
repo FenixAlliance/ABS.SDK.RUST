@@ -14,8 +14,6 @@ pub mod extended_invoice_dto;
 pub use self::extended_invoice_dto::ExtendedInvoiceDto;
 pub mod extended_invoice_dto_list_envelope;
 pub use self::extended_invoice_dto_list_envelope::ExtendedInvoiceDtoListEnvelope;
-pub mod forex_rates;
-pub use self::forex_rates::ForexRates;
 pub mod forgot_password_request;
 pub use self::forgot_password_request::ForgotPasswordRequest;
 pub mod http_validation_problem_details;

@@ -71,7 +71,7 @@ pub enum UpdateFiscalPeriodError {
 
 
 /// Creates a new fiscal period associated with a fiscal year.
-pub async fn create_fiscal_period(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_period_create_dto: Option<models::FiscalPeriodCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalPeriodError>> {
+pub async fn create_fiscal_period(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_period_create_dto: Option<models::FiscalPeriodCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalPeriodError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -107,7 +107,7 @@ pub async fn create_fiscal_period(configuration: &configuration::Configuration, 
 }
 
 /// Deletes a fiscal period identified by its unique identifier.
-pub async fn delete_fiscal_period(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalPeriodError>> {
+pub async fn delete_fiscal_period(configuration: &configuration::Configuration, tenant_id: &str, fiscal_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalPeriodError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -142,7 +142,7 @@ pub async fn delete_fiscal_period(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves a specific fiscal period by its unique identifier within a fiscal year.
-pub async fn get_fiscal_period(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, fiscal_year_id: &str, fiscal_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalPeriodDtoEnvelope, Error<GetFiscalPeriodError>> {
+pub async fn get_fiscal_period(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_year_id: &str, fiscal_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalPeriodDtoEnvelope, Error<GetFiscalPeriodError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -177,7 +177,7 @@ pub async fn get_fiscal_period(configuration: &configuration::Configuration, ten
 }
 
 /// Retrieves all fiscal periods for the specified fiscal year within a fiscal authority.
-pub async fn get_fiscal_periods(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, fiscal_year_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalPeriodDtoListEnvelope, Error<GetFiscalPeriodsError>> {
+pub async fn get_fiscal_periods(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_year_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalPeriodDtoListEnvelope, Error<GetFiscalPeriodsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -213,7 +213,7 @@ pub async fn get_fiscal_periods(configuration: &configuration::Configuration, te
 }
 
 /// Returns the total count of fiscal periods for the specified fiscal year.
-pub async fn get_fiscal_periods_count(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetFiscalPeriodsCountError>> {
+pub async fn get_fiscal_periods_count(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetFiscalPeriodsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -248,7 +248,7 @@ pub async fn get_fiscal_periods_count(configuration: &configuration::Configurati
 }
 
 /// Updates an existing fiscal period identified by its unique identifier.
-pub async fn update_fiscal_period(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_period_update_dto: Option<models::FiscalPeriodUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalPeriodError>> {
+pub async fn update_fiscal_period(configuration: &configuration::Configuration, tenant_id: &str, fiscal_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_period_update_dto: Option<models::FiscalPeriodUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalPeriodError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

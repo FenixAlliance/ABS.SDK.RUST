@@ -246,7 +246,7 @@ No authorization required
 
 ## get_course_by_id_async
 
-> models::CourseDto get_course_by_id_async(tenant_id, course_id, api_version, x_api_version)
+> models::CourseDto get_course_by_id_async(course_id, tenant_id, api_version, x_api_version)
 Get course by ID
 
 Retrieves a specific course by its ID.
@@ -256,8 +256,8 @@ Retrieves a specific course by its ID.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | **uuid::Uuid** |  | [required] |
 **course_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

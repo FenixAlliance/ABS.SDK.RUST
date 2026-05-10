@@ -4,7 +4,6 @@ Cargo.toml
 README.md
 docs/AccessTokenResponse.md
 docs/ContactDto.md
-docs/CurrencyId.md
 docs/DealUnitCreateDto.md
 docs/DealUnitDto.md
 docs/DealUnitDtoEnvelope.md
@@ -35,14 +34,12 @@ docs/ExtendedDealUnitDtoListEnvelope.md
 docs/ExtendedSalesLiteratureDto.md
 docs/ExtendedSalesLiteratureDtoListEnvelope.md
 docs/FenixAllianceAbsWebApi.md
-docs/ForexRates.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
-docs/Money.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -69,7 +66,6 @@ src/apis/sales_literatures_api.rs
 src/lib.rs
 src/models/access_token_response.rs
 src/models/contact_dto.rs
-src/models/currency_id.rs
 src/models/deal_unit_create_dto.rs
 src/models/deal_unit_dto.rs
 src/models/deal_unit_dto_envelope.rs
@@ -97,7 +93,6 @@ src/models/extended_deal_unit_dto_envelope.rs
 src/models/extended_deal_unit_dto_list_envelope.rs
 src/models/extended_sales_literature_dto.rs
 src/models/extended_sales_literature_dto_list_envelope.rs
-src/models/forex_rates.rs
 src/models/forgot_password_request.rs
 src/models/http_validation_problem_details.rs
 src/models/info_request.rs
@@ -105,7 +100,6 @@ src/models/info_response.rs
 src/models/int32_envelope.rs
 src/models/login_request.rs
 src/models/mod.rs
-src/models/money.rs
 src/models/refresh_request.rs
 src/models/register_request.rs
 src/models/resend_confirmation_email_request.rs

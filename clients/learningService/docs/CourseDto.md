@@ -167,6 +167,20 @@ Name | Type | Description | Notes
 **selected_shipment_policies** | Option<**Vec<String>**> |  | [optional]
 **selected_attributes_options** | Option<**Vec<String>**> |  | [optional]
 **selected_selling_margin_policies** | Option<**Vec<String>**> |  | [optional]
+**code** | Option<**String**> |  | [optional]
+**version** | Option<**String**> |  | [optional]
+**course_category_id** | Option<**String**> |  | [optional]
+**course_category_name** | Option<**String**> |  | [optional]
+**instructor_profile_id** | Option<**String**> |  | [optional]
+**instructor_profile_name** | Option<**String**> |  | [optional]
+**max_course_enrollments** | Option<**i32**> |  | [optional]
+**total_effort_in_weeks** | Option<**i32**> |  | [optional]
+**total_hours_per_week** | Option<**i32**> |  | [optional]
+**total_effort_in_hours** | Option<**i32**> |  | [optional]
+**start_date_time** | Option<**String**> |  | [optional]
+**end_date_time** | Option<**String**> |  | [optional]
+**inscriptions_start_date_time** | Option<**String**> |  | [optional]
+**inscriptions_end_date_time** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

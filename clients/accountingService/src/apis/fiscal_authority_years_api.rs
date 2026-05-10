@@ -71,7 +71,7 @@ pub enum UpdateFiscalYearError {
 
 
 /// Creates a new fiscal year associated with a fiscal authority.
-pub async fn create_fiscal_year(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_year_create_dto: Option<models::FiscalYearCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalYearError>> {
+pub async fn create_fiscal_year(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_year_create_dto: Option<models::FiscalYearCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateFiscalYearError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -107,7 +107,7 @@ pub async fn create_fiscal_year(configuration: &configuration::Configuration, te
 }
 
 /// Deletes a fiscal year identified by its unique identifier.
-pub async fn delete_fiscal_year(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalYearError>> {
+pub async fn delete_fiscal_year(configuration: &configuration::Configuration, tenant_id: &str, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteFiscalYearError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -142,7 +142,7 @@ pub async fn delete_fiscal_year(configuration: &configuration::Configuration, te
 }
 
 /// Retrieves a specific fiscal year by its unique identifier within a fiscal authority.
-pub async fn get_fiscal_year(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalYearDtoEnvelope, Error<GetFiscalYearError>> {
+pub async fn get_fiscal_year(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalYearDtoEnvelope, Error<GetFiscalYearError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -177,7 +177,7 @@ pub async fn get_fiscal_year(configuration: &configuration::Configuration, tenan
 }
 
 /// Retrieves all fiscal years associated with the specified fiscal authority.
-pub async fn get_fiscal_years(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalYearDtoListEnvelope, Error<GetFiscalYearsError>> {
+pub async fn get_fiscal_years(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalYearDtoListEnvelope, Error<GetFiscalYearsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -213,7 +213,7 @@ pub async fn get_fiscal_years(configuration: &configuration::Configuration, tena
 }
 
 /// Returns the total count of fiscal years for the specified fiscal authority.
-pub async fn get_fiscal_years_count(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetFiscalYearsCountError>> {
+pub async fn get_fiscal_years_count(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetFiscalYearsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -248,7 +248,7 @@ pub async fn get_fiscal_years_count(configuration: &configuration::Configuration
 }
 
 /// Updates an existing fiscal year identified by its unique identifier.
-pub async fn update_fiscal_year(configuration: &configuration::Configuration, tenant_id: models::serde_json::Value, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_year_update_dto: Option<models::FiscalYearUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalYearError>> {
+pub async fn update_fiscal_year(configuration: &configuration::Configuration, tenant_id: &str, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_year_update_dto: Option<models::FiscalYearUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateFiscalYearError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

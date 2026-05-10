@@ -67,6 +67,8 @@ pub struct QuoteDto {
     pub cost_calculation_method: Option<CostCalculationMethod>,
     #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
     pub forex_rate: Option<f64>,
+    #[serde(rename = "forexRatesSnapshot", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub forex_rates_snapshot: Option<Option<String>>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
     #[serde(rename = "totalDetail", skip_serializing_if = "Option::is_none")]
@@ -187,6 +189,7 @@ impl QuoteDto {
             tax_calculation_method: None,
             cost_calculation_method: None,
             forex_rate: None,
+            forex_rates_snapshot: None,
             currency_id: None,
             total_detail: None,
             total_detail_currency_id: None,

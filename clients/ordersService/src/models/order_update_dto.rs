@@ -13,6 +13,24 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct OrderUpdateDto {
+    #[serde(rename = "closed", skip_serializing_if = "Option::is_none")]
+    pub closed: Option<bool>,
+    #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub title: Option<Option<String>>,
+    #[serde(rename = "userId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub user_id: Option<Option<String>>,
+    #[serde(rename = "priceListId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub price_list_id: Option<Option<String>>,
+    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub description: Option<Option<String>>,
+    #[serde(rename = "individualId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub individual_id: Option<Option<String>>,
+    #[serde(rename = "paymentTermId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub payment_term_id: Option<Option<String>>,
+    #[serde(rename = "organizationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub organization_id: Option<Option<String>>,
+    #[serde(rename = "receiverTenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub receiver_tenant_id: Option<Option<String>>,
     #[serde(rename = "firstName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub first_name: Option<Option<String>>,
     #[serde(rename = "lastName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -39,6 +57,10 @@ pub struct OrderUpdateDto {
     pub shipping_location_id: Option<Option<String>>,
     #[serde(rename = "shippingMethodId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub shipping_method_id: Option<Option<String>>,
+    #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
+    pub forex_rate: Option<f64>,
+    #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub currency_id: Option<Option<String>>,
     #[serde(rename = "totalDetail", skip_serializing_if = "Option::is_none")]
     pub total_detail: Option<f64>,
     #[serde(rename = "totalDetailCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -93,43 +115,30 @@ pub struct OrderUpdateDto {
     pub tax_calculation_method: Option<TaxCalculationMethod>,
     #[serde(rename = "cartId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub cart_id: Option<Option<String>>,
-    #[serde(rename = "userId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub user_id: Option<Option<String>>,
-    #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
-    pub forex_rate: Option<f64>,
-    #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub currency_id: Option<Option<String>>,
-    #[serde(rename = "individualId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub individual_id: Option<Option<String>>,
-    #[serde(rename = "organizationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub organization_id: Option<Option<String>>,
     #[serde(rename = "totalAmountInUsd", skip_serializing_if = "Option::is_none")]
     pub total_amount_in_usd: Option<f64>,
     #[serde(rename = "totalTaxesInUsd", skip_serializing_if = "Option::is_none")]
     pub total_taxes_in_usd: Option<f64>,
-    #[serde(rename = "receiverTenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub receiver_tenant_id: Option<Option<String>>,
-    #[serde(rename = "closed", skip_serializing_if = "Option::is_none")]
-    pub closed: Option<bool>,
-    #[serde(rename = "priceListId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub price_list_id: Option<Option<String>>,
-    #[serde(rename = "paymentTermId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub payment_term_id: Option<Option<String>>,
     #[serde(rename = "quoteStatus", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub quote_status: Option<Option<String>>,
     #[serde(rename = "effectiveTo", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub effective_to: Option<Option<String>>,
     #[serde(rename = "effectiveFrom", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub effective_from: Option<Option<String>>,
-    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub description: Option<Option<String>>,
-    #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub title: Option<Option<String>>,
 }
 
 impl OrderUpdateDto {
     pub fn new() -> OrderUpdateDto {
         OrderUpdateDto {
+            closed: None,
+            title: None,
+            user_id: None,
+            price_list_id: None,
+            description: None,
+            individual_id: None,
+            payment_term_id: None,
+            organization_id: None,
+            receiver_tenant_id: None,
             first_name: None,
             last_name: None,
             company_name: None,
@@ -143,6 +152,8 @@ impl OrderUpdateDto {
             billing_location_id: None,
             shipping_location_id: None,
             shipping_method_id: None,
+            forex_rate: None,
+            currency_id: None,
             total_detail: None,
             total_detail_currency_id: None,
             total_profit: None,
@@ -170,22 +181,11 @@ impl OrderUpdateDto {
             cost_calculation_method: None,
             tax_calculation_method: None,
             cart_id: None,
-            user_id: None,
-            forex_rate: None,
-            currency_id: None,
-            individual_id: None,
-            organization_id: None,
             total_amount_in_usd: None,
             total_taxes_in_usd: None,
-            receiver_tenant_id: None,
-            closed: None,
-            price_list_id: None,
-            payment_term_id: None,
             quote_status: None,
             effective_to: None,
             effective_from: None,
-            description: None,
-            title: None,
         }
     }
 }

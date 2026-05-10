@@ -25,7 +25,7 @@ Creates a new fiscal regime for a fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **fiscal_regime_create_dto** | Option<[**FiscalRegimeCreateDto**](FiscalRegimeCreateDto.md)> |  |  |
@@ -58,7 +58,7 @@ Deletes a fiscal regime identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **regime_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -91,7 +91,7 @@ Retrieves a specific fiscal regime by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **regime_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -190,7 +190,7 @@ Updates an existing fiscal regime identified by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | [**serde_json::Value**](.md) |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **regime_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

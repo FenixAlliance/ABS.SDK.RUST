@@ -13,26 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct BankAccountUpdateDto {
-    #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
-    pub group: Option<bool>,
-    #[serde(rename = "frozen", skip_serializing_if = "Option::is_none")]
-    pub frozen: Option<bool>,
-    #[serde(rename = "name")]
-    pub name: String,
-    #[serde(rename = "code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub code: Option<Option<String>>,
-    #[serde(rename = "path", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub path: Option<Option<String>>,
-    #[serde(rename = "prefix", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub prefix: Option<Option<String>>,
-    #[serde(rename = "currencyId")]
-    pub currency_id: String,
-    #[serde(rename = "accountTypeId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_type_id: Option<Option<String>>,
-    #[serde(rename = "parentAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub parent_account_id: Option<Option<String>>,
-    #[serde(rename = "accountCategory", skip_serializing_if = "Option::is_none")]
-    pub account_category: Option<AccountCategory>,
+    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub name: Option<Option<String>>,
     #[serde(rename = "iban", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub iban: Option<Option<String>>,
     #[serde(rename = "swift", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -50,18 +32,9 @@ pub struct BankAccountUpdateDto {
 }
 
 impl BankAccountUpdateDto {
-    pub fn new(name: String, currency_id: String) -> BankAccountUpdateDto {
+    pub fn new() -> BankAccountUpdateDto {
         BankAccountUpdateDto {
-            group: None,
-            frozen: None,
-            name,
-            code: None,
-            path: None,
-            prefix: None,
-            currency_id,
-            account_type_id: None,
-            parent_account_id: None,
-            account_category: None,
+            name: None,
             iban: None,
             swift: None,
             branch_code: None,
@@ -70,26 +43,6 @@ impl BankAccountUpdateDto {
             bank_id: None,
             bank_profile_id: None,
         }
-    }
-}
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AccountCategory {
-    #[serde(rename = "Assets")]
-    Assets,
-    #[serde(rename = "Equity")]
-    Equity,
-    #[serde(rename = "Revenue")]
-    Revenue,
-    #[serde(rename = "Expense")]
-    Expense,
-    #[serde(rename = "Liabilities")]
-    Liabilities,
-}
-
-impl Default for AccountCategory {
-    fn default() -> AccountCategory {
-        Self::Assets
     }
 }
 

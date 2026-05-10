@@ -94,6 +94,7 @@ pub mod account_groups_api;
 pub mod accounting_periods_api;
 pub mod accounts_api;
 pub mod banking_api;
+pub mod billable_line_taxes_api;
 pub mod billing_profiles_api;
 pub mod budgets_api;
 pub mod commissions_api;
