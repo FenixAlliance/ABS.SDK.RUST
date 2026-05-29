@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **correlation_id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional][readonly]
 **activity_id** | Option<**String**> |  | [optional][readonly]
-**result** | Option<[**models::AuthorizationResult**](AuthorizationResult.md)> |  | [optional]
+**result** | Option<[**models::AuthResult**](AuthResult.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

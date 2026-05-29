@@ -1,7 +1,7 @@
 pub mod access_token_response;
 pub use self::access_token_response::AccessTokenResponse;
 pub mod authorization_result;
-pub use self::authorization_result::AuthorizationResult;
+pub use self::authorization_result::AuthResult;
 pub mod authorization_result_envelope;
 pub use self::authorization_result_envelope::AuthorizationResultEnvelope;
 pub mod error_envelope;

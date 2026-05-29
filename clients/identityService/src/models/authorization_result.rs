@@ -12,7 +12,7 @@ use crate::models;
 use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
-pub struct AuthorizationResult {
+pub struct AuthResult {
     #[serde(rename = "userId", skip_serializing_if = "Option::is_none")]
     pub user_id: Option<serde_json::Value>,
     #[serde(rename = "tenantId", skip_serializing_if = "Option::is_none")]
@@ -31,9 +31,9 @@ pub struct AuthorizationResult {
     pub error: Option<Option<String>>,
 }
 
-impl AuthorizationResult {
-    pub fn new() -> AuthorizationResult {
-        AuthorizationResult {
+impl AuthResult {
+    pub fn new() -> AuthResult {
+        AuthResult {
             user_id: None,
             tenant_id: None,
             portal_id: None,
