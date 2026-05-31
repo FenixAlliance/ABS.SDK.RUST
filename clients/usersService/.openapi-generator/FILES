@@ -7,6 +7,7 @@ docs/AddressDto.md
 docs/AddressDtoListEnvelope.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
+docs/CompletionsApi.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedTenantDto.md
@@ -15,7 +16,7 @@ docs/ExtendedTenantEnrollmentDto.md
 docs/ExtendedTenantEnrollmentDtoListEnvelope.md
 docs/ExtendedUserDto.md
 docs/ExtendedUserDtoEnvelope.md
-docs/FenixAllianceAbsWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/FollowRecordDto.md
 docs/FollowRecordDtoListEnvelope.md
 docs/ForgotPasswordRequest.md
@@ -59,8 +60,9 @@ docs/UsersApi.md
 docs/WalletDto.md
 docs/WalletDtoEnvelope.md
 git_push.sh
+src/apis/completions_api.rs
 src/apis/configuration.rs
-src/apis/fenix_alliance_abs_web_api.rs
+src/apis/fenix_alliance_portals_website_api.rs
 src/apis/mod.rs
 src/apis/options_api.rs
 src/apis/users_api.rs

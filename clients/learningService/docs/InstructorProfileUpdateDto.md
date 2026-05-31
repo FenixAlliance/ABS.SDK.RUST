@@ -4,15 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<**String**> |  | [optional]
-**timestamp** | Option<**String**> |  | [optional]
-**authorized** | Option<**bool**> |  | [optional]
+**r#type** | Option<**String**> |  | [optional]
+**contact_id** | Option<**String**> |  | [optional]
 **about** | Option<**String**> |  | [optional]
-**verified** | Option<**bool**> |  | [optional]
-**submitted** | Option<**bool**> |  | [optional]
 **avatar_url** | Option<**String**> |  | [optional]
-**qualified_name** | Option<**String**> |  | [optional]
-**verification_timestamp** | Option<**String**> |  | [optional]
 **data** | Option<**String**> |  | [optional]
 **data_label** | Option<**String**> |  | [optional]
 **data1** | Option<**String**> |  | [optional]
@@ -33,6 +28,7 @@ Name | Type | Description | Notes
 **data8_label** | Option<**String**> |  | [optional]
 **data9** | Option<**String**> |  | [optional]
 **data9_label** | Option<**String**> |  | [optional]
+**authorized** | Option<**bool**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

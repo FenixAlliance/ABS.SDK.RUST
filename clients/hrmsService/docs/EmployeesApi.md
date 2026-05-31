@@ -1,6 +1,6 @@
 # \EmployeesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -178,7 +178,7 @@ No authorization required
 
 ## update_employee_async
 
-> models::EmptyEnvelope update_employee_async(tenant_id, employee_id, api_version, x_api_version, body)
+> models::EmptyEnvelope update_employee_async(tenant_id, employee_id, api_version, x_api_version, employee_profile_update_dto)
 Update an employee
 
 Updates an existing employee for the specified tenant.
@@ -192,7 +192,7 @@ Name | Type | Description  | Required | Notes
 **employee_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**body** | Option<**serde_json::Value**> |  |  |
+**employee_profile_update_dto** | Option<[**EmployeeProfileUpdateDto**](EmployeeProfileUpdateDto.md)> |  |  |
 
 ### Return type
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **concurrency_token** | Option<**String**> |  | [optional]
 **creation_date** | Option<**String**> |  | [optional]
 **properties** | Option<**String**> |  | [optional]

@@ -1,11 +1,11 @@
 # \TenantsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**admin_preview_tenant_email**](TenantsApi.md#admin_preview_tenant_email) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a user.
-[**admin_send_tenant_email**](TenantsApi.md#admin_send_tenant_email) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a user.
+[**admin_preview_tenant_email**](TenantsApi.md#admin_preview_tenant_email) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Preview | Preview the rendered email for a tenant.
+[**admin_send_tenant_email**](TenantsApi.md#admin_send_tenant_email) | **POST** /api/v2/SystemService/Tenants/{tenantId}/Emails/Send | Send an email to a tenant.
 [**create_tenant**](TenantsApi.md#create_tenant) | **POST** /api/v2/SystemService/Tenants | Create a new tenant.
 [**delete_tenant**](TenantsApi.md#delete_tenant) | **DELETE** /api/v2/SystemService/Tenants/{tenantId} | Delete a specific tenant by ID.
 [**get_all_extended_tenants**](TenantsApi.md#get_all_extended_tenants) | **GET** /api/v2/SystemService/Tenants/Extended | Get all extended tenants available on this suite server instance.
@@ -20,9 +20,9 @@ Method | HTTP request | Description
 ## admin_preview_tenant_email
 
 > admin_preview_tenant_email(tenant_id, api_version, x_api_version, email_dispatch_request)
-Preview the rendered email for a user.
+Preview the rendered email for a tenant.
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -53,9 +53,9 @@ No authorization required
 ## admin_send_tenant_email
 
 > admin_send_tenant_email(tenant_id, api_version, x_api_version, email_dispatch_request)
-Send an email to a user.
+Send an email to a tenant.
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 

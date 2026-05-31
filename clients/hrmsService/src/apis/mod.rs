@@ -90,10 +90,27 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
     unimplemented!("Only objects are supported with style=deepObject")
 }
 
+pub mod appraisal_stages_api;
+pub mod appraisal_workflows_api;
+pub mod completions_api;
+pub mod employee_appraisal_sessions_api;
+pub mod employee_types_api;
 pub mod employees_api;
 pub mod employers_api;
-pub mod fenix_alliance_abs_web_api;
+pub mod fenix_alliance_portals_website_api;
 pub mod gigs_api;
 pub mod job_offers_api;
+pub mod job_titles_api;
+pub mod leave_applications_api;
+pub mod leave_types_api;
+pub mod payroll_periods_api;
+pub mod payrolls_api;
+pub mod salaries_api;
+pub mod schedules_api;
+pub mod shifts_api;
+pub mod time_intervals_api;
+pub mod training_program_courses_api;
+pub mod training_program_events_api;
+pub mod training_programs_api;
 
 pub mod configuration;

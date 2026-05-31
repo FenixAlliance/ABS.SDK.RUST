@@ -1,6 +1,6 @@
 # \SocialProfilesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,6 +23,7 @@ Method | HTTP request | Description
 [**get_followers_async**](SocialProfilesApi.md#get_followers_async) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Followers | Get Followers
 [**get_follows_async**](SocialProfilesApi.md#get_follows_async) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows | Get Follows
 [**get_messages_async**](SocialProfilesApi.md#get_messages_async) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages
+[**get_notification_by_id_async**](SocialProfilesApi.md#get_notification_by_id_async) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification
 [**get_notifications_async**](SocialProfilesApi.md#get_notifications_async) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications
 [**get_social_profile_async**](SocialProfilesApi.md#get_social_profile_async) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile
 [**get_social_profiles_async**](SocialProfilesApi.md#get_social_profiles_async) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles
@@ -193,7 +194,7 @@ No authorization required
 
 ## count_messages_async
 
-> models::Int32Envelope count_messages_async(conversation_id, api_version, x_api_version)
+> models::Int32Envelope count_messages_async(social_profile_id, conversation_id, api_version, x_api_version)
 Count Messages
 
 Count messages for a conversation.
@@ -203,6 +204,7 @@ Count messages for a conversation.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**social_profile_id** | **uuid::Uuid** |  | [required] |
 **conversation_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -615,7 +617,7 @@ No authorization required
 
 ## get_messages_async
 
-> models::PrivateMessageDtoListEnvelope get_messages_async(conversation_id, api_version, x_api_version)
+> models::PrivateMessageDtoListEnvelope get_messages_async(social_profile_id, conversation_id, api_version, x_api_version)
 Get Messages
 
 Get a list of messages for a conversation.
@@ -625,6 +627,7 @@ Get a list of messages for a conversation.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**social_profile_id** | **uuid::Uuid** |  | [required] |
 **conversation_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -632,6 +635,39 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::PrivateMessageDtoListEnvelope**](PrivateMessageDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_notification_by_id_async
+
+> models::NotificationDtoEnvelope get_notification_by_id_async(social_profile_id, notification_id, api_version, x_api_version)
+Get Notification
+
+Get a notification by ID for a social profile.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**notification_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::NotificationDtoEnvelope**](NotificationDtoEnvelope.md)
 
 ### Authorization
 

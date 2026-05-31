@@ -1,6 +1,6 @@
 # \InvoicesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -52,7 +52,7 @@ Method | HTTP request | Description
 
 ## aggregate_invoice_discounts
 
-> models::MoneyEnvelope aggregate_invoice_discounts(uuid_colon_colon_uuid, currency_id)
+> models::MoneyEnvelope aggregate_invoice_discounts(tenant_id, uuid_colon_colon_uuid, currency_id)
 Aggregate invoice discounts.
 
 Aggregates the discounts for the specified invoices.
@@ -62,6 +62,7 @@ Aggregates the discounts for the specified invoices.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **uuid_colon_colon_uuid** | [**Vec<uuid::Uuid>**](uuid::Uuid.md) |  | [required] |
 **currency_id** | Option<**String**> |  |  |
 
@@ -83,7 +84,7 @@ No authorization required
 
 ## aggregate_invoice_global_surcharges
 
-> models::MoneyEnvelope aggregate_invoice_global_surcharges(uuid_colon_colon_uuid, currency_id)
+> models::MoneyEnvelope aggregate_invoice_global_surcharges(tenant_id, uuid_colon_colon_uuid, currency_id)
 Aggregate invoice global surcharges.
 
 Aggregates the global surcharges for the specified invoices.
@@ -93,6 +94,7 @@ Aggregates the global surcharges for the specified invoices.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **uuid_colon_colon_uuid** | [**Vec<uuid::Uuid>**](uuid::Uuid.md) |  | [required] |
 **currency_id** | Option<**String**> |  |  |
 
@@ -114,7 +116,7 @@ No authorization required
 
 ## aggregate_invoice_tax_bases
 
-> models::MoneyEnvelope aggregate_invoice_tax_bases(uuid_colon_colon_uuid, currency_id)
+> models::MoneyEnvelope aggregate_invoice_tax_bases(tenant_id, uuid_colon_colon_uuid, currency_id)
 Aggregate invoice tax bases.
 
 Aggregates the tax bases for the specified invoices.
@@ -124,6 +126,7 @@ Aggregates the tax bases for the specified invoices.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **uuid_colon_colon_uuid** | [**Vec<uuid::Uuid>**](uuid::Uuid.md) |  | [required] |
 **currency_id** | Option<**String**> |  |  |
 
@@ -145,7 +148,7 @@ No authorization required
 
 ## aggregate_invoice_taxes
 
-> models::MoneyEnvelope aggregate_invoice_taxes(uuid_colon_colon_uuid, currency_id)
+> models::MoneyEnvelope aggregate_invoice_taxes(tenant_id, uuid_colon_colon_uuid, currency_id)
 Aggregate invoice taxes.
 
 Aggregates the taxes for the specified invoices.
@@ -155,6 +158,7 @@ Aggregates the taxes for the specified invoices.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **uuid_colon_colon_uuid** | [**Vec<uuid::Uuid>**](uuid::Uuid.md) |  | [required] |
 **currency_id** | Option<**String**> |  |  |
 
@@ -176,7 +180,7 @@ No authorization required
 
 ## aggregate_invoice_totals
 
-> models::MoneyEnvelope aggregate_invoice_totals(uuid_colon_colon_uuid, currency_id)
+> models::MoneyEnvelope aggregate_invoice_totals(tenant_id, uuid_colon_colon_uuid, currency_id)
 Aggregate invoice totals.
 
 Aggregates the totals for the specified invoices.
@@ -186,6 +190,7 @@ Aggregates the totals for the specified invoices.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **uuid_colon_colon_uuid** | [**Vec<uuid::Uuid>**](uuid::Uuid.md) |  | [required] |
 **currency_id** | Option<**String**> |  |  |
 
@@ -965,7 +970,7 @@ No authorization required
 
 ## get_invoice_payments
 
-> models::PaymentDtoIReadOnlyListEnvelope get_invoice_payments(invoice_id)
+> models::PaymentDtoIReadOnlyListEnvelope get_invoice_payments(tenant_id, invoice_id)
 Get payments for an invoice.
 
 Retrieves the list of payments related to the specified invoice.
@@ -975,6 +980,7 @@ Retrieves the list of payments related to the specified invoice.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
 
 ### Return type
@@ -995,7 +1001,7 @@ No authorization required
 
 ## get_invoice_payments_count
 
-> models::Int32Envelope get_invoice_payments_count(invoice_id)
+> models::Int32Envelope get_invoice_payments_count(tenant_id, invoice_id)
 Get the count of payments for an invoice.
 
 Retrieves the total count of payments for the specified invoice.
@@ -1005,6 +1011,7 @@ Retrieves the total count of payments for the specified invoice.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
 
 ### Return type

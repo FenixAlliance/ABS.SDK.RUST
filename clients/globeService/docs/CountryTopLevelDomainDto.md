@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **domain** | Option<**String**> |  | [optional]
 **country_id** | Option<**String**> |  | [optional]
 

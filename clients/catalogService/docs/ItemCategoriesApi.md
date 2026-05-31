@@ -1,6 +1,6 @@
 # \ItemCategoriesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,7 +25,7 @@ Counts all item categories for the specified tenant.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -123,7 +123,7 @@ Retrieves all item categories for the specified tenant using OData query options
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -145,7 +145,7 @@ No authorization required
 
 ## get_item_category_by_id_async
 
-> models::ItemCategoryDtoEnvelope get_item_category_by_id_async(item_category_id, api_version, x_api_version)
+> models::ItemCategoryDtoEnvelope get_item_category_by_id_async(item_category_id, tenant_id, api_version, x_api_version)
 Get item category by ID
 
 Retrieves a specific item category by its ID.
@@ -156,6 +156,7 @@ Retrieves a specific item category by its ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **item_category_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

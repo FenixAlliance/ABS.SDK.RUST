@@ -1,6 +1,6 @@
 # \ItemTaxPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## count_item_tax_policies_async
 
-> models::Int32Envelope count_item_tax_policies_async(item_id, api_version, x_api_version)
+> models::Int32Envelope count_item_tax_policies_async(tenant_id, item_id, api_version, x_api_version)
 Count item tax policies
 
 Counts all tax policies for a specific item.
@@ -24,6 +24,7 @@ Counts all tax policies for a specific item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -46,7 +47,7 @@ No authorization required
 
 ## get_item_tax_policies_async
 
-> models::ItemTaxPolicyDtoListEnvelope get_item_tax_policies_async(item_id, api_version, x_api_version)
+> models::ItemTaxPolicyDtoListEnvelope get_item_tax_policies_async(tenant_id, item_id, api_version, x_api_version)
 Get item tax policies
 
 Retrieves all tax policies for a specific item.
@@ -56,6 +57,7 @@ Retrieves all tax policies for a specific item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -78,7 +80,7 @@ No authorization required
 
 ## get_item_tax_policy_by_id_async
 
-> models::ItemTaxPolicyDtoEnvelope get_item_tax_policy_by_id_async(item_tax_policy_id, item_id, api_version, x_api_version)
+> models::ItemTaxPolicyDtoEnvelope get_item_tax_policy_by_id_async(item_tax_policy_id, tenant_id, item_id, api_version, x_api_version)
 Get item tax policy by ID
 
 Retrieves a specific tax policy for an item.
@@ -89,6 +91,7 @@ Retrieves a specific tax policy for an item.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **item_tax_policy_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

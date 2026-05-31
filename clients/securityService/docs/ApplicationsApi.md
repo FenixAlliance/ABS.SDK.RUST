@@ -1,6 +1,6 @@
 # \ApplicationsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,6 +9,8 @@ Method | HTTP request | Description
 [**get_business_application_by_id_async**](ApplicationsApi.md#get_business_application_by_id_async) | **GET** /api/v2/SecurityService/Applications/{applicationId} | Get business application by ID
 [**get_business_applications_async**](ApplicationsApi.md#get_business_applications_async) | **GET** /api/v2/SecurityService/Applications | Get all business applications
 [**get_business_applications_count_async**](ApplicationsApi.md#get_business_applications_count_async) | **GET** /api/v2/SecurityService/Applications/Count | Get business applications count
+[**get_permissions_by_application_async**](ApplicationsApi.md#get_permissions_by_application_async) | **GET** /api/v2/SecurityService/Applications/{applicationId}/Permissions | Get permissions by application
+[**get_roles_by_application_async**](ApplicationsApi.md#get_roles_by_application_async) | **GET** /api/v2/SecurityService/Applications/{applicationId}/Roles | Get roles by application
 [**update_business_application_async**](ApplicationsApi.md#update_business_application_async) | **PUT** /api/v2/SecurityService/Applications/{applicationId} | Update an existing business application
 
 
@@ -163,6 +165,72 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_permissions_by_application_async
+
+> models::SecurityPermissionDtoListEnvelope get_permissions_by_application_async(tenant_id, application_id, api_version, x_api_version)
+Get permissions by application
+
+Retrieves all security permissions granted to a specific business application.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**application_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::SecurityPermissionDtoListEnvelope**](SecurityPermissionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_roles_by_application_async
+
+> models::SecurityRoleDtoListEnvelope get_roles_by_application_async(tenant_id, application_id, api_version, x_api_version)
+Get roles by application
+
+Retrieves all security roles granted to a specific business application.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**application_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::SecurityRoleDtoListEnvelope**](SecurityRoleDtoListEnvelope.md)
 
 ### Authorization
 

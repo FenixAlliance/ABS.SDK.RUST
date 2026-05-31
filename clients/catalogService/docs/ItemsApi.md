@@ -1,6 +1,6 @@
 # \ItemsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -85,7 +85,7 @@ Method | HTTP request | Description
 
 ## count_stock_item_tags_by_item_id
 
-> models::Int32Envelope count_stock_item_tags_by_item_id(item_id, api_version, x_api_version)
+> models::Int32Envelope count_stock_item_tags_by_item_id(tenant_id, item_id, api_version, x_api_version)
 Count tags for a stock item
 
 Counts the number of tags associated with a specific stock item.
@@ -95,6 +95,7 @@ Counts the number of tags associated with a specific stock item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -1091,7 +1092,7 @@ No authorization required
 
 ## get_stock_item_tag_by_id
 
-> models::ItemTagDtoEnvelope get_stock_item_tag_by_id(item_id, item_tag_id, api_version, x_api_version)
+> models::ItemTagDtoEnvelope get_stock_item_tag_by_id(tenant_id, item_id, item_tag_id, api_version, x_api_version)
 Get tag by ID for a stock item
 
 Retrieves a specific tag by ID for a stock item.
@@ -1101,6 +1102,7 @@ Retrieves a specific tag by ID for a stock item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **item_id** | **uuid::Uuid** |  | [required] |
 **item_tag_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -1124,7 +1126,7 @@ No authorization required
 
 ## get_stock_item_tags_by_item_id
 
-> models::ItemTagDtoListEnvelope get_stock_item_tags_by_item_id(item_id, api_version, x_api_version)
+> models::ItemTagDtoListEnvelope get_stock_item_tags_by_item_id(tenant_id, item_id, api_version, x_api_version)
 Get tags for a stock item
 
 Retrieves all tags associated with a specific stock item.
@@ -1134,6 +1136,7 @@ Retrieves all tags associated with a specific stock item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -1221,7 +1224,7 @@ No authorization required
 
 ## get_stock_item_type_by_id
 
-> models::ItemTypeDtoEnvelope get_stock_item_type_by_id(item_id, item_type_id, api_version, x_api_version)
+> models::ItemTypeDtoEnvelope get_stock_item_type_by_id(tenant_id, item_id, item_type_id, api_version, x_api_version)
 Get type by ID for a stock item
 
 Retrieves a specific type by ID for a stock item.
@@ -1231,6 +1234,7 @@ Retrieves a specific type by ID for a stock item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **item_id** | **uuid::Uuid** |  | [required] |
 **item_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -1254,7 +1258,7 @@ No authorization required
 
 ## get_stock_item_types_by_item_id
 
-> models::ItemTypeDtoListEnvelope get_stock_item_types_by_item_id(item_id, api_version, x_api_version)
+> models::ItemTypeDtoListEnvelope get_stock_item_types_by_item_id(tenant_id, item_id, api_version, x_api_version)
 Get types for a stock item
 
 Retrieves all types associated with a specific stock item.
@@ -1264,6 +1268,7 @@ Retrieves all types associated with a specific stock item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

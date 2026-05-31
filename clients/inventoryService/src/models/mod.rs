@@ -1,5 +1,7 @@
 pub mod access_token_response;
 pub use self::access_token_response::AccessTokenResponse;
+pub mod error_envelope;
+pub use self::error_envelope::ErrorEnvelope;
 pub mod forgot_password_request;
 pub use self::forgot_password_request::ForgotPasswordRequest;
 pub mod http_validation_problem_details;

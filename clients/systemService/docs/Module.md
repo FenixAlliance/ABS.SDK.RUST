@@ -30,6 +30,7 @@ Name | Type | Description | Notes
 **swagger_specs** | Option<[**Vec<models::ISwaggerSpec>**](ISwaggerSpec.md)> |  | [optional]
 **url** | Option<**String**> |  | [optional]
 **assembly_paths** | Option<**Vec<String>**> |  | [optional]
+**required_permissions** | Option<**Vec<String>**> |  | [optional][readonly]
 **marked_for_deletion** | Option<**bool**> |  | [optional]
 **version** | Option<**String**> |  | [optional]
 

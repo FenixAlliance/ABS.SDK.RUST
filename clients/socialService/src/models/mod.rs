@@ -30,6 +30,8 @@ pub mod login_request;
 pub use self::login_request::LoginRequest;
 pub mod notification_dto;
 pub use self::notification_dto::NotificationDto;
+pub mod notification_dto_envelope;
+pub use self::notification_dto_envelope::NotificationDtoEnvelope;
 pub mod notification_dto_list_envelope;
 pub use self::notification_dto_list_envelope::NotificationDtoListEnvelope;
 pub mod private_message_create_dto;

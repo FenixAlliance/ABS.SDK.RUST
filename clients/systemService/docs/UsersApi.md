@@ -1,6 +1,6 @@
 # \UsersApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,7 +23,7 @@ Method | HTTP request | Description
 > admin_preview_user_email_template(user_id, api_version, x_api_version, email_dispatch_request)
 Preview the rendered email for a user.
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -56,7 +56,7 @@ No authorization required
 > models::EmptyEnvelope admin_send_user_email(user_id, api_version, x_api_version, email_dispatch_request)
 Send an email to a user.
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -89,7 +89,7 @@ No authorization required
 > models::EmptyEnvelope create_account_holder_async(api_version, x_api_version, user_create_dto)
 Create a new user
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -121,7 +121,7 @@ No authorization required
 > models::EmptyEnvelope delete_account_holder_async(user_id, api_version, x_api_version)
 Delete a user
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -153,7 +153,7 @@ No authorization required
 > models::ExtendedUserDtoEnvelope get_extended_account_holder_async(user_id, api_version, x_api_version)
 Retrieve an extended user by ID
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -185,7 +185,7 @@ No authorization required
 > models::ExtendedUserDtoListEnvelope get_extended_users_async(api_version, x_api_version)
 Retrieve a list of extended users
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -216,7 +216,7 @@ No authorization required
 > models::Int32Envelope get_extended_users_count_async(api_version, x_api_version)
 Get the count of extended users
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -247,7 +247,7 @@ No authorization required
 > models::UserDtoEnvelope get_user_async(user_id, api_version, x_api_version)
 Retrieve a user by ID
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -279,7 +279,7 @@ No authorization required
 > models::UserDtoListEnvelope get_users_async(api_version, x_api_version)
 Retrieve a list of users
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -310,7 +310,7 @@ No authorization required
 > models::Int32Envelope get_users_count_async(api_version, x_api_version)
 Get the count of users
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 
@@ -341,7 +341,7 @@ No authorization required
 > models::EmptyEnvelope update_account_holder_async(user_id, api_version, x_api_version, user_update_dto)
 Update a user
 
-This action is only available for users with the 'business_owner' role (global administrators).
+This action is only available for global administrators.
 
 ### Parameters
 

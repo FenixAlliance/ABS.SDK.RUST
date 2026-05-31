@@ -1,6 +1,6 @@
 # \FiscalRegimesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -115,7 +115,7 @@ No authorization required
 
 ## get_fiscal_regimes
 
-> models::FiscalRegimeDtoListEnvelope get_fiscal_regimes(fiscal_authority_id, authority_id, api_version, x_api_version)
+> models::FiscalRegimeDtoListEnvelope get_fiscal_regimes(tenant_id, fiscal_authority_id, authority_id, api_version, x_api_version)
 Get fiscal regimes for an authority
 
 Retrieves all fiscal regimes for the specified fiscal authority.
@@ -125,6 +125,7 @@ Retrieves all fiscal regimes for the specified fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **authority_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -148,7 +149,7 @@ No authorization required
 
 ## get_fiscal_regimes_count
 
-> models::Int32Envelope get_fiscal_regimes_count(fiscal_authority_id, api_version, x_api_version)
+> models::Int32Envelope get_fiscal_regimes_count(tenant_id, fiscal_authority_id, api_version, x_api_version)
 Get fiscal regimes count
 
 Returns the total count of fiscal regimes for the specified fiscal authority.
@@ -158,6 +159,7 @@ Returns the total count of fiscal regimes for the specified fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

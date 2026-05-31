@@ -1,6 +1,6 @@
 # \FiscalResponsibilitiesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -81,7 +81,7 @@ No authorization required
 
 ## get_fiscal_responsibilities
 
-> models::FiscalResponsibilityDtoListEnvelope get_fiscal_responsibilities(fiscal_authority_id, authority_id, api_version, x_api_version)
+> models::FiscalResponsibilityDtoListEnvelope get_fiscal_responsibilities(tenant_id, fiscal_authority_id, authority_id, api_version, x_api_version)
 Get fiscal responsibilities for an authority
 
 Retrieves all fiscal responsibilities for the specified fiscal authority.
@@ -91,6 +91,7 @@ Retrieves all fiscal responsibilities for the specified fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **authority_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -114,7 +115,7 @@ No authorization required
 
 ## get_fiscal_responsibilities_count
 
-> models::Int32Envelope get_fiscal_responsibilities_count(fiscal_authority_id, api_version, x_api_version)
+> models::Int32Envelope get_fiscal_responsibilities_count(tenant_id, fiscal_authority_id, api_version, x_api_version)
 Get fiscal responsibilities count
 
 Returns the total count of fiscal responsibilities for the specified fiscal authority.
@@ -124,6 +125,7 @@ Returns the total count of fiscal responsibilities for the specified fiscal auth
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

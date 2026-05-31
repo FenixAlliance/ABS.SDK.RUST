@@ -1,6 +1,6 @@
 # \ItemImagesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -80,7 +80,7 @@ No authorization required
 
 ## get_item_image_by_id_async
 
-> models::ItemImageDtoEnvelope get_item_image_by_id_async(item_image_id, api_version, x_api_version)
+> models::ItemImageDtoEnvelope get_item_image_by_id_async(item_image_id, tenant_id, api_version, x_api_version)
 Get item image by ID
 
 Retrieves a specific item image by its ID.
@@ -91,6 +91,7 @@ Retrieves a specific item image by its ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **item_image_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -122,7 +123,7 @@ Retrieves all item images for the specified tenant using OData query options.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

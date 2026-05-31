@@ -1,6 +1,6 @@
 # \PaymentsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -77,7 +77,7 @@ No authorization required
 
 ## get_payment_async
 
-> models::PaymentDtoListEnvelope get_payment_async(payment_id)
+> models::PaymentDtoListEnvelope get_payment_async(tenant_id, payment_id)
 Gets a payment by ID (deprecated)
 
 Retrieves a payment using the deprecated /Details route. Use GET {paymentId} instead.
@@ -87,6 +87,7 @@ Retrieves a payment using the deprecated /Details route. Use GET {paymentId} ins
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **payment_id** | **uuid::Uuid** |  | [required] |
 
 ### Return type
@@ -107,7 +108,7 @@ No authorization required
 
 ## get_payment_async_v2
 
-> models::PaymentDtoListEnvelope get_payment_async_v2(payment_id)
+> models::PaymentDtoListEnvelope get_payment_async_v2(tenant_id, payment_id)
 Gets a payment by ID
 
 Retrieves the details of a payment using its unique identifier.
@@ -117,6 +118,7 @@ Retrieves the details of a payment using its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **payment_id** | **uuid::Uuid** |  | [required] |
 
 ### Return type

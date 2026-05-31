@@ -8,12 +8,13 @@ docs/BankAccountDto.md
 docs/BankAccountDtoEnvelope.md
 docs/BankAccountDtoListEnvelope.md
 docs/BankAccountUpdateDto.md
+docs/CompletionsApi.md
 docs/ContactDto.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/ExtendedOrderDto.md
 docs/ExtendedOrderDtoListEnvelope.md
-docs/FenixAllianceAbsWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -61,8 +62,9 @@ docs/WalletWithdrawRequestDto.md
 docs/WalletWithdrawRequestDtoListEnvelope.md
 docs/WalletsApi.md
 git_push.sh
+src/apis/completions_api.rs
 src/apis/configuration.rs
-src/apis/fenix_alliance_abs_web_api.rs
+src/apis/fenix_alliance_portals_website_api.rs
 src/apis/mod.rs
 src/apis/wallets_api.rs
 src/lib.rs

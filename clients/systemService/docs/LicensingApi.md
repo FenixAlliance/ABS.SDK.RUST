@@ -1,6 +1,6 @@
 # \LicensingApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## get_license_assignments_async
 
-> models::SuiteLicenseAssignmentDtoListEnvelope get_license_assignments_async(license_id, tenant_id, api_version, x_api_version)
+> models::SuiteLicenseAssignmentDtoListEnvelope get_license_assignments_async(tenant_id, license_id, api_version, x_api_version)
 Retrieve license assignments
 
 Retrieves all license assignments for a given license.
@@ -27,8 +27,8 @@ Retrieves all license assignments for a given license.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**license_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**license_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -50,7 +50,7 @@ No authorization required
 
 ## get_license_attributes_async
 
-> models::SuiteLicenseAssignmentDtoListEnvelope get_license_attributes_async(license_id, tenant_id, api_version, x_api_version)
+> models::SuiteLicenseAssignmentDtoListEnvelope get_license_attributes_async(tenant_id, license_id, api_version, x_api_version)
 Retrieve license attributes
 
 Retrieves all additional attributes for a given license.
@@ -60,8 +60,8 @@ Retrieves all additional attributes for a given license.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**license_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**license_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -83,7 +83,7 @@ No authorization required
 
 ## get_license_by_id_async
 
-> models::SuiteLicenseDtoEnvelope get_license_by_id_async(license_id, api_version, x_api_version)
+> models::SuiteLicenseDtoEnvelope get_license_by_id_async(tenant_id, license_id, api_version, x_api_version)
 Retrieve a license by ID
 
 Retrieves a single suite license by its unique identifier.
@@ -93,6 +93,7 @@ Retrieves a single suite license by its unique identifier.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **license_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -115,7 +116,7 @@ No authorization required
 
 ## get_license_features_async
 
-> models::SuiteLicenseAssignmentDtoListEnvelope get_license_features_async(license_id, tenant_id, api_version, x_api_version)
+> models::SuiteLicenseAssignmentDtoListEnvelope get_license_features_async(tenant_id, license_id, api_version, x_api_version)
 Retrieve license features
 
 Retrieves all features for a given license.
@@ -125,8 +126,8 @@ Retrieves all features for a given license.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**license_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**license_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -148,7 +149,7 @@ No authorization required
 
 ## get_license_records_quota_async
 
-> models::SuiteLicenseAssignmentDtoListEnvelope get_license_records_quota_async(license_id, tenant_id, api_version, x_api_version)
+> models::SuiteLicenseAssignmentDtoListEnvelope get_license_records_quota_async(tenant_id, license_id, api_version, x_api_version)
 Retrieve license record quota
 
 Retrieves the record quota for a given license.
@@ -158,8 +159,8 @@ Retrieves the record quota for a given license.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**license_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**license_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

@@ -1,10 +1,15 @@
 # \CountriesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**count_calling_codes_by_country_async**](CountriesApi.md#count_calling_codes_by_country_async) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes/Count | Count calling codes for a country
+[**count_cities_by_state_async**](CountriesApi.md#count_cities_by_state_async) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities/Count | Count cities for a state
 [**count_countries**](CountriesApi.md#count_countries) | **GET** /api/v2/GlobeService/Countries/Count | Count countries
+[**count_country_states_async**](CountriesApi.md#count_country_states_async) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/Count | Count states for a country
+[**count_timezones_by_country_async**](CountriesApi.md#count_timezones_by_country_async) | **GET** /api/v2/GlobeService/Countries/{countryId}/Timezones/Count | Count timezones for a country
+[**count_top_level_domains_by_country_async**](CountriesApi.md#count_top_level_domains_by_country_async) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains/Count | Count top-level domains for a country
 [**get_all_countries**](CountriesApi.md#get_all_countries) | **GET** /api/v2/GlobeService/Countries | Get all countries
 [**get_calling_codes_by_country_id_async**](CountriesApi.md#get_calling_codes_by_country_id_async) | **GET** /api/v2/GlobeService/Countries/{countryId}/CallingCodes | Get calling codes for a country
 [**get_cities_by_country_state_id_async**](CountriesApi.md#get_cities_by_country_state_id_async) | **GET** /api/v2/GlobeService/Countries/{countryId}/States/{countryStateId}/Cities | Get cities for a state
@@ -16,6 +21,71 @@ Method | HTTP request | Description
 [**get_top_level_domains_by_country_id_async**](CountriesApi.md#get_top_level_domains_by_country_id_async) | **GET** /api/v2/GlobeService/Countries/{countryId}/TopLevelDomains | Get top-level domains for a country
 [**search_countries_by_name_async**](CountriesApi.md#search_countries_by_name_async) | **GET** /api/v2/GlobeService/Countries/Search | Search countries by name
 
+
+
+## count_calling_codes_by_country_async
+
+> models::Int32Envelope count_calling_codes_by_country_async(country_id, api_version, x_api_version)
+Count calling codes for a country
+
+Returns the total number of calling codes for the specified country, with optional OData filtering.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**country_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## count_cities_by_state_async
+
+> models::Int32Envelope count_cities_by_state_async(country_state_id, country_id, api_version, x_api_version)
+Count cities for a state
+
+Returns the total number of cities for the specified state, with optional OData filtering.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**country_state_id** | **String** |  | [required] |
+**country_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## count_countries
@@ -30,6 +100,102 @@ Returns the total number of countries, with optional OData filtering.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## count_country_states_async
+
+> models::Int32Envelope count_country_states_async(country_id, api_version, x_api_version)
+Count states for a country
+
+Returns the total number of states or provinces for the specified country, with optional OData filtering.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**country_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## count_timezones_by_country_async
+
+> models::Int32Envelope count_timezones_by_country_async(country_id, api_version, x_api_version)
+Count timezones for a country
+
+Returns the total number of timezones for the specified country, with optional OData filtering.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**country_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## count_top_level_domains_by_country_async
+
+> models::Int32Envelope count_top_level_domains_by_country_async(country_id, api_version, x_api_version)
+Count top-level domains for a country
+
+Returns the total number of top-level domains for the specified country, with optional OData filtering.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

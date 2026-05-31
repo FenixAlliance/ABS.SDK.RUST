@@ -1,6 +1,6 @@
 # \ItemAttributesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,7 +25,7 @@ Counts all item attributes for the specified tenant.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -113,7 +113,7 @@ No authorization required
 
 ## get_item_attribute_by_id_async
 
-> models::ItemAttributeDtoEnvelope get_item_attribute_by_id_async(item_attribute_id, api_version, x_api_version)
+> models::ItemAttributeDtoEnvelope get_item_attribute_by_id_async(item_attribute_id, tenant_id, api_version, x_api_version)
 Get item attribute by ID
 
 Retrieves a specific item attribute by its ID.
@@ -124,6 +124,7 @@ Retrieves a specific item attribute by its ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **item_attribute_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -155,7 +156,7 @@ Retrieves all item attributes for the specified tenant using OData query options
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **r#type** | Option<**String**> |  | [optional]
 **follower_id** | Option<**String**> |  | [optional]
 **followed_id** | Option<**String**> |  | [optional]

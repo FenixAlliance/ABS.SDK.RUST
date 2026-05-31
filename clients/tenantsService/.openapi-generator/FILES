@@ -6,6 +6,7 @@ docs/AccessTokenResponse.md
 docs/BooleanEnvelope.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
+docs/CompletionsApi.md
 docs/DepartmentsApi.md
 docs/EmployeeEnrollmentsApi.md
 docs/EmptyEnvelope.md
@@ -15,7 +16,7 @@ docs/ExtendedTenantDto.md
 docs/ExtendedTenantDtoEnvelope.md
 docs/ExtendedTenantEnrollmentDto.md
 docs/ExtendedTenantEnrollmentDtoEnvelope.md
-docs/FenixAllianceAbsWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/IndustriesApi.md
@@ -156,11 +157,12 @@ docs/WalletDtoEnvelope.md
 docs/WebPortalDto.md
 docs/WebPortalDtoListEnvelope.md
 git_push.sh
+src/apis/completions_api.rs
 src/apis/configuration.rs
 src/apis/departments_api.rs
 src/apis/employee_enrollments_api.rs
 src/apis/enrollments_api.rs
-src/apis/fenix_alliance_abs_web_api.rs
+src/apis/fenix_alliance_portals_website_api.rs
 src/apis/industries_api.rs
 src/apis/invitations_api.rs
 src/apis/mod.rs

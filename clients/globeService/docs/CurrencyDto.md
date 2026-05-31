@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **code** | Option<**String**> |  | [optional]
 **name** | Option<**String**> |  | [optional]
 **symbol** | Option<**String**> |  | [optional]

@@ -1,6 +1,6 @@
 # \EmailsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -43,7 +43,7 @@ No authorization required
 
 ## admin_send_basic_email
 
-> models::TenantDtoListEnvelope admin_send_basic_email(api_version, x_api_version, object_email_dispatch_request)
+> models::Envelope admin_send_basic_email(api_version, x_api_version, object_email_dispatch_request)
 Send a basic transactional email to recipients.
 
 This action is only available for global administrators (business_owner role).
@@ -59,7 +59,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::TenantDtoListEnvelope**](TenantDtoListEnvelope.md)
+[**models::Envelope**](Envelope.md)
 
 ### Authorization
 

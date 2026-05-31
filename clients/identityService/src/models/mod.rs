@@ -1,9 +1,9 @@
 pub mod access_token_response;
 pub use self::access_token_response::AccessTokenResponse;
-pub mod authorization_result;
-pub use self::authorization_result::AuthResult;
-pub mod authorization_result_envelope;
-pub use self::authorization_result_envelope::AuthorizationResultEnvelope;
+pub mod auth_result;
+pub use self::auth_result::AuthResult;
+pub mod auth_result_envelope;
+pub use self::auth_result_envelope::AuthResultEnvelope;
 pub mod error_envelope;
 pub use self::error_envelope::ErrorEnvelope;
 pub mod forgot_password_request;

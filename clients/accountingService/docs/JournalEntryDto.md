@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **forex_rate** | Option<**f64**> |  | [optional]
 **credit** | Option<**f64**> |  | [optional]
 **debit** | Option<**f64**> |  | [optional]
+**credit_in_usd** | Option<**f64**> |  | [optional]
+**debit_in_usd** | Option<**f64**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
 **enrollment_id** | Option<**String**> |  | [optional]
@@ -28,6 +30,8 @@ Name | Type | Description | Notes
 **parent_journal_entry_id** | Option<**String**> |  | [optional]
 **credit_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
 **debit_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
+**credit_amount_in_usd** | Option<[**models::Money**](Money.md)> |  | [optional]
+**debit_amount_in_usd** | Option<[**models::Money**](Money.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

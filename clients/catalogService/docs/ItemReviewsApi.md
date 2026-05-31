@@ -1,6 +1,6 @@
 # \ItemReviewsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -80,7 +80,7 @@ No authorization required
 
 ## get_item_review_by_id_async
 
-> models::ItemReviewDtoEnvelope get_item_review_by_id_async(item_review_id, api_version, x_api_version)
+> models::ItemReviewDtoEnvelope get_item_review_by_id_async(item_review_id, tenant_id, api_version, x_api_version)
 Get item review by ID
 
 Retrieves a specific item review by its ID.
@@ -91,6 +91,7 @@ Retrieves a specific item review by its ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **item_review_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

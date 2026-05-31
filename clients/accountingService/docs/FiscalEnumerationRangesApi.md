@@ -1,6 +1,6 @@
 # \FiscalEnumerationRangesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -115,7 +115,7 @@ No authorization required
 
 ## get_invoice_enumeration_ranges
 
-> models::InvoiceEnumerationRangeDtoListEnvelope get_invoice_enumeration_ranges(fiscal_authority_id, authority_id, api_version, x_api_version)
+> models::InvoiceEnumerationRangeDtoListEnvelope get_invoice_enumeration_ranges(tenant_id, fiscal_authority_id, authority_id, api_version, x_api_version)
 Get invoice enumeration ranges for an authority
 
 Retrieves all invoice enumeration ranges for the specified fiscal authority.
@@ -125,6 +125,7 @@ Retrieves all invoice enumeration ranges for the specified fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **authority_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
@@ -148,7 +149,7 @@ No authorization required
 
 ## get_invoice_enumeration_ranges_count
 
-> models::Int32Envelope get_invoice_enumeration_ranges_count(fiscal_authority_id, api_version, x_api_version)
+> models::Int32Envelope get_invoice_enumeration_ranges_count(tenant_id, fiscal_authority_id, api_version, x_api_version)
 Get invoice enumeration ranges count
 
 Returns the total count of invoice enumeration ranges for the specified fiscal authority.
@@ -158,6 +159,7 @@ Returns the total count of invoice enumeration ranges for the specified fiscal a
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

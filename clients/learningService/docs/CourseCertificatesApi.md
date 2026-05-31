@@ -1,6 +1,6 @@
 # \CourseCertificatesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -11,9 +11,11 @@ Method | HTTP request | Description
 [**get_course_certificate_async**](CourseCertificatesApi.md#get_course_certificate_async) | **GET** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Get course certificate by ID
 [**get_course_certificate_template_async**](CourseCertificatesApi.md#get_course_certificate_template_async) | **GET** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Get certificate template by ID
 [**get_course_certificate_templates_async**](CourseCertificatesApi.md#get_course_certificate_templates_async) | **GET** /api/v2/LearningService/CourseCertificates/Template | Get all certificate templates
+[**get_course_certificate_templates_count_async**](CourseCertificatesApi.md#get_course_certificate_templates_count_async) | **GET** /api/v2/LearningService/CourseCertificates/Template/Count | Get certificate templates count
 [**get_course_certificates_async**](CourseCertificatesApi.md#get_course_certificates_async) | **GET** /api/v2/LearningService/CourseCertificates | Get all course certificates
 [**get_course_certificates_count_async**](CourseCertificatesApi.md#get_course_certificates_count_async) | **GET** /api/v2/LearningService/CourseCertificates/Count | Get course certificates count
 [**update_course_certificate_async**](CourseCertificatesApi.md#update_course_certificate_async) | **PUT** /api/v2/LearningService/CourseCertificates/{courseCertificateId} | Update a course certificate
+[**update_course_certificate_template_async**](CourseCertificatesApi.md#update_course_certificate_template_async) | **PUT** /api/v2/LearningService/CourseCertificates/Template/{courseCertificateTemplateId} | Update a certificate template
 
 
 
@@ -247,6 +249,38 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_course_certificate_templates_count_async
+
+> i32 get_course_certificate_templates_count_async(tenant_id, api_version, x_api_version)
+Get certificate templates count
+
+Returns the count of course certificate templates for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+**i32**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## get_course_certificates_async
 
 > Vec<models::CourseCompletionCertificateDto> get_course_certificates_async(tenant_id, api_version, x_api_version)
@@ -328,6 +362,40 @@ Name | Type | Description  | Required | Notes
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **course_completion_certificate_update_dto** | Option<[**CourseCompletionCertificateUpdateDto**](CourseCompletionCertificateUpdateDto.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_course_certificate_template_async
+
+> update_course_certificate_template_async(tenant_id, course_certificate_template_id, api_version, x_api_version, course_certificate_template_update_dto)
+Update a certificate template
+
+Updates an existing course certificate template for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**course_certificate_template_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**course_certificate_template_update_dto** | Option<[**CourseCertificateTemplateUpdateDto**](CourseCertificateTemplateUpdateDto.md)> |  |  |
 
 ### Return type
 

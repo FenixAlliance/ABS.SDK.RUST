@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **application_type** | Option<**String**> |  | [optional]
 **client_id** | Option<**String**> |  | [optional]
 **concurrency_token** | Option<**String**> |  | [optional]

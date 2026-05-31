@@ -1,6 +1,6 @@
 # \SocialGroupsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -47,7 +47,7 @@ No authorization required
 
 ## create_social_group_async
 
-> models::EmptyEnvelope create_social_group_async(tenant_id, api_version, x_api_version, social_group_create_dto)
+> models::EmptyEnvelope create_social_group_async(tenant_id, social_profile_id, api_version, x_api_version, social_group_create_dto)
 Create a social group
 
 Creates a new social group for the specified tenant.
@@ -58,6 +58,7 @@ Creates a new social group for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **social_group_create_dto** | Option<[**SocialGroupCreateDto**](SocialGroupCreateDto.md)> |  |  |
@@ -80,7 +81,7 @@ No authorization required
 
 ## delete_social_group_async
 
-> models::EmptyEnvelope delete_social_group_async(tenant_id, social_group_id, api_version, x_api_version)
+> models::EmptyEnvelope delete_social_group_async(tenant_id, social_profile_id, social_group_id, api_version, x_api_version)
 Delete a social group
 
 Deletes a social group for the specified tenant.
@@ -91,6 +92,7 @@ Deletes a social group for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
 **social_group_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -178,7 +180,7 @@ No authorization required
 
 ## update_social_group_async
 
-> models::EmptyEnvelope update_social_group_async(tenant_id, social_group_id, api_version, x_api_version, social_group_update_dto)
+> models::EmptyEnvelope update_social_group_async(tenant_id, social_profile_id, social_group_id, api_version, x_api_version, social_group_update_dto)
 Update a social group
 
 Updates an existing social group for the specified tenant.
@@ -189,6 +191,7 @@ Updates an existing social group for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
 **social_group_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

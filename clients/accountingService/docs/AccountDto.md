@@ -20,6 +20,10 @@ Name | Type | Description | Notes
 **account_type_id** | Option<**String**> |  | [optional]
 **debits_balance** | Option<**f64**> |  | [optional]
 **credits_balance** | Option<**f64**> |  | [optional]
+**balance_in_usd** | Option<**f64**> |  | [optional]
+**debits_balance_in_usd** | Option<**f64**> |  | [optional]
+**credits_balance_in_usd** | Option<**f64**> |  | [optional]
+**forex_rate** | Option<**f64**> |  | [optional]
 **parent_account_id** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
 **enrollment_id** | Option<**String**> |  | [optional]
@@ -28,6 +32,9 @@ Name | Type | Description | Notes
 **balance_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
 **credits_balance_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
 **debits_balance_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
+**balance_amount_in_usd** | Option<[**models::Money**](Money.md)> |  | [optional]
+**debits_balance_amount_in_usd** | Option<[**models::Money**](Money.md)> |  | [optional]
+**credits_balance_amount_in_usd** | Option<[**models::Money**](Money.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

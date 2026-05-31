@@ -10,6 +10,7 @@ docs/CartDtoEnvelope.md
 docs/CartUpdateRequest.md
 docs/CartsApi.md
 docs/CompareApi.md
+docs/CompletionsApi.md
 docs/CountryDto.md
 docs/CountryDtoEnvelope.md
 docs/CountrySwitchRequest.md
@@ -18,7 +19,7 @@ docs/CurrencyDtoEnvelope.md
 docs/CurrencySwitchRequest.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAllianceAbsWebApi.md
+docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -49,8 +50,9 @@ docs/WishListsApi.md
 git_push.sh
 src/apis/carts_api.rs
 src/apis/compare_api.rs
+src/apis/completions_api.rs
 src/apis/configuration.rs
-src/apis/fenix_alliance_abs_web_api.rs
+src/apis/fenix_alliance_portals_website_api.rs
 src/apis/mod.rs
 src/apis/records_api.rs
 src/apis/wish_lists_api.rs

@@ -1,9 +1,10 @@
 # \AccountsApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**aggregate_accounts_balance_async**](AccountsApi.md#aggregate_accounts_balance_async) | **GET** /api/v2/AccountingService/Accounts/Aggregate/Balance | Aggregate accounts balance
 [**balance_account_async**](AccountsApi.md#balance_account_async) | **POST** /api/v2/AccountingService/Accounts/{accountId}/Balance | Balance account
 [**balance_root_account_async**](AccountsApi.md#balance_root_account_async) | **POST** /api/v2/AccountingService/Accounts/Root/Balance | Balance root account
 [**create_account_async**](AccountsApi.md#create_account_async) | **POST** /api/v2/AccountingService/Accounts | Get root accounts
@@ -26,20 +27,56 @@ Method | HTTP request | Description
 [**get_account_entry_async**](AccountsApi.md#get_account_entry_async) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Get account entry
 [**get_account_relations_async**](AccountsApi.md#get_account_relations_async) | **GET** /api/v2/AccountingService/Accounts/Relations | Get account relations
 [**get_account_relations_count_async**](AccountsApi.md#get_account_relations_count_async) | **GET** /api/v2/AccountingService/Accounts/Relations/Count | Get account relations count
+[**get_account_type_by_id_async**](AccountsApi.md#get_account_type_by_id_async) | **GET** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Get account type by ID
 [**get_account_types_async**](AccountsApi.md#get_account_types_async) | **GET** /api/v2/AccountingService/Accounts/Types | Get account types
 [**get_account_types_count_async**](AccountsApi.md#get_account_types_count_async) | **GET** /api/v2/AccountingService/Accounts/Types/Count | Get account types count
 [**get_accounts_async**](AccountsApi.md#get_accounts_async) | **GET** /api/v2/AccountingService/Accounts | Creates a new account
 [**get_accounts_count_async**](AccountsApi.md#get_accounts_count_async) | **GET** /api/v2/AccountingService/Accounts/Count | Get the number of accounts
+[**get_charts_of_accounts_async**](AccountsApi.md#get_charts_of_accounts_async) | **GET** /api/v2/AccountingService/Accounts/ChartsOfAccounts | Get charts of accounts
 [**get_child_accounts_async**](AccountsApi.md#get_child_accounts_async) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Children | Get child accounts
 [**get_credit_account_entries_async**](AccountsApi.md#get_credit_account_entries_async) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Credit | Get credit account entries
 [**get_debit_account_entries_async**](AccountsApi.md#get_debit_account_entries_async) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries
 [**get_root_accounts_async**](AccountsApi.md#get_root_accounts_async) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts
 [**patch_account_async**](AccountsApi.md#patch_account_async) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account
+[**seed_chart_of_accounts_async**](AccountsApi.md#seed_chart_of_accounts_async) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts
 [**update_account_async**](AccountsApi.md#update_account_async) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account
 [**update_account_entry_async**](AccountsApi.md#update_account_entry_async) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry
 [**update_account_relation_async**](AccountsApi.md#update_account_relation_async) | **PUT** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Update account relation
 [**update_account_type_async**](AccountsApi.md#update_account_type_async) | **PUT** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Update account type
 
+
+
+## aggregate_accounts_balance_async
+
+> models::MoneyEnvelope aggregate_accounts_balance_async(tenant_id, currency_id, api_version, x_api_version)
+Aggregate accounts balance
+
+Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**currency_id** | Option<**String**> |  |  |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::MoneyEnvelope**](MoneyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## balance_account_async
@@ -278,7 +315,7 @@ No authorization required
 
 ## create_account_type_async
 
-> models::EmptyEnvelope create_account_type_async(tenant_id, account_id, api_version, x_api_version, account_type_create_dto)
+> models::EmptyEnvelope create_account_type_async(tenant_id, api_version, x_api_version, account_type_create_dto)
 Create account type
 
 Create account type.
@@ -289,7 +326,6 @@ Create account type.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **account_type_create_dto** | Option<[**AccountTypeCreateDto**](AccountTypeCreateDto.md)> |  |  |
@@ -413,7 +449,7 @@ No authorization required
 
 ## delete_account_type_async
 
-> models::EmptyEnvelope delete_account_type_async(tenant_id, account_type_id, account_id, api_version, x_api_version)
+> models::EmptyEnvelope delete_account_type_async(tenant_id, account_type_id, api_version, x_api_version)
 Delete account type
 
 Delete account type.
@@ -425,7 +461,6 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **account_type_id** | **uuid::Uuid** |  | [required] |
-**account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -777,9 +812,42 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_account_type_by_id_async
+
+> models::AccountTypeDtoEnvelope get_account_type_by_id_async(tenant_id, account_type_id, api_version, x_api_version)
+Get account type by ID
+
+Get account type by ID.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**account_type_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::AccountTypeDtoEnvelope**](AccountTypeDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## get_account_types_async
 
-> models::AccountTypeDtoListEnvelope get_account_types_async(tenant_id, account_type_id, api_version, x_api_version)
+> models::AccountTypeDtoListEnvelope get_account_types_async(tenant_id, api_version, x_api_version)
 Get account types
 
 Get account types.
@@ -790,7 +858,6 @@ Get account types.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**account_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -812,7 +879,7 @@ No authorization required
 
 ## get_account_types_count_async
 
-> models::Int32Envelope get_account_types_count_async(tenant_id, account_type_id, api_version, x_api_version)
+> models::Int32Envelope get_account_types_count_async(tenant_id, api_version, x_api_version)
 Get account types count
 
 Get account types count.
@@ -823,7 +890,6 @@ Get account types count.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**account_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -894,6 +960,37 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_charts_of_accounts_async
+
+> models::ChartOfAccountsListEnvelope get_charts_of_accounts_async(api_version, x_api_version)
+Get charts of accounts
+
+Get available charts of accounts.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::ChartOfAccountsListEnvelope**](ChartOfAccountsListEnvelope.md)
 
 ### Authorization
 
@@ -1072,6 +1169,39 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## seed_chart_of_accounts_async
+
+> models::EmptyEnvelope seed_chart_of_accounts_async(tenant_id, api_version, x_api_version, seed_chart_of_accounts_request)
+Seed chart of accounts
+
+Seed a chart of accounts from a file URL.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**seed_chart_of_accounts_request** | Option<[**SeedChartOfAccountsRequest**](SeedChartOfAccountsRequest.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## update_account_async
 
 > models::AccountDtoEnvelope update_account_async(tenant_id, account_id, api_version, x_api_version, account_update_dto)
@@ -1178,7 +1308,7 @@ No authorization required
 
 ## update_account_type_async
 
-> models::EmptyEnvelope update_account_type_async(tenant_id, account_type_id, account_id, api_version, x_api_version, account_type_update_dto)
+> models::EmptyEnvelope update_account_type_async(tenant_id, account_type_id, api_version, x_api_version, account_type_update_dto)
 Update account type
 
 Update account type.
@@ -1190,7 +1320,6 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **account_type_id** | **uuid::Uuid** |  | [required] |
-**account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **account_type_update_dto** | Option<[**AccountTypeUpdateDto**](AccountTypeUpdateDto.md)> |  |  |

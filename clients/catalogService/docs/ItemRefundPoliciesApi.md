@@ -1,6 +1,6 @@
 # \ItemRefundPoliciesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## count_item_refund_policies_async
 
-> models::Int32Envelope count_item_refund_policies_async(item_id, api_version, x_api_version)
+> models::Int32Envelope count_item_refund_policies_async(tenant_id, item_id, api_version, x_api_version)
 Count item refund policies
 
 Counts all refund policies for a specific item.
@@ -24,6 +24,7 @@ Counts all refund policies for a specific item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -46,7 +47,7 @@ No authorization required
 
 ## get_item_refund_policies_async
 
-> models::ItemRefundPolicyDtoListEnvelope get_item_refund_policies_async(item_id, api_version, x_api_version)
+> models::ItemRefundPolicyDtoListEnvelope get_item_refund_policies_async(tenant_id, item_id, api_version, x_api_version)
 Get item refund policies
 
 Retrieves all refund policies for a specific item.
@@ -56,6 +57,7 @@ Retrieves all refund policies for a specific item.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -78,7 +80,7 @@ No authorization required
 
 ## get_item_refund_policy_by_id_async
 
-> models::ItemRefundPolicyDtoEnvelope get_item_refund_policy_by_id_async(item_refund_policy_id, item_id, api_version, x_api_version)
+> models::ItemRefundPolicyDtoEnvelope get_item_refund_policy_by_id_async(item_refund_policy_id, tenant_id, item_id, api_version, x_api_version)
 Get item refund policy by ID
 
 Retrieves a specific refund policy for an item.
@@ -89,6 +91,7 @@ Retrieves a specific refund policy for an item.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **item_refund_policy_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |

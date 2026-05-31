@@ -1,6 +1,6 @@
 # \OAuthApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -47,7 +47,7 @@ No authorization required
 
 ## get
 
-> models::AuthorizationResultEnvelope get(tenant_id, api_version, x_api_version)
+> models::AuthResultEnvelope get(tenant_id, api_version, x_api_version)
 Get current user identity
 
 Returns the authorization result for the authenticated user, including identity and tenant context.
@@ -63,7 +63,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::AuthorizationResultEnvelope**](AuthorizationResultEnvelope.md)
+[**models::AuthResultEnvelope**](AuthResultEnvelope.md)
 
 ### Authorization
 

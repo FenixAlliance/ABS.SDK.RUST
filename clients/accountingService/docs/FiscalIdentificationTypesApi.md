@@ -1,6 +1,6 @@
 # \FiscalIdentificationTypesApi
 
-All URIs are relative to *https://absuite.net*
+All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -115,7 +115,7 @@ No authorization required
 
 ## get_fiscal_identification_types
 
-> models::FiscalIdentificationTypeDtoListEnvelope get_fiscal_identification_types(authority_id, api_version, x_api_version)
+> models::FiscalIdentificationTypeDtoListEnvelope get_fiscal_identification_types(tenant_id, authority_id, api_version, x_api_version)
 Get fiscal identification types for an authority
 
 Retrieves all fiscal identification types for the specified fiscal authority.
@@ -125,6 +125,7 @@ Retrieves all fiscal identification types for the specified fiscal authority.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_fiscal_identification_types_count
 
-> models::Int32Envelope get_fiscal_identification_types_count(authority_id, api_version, x_api_version)
+> models::Int32Envelope get_fiscal_identification_types_count(tenant_id, authority_id, api_version, x_api_version)
 Get fiscal identification types count
 
 Returns the total count of fiscal identification types for the specified fiscal authority.
@@ -157,6 +158,7 @@ Returns the total count of fiscal identification types for the specified fiscal 
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
