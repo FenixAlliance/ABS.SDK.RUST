@@ -35,6 +35,7 @@ Method | HTTP request | Description
 [**is_item_already_in_cart_async**](CartsApi.md#is_item_already_in_cart_async) | **GET** /api/v2/CartService/Carts/{cartId}/Contains/{itemId} | Assesses if an Item is already in a cart
 [**is_item_in_compare_table_async**](CartsApi.md#is_item_in_compare_table_async) | **GET** /api/v2/CartService/Carts/{cartId}/Compare/Contains/{itemId} | Assesses if an Item is already in the compare table
 [**is_item_in_wish_lists**](CartsApi.md#is_item_in_wish_lists) | **GET** /api/v2/CartService/Carts/{cartId}/WishLists/Contains/{itemId} | Assesses if an Item is already in any of the cart's wishlists
+[**patch_cart_async**](CartsApi.md#patch_cart_async) | **PATCH** /api/v2/CartService/Carts/{cartId} | Patch a cart
 [**remove_cart_line_async**](CartsApi.md#remove_cart_line_async) | **DELETE** /api/v2/CartService/Carts/{cartId}/Lines/{lineId} | Remove a cart line
 [**remove_item_from_cart_async**](CartsApi.md#remove_item_from_cart_async) | **DELETE** /api/v2/CartService/Carts/{cartId}/Items/{itemId} | Remove an Item from a cart
 [**remove_item_from_compare_table_async**](CartsApi.md#remove_item_from_compare_table_async) | **DELETE** /api/v2/CartService/Carts/{cartId}/Compare/{itemId} | Remove an item from the compare table
@@ -1060,6 +1061,39 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_cart_async
+
+> models::EmptyEnvelope patch_cart_async(cart_id, api_version, x_api_version, operation)
+Patch a cart
+
+Partially updates a cart using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**cart_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

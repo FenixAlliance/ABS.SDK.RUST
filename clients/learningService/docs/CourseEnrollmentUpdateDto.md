@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
-**timestamp** | Option<**String**> |  | [optional]
 **course_cohort_id** | Option<**String**> |  | [optional]
 **course_completion_certificate_id** | Option<**String**> |  | [optional]
 

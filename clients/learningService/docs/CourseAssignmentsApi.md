@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_course_assignment_by_id_async**](CourseAssignmentsApi.md#get_course_assignment_by_id_async) | **GET** /api/v2/LearningService/CourseAssignments/{assignmentId} | Get course assignment by ID
 [**get_course_assignments_async**](CourseAssignmentsApi.md#get_course_assignments_async) | **GET** /api/v2/LearningService/CourseAssignments | Get all course assignments
 [**get_course_assignments_count_async**](CourseAssignmentsApi.md#get_course_assignments_count_async) | **GET** /api/v2/LearningService/CourseAssignments/Count | Get course assignments count
+[**patch_course_assignment_async**](CourseAssignmentsApi.md#patch_course_assignment_async) | **PATCH** /api/v2/LearningService/CourseAssignments/{assignmentId} | Patch a course assignment
 [**update_course_assignment_async**](CourseAssignmentsApi.md#update_course_assignment_async) | **PUT** /api/v2/LearningService/CourseAssignments/{assignmentId} | Update a course assignment
 
 
@@ -170,6 +171,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_assignment_async
+
+> models::EmptyEnvelope patch_course_assignment_async(tenant_id, assignment_id, api_version, x_api_version, operation)
+Patch a course assignment
+
+Partially updates a course assignment for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**assignment_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

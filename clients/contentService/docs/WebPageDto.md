@@ -64,6 +64,8 @@ Name | Type | Description | Notes
 **parent_web_content_id** | Option<**String**> |  | [optional]
 **parent_web_content_version_id** | Option<**String**> |  | [optional]
 **web_template_id** | Option<**String**> |  | [optional]
+**author_name** | Option<**String**> |  | [optional]
+**author_id** | Option<**String**> |  | [optional]
 **is_home_page** | Option<**bool**> |  | [optional]
 **is_store_page** | Option<**bool**> |  | [optional]
 **is_cart_page** | Option<**bool**> |  | [optional]

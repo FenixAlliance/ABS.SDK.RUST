@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_enrollments_async**](CourseEnrollmentsApi.md#get_enrollments_async) | **GET** /api/v2/LearningService/CourseEnrollments | Get all course enrollments
 [**get_enrollments_count_async**](CourseEnrollmentsApi.md#get_enrollments_count_async) | **GET** /api/v2/LearningService/CourseEnrollments/Count | Get course enrollments count
 [**get_student_course_enrollments_async**](CourseEnrollmentsApi.md#get_student_course_enrollments_async) | **GET** /api/v2/LearningService/CourseEnrollments/Student/{studentProfileId} | Get enrollments by student
+[**patch_course_enrollment_async**](CourseEnrollmentsApi.md#patch_course_enrollment_async) | **PATCH** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Patch a course enrollment
 [**update_course_enrollment_async**](CourseEnrollmentsApi.md#update_course_enrollment_async) | **PUT** /api/v2/LearningService/CourseEnrollments/{courseEnrollmentId} | Update a course enrollment
 
 
@@ -205,6 +206,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_enrollment_async
+
+> patch_course_enrollment_async(tenant_id, course_enrollment_id, api_version, x_api_version, operation)
+Patch a course enrollment
+
+Partially updates an existing course enrollment for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**course_enrollment_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_item_attribute_option_by_id_async**](ItemAttributeOptionsApi.md#get_item_attribute_option_by_id_async) | **GET** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Get item attribute option by ID
 [**get_item_attribute_options_async**](ItemAttributeOptionsApi.md#get_item_attribute_options_async) | **GET** /api/v2/CatalogService/ItemAttributeOptions | Get all item attribute options
 [**get_item_attribute_options_count_async**](ItemAttributeOptionsApi.md#get_item_attribute_options_count_async) | **GET** /api/v2/CatalogService/ItemAttributeOptions/Count | Get item attribute options count
+[**patch_item_attribute_option_async**](ItemAttributeOptionsApi.md#patch_item_attribute_option_async) | **PATCH** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Patch an item attribute option
 [**update_item_attribute_option_async**](ItemAttributeOptionsApi.md#update_item_attribute_option_async) | **PUT** /api/v2/CatalogService/ItemAttributeOptions/{itemAttributeOptionId} | Update an item attribute option
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_item_attribute_option_async
+
+> models::EmptyEnvelope patch_item_attribute_option_async(tenant_id, item_attribute_option_id, api_version, x_api_version, operation)
+Patch an item attribute option
+
+Partially updates an existing item attribute option for the specified tenant using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**item_attribute_option_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_job_title_by_id_async**](JobTitlesApi.md#get_job_title_by_id_async) | **GET** /api/v2/HrmsService/JobTitles/{jobTitleId} | Get job title by ID
 [**get_job_titles_async**](JobTitlesApi.md#get_job_titles_async) | **GET** /api/v2/HrmsService/JobTitles | Get job titles
 [**get_job_titles_count_async**](JobTitlesApi.md#get_job_titles_count_async) | **GET** /api/v2/HrmsService/JobTitles/Count | Count job titles
+[**patch_job_title_async**](JobTitlesApi.md#patch_job_title_async) | **PATCH** /api/v2/HrmsService/JobTitles/{jobTitleId} | Patch a job title
 [**update_job_title_async**](JobTitlesApi.md#update_job_title_async) | **PUT** /api/v2/HrmsService/JobTitles/{jobTitleId} | Update a job title
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_job_title_async
+
+> models::EmptyEnvelope patch_job_title_async(tenant_id, job_title_id, api_version, x_api_version, operation)
+Patch a job title
+
+Partially updates an existing job title for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**job_title_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

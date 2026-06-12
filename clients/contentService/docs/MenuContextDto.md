@@ -1,0 +1,25 @@
+# MenuContextDto
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | Option<**String**> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
+**name** | Option<**String**> |  | [optional]
+**category** | Option<**String**> |  | [optional]
+**component** | Option<**String**> |  | [optional]
+**enable** | Option<**bool**> |  | [optional]
+**studio_menu** | Option<**bool**> |  | [optional]
+**custom_css** | Option<**String**> |  | [optional]
+**custom_js** | Option<**String**> |  | [optional]
+**custom_html** | Option<**String**> |  | [optional]
+**logged_in_only** | Option<**String**> |  | [optional]
+**background_image** | Option<**String**> |  | [optional]
+**web_portal_id** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
+**items** | Option<[**Vec<models::MenuContextItemDto>**](MenuContextItemDto.md)> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

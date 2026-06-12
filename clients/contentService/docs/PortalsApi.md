@@ -4,6 +4,7 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**bind_web_portal_domain_async**](PortalsApi.md#bind_web_portal_domain_async) | **POST** /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId} | Bind a domain to a web portal
 [**count_portals_async**](PortalsApi.md#count_portals_async) | **GET** /api/v2/ContentService/Portals/Count | Count portals
 [**create_web_portal_async**](PortalsApi.md#create_web_portal_async) | **POST** /api/v2/ContentService/Portals | Create a new web portal
 [**delete_web_portal_async**](PortalsApi.md#delete_web_portal_async) | **DELETE** /api/v2/ContentService/Portals/{portalId} | Delete a web portal
@@ -12,13 +13,50 @@ Method | HTTP request | Description
 [**get_portals_async**](PortalsApi.md#get_portals_async) | **GET** /api/v2/ContentService/Portals | Get portals
 [**get_root_web_portal_async**](PortalsApi.md#get_root_web_portal_async) | **GET** /api/v2/ContentService/Portals/Root | Get the root portal
 [**get_web_portal_by_id_async**](PortalsApi.md#get_web_portal_by_id_async) | **GET** /api/v2/ContentService/Portals/{portalId} | Get a web portal by its ID
+[**get_web_portal_domain_bindings_async**](PortalsApi.md#get_web_portal_domain_bindings_async) | **GET** /api/v2/ContentService/Portals/{portalId}/DomainBindings | Get a web portal's bound domains
 [**get_web_portal_options_async**](PortalsApi.md#get_web_portal_options_async) | **GET** /api/v2/ContentService/Portals/{portalId}/Options | Get a web portal's options by its ID
 [**get_web_portal_settings_async**](PortalsApi.md#get_web_portal_settings_async) | **GET** /api/v2/ContentService/Portals/{portalId}/Settings | Get a web portal's settings by its ID
 [**initialize_current_web_portal_async**](PortalsApi.md#initialize_current_web_portal_async) | **POST** /api/v2/ContentService/Portals/Initialize | Initialize the current portal
 [**patch_web_portal_async**](PortalsApi.md#patch_web_portal_async) | **PATCH** /api/v2/ContentService/Portals/{portalId} | Partially update a web portal
 [**search_web_portal_async**](PortalsApi.md#search_web_portal_async) | **GET** /api/v2/ContentService/Portals/Search | Search for a portal by its domain
+[**unbind_web_portal_domain_async**](PortalsApi.md#unbind_web_portal_domain_async) | **DELETE** /api/v2/ContentService/Portals/{portalId}/DomainBindings/{businessDomainId} | Unbind a domain from a web portal
 [**update_web_portal_async**](PortalsApi.md#update_web_portal_async) | **PUT** /api/v2/ContentService/Portals/{portalId} | Update an existing web portal
+[**update_web_portal_settings_async**](PortalsApi.md#update_web_portal_settings_async) | **PUT** /api/v2/ContentService/Portals/{portalId}/Settings | Update a web portal's settings
 
+
+
+## bind_web_portal_domain_async
+
+> models::EmptyEnvelope bind_web_portal_domain_async(tenant_id, portal_id, business_domain_id, api_version, x_api_version)
+Bind a domain to a web portal
+
+Bind a verified BusinessDomain to a web portal
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**portal_id** | **uuid::Uuid** |  | [required] |
+**business_domain_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## count_portals_async
@@ -276,6 +314,39 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_web_portal_domain_bindings_async
+
+> models::BusinessDomainDtoListEnvelope get_web_portal_domain_bindings_async(tenant_id, portal_id, api_version, x_api_version)
+Get a web portal's bound domains
+
+Get the BusinessDomains bound to a web portal
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**portal_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::BusinessDomainDtoListEnvelope**](BusinessDomainDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## get_web_portal_options_async
 
 > models::PortalOptionsEnvelope get_web_portal_options_async(portal_id, api_version, x_api_version)
@@ -437,6 +508,40 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## unbind_web_portal_domain_async
+
+> models::EmptyEnvelope unbind_web_portal_domain_async(tenant_id, portal_id, business_domain_id, api_version, x_api_version)
+Unbind a domain from a web portal
+
+Unbind a BusinessDomain from a web portal
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**portal_id** | **uuid::Uuid** |  | [required] |
+**business_domain_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## update_web_portal_async
 
 > models::EmptyEnvelope update_web_portal_async(tenant_id, portal_id, api_version, x_api_version, web_portal_update_dto)
@@ -454,6 +559,40 @@ Name | Type | Description  | Required | Notes
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **web_portal_update_dto** | Option<[**WebPortalUpdateDto**](WebPortalUpdateDto.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_web_portal_settings_async
+
+> models::EmptyEnvelope update_web_portal_settings_async(tenant_id, portal_id, api_version, x_api_version, portal_settings)
+Update a web portal's settings
+
+Update a web portal's settings (Options) by its ID
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**portal_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**portal_settings** | Option<[**PortalSettings**](PortalSettings.md)> |  |  |
 
 ### Return type
 

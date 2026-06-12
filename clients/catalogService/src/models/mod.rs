@@ -1,5 +1,9 @@
 pub mod access_token_response;
 pub use self::access_token_response::AccessTokenResponse;
+pub mod batch_stock_item_update_request;
+pub use self::batch_stock_item_update_request::BatchStockItemUpdateRequest;
+pub mod bulk_product;
+pub use self::bulk_product::BulkProduct;
 pub mod catalog_item_create_dto;
 pub use self::catalog_item_create_dto::CatalogItemCreateDto;
 pub mod catalog_item_dto;
@@ -198,6 +202,8 @@ pub mod money;
 pub use self::money::Money;
 pub mod money_envelope;
 pub use self::money_envelope::MoneyEnvelope;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod pricing_rule_dto;
 pub use self::pricing_rule_dto::PricingRuleDto;
 pub mod pricing_rule_dto_envelope;

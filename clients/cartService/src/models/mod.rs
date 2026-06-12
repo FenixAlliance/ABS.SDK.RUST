@@ -54,6 +54,8 @@ pub mod login_request;
 pub use self::login_request::LoginRequest;
 pub mod new_wish_list_request;
 pub use self::new_wish_list_request::NewWishListRequest;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod product_to_wish_list_request;
 pub use self::product_to_wish_list_request::ProductToWishListRequest;
 pub mod refresh_request;

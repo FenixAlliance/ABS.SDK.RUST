@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_course_section_by_id_async**](CourseSectionsApi.md#get_course_section_by_id_async) | **GET** /api/v2/LearningService/CourseSections/{sectionId} | Get course section by ID
 [**get_course_sections_async**](CourseSectionsApi.md#get_course_sections_async) | **GET** /api/v2/LearningService/CourseSections | Get all course sections
 [**get_course_sections_count_async**](CourseSectionsApi.md#get_course_sections_count_async) | **GET** /api/v2/LearningService/CourseSections/Count | Get course sections count
+[**patch_course_section_async**](CourseSectionsApi.md#patch_course_section_async) | **PATCH** /api/v2/LearningService/CourseSections/{sectionId} | Patch a course section
 [**update_course_section_async**](CourseSectionsApi.md#update_course_section_async) | **PUT** /api/v2/LearningService/CourseSections/{sectionId} | Update a course section
 
 
@@ -170,6 +171,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_section_async
+
+> models::EmptyEnvelope patch_course_section_async(tenant_id, section_id, api_version, x_api_version, operation)
+Patch a course section
+
+Partially updates a course section for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**section_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

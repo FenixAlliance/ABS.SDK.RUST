@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_item_type_async**](ItemTypesApi.md#delete_item_type_async) | **DELETE** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Delete an item type
 [**get_item_type_by_id_async**](ItemTypesApi.md#get_item_type_by_id_async) | **GET** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Get item type by ID
 [**get_item_types_async**](ItemTypesApi.md#get_item_types_async) | **GET** /api/v2/CatalogService/ItemTypes | Get all item types
+[**patch_item_type_async**](ItemTypesApi.md#patch_item_type_async) | **PATCH** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Patch an item type
 [**update_item_type_async**](ItemTypesApi.md#update_item_type_async) | **PUT** /api/v2/CatalogService/ItemTypes/{itemTypeID} | Update an item type
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_item_type_async
+
+> patch_item_type_async(tenant_id, item_type_id, api_version, x_api_version, operation)
+Patch an item type
+
+Partially updates an existing item type for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**item_type_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

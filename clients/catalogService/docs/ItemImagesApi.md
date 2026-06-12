@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_item_image_async**](ItemImagesApi.md#delete_item_image_async) | **DELETE** /api/v2/CatalogService/ItemImages/{itemImageId} | Delete an item image
 [**get_item_image_by_id_async**](ItemImagesApi.md#get_item_image_by_id_async) | **GET** /api/v2/CatalogService/ItemImages/{itemImageId} | Get item image by ID
 [**get_item_images_async**](ItemImagesApi.md#get_item_images_async) | **GET** /api/v2/CatalogService/ItemImages | Get all item images
+[**patch_item_image_async**](ItemImagesApi.md#patch_item_image_async) | **PATCH** /api/v2/CatalogService/ItemImages/{itemImageId} | Patch an item image
 [**update_item_image_async**](ItemImagesApi.md#update_item_image_async) | **PUT** /api/v2/CatalogService/ItemImages/{itemImageId} | Update an item image
 
 
@@ -138,6 +139,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_item_image_async
+
+> patch_item_image_async(tenant_id, item_image_id, api_version, x_api_version, operation)
+Patch an item image
+
+Partially updates an existing item image for the specified tenant using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**item_image_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

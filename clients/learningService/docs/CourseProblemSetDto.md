@@ -11,8 +11,10 @@ Name | Type | Description | Notes
 **overall_score** | Option<**f64**> |  | [optional]
 **course_id** | Option<**String**> |  | [optional]
 **course_unit_id** | Option<**String**> |  | [optional]
+**course_grading_rubric_id** | Option<**String**> |  | [optional]
 **release_date_time** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
+**enrollment_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

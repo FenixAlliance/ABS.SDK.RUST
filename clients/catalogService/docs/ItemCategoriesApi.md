@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_item_category_async**](ItemCategoriesApi.md#delete_item_category_async) | **DELETE** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Delete an item category
 [**get_item_categories_async**](ItemCategoriesApi.md#get_item_categories_async) | **GET** /api/v2/CatalogService/ItemCategories | Get all item categories
 [**get_item_category_by_id_async**](ItemCategoriesApi.md#get_item_category_by_id_async) | **GET** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Get item category by ID
+[**patch_item_category_async**](ItemCategoriesApi.md#patch_item_category_async) | **PATCH** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Patch an item category
 [**update_item_category_async**](ItemCategoriesApi.md#update_item_category_async) | **PUT** /api/v2/CatalogService/ItemCategories/{itemCategoryId} | Update an item category
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_item_category_async
+
+> patch_item_category_async(tenant_id, item_category_id, api_version, x_api_version, operation)
+Patch an item category
+
+Partially updates an existing item category for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**item_category_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_payroll_by_id_async**](PayrollsApi.md#get_payroll_by_id_async) | **GET** /api/v2/HrmsService/Payrolls/{payrollId} | Get payroll by ID
 [**get_payrolls_async**](PayrollsApi.md#get_payrolls_async) | **GET** /api/v2/HrmsService/Payrolls | Get payrolls
 [**get_payrolls_count_async**](PayrollsApi.md#get_payrolls_count_async) | **GET** /api/v2/HrmsService/Payrolls/Count | Count payrolls
+[**patch_payroll_async**](PayrollsApi.md#patch_payroll_async) | **PATCH** /api/v2/HrmsService/Payrolls/{payrollId} | Patch a payroll
 [**update_payroll_async**](PayrollsApi.md#update_payroll_async) | **PUT** /api/v2/HrmsService/Payrolls/{payrollId} | Update a payroll
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_payroll_async
+
+> models::EmptyEnvelope patch_payroll_async(tenant_id, payroll_id, api_version, x_api_version, operation)
+Patch a payroll
+
+Partially updates an existing payroll for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**payroll_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

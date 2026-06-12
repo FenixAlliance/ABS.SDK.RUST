@@ -44,6 +44,7 @@ Method | HTTP request | Description
 [**get_instructor_profiles_by_course_count_async**](CoursesApi.md#get_instructor_profiles_by_course_count_async) | **GET** /api/v2/LearningService/Courses/{courseId}/Instructors/Count | Get instructor profiles by course count
 [**get_student_profiles_by_course_async**](CoursesApi.md#get_student_profiles_by_course_async) | **GET** /api/v2/LearningService/Courses/{courseId}/Students | Get student profiles by course
 [**get_student_profiles_by_course_count_async**](CoursesApi.md#get_student_profiles_by_course_count_async) | **GET** /api/v2/LearningService/Courses/{courseId}/Students/Count | Get student profiles by course count
+[**patch_course_async**](CoursesApi.md#patch_course_async) | **PATCH** /api/v2/LearningService/Courses/{courseId} | Patch a course
 [**update_course_async**](CoursesApi.md#update_course_async) | **PUT** /api/v2/LearningService/Courses/{courseId} | Update a course
 
 
@@ -1331,6 +1332,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_async
+
+> models::EmptyEnvelope patch_course_async(tenant_id, course_id, api_version, x_api_version, operation)
+Patch a course
+
+Partially updates a course for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**course_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

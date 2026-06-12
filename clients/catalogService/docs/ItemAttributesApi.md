@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_item_attribute_async**](ItemAttributesApi.md#delete_item_attribute_async) | **DELETE** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Delete an item attribute
 [**get_item_attribute_by_id_async**](ItemAttributesApi.md#get_item_attribute_by_id_async) | **GET** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Get item attribute by ID
 [**get_item_attributes_async**](ItemAttributesApi.md#get_item_attributes_async) | **GET** /api/v2/CatalogService/ItemAttributes | Get all item attributes
+[**patch_item_attribute_async**](ItemAttributesApi.md#patch_item_attribute_async) | **PATCH** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Patch an item attribute
 [**update_item_attribute_async**](ItemAttributesApi.md#update_item_attribute_async) | **PUT** /api/v2/CatalogService/ItemAttributes/{itemAttributeId} | Update an item attribute
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_item_attribute_async
+
+> patch_item_attribute_async(tenant_id, item_attribute_id, api_version, x_api_version, operation)
+Patch an item attribute
+
+Partially updates an existing item attribute for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**item_attribute_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

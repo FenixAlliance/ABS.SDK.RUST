@@ -13,7 +13,9 @@ Name | Type | Description | Notes
 **markup** | Option<**String**> |  | [optional]
 **featured_image_url** | Option<**String**> |  | [optional]
 **code_type** | Option<**String**> |  | [optional]
+**slug** | Option<**String**> |  | [optional]
 **web_template_id** | Option<**String**> |  | [optional]
+**parent_web_content_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

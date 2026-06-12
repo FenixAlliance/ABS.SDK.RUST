@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **description** | Option<**String**> |  | [optional]
 **release_date_time** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
+**enrollment_id** | Option<**String**> |  | [optional]
 **course_id** | Option<**String**> |  | [optional]
 **course_unit_id** | Option<**String**> |  | [optional]
 

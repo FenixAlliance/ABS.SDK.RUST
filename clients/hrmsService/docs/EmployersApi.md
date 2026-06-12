@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_employer_by_id_async**](EmployersApi.md#get_employer_by_id_async) | **GET** /api/v2/HrmsService/Employers/{employerId} | Get employer by ID
 [**get_employers_async**](EmployersApi.md#get_employers_async) | **GET** /api/v2/HrmsService/Employers | Get employers
 [**get_employers_count_async**](EmployersApi.md#get_employers_count_async) | **GET** /api/v2/HrmsService/Employers/Count | Count employers
+[**patch_employer_async**](EmployersApi.md#patch_employer_async) | **PATCH** /api/v2/HrmsService/Employers/{employerId} | Patch an employer
 [**update_employer_async**](EmployersApi.md#update_employer_async) | **PUT** /api/v2/HrmsService/Employers/{employerId} | Update an employer
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_employer_async
+
+> models::EmptyEnvelope patch_employer_async(tenant_id, employer_id, api_version, x_api_version, operation)
+Patch an employer
+
+Partially updates an existing employer for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**employer_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

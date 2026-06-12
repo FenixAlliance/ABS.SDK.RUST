@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **purchase_price** | Option<**f64**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
 **item_id** | Option<**String**> |  | [optional]
+**asset_type_id** | Option<**String**> |  | [optional]
 **asset_category_id** | Option<**String**> |  | [optional]
 **purchase_invoice_id** | Option<**String**> |  | [optional]
 **purchase_receipt_id** | Option<**String**> |  | [optional]

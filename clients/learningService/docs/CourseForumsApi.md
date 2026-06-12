@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_course_forum_by_id_async**](CourseForumsApi.md#get_course_forum_by_id_async) | **GET** /api/v2/LearningService/CourseForums/{forumId} | Get course forum by ID
 [**get_course_forums_async**](CourseForumsApi.md#get_course_forums_async) | **GET** /api/v2/LearningService/CourseForums | Get all course forums
 [**get_course_forums_count_async**](CourseForumsApi.md#get_course_forums_count_async) | **GET** /api/v2/LearningService/CourseForums/Count | Get course forums count
+[**patch_course_forum_async**](CourseForumsApi.md#patch_course_forum_async) | **PATCH** /api/v2/LearningService/CourseForums/{forumId} | Patch a course forum
 [**update_course_forum_async**](CourseForumsApi.md#update_course_forum_async) | **PUT** /api/v2/LearningService/CourseForums/{forumId} | Update a course forum
 
 
@@ -170,6 +171,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_forum_async
+
+> patch_course_forum_async(tenant_id, forum_id, api_version, x_api_version, operation)
+Patch a course forum
+
+Partially updates an existing course forum.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**forum_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

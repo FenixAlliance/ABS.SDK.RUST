@@ -34,6 +34,7 @@ docs/ItemToCompareCartRecordDtoEnvelope.md
 docs/ItemToCompareCartRecordDtoListEnvelope.md
 docs/LoginRequest.md
 docs/NewWishListRequest.md
+docs/Operation.md
 docs/ProductToWishListRequest.md
 docs/RecordsApi.md
 docs/RefreshRequest.md
@@ -86,6 +87,7 @@ src/models/item_to_compare_cart_record_dto_list_envelope.rs
 src/models/login_request.rs
 src/models/mod.rs
 src/models/new_wish_list_request.rs
+src/models/operation.rs
 src/models/product_to_wish_list_request.rs
 src/models/refresh_request.rs
 src/models/register_request.rs

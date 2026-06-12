@@ -59,6 +59,7 @@ docs/JobOfferCreateDto.md
 docs/JobOfferDto.md
 docs/JobOfferDtoEnvelope.md
 docs/JobOfferDtoListEnvelope.md
+docs/JobOfferUpdateDto.md
 docs/JobOffersApi.md
 docs/JobTitleCreateDto.md
 docs/JobTitleDto.md
@@ -79,6 +80,7 @@ docs/LeaveTypeDtoListEnvelope.md
 docs/LeaveTypeUpdateDto.md
 docs/LeaveTypesApi.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/PayrollCreateDto.md
 docs/PayrollDto.md
 docs/PayrollDtoEnvelope.md
@@ -213,6 +215,7 @@ src/models/job_offer_create_dto.rs
 src/models/job_offer_dto.rs
 src/models/job_offer_dto_envelope.rs
 src/models/job_offer_dto_list_envelope.rs
+src/models/job_offer_update_dto.rs
 src/models/job_title_create_dto.rs
 src/models/job_title_dto.rs
 src/models/job_title_dto_envelope.rs
@@ -230,6 +233,7 @@ src/models/leave_type_dto_list_envelope.rs
 src/models/leave_type_update_dto.rs
 src/models/login_request.rs
 src/models/mod.rs
+src/models/operation.rs
 src/models/payroll_create_dto.rs
 src/models/payroll_dto.rs
 src/models/payroll_dto_envelope.rs

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_course_unit_by_id_async**](CourseUnitsApi.md#get_course_unit_by_id_async) | **GET** /api/v2/LearningService/CourseUnits/{unitId} | Get course unit by ID
 [**get_course_units_async**](CourseUnitsApi.md#get_course_units_async) | **GET** /api/v2/LearningService/CourseUnits | Get all course units
 [**get_course_units_count_async**](CourseUnitsApi.md#get_course_units_count_async) | **GET** /api/v2/LearningService/CourseUnits/Count | Get course units count
+[**patch_course_unit_async**](CourseUnitsApi.md#patch_course_unit_async) | **PATCH** /api/v2/LearningService/CourseUnits/{unitId} | Patch a course unit
 [**update_course_unit_async**](CourseUnitsApi.md#update_course_unit_async) | **PUT** /api/v2/LearningService/CourseUnits/{unitId} | Update a course unit
 
 
@@ -170,6 +171,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_unit_async
+
+> models::EmptyEnvelope patch_course_unit_async(tenant_id, unit_id, api_version, x_api_version, operation)
+Patch a course unit
+
+Partially updates a course unit for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**unit_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

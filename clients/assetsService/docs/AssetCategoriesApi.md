@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_asset_categories**](AssetCategoriesApi.md#get_asset_categories) | **GET** /api/v2/AssetsService/AssetCategories | Gets all asset categories for the current tenant
 [**get_asset_categories_count**](AssetCategoriesApi.md#get_asset_categories_count) | **GET** /api/v2/AssetsService/AssetCategories/count | Gets the count of asset categories
 [**get_asset_category**](AssetCategoriesApi.md#get_asset_category) | **GET** /api/v2/AssetsService/AssetCategories/{categoryId} | Gets a specific asset category
+[**patch_asset_category**](AssetCategoriesApi.md#patch_asset_category) | **PATCH** /api/v2/AssetsService/AssetCategories/{categoryId} | Partially updates an existing asset category
 [**update_asset_category**](AssetCategoriesApi.md#update_asset_category) | **PUT** /api/v2/AssetsService/AssetCategories/{categoryId} | Updates an existing asset category
 
 
@@ -161,6 +162,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_asset_category
+
+> models::EmptyEnvelope patch_asset_category(tenant_id, category_id, operation)
+Partially updates an existing asset category
+
+Applies a JSON Patch document to an existing asset category for the authenticated tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**category_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

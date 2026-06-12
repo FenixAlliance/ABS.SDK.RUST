@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_training_program_event_by_id_async**](TrainingProgramEventsApi.md#get_training_program_event_by_id_async) | **GET** /api/v2/HrmsService/TrainingProgramEvents/{eventId} | Get training program event by ID
 [**get_training_program_events_async**](TrainingProgramEventsApi.md#get_training_program_events_async) | **GET** /api/v2/HrmsService/TrainingProgramEvents | Get training program events
 [**get_training_program_events_count_async**](TrainingProgramEventsApi.md#get_training_program_events_count_async) | **GET** /api/v2/HrmsService/TrainingProgramEvents/Count | Count training program events
+[**patch_training_program_event_async**](TrainingProgramEventsApi.md#patch_training_program_event_async) | **PATCH** /api/v2/HrmsService/TrainingProgramEvents/{eventId} | Patch a training program event
 [**update_training_program_event_async**](TrainingProgramEventsApi.md#update_training_program_event_async) | **PUT** /api/v2/HrmsService/TrainingProgramEvents/{eventId} | Update a training program event
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_training_program_event_async
+
+> models::EmptyEnvelope patch_training_program_event_async(tenant_id, event_id, api_version, x_api_version, operation)
+Patch a training program event
+
+Partially updates an existing training program event for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**event_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

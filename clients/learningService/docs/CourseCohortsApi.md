@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_course_cohort_by_id_async**](CourseCohortsApi.md#get_course_cohort_by_id_async) | **GET** /api/v2/LearningService/CourseCohorts/{cohortId} | Get course cohort by ID
 [**get_course_cohorts_async**](CourseCohortsApi.md#get_course_cohorts_async) | **GET** /api/v2/LearningService/CourseCohorts | Get all course cohorts
 [**get_course_cohorts_count_async**](CourseCohortsApi.md#get_course_cohorts_count_async) | **GET** /api/v2/LearningService/CourseCohorts/Count | Get course cohorts count
+[**patch_course_cohort_async**](CourseCohortsApi.md#patch_course_cohort_async) | **PATCH** /api/v2/LearningService/CourseCohorts/{cohortId} | Patch a course cohort
 [**update_course_cohort_async**](CourseCohortsApi.md#update_course_cohort_async) | **PUT** /api/v2/LearningService/CourseCohorts/{cohortId} | Update a course cohort
 
 
@@ -170,6 +171,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_cohort_async
+
+> models::EmptyEnvelope patch_course_cohort_async(tenant_id, cohort_id, api_version, x_api_version, operation)
+Patch a course cohort
+
+Partially updates a course cohort for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**cohort_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

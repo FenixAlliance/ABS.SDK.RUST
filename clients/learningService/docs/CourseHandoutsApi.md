@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_course_handout_by_id_async**](CourseHandoutsApi.md#get_course_handout_by_id_async) | **GET** /api/v2/LearningService/CourseHandouts/{handoutId} | Get course handout by ID
 [**get_course_handouts_async**](CourseHandoutsApi.md#get_course_handouts_async) | **GET** /api/v2/LearningService/CourseHandouts | Get all course handouts
 [**get_course_handouts_count_async**](CourseHandoutsApi.md#get_course_handouts_count_async) | **GET** /api/v2/LearningService/CourseHandouts/Count | Get course handouts count
+[**patch_course_handout_async**](CourseHandoutsApi.md#patch_course_handout_async) | **PATCH** /api/v2/LearningService/CourseHandouts/{handoutId} | Patch a course handout
 [**update_course_handout_async**](CourseHandoutsApi.md#update_course_handout_async) | **PUT** /api/v2/LearningService/CourseHandouts/{handoutId} | Update a course handout
 
 
@@ -170,6 +171,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_handout_async
+
+> patch_course_handout_async(tenant_id, handout_id, api_version, x_api_version, operation)
+Patch a course handout
+
+Partially updates an existing course handout.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**handout_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

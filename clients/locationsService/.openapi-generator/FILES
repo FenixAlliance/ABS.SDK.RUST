@@ -19,6 +19,7 @@ docs/LocationDtoIReadOnlyListEnvelope.md
 docs/LocationUpdateDto.md
 docs/LocationsApi.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -47,6 +48,7 @@ src/models/location_dto_i_read_only_list_envelope.rs
 src/models/location_update_dto.rs
 src/models/login_request.rs
 src/models/mod.rs
+src/models/operation.rs
 src/models/refresh_request.rs
 src/models/register_request.rs
 src/models/resend_confirmation_email_request.rs

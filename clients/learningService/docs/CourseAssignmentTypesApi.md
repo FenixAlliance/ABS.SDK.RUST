@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_course_assignment_type_by_id_async**](CourseAssignmentTypesApi.md#get_course_assignment_type_by_id_async) | **GET** /api/v2/LearningService/CourseAssignmentTypes/{assignmentTypeId} | Get course assignment type by ID
 [**get_course_assignment_types_async**](CourseAssignmentTypesApi.md#get_course_assignment_types_async) | **GET** /api/v2/LearningService/CourseAssignmentTypes | Get all course assignment types
 [**get_course_assignment_types_count_async**](CourseAssignmentTypesApi.md#get_course_assignment_types_count_async) | **GET** /api/v2/LearningService/CourseAssignmentTypes/Count | Get course assignment types count
+[**patch_course_assignment_type_async**](CourseAssignmentTypesApi.md#patch_course_assignment_type_async) | **PATCH** /api/v2/LearningService/CourseAssignmentTypes/{assignmentTypeId} | Patch a course assignment type
 [**update_course_assignment_type_async**](CourseAssignmentTypesApi.md#update_course_assignment_type_async) | **PUT** /api/v2/LearningService/CourseAssignmentTypes/{assignmentTypeId} | Update a course assignment type
 
 
@@ -170,6 +171,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_assignment_type_async
+
+> models::EmptyEnvelope patch_course_assignment_type_async(tenant_id, assignment_type_id, api_version, x_api_version, operation)
+Patch a course assignment type
+
+Partially updates a course assignment type for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**assignment_type_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

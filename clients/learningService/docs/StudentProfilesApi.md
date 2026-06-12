@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**api_v2_learning_service_student_profiles_student_profile_id_delete**](StudentProfilesApi.md#api_v2_learning_service_student_profiles_student_profile_id_delete) | **DELETE** /api/v2/LearningService/StudentProfiles/{studentProfileId} | 
 [**api_v2_learning_service_student_profiles_student_profile_id_get**](StudentProfilesApi.md#api_v2_learning_service_student_profiles_student_profile_id_get) | **GET** /api/v2/LearningService/StudentProfiles/{studentProfileId} | 
 [**api_v2_learning_service_student_profiles_student_profile_id_hours_completed_get**](StudentProfilesApi.md#api_v2_learning_service_student_profiles_student_profile_id_hours_completed_get) | **GET** /api/v2/LearningService/StudentProfiles/{studentProfileId}/HoursCompleted | 
+[**api_v2_learning_service_student_profiles_student_profile_id_patch**](StudentProfilesApi.md#api_v2_learning_service_student_profiles_student_profile_id_patch) | **PATCH** /api/v2/LearningService/StudentProfiles/{studentProfileId} | 
 [**api_v2_learning_service_student_profiles_student_profile_id_put**](StudentProfilesApi.md#api_v2_learning_service_student_profiles_student_profile_id_put) | **PUT** /api/v2/LearningService/StudentProfiles/{studentProfileId} | 
 
 
@@ -225,6 +226,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_v2_learning_service_student_profiles_student_profile_id_patch
+
+> models::EmptyEnvelope api_v2_learning_service_student_profiles_student_profile_id_patch(tenant_id, student_profile_id, api_version, x_api_version, operation)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**student_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

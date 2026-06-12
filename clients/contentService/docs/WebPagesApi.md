@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_tags_by_web_page_async**](WebPagesApi.md#get_tags_by_web_page_async) | **GET** /api/v2/ContentService/WebPages/{webPageId}/Tags | Get tags by web page
 [**get_web_page_by_id_async**](WebPagesApi.md#get_web_page_by_id_async) | **GET** /api/v2/ContentService/WebPages/{webPageId} | Get web page by ID
 [**get_web_pages_async**](WebPagesApi.md#get_web_pages_async) | **GET** /api/v2/ContentService/WebPages | Get web pages
+[**patch_web_page_async**](WebPagesApi.md#patch_web_page_async) | **PATCH** /api/v2/ContentService/WebPages/{webPageId} | Patch a web page
 [**relate_web_page_to_category_async**](WebPagesApi.md#relate_web_page_to_category_async) | **POST** /api/v2/ContentService/WebPages/{webPageId}/Categories/{categoryId} | Relate web page to category
 [**relate_web_page_to_tag_async**](WebPagesApi.md#relate_web_page_to_tag_async) | **POST** /api/v2/ContentService/WebPages/{webPageId}/Tags/{tagId} | Relate web page to tag
 [**unrelate_web_page_category_async**](WebPagesApi.md#unrelate_web_page_category_async) | **DELETE** /api/v2/ContentService/WebPages/{webPageId}/Categories/{categoryId} | Unrelate web page from category
@@ -311,6 +312,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_web_page_async
+
+> patch_web_page_async(tenant_id, web_page_id, api_version, x_api_version, operation)
+Patch a web page
+
+Partially updates an existing web page for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**web_page_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

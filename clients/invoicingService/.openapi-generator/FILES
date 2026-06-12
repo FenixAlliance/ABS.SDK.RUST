@@ -46,6 +46,7 @@ docs/InvoicesApi.md
 docs/LoginRequest.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PaymentDto.md
 docs/PaymentDtoIReadOnlyListEnvelope.md
 docs/RefreshRequest.md
@@ -107,6 +108,7 @@ src/models/login_request.rs
 src/models/mod.rs
 src/models/money.rs
 src/models/money_envelope.rs
+src/models/operation.rs
 src/models/payment_dto.rs
 src/models/payment_dto_i_read_only_list_envelope.rs
 src/models/refresh_request.rs

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_job_offer_by_id_async**](JobOffersApi.md#get_job_offer_by_id_async) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID
 [**get_job_offers_async**](JobOffersApi.md#get_job_offers_async) | **GET** /api/v2/HrmsService/JobOffers | Get job offers
 [**get_job_offers_count_async**](JobOffersApi.md#get_job_offers_count_async) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers
+[**patch_job_offer_async**](JobOffersApi.md#patch_job_offer_async) | **PATCH** /api/v2/HrmsService/JobOffers/{jobOfferId} | Patch a job offer
 [**update_job_offer_async**](JobOffersApi.md#update_job_offer_async) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer
 
 
@@ -176,9 +177,43 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## patch_job_offer_async
+
+> models::EmptyEnvelope patch_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version, operation)
+Patch a job offer
+
+Partially updates an existing job offer for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**job_offer_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## update_job_offer_async
 
-> models::EmptyEnvelope update_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version, body)
+> models::EmptyEnvelope update_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version, job_offer_update_dto)
 Update a job offer
 
 Updates an existing job offer for the specified tenant.
@@ -192,7 +227,7 @@ Name | Type | Description  | Required | Notes
 **job_offer_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**body** | Option<**serde_json::Value**> |  |  |
+**job_offer_update_dto** | Option<[**JobOfferUpdateDto**](JobOfferUpdateDto.md)> |  |  |
 
 ### Return type
 

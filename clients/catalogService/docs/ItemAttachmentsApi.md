@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_item_attachment_async**](ItemAttachmentsApi.md#delete_item_attachment_async) | **DELETE** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Delete an item attachment
 [**get_item_attachment_by_id_async**](ItemAttachmentsApi.md#get_item_attachment_by_id_async) | **GET** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Get item attachment by ID
 [**get_item_attachments_async**](ItemAttachmentsApi.md#get_item_attachments_async) | **GET** /api/v2/CatalogService/ItemAttachments | Get all item attachments
+[**patch_item_attachment_async**](ItemAttachmentsApi.md#patch_item_attachment_async) | **PATCH** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Patch an item attachment
 [**update_item_attachment_async**](ItemAttachmentsApi.md#update_item_attachment_async) | **PUT** /api/v2/CatalogService/ItemAttachments/{itemAttachmentId} | Update an item attachment
 
 
@@ -138,6 +139,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_item_attachment_async
+
+> models::EmptyEnvelope patch_item_attachment_async(tenant_id, item_attachment_id, api_version, x_api_version, operation)
+Patch an item attachment
+
+Partially updates an existing item attachment for the specified tenant using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**item_attachment_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

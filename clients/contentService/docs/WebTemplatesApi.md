@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_web_template_async**](WebTemplatesApi.md#delete_web_template_async) | **DELETE** /api/v2/ContentService/WebTemplates/{webTemplateId} | Delete a web template
 [**get_web_template_by_id_async**](WebTemplatesApi.md#get_web_template_by_id_async) | **GET** /api/v2/ContentService/WebTemplates/{webTemplateId} | Get web template by ID
 [**get_web_templates_async**](WebTemplatesApi.md#get_web_templates_async) | **GET** /api/v2/ContentService/WebTemplates | Get web templates
+[**patch_web_template_async**](WebTemplatesApi.md#patch_web_template_async) | **PATCH** /api/v2/ContentService/WebTemplates/{webTemplateId} | Patch a web template
 [**update_web_template_async**](WebTemplatesApi.md#update_web_template_async) | **PUT** /api/v2/ContentService/WebTemplates/{webTemplateId} | Update a web template
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_web_template_async
+
+> patch_web_template_async(tenant_id, web_template_id, api_version, x_api_version, operation)
+Patch a web template
+
+Partially updates an existing web template for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**web_template_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

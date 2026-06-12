@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_blog_post_category_async**](BlogPostCategoriesApi.md#delete_blog_post_category_async) | **DELETE** /api/v2/ContentService/BlogPostCategories/{blogPostCategoryId} | Delete a blog post category
 [**get_blog_post_categories_async**](BlogPostCategoriesApi.md#get_blog_post_categories_async) | **GET** /api/v2/ContentService/BlogPostCategories | Get blog post categories
 [**get_blog_post_category_by_id_async**](BlogPostCategoriesApi.md#get_blog_post_category_by_id_async) | **GET** /api/v2/ContentService/BlogPostCategories/{blogPostCategoryId} | Get blog post category by ID
+[**patch_blog_post_category_async**](BlogPostCategoriesApi.md#patch_blog_post_category_async) | **PATCH** /api/v2/ContentService/BlogPostCategories/{blogPostCategoryId} | Patch a blog post category
 [**update_blog_post_category_async**](BlogPostCategoriesApi.md#update_blog_post_category_async) | **PUT** /api/v2/ContentService/BlogPostCategories/{blogPostCategoryId} | Update a blog post category
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_blog_post_category_async
+
+> models::EmptyEnvelope patch_blog_post_category_async(tenant_id, blog_post_category_id, api_version, x_api_version, operation)
+Patch a blog post category
+
+Partially updates an existing blog post category for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**blog_post_category_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

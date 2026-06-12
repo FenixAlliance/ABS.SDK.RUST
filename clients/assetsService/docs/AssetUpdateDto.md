@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
-**asset_type** | Option<**String**> |  | [optional]
+**asset_class** | Option<**String**> |  | [optional]
 **asset_owner** | Option<**String**> |  | [optional]
 **calculate_depreciation** | Option<**bool**> |  | [optional]
 **allow_monthly_depreciation** | Option<**bool**> |  | [optional]
@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **purchase_date** | Option<**String**> |  | [optional]
 **purchase_price** | Option<**f64**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
-**currency_code** | Option<**String**> |  | [optional]
 **item_id** | Option<**String**> |  | [optional]
+**asset_type_id** | Option<**String**> |  | [optional]
 **asset_category_id** | Option<**String**> |  | [optional]
 **purchase_invoice_id** | Option<**String**> |  | [optional]
 **purchase_receipt_id** | Option<**String**> |  | [optional]

@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **markup** | Option<**String**> |  | [optional]
 **featured_image_url** | Option<**String**> |  | [optional]
 **code_type** | Option<**String**> |  | [optional]
+**slug** | Option<**String**> |  | [optional]
 **blog_post_category_id** | Option<**String**> |  | [optional]
 **web_template_id** | Option<**String**> |  | [optional]
 

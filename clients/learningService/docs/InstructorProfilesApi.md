@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**api_v2_learning_service_instructor_profiles_get**](InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_get) | **GET** /api/v2/LearningService/InstructorProfiles | 
 [**api_v2_learning_service_instructor_profiles_instructor_profile_id_delete**](InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_instructor_profile_id_delete) | **DELETE** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 [**api_v2_learning_service_instructor_profiles_instructor_profile_id_get**](InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_instructor_profile_id_get) | **GET** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
+[**api_v2_learning_service_instructor_profiles_instructor_profile_id_patch**](InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_instructor_profile_id_patch) | **PATCH** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 [**api_v2_learning_service_instructor_profiles_instructor_profile_id_put**](InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_instructor_profile_id_put) | **PUT** /api/v2/LearningService/InstructorProfiles/{instructorProfileId} | 
 [**api_v2_learning_service_instructor_profiles_post**](InstructorProfilesApi.md#api_v2_learning_service_instructor_profiles_post) | **POST** /api/v2/LearningService/InstructorProfiles | 
 
@@ -130,6 +131,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_v2_learning_service_instructor_profiles_instructor_profile_id_patch
+
+> models::EmptyEnvelope api_v2_learning_service_instructor_profiles_instructor_profile_id_patch(tenant_id, instructor_profile_id, api_version, x_api_version, operation)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**instructor_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

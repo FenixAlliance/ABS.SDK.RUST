@@ -80,6 +80,8 @@ pub mod money;
 pub use self::money::Money;
 pub mod money_envelope;
 pub use self::money_envelope::MoneyEnvelope;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod payment_dto;
 pub use self::payment_dto::PaymentDto;
 pub mod payment_dto_i_read_only_list_envelope;

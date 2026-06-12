@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **enable_for_licenses** | Option<**bool**> |  | [optional]
 **enable_for_services** | Option<**bool**> |  | [optional]
 **enable_for_subscriptions** | Option<**bool**> |  | [optional]
-**business_id** | Option<**String**> |  | [optional]
-**business_profile_record_id** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
+**enrollment_id** | Option<**String**> |  | [optional]
 **parent_item_category_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

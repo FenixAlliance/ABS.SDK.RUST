@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_item_review_async**](ItemReviewsApi.md#delete_item_review_async) | **DELETE** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Delete an item review
 [**get_item_review_by_id_async**](ItemReviewsApi.md#get_item_review_by_id_async) | **GET** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Get item review by ID
 [**get_item_reviews_async**](ItemReviewsApi.md#get_item_reviews_async) | **GET** /api/v2/CatalogService/ItemReviews | Get all item reviews
+[**patch_item_review_async**](ItemReviewsApi.md#patch_item_review_async) | **PATCH** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Patch an item review
 [**update_item_review_async**](ItemReviewsApi.md#update_item_review_async) | **PUT** /api/v2/CatalogService/ItemReviews/{itemReviewId} | Update an item review
 
 
@@ -138,6 +139,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_item_review_async
+
+> patch_item_review_async(tenant_id, item_review_id, api_version, x_api_version, operation)
+Patch an item review
+
+Partially updates an existing item review for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**item_review_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_schedule_by_id_async**](SchedulesApi.md#get_schedule_by_id_async) | **GET** /api/v2/HrmsService/Schedules/{scheduleId} | Get schedule by ID
 [**get_schedules_async**](SchedulesApi.md#get_schedules_async) | **GET** /api/v2/HrmsService/Schedules | Get schedules
 [**get_schedules_count_async**](SchedulesApi.md#get_schedules_count_async) | **GET** /api/v2/HrmsService/Schedules/Count | Count schedules
+[**patch_schedule_async**](SchedulesApi.md#patch_schedule_async) | **PATCH** /api/v2/HrmsService/Schedules/{scheduleId} | Patch a schedule
 [**update_schedule_async**](SchedulesApi.md#update_schedule_async) | **PUT** /api/v2/HrmsService/Schedules/{scheduleId} | Update a schedule
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_schedule_async
+
+> models::EmptyEnvelope patch_schedule_async(tenant_id, schedule_id, api_version, x_api_version, operation)
+Patch a schedule
+
+Partially updates an existing schedule for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**schedule_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

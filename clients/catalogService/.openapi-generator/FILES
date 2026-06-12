@@ -3,6 +3,8 @@
 Cargo.toml
 README.md
 docs/AccessTokenResponse.md
+docs/BatchStockItemUpdateRequest.md
+docs/BulkProduct.md
 docs/CatalogItemCreateDto.md
 docs/CatalogItemDto.md
 docs/CatalogItemDtoEnvelope.md
@@ -124,6 +126,7 @@ docs/MerchantDtoListEnvelope.md
 docs/MerchantsApi.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PricingRuleDto.md
 docs/PricingRuleDtoEnvelope.md
 docs/PricingRuleDtoListEnvelope.md
@@ -161,6 +164,8 @@ src/apis/merchants_api.rs
 src/apis/mod.rs
 src/lib.rs
 src/models/access_token_response.rs
+src/models/batch_stock_item_update_request.rs
+src/models/bulk_product.rs
 src/models/catalog_item_create_dto.rs
 src/models/catalog_item_dto.rs
 src/models/catalog_item_dto_envelope.rs
@@ -261,6 +266,7 @@ src/models/merchant_dto_list_envelope.rs
 src/models/mod.rs
 src/models/money.rs
 src/models/money_envelope.rs
+src/models/operation.rs
 src/models/pricing_rule_dto.rs
 src/models/pricing_rule_dto_envelope.rs
 src/models/pricing_rule_dto_list_envelope.rs

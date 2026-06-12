@@ -26,6 +26,8 @@ pub mod location_update_dto;
 pub use self::location_update_dto::LocationUpdateDto;
 pub mod login_request;
 pub use self::login_request::LoginRequest;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod refresh_request;
 pub use self::refresh_request::RefreshRequest;
 pub mod register_request;

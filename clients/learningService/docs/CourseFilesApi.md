@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_course_file_by_id_async**](CourseFilesApi.md#get_course_file_by_id_async) | **GET** /api/v2/LearningService/CourseFiles/{fileId} | Get course file by ID
 [**get_course_files_async**](CourseFilesApi.md#get_course_files_async) | **GET** /api/v2/LearningService/CourseFiles | Get all course files
 [**get_course_files_count_async**](CourseFilesApi.md#get_course_files_count_async) | **GET** /api/v2/LearningService/CourseFiles/Count | Get course files count
+[**patch_course_file_async**](CourseFilesApi.md#patch_course_file_async) | **PATCH** /api/v2/LearningService/CourseFiles/{fileId} | Patch a course file
 [**update_course_file_async**](CourseFilesApi.md#update_course_file_async) | **PUT** /api/v2/LearningService/CourseFiles/{fileId} | Update a course file
 
 
@@ -170,6 +171,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_course_file_async
+
+> patch_course_file_async(tenant_id, file_id, api_version, x_api_version, operation)
+Patch a course file
+
+Partially updates an existing course file for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**file_id** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

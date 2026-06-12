@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_employee_appraisal_session_by_id_async**](EmployeeAppraisalSessionsApi.md#get_employee_appraisal_session_by_id_async) | **GET** /api/v2/HrmsService/EmployeeAppraisalSessions/{sessionId} | Get employee appraisal session by ID
 [**get_employee_appraisal_sessions_async**](EmployeeAppraisalSessionsApi.md#get_employee_appraisal_sessions_async) | **GET** /api/v2/HrmsService/EmployeeAppraisalSessions | Get employee appraisal sessions
 [**get_employee_appraisal_sessions_count_async**](EmployeeAppraisalSessionsApi.md#get_employee_appraisal_sessions_count_async) | **GET** /api/v2/HrmsService/EmployeeAppraisalSessions/Count | Count employee appraisal sessions
+[**patch_employee_appraisal_session_async**](EmployeeAppraisalSessionsApi.md#patch_employee_appraisal_session_async) | **PATCH** /api/v2/HrmsService/EmployeeAppraisalSessions/{sessionId} | Patch an employee appraisal session
 [**update_employee_appraisal_session_async**](EmployeeAppraisalSessionsApi.md#update_employee_appraisal_session_async) | **PUT** /api/v2/HrmsService/EmployeeAppraisalSessions/{sessionId} | Update an employee appraisal session
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_employee_appraisal_session_async
+
+> models::EmptyEnvelope patch_employee_appraisal_session_async(tenant_id, session_id, api_version, x_api_version, operation)
+Patch an employee appraisal session
+
+Partially updates an existing employee appraisal session for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**session_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

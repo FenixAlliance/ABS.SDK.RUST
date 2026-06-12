@@ -4,11 +4,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
-**business_id** | Option<[**serde_json::Value**](.md)> |  | [optional]
-**business_profile_record_id** | Option<[**serde_json::Value**](.md)> |  | [optional]
-**asset_id** | Option<[**serde_json::Value**](.md)> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
+**enrollment_id** | Option<**String**> |  | [optional]
+**asset_id** | Option<**String**> |  | [optional]
 **asset_name** | Option<**String**> |  | [optional]
 **repair_status** | Option<**String**> |  | [optional]
 **scheduled_date** | Option<**String**> |  | [optional]

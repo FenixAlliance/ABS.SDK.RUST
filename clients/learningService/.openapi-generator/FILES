@@ -107,6 +107,7 @@ docs/CourseWikiDto.md
 docs/CourseWikiUpdateDto.md
 docs/CourseWikisApi.md
 docs/CoursesApi.md
+docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/FenixAlliancePortalsWebsiteApi.md
 docs/ForgotPasswordRequest.md
@@ -120,6 +121,7 @@ docs/InstructorProfileUpdateDto.md
 docs/InstructorProfilesApi.md
 docs/LoginRequest.md
 docs/MeApi.md
+docs/Operation.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
 docs/ResendConfirmationEmailRequest.md
@@ -244,6 +246,7 @@ src/models/course_update_dto.rs
 src/models/course_wiki_create_dto.rs
 src/models/course_wiki_dto.rs
 src/models/course_wiki_update_dto.rs
+src/models/empty_envelope.rs
 src/models/error_envelope.rs
 src/models/forgot_password_request.rs
 src/models/http_validation_problem_details.rs
@@ -255,6 +258,7 @@ src/models/instructor_profile_dto_i_read_only_list_envelope.rs
 src/models/instructor_profile_update_dto.rs
 src/models/login_request.rs
 src/models/mod.rs
+src/models/operation.rs
 src/models/refresh_request.rs
 src/models/register_request.rs
 src/models/resend_confirmation_email_request.rs

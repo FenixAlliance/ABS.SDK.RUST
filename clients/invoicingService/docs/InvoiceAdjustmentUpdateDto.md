@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **currency_id** | Option<**String**> |  | [optional]
+**priority** | Option<**i32**> |  | [optional]
+**code** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
 **surcharge_percent** | Option<**f64**> |  | [optional]
 **surcharge_amount** | Option<**f64**> |  | [optional]

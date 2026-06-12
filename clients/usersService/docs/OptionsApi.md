@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_user_option_by_key**](OptionsApi.md#get_user_option_by_key) | **GET** /api/v2/Me/Options/Key/{key} | Retrieve a single user option by its key
 [**get_user_options**](OptionsApi.md#get_user_options) | **GET** /api/v2/Me/Options | Retrieve a list of user options
 [**get_user_options_count**](OptionsApi.md#get_user_options_count) | **GET** /api/v2/Me/Options/Count | Get the count of user options
+[**patch_user_option**](OptionsApi.md#patch_user_option) | **PATCH** /api/v2/Me/Options/{optionId} | Patch a user option
 [**update_user_option**](OptionsApi.md#update_user_option) | **PUT** /api/v2/Me/Options/{optionId} | Update a user option
 [**upsert_user_option**](OptionsApi.md#upsert_user_option) | **PUT** /api/v2/Me/Options/Upsert/{key} | Create or update a user option by key
 
@@ -205,6 +206,39 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_user_option
+
+> models::EmptyEnvelope patch_user_option(option_id, api_version, x_api_version, operation)
+Patch a user option
+
+Partially updates a user option using a JSON Patch document
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**option_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
