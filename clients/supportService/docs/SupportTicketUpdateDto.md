@@ -4,7 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**title** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
+**support_ticket_status** | Option<**String**> |  | [optional]
 **contact_id** | Option<**String**> |  | [optional]
 **support_ticket_type_id** | Option<**String**> |  | [optional]
 **support_entitlement_id** | Option<**String**> |  | [optional]

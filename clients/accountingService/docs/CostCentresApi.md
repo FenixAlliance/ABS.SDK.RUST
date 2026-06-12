@@ -18,6 +18,9 @@ Method | HTTP request | Description
 [**get_cost_centre_groups_count**](CostCentresApi.md#get_cost_centre_groups_count) | **GET** /api/v2/AccountingService/CostCentres/CostCentreGroups/Count | Get the count of cost centre groups for a tenant
 [**get_cost_centres**](CostCentresApi.md#get_cost_centres) | **GET** /api/v2/AccountingService/CostCentres | Get all cost centres for a tenant
 [**get_cost_centres_count**](CostCentresApi.md#get_cost_centres_count) | **GET** /api/v2/AccountingService/CostCentres/Count | Get the count of cost centres for a tenant
+[**patch_cost_centre**](CostCentresApi.md#patch_cost_centre) | **PATCH** /api/v2/AccountingService/CostCentres/{costCentreId} | Patch a cost centre
+[**patch_cost_centre_budget**](CostCentresApi.md#patch_cost_centre_budget) | **PATCH** /api/v2/AccountingService/CostCentres/CostCentreBudgets/{budgetId} | Patch a cost centre budget
+[**patch_cost_centre_group**](CostCentresApi.md#patch_cost_centre_group) | **PATCH** /api/v2/AccountingService/CostCentres/CostCentreGroups/{groupId} | Patch a cost centre group
 [**update_cost_centre**](CostCentresApi.md#update_cost_centre) | **PUT** /api/v2/AccountingService/CostCentres/{costCentreId} | Update a cost centre
 [**update_cost_centre_budget**](CostCentresApi.md#update_cost_centre_budget) | **PUT** /api/v2/AccountingService/CostCentres/CostCentreBudgets/{budgetId} | Update a cost centre budget
 [**update_cost_centre_group**](CostCentresApi.md#update_cost_centre_group) | **PUT** /api/v2/AccountingService/CostCentres/CostCentreGroups/{groupId} | Update a cost centre group
@@ -476,6 +479,108 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_cost_centre
+
+> models::EmptyEnvelope patch_cost_centre(tenant_id, cost_centre_id, api_version, x_api_version, operation)
+Patch a cost centre
+
+Partially updates an existing cost centre.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**cost_centre_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_cost_centre_budget
+
+> models::EmptyEnvelope patch_cost_centre_budget(tenant_id, budget_id, api_version, x_api_version, operation)
+Patch a cost centre budget
+
+Partially updates an existing cost centre budget.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**budget_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_cost_centre_group
+
+> models::EmptyEnvelope patch_cost_centre_group(tenant_id, group_id, api_version, x_api_version, operation)
+Patch a cost centre group
+
+Partially updates an existing cost centre group.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**group_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

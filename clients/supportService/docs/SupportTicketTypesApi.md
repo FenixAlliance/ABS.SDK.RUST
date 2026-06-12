@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_support_ticket_type_async**](SupportTicketTypesApi.md#get_support_ticket_type_async) | **GET** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Retrieve a support ticket type by ID
 [**get_support_ticket_types_async**](SupportTicketTypesApi.md#get_support_ticket_types_async) | **GET** /api/v2/SupportService/SupportTicketTypes | Retrieve a list of support ticket types
 [**get_support_ticket_types_count_async**](SupportTicketTypesApi.md#get_support_ticket_types_count_async) | **GET** /api/v2/SupportService/SupportTicketTypes/Count | Get the count of support ticket types
+[**patch_support_ticket_type_async**](SupportTicketTypesApi.md#patch_support_ticket_type_async) | **PATCH** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Patch a support ticket type
 [**update_support_ticket_type_async**](SupportTicketTypesApi.md#update_support_ticket_type_async) | **PUT** /api/v2/SupportService/SupportTicketTypes/{supportTicketTypeId} | Update a support ticket type
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_support_ticket_type_async
+
+> models::EmptyEnvelope patch_support_ticket_type_async(tenant_id, support_ticket_type_id, api_version, x_api_version, operation)
+Patch a support ticket type
+
+Partially updates an existing support ticket type by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**support_ticket_type_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

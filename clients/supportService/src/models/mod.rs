@@ -74,6 +74,8 @@ pub mod maintenance_visit_dto_envelope;
 pub use self::maintenance_visit_dto_envelope::MaintenanceVisitDtoEnvelope;
 pub mod maintenance_visit_dto_list_envelope;
 pub use self::maintenance_visit_dto_list_envelope::MaintenanceVisitDtoListEnvelope;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod private_message_dto;
 pub use self::private_message_dto::PrivateMessageDto;
 pub mod private_message_dto_list_envelope;

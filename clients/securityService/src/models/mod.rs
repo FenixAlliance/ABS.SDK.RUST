@@ -54,6 +54,8 @@ pub mod o_auth_authorization_dto_envelope;
 pub use self::o_auth_authorization_dto_envelope::OAuthAuthorizationDtoEnvelope;
 pub mod o_auth_authorization_dto_list_envelope;
 pub use self::o_auth_authorization_dto_list_envelope::OAuthAuthorizationDtoListEnvelope;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod refresh_request;
 pub use self::refresh_request::RefreshRequest;
 pub mod register_request;

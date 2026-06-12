@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_ledger_type_details_async**](LedgerTypesApi.md#get_ledger_type_details_async) | **GET** /api/v2/AccountingService/LedgerTypes/{ledgerTypeId} | Gets a ledger type by ID
 [**get_ledger_types_async**](LedgerTypesApi.md#get_ledger_types_async) | **GET** /api/v2/AccountingService/LedgerTypes | Retrieves all ledger types
 [**get_ledger_types_count_async**](LedgerTypesApi.md#get_ledger_types_count_async) | **GET** /api/v2/AccountingService/LedgerTypes/Count | Counts ledger types
+[**patch_ledger_type_async**](LedgerTypesApi.md#patch_ledger_type_async) | **PATCH** /api/v2/AccountingService/LedgerTypes/{ledgerTypeId} | Patches a ledger type
 [**update_ledger_type_async**](LedgerTypesApi.md#update_ledger_type_async) | **PUT** /api/v2/AccountingService/LedgerTypes/{ledgerTypeId} | Updates a ledger type
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_ledger_type_async
+
+> models::EmptyEnvelope patch_ledger_type_async(tenant_id, ledger_type_id, api_version, x_api_version, operation)
+Patches a ledger type
+
+Partially updates the specified ledger type using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**ledger_type_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

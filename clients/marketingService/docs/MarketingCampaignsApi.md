@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_marketing_campaign_details_async**](MarketingCampaignsApi.md#get_marketing_campaign_details_async) | **GET** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Get marketing campaign by ID
 [**get_marketing_campaign_o_data_async**](MarketingCampaignsApi.md#get_marketing_campaign_o_data_async) | **GET** /api/v2/MarketingService/MarketingCampaigns | Get marketing campaigns
 [**get_marketing_campaigns_count_async**](MarketingCampaignsApi.md#get_marketing_campaigns_count_async) | **GET** /api/v2/MarketingService/MarketingCampaigns/Count | Get marketing campaigns count
+[**patch_marketing_campaign_async**](MarketingCampaignsApi.md#patch_marketing_campaign_async) | **PATCH** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Patch a marketing campaign
 [**update_marketing_campaign_async**](MarketingCampaignsApi.md#update_marketing_campaign_async) | **PUT** /api/v2/MarketingService/MarketingCampaigns/{marketingcampaignId} | Update a marketing campaign
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_marketing_campaign_async
+
+> models::EmptyEnvelope patch_marketing_campaign_async(tenant_id, marketingcampaign_id, api_version, x_api_version, operation)
+Patch a marketing campaign
+
+Partially updates a marketing campaign by its ID using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**marketingcampaign_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

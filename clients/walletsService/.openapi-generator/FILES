@@ -28,6 +28,7 @@ docs/LocationDtoEnvelope.md
 docs/LocationDtoListEnvelope.md
 docs/LocationUpdateDto.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/OrderDto.md
 docs/OrderDtoListEnvelope.md
 docs/PaymentChargebackDto.md
@@ -93,6 +94,7 @@ src/models/location_dto_list_envelope.rs
 src/models/location_update_dto.rs
 src/models/login_request.rs
 src/models/mod.rs
+src/models/operation.rs
 src/models/order_dto.rs
 src/models/order_dto_list_envelope.rs
 src/models/payment_chargeback_dto.rs

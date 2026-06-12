@@ -38,6 +38,9 @@ Method | HTTP request | Description
 [**get_debit_account_entries_async**](AccountsApi.md#get_debit_account_entries_async) | **GET** /api/v2/AccountingService/Accounts/{accountId}/Entries/Debit | Get debit account entries
 [**get_root_accounts_async**](AccountsApi.md#get_root_accounts_async) | **GET** /api/v2/AccountingService/Accounts/Root | Get root accounts
 [**patch_account_async**](AccountsApi.md#patch_account_async) | **PATCH** /api/v2/AccountingService/Accounts/{accountId} | Patch an account
+[**patch_account_entry_async**](AccountsApi.md#patch_account_entry_async) | **PATCH** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Patch account entry
+[**patch_account_relation_async**](AccountsApi.md#patch_account_relation_async) | **PATCH** /api/v2/AccountingService/Accounts/Relations/{accountRelationId} | Patch account relation
+[**patch_account_type_async**](AccountsApi.md#patch_account_type_async) | **PATCH** /api/v2/AccountingService/Accounts/Types/{accountTypeId} | Patch account type
 [**seed_chart_of_accounts_async**](AccountsApi.md#seed_chart_of_accounts_async) | **POST** /api/v2/AccountingService/Accounts/ChartsOfAccounts/Seed | Seed chart of accounts
 [**update_account_async**](AccountsApi.md#update_account_async) | **PUT** /api/v2/AccountingService/Accounts/{accountId} | Update an account
 [**update_account_entry_async**](AccountsApi.md#update_account_entry_async) | **PUT** /api/v2/AccountingService/Accounts/{accountId}/Entries/{entryId} | Update account entry
@@ -1149,6 +1152,110 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **account_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_account_entry_async
+
+> models::EmptyEnvelope patch_account_entry_async(tenant_id, account_id, entry_id, api_version, x_api_version, operation)
+Patch account entry
+
+Patch account entry.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**account_id** | **uuid::Uuid** |  | [required] |
+**entry_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_account_relation_async
+
+> models::EmptyEnvelope patch_account_relation_async(tenant_id, account_relation_id, account_id, api_version, x_api_version, operation)
+Patch account relation
+
+Patch account relation.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**account_relation_id** | **uuid::Uuid** |  | [required] |
+**account_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_account_type_async
+
+> models::EmptyEnvelope patch_account_type_async(tenant_id, account_type_id, api_version, x_api_version, operation)
+Patch account type
+
+Patch account type.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**account_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |

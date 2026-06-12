@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **end_quantity** | Option<**f64**> |  | [optional]
 **percent** | Option<**f64**> |  | [optional]
 **value** | Option<**f64**> |  | [optional]
+**item_id** | Option<**String**> |  | [optional]
 **discount_list_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

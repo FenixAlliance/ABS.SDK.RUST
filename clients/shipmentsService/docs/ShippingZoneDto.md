@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **everywhere** | Option<**bool**> |  | [optional]
 **postal_codes** | Option<**String**> |  | [optional]
 **country_codes** | Option<**String**> |  | [optional]
-**business_id** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_fiscal_regime**](FiscalRegimesApi.md#get_fiscal_regime) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalRegimes/{regimeId} | Get fiscal regime by ID
 [**get_fiscal_regimes**](FiscalRegimesApi.md#get_fiscal_regimes) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/FiscalRegimes | Get fiscal regimes for an authority
 [**get_fiscal_regimes_count**](FiscalRegimesApi.md#get_fiscal_regimes_count) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalRegimes/Count | Get fiscal regimes count
+[**patch_fiscal_regime_async**](FiscalRegimesApi.md#patch_fiscal_regime_async) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/FiscalRegimes/{regimeId} | Patch a fiscal regime
 [**update_fiscal_regime**](FiscalRegimesApi.md#update_fiscal_regime) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/FiscalRegimes/{regimeId} | Update a fiscal regime
 
 
@@ -175,6 +176,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_fiscal_regime_async
+
+> models::EmptyEnvelope patch_fiscal_regime_async(tenant_id, regime_id, api_version, x_api_version, operation)
+Patch a fiscal regime
+
+Partially updates a fiscal regime.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**regime_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

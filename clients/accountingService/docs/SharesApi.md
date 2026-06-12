@@ -24,6 +24,10 @@ Method | HTTP request | Description
 [**get_share_transfer_reasons_count**](SharesApi.md#get_share_transfer_reasons_count) | **GET** /api/v2/AccountingService/Shares/TransferReasons/Count | Gets the current tenant share transfer reasons count
 [**get_share_transfers**](SharesApi.md#get_share_transfers) | **GET** /api/v2/AccountingService/Shares/Transfers | Gets the current tenant share transfers
 [**get_share_transfers_count**](SharesApi.md#get_share_transfers_count) | **GET** /api/v2/AccountingService/Shares/Transfers/Count | Gets the current tenant share transfers count
+[**patch_share_class**](SharesApi.md#patch_share_class) | **PATCH** /api/v2/AccountingService/Shares/Classes/{shareClassId} | Patches a share class
+[**patch_share_issuance**](SharesApi.md#patch_share_issuance) | **PATCH** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Patches a share issuance
+[**patch_share_transfer**](SharesApi.md#patch_share_transfer) | **PATCH** /api/v2/AccountingService/Shares/Transfers/{transferId} | Patches a share transfer
+[**patch_share_transfer_reason**](SharesApi.md#patch_share_transfer_reason) | **PATCH** /api/v2/AccountingService/Shares/TransferReasons/{reasonId} | Patches a share transfer reason
 [**update_share_class**](SharesApi.md#update_share_class) | **PUT** /api/v2/AccountingService/Shares/Classes/{shareClassId} | Updates an existing share class
 [**update_share_issuance**](SharesApi.md#update_share_issuance) | **PUT** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Updates an existing share issuance
 [**update_share_transfer**](SharesApi.md#update_share_transfer) | **PUT** /api/v2/AccountingService/Shares/Transfers/{transferId} | Updates an existing share transfer
@@ -678,6 +682,142 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_share_class
+
+> models::EmptyEnvelope patch_share_class(tenant_id, share_class_id, api_version, x_api_version, operation)
+Patches a share class
+
+Partially updates a share class using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**share_class_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_share_issuance
+
+> models::EmptyEnvelope patch_share_issuance(tenant_id, issuance_id, api_version, x_api_version, operation)
+Patches a share issuance
+
+Partially updates a share issuance using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**issuance_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_share_transfer
+
+> models::EmptyEnvelope patch_share_transfer(tenant_id, transfer_id, api_version, x_api_version, operation)
+Patches a share transfer
+
+Partially updates a share transfer using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**transfer_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_share_transfer_reason
+
+> models::EmptyEnvelope patch_share_transfer_reason(tenant_id, reason_id, api_version, x_api_version, operation)
+Patches a share transfer reason
+
+Partially updates a share transfer reason using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**reason_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

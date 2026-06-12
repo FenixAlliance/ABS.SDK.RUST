@@ -92,6 +92,8 @@ pub mod newsletter_dto_envelope;
 pub use self::newsletter_dto_envelope::NewsletterDtoEnvelope;
 pub mod newsletter_update_dto;
 pub use self::newsletter_update_dto::NewsletterUpdateDto;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod order_dto;
 pub use self::order_dto::OrderDto;
 pub mod order_dto_envelope;

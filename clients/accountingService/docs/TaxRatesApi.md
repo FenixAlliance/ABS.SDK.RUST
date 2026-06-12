@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tax_rate**](TaxRatesApi.md#get_tax_rate) | **GET** /api/v2/AccountingService/TaxRates/{id} | Get tax rate by ID
 [**get_tax_rates**](TaxRatesApi.md#get_tax_rates) | **GET** /api/v2/AccountingService/TaxRates | Get all tax rates for a tenant
 [**get_tax_rates_count**](TaxRatesApi.md#get_tax_rates_count) | **GET** /api/v2/AccountingService/TaxRates/Count | Get tax rates count
+[**patch_tax_rate**](TaxRatesApi.md#patch_tax_rate) | **PATCH** /api/v2/AccountingService/TaxRates/{id} | Patch a tax rate
 [**update_tax_rate**](TaxRatesApi.md#update_tax_rate) | **PUT** /api/v2/AccountingService/TaxRates/{id} | Update a tax rate
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tax_rate
+
+> models::EmptyEnvelope patch_tax_rate(tenant_id, id, api_version, x_api_version, operation)
+Patch a tax rate
+
+Partially updates an existing tax rate identified by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

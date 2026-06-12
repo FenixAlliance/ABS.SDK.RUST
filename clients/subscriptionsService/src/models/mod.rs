@@ -1,5 +1,7 @@
 pub mod access_token_response;
 pub use self::access_token_response::AccessTokenResponse;
+pub mod empty_envelope;
+pub use self::empty_envelope::EmptyEnvelope;
 pub mod envelope;
 pub use self::envelope::Envelope;
 pub mod error_envelope;
@@ -16,6 +18,8 @@ pub mod int32_envelope;
 pub use self::int32_envelope::Int32Envelope;
 pub mod login_request;
 pub use self::login_request::LoginRequest;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod refresh_request;
 pub use self::refresh_request::RefreshRequest;
 pub mod register_request;

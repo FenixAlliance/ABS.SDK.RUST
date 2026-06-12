@@ -13,6 +13,7 @@ Method | HTTP request | Description
 [**get_support_ticket_conversations_async**](SupportTicketsApi.md#get_support_ticket_conversations_async) | **GET** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Retrieve conversations for a support ticket
 [**get_support_tickets_async**](SupportTicketsApi.md#get_support_tickets_async) | **GET** /api/v2/SupportService/SupportTickets | Retrieve a list of support tickets
 [**get_support_tickets_count_async**](SupportTicketsApi.md#get_support_tickets_count_async) | **GET** /api/v2/SupportService/SupportTickets/Count | Get the count of support tickets
+[**patch_support_ticket_async**](SupportTicketsApi.md#patch_support_ticket_async) | **PATCH** /api/v2/SupportService/SupportTickets/{supportTicketId} | Patch a support ticket
 [**relate_support_ticket_to_conversation_async**](SupportTicketsApi.md#relate_support_ticket_to_conversation_async) | **POST** /api/v2/SupportService/SupportTickets/{supportTicketId}/Conversations | Create a conversation for a support ticket
 [**update_support_ticket_async**](SupportTicketsApi.md#update_support_ticket_async) | **PUT** /api/v2/SupportService/SupportTickets/{supportTicketId} | Update a support ticket
 
@@ -313,6 +314,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_support_ticket_async
+
+> models::EmptyEnvelope patch_support_ticket_async(tenant_id, support_ticket_id, api_version, x_api_version, operation)
+Patch a support ticket
+
+Partially updates an existing support ticket by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**support_ticket_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **duns** | Option<**String**> |  | [optional]
 **is_public_company** | Option<**bool**> |  | [optional]
 **is_facta_customer** | Option<**bool**> |  | [optional]
+**tax_payer_type** | Option<**String**> |  | [optional]
 **country_id** | Option<**String**> |  | [optional]
 **state_id** | Option<**String**> |  | [optional]
 **city_id** | Option<**String**> |  | [optional]

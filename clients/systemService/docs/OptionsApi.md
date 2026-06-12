@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_system_option_by_key**](OptionsApi.md#get_system_option_by_key) | **GET** /api/v2/SystemService/Options/Key/{key} | Retrieve a single system option by its key
 [**get_system_options**](OptionsApi.md#get_system_options) | **GET** /api/v2/SystemService/Options | Retrieve a list of system options
 [**get_system_options_count**](OptionsApi.md#get_system_options_count) | **GET** /api/v2/SystemService/Options/Count | Get the count of system options
+[**patch_system_option**](OptionsApi.md#patch_system_option) | **PATCH** /api/v2/SystemService/Options/{optionId} | Partially update a system option
 [**update_system_option**](OptionsApi.md#update_system_option) | **PUT** /api/v2/SystemService/Options/{optionId} | Update a system option
 [**upsert_system_option**](OptionsApi.md#upsert_system_option) | **PUT** /api/v2/SystemService/Options/Upsert/{key} | Create or update a system option by key
 
@@ -205,6 +206,39 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_system_option
+
+> models::EmptyEnvelope patch_system_option(option_id, api_version, x_api_version, operation)
+Partially update a system option
+
+Partially update a system option using a JSON Patch document
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**option_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

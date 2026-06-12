@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**get_payment_commission_async**](CommissionsApi.md#get_payment_commission_async) | **GET** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Get a payment commission by id
 [**get_payment_commissions_async**](CommissionsApi.md#get_payment_commissions_async) | **GET** /api/v2/AccountingService/Commissions/PaymentCommissions | Get all payment commissions for a tenant
 [**get_payment_commissions_count_async**](CommissionsApi.md#get_payment_commissions_count_async) | **GET** /api/v2/AccountingService/Commissions/PaymentCommissions/Count | Get the count of payment commissions for a tenant
+[**patch_commission_async**](CommissionsApi.md#patch_commission_async) | **PATCH** /api/v2/AccountingService/Commissions/Commissions/{commissionId} | Patch a commission
+[**patch_payment_commission_async**](CommissionsApi.md#patch_payment_commission_async) | **PATCH** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Patch a payment commission
 [**update_commission_async**](CommissionsApi.md#update_commission_async) | **PUT** /api/v2/AccountingService/Commissions/Commissions/{commissionId} | Update a commission
 [**update_payment_commission_async**](CommissionsApi.md#update_payment_commission_async) | **PUT** /api/v2/AccountingService/Commissions/PaymentCommissions/{paymentCommissionId} | Update a payment commission
 
@@ -340,6 +342,74 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_commission_async
+
+> models::EmptyEnvelope patch_commission_async(tenant_id, commission_id, api_version, x_api_version, operation)
+Patch a commission
+
+Partially updates an existing commission.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**commission_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_payment_commission_async
+
+> models::EmptyEnvelope patch_payment_commission_async(tenant_id, payment_commission_id, api_version, x_api_version, operation)
+Patch a payment commission
+
+Partially updates an existing payment commission.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**payment_commission_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

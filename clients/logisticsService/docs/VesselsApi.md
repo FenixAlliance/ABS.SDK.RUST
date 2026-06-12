@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_vessel_by_id_async**](VesselsApi.md#get_vessel_by_id_async) | **GET** /api/v2/LogisticsService/Vessels/{vesselId} | Get vessel by ID
 [**get_vessels_async**](VesselsApi.md#get_vessels_async) | **GET** /api/v2/LogisticsService/Vessels | Get all vessels
 [**get_vessels_count_async**](VesselsApi.md#get_vessels_count_async) | **GET** /api/v2/LogisticsService/Vessels/Count | Get vessels count
+[**patch_vessel_async**](VesselsApi.md#patch_vessel_async) | **PATCH** /api/v2/LogisticsService/Vessels/{vesselId} | Patch a vessel
 [**update_vessel_async**](VesselsApi.md#update_vessel_async) | **PUT** /api/v2/LogisticsService/Vessels/{vesselId} | Update a vessel
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_vessel_async
+
+> models::EmptyEnvelope patch_vessel_async(tenant_id, vessel_id, api_version, x_api_version, operation)
+Patch a vessel
+
+Partially updates an existing vessel using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**vessel_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

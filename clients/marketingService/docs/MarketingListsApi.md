@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_marketing_list_details_async**](MarketingListsApi.md#get_marketing_list_details_async) | **GET** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Get marketing list by ID
 [**get_marketing_list_o_data_async**](MarketingListsApi.md#get_marketing_list_o_data_async) | **GET** /api/v2/MarketingService/MarketingLists | Get marketing lists
 [**get_marketing_lists_count_async**](MarketingListsApi.md#get_marketing_lists_count_async) | **GET** /api/v2/MarketingService/MarketingLists/Count | Get marketing lists count
+[**patch_marketing_list_async**](MarketingListsApi.md#patch_marketing_list_async) | **PATCH** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Patch a marketing list
 [**update_marketing_list_async**](MarketingListsApi.md#update_marketing_list_async) | **PUT** /api/v2/MarketingService/MarketingLists/{marketinglistId} | Update a marketing list
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_marketing_list_async
+
+> models::EmptyEnvelope patch_marketing_list_async(tenant_id, marketinglist_id, api_version, x_api_version, operation)
+Patch a marketing list
+
+Partially updates a marketing list by its ID using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**marketinglist_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

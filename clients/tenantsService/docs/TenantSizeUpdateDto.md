@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | Option<**String**> |  | [optional]
 **employee_low_range_value** | Option<**i32**> |  | [optional]
 **employee_high_range_value** | Option<**i32**> |  | [optional]
 

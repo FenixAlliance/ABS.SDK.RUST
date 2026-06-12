@@ -24,6 +24,10 @@ Method | HTTP request | Description
 [**get_bank_transactions_count**](BankingApi.md#get_bank_transactions_count) | **GET** /api/v2/AccountingService/Banking/{bankId}/Transactions/Count | Gets the current tenant bank transactions count
 [**get_banks**](BankingApi.md#get_banks) | **GET** /api/v2/AccountingService/Banking | Gets the current tenant banks
 [**get_banks_count**](BankingApi.md#get_banks_count) | **GET** /api/v2/AccountingService/Banking/Count | Gets the current tenant banks count
+[**patch_bank**](BankingApi.md#patch_bank) | **PATCH** /api/v2/AccountingService/Banking/{bankId} | Patches a bank
+[**patch_bank_account**](BankingApi.md#patch_bank_account) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Accounts/{accountId} | Patches a bank account
+[**patch_bank_guarantee**](BankingApi.md#patch_bank_guarantee) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Guarantees/{guaranteeId} | Patches a bank guarantee
+[**patch_bank_transaction**](BankingApi.md#patch_bank_transaction) | **PATCH** /api/v2/AccountingService/Banking/{bankId}/Transactions/{transactionId} | Patches a bank transaction
 [**update_bank**](BankingApi.md#update_bank) | **PUT** /api/v2/AccountingService/Banking/{bankId} | Updates a bank
 [**update_bank_account**](BankingApi.md#update_bank_account) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Accounts/{accountId} | Updates a bank account
 [**update_bank_guarantee**](BankingApi.md#update_bank_guarantee) | **PUT** /api/v2/AccountingService/Banking/{bankId}/Guarantees/{guaranteeId} | Updates a bank guarantee
@@ -693,6 +697,145 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_bank
+
+> models::EmptyEnvelope patch_bank(tenant_id, bank_id, api_version, x_api_version, operation)
+Patches a bank
+
+Partially update a bank using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bank_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_bank_account
+
+> models::EmptyEnvelope patch_bank_account(tenant_id, bank_id, account_id, api_version, x_api_version, operation)
+Patches a bank account
+
+Partially update a bank account using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bank_id** | **uuid::Uuid** |  | [required] |
+**account_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_bank_guarantee
+
+> models::EmptyEnvelope patch_bank_guarantee(tenant_id, bank_id, guarantee_id, api_version, x_api_version, operation)
+Patches a bank guarantee
+
+Partially update a bank guarantee using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bank_id** | **uuid::Uuid** |  | [required] |
+**guarantee_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_bank_transaction
+
+> models::EmptyEnvelope patch_bank_transaction(tenant_id, bank_id, transaction_id, api_version, x_api_version, operation)
+Patches a bank transaction
+
+Partially update a bank transaction using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bank_id** | **uuid::Uuid** |  | [required] |
+**transaction_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

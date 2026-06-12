@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_journal_type_details_async**](JournalTypesApi.md#get_journal_type_details_async) | **GET** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Retrieves a journal type by ID
 [**get_journal_types_async**](JournalTypesApi.md#get_journal_types_async) | **GET** /api/v2/AccountingService/JournalTypes | Retrieves all journal types
 [**get_journal_types_count_async**](JournalTypesApi.md#get_journal_types_count_async) | **GET** /api/v2/AccountingService/JournalTypes/Count | Counts journal types
+[**patch_journal_type_async**](JournalTypesApi.md#patch_journal_type_async) | **PATCH** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Patch a journal type
 [**update_journal_type_async**](JournalTypesApi.md#update_journal_type_async) | **PUT** /api/v2/AccountingService/JournalTypes/{journalTypeId} | Updates an existing journal type
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_journal_type_async
+
+> models::EmptyEnvelope patch_journal_type_async(tenant_id, journal_type_id, api_version, x_api_version, operation)
+Patch a journal type
+
+Partially updates a journal type.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**journal_type_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

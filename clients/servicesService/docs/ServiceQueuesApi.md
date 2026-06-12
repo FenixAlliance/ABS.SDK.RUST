@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_service_queue_by_id_async**](ServiceQueuesApi.md#get_service_queue_by_id_async) | **GET** /api/v2/ServicesService/ServiceQueues/{serviceQueueId} | Get a service queue by ID
 [**get_service_queues_async**](ServiceQueuesApi.md#get_service_queues_async) | **GET** /api/v2/ServicesService/ServiceQueues | Get all service queues
 [**get_service_queues_count_async**](ServiceQueuesApi.md#get_service_queues_count_async) | **GET** /api/v2/ServicesService/ServiceQueues/Count | Get service queues count
+[**patch_service_queue_async**](ServiceQueuesApi.md#patch_service_queue_async) | **PATCH** /api/v2/ServicesService/ServiceQueues/{serviceQueueId} | Patch a service queue
 [**update_service_queue_async**](ServiceQueuesApi.md#update_service_queue_async) | **PUT** /api/v2/ServicesService/ServiceQueues/{serviceQueueId} | Update a service queue
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_service_queue_async
+
+> models::Envelope patch_service_queue_async(tenant_id, service_queue_id, api_version, x_api_version, operation)
+Patch a service queue
+
+Partially updates an existing service queue using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**service_queue_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::Envelope**](Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

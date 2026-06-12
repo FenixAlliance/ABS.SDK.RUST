@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
-**timestamp** | Option<**String**> |  | [optional]
 **tax_policy_id** | Option<**String**> |  | [optional]
 **item_price_id** | Option<**String**> |  | [optional]
 **item_id** | Option<**String**> |  | [optional]

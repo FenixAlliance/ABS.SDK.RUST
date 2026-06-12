@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_invoice_enumeration_range**](FiscalEnumerationRangesApi.md#get_invoice_enumeration_range) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/EnumerationRanges/{enumerationRangeId} | Get invoice enumeration range by ID
 [**get_invoice_enumeration_ranges**](FiscalEnumerationRangesApi.md#get_invoice_enumeration_ranges) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/EnumerationRanges | Get invoice enumeration ranges for an authority
 [**get_invoice_enumeration_ranges_count**](FiscalEnumerationRangesApi.md#get_invoice_enumeration_ranges_count) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/EnumerationRanges/Count | Get invoice enumeration ranges count
+[**patch_fiscal_enumeration_range_async**](FiscalEnumerationRangesApi.md#patch_fiscal_enumeration_range_async) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/EnumerationRanges/{enumerationRangeId} | Patch an invoice enumeration range
 [**update_invoice_enumeration_range**](FiscalEnumerationRangesApi.md#update_invoice_enumeration_range) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/EnumerationRanges/{enumerationRangeId} | Update an invoice enumeration range
 
 
@@ -175,6 +176,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_fiscal_enumeration_range_async
+
+> models::EmptyEnvelope patch_fiscal_enumeration_range_async(tenant_id, enumeration_range_id, api_version, x_api_version, operation)
+Patch an invoice enumeration range
+
+Partially updates an invoice enumeration range.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**enumeration_range_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

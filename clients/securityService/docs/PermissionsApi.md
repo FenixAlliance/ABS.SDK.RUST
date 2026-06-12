@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_permissions_by_enrollment_async**](PermissionsApi.md#get_permissions_by_enrollment_async) | **GET** /api/v2/SecurityService/Permissions/ByEnrollment/{enrollmentId} | Get permissions by enrollment
 [**get_permissions_count_async**](PermissionsApi.md#get_permissions_count_async) | **GET** /api/v2/SecurityService/Permissions/Count | Get permissions count
 [**get_roles_by_permission_async**](PermissionsApi.md#get_roles_by_permission_async) | **GET** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles | Get roles by permission
+[**patch_permission_async**](PermissionsApi.md#patch_permission_async) | **PATCH** /api/v2/SecurityService/Permissions/{securityPermissionId} | Patch an existing permission
 [**revoke_permission_from_business_application_async**](PermissionsApi.md#revoke_permission_from_business_application_async) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Applications/{applicationId} | Revoke a permission from a business application
 [**revoke_permission_from_enrollment_async**](PermissionsApi.md#revoke_permission_from_enrollment_async) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Enrollments/{enrollmentId} | Revoke a permission from an enrollment
 [**revoke_role_from_permission_async**](PermissionsApi.md#revoke_role_from_permission_async) | **DELETE** /api/v2/SecurityService/Permissions/{securityPermissionId}/Roles/{securityRoleId} | Revoke a role from a permission
@@ -415,6 +416,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_permission_async
+
+> models::EmptyEnvelope patch_permission_async(tenant_id, security_permission_id, operation, api_version, x_api_version)
+Patch an existing permission
+
+Partially updates an existing security permission using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**security_permission_id** | **String** |  | [required] |
+**operation** | [**Vec<models::Operation>**](Operation.md) |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

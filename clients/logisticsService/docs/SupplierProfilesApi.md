@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_supplier_profile_by_id_async**](SupplierProfilesApi.md#get_supplier_profile_by_id_async) | **GET** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Get supplier profile by ID
 [**get_supplier_profiles_async**](SupplierProfilesApi.md#get_supplier_profiles_async) | **GET** /api/v2/LogisticsService/SupplierProfiles | Get all supplier profiles
 [**get_supplier_profiles_count_async**](SupplierProfilesApi.md#get_supplier_profiles_count_async) | **GET** /api/v2/LogisticsService/SupplierProfiles/Count | Get supplier profiles count
+[**patch_supplier_profile_async**](SupplierProfilesApi.md#patch_supplier_profile_async) | **PATCH** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Patch a supplier profile
 [**update_supplier_profile_async**](SupplierProfilesApi.md#update_supplier_profile_async) | **PUT** /api/v2/LogisticsService/SupplierProfiles/{supplierProfileId} | Update a supplier profile
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_supplier_profile_async
+
+> models::EmptyEnvelope patch_supplier_profile_async(tenant_id, supplier_profile_id, api_version, x_api_version, operation)
+Patch a supplier profile
+
+Applies a JSON Patch document to a supplier profile.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**supplier_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

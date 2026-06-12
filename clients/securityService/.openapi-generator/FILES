@@ -35,6 +35,7 @@ docs/OAuthApplicationsApi.md
 docs/OAuthAuthorizationDto.md
 docs/OAuthAuthorizationDtoEnvelope.md
 docs/OAuthAuthorizationDtoListEnvelope.md
+docs/Operation.md
 docs/PermissionsApi.md
 docs/RefreshRequest.md
 docs/RegisterRequest.md
@@ -105,6 +106,7 @@ src/models/o_auth_application_update_dto.rs
 src/models/o_auth_authorization_dto.rs
 src/models/o_auth_authorization_dto_envelope.rs
 src/models/o_auth_authorization_dto_list_envelope.rs
+src/models/operation.rs
 src/models/refresh_request.rs
 src/models/register_request.rs
 src/models/resend_confirmation_email_request.rs

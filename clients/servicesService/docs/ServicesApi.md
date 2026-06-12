@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_service_by_id_async**](ServicesApi.md#get_service_by_id_async) | **GET** /api/v2/ServicesService/Services/{serviceId} | Get a service by ID
 [**get_services_async**](ServicesApi.md#get_services_async) | **GET** /api/v2/ServicesService/Services | Get all services
 [**get_services_count_async**](ServicesApi.md#get_services_count_async) | **GET** /api/v2/ServicesService/Services/Count | Get services count
+[**patch_service_async**](ServicesApi.md#patch_service_async) | **PATCH** /api/v2/ServicesService/Services/{serviceId} | Patch a service
 [**update_service_async**](ServicesApi.md#update_service_async) | **PUT** /api/v2/ServicesService/Services/{serviceId} | Update a service
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_service_async
+
+> models::Envelope patch_service_async(tenant_id, service_id, api_version, x_api_version, operation)
+Patch a service
+
+Partially updates an existing service using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**service_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::Envelope**](Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

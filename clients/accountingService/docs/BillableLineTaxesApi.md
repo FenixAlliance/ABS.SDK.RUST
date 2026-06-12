@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_billable_line_tax**](BillableLineTaxesApi.md#delete_billable_line_tax) | **DELETE** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId} | Delete a tax from a billable line.
 [**get_billable_line_taxes**](BillableLineTaxesApi.md#get_billable_line_taxes) | **GET** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes | Get taxes for a billable line.
 [**get_billable_line_taxes_count**](BillableLineTaxesApi.md#get_billable_line_taxes_count) | **GET** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/Count | Get the count of taxes for a billable line.
+[**patch_billable_line_tax_async**](BillableLineTaxesApi.md#patch_billable_line_tax_async) | **PATCH** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId} | Patch a billable line tax
 [**update_billable_line_tax**](BillableLineTaxesApi.md#update_billable_line_tax) | **PUT** /api/v2/AccountingService/BillableLines/{billableLineId}/Taxes/{taxId} | Update a tax for a billable line.
 
 
@@ -141,6 +142,41 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_billable_line_tax_async
+
+> models::EmptyEnvelope patch_billable_line_tax_async(tenant_id, billable_line_id, tax_id, api_version, x_api_version, operation)
+Patch a billable line tax
+
+Partially updates a billable line tax.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**billable_line_id** | **uuid::Uuid** |  | [required] |
+**tax_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

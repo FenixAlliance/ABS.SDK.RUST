@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_subscription_by_id_async**](SubscriptionsApi.md#get_subscription_by_id_async) | **GET** /api/v2/SubscriptionsService/Subscriptions/{subscriptionId} | Get a subscription by ID
 [**get_subscriptions_async**](SubscriptionsApi.md#get_subscriptions_async) | **GET** /api/v2/SubscriptionsService/Subscriptions | Get all subscriptions
 [**get_subscriptions_count_async**](SubscriptionsApi.md#get_subscriptions_count_async) | **GET** /api/v2/SubscriptionsService/Subscriptions/Count | Get subscriptions count
+[**patch_subscription_async**](SubscriptionsApi.md#patch_subscription_async) | **PATCH** /api/v2/SubscriptionsService/Subscriptions/{subscriptionId} | Patch a subscription
 [**update_subscription_async**](SubscriptionsApi.md#update_subscription_async) | **PUT** /api/v2/SubscriptionsService/Subscriptions/{subscriptionId} | Update a subscription
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_subscription_async
+
+> models::EmptyEnvelope patch_subscription_async(tenant_id, subscription_id, api_version, x_api_version, operation)
+Patch a subscription
+
+Patch a subscription
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**subscription_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

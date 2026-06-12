@@ -16,6 +16,8 @@ Method | HTTP request | Description
 [**issue_rail_waybill_async**](RailWaybillsApi.md#issue_rail_waybill_async) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/Issue | Issue a rail waybill
 [**mark_rail_waybill_delivered_async**](RailWaybillsApi.md#mark_rail_waybill_delivered_async) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/MarkDelivered | Mark rail waybill delivered
 [**mark_rail_waybill_in_transit_async**](RailWaybillsApi.md#mark_rail_waybill_in_transit_async) | **POST** /api/v2/LogisticsService/RailWaybills/{waybillId}/MarkInTransit | Mark rail waybill in transit
+[**patch_rail_waybill_async**](RailWaybillsApi.md#patch_rail_waybill_async) | **PATCH** /api/v2/LogisticsService/RailWaybills/{waybillId} | Patch a rail waybill
+[**patch_rail_waybill_line_async**](RailWaybillsApi.md#patch_rail_waybill_line_async) | **PATCH** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId} | Patch a rail waybill line
 [**remove_rail_waybill_line_async**](RailWaybillsApi.md#remove_rail_waybill_line_async) | **DELETE** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId} | Remove a rail waybill line
 [**update_rail_waybill_async**](RailWaybillsApi.md#update_rail_waybill_async) | **PUT** /api/v2/LogisticsService/RailWaybills/{waybillId} | Update a rail waybill
 [**update_rail_waybill_line_async**](RailWaybillsApi.md#update_rail_waybill_line_async) | **PUT** /api/v2/LogisticsService/RailWaybills/{waybillId}/Lines/{lineId} | Update a rail waybill line
@@ -412,6 +414,75 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_rail_waybill_async
+
+> models::EmptyEnvelope patch_rail_waybill_async(tenant_id, waybill_id, api_version, x_api_version, operation)
+Patch a rail waybill
+
+Partially updates an existing rail waybill using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**waybill_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_rail_waybill_line_async
+
+> models::EmptyEnvelope patch_rail_waybill_line_async(tenant_id, waybill_id, line_id, api_version, x_api_version, operation)
+Patch a rail waybill line
+
+Partially updates a line on a rail waybill using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**waybill_id** | **uuid::Uuid** |  | [required] |
+**line_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

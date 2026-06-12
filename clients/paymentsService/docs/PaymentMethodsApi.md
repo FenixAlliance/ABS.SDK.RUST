@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_payment_method_details_async**](PaymentMethodsApi.md#get_payment_method_details_async) | **GET** /api/v2/PaymentsService/PaymentMethods/{paymentMethodId} | Gets a payment method by ID
 [**get_payment_methods_async**](PaymentMethodsApi.md#get_payment_methods_async) | **GET** /api/v2/PaymentsService/PaymentMethods | Retrieves all payment methods
 [**get_payment_methods_count_async**](PaymentMethodsApi.md#get_payment_methods_count_async) | **GET** /api/v2/PaymentsService/PaymentMethods/Count | Counts payment methods
+[**patch_payment_method_async**](PaymentMethodsApi.md#patch_payment_method_async) | **PATCH** /api/v2/PaymentsService/PaymentMethods/{paymentMethodId} | Patch a payment method
 [**update_payment_method_async**](PaymentMethodsApi.md#update_payment_method_async) | **PUT** /api/v2/PaymentsService/PaymentMethods/{paymentMethodId} | Updates a payment method
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_payment_method_async
+
+> models::EmptyEnvelope patch_payment_method_async(tenant_id, payment_method_id, api_version, x_api_version, operation)
+Patch a payment method
+
+Patch a payment method
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**payment_method_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

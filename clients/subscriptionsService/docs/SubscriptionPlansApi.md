@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_subscription_plan_by_id_async**](SubscriptionPlansApi.md#get_subscription_plan_by_id_async) | **GET** /api/v2/SubscriptionsService/SubscriptionPlans/{planId} | Get a subscription plan by ID
 [**get_subscription_plans_async**](SubscriptionPlansApi.md#get_subscription_plans_async) | **GET** /api/v2/SubscriptionsService/SubscriptionPlans | Get all subscription plans
 [**get_subscription_plans_count_async**](SubscriptionPlansApi.md#get_subscription_plans_count_async) | **GET** /api/v2/SubscriptionsService/SubscriptionPlans/Count | Get subscription plans count
+[**patch_subscription_plan_async**](SubscriptionPlansApi.md#patch_subscription_plan_async) | **PATCH** /api/v2/SubscriptionsService/SubscriptionPlans/{planId} | Patch a subscription plan
 [**update_subscription_plan_async**](SubscriptionPlansApi.md#update_subscription_plan_async) | **PUT** /api/v2/SubscriptionsService/SubscriptionPlans/{planId} | Update a subscription plan
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_subscription_plan_async
+
+> models::EmptyEnvelope patch_subscription_plan_async(tenant_id, plan_id, api_version, x_api_version, operation)
+Patch a subscription plan
+
+Patch a subscription plan
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**plan_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

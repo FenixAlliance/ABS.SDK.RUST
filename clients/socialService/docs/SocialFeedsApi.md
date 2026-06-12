@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_feed_posts_count_async**](SocialFeedsApi.md#get_feed_posts_count_async) | **GET** /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/Count | Count social feed posts
 [**get_notification_async**](SocialFeedsApi.md#get_notification_async) | **GET** /api/v2/SocialService/SocialFeeds/{socialFeedId} | Get social feed by ID
 [**get_notifications_count_async**](SocialFeedsApi.md#get_notifications_count_async) | **GET** /api/v2/SocialService/SocialFeeds/Count | Count social feeds
+[**patch_feed_post_async**](SocialFeedsApi.md#patch_feed_post_async) | **PATCH** /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/{feedPostId} | Patch a social feed post
 [**update_feed_post_async**](SocialFeedsApi.md#update_feed_post_async) | **PUT** /api/v2/SocialService/SocialFeeds/{socialFeedId}/Posts/{feedPostId} | Update a social feed post
 
 
@@ -276,6 +277,41 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_feed_post_async
+
+> models::EmptyEnvelope patch_feed_post_async(social_profile_id, social_feed_id, feed_post_id, api_version, x_api_version, operation)
+Patch a social feed post
+
+Partially updates an existing post in a specific social feed using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**social_feed_id** | **uuid::Uuid** |  | [required] |
+**feed_post_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

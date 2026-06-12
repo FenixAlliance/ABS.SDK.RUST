@@ -16,6 +16,8 @@ pub mod int32_envelope;
 pub use self::int32_envelope::Int32Envelope;
 pub mod login_request;
 pub use self::login_request::LoginRequest;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod payment_create_dto;
 pub use self::payment_create_dto::PaymentCreateDto;
 pub mod payment_dto;

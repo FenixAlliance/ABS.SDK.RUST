@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_support_entitlement_async**](SupportEntitlementsApi.md#get_support_entitlement_async) | **GET** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Retrieve a support entitlement by ID
 [**get_support_entitlements_async**](SupportEntitlementsApi.md#get_support_entitlements_async) | **GET** /api/v2/SupportService/SupportEntitlements | Retrieve a list of support entitlements
 [**get_support_entitlements_count_async**](SupportEntitlementsApi.md#get_support_entitlements_count_async) | **GET** /api/v2/SupportService/SupportEntitlements/Count | Get the count of support entitlements
+[**patch_support_entitlement_async**](SupportEntitlementsApi.md#patch_support_entitlement_async) | **PATCH** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Patch a support entitlement
 [**update_support_entitlement_async**](SupportEntitlementsApi.md#update_support_entitlement_async) | **PUT** /api/v2/SupportService/SupportEntitlements/{supportEntitlementId} | Update a support entitlement
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_support_entitlement_async
+
+> models::EmptyEnvelope patch_support_entitlement_async(tenant_id, support_entitlement_id, api_version, x_api_version, operation)
+Patch a support entitlement
+
+Partially updates an existing support entitlement by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**support_entitlement_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

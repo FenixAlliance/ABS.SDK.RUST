@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tenant_team_project_enrollment_by_id**](TeamProjectEnrollmentsApi.md#get_tenant_team_project_enrollment_by_id) | **GET** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Retrieve a single tenant team project enrollment by its ID
 [**get_tenant_team_project_enrollments**](TeamProjectEnrollmentsApi.md#get_tenant_team_project_enrollments) | **GET** /api/v2/TenantsService/TeamProjectEnrollments | Retrieve a list of tenant team project enrollments
 [**get_tenant_team_project_enrollments_count**](TeamProjectEnrollmentsApi.md#get_tenant_team_project_enrollments_count) | **GET** /api/v2/TenantsService/TeamProjectEnrollments/Count | Get the count of tenant team project enrollments
+[**patch_tenant_team_project_enrollment**](TeamProjectEnrollmentsApi.md#patch_tenant_team_project_enrollment) | **PATCH** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Patch a tenant team project enrollment
 [**update_tenant_team_project_enrollment**](TeamProjectEnrollmentsApi.md#update_tenant_team_project_enrollment) | **PUT** /api/v2/TenantsService/TeamProjectEnrollments/{tenantTeamProjectEnrollmentId} | Update a tenant team project enrollment
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_team_project_enrollment
+
+> models::EmptyEnvelope patch_tenant_team_project_enrollment(tenant_id, tenant_team_project_enrollment_id, api_version, x_api_version, operation)
+Patch a tenant team project enrollment
+
+Patch a tenant team project enrollment
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_team_project_enrollment_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

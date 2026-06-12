@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**get_bill_of_lading_lines_count_async**](BillsOfLadingApi.md#get_bill_of_lading_lines_count_async) | **GET** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/Count | Get bill of lading lines count
 [**get_bills_of_lading_async**](BillsOfLadingApi.md#get_bills_of_lading_async) | **GET** /api/v2/ShipmentsService/BillsOfLading | Get all bills of lading
 [**get_bills_of_lading_count_async**](BillsOfLadingApi.md#get_bills_of_lading_count_async) | **GET** /api/v2/ShipmentsService/BillsOfLading/Count | Get bills of lading count
+[**patch_bill_of_lading_async**](BillsOfLadingApi.md#patch_bill_of_lading_async) | **PATCH** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId} | Patch a bill of lading
+[**patch_bill_of_lading_line_async**](BillsOfLadingApi.md#patch_bill_of_lading_line_async) | **PATCH** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId} | Patch a bill of lading line
 [**update_bill_of_lading_async**](BillsOfLadingApi.md#update_bill_of_lading_async) | **PUT** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId} | Update a bill of lading
 [**update_bill_of_lading_line_async**](BillsOfLadingApi.md#update_bill_of_lading_line_async) | **PUT** /api/v2/ShipmentsService/BillsOfLading/{billOfLadingId}/Lines/{lineId} | Update a bill of lading line
 
@@ -345,6 +347,75 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_bill_of_lading_async
+
+> models::EmptyEnvelope patch_bill_of_lading_async(tenant_id, bill_of_lading_id, api_version, x_api_version, operation)
+Patch a bill of lading
+
+Partially updates an existing bill of lading using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bill_of_lading_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_bill_of_lading_line_async
+
+> models::EmptyEnvelope patch_bill_of_lading_line_async(tenant_id, bill_of_lading_id, line_id, api_version, x_api_version, operation)
+Patch a bill of lading line
+
+Partially updates an existing line on a bill of lading using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bill_of_lading_id** | **uuid::Uuid** |  | [required] |
+**line_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

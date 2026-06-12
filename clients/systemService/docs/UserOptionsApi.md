@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_system_user_option_by_id**](UserOptionsApi.md#get_system_user_option_by_id) | **GET** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Retrieve a single user option by its ID (admin)
 [**get_system_user_options**](UserOptionsApi.md#get_system_user_options) | **GET** /api/v2/SystemService/Users/{userId}/Options | Retrieve a list of user options (admin)
 [**get_system_user_options_count**](UserOptionsApi.md#get_system_user_options_count) | **GET** /api/v2/SystemService/Users/{userId}/Options/Count | Get the count of user options (admin)
+[**patch_system_user_option**](UserOptionsApi.md#patch_system_user_option) | **PATCH** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Partially update a user option (admin)
 [**update_system_user_option**](UserOptionsApi.md#update_system_user_option) | **PUT** /api/v2/SystemService/Users/{userId}/Options/{optionId} | Update a user option (admin)
 
 
@@ -175,6 +176,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_system_user_option
+
+> models::EmptyEnvelope patch_system_user_option(user_id, option_id, api_version, x_api_version, operation)
+Partially update a user option (admin)
+
+Admin endpoint to partially update an option for any user using a JSON Patch document
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**user_id** | **uuid::Uuid** |  | [required] |
+**option_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

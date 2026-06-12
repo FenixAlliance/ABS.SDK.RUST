@@ -15,6 +15,8 @@ Method | HTTP request | Description
 [**get_voyage_port_calls_count_async**](VoyagesApi.md#get_voyage_port_calls_count_async) | **GET** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/Count | Get voyage port calls count
 [**get_voyages_async**](VoyagesApi.md#get_voyages_async) | **GET** /api/v2/LogisticsService/Voyages | Get all voyages
 [**get_voyages_count_async**](VoyagesApi.md#get_voyages_count_async) | **GET** /api/v2/LogisticsService/Voyages/Count | Get voyages count
+[**patch_voyage_async**](VoyagesApi.md#patch_voyage_async) | **PATCH** /api/v2/LogisticsService/Voyages/{voyageId} | Patch a voyage
+[**patch_voyage_port_call_async**](VoyagesApi.md#patch_voyage_port_call_async) | **PATCH** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/{portCallId} | Patch a voyage port call
 [**start_voyage_async**](VoyagesApi.md#start_voyage_async) | **POST** /api/v2/LogisticsService/Voyages/{voyageId}/Start | Start a voyage
 [**update_voyage_async**](VoyagesApi.md#update_voyage_async) | **PUT** /api/v2/LogisticsService/Voyages/{voyageId} | Update a voyage
 [**update_voyage_port_call_async**](VoyagesApi.md#update_voyage_port_call_async) | **PUT** /api/v2/LogisticsService/Voyages/{voyageId}/PortCalls/{portCallId} | Update a port call
@@ -379,6 +381,75 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_voyage_async
+
+> models::EmptyEnvelope patch_voyage_async(tenant_id, voyage_id, api_version, x_api_version, operation)
+Patch a voyage
+
+Partially updates an existing voyage using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**voyage_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_voyage_port_call_async
+
+> models::EmptyEnvelope patch_voyage_port_call_async(tenant_id, voyage_id, port_call_id, api_version, x_api_version, operation)
+Patch a voyage port call
+
+Partially updates an existing voyage port call using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**voyage_id** | **uuid::Uuid** |  | [required] |
+**port_call_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

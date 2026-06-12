@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**get_social_post_reactions_count_async**](SocialPostsApi.md#get_social_post_reactions_count_async) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/Count | Count social post reactions
 [**get_social_posts_async**](SocialPostsApi.md#get_social_posts_async) | **GET** /api/v2/SocialService/SocialPosts | Get social posts
 [**get_social_posts_count_async**](SocialPostsApi.md#get_social_posts_count_async) | **GET** /api/v2/SocialService/SocialPosts/Count | Count social posts
+[**patch_social_post_async**](SocialPostsApi.md#patch_social_post_async) | **PATCH** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post
 [**update_social_post_async**](SocialPostsApi.md#update_social_post_async) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post
 [**update_social_post_attachment_async**](SocialPostsApi.md#update_social_post_attachment_async) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment
 [**update_social_post_comment_async**](SocialPostsApi.md#update_social_post_comment_async) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment
@@ -689,6 +690,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_social_post_async
+
+> models::EmptyEnvelope patch_social_post_async(social_profile_id, social_post_id, api_version, x_api_version, operation)
+Patch a social post
+
+Partially updates an existing social post by its ID using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**social_post_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

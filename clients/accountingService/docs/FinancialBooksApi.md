@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_financial_book_details_async**](FinancialBooksApi.md#get_financial_book_details_async) | **GET** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Gets the details of a specific financial book
 [**get_financial_books_async**](FinancialBooksApi.md#get_financial_books_async) | **GET** /api/v2/AccountingService/FinancialBooks | Get all financial books for a tenant
 [**get_financial_books_count_async**](FinancialBooksApi.md#get_financial_books_count_async) | **GET** /api/v2/AccountingService/FinancialBooks/Count | Get the count of financial books
+[**patch_financial_book_async**](FinancialBooksApi.md#patch_financial_book_async) | **PATCH** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Patch a financial book
 [**update_financial_book_async**](FinancialBooksApi.md#update_financial_book_async) | **PUT** /api/v2/AccountingService/FinancialBooks/{financialBookId} | Updates an existing financial book
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_financial_book_async
+
+> models::EmptyEnvelope patch_financial_book_async(tenant_id, financial_book_id, api_version, x_api_version, operation)
+Patch a financial book
+
+Partially updates a financial book.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**financial_book_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

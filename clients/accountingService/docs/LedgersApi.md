@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_ledger_details_async**](LedgersApi.md#get_ledger_details_async) | **GET** /api/v2/AccountingService/Ledgers/{ledgerId} | Gets a ledger by ID
 [**get_ledgers_async**](LedgersApi.md#get_ledgers_async) | **GET** /api/v2/AccountingService/Ledgers | Retrieves all ledgers
 [**get_ledgers_count_async**](LedgersApi.md#get_ledgers_count_async) | **GET** /api/v2/AccountingService/Ledgers/Count | Counts ledgers
+[**patch_ledger_async**](LedgersApi.md#patch_ledger_async) | **PATCH** /api/v2/AccountingService/Ledgers/{ledgerId} | Patches a ledger
 [**update_ledger_async**](LedgersApi.md#update_ledger_async) | **PUT** /api/v2/AccountingService/Ledgers/{ledgerId} | Updates a ledger
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_ledger_async
+
+> models::EmptyEnvelope patch_ledger_async(tenant_id, ledger_id, api_version, x_api_version, operation)
+Patches a ledger
+
+Patches the specified ledger.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**ledger_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

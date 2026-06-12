@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_payment_term_details_async**](PaymentTermsApi.md#get_payment_term_details_async) | **GET** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Gets a payment term by ID
 [**get_payment_terms_async**](PaymentTermsApi.md#get_payment_terms_async) | **GET** /api/v2/PaymentsService/PaymentTerms | Retrieves all payment terms
 [**get_payment_terms_count_async**](PaymentTermsApi.md#get_payment_terms_count_async) | **GET** /api/v2/PaymentsService/PaymentTerms/Count | Counts payment terms
+[**patch_payment_term_async**](PaymentTermsApi.md#patch_payment_term_async) | **PATCH** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Patch a payment term
 [**update_payment_term_async**](PaymentTermsApi.md#update_payment_term_async) | **PUT** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Updates a payment term
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_payment_term_async
+
+> models::EmptyEnvelope patch_payment_term_async(tenant_id, payment_term_id, api_version, x_api_version, operation)
+Patch a payment term
+
+Patch a payment term
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**payment_term_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

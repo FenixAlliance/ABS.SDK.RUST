@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tenant_size_by_id**](SizesApi.md#get_tenant_size_by_id) | **GET** /api/v2/TenantsService/Sizes/{tenantSizeId} | Retrieve a single tenant size by its ID
 [**get_tenant_sizes**](SizesApi.md#get_tenant_sizes) | **GET** /api/v2/TenantsService/Sizes | Retrieve a list of tenant sizes
 [**get_tenant_sizes_count**](SizesApi.md#get_tenant_sizes_count) | **GET** /api/v2/TenantsService/Sizes/Count | Get the count of tenant sizes
+[**patch_tenant_size**](SizesApi.md#patch_tenant_size) | **PATCH** /api/v2/TenantsService/Sizes/{tenantSizeId} | Patch a tenant size
 [**update_tenant_size**](SizesApi.md#update_tenant_size) | **PUT** /api/v2/TenantsService/Sizes/{tenantSizeId} | Update a tenant size
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_size
+
+> models::EmptyEnvelope patch_tenant_size(tenant_id, tenant_size_id, api_version, x_api_version, operation)
+Patch a tenant size
+
+Patch a tenant size
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_size_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

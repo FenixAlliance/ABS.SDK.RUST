@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_newsletter_details_async**](NewslettersApi.md#get_newsletter_details_async) | **GET** /api/v2/MarketingService/Newsletters/{newsletterId} | Get newsletter by ID
 [**get_newsletter_o_data_async**](NewslettersApi.md#get_newsletter_o_data_async) | **GET** /api/v2/MarketingService/Newsletters | Get newsletters
 [**get_newsletters_count_async**](NewslettersApi.md#get_newsletters_count_async) | **GET** /api/v2/MarketingService/Newsletters/Count | Get newsletters count
+[**patch_newsletter_async**](NewslettersApi.md#patch_newsletter_async) | **PATCH** /api/v2/MarketingService/Newsletters/{newsletterId} | Patch a newsletter
 [**update_newsletter_async**](NewslettersApi.md#update_newsletter_async) | **PUT** /api/v2/MarketingService/Newsletters/{newsletterId} | Update a newsletter
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_newsletter_async
+
+> models::EmptyEnvelope patch_newsletter_async(tenant_id, newsletter_id, api_version, x_api_version, operation)
+Patch a newsletter
+
+Partially updates a newsletter by its ID using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**newsletter_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

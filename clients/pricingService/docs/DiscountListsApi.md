@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**get_discount_list_entry**](DiscountListsApi.md#get_discount_list_entry) | **GET** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Gets a discount list entry by ID
 [**get_discount_lists**](DiscountListsApi.md#get_discount_lists) | **GET** /api/v2/PricingService/DiscountLists | Retrieves all discount lists
 [**get_discount_lists_count**](DiscountListsApi.md#get_discount_lists_count) | **GET** /api/v2/PricingService/DiscountLists/Count | Counts discount lists
+[**patch_discount_list**](DiscountListsApi.md#patch_discount_list) | **PATCH** /api/v2/PricingService/DiscountLists/{discountListId} | Patches a discount list
+[**patch_discount_list_entry**](DiscountListsApi.md#patch_discount_list_entry) | **PATCH** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Patches a discount list entry
 [**update_discount_list**](DiscountListsApi.md#update_discount_list) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId} | Updates a discount list
 [**update_discount_list_entry**](DiscountListsApi.md#update_discount_list_entry) | **PUT** /api/v2/PricingService/DiscountLists/{discountListId}/Discounts/{discountListEntryId} | Updates a discount list entry
 
@@ -325,6 +327,71 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_discount_list
+
+> models::EmptyEnvelope patch_discount_list(tenant_id, discount_list_id, operation)
+Patches a discount list
+
+Partially updates the specified discount list using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**discount_list_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_discount_list_entry
+
+> models::EmptyEnvelope patch_discount_list_entry(tenant_id, discount_list_id, discount_list_entry_id, operation)
+Patches a discount list entry
+
+Partially updates the specified discount entry using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**discount_list_id** | **uuid::Uuid** |  | [required] |
+**discount_list_entry_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

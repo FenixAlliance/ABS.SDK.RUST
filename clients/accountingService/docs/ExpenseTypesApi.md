@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_expense_type**](ExpenseTypesApi.md#get_expense_type) | **GET** /api/v2/AccountingService/ExpenseTypes/{expenseTypeId} | Get an expense type by id
 [**get_expense_types**](ExpenseTypesApi.md#get_expense_types) | **GET** /api/v2/AccountingService/ExpenseTypes | Get all expense types for a tenant
 [**get_expense_types_count**](ExpenseTypesApi.md#get_expense_types_count) | **GET** /api/v2/AccountingService/ExpenseTypes/Count | Get the count of expense types for a tenant
+[**patch_expense_type**](ExpenseTypesApi.md#patch_expense_type) | **PATCH** /api/v2/AccountingService/ExpenseTypes/{expenseTypeId} | Patch an expense type
 [**update_expense_type**](ExpenseTypesApi.md#update_expense_type) | **PUT** /api/v2/AccountingService/ExpenseTypes/{expenseTypeId} | Update an expense type
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_expense_type
+
+> models::EmptyEnvelope patch_expense_type(tenant_id, expense_type_id, api_version, x_api_version, operation)
+Patch an expense type
+
+Partially updates an existing expense type.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**expense_type_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

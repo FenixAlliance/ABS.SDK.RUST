@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_system_portal_by_id**](PortalsApi.md#get_system_portal_by_id) | **GET** /api/v2/SystemService/Portals/{portalId} | Retrieve a single system portal by its ID
 [**get_system_portals**](PortalsApi.md#get_system_portals) | **GET** /api/v2/SystemService/Portals | Retrieve a list of system portals
 [**get_system_portals_count**](PortalsApi.md#get_system_portals_count) | **GET** /api/v2/SystemService/Portals/Count | Get the count of system portals
+[**patch_system_portal**](PortalsApi.md#patch_system_portal) | **PATCH** /api/v2/SystemService/Portals/{portalId} | Partially update a system portal
 [**update_system_portal**](PortalsApi.md#update_system_portal) | **PUT** /api/v2/SystemService/Portals/{portalId} | Update a system portal
 
 
@@ -166,6 +167,39 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_system_portal
+
+> models::EmptyEnvelope patch_system_portal(portal_id, api_version, x_api_version, operation)
+Partially update a system portal
+
+Partially update an existing web portal in the system using a JSON Patch document
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**portal_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

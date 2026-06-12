@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tax_class**](TaxClassesApi.md#get_tax_class) | **GET** /api/v2/AccountingService/TaxClasses/{id} | Get tax class by ID
 [**get_tax_classes**](TaxClassesApi.md#get_tax_classes) | **GET** /api/v2/AccountingService/TaxClasses | Get all tax classes for a tenant
 [**get_tax_classes_count**](TaxClassesApi.md#get_tax_classes_count) | **GET** /api/v2/AccountingService/TaxClasses/Count | Get tax classes count
+[**patch_tax_class**](TaxClassesApi.md#patch_tax_class) | **PATCH** /api/v2/AccountingService/TaxClasses/{id} | Patch a tax class
 [**update_tax_class**](TaxClassesApi.md#update_tax_class) | **PUT** /api/v2/AccountingService/TaxClasses/{id} | Update a tax class
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tax_class
+
+> models::EmptyEnvelope patch_tax_class(tenant_id, id, api_version, x_api_version, operation)
+Patch a tax class
+
+Partially updates an existing tax class identified by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

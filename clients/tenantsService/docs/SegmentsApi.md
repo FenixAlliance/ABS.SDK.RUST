@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tenant_segment_by_id**](SegmentsApi.md#get_tenant_segment_by_id) | **GET** /api/v2/TenantsService/Segments/{tenantSegmentId} | Retrieve a single tenant segment by its ID
 [**get_tenant_segments**](SegmentsApi.md#get_tenant_segments) | **GET** /api/v2/TenantsService/Segments | Retrieve a list of tenant segments
 [**get_tenant_segments_count**](SegmentsApi.md#get_tenant_segments_count) | **GET** /api/v2/TenantsService/Segments/Count | Get the count of tenant segments
+[**patch_tenant_segment**](SegmentsApi.md#patch_tenant_segment) | **PATCH** /api/v2/TenantsService/Segments/{tenantSegmentId} | Patch a tenant segment
 [**update_tenant_segment**](SegmentsApi.md#update_tenant_segment) | **PUT** /api/v2/TenantsService/Segments/{tenantSegmentId} | Update a tenant segment
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_segment
+
+> models::EmptyEnvelope patch_tenant_segment(tenant_id, tenant_segment_id, api_version, x_api_version, operation)
+Patch a tenant segment
+
+Patch a tenant segment
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_segment_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

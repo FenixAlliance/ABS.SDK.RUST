@@ -56,6 +56,8 @@ pub mod money;
 pub use self::money::Money;
 pub mod money_envelope;
 pub use self::money_envelope::MoneyEnvelope;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod price_list_create_dto;
 pub use self::price_list_create_dto::PriceListCreateDto;
 pub mod price_list_dto;

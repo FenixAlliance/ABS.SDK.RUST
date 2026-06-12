@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_point_of_sale_async**](PointOfSalesApi.md#delete_point_of_sale_async) | **DELETE** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Delete a point of sale
 [**get_point_of_sale_async**](PointOfSalesApi.md#get_point_of_sale_async) | **GET** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Get point of sale by ID
 [**get_point_of_sales_async**](PointOfSalesApi.md#get_point_of_sales_async) | **GET** /api/v2/SalesService/PointOfSales | Get point of sales
+[**patch_point_of_sale_async**](PointOfSalesApi.md#patch_point_of_sale_async) | **PATCH** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Patch a point of sale
 [**update_point_of_sale_async**](PointOfSalesApi.md#update_point_of_sale_async) | **PUT** /api/v2/SalesService/PointOfSales/{pointOfSaleId} | Update a point of sale
 
 
@@ -161,6 +162,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_point_of_sale_async
+
+> models::EmptyEnvelope patch_point_of_sale_async(tenant_id, point_of_sale_id, operation)
+Patch a point of sale
+
+Partially updates an existing point of sale using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**point_of_sale_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

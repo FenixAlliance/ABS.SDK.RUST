@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_tenant_option_by_key**](OptionsApi.md#get_tenant_option_by_key) | **GET** /api/v2/TenantsService/Options/Key/{key} | Retrieve a single tenant option by its key
 [**get_tenant_options**](OptionsApi.md#get_tenant_options) | **GET** /api/v2/TenantsService/Options | Retrieve a list of tenant options
 [**get_tenant_options_count**](OptionsApi.md#get_tenant_options_count) | **GET** /api/v2/TenantsService/Options/Count | Get the count of tenant options
+[**patch_tenant_option**](OptionsApi.md#patch_tenant_option) | **PATCH** /api/v2/TenantsService/Options/{optionId} | Patch a tenant option
 [**update_tenant_option**](OptionsApi.md#update_tenant_option) | **PUT** /api/v2/TenantsService/Options/{optionId} | Update a tenant option
 [**upsert_tenant_option**](OptionsApi.md#upsert_tenant_option) | **PUT** /api/v2/TenantsService/Options/Upsert/{key} | Create or update a tenant option by key
 
@@ -211,6 +212,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_option
+
+> models::EmptyEnvelope patch_tenant_option(tenant_id, option_id, api_version, x_api_version, operation)
+Patch a tenant option
+
+Patch a tenant option
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**option_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

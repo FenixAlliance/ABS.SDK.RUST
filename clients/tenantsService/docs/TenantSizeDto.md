@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
 **name** | Option<**String**> |  | [optional]
 **employee_low_range_value** | Option<**i32**> |  | [optional]
 **employee_high_range_value** | Option<**i32**> |  | [optional]

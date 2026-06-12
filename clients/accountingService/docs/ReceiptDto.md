@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **payment_id** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
 **closed** | Option<**bool**> |  | [optional]
-**account_holder_id** | Option<**String**> |  | [optional]
+**user_id** | Option<**String**> |  | [optional]
 **contact_id** | Option<**String**> |  | [optional]
 **enrollment_id** | Option<**String**> |  | [optional]
 **receipt_type** | Option<**String**> |  | [optional]

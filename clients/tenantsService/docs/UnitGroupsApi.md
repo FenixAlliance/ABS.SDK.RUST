@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**get_unit_groups_count_async**](UnitGroupsApi.md#get_unit_groups_count_async) | **GET** /api/v2/TenantsService/UnitGroups/Count | Get the count of unit groups
 [**get_units_async**](UnitGroupsApi.md#get_units_async) | **GET** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units | Retrieve units for a unit group
 [**get_units_count_async**](UnitGroupsApi.md#get_units_count_async) | **GET** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/Count | Get the count of units in a unit group
+[**patch_unit_async**](UnitGroupsApi.md#patch_unit_async) | **PATCH** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/{unitId} | Patch a unit within a unit group
+[**patch_unit_group_async**](UnitGroupsApi.md#patch_unit_group_async) | **PATCH** /api/v2/TenantsService/UnitGroups/{unitGroupId} | Patch a unit group
 [**update_unit_async**](UnitGroupsApi.md#update_unit_async) | **PUT** /api/v2/TenantsService/UnitGroups/{unitGroupId}/Units/{unitId} | Update a unit within a unit group
 [**update_unit_group_async**](UnitGroupsApi.md#update_unit_group_async) | **PUT** /api/v2/TenantsService/UnitGroups/{unitGroupId} | Update a unit group
 
@@ -345,6 +347,75 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_unit_async
+
+> models::EmptyEnvelope patch_unit_async(tenant_id, unit_group_id, unit_id, api_version, x_api_version, operation)
+Patch a unit within a unit group
+
+Partially updates an existing unit within a specific unit group.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **uuid::Uuid** |  | [required] |
+**unit_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_unit_group_async
+
+> models::EmptyEnvelope patch_unit_group_async(tenant_id, unit_group_id, api_version, x_api_version, operation)
+Patch a unit group
+
+Partially updates an existing unit group by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

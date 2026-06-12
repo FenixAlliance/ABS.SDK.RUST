@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_billing_profile_by_id_async**](BillingProfilesApi.md#get_billing_profile_by_id_async) | **GET** /api/v2/AccountingService/BillingProfiles/{billingProfileId} | Gets a billing profile by id
 [**get_billing_profiles_async**](BillingProfilesApi.md#get_billing_profiles_async) | **GET** /api/v2/AccountingService/BillingProfiles | Gets all billing profiles
 [**get_billing_profiles_count_async**](BillingProfilesApi.md#get_billing_profiles_count_async) | **GET** /api/v2/AccountingService/BillingProfiles/Count | Gets the count of billing profiles
+[**patch_billing_profile_async**](BillingProfilesApi.md#patch_billing_profile_async) | **PATCH** /api/v2/AccountingService/BillingProfiles/{billingProfileId} | Patch a billing profile
 [**update_billing_profile_async**](BillingProfilesApi.md#update_billing_profile_async) | **PUT** /api/v2/AccountingService/BillingProfiles/{billingProfileId} | Updates an existing billing profile
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_billing_profile_async
+
+> models::EmptyEnvelope patch_billing_profile_async(tenant_id, billing_profile_id, api_version, x_api_version, operation)
+Patch a billing profile
+
+Partially updates a billing profile.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**billing_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

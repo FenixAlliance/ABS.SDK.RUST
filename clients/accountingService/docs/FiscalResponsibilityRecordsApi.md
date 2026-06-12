@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_fiscal_responsibility_record**](FiscalResponsibilityRecordsApi.md#get_fiscal_responsibility_record) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalResponsibilities/{fiscalResponsibilityId}/FiscalResponsibilityRecords/{fiscalResponsibilityRecordId} | Get fiscal responsibility record by ID
 [**get_fiscal_responsibility_records**](FiscalResponsibilityRecordsApi.md#get_fiscal_responsibility_records) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalResponsibilities/{fiscalResponsibilityId}/FiscalResponsibilityRecords | Get fiscal responsibility records
 [**get_fiscal_responsibility_records_count**](FiscalResponsibilityRecordsApi.md#get_fiscal_responsibility_records_count) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalResponsibilities/{fiscalResponsibilityId}/FiscalResponsibilityRecords/Count | Get fiscal responsibility records count
+[**patch_fiscal_responsibility_record_async**](FiscalResponsibilityRecordsApi.md#patch_fiscal_responsibility_record_async) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/FiscalResponsibilityRecords/{fiscalResponsibilityRecordId} | Patch a fiscal responsibility record
 [**update_fiscal_responsibility_record**](FiscalResponsibilityRecordsApi.md#update_fiscal_responsibility_record) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/FiscalResponsibilityRecords/{fiscalResponsibilityRecordId} | Update a fiscal responsibility record
 
 
@@ -177,6 +178,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_fiscal_responsibility_record_async
+
+> models::EmptyEnvelope patch_fiscal_responsibility_record_async(tenant_id, fiscal_responsibility_record_id, api_version, x_api_version, operation)
+Patch a fiscal responsibility record
+
+Partially updates a fiscal responsibility record.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**fiscal_responsibility_record_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -6,6 +6,10 @@ docs/AccessTokenResponse.md
 docs/AdditionalAttribute.md
 docs/AntiforgeryApi.md
 docs/BooleanEnvelope.md
+docs/BusinessDomainDto.md
+docs/BusinessDomainDtoEnvelope.md
+docs/BusinessDomainDtoListEnvelope.md
+docs/BusinessDomainsApi.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
 docs/CartDtoListEnvelope.md
@@ -53,6 +57,7 @@ docs/Module.md
 docs/ModuleListEnvelope.md
 docs/ModulesApi.md
 docs/ObjectEmailDispatchRequest.md
+docs/Operation.md
 docs/OptionCreateDto.md
 docs/OptionDto.md
 docs/OptionDtoEnvelope.md
@@ -102,6 +107,7 @@ docs/WebPortalDtoListEnvelope.md
 docs/WebPortalUpdateDto.md
 git_push.sh
 src/apis/antiforgery_api.rs
+src/apis/business_domains_api.rs
 src/apis/carts_api.rs
 src/apis/completions_api.rs
 src/apis/configuration.rs
@@ -125,6 +131,9 @@ src/lib.rs
 src/models/access_token_response.rs
 src/models/additional_attribute.rs
 src/models/boolean_envelope.rs
+src/models/business_domain_dto.rs
+src/models/business_domain_dto_envelope.rs
+src/models/business_domain_dto_list_envelope.rs
 src/models/cart_dto.rs
 src/models/cart_dto_envelope.rs
 src/models/cart_dto_list_envelope.rs
@@ -163,6 +172,7 @@ src/models/mod.rs
 src/models/module.rs
 src/models/module_list_envelope.rs
 src/models/object_email_dispatch_request.rs
+src/models/operation.rs
 src/models/option_create_dto.rs
 src/models/option_dto.rs
 src/models/option_dto_envelope.rs

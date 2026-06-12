@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_service_case_type_by_id_async**](ServiceCaseTypesApi.md#get_service_case_type_by_id_async) | **GET** /api/v2/ServicesService/ServiceCaseTypes/{serviceCaseTypeId} | Get a service case type by ID
 [**get_service_case_types_async**](ServiceCaseTypesApi.md#get_service_case_types_async) | **GET** /api/v2/ServicesService/ServiceCaseTypes | Get all service case types
 [**get_service_case_types_count_async**](ServiceCaseTypesApi.md#get_service_case_types_count_async) | **GET** /api/v2/ServicesService/ServiceCaseTypes/Count | Get service case types count
+[**patch_service_case_type_async**](ServiceCaseTypesApi.md#patch_service_case_type_async) | **PATCH** /api/v2/ServicesService/ServiceCaseTypes/{serviceCaseTypeId} | Patch a service case type
 [**update_service_case_type_async**](ServiceCaseTypesApi.md#update_service_case_type_async) | **PUT** /api/v2/ServicesService/ServiceCaseTypes/{serviceCaseTypeId} | Update a service case type
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_service_case_type_async
+
+> models::Envelope patch_service_case_type_async(tenant_id, service_case_type_id, api_version, x_api_version, operation)
+Patch a service case type
+
+Partially updates an existing service case type using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**service_case_type_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::Envelope**](Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

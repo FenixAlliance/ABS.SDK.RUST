@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
 **name** | Option<**String**> |  | [optional]
+**discount_list_type** | Option<**String**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
 **enrollment_id** | Option<**String**> |  | [optional]

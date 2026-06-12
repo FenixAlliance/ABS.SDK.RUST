@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**delete_invoice_enumeration_range_async**](InvoiceEnumerationRangesApi.md#delete_invoice_enumeration_range_async) | **DELETE** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Delete an invoice enumeration range
 [**get_invoice_enumeration_range_details_async**](InvoiceEnumerationRangesApi.md#get_invoice_enumeration_range_details_async) | **GET** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Get invoice enumeration range by ID
 [**get_invoice_enumeration_ranges_async**](InvoiceEnumerationRangesApi.md#get_invoice_enumeration_ranges_async) | **GET** /api/v2/AccountingService/InvoiceEnumerationRanges | Get all invoice enumeration ranges
+[**patch_invoice_enumeration_range_async**](InvoiceEnumerationRangesApi.md#patch_invoice_enumeration_range_async) | **PATCH** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Patch an invoice enumeration range
 [**update_invoice_enumeration_range_async**](InvoiceEnumerationRangesApi.md#update_invoice_enumeration_range_async) | **PUT** /api/v2/AccountingService/InvoiceEnumerationRanges/{rangeId} | Update an invoice enumeration range
 
 
@@ -138,6 +139,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_invoice_enumeration_range_async
+
+> models::EmptyEnvelope patch_invoice_enumeration_range_async(tenant_id, range_id, api_version, x_api_version, operation)
+Patch an invoice enumeration range
+
+Partially updates an invoice enumeration range.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**range_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

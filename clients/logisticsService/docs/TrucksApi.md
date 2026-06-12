@@ -18,6 +18,8 @@ Method | HTTP request | Description
 [**get_truck_trips_count_async**](TrucksApi.md#get_truck_trips_count_async) | **GET** /api/v2/LogisticsService/Trucks/{truckId}/Trips/Count | Get truck trips count
 [**get_trucks_async**](TrucksApi.md#get_trucks_async) | **GET** /api/v2/LogisticsService/Trucks | Get all trucks
 [**get_trucks_count_async**](TrucksApi.md#get_trucks_count_async) | **GET** /api/v2/LogisticsService/Trucks/Count | Get trucks count
+[**patch_truck_async**](TrucksApi.md#patch_truck_async) | **PATCH** /api/v2/LogisticsService/Trucks/{truckId} | Patch a truck
+[**patch_truck_trip_async**](TrucksApi.md#patch_truck_trip_async) | **PATCH** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId} | Patch a truck trip
 [**update_truck_async**](TrucksApi.md#update_truck_async) | **PUT** /api/v2/LogisticsService/Trucks/{truckId} | Update a truck
 [**update_truck_trip_async**](TrucksApi.md#update_truck_trip_async) | **PUT** /api/v2/LogisticsService/Trucks/{truckId}/Trips/{tripId} | Update a truck trip
 
@@ -485,6 +487,75 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_truck_async
+
+> models::EmptyEnvelope patch_truck_async(tenant_id, truck_id, api_version, x_api_version, operation)
+Patch a truck
+
+Partially updates an existing truck using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**truck_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_truck_trip_async
+
+> models::EmptyEnvelope patch_truck_trip_async(tenant_id, truck_id, trip_id, api_version, x_api_version, operation)
+Patch a truck trip
+
+Partially updates an existing truck trip using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**truck_id** | **uuid::Uuid** |  | [required] |
+**trip_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

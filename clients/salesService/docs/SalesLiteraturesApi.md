@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_extended_sales_literatures_async**](SalesLiteraturesApi.md#get_extended_sales_literatures_async) | **GET** /api/v2/SalesService/SalesLiteratures/Extended | Get extended sales literatures
 [**get_sales_literature_async**](SalesLiteraturesApi.md#get_sales_literature_async) | **GET** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Get sales literature by ID
 [**get_sales_literatures_async**](SalesLiteraturesApi.md#get_sales_literatures_async) | **GET** /api/v2/SalesService/SalesLiteratures | Get sales literatures
+[**patch_sales_literature_async**](SalesLiteraturesApi.md#patch_sales_literature_async) | **PATCH** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Patch a sales literature
 [**update_sales_literature_async**](SalesLiteraturesApi.md#update_sales_literature_async) | **PUT** /api/v2/SalesService/SalesLiteratures/{salesLiteratureId} | Update a sales literature
 
 
@@ -192,6 +193,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_sales_literature_async
+
+> models::EmptyEnvelope patch_sales_literature_async(tenant_id, sales_literature_id, operation)
+Patch a sales literature
+
+Partially updates an existing sales literature using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**sales_literature_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

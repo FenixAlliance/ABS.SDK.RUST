@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **start_date** | Option<**String**> |  | [optional]
 **end_date** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
+**context** | Option<**String**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
 **unit_id** | Option<**String**> |  | [optional]

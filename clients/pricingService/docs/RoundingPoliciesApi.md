@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_rounding_policies_async**](RoundingPoliciesApi.md#get_rounding_policies_async) | **GET** /api/v2/PricingService/RoundingPolicies | Gets all rounding policies
 [**get_rounding_policies_count_async**](RoundingPoliciesApi.md#get_rounding_policies_count_async) | **GET** /api/v2/PricingService/RoundingPolicies/Count | Counts rounding policies
 [**get_rounding_policy_by_id_async**](RoundingPoliciesApi.md#get_rounding_policy_by_id_async) | **GET** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Gets a rounding policy by ID
+[**patch_rounding_policy_async**](RoundingPoliciesApi.md#patch_rounding_policy_async) | **PATCH** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Patches a rounding policy
 [**update_rounding_policy_async**](RoundingPoliciesApi.md#update_rounding_policy_async) | **PUT** /api/v2/PricingService/RoundingPolicies/{roundingPolicyId} | Updates a rounding policy
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_rounding_policy_async
+
+> models::EmptyEnvelope patch_rounding_policy_async(tenant_id, rounding_policy_id, api_version, x_api_version, operation)
+Patches a rounding policy
+
+Partially updates the specified rounding policy using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**rounding_policy_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

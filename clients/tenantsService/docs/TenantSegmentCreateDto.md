@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
-**revenue** | Option<**String**> |  | [optional]
 **min_employees** | Option<**f64**> |  | [optional]
 **max_employees** | Option<**f64**> |  | [optional]
 

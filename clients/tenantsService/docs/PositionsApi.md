@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tenant_position_by_id**](PositionsApi.md#get_tenant_position_by_id) | **GET** /api/v2/TenantsService/Positions/{tenantPositionId} | Retrieve a single tenant position by its ID
 [**get_tenant_positions**](PositionsApi.md#get_tenant_positions) | **GET** /api/v2/TenantsService/Positions | Retrieve a list of tenant positions
 [**get_tenant_positions_count**](PositionsApi.md#get_tenant_positions_count) | **GET** /api/v2/TenantsService/Positions/Count | Get the count of tenant positions
+[**patch_tenant_position**](PositionsApi.md#patch_tenant_position) | **PATCH** /api/v2/TenantsService/Positions/{tenantPositionId} | Patch a tenant position
 [**update_tenant_position**](PositionsApi.md#update_tenant_position) | **PUT** /api/v2/TenantsService/Positions/{tenantPositionId} | Update a tenant position
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_position
+
+> models::EmptyEnvelope patch_tenant_position(tenant_id, tenant_position_id, api_version, x_api_version, operation)
+Patch a tenant position
+
+Patch a tenant position
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_position_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
 **revenue** | Option<**String**> |  | [optional]
 **min_employees** | Option<**f64**> |  | [optional]
 **max_employees** | Option<**f64**> |  | [optional]

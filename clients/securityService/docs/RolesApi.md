@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**get_roles_async**](RolesApi.md#get_roles_async) | **GET** /api/v2/SecurityService/Roles | Get all roles
 [**get_roles_by_enrollment_async**](RolesApi.md#get_roles_by_enrollment_async) | **GET** /api/v2/SecurityService/Roles/ByEnrollment/{enrollmentId} | Get roles by enrollment
 [**get_roles_count_async**](RolesApi.md#get_roles_count_async) | **GET** /api/v2/SecurityService/Roles/Count | Get roles count
+[**patch_role_async**](RolesApi.md#patch_role_async) | **PATCH** /api/v2/SecurityService/Roles/{securityRoleId} | Patch an existing role
 [**revoke_permission_from_role_async**](RolesApi.md#revoke_permission_from_role_async) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Permissions/{securityPermissionId} | Revoke a permission from a role
 [**revoke_role_from_business_application_async**](RolesApi.md#revoke_role_from_business_application_async) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Applications/{applicationId} | Revoke a role from a business application
 [**revoke_role_from_enrollment_async**](RolesApi.md#revoke_role_from_enrollment_async) | **DELETE** /api/v2/SecurityService/Roles/{securityRoleId}/Enrollments/{enrollmentId} | Revoke a role from an enrollment
@@ -415,6 +416,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_role_async
+
+> models::EmptyEnvelope patch_role_async(tenant_id, security_role_id, operation, api_version, x_api_version)
+Patch an existing role
+
+Partially updates an existing security role using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**security_role_id** | **String** |  | [required] |
+**operation** | [**Vec<models::Operation>**](Operation.md) |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

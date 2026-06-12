@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_email_group_details_async**](EmailGroupsApi.md#get_email_group_details_async) | **GET** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Get email group by ID
 [**get_email_groups_count_async**](EmailGroupsApi.md#get_email_groups_count_async) | **GET** /api/v2/MarketingService/EmailGroups/Count | Get email groups count
 [**get_email_groups_o_data_async**](EmailGroupsApi.md#get_email_groups_o_data_async) | **GET** /api/v2/MarketingService/EmailGroups | Get email groups
+[**patch_email_group_async**](EmailGroupsApi.md#patch_email_group_async) | **PATCH** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Patch an email group
 [**update_email_group_async**](EmailGroupsApi.md#update_email_group_async) | **PUT** /api/v2/MarketingService/EmailGroups/{emailgroupId} | Update an email group
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_email_group_async
+
+> models::EmptyEnvelope patch_email_group_async(tenant_id, emailgroup_id, api_version, x_api_version, operation)
+Patch an email group
+
+Partially updates an email group by its ID using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**emailgroup_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

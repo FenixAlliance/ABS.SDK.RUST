@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_support_ticket_priorities_async**](SupportTicketPrioritiesApi.md#get_support_ticket_priorities_async) | **GET** /api/v2/SupportService/SupportTicketPriorities | Retrieve a list of support ticket priorities
 [**get_support_ticket_priorities_count_async**](SupportTicketPrioritiesApi.md#get_support_ticket_priorities_count_async) | **GET** /api/v2/SupportService/SupportTicketPriorities/Count | Get the count of support ticket priorities
 [**get_support_ticket_priority_async**](SupportTicketPrioritiesApi.md#get_support_ticket_priority_async) | **GET** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Retrieve a support ticket priority by ID
+[**patch_support_ticket_priority_async**](SupportTicketPrioritiesApi.md#patch_support_ticket_priority_async) | **PATCH** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Patch a support ticket priority
 [**update_support_ticket_priority_async**](SupportTicketPrioritiesApi.md#update_support_ticket_priority_async) | **PUT** /api/v2/SupportService/SupportTicketPriorities/{supportTicketPriorityId} | Update a support ticket priority
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_support_ticket_priority_async
+
+> models::EmptyEnvelope patch_support_ticket_priority_async(tenant_id, support_ticket_priority_id, api_version, x_api_version, operation)
+Patch a support ticket priority
+
+Partially updates an existing support ticket priority by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**support_ticket_priority_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

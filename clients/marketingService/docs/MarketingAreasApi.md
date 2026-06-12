@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_marketing_area_by_id_async**](MarketingAreasApi.md#get_marketing_area_by_id_async) | **GET** /api/v2/MarketingService/MarketingAreas/{marketingAreaId} | Get marketing area by ID
 [**get_marketing_areas_async**](MarketingAreasApi.md#get_marketing_areas_async) | **GET** /api/v2/MarketingService/MarketingAreas | Get marketing areas
 [**get_marketing_areas_count_async**](MarketingAreasApi.md#get_marketing_areas_count_async) | **GET** /api/v2/MarketingService/MarketingAreas/Count | Count marketing areas
+[**patch_marketing_area_async**](MarketingAreasApi.md#patch_marketing_area_async) | **PATCH** /api/v2/MarketingService/MarketingAreas/{marketingAreaId} | Patch a marketing area
 [**update_marketing_area_async**](MarketingAreasApi.md#update_marketing_area_async) | **PUT** /api/v2/MarketingService/MarketingAreas/{marketingAreaId} | Update a marketing area
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_marketing_area_async
+
+> models::EmptyEnvelope patch_marketing_area_async(tenant_id, marketing_area_id, api_version, x_api_version, operation)
+Patch a marketing area
+
+Partially updates a marketing area by its ID using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**marketing_area_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

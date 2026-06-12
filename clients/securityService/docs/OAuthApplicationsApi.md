@@ -12,6 +12,7 @@ Method | HTTP request | Description
 [**get_o_auth_authorization_by_id_async**](OAuthApplicationsApi.md#get_o_auth_authorization_by_id_async) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations/{authorizationId} | Get OAuth authorization by ID
 [**get_o_auth_authorizations_async**](OAuthApplicationsApi.md#get_o_auth_authorizations_async) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations | Get all OAuth authorizations
 [**get_o_auth_authorizations_count_async**](OAuthApplicationsApi.md#get_o_auth_authorizations_count_async) | **GET** /api/v2/SecurityService/OAuthApplications/Authorizations/Count | Get OAuth authorizations count
+[**patch_o_auth_application_async**](OAuthApplicationsApi.md#patch_o_auth_application_async) | **PATCH** /api/v2/SecurityService/OAuthApplications/{applicationId} | Patch an existing OAuth application
 [**update_o_auth_application_async**](OAuthApplicationsApi.md#update_o_auth_application_async) | **PUT** /api/v2/SecurityService/OAuthApplications/{applicationId} | Update an existing OAuth application
 
 
@@ -273,6 +274,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_o_auth_application_async
+
+> models::EmptyEnvelope patch_o_auth_application_async(tenant_id, application_id, operation, api_version, x_api_version)
+Patch an existing OAuth application
+
+Partially updates an existing OAuth application using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**application_id** | **String** |  | [required] |
+**operation** | [**Vec<models::Operation>**](Operation.md) |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -34,6 +34,7 @@ docs/ItemPriceUpdateDto.md
 docs/LoginRequest.md
 docs/Money.md
 docs/MoneyEnvelope.md
+docs/Operation.md
 docs/PriceListCreateDto.md
 docs/PriceListDto.md
 docs/PriceListDtoEnvelope.md
@@ -100,6 +101,7 @@ src/models/login_request.rs
 src/models/mod.rs
 src/models/money.rs
 src/models/money_envelope.rs
+src/models/operation.rs
 src/models/price_list_create_dto.rs
 src/models/price_list_dto.rs
 src/models/price_list_dto_envelope.rs

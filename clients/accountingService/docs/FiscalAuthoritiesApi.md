@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_fiscal_authorities**](FiscalAuthoritiesApi.md#get_fiscal_authorities) | **GET** /api/v2/AccountingService/Fiscals/Authorities | Get fiscal authorities
 [**get_fiscal_authorities_count**](FiscalAuthoritiesApi.md#get_fiscal_authorities_count) | **GET** /api/v2/AccountingService/Fiscals/Authorities/Count | Get fiscal authorities count
 [**get_fiscal_authority**](FiscalAuthoritiesApi.md#get_fiscal_authority) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Get fiscal authority by ID
+[**patch_fiscal_authority_async**](FiscalAuthoritiesApi.md#patch_fiscal_authority_async) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Patch a fiscal authority
 [**update_fiscal_authority**](FiscalAuthoritiesApi.md#update_fiscal_authority) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/{authorityId} | Update a fiscal authority
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_fiscal_authority_async
+
+> models::EmptyEnvelope patch_fiscal_authority_async(tenant_id, authority_id, api_version, x_api_version, operation)
+Patch a fiscal authority
+
+Partially updates a fiscal authority.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**authority_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

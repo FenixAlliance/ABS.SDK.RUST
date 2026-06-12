@@ -17,6 +17,8 @@ Method | HTTP request | Description
 [**get_order_lines_count**](OrdersApi.md#get_order_lines_count) | **GET** /api/v2/OrdersService/Orders/{orderId}/Lines/Count | Gets the count of order lines for an order.
 [**get_orders**](OrdersApi.md#get_orders) | **GET** /api/v2/OrdersService/Orders | Gets a list of orders for a tenant.
 [**get_orders_count**](OrdersApi.md#get_orders_count) | **GET** /api/v2/OrdersService/Orders/Count | Gets the count of orders for a tenant.
+[**patch_order**](OrdersApi.md#patch_order) | **PATCH** /api/v2/OrdersService/Orders/{orderId} | Partially updates an existing order.
+[**patch_order_line**](OrdersApi.md#patch_order_line) | **PATCH** /api/v2/OrdersService/Orders/{orderId}/Lines/{orderLineId} | Partially updates an order line.
 [**preview_order_email_template**](OrdersApi.md#preview_order_email_template) | **POST** /api/v2/OrdersService/Orders/{orderId}/Emails/Preview | Preview the rendered email for an Order.
 [**send_order_email**](OrdersApi.md#send_order_email) | **POST** /api/v2/OrdersService/Orders/{orderId}/Emails/Send | Send a transactional email for an order.
 [**submit_cart**](OrdersApi.md#submit_cart) | **POST** /api/v2/OrdersService/Orders/SubmitCart | Submits a cart and creates an order.
@@ -425,6 +427,71 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_order
+
+> models::EmptyEnvelope patch_order(tenant_id, order_id, operation)
+Partially updates an existing order.
+
+Applies a JSON Patch document to partially update an existing order.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**order_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_order_line
+
+> models::EmptyEnvelope patch_order_line(tenant_id, order_id, order_line_id, operation)
+Partially updates an order line.
+
+Applies a JSON Patch document to partially update a specific order line.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**order_id** | **uuid::Uuid** |  | [required] |
+**order_line_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

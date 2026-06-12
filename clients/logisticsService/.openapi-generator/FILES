@@ -66,6 +66,7 @@ docs/ItemRetainSampleDtoListEnvelope.md
 docs/ItemRetainSampleUpdateDto.md
 docs/ItemRetainSamplesApi.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/PortCreateDto.md
 docs/PortDto.md
 docs/PortDtoEnvelope.md
@@ -236,6 +237,7 @@ src/models/item_retain_sample_dto_list_envelope.rs
 src/models/item_retain_sample_update_dto.rs
 src/models/login_request.rs
 src/models/mod.rs
+src/models/operation.rs
 src/models/port_create_dto.rs
 src/models/port_dto.rs
 src/models/port_dto_envelope.rs

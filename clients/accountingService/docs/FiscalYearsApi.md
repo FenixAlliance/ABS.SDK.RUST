@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_fiscal_year_details_async**](FiscalYearsApi.md#get_fiscal_year_details_async) | **GET** /api/v2/AccountingService/FiscalYears/{fiscalYearId} | Get fiscal year by ID
 [**get_fiscal_years_async**](FiscalYearsApi.md#get_fiscal_years_async) | **GET** /api/v2/AccountingService/FiscalYears | Get all fiscal years
 [**get_fiscal_years_count_async**](FiscalYearsApi.md#get_fiscal_years_count_async) | **GET** /api/v2/AccountingService/FiscalYears/Count | Count fiscal years
+[**patch_fiscal_year_async**](FiscalYearsApi.md#patch_fiscal_year_async) | **PATCH** /api/v2/AccountingService/FiscalYears/{fiscalYearId} | Patch a fiscal year
 [**update_fiscal_year_async**](FiscalYearsApi.md#update_fiscal_year_async) | **PUT** /api/v2/AccountingService/FiscalYears/{fiscalYearId} | Update fiscal year
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_fiscal_year_async
+
+> models::EmptyEnvelope patch_fiscal_year_async(tenant_id, fiscal_year_id, api_version, x_api_version, operation)
+Patch a fiscal year
+
+Partially updates a fiscal year.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**fiscal_year_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

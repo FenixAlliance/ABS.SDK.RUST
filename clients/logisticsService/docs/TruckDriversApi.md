@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_truck_driver_by_id_async**](TruckDriversApi.md#get_truck_driver_by_id_async) | **GET** /api/v2/LogisticsService/TruckDrivers/{driverId} | Get truck driver by ID
 [**get_truck_drivers_async**](TruckDriversApi.md#get_truck_drivers_async) | **GET** /api/v2/LogisticsService/TruckDrivers | Get all truck drivers
 [**get_truck_drivers_count_async**](TruckDriversApi.md#get_truck_drivers_count_async) | **GET** /api/v2/LogisticsService/TruckDrivers/Count | Get truck drivers count
+[**patch_truck_driver_async**](TruckDriversApi.md#patch_truck_driver_async) | **PATCH** /api/v2/LogisticsService/TruckDrivers/{driverId} | Patch a truck driver
 [**update_truck_driver_async**](TruckDriversApi.md#update_truck_driver_async) | **PUT** /api/v2/LogisticsService/TruckDrivers/{driverId} | Update a truck driver
 
 
@@ -239,6 +240,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_truck_driver_async
+
+> models::EmptyEnvelope patch_truck_driver_async(tenant_id, driver_id, api_version, x_api_version, operation)
+Patch a truck driver
+
+Partially updates an existing truck driver using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**driver_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

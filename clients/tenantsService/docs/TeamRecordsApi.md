@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tenant_team_record_by_id**](TeamRecordsApi.md#get_tenant_team_record_by_id) | **GET** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Retrieve a single tenant team record by its ID
 [**get_tenant_team_records**](TeamRecordsApi.md#get_tenant_team_records) | **GET** /api/v2/TenantsService/TeamRecords | Retrieve a list of tenant team records
 [**get_tenant_team_records_count**](TeamRecordsApi.md#get_tenant_team_records_count) | **GET** /api/v2/TenantsService/TeamRecords/Count | Get the count of tenant team records
+[**patch_tenant_team_record**](TeamRecordsApi.md#patch_tenant_team_record) | **PATCH** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Patch a tenant team record
 [**update_tenant_team_record**](TeamRecordsApi.md#update_tenant_team_record) | **PUT** /api/v2/TenantsService/TeamRecords/{tenantTeamRecordId} | Update a tenant team record
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_team_record
+
+> models::EmptyEnvelope patch_tenant_team_record(tenant_id, tenant_team_record_id, api_version, x_api_version, operation)
+Patch a tenant team record
+
+Patch a tenant team record
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_team_record_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_social_group_async**](SocialGroupsApi.md#delete_social_group_async) | **DELETE** /api/v2/SocialService/SocialGroups/{socialGroupId} | Delete a social group
 [**get_social_group_by_id_async**](SocialGroupsApi.md#get_social_group_by_id_async) | **GET** /api/v2/SocialService/SocialGroups/{socialGroupId} | Get social group by ID
 [**get_social_groups_async**](SocialGroupsApi.md#get_social_groups_async) | **GET** /api/v2/SocialService/SocialGroups | Get social groups
+[**patch_social_group_async**](SocialGroupsApi.md#patch_social_group_async) | **PATCH** /api/v2/SocialService/SocialGroups/{socialGroupId} | Patch a social group
 [**update_social_group_async**](SocialGroupsApi.md#update_social_group_async) | **PUT** /api/v2/SocialService/SocialGroups/{socialGroupId} | Update a social group
 
 
@@ -173,6 +174,41 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_social_group_async
+
+> models::EmptyEnvelope patch_social_group_async(tenant_id, social_profile_id, social_group_id, api_version, x_api_version, operation)
+Patch a social group
+
+Partially updates an existing social group using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**social_group_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

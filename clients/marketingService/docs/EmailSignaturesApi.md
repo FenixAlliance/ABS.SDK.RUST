@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_email_signature_details_async**](EmailSignaturesApi.md#get_email_signature_details_async) | **GET** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Get email signature by ID
 [**get_email_signatures_count_async**](EmailSignaturesApi.md#get_email_signatures_count_async) | **GET** /api/v2/MarketingService/EmailSignatures/Count | Get email signatures count
 [**get_email_signatures_o_data_async**](EmailSignaturesApi.md#get_email_signatures_o_data_async) | **GET** /api/v2/MarketingService/EmailSignatures | Get email signatures
+[**patch_email_signature_async**](EmailSignaturesApi.md#patch_email_signature_async) | **PATCH** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Patch an email signature
 [**update_email_signature_async**](EmailSignaturesApi.md#update_email_signature_async) | **PUT** /api/v2/MarketingService/EmailSignatures/{emailsignatureId} | Update an email signature
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_email_signature_async
+
+> models::EmptyEnvelope patch_email_signature_async(tenant_id, emailsignature_id, api_version, x_api_version, operation)
+Patch an email signature
+
+Partially updates an email signature by its ID using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**emailsignature_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

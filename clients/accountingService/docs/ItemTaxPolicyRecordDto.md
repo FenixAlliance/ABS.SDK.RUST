@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
+**enrollment_id** | Option<**String**> |  | [optional]
 **tax_policy_id** | Option<**String**> |  | [optional]
 **item_price_id** | Option<**String**> |  | [optional]
 **item_id** | Option<**String**> |  | [optional]

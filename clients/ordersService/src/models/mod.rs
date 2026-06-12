@@ -24,6 +24,8 @@ pub mod int32_envelope;
 pub use self::int32_envelope::Int32Envelope;
 pub mod login_request;
 pub use self::login_request::LoginRequest;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod order_create_dto;
 pub use self::order_create_dto::OrderCreateDto;
 pub mod order_dto;

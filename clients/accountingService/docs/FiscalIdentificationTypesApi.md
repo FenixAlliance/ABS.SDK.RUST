@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_fiscal_identification_type**](FiscalIdentificationTypesApi.md#get_fiscal_identification_type) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/IdentificationTypes/{identificationTypeId} | Get fiscal identification type by ID
 [**get_fiscal_identification_types**](FiscalIdentificationTypesApi.md#get_fiscal_identification_types) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/IdentificationTypes | Get fiscal identification types for an authority
 [**get_fiscal_identification_types_count**](FiscalIdentificationTypesApi.md#get_fiscal_identification_types_count) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/IdentificationTypes/Count | Get fiscal identification types count
+[**patch_fiscal_identification_type_async**](FiscalIdentificationTypesApi.md#patch_fiscal_identification_type_async) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/IdentificationTypes/{identificationTypeId} | Patch a fiscal identification type
 [**update_fiscal_identification_type**](FiscalIdentificationTypesApi.md#update_fiscal_identification_type) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/IdentificationTypes/{identificationTypeId} | Update a fiscal identification type
 
 
@@ -174,6 +175,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_fiscal_identification_type_async
+
+> models::EmptyEnvelope patch_fiscal_identification_type_async(tenant_id, identification_type_id, api_version, x_api_version, operation)
+Patch a fiscal identification type
+
+Partially updates a fiscal identification type.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**identification_type_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

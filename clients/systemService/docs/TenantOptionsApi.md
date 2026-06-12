@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_system_tenant_option_by_id**](TenantOptionsApi.md#get_system_tenant_option_by_id) | **GET** /api/v2/SystemService/Tenants/{tenantId}/Options/{optionId} | Retrieve a single tenant option by its ID (admin)
 [**get_system_tenant_options**](TenantOptionsApi.md#get_system_tenant_options) | **GET** /api/v2/SystemService/Tenants/{tenantId}/Options | Retrieve a list of tenant options (admin)
 [**get_system_tenant_options_count**](TenantOptionsApi.md#get_system_tenant_options_count) | **GET** /api/v2/SystemService/Tenants/{tenantId}/Options/Count | Get the count of tenant options (admin)
+[**patch_system_tenant_option**](TenantOptionsApi.md#patch_system_tenant_option) | **PATCH** /api/v2/SystemService/Tenants/{tenantId}/Options/{optionId} | Partially update a tenant option (admin)
 [**update_system_tenant_option**](TenantOptionsApi.md#update_system_tenant_option) | **PUT** /api/v2/SystemService/Tenants/{tenantId}/Options/{optionId} | Update a tenant option (admin)
 
 
@@ -175,6 +176,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_system_tenant_option
+
+> models::EmptyEnvelope patch_system_tenant_option(tenant_id, option_id, api_version, x_api_version, operation)
+Partially update a tenant option (admin)
+
+Admin endpoint to partially update an option for any tenant using a JSON Patch document
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**option_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

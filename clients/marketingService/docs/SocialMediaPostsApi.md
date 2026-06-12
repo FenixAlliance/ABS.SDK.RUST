@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_social_media_post_details_async**](SocialMediaPostsApi.md#get_social_media_post_details_async) | **GET** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Get social media post by ID
 [**get_social_media_posts_count_async**](SocialMediaPostsApi.md#get_social_media_posts_count_async) | **GET** /api/v2/MarketingService/SocialMediaPosts/Count | Get social media posts count
 [**get_social_media_posts_o_data_async**](SocialMediaPostsApi.md#get_social_media_posts_o_data_async) | **GET** /api/v2/MarketingService/SocialMediaPosts | Get social media posts
+[**patch_social_media_post_async**](SocialMediaPostsApi.md#patch_social_media_post_async) | **PATCH** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Patch a social media post
 [**update_social_media_post_async**](SocialMediaPostsApi.md#update_social_media_post_async) | **PUT** /api/v2/MarketingService/SocialMediaPosts/{socialmediapostId} | Update a social media post
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_social_media_post_async
+
+> models::EmptyEnvelope patch_social_media_post_async(tenant_id, socialmediapost_id, api_version, x_api_version, operation)
+Patch a social media post
+
+Partially updates a social media post by its ID using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**socialmediapost_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

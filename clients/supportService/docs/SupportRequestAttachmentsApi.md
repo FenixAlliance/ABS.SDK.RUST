@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_support_request_attachment_async**](SupportRequestAttachmentsApi.md#get_support_request_attachment_async) | **GET** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Retrieve a support request attachment by ID
 [**get_support_request_attachments_async**](SupportRequestAttachmentsApi.md#get_support_request_attachments_async) | **GET** /api/v2/SupportService/SupportRequestAttachments | Retrieve a list of support request attachments
 [**get_support_request_attachments_count_async**](SupportRequestAttachmentsApi.md#get_support_request_attachments_count_async) | **GET** /api/v2/SupportService/SupportRequestAttachments/Count | Get the count of support request attachments
+[**patch_support_request_attachment_async**](SupportRequestAttachmentsApi.md#patch_support_request_attachment_async) | **PATCH** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Patch a support request attachment
 [**update_support_request_attachment_async**](SupportRequestAttachmentsApi.md#update_support_request_attachment_async) | **PUT** /api/v2/SupportService/SupportRequestAttachments/{supportRequestAttachmentId} | Update a support request attachment
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_support_request_attachment_async
+
+> models::EmptyEnvelope patch_support_request_attachment_async(tenant_id, support_request_attachment_id, api_version, x_api_version, operation)
+Patch a support request attachment
+
+Partially updates an existing support request attachment by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**support_request_attachment_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

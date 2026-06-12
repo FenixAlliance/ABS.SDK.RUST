@@ -22,6 +22,7 @@ docs/LoginRequest.md
 docs/NotificationDto.md
 docs/NotificationDtoEnvelope.md
 docs/NotificationDtoListEnvelope.md
+docs/Operation.md
 docs/PrivateMessageCreateDto.md
 docs/PrivateMessageDto.md
 docs/PrivateMessageDtoListEnvelope.md
@@ -101,6 +102,7 @@ src/models/mod.rs
 src/models/notification_dto.rs
 src/models/notification_dto_envelope.rs
 src/models/notification_dto_list_envelope.rs
+src/models/operation.rs
 src/models/private_message_create_dto.rs
 src/models/private_message_dto.rs
 src/models/private_message_dto_list_envelope.rs

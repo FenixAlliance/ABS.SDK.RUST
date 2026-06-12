@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **prefix** | Option<**String**> |  | [optional]
 **balance** | Option<**f64**> |  | [optional]
 **currency_id** | Option<**String**> |  | [optional]
+**contact_id** | Option<**String**> |  | [optional]
 **account_type** | Option<**String**> |  | [optional]
 **qualified_name** | Option<**String**> |  | [optional]
 **account_type_id** | Option<**String**> |  | [optional]

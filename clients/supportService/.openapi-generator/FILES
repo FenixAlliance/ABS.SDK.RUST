@@ -45,6 +45,7 @@ docs/MaintenanceVisitDto.md
 docs/MaintenanceVisitDtoEnvelope.md
 docs/MaintenanceVisitDtoListEnvelope.md
 docs/MaintenanceVisitsApi.md
+docs/Operation.md
 docs/PrivateMessageDto.md
 docs/PrivateMessageDtoListEnvelope.md
 docs/RefreshRequest.md
@@ -174,6 +175,7 @@ src/models/maintenance_visit_dto.rs
 src/models/maintenance_visit_dto_envelope.rs
 src/models/maintenance_visit_dto_list_envelope.rs
 src/models/mod.rs
+src/models/operation.rs
 src/models/private_message_dto.rs
 src/models/private_message_dto_list_envelope.rs
 src/models/refresh_request.rs

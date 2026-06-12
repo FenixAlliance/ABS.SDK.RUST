@@ -110,6 +110,8 @@ pub mod item_retain_sample_update_dto;
 pub use self::item_retain_sample_update_dto::ItemRetainSampleUpdateDto;
 pub mod login_request;
 pub use self::login_request::LoginRequest;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod port_create_dto;
 pub use self::port_create_dto::PortCreateDto;
 pub mod port_dto;

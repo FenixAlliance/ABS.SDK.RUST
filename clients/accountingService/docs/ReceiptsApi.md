@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_receipt_details_async**](ReceiptsApi.md#get_receipt_details_async) | **GET** /api/v2/AccountingService/Receipts/{receiptId} | Gets details of a receipt
 [**get_receipts_async**](ReceiptsApi.md#get_receipts_async) | **GET** /api/v2/AccountingService/Receipts | Retrieves tenant receipts
 [**get_receipts_count_async**](ReceiptsApi.md#get_receipts_count_async) | **GET** /api/v2/AccountingService/Receipts/Count | Gets count of tenant receipts
+[**patch_receipt_async**](ReceiptsApi.md#patch_receipt_async) | **PATCH** /api/v2/AccountingService/Receipts/{receiptId} | Patches a receipt
 [**update_receipt_async**](ReceiptsApi.md#update_receipt_async) | **PUT** /api/v2/AccountingService/Receipts/{receiptId} | Updates a receipt
 
 
@@ -161,6 +162,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_receipt_async
+
+> models::EmptyEnvelope patch_receipt_async(tenant_id, receipt_id, operation)
+Patches a receipt
+
+Partially updates the specified receipt using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**receipt_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

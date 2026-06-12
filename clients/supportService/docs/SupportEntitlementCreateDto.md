@@ -47,7 +47,7 @@ Name | Type | Description | Notes
 **data9_label** | Option<**String**> |  | [optional]
 **individual_id** | Option<**String**> |  | [optional]
 **organization_id** | Option<**String**> |  | [optional]
-**receiver_business_id** | Option<**String**> |  | [optional]
+**receiver_tenant_id** | Option<**String**> |  | [optional]
 **payment_token_id** | Option<**String**> |  | [optional]
 **wallet_account_id** | Option<**String**> |  | [optional]
 **security_certificate_id** | Option<**String**> |  | [optional]

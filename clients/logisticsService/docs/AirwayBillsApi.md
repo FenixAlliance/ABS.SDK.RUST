@@ -17,6 +17,8 @@ Method | HTTP request | Description
 [**mark_airway_bill_arrived_async**](AirwayBillsApi.md#mark_airway_bill_arrived_async) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkArrived | Mark airway bill arrived
 [**mark_airway_bill_delivered_async**](AirwayBillsApi.md#mark_airway_bill_delivered_async) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkDelivered | Mark airway bill delivered
 [**mark_airway_bill_in_transit_async**](AirwayBillsApi.md#mark_airway_bill_in_transit_async) | **POST** /api/v2/LogisticsService/AirwayBills/{billId}/MarkInTransit | Mark airway bill in transit
+[**patch_airway_bill_async**](AirwayBillsApi.md#patch_airway_bill_async) | **PATCH** /api/v2/LogisticsService/AirwayBills/{billId} | Patch an airway bill
+[**patch_airway_bill_line_async**](AirwayBillsApi.md#patch_airway_bill_line_async) | **PATCH** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId} | Patch an airway bill line
 [**remove_airway_bill_line_async**](AirwayBillsApi.md#remove_airway_bill_line_async) | **DELETE** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId} | Remove an airway bill line
 [**update_airway_bill_async**](AirwayBillsApi.md#update_airway_bill_async) | **PUT** /api/v2/LogisticsService/AirwayBills/{billId} | Update an airway bill
 [**update_airway_bill_line_async**](AirwayBillsApi.md#update_airway_bill_line_async) | **PUT** /api/v2/LogisticsService/AirwayBills/{billId}/Lines/{lineId} | Update an airway bill line
@@ -446,6 +448,75 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_airway_bill_async
+
+> models::EmptyEnvelope patch_airway_bill_async(tenant_id, bill_id, api_version, x_api_version, operation)
+Patch an airway bill
+
+Partially updates an existing airway bill using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bill_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_airway_bill_line_async
+
+> models::EmptyEnvelope patch_airway_bill_line_async(tenant_id, bill_id, line_id, api_version, x_api_version, operation)
+Patch an airway bill line
+
+Partially updates a line on an airway bill using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bill_id** | **uuid::Uuid** |  | [required] |
+**line_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

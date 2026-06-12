@@ -14,6 +14,8 @@ Method | HTTP request | Description
 [**get_transaction_category**](TransactionsApi.md#get_transaction_category) | **GET** /api/v2/AccountingService/Transactions/Categories/{categoryId} | Get transaction category by ID
 [**get_transactions**](TransactionsApi.md#get_transactions) | **GET** /api/v2/AccountingService/Transactions | Get all transactions for a tenant
 [**get_transactions_count**](TransactionsApi.md#get_transactions_count) | **GET** /api/v2/AccountingService/Transactions/Count | Get transactions count
+[**patch_transaction**](TransactionsApi.md#patch_transaction) | **PATCH** /api/v2/AccountingService/Transactions/{transactionId} | Patch a transaction
+[**patch_transaction_category**](TransactionsApi.md#patch_transaction_category) | **PATCH** /api/v2/AccountingService/Transactions/Categories/{categoryId} | Patch a transaction category
 [**update_transaction**](TransactionsApi.md#update_transaction) | **PUT** /api/v2/AccountingService/Transactions/{transactionId} | Update a transaction
 [**update_transaction_category**](TransactionsApi.md#update_transaction_category) | **PUT** /api/v2/AccountingService/Transactions/Categories/{categoryId} | Update a transaction category
 
@@ -340,6 +342,74 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_transaction
+
+> models::EmptyEnvelope patch_transaction(tenant_id, transaction_id, api_version, x_api_version, operation)
+Patch a transaction
+
+Partially updates an existing transaction identified by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**transaction_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_transaction_category
+
+> models::EmptyEnvelope patch_transaction_category(tenant_id, category_id, api_version, x_api_version, operation)
+Patch a transaction category
+
+Partially updates an existing transaction category identified by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**category_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tenant_employee_enrollment_by_id**](EmployeeEnrollmentsApi.md#get_tenant_employee_enrollment_by_id) | **GET** /api/v2/TenantsService/EmployeeEnrollments/{tenantEmployeeEnrollmentId} | Retrieve a single tenant employee enrollment by its ID
 [**get_tenant_employee_enrollments**](EmployeeEnrollmentsApi.md#get_tenant_employee_enrollments) | **GET** /api/v2/TenantsService/EmployeeEnrollments | Retrieve a list of tenant employee enrollments
 [**get_tenant_employee_enrollments_count**](EmployeeEnrollmentsApi.md#get_tenant_employee_enrollments_count) | **GET** /api/v2/TenantsService/EmployeeEnrollments/Count | Get the count of tenant employee enrollments
+[**patch_tenant_employee_enrollment_async**](EmployeeEnrollmentsApi.md#patch_tenant_employee_enrollment_async) | **PATCH** /api/v2/TenantsService/EmployeeEnrollments/{tenantEmployeeEnrollmentId} | Patch a tenant employee enrollment
 [**update_tenant_employee_enrollment**](EmployeeEnrollmentsApi.md#update_tenant_employee_enrollment) | **PUT** /api/v2/TenantsService/EmployeeEnrollments/{tenantEmployeeEnrollmentId} | Update a tenant employee enrollment
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_employee_enrollment_async
+
+> models::EmptyEnvelope patch_tenant_employee_enrollment_async(tenant_id, tenant_employee_enrollment_id, api_version, x_api_version, operation)
+Patch a tenant employee enrollment
+
+Patch a tenant employee enrollment
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_employee_enrollment_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

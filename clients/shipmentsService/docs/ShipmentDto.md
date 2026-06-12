@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **expected_delivery_date** | Option<**String**> |  | [optional]
 **shipping_terms** | Option<**String**> |  | [optional]
 **order_id** | Option<**String**> |  | [optional]
-**business_id** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tenant_industries**](IndustriesApi.md#get_tenant_industries) | **GET** /api/v2/TenantsService/Industries | Retrieve a list of tenant industries
 [**get_tenant_industries_count**](IndustriesApi.md#get_tenant_industries_count) | **GET** /api/v2/TenantsService/Industries/Count | Get the count of tenant industries
 [**get_tenant_industry_by_id**](IndustriesApi.md#get_tenant_industry_by_id) | **GET** /api/v2/TenantsService/Industries/{tenantIndustryId} | Retrieve a single tenant industry by its ID
+[**patch_tenant_industry_async**](IndustriesApi.md#patch_tenant_industry_async) | **PATCH** /api/v2/TenantsService/Industries/{tenantIndustryId} | Patch a tenant industry
 [**update_tenant_industry**](IndustriesApi.md#update_tenant_industry) | **PUT** /api/v2/TenantsService/Industries/{tenantIndustryId} | Update a tenant industry
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_industry_async
+
+> models::EmptyEnvelope patch_tenant_industry_async(tenant_id, tenant_industry_id, api_version, x_api_version, operation)
+Patch a tenant industry
+
+Patch a tenant industry
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_industry_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

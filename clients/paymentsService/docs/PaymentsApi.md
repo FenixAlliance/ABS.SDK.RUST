@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_payment_async**](PaymentsApi.md#get_payment_async) | **GET** /api/v2/PaymentsService/Payments/{paymentId}/Details | Gets a payment by ID (deprecated)
 [**get_payment_async_v2**](PaymentsApi.md#get_payment_async_v2) | **GET** /api/v2/PaymentsService/Payments/{paymentId} | Gets a payment by ID
 [**get_payments_async**](PaymentsApi.md#get_payments_async) | **GET** /api/v2/PaymentsService/Payments | Retrieves all payments
+[**patch_payment_async**](PaymentsApi.md#patch_payment_async) | **PATCH** /api/v2/PaymentsService/Payments/{paymentId} | Patch a payment
 [**update_payment_async**](PaymentsApi.md#update_payment_async) | **PUT** /api/v2/PaymentsService/Payments/{paymentId} | Updates a payment
 
 
@@ -162,6 +163,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_payment_async
+
+> models::EmptyEnvelope patch_payment_async(tenant_id, payment_id, operation)
+Patch a payment
+
+Patch a payment
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**payment_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

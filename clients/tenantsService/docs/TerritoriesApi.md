@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_tenant_territories**](TerritoriesApi.md#get_tenant_territories) | **GET** /api/v2/TenantsService/Territories | Retrieve a list of tenant territories
 [**get_tenant_territories_count**](TerritoriesApi.md#get_tenant_territories_count) | **GET** /api/v2/TenantsService/Territories/Count | Get the count of tenant territories
 [**get_tenant_territory_by_id**](TerritoriesApi.md#get_tenant_territory_by_id) | **GET** /api/v2/TenantsService/Territories/{tenantTerritoryId} | Retrieve a single tenant territory by its ID
+[**patch_tenant_territory**](TerritoriesApi.md#patch_tenant_territory) | **PATCH** /api/v2/TenantsService/Territories/{tenantTerritoryId} | Patch a tenant territory
 [**update_tenant_territory**](TerritoriesApi.md#update_tenant_territory) | **PUT** /api/v2/TenantsService/Territories/{tenantTerritoryId} | Update a tenant territory
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tenant_territory
+
+> models::EmptyEnvelope patch_tenant_territory(tenant_id, tenant_territory_id, api_version, x_api_version, operation)
+Patch a tenant territory
+
+Patch a tenant territory
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tenant_territory_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

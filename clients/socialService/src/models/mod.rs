@@ -34,6 +34,8 @@ pub mod notification_dto_envelope;
 pub use self::notification_dto_envelope::NotificationDtoEnvelope;
 pub mod notification_dto_list_envelope;
 pub use self::notification_dto_list_envelope::NotificationDtoListEnvelope;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod private_message_create_dto;
 pub use self::private_message_create_dto::PrivateMessageCreateDto;
 pub mod private_message_dto;

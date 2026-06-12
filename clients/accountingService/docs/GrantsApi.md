@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**get_grant_details_async**](GrantsApi.md#get_grant_details_async) | **GET** /api/v2/AccountingService/Grants/{grantId} | Get grant by ID
 [**get_grants_async**](GrantsApi.md#get_grants_async) | **GET** /api/v2/AccountingService/Grants | Get all grants
 [**get_grants_count_async**](GrantsApi.md#get_grants_count_async) | **GET** /api/v2/AccountingService/Grants/Count | Count grants
+[**patch_grant_async**](GrantsApi.md#patch_grant_async) | **PATCH** /api/v2/AccountingService/Grants/{grantId} | Patch a grant
 [**update_grant_async**](GrantsApi.md#update_grant_async) | **PUT** /api/v2/AccountingService/Grants/{grantId} | Update grant
 
 
@@ -171,6 +172,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_grant_async
+
+> models::EmptyEnvelope patch_grant_async(tenant_id, grant_id, api_version, x_api_version, operation)
+Patch a grant
+
+Partially updates a grant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**grant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -28,8 +28,8 @@ Name | Type | Description | Notes
 **custom_state** | Option<**String**> |  | [optional]
 **custom_city** | Option<**String**> |  | [optional]
 **city_id** | Option<**String**> |  | [optional]
-**business_id** | **String** |  | 
-**business_profile_record_id** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
+**enrollment_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

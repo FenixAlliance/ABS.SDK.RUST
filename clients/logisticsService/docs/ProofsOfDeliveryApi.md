@@ -17,6 +17,8 @@ Method | HTTP request | Description
 [**get_proof_of_delivery_lines_count_async**](ProofsOfDeliveryApi.md#get_proof_of_delivery_lines_count_async) | **GET** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/Count | Get proof of delivery lines count
 [**get_proofs_of_delivery_async**](ProofsOfDeliveryApi.md#get_proofs_of_delivery_async) | **GET** /api/v2/LogisticsService/ProofsOfDelivery | Get all proofs of delivery
 [**get_proofs_of_delivery_count_async**](ProofsOfDeliveryApi.md#get_proofs_of_delivery_count_async) | **GET** /api/v2/LogisticsService/ProofsOfDelivery/Count | Get proofs of delivery count
+[**patch_proof_of_delivery_async**](ProofsOfDeliveryApi.md#patch_proof_of_delivery_async) | **PATCH** /api/v2/LogisticsService/ProofsOfDelivery/{podId} | Patch a proof of delivery
+[**patch_proof_of_delivery_line_async**](ProofsOfDeliveryApi.md#patch_proof_of_delivery_line_async) | **PATCH** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/{lineId} | Patch a proof of delivery line
 [**reject_proof_of_delivery_async**](ProofsOfDeliveryApi.md#reject_proof_of_delivery_async) | **POST** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Reject | Reject a proof of delivery
 [**remove_proof_of_delivery_line_async**](ProofsOfDeliveryApi.md#remove_proof_of_delivery_line_async) | **DELETE** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Lines/{lineId} | Remove a proof of delivery line
 [**sign_proof_of_delivery_async**](ProofsOfDeliveryApi.md#sign_proof_of_delivery_async) | **POST** /api/v2/LogisticsService/ProofsOfDelivery/{podId}/Sign | Sign a proof of delivery
@@ -451,6 +453,75 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_proof_of_delivery_async
+
+> models::EmptyEnvelope patch_proof_of_delivery_async(tenant_id, pod_id, api_version, x_api_version, operation)
+Patch a proof of delivery
+
+Partially updates an existing proof of delivery using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**pod_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_proof_of_delivery_line_async
+
+> models::EmptyEnvelope patch_proof_of_delivery_line_async(tenant_id, pod_id, line_id, api_version, x_api_version, operation)
+Patch a proof of delivery line
+
+Partially updates an existing proof of delivery line using JSON Patch.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**pod_id** | **uuid::Uuid** |  | [required] |
+**line_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

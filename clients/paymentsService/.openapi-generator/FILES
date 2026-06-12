@@ -13,6 +13,7 @@ docs/InfoRequest.md
 docs/InfoResponse.md
 docs/Int32Envelope.md
 docs/LoginRequest.md
+docs/Operation.md
 docs/PaymentCreateDto.md
 docs/PaymentDto.md
 docs/PaymentDtoListEnvelope.md
@@ -62,6 +63,7 @@ src/models/info_response.rs
 src/models/int32_envelope.rs
 src/models/login_request.rs
 src/models/mod.rs
+src/models/operation.rs
 src/models/payment_create_dto.rs
 src/models/payment_dto.rs
 src/models/payment_dto_list_envelope.rs

@@ -6,7 +6,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
+**title** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
+**support_ticket_status** | Option<**String**> |  | [optional]
 **contact_id** | Option<**String**> |  | [optional]
 **support_ticket_type_id** | Option<**String**> |  | [optional]
 **support_entitlement_id** | Option<**String**> |  | [optional]

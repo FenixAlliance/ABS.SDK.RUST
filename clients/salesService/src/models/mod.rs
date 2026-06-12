@@ -30,6 +30,8 @@ pub mod loyalty_program_dto_list_envelope;
 pub use self::loyalty_program_dto_list_envelope::LoyaltyProgramDtoListEnvelope;
 pub mod loyalty_program_update_dto;
 pub use self::loyalty_program_update_dto::LoyaltyProgramUpdateDto;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod point_of_sale_create_dto;
 pub use self::point_of_sale_create_dto::PointOfSaleCreateDto;
 pub mod point_of_sale_dto;

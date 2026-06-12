@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**delete_loyalty_program_async**](LoyaltyProgramsApi.md#delete_loyalty_program_async) | **DELETE** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Delete a loyalty program
 [**get_loyalty_program_async**](LoyaltyProgramsApi.md#get_loyalty_program_async) | **GET** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Get loyalty program by ID
 [**get_loyalty_programs_async**](LoyaltyProgramsApi.md#get_loyalty_programs_async) | **GET** /api/v2/SalesService/LoyaltyPrograms | Get loyalty programs
+[**patch_loyalty_program_async**](LoyaltyProgramsApi.md#patch_loyalty_program_async) | **PATCH** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Patch a loyalty program
 [**update_loyalty_program_async**](LoyaltyProgramsApi.md#update_loyalty_program_async) | **PUT** /api/v2/SalesService/LoyaltyPrograms/{loyaltyProgramId} | Update a loyalty program
 
 
@@ -161,6 +162,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_loyalty_program_async
+
+> models::EmptyEnvelope patch_loyalty_program_async(tenant_id, loyalty_program_id, operation)
+Patch a loyalty program
+
+Partially updates an existing loyalty program using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**loyalty_program_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

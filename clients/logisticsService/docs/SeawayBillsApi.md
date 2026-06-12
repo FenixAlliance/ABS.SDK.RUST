@@ -16,6 +16,8 @@ Method | HTTP request | Description
 [**issue_seaway_bill_async**](SeawayBillsApi.md#issue_seaway_bill_async) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/Issue | Issue a seaway bill
 [**mark_seaway_bill_arrived_async**](SeawayBillsApi.md#mark_seaway_bill_arrived_async) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/MarkArrived | Mark seaway bill arrived
 [**mark_seaway_bill_in_transit_async**](SeawayBillsApi.md#mark_seaway_bill_in_transit_async) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/MarkInTransit | Mark seaway bill in transit
+[**patch_seaway_bill_async**](SeawayBillsApi.md#patch_seaway_bill_async) | **PATCH** /api/v2/LogisticsService/SeawayBills/{billId} | Patch a seaway bill
+[**patch_seaway_bill_line_async**](SeawayBillsApi.md#patch_seaway_bill_line_async) | **PATCH** /api/v2/LogisticsService/SeawayBills/{billId}/Lines/{lineId} | Patch a seaway bill line
 [**release_seaway_bill_async**](SeawayBillsApi.md#release_seaway_bill_async) | **POST** /api/v2/LogisticsService/SeawayBills/{billId}/Release | Release a seaway bill
 [**remove_seaway_bill_line_async**](SeawayBillsApi.md#remove_seaway_bill_line_async) | **DELETE** /api/v2/LogisticsService/SeawayBills/{billId}/Lines/{lineId} | Remove a seaway bill line
 [**update_seaway_bill_async**](SeawayBillsApi.md#update_seaway_bill_async) | **PUT** /api/v2/LogisticsService/SeawayBills/{billId} | Update a seaway bill
@@ -413,6 +415,75 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_seaway_bill_async
+
+> models::EmptyEnvelope patch_seaway_bill_async(tenant_id, bill_id, api_version, x_api_version, operation)
+Patch a seaway bill
+
+Partially updates an existing seaway bill using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bill_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_seaway_bill_line_async
+
+> models::EmptyEnvelope patch_seaway_bill_line_async(tenant_id, bill_id, line_id, api_version, x_api_version, operation)
+Patch a seaway bill line
+
+Partially updates a line on a seaway bill using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**bill_id** | **uuid::Uuid** |  | [required] |
+**line_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

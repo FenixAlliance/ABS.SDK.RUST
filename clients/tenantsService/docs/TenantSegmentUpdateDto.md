@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**revenue** | Option<**String**> |  | [optional]
 **min_employees** | Option<**f64**> |  | [optional]
 **max_employees** | Option<**f64**> |  | [optional]
 

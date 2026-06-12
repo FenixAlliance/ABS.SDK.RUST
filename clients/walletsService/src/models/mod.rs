@@ -46,6 +46,8 @@ pub mod location_update_dto;
 pub use self::location_update_dto::LocationUpdateDto;
 pub mod login_request;
 pub use self::login_request::LoginRequest;
+pub mod operation;
+pub use self::operation::Operation;
 pub mod order_dto;
 pub use self::order_dto::OrderDto;
 pub mod order_dto_list_envelope;

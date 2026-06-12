@@ -19,6 +19,8 @@ Method | HTTP request | Description
 [**get_quote_lines_count**](QuotesApi.md#get_quote_lines_count) | **GET** /api/v2/QuotesService/Quotes/{quoteId}/Lines/Count | Get the count of quote lines.
 [**get_quotes**](QuotesApi.md#get_quotes) | **GET** /api/v2/QuotesService/Quotes | Get a list of quotes.
 [**get_quotes_count**](QuotesApi.md#get_quotes_count) | **GET** /api/v2/QuotesService/Quotes/Count | Get the count of quotes.
+[**patch_quote_async**](QuotesApi.md#patch_quote_async) | **PATCH** /api/v2/QuotesService/Quotes/{quoteId} | Patch an existing quote.
+[**patch_quote_line_async**](QuotesApi.md#patch_quote_line_async) | **PATCH** /api/v2/QuotesService/Quotes/{quoteId}/Lines/{quoteLineId} | Patch a quote line.
 [**preview_quote_email_template**](QuotesApi.md#preview_quote_email_template) | **POST** /api/v2/QuotesService/Quotes/{quoteId}/Emails/Preview | Preview the rendered email for an invoice.
 [**quote_line_exists**](QuotesApi.md#quote_line_exists) | **GET** /api/v2/QuotesService/Quotes/{quoteId}/Lines/Exists | Check if a quote line exists.
 [**reopen_quote**](QuotesApi.md#reopen_quote) | **PUT** /api/v2/QuotesService/Quotes/{quoteId}/Reopen | Reopen a closed quote.
@@ -491,6 +493,71 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_quote_async
+
+> models::EmptyEnvelope patch_quote_async(tenant_id, quote_id, operation)
+Patch an existing quote.
+
+Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**quote_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_quote_line_async
+
+> models::EmptyEnvelope patch_quote_line_async(tenant_id, quote_id, quote_line_id, operation)
+Patch a quote line.
+
+Partially updates an existing quote line for the specified quote and tenant using a JSON Patch document.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**quote_id** | **uuid::Uuid** |  | [required] |
+**quote_line_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

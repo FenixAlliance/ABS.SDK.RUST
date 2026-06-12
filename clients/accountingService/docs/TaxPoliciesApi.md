@@ -19,6 +19,9 @@ Method | HTTP request | Description
 [**get_tax_policies_by_authority**](TaxPoliciesApi.md#get_tax_policies_by_authority) | **GET** /api/v2/AccountingService/TaxPolicies/ByAuthority/{authorityId} | Get tax policies by fiscal authority
 [**get_tax_policies_count**](TaxPoliciesApi.md#get_tax_policies_count) | **GET** /api/v2/AccountingService/TaxPolicies/Count | Get tax policies count
 [**get_tax_policy**](TaxPoliciesApi.md#get_tax_policy) | **GET** /api/v2/AccountingService/TaxPolicies/{id} | Get tax policy by ID
+[**patch_applied_tax_policy_record**](TaxPoliciesApi.md#patch_applied_tax_policy_record) | **PATCH** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/AppliedTaxPolicyRecords/{appliedTaxPolicyRecordId} | Patch an applied tax policy record
+[**patch_item_tax_policy_record**](TaxPoliciesApi.md#patch_item_tax_policy_record) | **PATCH** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/ItemTaxPolicyRecords/{itemTaxPolicyRecordId} | Patch an item tax policy record
+[**patch_tax_policy**](TaxPoliciesApi.md#patch_tax_policy) | **PATCH** /api/v2/AccountingService/TaxPolicies/{id} | Patch a tax policy
 [**update_applied_tax_policy_record**](TaxPoliciesApi.md#update_applied_tax_policy_record) | **PUT** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/AppliedTaxPolicyRecords/{appliedTaxPolicyRecordId} | Update an applied tax policy record
 [**update_item_tax_policy_record**](TaxPoliciesApi.md#update_item_tax_policy_record) | **PUT** /api/v2/AccountingService/TaxPolicies/{taxPolicyId}/ItemTaxPolicyRecords/{itemTaxPolicyRecordId} | Update an item tax policy record
 [**update_tax_policy**](TaxPoliciesApi.md#update_tax_policy) | **PUT** /api/v2/AccountingService/TaxPolicies/{id} | Update a tax policy
@@ -519,6 +522,110 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_applied_tax_policy_record
+
+> models::EmptyEnvelope patch_applied_tax_policy_record(tenant_id, tax_policy_id, applied_tax_policy_record_id, api_version, x_api_version, operation)
+Patch an applied tax policy record
+
+Partially updates an existing applied tax policy record identified by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tax_policy_id** | **uuid::Uuid** |  | [required] |
+**applied_tax_policy_record_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_item_tax_policy_record
+
+> models::EmptyEnvelope patch_item_tax_policy_record(tenant_id, tax_policy_id, item_tax_policy_record_id, api_version, x_api_version, operation)
+Patch an item tax policy record
+
+Partially updates an existing item tax policy record identified by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**tax_policy_id** | **uuid::Uuid** |  | [required] |
+**item_tax_policy_record_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_tax_policy
+
+> models::EmptyEnvelope patch_tax_policy(tenant_id, id, api_version, x_api_version, operation)
+Patch a tax policy
+
+Partially updates an existing tax policy identified by its unique identifier.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

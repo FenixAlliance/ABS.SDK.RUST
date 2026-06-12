@@ -59,6 +59,7 @@ docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersApi.md
+docs/Operation.md
 docs/OrderDto.md
 docs/OrderDtoEnvelope.md
 docs/RefreshRequest.md
@@ -145,6 +146,7 @@ src/models/newsletter_create_dto.rs
 src/models/newsletter_dto.rs
 src/models/newsletter_dto_envelope.rs
 src/models/newsletter_update_dto.rs
+src/models/operation.rs
 src/models/order_dto.rs
 src/models/order_dto_envelope.rs
 src/models/refresh_request.rs

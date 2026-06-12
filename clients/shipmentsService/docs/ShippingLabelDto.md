@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **tracking_code** | Option<**String**> |  | [optional]
 **expected_delivery** | Option<**String**> |  | [optional]
 **location_id** | Option<**String**> |  | [optional]
-**business_id** | Option<**String**> |  | [optional]
+**tenant_id** | Option<**String**> |  | [optional]
 **shipment_id** | Option<**String**> |  | [optional]
 **shipping_courier_id** | Option<**String**> |  | [optional]
 
