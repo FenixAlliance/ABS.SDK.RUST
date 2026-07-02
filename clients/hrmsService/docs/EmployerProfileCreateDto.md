@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **timestamp** | Option<**String**> |  | [optional]
 **r#type** | Option<**String**> |  | [optional]
 **contact_id** | Option<**String**> |  | [optional]
+**contact** | Option<[**models::ContactCreateDto**](ContactCreateDto.md)> |  | [optional]
 **about** | Option<**String**> |  | [optional]
 **avatar_url** | Option<**String**> |  | [optional]
 **data** | Option<**String**> |  | [optional]

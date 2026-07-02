@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
 **name** | Option<**String**> |  | [optional]
+**un_ece_code** | Option<**String**> |  | [optional]
 **unit_group_id** | Option<**String**> |  | [optional]
 **base_unit_amount** | Option<**f64**> |  | [optional]
 **base_unit_id** | Option<**String**> |  | [optional]

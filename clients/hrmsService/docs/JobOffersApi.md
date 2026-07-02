@@ -1,17 +1,56 @@
 # \JobOffersApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**close_job_offer_async**](JobOffersApi.md#close_job_offer_async) | **POST** /api/v2/HrmsService/JobOffers/{jobOfferId}/Close | Close a job offer
 [**create_job_offer_async**](JobOffersApi.md#create_job_offer_async) | **POST** /api/v2/HrmsService/JobOffers | Create a job offer
 [**delete_job_offer_async**](JobOffersApi.md#delete_job_offer_async) | **DELETE** /api/v2/HrmsService/JobOffers/{jobOfferId} | Delete a job offer
+[**fill_job_offer_async**](JobOffersApi.md#fill_job_offer_async) | **POST** /api/v2/HrmsService/JobOffers/{jobOfferId}/Fill | Mark a job offer filled
 [**get_job_offer_by_id_async**](JobOffersApi.md#get_job_offer_by_id_async) | **GET** /api/v2/HrmsService/JobOffers/{jobOfferId} | Get job offer by ID
 [**get_job_offers_async**](JobOffersApi.md#get_job_offers_async) | **GET** /api/v2/HrmsService/JobOffers | Get job offers
 [**get_job_offers_count_async**](JobOffersApi.md#get_job_offers_count_async) | **GET** /api/v2/HrmsService/JobOffers/Count | Count job offers
+[**get_public_job_offer_by_id_async**](JobOffersApi.md#get_public_job_offer_by_id_async) | **GET** /api/v2/HrmsService/JobOffers/Public/{jobOfferId} | Get public job offer by ID
+[**get_public_job_offers_async**](JobOffersApi.md#get_public_job_offers_async) | **GET** /api/v2/HrmsService/JobOffers/Public | Get public job offers
+[**get_public_job_offers_count_async**](JobOffersApi.md#get_public_job_offers_count_async) | **GET** /api/v2/HrmsService/JobOffers/Public/Count | Count public job offers
 [**patch_job_offer_async**](JobOffersApi.md#patch_job_offer_async) | **PATCH** /api/v2/HrmsService/JobOffers/{jobOfferId} | Patch a job offer
+[**publish_job_offer_async**](JobOffersApi.md#publish_job_offer_async) | **POST** /api/v2/HrmsService/JobOffers/{jobOfferId}/Publish | Publish a job offer
 [**update_job_offer_async**](JobOffersApi.md#update_job_offer_async) | **PUT** /api/v2/HrmsService/JobOffers/{jobOfferId} | Update a job offer
 
+
+
+## close_job_offer_async
+
+> models::EmptyEnvelope close_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version)
+Close a job offer
+
+Closes the job offer without a hire and removes it from the public board (raises JobOfferClosed).
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**job_offer_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_job_offer_async
@@ -53,6 +92,39 @@ No authorization required
 Delete a job offer
 
 Deletes a job offer for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**job_offer_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## fill_job_offer_async
+
+> models::EmptyEnvelope fill_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version)
+Mark a job offer filled
+
+Marks the offer filled — converted to a hire — and removes it from the public board (raises JobOfferFilled).
 
 ### Parameters
 
@@ -177,6 +249,103 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_public_job_offer_by_id_async
+
+> models::JobOfferDtoEnvelope get_public_job_offer_by_id_async(job_offer_id, tenant_id, api_version, x_api_version)
+Get public job offer by ID
+
+Retrieves a published job offer by its identifier for the Talent Portal. Anonymous; optionally scoped to a tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**job_offer_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::JobOfferDtoEnvelope**](JobOfferDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_public_job_offers_async
+
+> models::JobOfferDtoListEnvelope get_public_job_offers_async(tenant_id, api_version, x_api_version)
+Get public job offers
+
+Retrieves published job offers for the Talent Portal. Anonymous; optionally scoped to a single tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::JobOfferDtoListEnvelope**](JobOfferDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_public_job_offers_count_async
+
+> models::Int32Envelope get_public_job_offers_count_async(tenant_id, api_version, x_api_version)
+Count public job offers
+
+Counts published job offers for the Talent Portal. Anonymous; optionally scoped to a single tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | Option<**uuid::Uuid**> |  |  |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## patch_job_offer_async
 
 > models::EmptyEnvelope patch_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version, operation)
@@ -206,6 +375,39 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## publish_job_offer_async
+
+> models::EmptyEnvelope publish_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version)
+Publish a job offer
+
+Publishes the job offer to the public Talent Portal (raises JobOfferPublished).
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**job_offer_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

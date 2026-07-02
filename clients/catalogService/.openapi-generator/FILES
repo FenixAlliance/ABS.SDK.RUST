@@ -10,11 +10,10 @@ docs/CatalogItemDto.md
 docs/CatalogItemDtoEnvelope.md
 docs/CatalogItemDtoListEnvelope.md
 docs/CatalogItemUpdateDto.md
-docs/CompletionsApi.md
 docs/CurrencyId.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -138,9 +137,8 @@ docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 docs/UpdateProductPrimaryImageAsyncRequest.md
 git_push.sh
-src/apis/completions_api.rs
 src/apis/configuration.rs
-src/apis/fenix_alliance_portals_website_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/item_attachments_api.rs
 src/apis/item_attribute_options_api.rs
 src/apis/item_attributes_api.rs

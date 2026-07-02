@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
 **qualified_name** | Option<**String**> |  | [optional][readonly]
+**kind** | Option<**String**> |  | [optional]
 **tax_id** | Option<**String**> |  | [optional]
 **about** | Option<**String**> |  | [optional]
 **wallet_id** | Option<**String**> |  | [optional]

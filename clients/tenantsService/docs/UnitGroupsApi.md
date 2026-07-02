@@ -1,6 +1,6 @@
 # \UnitGroupsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -34,7 +34,7 @@ Creates a new unit within a specific unit group.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **unit_create_dto** | Option<[**UnitCreateDto**](UnitCreateDto.md)> |  |  |
@@ -101,8 +101,8 @@ Deletes a unit from a specific unit group.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
-**unit_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
+**unit_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -135,7 +135,7 @@ Deletes a unit group by its unique identifier.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -168,8 +168,8 @@ Retrieves a single unit by its unique identifier within a specific unit group.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
-**unit_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
+**unit_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -202,7 +202,7 @@ Retrieves a single unit group by its unique identifier.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -299,7 +299,7 @@ Retrieves a list of units belonging to a specific unit group.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -332,7 +332,7 @@ Returns the total count of units in a specific unit group.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -365,8 +365,8 @@ Partially updates an existing unit within a specific unit group.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
-**unit_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
+**unit_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
@@ -400,7 +400,7 @@ Partially updates an existing unit group by its unique identifier.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
@@ -434,8 +434,8 @@ Updates an existing unit within a specific unit group.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
-**unit_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
+**unit_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **unit_update_dto** | Option<[**UnitUpdateDto**](UnitUpdateDto.md)> |  |  |
@@ -469,7 +469,7 @@ Updates an existing unit group by its unique identifier.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**unit_group_id** | **uuid::Uuid** |  | [required] |
+**unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **unit_group_update_dto** | Option<[**UnitGroupUpdateDto**](UnitGroupUpdateDto.md)> |  |  |

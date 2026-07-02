@@ -3,10 +3,9 @@
 Cargo.toml
 README.md
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
 docs/Envelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -57,9 +56,8 @@ docs/ServicesApi.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 git_push.sh
-src/apis/completions_api.rs
 src/apis/configuration.rs
-src/apis/fenix_alliance_portals_website_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/mod.rs
 src/apis/service_case_types_api.rs
 src/apis/service_cases_api.rs

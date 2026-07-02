@@ -58,7 +58,6 @@ docs/ClaimsIdentity.md
 docs/ClaimsPrincipal.md
 docs/ColorOptions.md
 docs/ColorScheme.md
-docs/CompletionsApi.md
 docs/ComputeClause.md
 docs/ComputeExpression.md
 docs/ComputeQueryOption.md
@@ -86,8 +85,8 @@ docs/ErrorEnvelope.md
 docs/EventInfo.md
 docs/FacebookIntegrationOptions.md
 docs/Favicons.md
+docs/FenixAllianceAbsWebApi.md
 docs/FenixAllianceIntegrationsOptions.md
-docs/FenixAlliancePortalsWebsiteApi.md
 docs/FieldInfo.md
 docs/FilterClause.md
 docs/FilterQueryOption.md
@@ -294,9 +293,8 @@ src/apis/blog_post_categories_api.rs
 src/apis/blog_post_tags_api.rs
 src/apis/blog_posts_api.rs
 src/apis/business_domains_api.rs
-src/apis/completions_api.rs
 src/apis/configuration.rs
-src/apis/fenix_alliance_portals_website_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/localization_strings_api.rs
 src/apis/menu_contexts_api.rs
 src/apis/mod.rs

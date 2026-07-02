@@ -202,6 +202,8 @@ pub mod create_ledger_dto;
 pub use self::create_ledger_dto::CreateLedgerDto;
 pub mod currency_id;
 pub use self::currency_id::CurrencyId;
+pub mod decimal_envelope;
+pub use self::decimal_envelope::DecimalEnvelope;
 pub mod empty_envelope;
 pub use self::empty_envelope::EmptyEnvelope;
 pub mod error_envelope;

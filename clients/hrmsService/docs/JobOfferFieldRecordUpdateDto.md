@@ -1,0 +1,12 @@
+# JobOfferFieldRecordUpdateDto
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**job_field_id** | Option<**String**> |  | [optional]
+**job_offer_id** | Option<**String**> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

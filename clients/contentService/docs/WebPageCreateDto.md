@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **featured_image_url** | Option<**String**> |  | [optional]
 **code_type** | Option<**String**> |  | [optional]
 **slug** | Option<**String**> |  | [optional]
+**web_portal_id** | Option<**String**> |  | [optional]
 **web_template_id** | Option<**String**> |  | [optional]
 **parent_web_content_id** | Option<**String**> |  | [optional]
 

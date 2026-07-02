@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **description** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
 **entry_count** | Option<**i32**> |  | [optional]
+**seller_billing_profile_id** | Option<**String**> |  | [optional]
+**buyer_billing_profile_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

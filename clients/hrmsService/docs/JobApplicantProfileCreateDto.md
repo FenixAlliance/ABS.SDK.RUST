@@ -1,0 +1,44 @@
+# JobApplicantProfileCreateDto
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
+**r#type** | Option<**String**> |  | [optional]
+**contact_id** | Option<**String**> |  | [optional]
+**contact** | Option<[**models::ContactCreateDto**](ContactCreateDto.md)> |  | [optional]
+**about** | Option<**String**> |  | [optional]
+**avatar_url** | Option<**String**> |  | [optional]
+**data** | Option<**String**> |  | [optional]
+**data_label** | Option<**String**> |  | [optional]
+**data1** | Option<**String**> |  | [optional]
+**data1_label** | Option<**String**> |  | [optional]
+**data2** | Option<**String**> |  | [optional]
+**data2_label** | Option<**String**> |  | [optional]
+**data3** | Option<**String**> |  | [optional]
+**data3_label** | Option<**String**> |  | [optional]
+**data4** | Option<**String**> |  | [optional]
+**data4_label** | Option<**String**> |  | [optional]
+**data5** | Option<**String**> |  | [optional]
+**data5_label** | Option<**String**> |  | [optional]
+**data6** | Option<**String**> |  | [optional]
+**data6_label** | Option<**String**> |  | [optional]
+**data7** | Option<**String**> |  | [optional]
+**data7_label** | Option<**String**> |  | [optional]
+**data8** | Option<**String**> |  | [optional]
+**data8_label** | Option<**String**> |  | [optional]
+**data9** | Option<**String**> |  | [optional]
+**data9_label** | Option<**String**> |  | [optional]
+**available_for_hire** | Option<**bool**> |  | [optional]
+**career_level** | Option<**String**> |  | [optional]
+**experience_in_years** | Option<**i32**> |  | [optional]
+**current_salary** | Option<**f64**> |  | [optional]
+**min_salary_expectation** | Option<**f64**> |  | [optional]
+**max_salary_expectation** | Option<**f64**> |  | [optional]
+**currency_id** | Option<**String**> |  | [optional]
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
+

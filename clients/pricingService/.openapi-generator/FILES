@@ -3,7 +3,6 @@
 Cargo.toml
 README.md
 docs/AccessTokenResponse.md
-docs/CompletionsApi.md
 docs/CurrencyId.md
 docs/DiscountCreateDto.md
 docs/DiscountDto.md
@@ -18,7 +17,7 @@ docs/DiscountListsApi.md
 docs/DiscountUpdateDto.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -61,10 +60,9 @@ docs/RoundingPolicyUpdateDto.md
 docs/TwoFactorRequest.md
 docs/TwoFactorResponse.md
 git_push.sh
-src/apis/completions_api.rs
 src/apis/configuration.rs
 src/apis/discount_lists_api.rs
-src/apis/fenix_alliance_portals_website_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/mod.rs
 src/apis/price_lists_api.rs
 src/apis/prices_api.rs

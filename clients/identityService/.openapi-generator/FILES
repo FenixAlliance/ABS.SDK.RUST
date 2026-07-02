@@ -7,9 +7,8 @@ docs/ApplicationsApi.md
 docs/AuthResult.md
 docs/AuthResultEnvelope.md
 docs/CheckerApi.md
-docs/CompletionsApi.md
 docs/ErrorEnvelope.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
 docs/InfoRequest.md
@@ -41,9 +40,8 @@ docs/UserInfoApi.md
 git_push.sh
 src/apis/applications_api.rs
 src/apis/checker_api.rs
-src/apis/completions_api.rs
 src/apis/configuration.rs
-src/apis/fenix_alliance_portals_website_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/mod.rs
 src/apis/o_auth_api.rs
 src/apis/resource_api.rs

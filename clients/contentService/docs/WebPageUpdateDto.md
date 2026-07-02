@@ -58,6 +58,7 @@ Name | Type | Description | Notes
 **cornerstone_content** | Option<**bool**> |  | [optional]
 **is_essential_content** | Option<**bool**> |  | [optional]
 **allow_search_engine_indexing** | Option<**bool**> |  | [optional]
+**web_portal_id** | Option<**String**> |  | [optional]
 **web_template_id** | Option<**String**> |  | [optional]
 **parent_web_content_id** | Option<**String**> |  | [optional]
 **is_home_page** | Option<**bool**> |  | [optional]

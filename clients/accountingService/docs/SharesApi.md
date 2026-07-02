@@ -1,6 +1,6 @@
 # \SharesApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,6 +18,7 @@ Method | HTTP request | Description
 [**get_share_issuance**](SharesApi.md#get_share_issuance) | **GET** /api/v2/AccountingService/Shares/Issuances/{issuanceId} | Gets a share issuance by id
 [**get_share_issuances**](SharesApi.md#get_share_issuances) | **GET** /api/v2/AccountingService/Shares/Issuances | Gets the current tenant share issuances
 [**get_share_issuances_count**](SharesApi.md#get_share_issuances_count) | **GET** /api/v2/AccountingService/Shares/Issuances/Count | Gets the current tenant share issuances count
+[**get_share_issuances_sum**](SharesApi.md#get_share_issuances_sum) | **GET** /api/v2/AccountingService/Shares/Issuances/Sum | Sum tenant share issuance quantities
 [**get_share_transfer**](SharesApi.md#get_share_transfer) | **GET** /api/v2/AccountingService/Shares/Transfers/{transferId} | Gets a share transfer by id
 [**get_share_transfer_reason**](SharesApi.md#get_share_transfer_reason) | **GET** /api/v2/AccountingService/Shares/TransferReasons/{reasonId} | Gets a share transfer reason by id
 [**get_share_transfer_reasons**](SharesApi.md#get_share_transfer_reasons) | **GET** /api/v2/AccountingService/Shares/TransferReasons | Gets the current tenant share transfer reasons
@@ -480,6 +481,38 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_share_issuances_sum
+
+> models::DecimalEnvelope get_share_issuances_sum(tenant_id, api_version, x_api_version)
+Sum tenant share issuance quantities
+
+Returns SUM(ShareIssuance.Quantity) for the tenant, filtered by the supplied OData date range.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::DecimalEnvelope**](DecimalEnvelope.md)
 
 ### Authorization
 

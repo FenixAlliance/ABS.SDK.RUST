@@ -10,6 +10,8 @@ pub mod airway_bill_dto_list_envelope;
 pub use self::airway_bill_dto_list_envelope::AirwayBillDtoListEnvelope;
 pub mod airway_bill_update_dto;
 pub use self::airway_bill_update_dto::AirwayBillUpdateDto;
+pub mod contact_create_dto;
+pub use self::contact_create_dto::ContactCreateDto;
 pub mod contact_dto;
 pub use self::contact_dto::ContactDto;
 pub mod delivery_note_create_dto;

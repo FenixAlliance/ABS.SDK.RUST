@@ -92,19 +92,24 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 
 pub mod appraisal_stages_api;
 pub mod appraisal_workflows_api;
-pub mod completions_api;
 pub mod employee_appraisal_sessions_api;
 pub mod employee_types_api;
 pub mod employees_api;
 pub mod employers_api;
-pub mod fenix_alliance_portals_website_api;
+pub mod fenix_alliance_abs_web_api;
+pub mod gig_applications_api;
 pub mod gigs_api;
+pub mod job_applicants_api;
+pub mod job_applications_api;
+pub mod job_fields_api;
+pub mod job_offer_fields_api;
 pub mod job_offers_api;
 pub mod job_titles_api;
 pub mod leave_applications_api;
 pub mod leave_types_api;
 pub mod payroll_periods_api;
 pub mod payrolls_api;
+pub mod required_skills_api;
 pub mod salaries_api;
 pub mod schedules_api;
 pub mod shifts_api;

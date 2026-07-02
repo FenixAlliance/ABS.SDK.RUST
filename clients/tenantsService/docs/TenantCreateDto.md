@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
+**kind** | Option<**String**> |  | [optional]
 **name** | **String** |  | 
 **legal_name** | Option<**String**> |  | [optional]
 **email** | **String** |  | 

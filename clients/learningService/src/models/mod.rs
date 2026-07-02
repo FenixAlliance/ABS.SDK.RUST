@@ -4,6 +4,8 @@ pub mod average_dto;
 pub use self::average_dto::AverageDto;
 pub mod average_dto_envelope;
 pub use self::average_dto_envelope::AverageDtoEnvelope;
+pub mod contact_create_dto;
+pub use self::contact_create_dto::ContactCreateDto;
 pub mod contact_dto;
 pub use self::contact_dto::ContactDto;
 pub mod count_dto;

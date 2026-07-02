@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**kind** | Option<**String**> |  | [optional]
 **name** | **String** |  | 
 **legal_name** | Option<**String**> |  | [optional]
 **email** | **String** |  | 

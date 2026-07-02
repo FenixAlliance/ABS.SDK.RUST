@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
+**status** | Option<**String**> |  | [optional]
 **remote** | Option<**bool**> |  | [optional]
 **expected_hire_date** | Option<**String**> |  | [optional]
 **title** | Option<**String**> |  | [optional]

@@ -24,6 +24,7 @@ docs/AccountTypeDtoEnvelope.md
 docs/AccountTypeDtoListEnvelope.md
 docs/AccountTypeUpdateDto.md
 docs/AccountUpdateDto.md
+docs/AccountingEntriesApi.md
 docs/AccountingEntryCreateDto.md
 docs/AccountingEntryDto.md
 docs/AccountingEntryDtoEnvelope.md
@@ -95,7 +96,6 @@ docs/CommissionDtoEnvelope.md
 docs/CommissionDtoListEnvelope.md
 docs/CommissionUpdateDto.md
 docs/CommissionsApi.md
-docs/CompletionsApi.md
 docs/ContactDto.md
 docs/CostCentreBudgetCreateDto.md
 docs/CostCentreBudgetDto.md
@@ -115,6 +115,7 @@ docs/CostCentreUpdateDto.md
 docs/CostCentresApi.md
 docs/CreateLedgerDto.md
 docs/CurrencyId.md
+docs/DecimalEnvelope.md
 docs/EmptyEnvelope.md
 docs/ErrorEnvelope.md
 docs/ExpenseClaimCreateDto.md
@@ -129,7 +130,7 @@ docs/ExpenseTypeDtoEnvelope.md
 docs/ExpenseTypeDtoListEnvelope.md
 docs/ExpenseTypeUpdateDto.md
 docs/ExpenseTypesApi.md
-docs/FenixAlliancePortalsWebsiteApi.md
+docs/FenixAllianceAbsWebApi.md
 docs/FinancialBookCreateDto.md
 docs/FinancialBookDto.md
 docs/FinancialBookDtoEnvelope.md
@@ -206,6 +207,7 @@ docs/JournalCreateDto.md
 docs/JournalDto.md
 docs/JournalDtoEnvelope.md
 docs/JournalDtoIReadOnlyListEnvelope.md
+docs/JournalEntriesApi.md
 docs/JournalEntryCreateDto.md
 docs/JournalEntryDto.md
 docs/JournalEntryDtoIReadOnlyListEnvelope.md
@@ -318,6 +320,7 @@ docs/TwoFactorResponse.md
 docs/UpdateLedgerDto.md
 git_push.sh
 src/apis/account_groups_api.rs
+src/apis/accounting_entries_api.rs
 src/apis/accounting_periods_api.rs
 src/apis/accounts_api.rs
 src/apis/bank_profiles_api.rs
@@ -326,12 +329,11 @@ src/apis/billable_line_taxes_api.rs
 src/apis/billing_profiles_api.rs
 src/apis/budgets_api.rs
 src/apis/commissions_api.rs
-src/apis/completions_api.rs
 src/apis/configuration.rs
 src/apis/cost_centres_api.rs
 src/apis/expense_claims_api.rs
 src/apis/expense_types_api.rs
-src/apis/fenix_alliance_portals_website_api.rs
+src/apis/fenix_alliance_abs_web_api.rs
 src/apis/financial_books_api.rs
 src/apis/fiscal_authorities_api.rs
 src/apis/fiscal_authority_years_api.rs
@@ -344,6 +346,7 @@ src/apis/fiscal_responsibility_records_api.rs
 src/apis/fiscal_years_api.rs
 src/apis/grants_api.rs
 src/apis/invoice_enumeration_ranges_api.rs
+src/apis/journal_entries_api.rs
 src/apis/journal_types_api.rs
 src/apis/journals_api.rs
 src/apis/ledger_types_api.rs
@@ -459,6 +462,7 @@ src/models/cost_centre_group_update_dto.rs
 src/models/cost_centre_update_dto.rs
 src/models/create_ledger_dto.rs
 src/models/currency_id.rs
+src/models/decimal_envelope.rs
 src/models/empty_envelope.rs
 src/models/error_envelope.rs
 src/models/expense_claim_create_dto.rs

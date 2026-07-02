@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
 **message** | **String** |  | 
+**body_html** | Option<**String**> |  | [optional]
+**body_format** | Option<**String**> |  | [optional]
 **parent_comment_id** | Option<**String**> |  | [optional]
 **social_profile_id** | Option<**String**> |  | [optional]
 **social_feed_post_id** | Option<**String**> |  | [optional]

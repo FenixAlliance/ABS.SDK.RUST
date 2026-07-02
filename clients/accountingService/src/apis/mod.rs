@@ -91,6 +91,7 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 }
 
 pub mod account_groups_api;
+pub mod accounting_entries_api;
 pub mod accounting_periods_api;
 pub mod accounts_api;
 pub mod bank_profiles_api;
@@ -99,11 +100,10 @@ pub mod billable_line_taxes_api;
 pub mod billing_profiles_api;
 pub mod budgets_api;
 pub mod commissions_api;
-pub mod completions_api;
 pub mod cost_centres_api;
 pub mod expense_claims_api;
 pub mod expense_types_api;
-pub mod fenix_alliance_portals_website_api;
+pub mod fenix_alliance_abs_web_api;
 pub mod financial_books_api;
 pub mod fiscal_authorities_api;
 pub mod fiscal_authority_years_api;
@@ -116,6 +116,7 @@ pub mod fiscal_responsibility_records_api;
 pub mod fiscal_years_api;
 pub mod grants_api;
 pub mod invoice_enumeration_ranges_api;
+pub mod journal_entries_api;
 pub mod journal_types_api;
 pub mod journals_api;
 pub mod ledger_types_api;

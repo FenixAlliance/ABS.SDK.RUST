@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **valid_response** | Option<**bool**> |  | [optional]
 **parent_file_upload_id** | Option<**String**> |  | [optional]
 **file_path** | Option<**String**> |  | [optional]
+**public_access_type** | Option<**String**> |  | [optional]
 **item_id** | Option<**String**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

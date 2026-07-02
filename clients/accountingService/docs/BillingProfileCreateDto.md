@@ -16,6 +16,11 @@ Name | Type | Description | Notes
 **postal_code** | **String** |  | 
 **business_name** | **String** |  | 
 **commercial_name** | **String** |  | 
+**verification_digit** | Option<**String**> |  | [optional]
+**economic_activity_code** | Option<**String**> |  | [optional]
+**economic_activity_scheme** | Option<**String**> |  | [optional]
+**is_primary** | Option<**bool**> |  | [optional]
+**establishment_code** | Option<**String**> |  | [optional]
 **ticker** | Option<**String**> |  | [optional]
 **duns** | Option<**String**> |  | [optional]
 **is_public_company** | Option<**bool**> |  | [optional]
