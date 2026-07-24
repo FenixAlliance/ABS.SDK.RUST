@@ -15,6 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct TaskTypeUpdateDto {
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
+    #[serde(rename = "taskCategoryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub task_category_id: Option<Option<String>>,
     #[serde(rename = "displayInTimeTracker", skip_serializing_if = "Option::is_none")]
     pub display_in_time_tracker: Option<bool>,
     #[serde(rename = "requiresDescription", skip_serializing_if = "Option::is_none")]
@@ -25,6 +27,7 @@ impl TaskTypeUpdateDto {
     pub fn new() -> TaskTypeUpdateDto {
         TaskTypeUpdateDto {
             title: None,
+            task_category_id: None,
             display_in_time_tracker: None,
             requires_description: None,
         }

@@ -38,17 +38,18 @@ Class | Method | HTTP request | Description
 *ActivityFeedsApi* | [**get_activity_feed_async**](docs/ActivityFeedsApi.md#get_activity_feed_async) | **GET** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId} | Get activity feed by ID
 *ActivityFeedsApi* | [**get_activity_feeds_async**](docs/ActivityFeedsApi.md#get_activity_feeds_async) | **GET** /api/v2/ActivitiesService/ActivityFeeds | Get activity feeds
 *ActivityFeedsApi* | [**get_activity_feeds_count_async**](docs/ActivityFeedsApi.md#get_activity_feeds_count_async) | **GET** /api/v2/ActivitiesService/ActivityFeeds/Count | Count activity feeds
+*ActivityFeedsApi* | [**get_activity_records_count_async**](docs/ActivityFeedsApi.md#get_activity_records_count_async) | **GET** /api/v2/ActivitiesService/Activities/Count | Count activity records
 *ActivityFeedsApi* | [**get_activity_type_by_id_async**](docs/ActivityFeedsApi.md#get_activity_type_by_id_async) | **GET** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Get Activity Type
 *ActivityFeedsApi* | [**get_activity_types_async**](docs/ActivityFeedsApi.md#get_activity_types_async) | **GET** /api/v2/ActivitiesService/ActivityTypes | Get Activity Types
 *ActivityFeedsApi* | [**patch_activity_async**](docs/ActivityFeedsApi.md#patch_activity_async) | **PATCH** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId} | Patch an activity
 *ActivityFeedsApi* | [**patch_activity_type_async**](docs/ActivityFeedsApi.md#patch_activity_type_async) | **PATCH** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Patch Activity Type
 *ActivityFeedsApi* | [**update_activity_async**](docs/ActivityFeedsApi.md#update_activity_async) | **PUT** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId} | Update an activity
 *ActivityFeedsApi* | [**update_activity_type_async**](docs/ActivityFeedsApi.md#update_activity_type_async) | **PUT** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Update Activity Type
-*ActivityRecordsApi* | [**get_activity_records_count_async**](docs/ActivityRecordsApi.md#get_activity_records_count_async) | **GET** /api/v2/ActivitiesService/ActivityRecords/Count | Count activity records
 *FenixAllianceAbsWebApi* | [**account_logout_post**](docs/FenixAllianceAbsWebApi.md#account_logout_post) | **POST** /Account/Logout | 
 *FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceAbsWebApi* | [**api_v2_ai_service_agents_agent_id_agui_post**](docs/FenixAllianceAbsWebApi.md#api_v2_ai_service_agents_agent_id_agui_post) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
 *FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
 *FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 

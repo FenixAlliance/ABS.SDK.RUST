@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**get_activity_feed_async**](ActivityFeedsApi.md#get_activity_feed_async) | **GET** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId} | Get activity feed by ID
 [**get_activity_feeds_async**](ActivityFeedsApi.md#get_activity_feeds_async) | **GET** /api/v2/ActivitiesService/ActivityFeeds | Get activity feeds
 [**get_activity_feeds_count_async**](ActivityFeedsApi.md#get_activity_feeds_count_async) | **GET** /api/v2/ActivitiesService/ActivityFeeds/Count | Count activity feeds
+[**get_activity_records_count_async**](ActivityFeedsApi.md#get_activity_records_count_async) | **GET** /api/v2/ActivitiesService/Activities/Count | Count activity records
 [**get_activity_type_by_id_async**](ActivityFeedsApi.md#get_activity_type_by_id_async) | **GET** /api/v2/ActivitiesService/ActivityTypes/{activityTypeId} | Get Activity Type
 [**get_activity_types_async**](ActivityFeedsApi.md#get_activity_types_async) | **GET** /api/v2/ActivitiesService/ActivityTypes | Get Activity Types
 [**patch_activity_async**](ActivityFeedsApi.md#patch_activity_async) | **PATCH** /api/v2/ActivitiesService/ActivityFeeds/{activityFeedId}/Activities/{activityId} | Patch an activity
@@ -361,6 +362,38 @@ No authorization required
 Count activity feeds
 
 Returns the count of activity feeds for the specified tenant.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_activity_records_count_async
+
+> models::Int32Envelope get_activity_records_count_async(tenant_id, api_version, x_api_version)
+Count activity records
+
+Returns the tenant-wide count of activity records across all feeds owned by the tenant.
 
 ### Parameters
 

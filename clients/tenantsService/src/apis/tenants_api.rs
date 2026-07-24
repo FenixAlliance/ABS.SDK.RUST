@@ -59,6 +59,15 @@ pub enum GetAccessibleFeaturesAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_cart_for_tenant_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetCartForTenantAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_current_tenant_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -135,15 +144,6 @@ pub enum GetTenantAsyncError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetTenantAvatarAsyncError {
-    Status403(models::ErrorEnvelope),
-    Status401(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_tenant_cart_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetTenantCartAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -293,19 +293,19 @@ pub enum SelectTenantAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_avatar_async`]
+/// struct for typed errors of method [`update_tenant_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateAvatarAsyncError {
+pub enum UpdateTenantAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_tenant_async`]
+/// struct for typed errors of method [`update_tenant_avatar_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateTenantAsyncError {
+pub enum UpdateTenantAvatarAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -496,6 +496,40 @@ pub async fn get_accessible_features_async(configuration: &configuration::Config
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetAccessibleFeaturesAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get a tenant's default cart
+pub async fn get_cart_for_tenant_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CartDtoEnvelope, Error<GetCartForTenantAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/TenantsService/Tenants/{tenantId}/Cart", local_var_configuration.base_path, tenantId=crate::apis::urlencode(tenant_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetCartForTenantAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -803,40 +837,6 @@ pub async fn get_tenant_avatar_async(configuration: &configuration::Configuratio
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetTenantAvatarAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Get a tenant's default cart
-pub async fn get_tenant_cart_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CartDtoEnvelope, Error<GetTenantCartAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/TenantsService/Tenants/{tenantId}/Cart", local_var_configuration.base_path, tenantId=crate::apis::urlencode(tenant_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetTenantCartAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -1387,43 +1387,6 @@ pub async fn select_tenant_async(configuration: &configuration::Configuration, t
     }
 }
 
-/// Update a tenant's avatar
-pub async fn update_avatar_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, avatar: Option<std::path::PathBuf>) -> Result<models::EmptyEnvelope, Error<UpdateAvatarAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/TenantsService/Tenants/{tenantId}/Avatar", local_var_configuration.base_path, tenantId=crate::apis::urlencode(tenant_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-    let mut local_var_form = reqwest::multipart::Form::new();
-    // TODO: support file upload for 'avatar' parameter
-    local_var_req_builder = local_var_req_builder.multipart(local_var_form);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<UpdateAvatarAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
 /// Update a tenant's profile
 pub async fn update_tenant_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_update_dto: Option<models::TenantUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateTenantAsyncError>> {
     let local_var_configuration = configuration;
@@ -1454,6 +1417,43 @@ pub async fn update_tenant_async(configuration: &configuration::Configuration, t
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<UpdateTenantAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Update a tenant's avatar
+pub async fn update_tenant_avatar_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, avatar: Option<std::path::PathBuf>) -> Result<models::EmptyEnvelope, Error<UpdateTenantAvatarAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/TenantsService/Tenants/{tenantId}/Avatar", local_var_configuration.base_path, tenantId=crate::apis::urlencode(tenant_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    let mut local_var_form = reqwest::multipart::Form::new();
+    // TODO: support file upload for 'avatar' parameter
+    local_var_req_builder = local_var_req_builder.multipart(local_var_form);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateTenantAvatarAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

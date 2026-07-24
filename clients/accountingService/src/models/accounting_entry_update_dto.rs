@@ -13,52 +13,44 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct AccountingEntryUpdateDto {
-    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub description: Option<Option<String>>,
-    #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<f64>,
-    #[serde(rename = "date", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub date: Option<Option<String>>,
-    #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub currency_id: Option<Option<String>>,
-    #[serde(rename = "debitAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub debit_account_id: Option<Option<String>>,
-    #[serde(rename = "creditAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub credit_account_id: Option<Option<String>>,
     #[serde(rename = "journalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub journal_entry_id: Option<Option<String>>,
-    #[serde(rename = "accountingEntryType", skip_serializing_if = "Option::is_none")]
-    pub accounting_entry_type: Option<AccountingEntryType>,
+    #[serde(rename = "accountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub account_id: Option<Option<String>>,
+    #[serde(rename = "direction", skip_serializing_if = "Option::is_none")]
+    pub direction: Option<Direction>,
+    #[serde(rename = "transactionAmount", skip_serializing_if = "Option::is_none")]
+    pub transaction_amount: Option<f64>,
+    #[serde(rename = "transactionCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub transaction_currency_id: Option<Option<String>>,
+    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub description: Option<Option<String>>,
 }
 
 impl AccountingEntryUpdateDto {
     pub fn new() -> AccountingEntryUpdateDto {
         AccountingEntryUpdateDto {
-            description: None,
-            amount: None,
-            date: None,
-            currency_id: None,
-            debit_account_id: None,
-            credit_account_id: None,
             journal_entry_id: None,
-            accounting_entry_type: None,
+            account_id: None,
+            direction: None,
+            transaction_amount: None,
+            transaction_currency_id: None,
+            description: None,
         }
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AccountingEntryType {
-    #[serde(rename = "None")]
-    None,
+pub enum Direction {
     #[serde(rename = "Debit")]
     Debit,
     #[serde(rename = "Credit")]
     Credit,
 }
 
-impl Default for AccountingEntryType {
-    fn default() -> AccountingEntryType {
-        Self::None
+impl Default for Direction {
+    fn default() -> Direction {
+        Self::Debit
     }
 }
 

@@ -43,6 +43,13 @@ pub enum AccountPerformExternalLoginPostError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`api_v2_ai_service_agents_agent_id_agui_post`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ApiV2AiServiceAgentsAgentIdAguiPostError {
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`forgot_password_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -265,6 +272,33 @@ pub async fn account_perform_external_login_post(configuration: &configuration::
         Ok(())
     } else {
         let local_var_entity: Option<AccountPerformExternalLoginPostError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+pub async fn api_v2_ai_service_agents_agent_id_agui_post(configuration: &configuration::Configuration, agent_id: &str) -> Result<(), Error<ApiV2AiServiceAgentsAgentIdAguiPostError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/AIService/Agents/{agentId}/agui", local_var_configuration.base_path, agentId=crate::apis::urlencode(agent_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<ApiV2AiServiceAgentsAgentIdAguiPostError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

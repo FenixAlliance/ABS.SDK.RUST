@@ -4,14 +4,49 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**close_fiscal_period**](FiscalPeriodsApi.md#close_fiscal_period) | **POST** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId}/Close | Close a fiscal period
 [**create_fiscal_period**](FiscalPeriodsApi.md#create_fiscal_period) | **POST** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods | Create a fiscal period
 [**delete_fiscal_period**](FiscalPeriodsApi.md#delete_fiscal_period) | **DELETE** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId} | Delete a fiscal period
 [**get_fiscal_period**](FiscalPeriodsApi.md#get_fiscal_period) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalYears/{fiscalYearId}/FiscalPeriods/{fiscalPeriodId} | Get fiscal period by ID
 [**get_fiscal_periods**](FiscalPeriodsApi.md#get_fiscal_periods) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{authorityId}/FiscalYears/{fiscalYearId}/FiscalPeriods | Get fiscal periods for a fiscal year
 [**get_fiscal_periods_count**](FiscalPeriodsApi.md#get_fiscal_periods_count) | **GET** /api/v2/AccountingService/Fiscals/Authorities/{fiscalAuthorityId}/FiscalYears/{fiscalYearId}/FiscalPeriods/Count | Get fiscal periods count
+[**open_fiscal_period**](FiscalPeriodsApi.md#open_fiscal_period) | **POST** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId}/Open | Open a fiscal period
 [**patch_fiscal_period_async**](FiscalPeriodsApi.md#patch_fiscal_period_async) | **PATCH** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId} | Patch a fiscal period
 [**update_fiscal_period**](FiscalPeriodsApi.md#update_fiscal_period) | **PUT** /api/v2/AccountingService/Fiscals/Authorities/FiscalPeriods/{fiscalPeriodId} | Update a fiscal period
 
+
+
+## close_fiscal_period
+
+> models::EmptyEnvelope close_fiscal_period(tenant_id, fiscal_period_id, api_version, x_api_version)
+Close a fiscal period
+
+Closes a fiscal period so no further journal entries can post into it. Rejects closing a locked (hard-sealed) period.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**fiscal_period_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_fiscal_period
@@ -171,6 +206,39 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## open_fiscal_period
+
+> models::EmptyEnvelope open_fiscal_period(tenant_id, fiscal_period_id, api_version, x_api_version)
+Open a fiscal period
+
+Opens a closed fiscal period so journal entries can post into it. Rejects reopening a locked or an already-open period.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**fiscal_period_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
 
 ### Authorization
 

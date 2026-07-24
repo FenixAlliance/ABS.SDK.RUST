@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_task_type_async**](TaskTypesApi.md#create_task_type_async) | **POST** /api/v2/ProjectsService/TaskTypes | Creates a new task type
 [**delete_task_type_async**](TaskTypesApi.md#delete_task_type_async) | **DELETE** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Deletes a task type
 [**get_task_type_by_id_async**](TaskTypesApi.md#get_task_type_by_id_async) | **GET** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Gets a task type by ID
+[**patch_task_type_async**](TaskTypesApi.md#patch_task_type_async) | **PATCH** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Patches a task type
 [**update_task_type_async**](TaskTypesApi.md#update_task_type_async) | **PUT** /api/v2/ProjectsService/TaskTypes/{taskTypeId} | Updates a task type
 
 
@@ -99,6 +100,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_task_type_async
+
+> models::EmptyEnvelope patch_task_type_async(task_type_id, tenant_id, operation)
+Patches a task type
+
+Partially updates the specified task type.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**task_type_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

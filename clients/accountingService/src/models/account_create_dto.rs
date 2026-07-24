@@ -39,6 +39,12 @@ pub struct AccountCreateDto {
     pub parent_account_id: Option<Option<String>>,
     #[serde(rename = "accountCategory")]
     pub account_category: AccountCategory,
+    #[serde(rename = "isContra", skip_serializing_if = "Option::is_none")]
+    pub is_contra: Option<bool>,
+    #[serde(rename = "isMonetary", skip_serializing_if = "Option::is_none")]
+    pub is_monetary: Option<bool>,
+    #[serde(rename = "incomeStatementSubType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub income_statement_sub_type: Option<Option<IncomeStatementSubType>>,
 }
 
 impl AccountCreateDto {
@@ -57,6 +63,9 @@ impl AccountCreateDto {
             account_type_id: None,
             parent_account_id: None,
             account_category,
+            is_contra: None,
+            is_monetary: None,
+            income_statement_sub_type: None,
         }
     }
 }
@@ -78,6 +87,24 @@ pub enum AccountCategory {
 impl Default for AccountCategory {
     fn default() -> AccountCategory {
         Self::Assets
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum IncomeStatementSubType {
+    #[serde(rename = "OperatingRevenue")]
+    OperatingRevenue,
+    #[serde(rename = "Gain")]
+    Gain,
+    #[serde(rename = "OperatingExpense")]
+    OperatingExpense,
+    #[serde(rename = "Loss")]
+    Loss,
+}
+
+impl Default for IncomeStatementSubType {
+    fn default() -> IncomeStatementSubType {
+        Self::OperatingRevenue
     }
 }
 

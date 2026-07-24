@@ -17,49 +17,40 @@ pub struct JournalEntryCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
-    pub group: Option<bool>,
-    #[serde(rename = "opening", skip_serializing_if = "Option::is_none")]
-    pub opening: Option<bool>,
-    #[serde(rename = "description")]
-    pub description: String,
-    #[serde(rename = "date")]
-    pub date: String,
-    #[serde(rename = "debit", skip_serializing_if = "Option::is_none")]
-    pub debit: Option<f64>,
-    #[serde(rename = "credit", skip_serializing_if = "Option::is_none")]
-    pub credit: Option<f64>,
     #[serde(rename = "journalId")]
     pub journal_id: String,
-    #[serde(rename = "currencyId")]
-    pub currency_id: String,
-    #[serde(rename = "debitAccountId")]
-    pub debit_account_id: String,
-    #[serde(rename = "creditAccountId")]
-    pub credit_account_id: String,
-    #[serde(rename = "parentJournalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub parent_journal_entry_id: Option<Option<String>>,
-    #[serde(rename = "invoiceCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub invoice_code: Option<Option<String>>,
+    #[serde(rename = "fiscalPeriodId")]
+    pub fiscal_period_id: String,
+    #[serde(rename = "transactionCurrencyId")]
+    pub transaction_currency_id: String,
+    #[serde(rename = "description")]
+    pub description: String,
+    #[serde(rename = "sourceDocumentType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub source_document_type: Option<Option<String>>,
+    #[serde(rename = "sourceDocumentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub source_document_id: Option<Option<String>>,
+    #[serde(rename = "idempotencyKey", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub idempotency_key: Option<Option<String>>,
+    #[serde(rename = "isOpeningBalance", skip_serializing_if = "Option::is_none")]
+    pub is_opening_balance: Option<bool>,
+    #[serde(rename = "accountingEntries", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub accounting_entries: Option<Option<Vec<models::AccountingEntryCreateDto>>>,
 }
 
 impl JournalEntryCreateDto {
-    pub fn new(description: String, date: String, journal_id: String, currency_id: String, debit_account_id: String, credit_account_id: String) -> JournalEntryCreateDto {
+    pub fn new(journal_id: String, fiscal_period_id: String, transaction_currency_id: String, description: String) -> JournalEntryCreateDto {
         JournalEntryCreateDto {
             id: None,
             timestamp: None,
-            group: None,
-            opening: None,
-            description,
-            date,
-            debit: None,
-            credit: None,
             journal_id,
-            currency_id,
-            debit_account_id,
-            credit_account_id,
-            parent_journal_entry_id: None,
-            invoice_code: None,
+            fiscal_period_id,
+            transaction_currency_id,
+            description,
+            source_document_type: None,
+            source_document_id: None,
+            idempotency_key: None,
+            is_opening_balance: None,
+            accounting_entries: None,
         }
     }
 }

@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**get_task_category_by_id_async**](TaskCategoriesApi.md#get_task_category_by_id_async) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Gets a task category by ID
 [**get_task_category_task_types_async**](TaskCategoriesApi.md#get_task_category_task_types_async) | **GET** /api/v2/ProjectsService/TaskCategories/{taskCategoryId}/Types | Retrieves task types for a category
 [**get_tenant_task_categories_async**](TaskCategoriesApi.md#get_tenant_task_categories_async) | **GET** /api/v2/ProjectsService/TaskCategories | Retrieves all task categories
+[**patch_task_category_async**](TaskCategoriesApi.md#patch_task_category_async) | **PATCH** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Patches a task category
 [**update_task_category_async**](TaskCategoriesApi.md#update_task_category_async) | **PUT** /api/v2/ProjectsService/TaskCategories/{taskCategoryId} | Updates a task category
 
 
@@ -193,6 +194,38 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_task_category_async
+
+> models::EmptyEnvelope patch_task_category_async(task_category_id, tenant_id, operation)
+Patches a task category
+
+Partially updates the specified task category.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**task_category_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

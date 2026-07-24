@@ -69,6 +69,24 @@ pub enum GetContactOptionsCountError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`patch_contact_option_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchContactOptionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_contact_option_by_key_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchContactOptionByKeyAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`update_contact_option`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -307,6 +325,78 @@ pub async fn get_contact_options_count(configuration: &configuration::Configurat
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetContactOptionsCountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Patch a contact option
+pub async fn patch_contact_option_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchContactOptionAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Options/{optionId}", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id), optionId=crate::apis::urlencode(option_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&operation);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PatchContactOptionAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Patch a contact option by key
+pub async fn patch_contact_option_by_key_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, key: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchContactOptionByKeyAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Options/Key/{key}", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id), key=crate::apis::urlencode(key));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&operation);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PatchContactOptionByKeyAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

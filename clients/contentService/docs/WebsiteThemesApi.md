@@ -115,7 +115,7 @@ No authorization required
 
 ## get_website_themes_async
 
-> models::WebsiteThemeDtoListEnvelope get_website_themes_async(tenant_id, o_data_query_options, api_version, x_api_version)
+> models::WebsiteThemeDtoListEnvelope get_website_themes_async(tenant_id, api_version, x_api_version)
 Get all website themes
 
 Retrieves all website themes for the specified tenant.
@@ -126,7 +126,6 @@ Retrieves all website themes for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**o_data_query_options** | Option<[**WebsiteThemeDtoODataQueryOptions**](.md)> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -148,7 +147,7 @@ No authorization required
 
 ## get_website_themes_count_async
 
-> models::Int32Envelope get_website_themes_count_async(tenant_id, o_data_query_options, api_version, x_api_version)
+> models::Int32Envelope get_website_themes_count_async(tenant_id, api_version, x_api_version)
 Get website themes count
 
 Returns the count of website themes for the specified tenant.
@@ -159,7 +158,6 @@ Returns the count of website themes for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**o_data_query_options** | Option<[**WebsiteThemeDtoODataQueryOptions**](.md)> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

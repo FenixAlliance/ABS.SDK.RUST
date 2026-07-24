@@ -21,7 +21,7 @@ pub struct ProjectPeriodCreateDto {
     pub period_start_date: Option<String>,
     #[serde(rename = "periodEndDate", skip_serializing_if = "Option::is_none")]
     pub period_end_date: Option<String>,
-    #[serde(rename = "projectID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "projectId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub project_id: Option<Option<String>>,
 }
 

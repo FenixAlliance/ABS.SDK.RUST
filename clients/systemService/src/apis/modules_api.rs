@@ -68,7 +68,7 @@ pub async fn get_all_modules(configuration: &configuration::Configuration, tenan
     }
 }
 
-pub async fn get_available_modules(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ModuleListEnvelope, Error<GetAvailableModulesError>> {
+pub async fn get_available_modules(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SuiteModuleListEnvelope, Error<GetAvailableModulesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

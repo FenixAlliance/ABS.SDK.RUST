@@ -41,7 +41,7 @@ No authorization required
 
 ## get_available_modules
 
-> models::ModuleListEnvelope get_available_modules(tenant_id, api_version, x_api_version)
+> models::SuiteModuleListEnvelope get_available_modules(tenant_id, api_version, x_api_version)
 Get all modules available to a tenant user.
 
 ### Parameters
@@ -55,7 +55,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ModuleListEnvelope**](ModuleListEnvelope.md)
+[**models::SuiteModuleListEnvelope**](SuiteModuleListEnvelope.md)
 
 ### Authorization
 

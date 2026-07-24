@@ -65,6 +65,14 @@ pub struct AccountDto {
     pub children_accounts_count: Option<i32>,
     #[serde(rename = "accountCategory", skip_serializing_if = "Option::is_none")]
     pub account_category: Option<AccountCategory>,
+    #[serde(rename = "isContra", skip_serializing_if = "Option::is_none")]
+    pub is_contra: Option<bool>,
+    #[serde(rename = "isMonetary", skip_serializing_if = "Option::is_none")]
+    pub is_monetary: Option<bool>,
+    #[serde(rename = "incomeStatementSubType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub income_statement_sub_type: Option<Option<IncomeStatementSubType>>,
+    #[serde(rename = "normalBalance", skip_serializing_if = "Option::is_none")]
+    pub normal_balance: Option<NormalBalance>,
     #[serde(rename = "balanceAmount", skip_serializing_if = "Option::is_none")]
     pub balance_amount: Option<Box<models::Money>>,
     #[serde(rename = "creditsBalanceAmount", skip_serializing_if = "Option::is_none")]
@@ -108,6 +116,10 @@ impl AccountDto {
             enrollment_id: None,
             children_accounts_count: None,
             account_category: None,
+            is_contra: None,
+            is_monetary: None,
+            income_statement_sub_type: None,
+            normal_balance: None,
             balance_amount: None,
             credits_balance_amount: None,
             debits_balance_amount: None,
@@ -135,6 +147,38 @@ pub enum AccountCategory {
 impl Default for AccountCategory {
     fn default() -> AccountCategory {
         Self::Assets
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum IncomeStatementSubType {
+    #[serde(rename = "OperatingRevenue")]
+    OperatingRevenue,
+    #[serde(rename = "Gain")]
+    Gain,
+    #[serde(rename = "OperatingExpense")]
+    OperatingExpense,
+    #[serde(rename = "Loss")]
+    Loss,
+}
+
+impl Default for IncomeStatementSubType {
+    fn default() -> IncomeStatementSubType {
+        Self::OperatingRevenue
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum NormalBalance {
+    #[serde(rename = "Debit")]
+    Debit,
+    #[serde(rename = "Credit")]
+    Credit,
+}
+
+impl Default for NormalBalance {
+    fn default() -> NormalBalance {
+        Self::Debit
     }
 }
 

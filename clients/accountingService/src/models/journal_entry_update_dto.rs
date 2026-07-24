@@ -13,47 +13,29 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct JournalEntryUpdateDto {
-    #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
-    pub group: Option<bool>,
-    #[serde(rename = "opening", skip_serializing_if = "Option::is_none")]
-    pub opening: Option<bool>,
+    #[serde(rename = "fiscalPeriodId")]
+    pub fiscal_period_id: String,
+    #[serde(rename = "transactionCurrencyId")]
+    pub transaction_currency_id: String,
     #[serde(rename = "description")]
     pub description: String,
-    #[serde(rename = "date")]
-    pub date: String,
-    #[serde(rename = "debit", skip_serializing_if = "Option::is_none")]
-    pub debit: Option<f64>,
-    #[serde(rename = "credit", skip_serializing_if = "Option::is_none")]
-    pub credit: Option<f64>,
-    #[serde(rename = "journalId")]
-    pub journal_id: String,
-    #[serde(rename = "currencyId")]
-    pub currency_id: String,
-    #[serde(rename = "invoiceCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub invoice_code: Option<Option<String>>,
-    #[serde(rename = "debitAccountId")]
-    pub debit_account_id: String,
-    #[serde(rename = "creditAccountId")]
-    pub credit_account_id: String,
-    #[serde(rename = "parentJournalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub parent_journal_entry_id: Option<Option<String>>,
+    #[serde(rename = "sourceDocumentType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub source_document_type: Option<Option<String>>,
+    #[serde(rename = "sourceDocumentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub source_document_id: Option<Option<String>>,
+    #[serde(rename = "isOpeningBalance", skip_serializing_if = "Option::is_none")]
+    pub is_opening_balance: Option<bool>,
 }
 
 impl JournalEntryUpdateDto {
-    pub fn new(description: String, date: String, journal_id: String, currency_id: String, debit_account_id: String, credit_account_id: String) -> JournalEntryUpdateDto {
+    pub fn new(fiscal_period_id: String, transaction_currency_id: String, description: String) -> JournalEntryUpdateDto {
         JournalEntryUpdateDto {
-            group: None,
-            opening: None,
+            fiscal_period_id,
+            transaction_currency_id,
             description,
-            date,
-            debit: None,
-            credit: None,
-            journal_id,
-            currency_id,
-            invoice_code: None,
-            debit_account_id,
-            credit_account_id,
-            parent_journal_entry_id: None,
+            source_document_type: None,
+            source_document_id: None,
+            is_opening_balance: None,
         }
     }
 }

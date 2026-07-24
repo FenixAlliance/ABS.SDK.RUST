@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`get_latest_currency_rates_model_async`]
+/// struct for typed errors of method [`update_themes_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetLatestCurrencyRatesModelAsyncError {
+pub enum UpdateThemesAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -26,7 +26,7 @@ pub enum GetLatestCurrencyRatesModelAsyncError {
 
 
 /// Triggers an update of the base web content themes.
-pub async fn get_latest_currency_rates_model_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<(), Error<GetLatestCurrencyRatesModelAsyncError>> {
+pub async fn update_themes_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<(), Error<UpdateThemesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -53,7 +53,7 @@ pub async fn get_latest_currency_rates_model_async(configuration: &configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         Ok(())
     } else {
-        let local_var_entity: Option<GetLatestCurrencyRatesModelAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateThemesAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

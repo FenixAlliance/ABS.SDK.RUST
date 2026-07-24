@@ -6,23 +6,26 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_project_async**](ProjectsApi.md#create_project_async) | **POST** /api/v2/ProjectsService/Projects | Creates a new project
 [**create_project_period_async**](ProjectsApi.md#create_project_period_async) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Periods | Creates a project period
-[**create_project_task_async**](ProjectsApi.md#create_project_task_async) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task
+[**create_task_for_project_async**](ProjectsApi.md#create_task_for_project_async) | **POST** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Creates a project task
 [**delete_project_async**](ProjectsApi.md#delete_project_async) | **DELETE** /api/v2/ProjectsService/Projects/{projectId} | Deletes a project
 [**delete_project_period_async**](ProjectsApi.md#delete_project_period_async) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Deletes a project period
-[**delete_project_task_async**](ProjectsApi.md#delete_project_task_async) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task
+[**delete_task_for_project_async**](ProjectsApi.md#delete_task_for_project_async) | **DELETE** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Deletes a project task
 [**get_project_by_id_async**](ProjectsApi.md#get_project_by_id_async) | **GET** /api/v2/ProjectsService/Projects/{projectId} | Gets a project by ID
 [**get_project_periods_async**](ProjectsApi.md#get_project_periods_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Periods | Retrieves project periods
 [**get_project_task_categories_async**](ProjectsApi.md#get_project_task_categories_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories | Retrieves project task categories
 [**get_project_task_categories_count_async**](ProjectsApi.md#get_project_task_categories_count_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TaskCategories/Count | Counts project task categories
-[**get_project_tasks_async**](ProjectsApi.md#get_project_tasks_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks
-[**get_project_tasks_count_async**](ProjectsApi.md#get_project_tasks_count_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks
-[**get_project_time_logs_async**](ProjectsApi.md#get_project_time_logs_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs
 [**get_project_time_logs_count_async**](ProjectsApi.md#get_project_time_logs_count_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs/Count | Counts project time logs
 [**get_projects_by_tenant_id_async**](ProjectsApi.md#get_projects_by_tenant_id_async) | **GET** /api/v2/ProjectsService/Projects | Retrieves all projects
 [**get_projects_count_by_tenant_id_async**](ProjectsApi.md#get_projects_count_by_tenant_id_async) | **GET** /api/v2/ProjectsService/Projects/Count | Counts projects
+[**get_tasks_for_project_async**](ProjectsApi.md#get_tasks_for_project_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks | Retrieves project tasks
+[**get_tasks_for_project_count_async**](ProjectsApi.md#get_tasks_for_project_count_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/Tasks/Count | Counts project tasks
+[**get_time_logs_for_project_async**](ProjectsApi.md#get_time_logs_for_project_async) | **GET** /api/v2/ProjectsService/Projects/{projectId}/TimeLogs | Retrieves project time logs
+[**patch_project_async**](ProjectsApi.md#patch_project_async) | **PATCH** /api/v2/ProjectsService/Projects/{projectId} | Patches a project
+[**patch_project_period_async**](ProjectsApi.md#patch_project_period_async) | **PATCH** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Patches a project period
+[**patch_task_for_project_async**](ProjectsApi.md#patch_task_for_project_async) | **PATCH** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Patches a project task
 [**update_project_async**](ProjectsApi.md#update_project_async) | **PUT** /api/v2/ProjectsService/Projects/{projectId} | Updates a project
 [**update_project_period_async**](ProjectsApi.md#update_project_period_async) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId} | Updates a project period
-[**update_project_task_async**](ProjectsApi.md#update_project_task_async) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task
+[**update_task_for_project_async**](ProjectsApi.md#update_task_for_project_async) | **PUT** /api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId} | Updates a project task
 
 
 
@@ -89,9 +92,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## create_project_task_async
+## create_task_for_project_async
 
-> models::EmptyEnvelope create_project_task_async(project_id, tenant_id, project_task_create_dto)
+> models::EmptyEnvelope create_task_for_project_async(project_id, tenant_id, project_task_create_dto)
 Creates a project task
 
 Creates a new task for the specified project.
@@ -184,9 +187,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## delete_project_task_async
+## delete_task_for_project_async
 
-> models::EmptyEnvelope delete_project_task_async(tenant_id, project_id, project_task_id)
+> models::EmptyEnvelope delete_task_for_project_async(tenant_id, project_id, project_task_id)
 Deletes a project task
 
 Deletes the specified task from a project.
@@ -340,99 +343,6 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_project_tasks_async
-
-> models::ProjectTaskDtoListEnvelope get_project_tasks_async(project_id, tenant_id)
-Retrieves project tasks
-
-Gets all tasks for a specific project with OData support.
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**project_id** | **uuid::Uuid** |  | [required] |
-**tenant_id** | **uuid::Uuid** |  | [required] |
-
-### Return type
-
-[**models::ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## get_project_tasks_count_async
-
-> models::Int32Envelope get_project_tasks_count_async(project_id, tenant_id)
-Counts project tasks
-
-Gets the count of tasks for a specific project.
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**project_id** | **uuid::Uuid** |  | [required] |
-**tenant_id** | **uuid::Uuid** |  | [required] |
-
-### Return type
-
-[**models::Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## get_project_time_logs_async
-
-> models::ProjectTimeLogDtoListEnvelope get_project_time_logs_async(project_id, tenant_id)
-Retrieves project time logs
-
-Gets all time log entries for a specific project with OData support.
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**project_id** | **uuid::Uuid** |  | [required] |
-**tenant_id** | **uuid::Uuid** |  | [required] |
-
-### Return type
-
-[**models::ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
 ## get_project_time_logs_count_async
 
 > models::Int32Envelope get_project_time_logs_count_async(project_id, tenant_id)
@@ -524,6 +434,197 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_tasks_for_project_async
+
+> models::ProjectTaskDtoListEnvelope get_tasks_for_project_async(project_id, tenant_id)
+Retrieves project tasks
+
+Gets all tasks for a specific project with OData support.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+
+### Return type
+
+[**models::ProjectTaskDtoListEnvelope**](ProjectTaskDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_tasks_for_project_count_async
+
+> models::Int32Envelope get_tasks_for_project_count_async(project_id, tenant_id)
+Counts project tasks
+
+Gets the count of tasks for a specific project.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_time_logs_for_project_async
+
+> models::ProjectTimeLogDtoListEnvelope get_time_logs_for_project_async(project_id, tenant_id)
+Retrieves project time logs
+
+Gets all time log entries for a specific project with OData support.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+
+### Return type
+
+[**models::ProjectTimeLogDtoListEnvelope**](ProjectTimeLogDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_project_async
+
+> models::EmptyEnvelope patch_project_async(project_id, tenant_id, operation)
+Patches a project
+
+Partially updates the specified project.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_project_period_async
+
+> models::EmptyEnvelope patch_project_period_async(project_id, project_period_id, tenant_id, operation)
+Patches a project period
+
+Partially updates the specified period for a project.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** |  | [required] |
+**project_period_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_task_for_project_async
+
+> models::EmptyEnvelope patch_task_for_project_async(project_id, project_task_id, tenant_id, operation)
+Patches a project task
+
+Partially updates the specified task in a project.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**project_id** | **uuid::Uuid** |  | [required] |
+**project_task_id** | **uuid::Uuid** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## update_project_async
 
 > models::EmptyEnvelope update_project_async(project_id, tenant_id, project_update_dto)
@@ -589,9 +690,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## update_project_task_async
+## update_task_for_project_async
 
-> models::EmptyEnvelope update_project_task_async(project_id, project_task_id, tenant_id, project_task_update_dto)
+> models::EmptyEnvelope update_task_for_project_async(project_id, project_task_id, tenant_id, project_task_update_dto)
 Updates a project task
 
 Updates the specified task in a project.

@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**account_manage_download_personal_data_post**](FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
 [**account_manage_link_external_login_post**](FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
 [**account_perform_external_login_post**](FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
+[**api_v2_ai_service_agents_agent_id_agui_post**](FenixAllianceAbsWebApi.md#api_v2_ai_service_agents_agent_id_agui_post) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 [**forgot_password_post**](FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
 [**health_get**](FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
 [**hello_get**](FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
@@ -129,6 +130,34 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data, application/x-www-form-urlencoded
+- **Accept**: Not defined
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## api_v2_ai_service_agents_agent_id_agui_post
+
+> api_v2_ai_service_agents_agent_id_agui_post(agent_id)
+
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**agent_id** | **String** |  | [required] |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: Not defined
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

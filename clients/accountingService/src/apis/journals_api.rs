@@ -105,6 +105,15 @@ pub enum GetJournalEntriesCountAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_journal_entry_details_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetJournalEntryDetailsAsyncError {
+    Status401(models::ErrorEnvelope),
+    Status403(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_journals_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -129,6 +138,27 @@ pub enum PatchJournalAsyncError {
 pub enum PatchJournalEntryAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`post_journal_entry_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PostJournalEntryAsyncError {
+    Status401(models::ErrorEnvelope),
+    Status403(models::ErrorEnvelope),
+    Status422(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`reverse_journal_entry_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum ReverseJournalEntryAsyncError {
+    Status400(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status403(models::ErrorEnvelope),
+    Status422(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
@@ -509,6 +539,41 @@ pub async fn get_journal_entries_count_async(configuration: &configuration::Conf
     }
 }
 
+/// Retrieves a single journal entry WITH its hydrated posting lines — each line's account, direction, description and currency facets (transaction / functional / account / USD).
+pub async fn get_journal_entry_details_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::JournalEntryDtoEnvelope, Error<GetJournalEntryDetailsAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}", local_var_configuration.base_path, journalId=crate::apis::urlencode(journal_id), entryId=crate::apis::urlencode(entry_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetJournalEntryDetailsAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Retrieves all journals for the specified tenant.
 pub async fn get_journals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::JournalDtoIReadOnlyListEnvelope, Error<GetJournalsAsyncError>> {
     let local_var_configuration = configuration;
@@ -611,6 +676,77 @@ pub async fn patch_journal_entry_async(configuration: &configuration::Configurat
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<PatchJournalEntryAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Posts a DRAFT journal entry into its own open fiscal period. Enforces the balanced-entry invariant and the open-period gate, then seals the entry (immutable — correct via reversal, never edit/delete). An unbalanced draft or a closed period is rejected. Requires the journals_post permission.
+pub async fn post_journal_entry_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<PostJournalEntryAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Post", local_var_configuration.base_path, journalId=crate::apis::urlencode(journal_id), entryId=crate::apis::urlencode(entry_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PostJournalEntryAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Reverses a POSTED journal entry by writing a balanced compensating counter-entry into the supplied open fiscal period and marking the original Reversed — one atomic operation (append-only audit trail). Requires the journals_reverse permission.
+pub async fn reverse_journal_entry_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, reverse_journal_entry_request: Option<models::ReverseJournalEntryRequest>) -> Result<models::EmptyEnvelope, Error<ReverseJournalEntryAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/AccountingService/Journals/{journalId}/Entries/{entryId}/Reverse", local_var_configuration.base_path, journalId=crate::apis::urlencode(journal_id), entryId=crate::apis::urlencode(entry_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&reverse_journal_entry_request);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<ReverseJournalEntryAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

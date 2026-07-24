@@ -27,10 +27,10 @@ docs/ExtendedUserDtoListEnvelope.md
 docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
-docs/ISwaggerContact.md
-docs/ISwaggerEndpoint.md
-docs/ISwaggerLicense.md
-docs/ISwaggerSpec.md
+docs/IOpenApiContact.md
+docs/IOpenApiDefinitionSpec.md
+docs/IOpenApiEndpoint.md
+docs/IOpenApiLicense.md
 docs/IValidationFailure.md
 docs/IValidationFailureListEnvelope.md
 docs/InfoRequest.md
@@ -44,8 +44,6 @@ docs/LicenseValidationRequest.md
 docs/LicensingApi.md
 docs/LoginRequest.md
 docs/MigrationsApi.md
-docs/Module.md
-docs/ModuleListEnvelope.md
 docs/ModulesApi.md
 docs/ObjectEmailDispatchRequest.md
 docs/Operation.md
@@ -70,6 +68,8 @@ docs/SuiteLicenseAssignmentDtoListEnvelope.md
 docs/SuiteLicenseDto.md
 docs/SuiteLicenseDtoEnvelope.md
 docs/SuiteLicenseDtoListEnvelope.md
+docs/SuiteModule.md
+docs/SuiteModuleListEnvelope.md
 docs/SystemOverviewDto.md
 docs/SystemOverviewDtoEnvelope.md
 docs/TenantCreateDto.md
@@ -135,10 +135,10 @@ src/models/extended_user_dto_envelope.rs
 src/models/extended_user_dto_list_envelope.rs
 src/models/forgot_password_request.rs
 src/models/http_validation_problem_details.rs
-src/models/i_swagger_contact.rs
-src/models/i_swagger_endpoint.rs
-src/models/i_swagger_license.rs
-src/models/i_swagger_spec.rs
+src/models/i_open_api_contact.rs
+src/models/i_open_api_definition_spec.rs
+src/models/i_open_api_endpoint.rs
+src/models/i_open_api_license.rs
 src/models/i_validation_failure.rs
 src/models/i_validation_failure_list_envelope.rs
 src/models/info_request.rs
@@ -150,8 +150,6 @@ src/models/ip_lookup_dto_list_envelope.rs
 src/models/license_validation_request.rs
 src/models/login_request.rs
 src/models/mod.rs
-src/models/module.rs
-src/models/module_list_envelope.rs
 src/models/object_email_dispatch_request.rs
 src/models/operation.rs
 src/models/option_create_dto.rs
@@ -172,6 +170,8 @@ src/models/suite_license_assignment_dto_list_envelope.rs
 src/models/suite_license_dto.rs
 src/models/suite_license_dto_envelope.rs
 src/models/suite_license_dto_list_envelope.rs
+src/models/suite_module.rs
+src/models/suite_module_list_envelope.rs
 src/models/system_overview_dto.rs
 src/models/system_overview_dto_envelope.rs
 src/models/tenant_create_dto.rs

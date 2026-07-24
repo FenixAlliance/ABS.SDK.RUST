@@ -17,25 +17,25 @@ pub struct FiscalPeriodCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub name: Option<Option<String>>,
+    #[serde(rename = "name")]
+    pub name: String,
     #[serde(rename = "fromDate", skip_serializing_if = "Option::is_none")]
     pub from_date: Option<String>,
     #[serde(rename = "toDate", skip_serializing_if = "Option::is_none")]
     pub to_date: Option<String>,
-    #[serde(rename = "fiscalYearId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub fiscal_year_id: Option<Option<String>>,
+    #[serde(rename = "fiscalYearId")]
+    pub fiscal_year_id: String,
 }
 
 impl FiscalPeriodCreateDto {
-    pub fn new() -> FiscalPeriodCreateDto {
+    pub fn new(name: String, fiscal_year_id: String) -> FiscalPeriodCreateDto {
         FiscalPeriodCreateDto {
             id: None,
             timestamp: None,
-            name: None,
+            name,
             from_date: None,
             to_date: None,
-            fiscal_year_id: None,
+            fiscal_year_id,
         }
     }
 }

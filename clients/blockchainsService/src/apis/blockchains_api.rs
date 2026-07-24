@@ -302,7 +302,7 @@ pub async fn get_blockchain_block_by_id_async(configuration: &configuration::Con
     }
 }
 
-pub async fn get_blockchain_blocks_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, o_data_query_options: Option<models::BlockchainBlockDtoODataQueryOptions>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlockchainBlockDtoListEnvelope, Error<GetBlockchainBlocksAsyncError>> {
+pub async fn get_blockchain_blocks_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlockchainBlockDtoListEnvelope, Error<GetBlockchainBlocksAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -311,9 +311,6 @@ pub async fn get_blockchain_blocks_async(configuration: &configuration::Configur
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_str) = o_data_query_options {
-        local_var_req_builder = local_var_req_builder.query(&[("oDataQueryOptions", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }
@@ -339,7 +336,7 @@ pub async fn get_blockchain_blocks_async(configuration: &configuration::Configur
     }
 }
 
-pub async fn get_blockchain_blocks_count_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, o_data_query_options: Option<models::BlockchainBlockDtoODataQueryOptions>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBlockchainBlocksCountAsyncError>> {
+pub async fn get_blockchain_blocks_count_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBlockchainBlocksCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -348,9 +345,6 @@ pub async fn get_blockchain_blocks_count_async(configuration: &configuration::Co
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_str) = o_data_query_options {
-        local_var_req_builder = local_var_req_builder.query(&[("oDataQueryOptions", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }
@@ -412,7 +406,7 @@ pub async fn get_blockchain_by_id_async(configuration: &configuration::Configura
 }
 
 /// Retrieves all blockchains for the specified tenant.
-pub async fn get_blockchains_async(configuration: &configuration::Configuration, tenant_id: &str, o_data_query_options: Option<models::BlockchainDtoODataQueryOptions>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlockchainDtoListEnvelope, Error<GetBlockchainsAsyncError>> {
+pub async fn get_blockchains_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlockchainDtoListEnvelope, Error<GetBlockchainsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -421,9 +415,6 @@ pub async fn get_blockchains_async(configuration: &configuration::Configuration,
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_str) = o_data_query_options {
-        local_var_req_builder = local_var_req_builder.query(&[("oDataQueryOptions", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }
@@ -450,7 +441,7 @@ pub async fn get_blockchains_async(configuration: &configuration::Configuration,
 }
 
 /// Returns the count of blockchains for the specified tenant.
-pub async fn get_blockchains_count_async(configuration: &configuration::Configuration, tenant_id: &str, o_data_query_options: Option<models::BlockchainDtoODataQueryOptions>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBlockchainsCountAsyncError>> {
+pub async fn get_blockchains_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBlockchainsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -459,9 +450,6 @@ pub async fn get_blockchains_count_async(configuration: &configuration::Configur
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_str) = o_data_query_options {
-        local_var_req_builder = local_var_req_builder.query(&[("oDataQueryOptions", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }

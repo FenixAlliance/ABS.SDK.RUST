@@ -185,7 +185,7 @@ No authorization required
 
 ## get_blockchain_blocks_async
 
-> models::BlockchainBlockDtoListEnvelope get_blockchain_blocks_async(tenant_id, blockchain_id, o_data_query_options, api_version, x_api_version)
+> models::BlockchainBlockDtoListEnvelope get_blockchain_blocks_async(tenant_id, blockchain_id, api_version, x_api_version)
 Get blocks for a blockchain
 
 ### Parameters
@@ -195,7 +195,6 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **blockchain_id** | **uuid::Uuid** |  | [required] |
-**o_data_query_options** | Option<[**BlockchainBlockDtoODataQueryOptions**](.md)> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -217,7 +216,7 @@ No authorization required
 
 ## get_blockchain_blocks_count_async
 
-> models::Int32Envelope get_blockchain_blocks_count_async(tenant_id, blockchain_id, o_data_query_options, api_version, x_api_version)
+> models::Int32Envelope get_blockchain_blocks_count_async(tenant_id, blockchain_id, api_version, x_api_version)
 Get block count for a blockchain
 
 ### Parameters
@@ -227,7 +226,6 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **blockchain_id** | **uuid::Uuid** |  | [required] |
-**o_data_query_options** | Option<[**BlockchainBlockDtoODataQueryOptions**](.md)> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -282,7 +280,7 @@ No authorization required
 
 ## get_blockchains_async
 
-> models::BlockchainDtoListEnvelope get_blockchains_async(tenant_id, o_data_query_options, api_version, x_api_version)
+> models::BlockchainDtoListEnvelope get_blockchains_async(tenant_id, api_version, x_api_version)
 Get all blockchains
 
 Retrieves all blockchains for the specified tenant.
@@ -293,7 +291,6 @@ Retrieves all blockchains for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**o_data_query_options** | Option<[**BlockchainDtoODataQueryOptions**](.md)> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -315,7 +312,7 @@ No authorization required
 
 ## get_blockchains_count_async
 
-> models::Int32Envelope get_blockchains_count_async(tenant_id, o_data_query_options, api_version, x_api_version)
+> models::Int32Envelope get_blockchains_count_async(tenant_id, api_version, x_api_version)
 Get blockchains count
 
 Returns the count of blockchains for the specified tenant.
@@ -326,7 +323,6 @@ Returns the count of blockchains for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**o_data_query_options** | Option<[**BlockchainDtoODataQueryOptions**](.md)> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

@@ -15,6 +15,46 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
+/// struct for typed errors of method [`create_newsletter_subscription_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateNewsletterSubscriptionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_newsletter_subscription_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteNewsletterSubscriptionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_newsletter_subscription_by_id_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetNewsletterSubscriptionByIdAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_newsletter_subscriptions_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetNewsletterSubscriptionsAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_newsletter_subscriptions_count_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -25,6 +65,157 @@ pub enum GetNewsletterSubscriptionsCountAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`update_newsletter_subscription_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateNewsletterSubscriptionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+
+/// Creates a new newsletter subscription for the specified tenant.
+pub async fn create_newsletter_subscription_async(configuration: &configuration::Configuration, tenant_id: &str, newsletter_subscription_create_dto: models::NewsletterSubscriptionCreateDto, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<CreateNewsletterSubscriptionAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/MarketingService/NewsletterSubscriptions", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&newsletter_subscription_create_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateNewsletterSubscriptionAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Deletes a newsletter subscription by its ID.
+pub async fn delete_newsletter_subscription_async(configuration: &configuration::Configuration, tenant_id: &str, newsletter_subscription_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteNewsletterSubscriptionAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}", local_var_configuration.base_path, newsletterSubscriptionId=crate::apis::urlencode(newsletter_subscription_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteNewsletterSubscriptionAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Retrieves the details of a specific newsletter subscription by its ID.
+pub async fn get_newsletter_subscription_by_id_async(configuration: &configuration::Configuration, tenant_id: &str, newsletter_subscription_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::NewsletterSubscriptionDtoEnvelope, Error<GetNewsletterSubscriptionByIdAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}", local_var_configuration.base_path, newsletterSubscriptionId=crate::apis::urlencode(newsletter_subscription_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetNewsletterSubscriptionByIdAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Retrieves a collection of newsletter subscriptions for the specified tenant using OData query options.
+pub async fn get_newsletter_subscriptions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::NewsletterSubscriptionDtoListEnvelope, Error<GetNewsletterSubscriptionsAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/MarketingService/NewsletterSubscriptions", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetNewsletterSubscriptionsAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
 
 /// Returns the count of newsletter subscriptions for the specified tenant using OData query options.
 pub async fn get_newsletter_subscriptions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetNewsletterSubscriptionsCountAsyncError>> {
@@ -56,6 +247,42 @@ pub async fn get_newsletter_subscriptions_count_async(configuration: &configurat
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetNewsletterSubscriptionsCountAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Updates an existing newsletter subscription by its ID.
+pub async fn update_newsletter_subscription_async(configuration: &configuration::Configuration, tenant_id: &str, newsletter_subscription_id: &str, newsletter_subscription_update_dto: models::NewsletterSubscriptionUpdateDto, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<UpdateNewsletterSubscriptionAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/MarketingService/NewsletterSubscriptions/{newsletterSubscriptionId}", local_var_configuration.base_path, newsletterSubscriptionId=crate::apis::urlencode(newsletter_subscription_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&newsletter_subscription_update_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateNewsletterSubscriptionAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

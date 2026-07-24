@@ -43,10 +43,6 @@ pub struct ContactUpdateDto {
     pub country_id: Option<Option<String>>,
     #[serde(rename = "parentContactId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub parent_contact_id: Option<Option<String>>,
-    #[serde(rename = "addressLine1", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub address_line1: Option<Option<String>>,
-    #[serde(rename = "addressLine2", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub address_line2: Option<Option<String>>,
     #[serde(rename = "postalCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub postal_code: Option<Option<String>>,
     #[serde(rename = "stateId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -117,8 +113,6 @@ impl ContactUpdateDto {
             job_title: None,
             country_id: None,
             parent_contact_id: None,
-            address_line1: None,
-            address_line2: None,
             postal_code: None,
             state_id: None,
             city_id: None,

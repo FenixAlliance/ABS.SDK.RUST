@@ -1,6 +1,6 @@
 # \UploadsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,10 +10,10 @@ Method | HTTP request | Description
 
 ## save_file_async
 
-> models::EmptyEnvelope save_file_async(tenant_id, api_version, x_api_version, notes, title, author, is_folder, file_name, r#abstract, key_words, valid_response, parent_file_upload_id, file_path, app_file_period_content, app_file_period_sha256, app_file_period_created_at_utc, app_file_period_user_id_period_value, app_file_period_tenant_id_period_value, app_file_period_enrollment_id_period_value, app_file_period_source, app_file_period_length, app_file_period_name, app_file_period_file_name, app_file_period_last_modified, app_file_period_size, app_file_period_content_type, app_file_period_content_disposition, app_file_period_headers, id, timestamp)
+> models::EmptyEnvelope save_file_async(tenant_id, api_version, x_api_version, file, notes, title, author, is_folder, file_name, r#abstract, key_words, valid_response, parent_file_upload_id, file_path, public_access_type, purpose, social_profile_id_period_value, app_file_period_content, app_file_period_sha256, app_file_period_created_at_utc, app_file_period_user_id_period_value, app_file_period_tenant_id_period_value, app_file_period_enrollment_id_period_value, app_file_period_source, app_file_period_length, app_file_period_name, app_file_period_file_name, app_file_period_last_modified, app_file_period_size, app_file_period_content_type, app_file_period_content_disposition, app_file_period_headers, id, timestamp)
 Upload a file
 
-Uploads a file to tenant or user storage.
+Uploads a file to tenant or user storage, scanned and catalogued through the storage spine.
 
 ### Parameters
 
@@ -23,6 +23,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**file** | Option<**std::path::PathBuf**> |  |  |
 **notes** | Option<**String**> |  |  |
 **title** | Option<**String**> |  |  |
 **author** | Option<**String**> |  |  |
@@ -33,6 +34,9 @@ Name | Type | Description  | Required | Notes
 **valid_response** | Option<**bool**> |  |  |
 **parent_file_upload_id** | Option<**String**> |  |  |
 **file_path** | Option<**String**> |  |  |
+**public_access_type** | Option<**String**> |  |  |
+**purpose** | Option<**String**> |  |  |
+**social_profile_id_period_value** | Option<**uuid::Uuid**> |  |  |
 **app_file_period_content** | Option<**String**> |  |  |
 **app_file_period_sha256** | Option<**String**> |  |  |
 **app_file_period_created_at_utc** | Option<**String**> |  |  |

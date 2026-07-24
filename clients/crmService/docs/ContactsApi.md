@@ -5,7 +5,11 @@ All URIs are relative to *https://absuite.net*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_contact_async**](ContactsApi.md#create_contact_async) | **POST** /api/v2/CrmService/Contacts | Create a new contact
+[**create_contact_email_async**](ContactsApi.md#create_contact_email_async) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Addresses | Add an email address to a contact
+[**create_profile_for_contact_async**](ContactsApi.md#create_profile_for_contact_async) | **POST** /api/v2/CrmService/Contacts/{contactId}/Profiles | Create a contact profile
 [**delete_contact_async**](ContactsApi.md#delete_contact_async) | **DELETE** /api/v2/CrmService/Contacts/{contactId} | Delete a contact
+[**delete_contact_email_async**](ContactsApi.md#delete_contact_email_async) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Delete a contact email address
+[**delete_profile_for_contact_async**](ContactsApi.md#delete_profile_for_contact_async) | **DELETE** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Delete a contact profile
 [**get_business_owned_individual_async**](ContactsApi.md#get_business_owned_individual_async) | **GET** /api/v2/CrmService/Contacts/Individuals/{contactId} | Get a Contact of type Individual by ID
 [**get_business_owned_individuals_async**](ContactsApi.md#get_business_owned_individuals_async) | **GET** /api/v2/CrmService/Contacts/Individuals | Get all contacts of type individual
 [**get_business_owned_individuals_count_async**](ContactsApi.md#get_business_owned_individuals_count_async) | **GET** /api/v2/CrmService/Contacts/Individuals/Count | Get all contacts of type individual count
@@ -15,7 +19,8 @@ Method | HTTP request | Description
 [**get_contact_async**](ContactsApi.md#get_contact_async) | **GET** /api/v2/CrmService/Contacts/{contactId} | Get a contact by ID
 [**get_contact_avatar_async**](ContactsApi.md#get_contact_avatar_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/Avatar | Get a contact's avatar
 [**get_contact_cart_async**](ContactsApi.md#get_contact_cart_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/Cart | Get a contact's cart
-[**get_contact_profiles_async**](ContactsApi.md#get_contact_profiles_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact's social profiles
+[**get_contact_emails_async**](ContactsApi.md#get_contact_emails_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/Emails | Get a contact's email addresses
+[**get_contact_emails_count_async**](ContactsApi.md#get_contact_emails_count_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/Emails/Count | Get contact email addresses count
 [**get_contact_social_profile_async**](ContactsApi.md#get_contact_social_profile_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/SocialProfile | Get a contact's social profile
 [**get_contact_wallet_async**](ContactsApi.md#get_contact_wallet_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/Wallet | Get a contact's wallet
 [**get_contacts_async**](ContactsApi.md#get_contacts_async) | **GET** /api/v2/CrmService/Contacts | Get all business owned contacts
@@ -28,13 +33,19 @@ Method | HTTP request | Description
 [**get_individual_related_organizations_async**](ContactsApi.md#get_individual_related_organizations_async) | **GET** /api/v2/CrmService/Contacts/Individuals/{contactId}/Organizations | Get individual related organizations
 [**get_organization_related_individuals_async**](ContactsApi.md#get_organization_related_individuals_async) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Individuals | Get organization related individuals
 [**get_organization_related_organizations_async**](ContactsApi.md#get_organization_related_organizations_async) | **GET** /api/v2/CrmService/Contacts/Organizations/{contactId}/Organizations | Get organization related organizations
+[**get_profiles_for_contact_async**](ContactsApi.md#get_profiles_for_contact_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles | Get a contact's social profiles
+[**get_profiles_for_contact_count_async**](ContactsApi.md#get_profiles_for_contact_count_async) | **GET** /api/v2/CrmService/Contacts/{contactId}/Profiles/Count | Get contact profiles count
 [**patch_contact_async**](ContactsApi.md#patch_contact_async) | **PATCH** /api/v2/CrmService/Contacts/{contactId} | Patch a contact
+[**patch_contact_email_async**](ContactsApi.md#patch_contact_email_async) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Patch a contact email address
 [**preview_contact_email_template**](ContactsApi.md#preview_contact_email_template) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Preview | Preview the rendered email for a contact.
 [**send_contact_email**](ContactsApi.md#send_contact_email) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/Send | Send an email to a contact.
 [**update_contact_async**](ContactsApi.md#update_contact_async) | **PUT** /api/v2/CrmService/Contacts/{contactId} | Update a contact
 [**update_contact_avatar_async**](ContactsApi.md#update_contact_avatar_async) | **POST** /api/v2/CrmService/Contacts/{contactId}/Avatar | Update a contact's avatar
+[**update_contact_email_async**](ContactsApi.md#update_contact_email_async) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId} | Update a contact email address
+[**update_profile_for_contact_async**](ContactsApi.md#update_profile_for_contact_async) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId} | Update a contact profile
 [**upsert_tenant_onto_another_tenant_contact_list_async**](ContactsApi.md#upsert_tenant_onto_another_tenant_contact_list_async) | **POST** /api/v2/CrmService/Contacts/Organizations/Upsert | Upsert a tenant onto another tenant's contact list
 [**upsert_user_onto_another_tenant_contact_list_async**](ContactsApi.md#upsert_user_onto_another_tenant_contact_list_async) | **POST** /api/v2/CrmService/Contacts/Individuals/Upsert | Upsert a user onto a tenant's contact list
+[**verify_contact_email_async**](ContactsApi.md#verify_contact_email_async) | **POST** /api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify | Verify a contact email address
 
 
 
@@ -71,6 +82,74 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## create_contact_email_async
+
+> create_contact_email_async(tenant_id, contact_id, api_version, x_api_version, contact_email_create_dto)
+Add an email address to a contact
+
+Creates a new email address for the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**contact_email_create_dto** | Option<[**ContactEmailCreateDto**](ContactEmailCreateDto.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## create_profile_for_contact_async
+
+> create_profile_for_contact_async(tenant_id, contact_id, api_version, x_api_version, contact_profile_create_dto)
+Create a contact profile
+
+Creates a new profile for the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**contact_profile_create_dto** | Option<[**ContactProfileCreateDto**](ContactProfileCreateDto.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## delete_contact_async
 
 > models::EmptyEnvelope delete_contact_async(tenant_id, contact_id, api_version, x_api_version)
@@ -91,6 +170,74 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_contact_email_async
+
+> delete_contact_email_async(tenant_id, contact_id, email_id, api_version, x_api_version)
+Delete a contact email address
+
+Deletes an email address from the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**email_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_profile_for_contact_async
+
+> delete_profile_for_contact_async(tenant_id, contact_id, profile_id, api_version, x_api_version)
+Delete a contact profile
+
+Deletes a profile for the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
@@ -397,12 +544,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_contact_profiles_async
+## get_contact_emails_async
 
-> models::ContactProfileDtoListEnvelope get_contact_profiles_async(tenant_id, contact_id, api_version, x_api_version)
-Get a contact's social profiles
+> models::ContactEmailDtoListEnvelope get_contact_emails_async(tenant_id, contact_id, api_version, x_api_version)
+Get a contact's email addresses
 
-Get a contact's social profiles
+Get all email addresses for the specified contact.
 
 ### Parameters
 
@@ -416,7 +563,40 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::ContactProfileDtoListEnvelope**](ContactProfileDtoListEnvelope.md)
+[**models::ContactEmailDtoListEnvelope**](ContactEmailDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_contact_emails_count_async
+
+> models::Int32Envelope get_contact_emails_count_async(tenant_id, contact_id, api_version, x_api_version)
+Get contact email addresses count
+
+Returns the count of email addresses for the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
 
 ### Authorization
 
@@ -821,6 +1001,72 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_profiles_for_contact_async
+
+> models::ContactProfileDtoListEnvelope get_profiles_for_contact_async(tenant_id, contact_id, api_version, x_api_version)
+Get a contact's social profiles
+
+Get a contact's social profiles
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::ContactProfileDtoListEnvelope**](ContactProfileDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_profiles_for_contact_count_async
+
+> models::Int32Envelope get_profiles_for_contact_count_async(tenant_id, contact_id, api_version, x_api_version)
+Get contact profiles count
+
+Returns the count of profiles for the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## patch_contact_async
 
 > models::EmptyEnvelope patch_contact_async(tenant_id, contact_id, api_version, x_api_version, operation)
@@ -842,6 +1088,41 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_contact_email_async
+
+> patch_contact_email_async(tenant_id, contact_id, email_id, api_version, x_api_version, operation)
+Patch a contact email address
+
+Partially updates an existing email address for the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**email_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 
@@ -989,6 +1270,76 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## update_contact_email_async
+
+> update_contact_email_async(tenant_id, contact_id, email_id, api_version, x_api_version, contact_email_update_dto)
+Update a contact email address
+
+Updates an existing email address for the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**email_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**contact_email_update_dto** | Option<[**ContactEmailUpdateDto**](ContactEmailUpdateDto.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_profile_for_contact_async
+
+> update_profile_for_contact_async(tenant_id, contact_id, profile_id, api_version, x_api_version, contact_profile_update_dto)
+Update a contact profile
+
+Updates an existing profile for the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**contact_profile_update_dto** | Option<[**ContactProfileUpdateDto**](ContactProfileUpdateDto.md)> |  |  |
+
+### Return type
+
+ (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## upsert_tenant_onto_another_tenant_contact_list_async
 
 > models::ContactDtoEnvelope upsert_tenant_onto_another_tenant_contact_list_async(tenant_id, related_tenant_id, api_version, x_api_version)
@@ -1042,6 +1393,40 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::ContactDtoEnvelope**](ContactDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## verify_contact_email_async
+
+> verify_contact_email_async(tenant_id, contact_id, email_id, api_version, x_api_version)
+Verify a contact email address
+
+Marks an email address as verified on the specified contact.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**email_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+ (empty response body)
 
 ### Authorization
 

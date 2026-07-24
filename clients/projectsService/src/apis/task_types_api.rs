@@ -42,6 +42,15 @@ pub enum GetTaskTypeByIdAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`patch_task_type_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchTaskTypeAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`update_task_type_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -135,6 +144,36 @@ pub async fn get_task_type_by_id_async(configuration: &configuration::Configurat
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetTaskTypeByIdAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Partially updates the specified task type.
+pub async fn patch_task_type_async(configuration: &configuration::Configuration, task_type_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTaskTypeAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/ProjectsService/TaskTypes/{taskTypeId}", local_var_configuration.base_path, taskTypeId=crate::apis::urlencode(task_type_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.json(&operation);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PatchTaskTypeAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

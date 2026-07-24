@@ -13,23 +13,23 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FiscalPeriodUpdateDto {
-    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub name: Option<Option<String>>,
+    #[serde(rename = "name")]
+    pub name: String,
     #[serde(rename = "fromDate", skip_serializing_if = "Option::is_none")]
     pub from_date: Option<String>,
     #[serde(rename = "toDate", skip_serializing_if = "Option::is_none")]
     pub to_date: Option<String>,
-    #[serde(rename = "fiscalYearId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub fiscal_year_id: Option<Option<String>>,
+    #[serde(rename = "fiscalYearId")]
+    pub fiscal_year_id: String,
 }
 
 impl FiscalPeriodUpdateDto {
-    pub fn new() -> FiscalPeriodUpdateDto {
+    pub fn new(name: String, fiscal_year_id: String) -> FiscalPeriodUpdateDto {
         FiscalPeriodUpdateDto {
-            name: None,
+            name,
             from_date: None,
             to_date: None,
-            fiscal_year_id: None,
+            fiscal_year_id,
         }
     }
 }

@@ -15,6 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct CartDto {
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub id: Option<Option<String>>,
+    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<Option<String>>,
     #[serde(rename = "ip", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub ip: Option<Option<String>>,
     #[serde(rename = "type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -41,6 +43,7 @@ impl CartDto {
     pub fn new() -> CartDto {
         CartDto {
             id: None,
+            timestamp: None,
             ip: None,
             r#type: None,
             total: None,

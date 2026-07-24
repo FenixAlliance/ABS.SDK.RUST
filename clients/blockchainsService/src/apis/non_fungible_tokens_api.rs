@@ -184,7 +184,7 @@ pub async fn get_non_fungible_token_by_id_async(configuration: &configuration::C
 }
 
 /// Retrieves all NFTs for the specified tenant.
-pub async fn get_non_fungible_tokens_async(configuration: &configuration::Configuration, tenant_id: &str, o_data_query_options: Option<models::NonFungibleTokenDtoODataQueryOptions>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::NonFungibleTokenDtoListEnvelope, Error<GetNonFungibleTokensAsyncError>> {
+pub async fn get_non_fungible_tokens_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::NonFungibleTokenDtoListEnvelope, Error<GetNonFungibleTokensAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -193,9 +193,6 @@ pub async fn get_non_fungible_tokens_async(configuration: &configuration::Config
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_str) = o_data_query_options {
-        local_var_req_builder = local_var_req_builder.query(&[("oDataQueryOptions", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }
@@ -222,7 +219,7 @@ pub async fn get_non_fungible_tokens_async(configuration: &configuration::Config
 }
 
 /// Returns the count of NFTs for the specified tenant.
-pub async fn get_non_fungible_tokens_count_async(configuration: &configuration::Configuration, tenant_id: &str, o_data_query_options: Option<models::NonFungibleTokenDtoODataQueryOptions>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetNonFungibleTokensCountAsyncError>> {
+pub async fn get_non_fungible_tokens_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetNonFungibleTokensCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -231,9 +228,6 @@ pub async fn get_non_fungible_tokens_count_async(configuration: &configuration::
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_str) = o_data_query_options {
-        local_var_req_builder = local_var_req_builder.query(&[("oDataQueryOptions", &local_var_str.to_string())]);
-    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }

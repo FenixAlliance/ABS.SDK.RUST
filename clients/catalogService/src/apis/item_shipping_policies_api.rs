@@ -24,19 +24,19 @@ pub enum CountItemShippingPoliciesAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_item_shipping_policies_async`]
+/// struct for typed errors of method [`get_catalog_item_shipping_policies_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetItemShippingPoliciesAsyncError {
+pub enum GetCatalogItemShippingPoliciesAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_item_shipping_policy_by_id_async`]
+/// struct for typed errors of method [`get_catalog_item_shipping_policy_by_id_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetItemShippingPolicyByIdAsyncError {
+pub enum GetCatalogItemShippingPolicyByIdAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -102,7 +102,7 @@ pub async fn count_item_shipping_policies_async(configuration: &configuration::C
 }
 
 /// Retrieves all shipping policies for a specific item.
-pub async fn get_item_shipping_policies_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, item_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemShippingPolicyDtoListEnvelope, Error<GetItemShippingPoliciesAsyncError>> {
+pub async fn get_catalog_item_shipping_policies_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, item_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemShippingPolicyDtoListEnvelope, Error<GetCatalogItemShippingPoliciesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -135,14 +135,14 @@ pub async fn get_item_shipping_policies_async(configuration: &configuration::Con
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetItemShippingPoliciesAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCatalogItemShippingPoliciesAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
 }
 
 /// Retrieves a specific shipping policy for an item.
-pub async fn get_item_shipping_policy_by_id_async(configuration: &configuration::Configuration, item_shipping_policy_id: &str, tenant_id: Option<&str>, item_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemShippingPolicyDtoEnvelope, Error<GetItemShippingPolicyByIdAsyncError>> {
+pub async fn get_catalog_item_shipping_policy_by_id_async(configuration: &configuration::Configuration, item_shipping_policy_id: &str, tenant_id: Option<&str>, item_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemShippingPolicyDtoEnvelope, Error<GetCatalogItemShippingPolicyByIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -175,7 +175,7 @@ pub async fn get_item_shipping_policy_by_id_async(configuration: &configuration:
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetItemShippingPolicyByIdAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetCatalogItemShippingPolicyByIdAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

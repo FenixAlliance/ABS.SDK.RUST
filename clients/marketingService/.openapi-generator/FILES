@@ -56,6 +56,11 @@ docs/MarketingListsApi.md
 docs/NewsletterCreateDto.md
 docs/NewsletterDto.md
 docs/NewsletterDtoEnvelope.md
+docs/NewsletterSubscriptionCreateDto.md
+docs/NewsletterSubscriptionDto.md
+docs/NewsletterSubscriptionDtoEnvelope.md
+docs/NewsletterSubscriptionDtoListEnvelope.md
+docs/NewsletterSubscriptionUpdateDto.md
 docs/NewsletterSubscriptionsApi.md
 docs/NewsletterUpdateDto.md
 docs/NewslettersApi.md
@@ -145,6 +150,11 @@ src/models/mod.rs
 src/models/newsletter_create_dto.rs
 src/models/newsletter_dto.rs
 src/models/newsletter_dto_envelope.rs
+src/models/newsletter_subscription_create_dto.rs
+src/models/newsletter_subscription_dto.rs
+src/models/newsletter_subscription_dto_envelope.rs
+src/models/newsletter_subscription_dto_list_envelope.rs
+src/models/newsletter_subscription_update_dto.rs
 src/models/newsletter_update_dto.rs
 src/models/operation.rs
 src/models/order_dto.rs

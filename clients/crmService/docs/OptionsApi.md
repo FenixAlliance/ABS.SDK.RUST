@@ -10,6 +10,8 @@ Method | HTTP request | Description
 [**get_contact_option_by_key**](OptionsApi.md#get_contact_option_by_key) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Retrieve a single contact option by its key
 [**get_contact_options**](OptionsApi.md#get_contact_options) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options | Retrieve a list of contact options
 [**get_contact_options_count**](OptionsApi.md#get_contact_options_count) | **GET** /api/v2/CrmService/Contacts/{contactId}/Options/Count | Get the count of contact options
+[**patch_contact_option_async**](OptionsApi.md#patch_contact_option_async) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Patch a contact option
+[**patch_contact_option_by_key_async**](OptionsApi.md#patch_contact_option_by_key_async) | **PATCH** /api/v2/CrmService/Contacts/{contactId}/Options/Key/{key} | Patch a contact option by key
 [**update_contact_option**](OptionsApi.md#update_contact_option) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Options/{optionId} | Update a contact option
 [**upsert_contact_option**](OptionsApi.md#upsert_contact_option) | **PUT** /api/v2/CrmService/Contacts/{contactId}/Options/Upsert/{key} | Create or update a contact option by key
 
@@ -217,6 +219,76 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_contact_option_async
+
+> models::EmptyEnvelope patch_contact_option_async(tenant_id, contact_id, option_id, api_version, x_api_version, operation)
+Patch a contact option
+
+Patch a contact option
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**option_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## patch_contact_option_by_key_async
+
+> models::EmptyEnvelope patch_contact_option_by_key_async(tenant_id, contact_id, key, api_version, x_api_version, operation)
+Patch a contact option by key
+
+Patch a contact option by key
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**contact_id** | **uuid::Uuid** |  | [required] |
+**key** | **String** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

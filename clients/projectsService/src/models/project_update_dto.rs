@@ -17,6 +17,10 @@ pub struct ProjectUpdateDto {
     pub title: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
+    #[serde(rename = "individualId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub individual_id: Option<Option<String>>,
+    #[serde(rename = "organizationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub organization_id: Option<Option<String>>,
     #[serde(rename = "projectStartDate", skip_serializing_if = "Option::is_none")]
     pub project_start_date: Option<String>,
     #[serde(rename = "projectEndDate", skip_serializing_if = "Option::is_none")]
@@ -28,6 +32,8 @@ impl ProjectUpdateDto {
         ProjectUpdateDto {
             title: None,
             description: None,
+            individual_id: None,
+            organization_id: None,
             project_start_date: None,
             project_end_date: None,
         }

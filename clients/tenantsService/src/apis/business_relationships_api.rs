@@ -15,6 +15,46 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
+/// struct for typed errors of method [`create_business_relationship_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateBusinessRelationshipAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_business_relationship_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteBusinessRelationshipAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_business_relationship_by_id_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetBusinessRelationshipByIdAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_business_relationships_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetBusinessRelationshipsAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_business_relationships_count_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -24,6 +64,157 @@ pub enum GetBusinessRelationshipsCountAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`update_business_relationship_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateBusinessRelationshipAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+
+/// Creates a new business relationship owned by the specified parent tenant.
+pub async fn create_business_relationship_async(configuration: &configuration::Configuration, tenant_id: &str, business_relationship_create_dto: models::BusinessRelationshipCreateDto, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<CreateBusinessRelationshipAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/TenantsService/BusinessRelationships", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&business_relationship_create_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateBusinessRelationshipAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Deletes a business relationship by its ID.
+pub async fn delete_business_relationship_async(configuration: &configuration::Configuration, tenant_id: &str, business_relationship_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteBusinessRelationshipAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}", local_var_configuration.base_path, businessRelationshipId=crate::apis::urlencode(business_relationship_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteBusinessRelationshipAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Retrieves the details of a specific business relationship by its ID.
+pub async fn get_business_relationship_by_id_async(configuration: &configuration::Configuration, tenant_id: &str, business_relationship_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BusinessRelationshipDtoEnvelope, Error<GetBusinessRelationshipByIdAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}", local_var_configuration.base_path, businessRelationshipId=crate::apis::urlencode(business_relationship_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetBusinessRelationshipByIdAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Retrieves the child business relationships owned by the specified parent tenant using OData query options.
+pub async fn get_business_relationships_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BusinessRelationshipDtoListEnvelope, Error<GetBusinessRelationshipsAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/TenantsService/BusinessRelationships", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetBusinessRelationshipsAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
 
 /// Returns the count of child business relationships owned by the specified parent tenant.
 pub async fn get_business_relationships_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBusinessRelationshipsCountAsyncError>> {
@@ -55,6 +246,42 @@ pub async fn get_business_relationships_count_async(configuration: &configuratio
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetBusinessRelationshipsCountAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Updates an existing business relationship by its ID.
+pub async fn update_business_relationship_async(configuration: &configuration::Configuration, tenant_id: &str, business_relationship_id: &str, business_relationship_update_dto: models::BusinessRelationshipUpdateDto, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<UpdateBusinessRelationshipAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/TenantsService/BusinessRelationships/{businessRelationshipId}", local_var_configuration.base_path, businessRelationshipId=crate::apis::urlencode(business_relationship_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&business_relationship_update_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateBusinessRelationshipAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

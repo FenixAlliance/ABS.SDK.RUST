@@ -2,8 +2,6 @@ pub mod access_token_response;
 pub use self::access_token_response::AccessTokenResponse;
 pub mod currency_id;
 pub use self::currency_id::CurrencyId;
-pub mod decimal_envelope;
-pub use self::decimal_envelope::DecimalEnvelope;
 pub mod email_dispatch_request;
 pub use self::email_dispatch_request::EmailDispatchRequest;
 pub mod empty_envelope;

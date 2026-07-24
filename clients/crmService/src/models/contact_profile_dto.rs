@@ -15,12 +15,14 @@ use serde::{Deserialize, Serialize};
 pub struct ContactProfileDto {
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub id: Option<Option<String>>,
-    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
-    pub timestamp: Option<String>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
+    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<Option<String>>,
     #[serde(rename = "contactId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
+    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub tenant_id: Option<Option<String>>,
+    #[serde(rename = "type", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub r#type: Option<Option<String>>,
     #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "about", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -31,6 +33,8 @@ pub struct ContactProfileDto {
     pub submitted: Option<bool>,
     #[serde(rename = "avatarUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub avatar_url: Option<Option<String>>,
+    #[serde(rename = "contact", skip_serializing_if = "Option::is_none")]
+    pub contact: Option<Box<models::ContactDto>>,
     #[serde(rename = "qualifiedName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub qualified_name: Option<Option<String>>,
     #[serde(rename = "verificationTimestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -82,13 +86,15 @@ impl ContactProfileDto {
         ContactProfileDto {
             id: None,
             timestamp: None,
-            tenant_id: None,
             contact_id: None,
+            tenant_id: None,
+            r#type: None,
             enrollment_id: None,
             about: None,
             verified: None,
             submitted: None,
             avatar_url: None,
+            contact: None,
             qualified_name: None,
             verification_timestamp: None,
             data: None,

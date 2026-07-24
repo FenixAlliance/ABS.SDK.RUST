@@ -13,6 +13,10 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct ProjectTaskUpdateDto {
+    #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub title: Option<Option<String>>,
+    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub description: Option<Option<String>>,
     #[serde(rename = "startDate", skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
     #[serde(rename = "dueLine", skip_serializing_if = "Option::is_none")]
@@ -22,6 +26,8 @@ pub struct ProjectTaskUpdateDto {
 impl ProjectTaskUpdateDto {
     pub fn new() -> ProjectTaskUpdateDto {
         ProjectTaskUpdateDto {
+            title: None,
+            description: None,
             start_date: None,
             due_line: None,
         }

@@ -19,8 +19,6 @@ Name | Type | Description | Notes
 **job_title** | Option<**String**> |  | [optional]
 **country_id** | Option<**String**> |  | [optional]
 **parent_contact_id** | Option<**String**> |  | [optional]
-**address_line1** | Option<**String**> |  | [optional]
-**address_line2** | Option<**String**> |  | [optional]
 **postal_code** | Option<**String**> |  | [optional]
 **state_id** | Option<**String**> |  | [optional]
 **city_id** | Option<**String**> |  | [optional]

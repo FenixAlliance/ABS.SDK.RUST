@@ -15,83 +15,96 @@ use serde::{Deserialize, Serialize};
 pub struct AccountingEntryDto {
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub id: Option<Option<String>>,
+    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub tenant_id: Option<Option<String>>,
+    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub enrollment_id: Option<Option<String>>,
+    #[serde(rename = "journalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub journal_entry_id: Option<Option<String>>,
+    #[serde(rename = "accountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub account_id: Option<Option<String>>,
+    #[serde(rename = "accountName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub account_name: Option<Option<String>>,
+    #[serde(rename = "direction", skip_serializing_if = "Option::is_none")]
+    pub direction: Option<Direction>,
+    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub description: Option<Option<String>>,
+    #[serde(rename = "transactionAmount", skip_serializing_if = "Option::is_none")]
+    pub transaction_amount: Option<f64>,
+    #[serde(rename = "transactionCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub transaction_currency_id: Option<Option<String>>,
+    #[serde(rename = "functionalAmount", skip_serializing_if = "Option::is_none")]
+    pub functional_amount: Option<f64>,
+    #[serde(rename = "functionalCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub functional_currency_id: Option<Option<String>>,
+    #[serde(rename = "accountAmount", skip_serializing_if = "Option::is_none")]
+    pub account_amount: Option<f64>,
+    #[serde(rename = "accountCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub account_currency_id: Option<Option<String>>,
+    #[serde(rename = "reportingAmountInUsd", skip_serializing_if = "Option::is_none")]
+    pub reporting_amount_in_usd: Option<f64>,
+    #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
+    pub forex_rate: Option<f64>,
+    #[serde(rename = "forexRatesSnapshot", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub forex_rates_snapshot: Option<Option<String>>,
+    #[serde(rename = "costCentreId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub cost_centre_id: Option<Option<String>>,
+    #[serde(rename = "projectId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub project_id: Option<Option<String>>,
     #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<Option<String>>,
     #[serde(rename = "debit", skip_serializing_if = "Option::is_none")]
     pub debit: Option<f64>,
     #[serde(rename = "credit", skip_serializing_if = "Option::is_none")]
     pub credit: Option<f64>,
-    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub description: Option<Option<String>>,
-    #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
-    pub forex_rate: Option<f64>,
-    #[serde(rename = "accountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub account_id: Option<Option<String>>,
-    #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub tenant_id: Option<Option<String>>,
-    #[serde(rename = "date", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub date: Option<Option<String>>,
-    #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub enrollment_id: Option<Option<String>>,
-    #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub currency_id: Option<Option<String>>,
-    #[serde(rename = "debitAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub debit_account_id: Option<Option<String>>,
-    #[serde(rename = "creditAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub credit_account_id: Option<Option<String>>,
-    #[serde(rename = "journalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub journal_entry_id: Option<Option<String>>,
-    #[serde(rename = "debitAccountName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub debit_account_name: Option<Option<String>>,
-    #[serde(rename = "creditAccountName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub credit_account_name: Option<Option<String>>,
-    #[serde(rename = "accountingEntryType", skip_serializing_if = "Option::is_none")]
-    pub accounting_entry_type: Option<AccountingEntryType>,
-    #[serde(rename = "debitAmount", skip_serializing_if = "Option::is_none")]
-    pub debit_amount: Option<Box<models::Money>>,
-    #[serde(rename = "creditAmount", skip_serializing_if = "Option::is_none")]
-    pub credit_amount: Option<Box<models::Money>>,
+    #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
+    pub amount: Option<Box<models::Money>>,
+    #[serde(rename = "amountInUsd", skip_serializing_if = "Option::is_none")]
+    pub amount_in_usd: Option<Box<models::Money>>,
 }
 
 impl AccountingEntryDto {
     pub fn new() -> AccountingEntryDto {
         AccountingEntryDto {
             id: None,
+            tenant_id: None,
+            enrollment_id: None,
+            journal_entry_id: None,
+            account_id: None,
+            account_name: None,
+            direction: None,
+            description: None,
+            transaction_amount: None,
+            transaction_currency_id: None,
+            functional_amount: None,
+            functional_currency_id: None,
+            account_amount: None,
+            account_currency_id: None,
+            reporting_amount_in_usd: None,
+            forex_rate: None,
+            forex_rates_snapshot: None,
+            cost_centre_id: None,
+            project_id: None,
             timestamp: None,
             debit: None,
             credit: None,
-            description: None,
-            forex_rate: None,
-            account_id: None,
-            tenant_id: None,
-            date: None,
-            enrollment_id: None,
-            currency_id: None,
-            debit_account_id: None,
-            credit_account_id: None,
-            journal_entry_id: None,
-            debit_account_name: None,
-            credit_account_name: None,
-            accounting_entry_type: None,
-            debit_amount: None,
-            credit_amount: None,
+            amount: None,
+            amount_in_usd: None,
         }
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AccountingEntryType {
-    #[serde(rename = "None")]
-    None,
+pub enum Direction {
     #[serde(rename = "Debit")]
     Debit,
     #[serde(rename = "Credit")]
     Credit,
 }
 
-impl Default for AccountingEntryType {
-    fn default() -> AccountingEntryType {
-        Self::None
+impl Default for Direction {
+    fn default() -> Direction {
+        Self::Debit
     }
 }
 

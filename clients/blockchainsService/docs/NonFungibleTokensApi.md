@@ -115,7 +115,7 @@ No authorization required
 
 ## get_non_fungible_tokens_async
 
-> models::NonFungibleTokenDtoListEnvelope get_non_fungible_tokens_async(tenant_id, o_data_query_options, api_version, x_api_version)
+> models::NonFungibleTokenDtoListEnvelope get_non_fungible_tokens_async(tenant_id, api_version, x_api_version)
 Get all non-fungible tokens
 
 Retrieves all NFTs for the specified tenant.
@@ -126,7 +126,6 @@ Retrieves all NFTs for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**o_data_query_options** | Option<[**NonFungibleTokenDtoODataQueryOptions**](.md)> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -148,7 +147,7 @@ No authorization required
 
 ## get_non_fungible_tokens_count_async
 
-> models::Int32Envelope get_non_fungible_tokens_count_async(tenant_id, o_data_query_options, api_version, x_api_version)
+> models::Int32Envelope get_non_fungible_tokens_count_async(tenant_id, api_version, x_api_version)
 Get NFTs count
 
 Returns the count of NFTs for the specified tenant.
@@ -159,7 +158,6 @@ Returns the count of NFTs for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**o_data_query_options** | Option<[**NonFungibleTokenDtoODataQueryOptions**](.md)> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

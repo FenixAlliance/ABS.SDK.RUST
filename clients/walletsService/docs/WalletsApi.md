@@ -4,18 +4,21 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_location_for_wallet_async**](WalletsApi.md#create_location_for_wallet_async) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location
 [**create_wallet_bank_account_async**](WalletsApi.md#create_wallet_bank_account_async) | **POST** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts | Create Wallet Bank Account
-[**create_wallet_location_async**](WalletsApi.md#create_wallet_location_async) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Locations | Create Wallet Location
 [**create_wallet_payment_async**](WalletsApi.md#create_wallet_payment_async) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Payments | Create Wallet Payment
 [**create_wallet_token_async**](WalletsApi.md#create_wallet_token_async) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Tokens | Create Wallet Token
 [**create_wallet_withdraw_request_async**](WalletsApi.md#create_wallet_withdraw_request_async) | **POST** /api/v2/WalletsService/Wallets/{walletId}/Withdraws | Create Wallet Withdraw Request
+[**delete_location_for_wallet_async**](WalletsApi.md#delete_location_for_wallet_async) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location
 [**delete_wallet_bank_account_async**](WalletsApi.md#delete_wallet_bank_account_async) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Delete Wallet Bank Account
-[**delete_wallet_location_async**](WalletsApi.md#delete_wallet_location_async) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Delete Wallet Location
 [**delete_wallet_token_async**](WalletsApi.md#delete_wallet_token_async) | **DELETE** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Delete Wallet Token
 [**get_incoming_payments_async**](WalletsApi.md#get_incoming_payments_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming | Get Incoming Payments
 [**get_incoming_payments_count_async**](WalletsApi.md#get_incoming_payments_count_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Incoming/Count | Get Incoming Payments Count
 [**get_incoming_wallet_invoices_async**](WalletsApi.md#get_incoming_wallet_invoices_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming | Get Incoming Wallet Invoices
 [**get_incoming_wallet_invoices_count_async**](WalletsApi.md#get_incoming_wallet_invoices_count_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Incoming/Count | Get Incoming Wallet Invoices Count
+[**get_location_for_wallet_async**](WalletsApi.md#get_location_for_wallet_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Get Wallet Location
+[**get_locations_for_wallet_async**](WalletsApi.md#get_locations_for_wallet_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations | Get Wallet Locations
+[**get_locations_for_wallet_count_async**](WalletsApi.md#get_locations_for_wallet_count_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/Count | Get Wallet Locations Count
 [**get_outgoing_payments_async**](WalletsApi.md#get_outgoing_payments_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing | Get Outgoing Payments
 [**get_outgoing_payments_count_async**](WalletsApi.md#get_outgoing_payments_count_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments/Outgoing/Count | Get Outgoing Payments Count
 [**get_outgoing_wallet_invoices_async**](WalletsApi.md#get_outgoing_wallet_invoices_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Outgoing | Get Outgoing Wallet Invoices
@@ -29,9 +32,6 @@ Method | HTTP request | Description
 [**get_wallet_extended_orders_async**](WalletsApi.md#get_wallet_extended_orders_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders/Extended | Get Wallet Extended Orders
 [**get_wallet_invoices_async**](WalletsApi.md#get_wallet_invoices_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices | Get Wallet Invoices
 [**get_wallet_invoices_count_async**](WalletsApi.md#get_wallet_invoices_count_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Invoices/Count | Get Wallet Invoices Count
-[**get_wallet_location_async**](WalletsApi.md#get_wallet_location_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Get Wallet Location
-[**get_wallet_locations_async**](WalletsApi.md#get_wallet_locations_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations | Get Wallet Locations
-[**get_wallet_locations_count_async**](WalletsApi.md#get_wallet_locations_count_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Locations/Count | Get Wallet Locations Count
 [**get_wallet_orders_async**](WalletsApi.md#get_wallet_orders_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders | Get Wallet Orders
 [**get_wallet_orders_count_async**](WalletsApi.md#get_wallet_orders_count_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Orders/Count | Get Wallet Orders Count
 [**get_wallet_payments_async**](WalletsApi.md#get_wallet_payments_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Payments | Get Wallet Payments
@@ -49,10 +49,43 @@ Method | HTTP request | Description
 [**get_wallet_withdraws_count_async**](WalletsApi.md#get_wallet_withdraws_count_async) | **GET** /api/v2/WalletsService/Wallets/{walletId}/Withdraws/Count | Get Wallet Withdraws Count
 [**patch_wallet_bank_account_async**](WalletsApi.md#patch_wallet_bank_account_async) | **PATCH** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Patch Wallet Bank Account
 [**patch_wallet_token_async**](WalletsApi.md#patch_wallet_token_async) | **PATCH** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Patch Wallet Token
+[**update_location_for_wallet_async**](WalletsApi.md#update_location_for_wallet_async) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location
 [**update_wallet_bank_account_async**](WalletsApi.md#update_wallet_bank_account_async) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/BankAccounts/{bankAccountId} | Update Wallet Bank Account
-[**update_wallet_location_async**](WalletsApi.md#update_wallet_location_async) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId} | Update Wallet Location
 [**update_wallet_token_async**](WalletsApi.md#update_wallet_token_async) | **PUT** /api/v2/WalletsService/Wallets/{walletId}/Tokens/{tokenId} | Update Wallet Token
 
+
+
+## create_location_for_wallet_async
+
+> models::EmptyEnvelope create_location_for_wallet_async(wallet_id, api_version, x_api_version, location_create_dto)
+Create Wallet Location
+
+Create a new location for a specific wallet by ID.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**wallet_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**location_create_dto** | Option<[**LocationCreateDto**](LocationCreateDto.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_wallet_bank_account_async
@@ -71,39 +104,6 @@ Name | Type | Description  | Required | Notes
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **bank_account_create_dto** | Option<[**BankAccountCreateDto**](BankAccountCreateDto.md)> |  |  |
-
-### Return type
-
-[**models::EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json, application/xml
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## create_wallet_location_async
-
-> models::EmptyEnvelope create_wallet_location_async(wallet_id, api_version, x_api_version, location_create_dto)
-Create Wallet Location
-
-Create a new location for a specific wallet by ID.
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**wallet_id** | **uuid::Uuid** |  | [required] |
-**api_version** | Option<**String**> |  |  |
-**x_api_version** | Option<**String**> |  |  |
-**location_create_dto** | Option<[**LocationCreateDto**](LocationCreateDto.md)> |  |  |
 
 ### Return type
 
@@ -220,12 +220,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## delete_wallet_bank_account_async
+## delete_location_for_wallet_async
 
-> models::EmptyEnvelope delete_wallet_bank_account_async(wallet_id, bank_account_id, api_version, x_api_version)
-Delete Wallet Bank Account
+> models::EmptyEnvelope delete_location_for_wallet_async(wallet_id, location_id, api_version, x_api_version)
+Delete Wallet Location
 
-Delete a specific bank account of a specific wallet by ID.
+Delete a specific location of a specific wallet by ID.
 
 ### Parameters
 
@@ -233,7 +233,7 @@ Delete a specific bank account of a specific wallet by ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **wallet_id** | **uuid::Uuid** |  | [required] |
-**bank_account_id** | **uuid::Uuid** |  | [required] |
+**location_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -253,12 +253,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## delete_wallet_location_async
+## delete_wallet_bank_account_async
 
-> models::EmptyEnvelope delete_wallet_location_async(wallet_id, location_id, api_version, x_api_version)
-Delete Wallet Location
+> models::EmptyEnvelope delete_wallet_bank_account_async(wallet_id, bank_account_id, api_version, x_api_version)
+Delete Wallet Bank Account
 
-Delete a specific location of a specific wallet by ID.
+Delete a specific bank account of a specific wallet by ID.
 
 ### Parameters
 
@@ -266,7 +266,7 @@ Delete a specific location of a specific wallet by ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **wallet_id** | **uuid::Uuid** |  | [required] |
-**location_id** | **uuid::Uuid** |  | [required] |
+**bank_account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -421,6 +421,103 @@ No authorization required
 Get Incoming Wallet Invoices Count
 
 Get incoming invoices count of a specific wallet by ID.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**wallet_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_location_for_wallet_async
+
+> models::LocationDtoEnvelope get_location_for_wallet_async(wallet_id, location_id, api_version, x_api_version)
+Get Wallet Location
+
+Get a specific location of a specific wallet by ID.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**wallet_id** | **uuid::Uuid** |  | [required] |
+**location_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::LocationDtoEnvelope**](LocationDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_locations_for_wallet_async
+
+> models::LocationDtoListEnvelope get_locations_for_wallet_async(wallet_id, api_version, x_api_version)
+Get Wallet Locations
+
+Get locations of a specific wallet by ID.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**wallet_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::LocationDtoListEnvelope**](LocationDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_locations_for_wallet_count_async
+
+> models::Int32Envelope get_locations_for_wallet_count_async(wallet_id, api_version, x_api_version)
+Get Wallet Locations Count
+
+Get locations count of a specific wallet by ID.
 
 ### Parameters
 
@@ -838,103 +935,6 @@ No authorization required
 Get Wallet Invoices Count
 
 Get invoices count of a specific wallet by ID.
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**wallet_id** | **uuid::Uuid** |  | [required] |
-**api_version** | Option<**String**> |  |  |
-**x_api_version** | Option<**String**> |  |  |
-
-### Return type
-
-[**models::Int32Envelope**](Int32Envelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## get_wallet_location_async
-
-> models::LocationDtoEnvelope get_wallet_location_async(wallet_id, location_id, api_version, x_api_version)
-Get Wallet Location
-
-Get a specific location of a specific wallet by ID.
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**wallet_id** | **uuid::Uuid** |  | [required] |
-**location_id** | **uuid::Uuid** |  | [required] |
-**api_version** | Option<**String**> |  |  |
-**x_api_version** | Option<**String**> |  |  |
-
-### Return type
-
-[**models::LocationDtoEnvelope**](LocationDtoEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## get_wallet_locations_async
-
-> models::LocationDtoListEnvelope get_wallet_locations_async(wallet_id, api_version, x_api_version)
-Get Wallet Locations
-
-Get locations of a specific wallet by ID.
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**wallet_id** | **uuid::Uuid** |  | [required] |
-**api_version** | Option<**String**> |  |  |
-**x_api_version** | Option<**String**> |  |  |
-
-### Return type
-
-[**models::LocationDtoListEnvelope**](LocationDtoListEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## get_wallet_locations_count_async
-
-> models::Int32Envelope get_wallet_locations_count_async(wallet_id, api_version, x_api_version)
-Get Wallet Locations Count
-
-Get locations count of a specific wallet by ID.
 
 ### Parameters
 
@@ -1510,12 +1510,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## update_wallet_bank_account_async
+## update_location_for_wallet_async
 
-> models::EmptyEnvelope update_wallet_bank_account_async(wallet_id, bank_account_id, api_version, x_api_version, bank_account_update_dto)
-Update Wallet Bank Account
+> models::EmptyEnvelope update_location_for_wallet_async(wallet_id, location_id, api_version, x_api_version, location_update_dto)
+Update Wallet Location
 
-Update a specific bank account of a specific wallet by ID.
+Update a specific location of a specific wallet by ID.
 
 ### Parameters
 
@@ -1523,10 +1523,10 @@ Update a specific bank account of a specific wallet by ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **wallet_id** | **uuid::Uuid** |  | [required] |
-**bank_account_id** | **uuid::Uuid** |  | [required] |
+**location_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**bank_account_update_dto** | Option<[**BankAccountUpdateDto**](BankAccountUpdateDto.md)> |  |  |
+**location_update_dto** | Option<[**LocationUpdateDto**](LocationUpdateDto.md)> |  |  |
 
 ### Return type
 
@@ -1544,12 +1544,12 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## update_wallet_location_async
+## update_wallet_bank_account_async
 
-> models::EmptyEnvelope update_wallet_location_async(wallet_id, location_id, api_version, x_api_version, location_update_dto)
-Update Wallet Location
+> models::EmptyEnvelope update_wallet_bank_account_async(wallet_id, bank_account_id, api_version, x_api_version, bank_account_update_dto)
+Update Wallet Bank Account
 
-Update a specific location of a specific wallet by ID.
+Update a specific bank account of a specific wallet by ID.
 
 ### Parameters
 
@@ -1557,10 +1557,10 @@ Update a specific location of a specific wallet by ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **wallet_id** | **uuid::Uuid** |  | [required] |
-**location_id** | **uuid::Uuid** |  | [required] |
+**bank_account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**location_update_dto** | Option<[**LocationUpdateDto**](LocationUpdateDto.md)> |  |  |
+**bank_account_update_dto** | Option<[**BankAccountUpdateDto**](BankAccountUpdateDto.md)> |  |  |
 
 ### Return type
 

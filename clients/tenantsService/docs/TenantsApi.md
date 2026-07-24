@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**de_select_tenant_async**](TenantsApi.md#de_select_tenant_async) | **POST** /api/v2/TenantsService/Tenants/Deselect | Deselect the user's default tenant
 [**delete_tenant_async**](TenantsApi.md#delete_tenant_async) | **DELETE** /api/v2/TenantsService/Tenants | Delete a tenant
 [**get_accessible_features_async**](TenantsApi.md#get_accessible_features_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Features | Get the list of features accessible to a specific enrollment
+[**get_cart_for_tenant_async**](TenantsApi.md#get_cart_for_tenant_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant's default cart
 [**get_current_tenant_async**](TenantsApi.md#get_current_tenant_async) | **GET** /api/v2/TenantsService/Tenants/Current | Get the user's current default tenant
 [**get_enrollment_license_by_id_async**](TenantsApi.md#get_enrollment_license_by_id_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Get a specific license for an enrollment
 [**get_enrollment_licenses_async**](TenantsApi.md#get_enrollment_licenses_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses | Get the list of licenses available to a specific enrollment
@@ -18,7 +19,6 @@ Method | HTTP request | Description
 [**get_root_tenant_async**](TenantsApi.md#get_root_tenant_async) | **GET** /api/v2/TenantsService/Tenants/Root | Get the root tenant of the platform
 [**get_tenant_async**](TenantsApi.md#get_tenant_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId} | Get a specific tenant by ID
 [**get_tenant_avatar_async**](TenantsApi.md#get_tenant_avatar_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Get a tenant's avatar
-[**get_tenant_cart_async**](TenantsApi.md#get_tenant_cart_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Cart | Get a tenant's default cart
 [**get_tenant_enrollment_async**](TenantsApi.md#get_tenant_enrollment_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId} | Get a specific tenant enrollment
 [**get_tenant_enrollments_async**](TenantsApi.md#get_tenant_enrollments_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments | Get the list of user enrollments for a tenant
 [**get_tenant_invitations_async**](TenantsApi.md#get_tenant_invitations_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Invitations | Get the list of invitations issued by a tenant
@@ -35,8 +35,8 @@ Method | HTTP request | Description
 [**patch_tenant_async**](TenantsApi.md#patch_tenant_async) | **PATCH** /api/v2/TenantsService/Tenants/{tenantId} | Patch a tenant's profile
 [**revoke_license_async**](TenantsApi.md#revoke_license_async) | **DELETE** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Licenses/{licenseId} | Revoke a license from a specific enrollment
 [**select_tenant_async**](TenantsApi.md#select_tenant_async) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Select | Select a business tenant as the user's default tenant
-[**update_avatar_async**](TenantsApi.md#update_avatar_async) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant's avatar
 [**update_tenant_async**](TenantsApi.md#update_tenant_async) | **PUT** /api/v2/TenantsService/Tenants/{tenantId} | Update a tenant's profile
+[**update_tenant_avatar_async**](TenantsApi.md#update_tenant_avatar_async) | **POST** /api/v2/TenantsService/Tenants/{tenantId}/Avatar | Update a tenant's avatar
 [**validate_enrollment_feature_access**](TenantsApi.md#validate_enrollment_feature_access) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/HasAccess | Validate the access to a specific feature for a specific enrollment
 [**validate_enrollment_permissions_async**](TenantsApi.md#validate_enrollment_permissions_async) | **GET** /api/v2/TenantsService/Tenants/{tenantId}/Enrollments/{enrollmentId}/Permissions/Validate | Validate the existence of a list of roles and permissions for a specific enrollment
 
@@ -191,6 +191,38 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::SuiteLicenseFeatureDtoListEnvelope**](SuiteLicenseFeatureDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_cart_for_tenant_async
+
+> models::CartDtoEnvelope get_cart_for_tenant_async(tenant_id, api_version, x_api_version)
+Get a tenant's default cart
+
+Get a tenant's default cart
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::CartDtoEnvelope**](CartDtoEnvelope.md)
 
 ### Authorization
 
@@ -483,38 +515,6 @@ Name | Type | Description  | Required | Notes
 ### Return type
 
 [**models::EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: Not defined
-- **Accept**: application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
-## get_tenant_cart_async
-
-> models::CartDtoEnvelope get_tenant_cart_async(tenant_id, api_version, x_api_version)
-Get a tenant's default cart
-
-Get a tenant's default cart
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | **uuid::Uuid** |  | [required] |
-**api_version** | Option<**String**> |  |  |
-**x_api_version** | Option<**String**> |  |  |
-
-### Return type
-
-[**models::CartDtoEnvelope**](CartDtoEnvelope.md)
 
 ### Authorization
 
@@ -1044,39 +1044,6 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## update_avatar_async
-
-> models::EmptyEnvelope update_avatar_async(tenant_id, api_version, x_api_version, avatar)
-Update a tenant's avatar
-
-Update a tenant's avatar
-
-### Parameters
-
-
-Name | Type | Description  | Required | Notes
-------------- | ------------- | ------------- | ------------- | -------------
-**tenant_id** | **uuid::Uuid** |  | [required] |
-**api_version** | Option<**String**> |  |  |
-**x_api_version** | Option<**String**> |  |  |
-**avatar** | Option<**std::path::PathBuf**> |  |  |
-
-### Return type
-
-[**models::EmptyEnvelope**](EmptyEnvelope.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: multipart/form-data, application/json, application/xml
-- **Accept**: image/png, application/json, application/xml
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-
 ## update_tenant_async
 
 > models::EmptyEnvelope update_tenant_async(tenant_id, api_version, x_api_version, tenant_update_dto)
@@ -1106,6 +1073,39 @@ No authorization required
 
 - **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_tenant_avatar_async
+
+> models::EmptyEnvelope update_tenant_avatar_async(tenant_id, api_version, x_api_version, avatar)
+Update a tenant's avatar
+
+Update a tenant's avatar
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**avatar** | Option<**std::path::PathBuf**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data, application/json, application/xml
+- **Accept**: image/png, application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

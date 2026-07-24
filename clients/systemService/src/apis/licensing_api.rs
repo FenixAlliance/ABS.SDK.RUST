@@ -15,6 +15,22 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
+/// struct for typed errors of method [`get_attributes_for_license_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetAttributesForLicenseAsyncError {
+    Status403(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_features_for_license_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetFeaturesForLicenseAsyncError {
+    Status403(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_license_assignments_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -23,26 +39,10 @@ pub enum GetLicenseAssignmentsAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_license_attributes_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetLicenseAttributesAsyncError {
-    Status403(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`get_license_by_id_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetLicenseByIdAsyncError {
-    Status403(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_license_features_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetLicenseFeaturesAsyncError {
     Status403(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
@@ -80,6 +80,76 @@ pub enum ValidateLicenseAsyncError {
 }
 
 
+/// Retrieves all additional attributes for a given license.
+pub async fn get_attributes_for_license_async(configuration: &configuration::Configuration, tenant_id: &str, license_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SuiteLicenseAssignmentDtoListEnvelope, Error<GetAttributesForLicenseAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes", local_var_configuration.base_path, licenseId=crate::apis::urlencode(license_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetAttributesForLicenseAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Retrieves all features for a given license.
+pub async fn get_features_for_license_async(configuration: &configuration::Configuration, tenant_id: &str, license_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SuiteLicenseAssignmentDtoListEnvelope, Error<GetFeaturesForLicenseAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Licensing/Licenses/{licenseId}/Features", local_var_configuration.base_path, licenseId=crate::apis::urlencode(license_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetFeaturesForLicenseAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Retrieves all license assignments for a given license.
 pub async fn get_license_assignments_async(configuration: &configuration::Configuration, tenant_id: &str, license_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SuiteLicenseAssignmentDtoListEnvelope, Error<GetLicenseAssignmentsAsyncError>> {
     let local_var_configuration = configuration;
@@ -115,41 +185,6 @@ pub async fn get_license_assignments_async(configuration: &configuration::Config
     }
 }
 
-/// Retrieves all additional attributes for a given license.
-pub async fn get_license_attributes_async(configuration: &configuration::Configuration, tenant_id: &str, license_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SuiteLicenseAssignmentDtoListEnvelope, Error<GetLicenseAttributesAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes", local_var_configuration.base_path, licenseId=crate::apis::urlencode(license_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetLicenseAttributesAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
 /// Retrieves a single suite license by its unique identifier.
 pub async fn get_license_by_id_async(configuration: &configuration::Configuration, tenant_id: &str, license_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SuiteLicenseDtoEnvelope, Error<GetLicenseByIdAsyncError>> {
     let local_var_configuration = configuration;
@@ -180,41 +215,6 @@ pub async fn get_license_by_id_async(configuration: &configuration::Configuratio
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetLicenseByIdAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Retrieves all features for a given license.
-pub async fn get_license_features_async(configuration: &configuration::Configuration, tenant_id: &str, license_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SuiteLicenseAssignmentDtoListEnvelope, Error<GetLicenseFeaturesAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/SystemService/Licensing/Licenses/{licenseId}/Features", local_var_configuration.base_path, licenseId=crate::apis::urlencode(license_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetLicenseFeaturesAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

@@ -13,8 +13,8 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct FiscalYearUpdateDto {
-    #[serde(rename = "name", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub name: Option<Option<String>>,
+    #[serde(rename = "name")]
+    pub name: String,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
     #[serde(rename = "closed", skip_serializing_if = "Option::is_none")]
@@ -23,19 +23,19 @@ pub struct FiscalYearUpdateDto {
     pub end_date: Option<String>,
     #[serde(rename = "startDate", skip_serializing_if = "Option::is_none")]
     pub start_date: Option<String>,
-    #[serde(rename = "fiscalAuthorityId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub fiscal_authority_id: Option<Option<String>>,
+    #[serde(rename = "fiscalAuthorityId")]
+    pub fiscal_authority_id: String,
 }
 
 impl FiscalYearUpdateDto {
-    pub fn new() -> FiscalYearUpdateDto {
+    pub fn new(name: String, fiscal_authority_id: String) -> FiscalYearUpdateDto {
         FiscalYearUpdateDto {
-            name: None,
+            name,
             description: None,
             closed: None,
             end_date: None,
             start_date: None,
-            fiscal_authority_id: None,
+            fiscal_authority_id,
         }
     }
 }

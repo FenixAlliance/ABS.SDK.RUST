@@ -19,55 +19,30 @@ pub struct BudgetAccountEntryCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "description")]
     pub description: String,
-    #[serde(rename = "date", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub date: Option<Option<String>>,
-    #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<f64>,
+    #[serde(rename = "plannedAmount", skip_serializing_if = "Option::is_none")]
+    pub planned_amount: Option<f64>,
     #[serde(rename = "currencyId")]
     pub currency_id: String,
-    #[serde(rename = "debitAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub debit_account_id: Option<Option<String>>,
-    #[serde(rename = "creditAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub credit_account_id: Option<Option<String>>,
-    #[serde(rename = "journalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub journal_entry_id: Option<Option<String>>,
-    #[serde(rename = "accountingEntryType", skip_serializing_if = "Option::is_none")]
-    pub accounting_entry_type: Option<AccountingEntryType>,
-    #[serde(rename = "budgetId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub budget_id: Option<Option<String>>,
+    #[serde(rename = "debitAccountId")]
+    pub debit_account_id: String,
+    #[serde(rename = "creditAccountId")]
+    pub credit_account_id: String,
+    #[serde(rename = "budgetId")]
+    pub budget_id: String,
 }
 
 impl BudgetAccountEntryCreateDto {
-    pub fn new(description: String, currency_id: String) -> BudgetAccountEntryCreateDto {
+    pub fn new(description: String, currency_id: String, debit_account_id: String, credit_account_id: String, budget_id: String) -> BudgetAccountEntryCreateDto {
         BudgetAccountEntryCreateDto {
             id: None,
             timestamp: None,
             description,
-            date: None,
-            amount: None,
+            planned_amount: None,
             currency_id,
-            debit_account_id: None,
-            credit_account_id: None,
-            journal_entry_id: None,
-            accounting_entry_type: None,
-            budget_id: None,
+            debit_account_id,
+            credit_account_id,
+            budget_id,
         }
-    }
-}
-/// 
-#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AccountingEntryType {
-    #[serde(rename = "None")]
-    None,
-    #[serde(rename = "Debit")]
-    Debit,
-    #[serde(rename = "Credit")]
-    Credit,
-}
-
-impl Default for AccountingEntryType {
-    fn default() -> AccountingEntryType {
-        Self::None
     }
 }
 

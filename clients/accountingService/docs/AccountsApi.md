@@ -62,7 +62,7 @@ Returns the sum of all account balances matching OData filters, normalized to th
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**currency_id** | Option<**String**> |  |  |
+**currency_id** | Option<**String**> |  |  |[default to USD.USA]
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
@@ -496,7 +496,7 @@ Get account aggregate.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**currency_id** | Option<**String**> |  |  |
+**currency_id** | Option<**String**> |  |  |[default to USD.USA]
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 **account_dto** | Option<[**Vec<models::AccountDto>**](AccountDto.md)> |  |  |

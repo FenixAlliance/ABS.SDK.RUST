@@ -4,6 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**title** | Option<**String**> |  | [optional]
+**description** | Option<**String**> |  | [optional]
 **start_date** | Option<**String**> |  | [optional]
 **due_line** | Option<**String**> |  | [optional]
 

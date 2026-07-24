@@ -4,18 +4,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**group** | Option<**bool**> |  | [optional]
-**opening** | Option<**bool**> |  | [optional]
+**fiscal_period_id** | **String** |  | 
+**transaction_currency_id** | **String** |  | 
 **description** | **String** |  | 
-**date** | **String** |  | 
-**debit** | Option<**f64**> |  | [optional]
-**credit** | Option<**f64**> |  | [optional]
-**journal_id** | **String** |  | 
-**currency_id** | **String** |  | 
-**invoice_code** | Option<**String**> |  | [optional]
-**debit_account_id** | **String** |  | 
-**credit_account_id** | **String** |  | 
-**parent_journal_entry_id** | Option<**String**> |  | [optional]
+**source_document_type** | Option<**String**> |  | [optional]
+**source_document_id** | Option<**String**> |  | [optional]
+**is_opening_balance** | Option<**bool**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

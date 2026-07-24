@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **title** | Option<**String**> |  | [optional]
 **description** | Option<**String**> |  | [optional]
+**individual_id** | Option<**String**> |  | [optional]
+**organization_id** | Option<**String**> |  | [optional]
 **project_start_date** | Option<**String**> |  | [optional]
 **project_end_date** | Option<**String**> |  | [optional]
 

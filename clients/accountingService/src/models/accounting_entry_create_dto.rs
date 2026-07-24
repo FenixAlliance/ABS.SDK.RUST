@@ -17,54 +17,46 @@ pub struct AccountingEntryCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
+    #[serde(rename = "journalEntryId")]
+    pub journal_entry_id: String,
+    #[serde(rename = "accountId")]
+    pub account_id: String,
+    #[serde(rename = "direction")]
+    pub direction: Direction,
+    #[serde(rename = "transactionAmount", skip_serializing_if = "Option::is_none")]
+    pub transaction_amount: Option<f64>,
+    #[serde(rename = "transactionCurrencyId")]
+    pub transaction_currency_id: String,
     #[serde(rename = "description")]
     pub description: String,
-    #[serde(rename = "date", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub date: Option<Option<String>>,
-    #[serde(rename = "amount", skip_serializing_if = "Option::is_none")]
-    pub amount: Option<f64>,
-    #[serde(rename = "currencyId")]
-    pub currency_id: String,
-    #[serde(rename = "debitAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub debit_account_id: Option<Option<String>>,
-    #[serde(rename = "creditAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub credit_account_id: Option<Option<String>>,
-    #[serde(rename = "journalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub journal_entry_id: Option<Option<String>>,
-    #[serde(rename = "accountingEntryType", skip_serializing_if = "Option::is_none")]
-    pub accounting_entry_type: Option<AccountingEntryType>,
 }
 
 impl AccountingEntryCreateDto {
-    pub fn new(description: String, currency_id: String) -> AccountingEntryCreateDto {
+    pub fn new(journal_entry_id: String, account_id: String, direction: Direction, transaction_currency_id: String, description: String) -> AccountingEntryCreateDto {
         AccountingEntryCreateDto {
             id: None,
             timestamp: None,
+            journal_entry_id,
+            account_id,
+            direction,
+            transaction_amount: None,
+            transaction_currency_id,
             description,
-            date: None,
-            amount: None,
-            currency_id,
-            debit_account_id: None,
-            credit_account_id: None,
-            journal_entry_id: None,
-            accounting_entry_type: None,
         }
     }
 }
 /// 
 #[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
-pub enum AccountingEntryType {
-    #[serde(rename = "None")]
-    None,
+pub enum Direction {
     #[serde(rename = "Debit")]
     Debit,
     #[serde(rename = "Credit")]
     Credit,
 }
 
-impl Default for AccountingEntryType {
-    fn default() -> AccountingEntryType {
-        Self::None
+impl Default for Direction {
+    fn default() -> Direction {
+        Self::Debit
     }
 }
 

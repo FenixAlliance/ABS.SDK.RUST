@@ -5,8 +5,8 @@ All URIs are relative to *https://absuite.net*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**count_item_shipping_policies_async**](ItemShippingPoliciesApi.md#count_item_shipping_policies_async) | **GET** /api/v2/CatalogService/ItemShippingPolicies/Count | Count item shipping policies
-[**get_item_shipping_policies_async**](ItemShippingPoliciesApi.md#get_item_shipping_policies_async) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
-[**get_item_shipping_policy_by_id_async**](ItemShippingPoliciesApi.md#get_item_shipping_policy_by_id_async) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID
+[**get_catalog_item_shipping_policies_async**](ItemShippingPoliciesApi.md#get_catalog_item_shipping_policies_async) | **GET** /api/v2/CatalogService/ItemShippingPolicies | Get item shipping policies
+[**get_catalog_item_shipping_policy_by_id_async**](ItemShippingPoliciesApi.md#get_catalog_item_shipping_policy_by_id_async) | **GET** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Get item shipping policy by ID
 [**relate_item_to_shipping_policy_async**](ItemShippingPoliciesApi.md#relate_item_to_shipping_policy_async) | **POST** /api/v2/CatalogService/ItemShippingPolicies | Relate item to shipping policy
 [**remove_shipping_policy_from_item_async**](ItemShippingPoliciesApi.md#remove_shipping_policy_from_item_async) | **DELETE** /api/v2/CatalogService/ItemShippingPolicies/{itemShippingPolicyId} | Remove shipping policy from item
 
@@ -45,9 +45,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_item_shipping_policies_async
+## get_catalog_item_shipping_policies_async
 
-> models::ItemShippingPolicyDtoListEnvelope get_item_shipping_policies_async(tenant_id, item_id, api_version, x_api_version)
+> models::ItemShippingPolicyDtoListEnvelope get_catalog_item_shipping_policies_async(tenant_id, item_id, api_version, x_api_version)
 Get item shipping policies
 
 Retrieves all shipping policies for a specific item.
@@ -78,9 +78,9 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_item_shipping_policy_by_id_async
+## get_catalog_item_shipping_policy_by_id_async
 
-> models::ItemShippingPolicyDtoEnvelope get_item_shipping_policy_by_id_async(item_shipping_policy_id, tenant_id, item_id, api_version, x_api_version)
+> models::ItemShippingPolicyDtoEnvelope get_catalog_item_shipping_policy_by_id_async(item_shipping_policy_id, tenant_id, item_id, api_version, x_api_version)
 Get item shipping policy by ID
 
 Retrieves a specific shipping policy for an item.

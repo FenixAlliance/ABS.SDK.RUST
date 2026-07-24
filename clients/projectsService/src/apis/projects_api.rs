@@ -33,10 +33,10 @@ pub enum CreateProjectPeriodAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_project_task_async`]
+/// struct for typed errors of method [`create_task_for_project_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreateProjectTaskAsyncError {
+pub enum CreateTaskForProjectAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -60,10 +60,10 @@ pub enum DeleteProjectPeriodAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_project_task_async`]
+/// struct for typed errors of method [`delete_task_for_project_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteProjectTaskAsyncError {
+pub enum DeleteTaskForProjectAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -105,33 +105,6 @@ pub enum GetProjectTaskCategoriesCountAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_project_tasks_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetProjectTasksAsyncError {
-    Status403(models::ErrorEnvelope),
-    Status401(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_project_tasks_count_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetProjectTasksCountAsyncError {
-    Status403(models::ErrorEnvelope),
-    Status401(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_project_time_logs_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetProjectTimeLogsAsyncError {
-    Status403(models::ErrorEnvelope),
-    Status401(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
 /// struct for typed errors of method [`get_project_time_logs_count_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -159,6 +132,60 @@ pub enum GetProjectsCountByTenantIdAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_tasks_for_project_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTasksForProjectAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_tasks_for_project_count_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTasksForProjectCountAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_time_logs_for_project_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTimeLogsForProjectAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_project_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchProjectAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_project_period_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchProjectPeriodAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_task_for_project_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchTaskForProjectAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`update_project_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -177,10 +204,10 @@ pub enum UpdateProjectPeriodAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_project_task_async`]
+/// struct for typed errors of method [`update_task_for_project_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateProjectTaskAsyncError {
+pub enum UpdateTaskForProjectAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -248,7 +275,7 @@ pub async fn create_project_period_async(configuration: &configuration::Configur
 }
 
 /// Creates a new task for the specified project.
-pub async fn create_project_task_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, project_task_create_dto: Option<models::ProjectTaskCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateProjectTaskAsyncError>> {
+pub async fn create_task_for_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, project_task_create_dto: Option<models::ProjectTaskCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateTaskForProjectAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -271,7 +298,7 @@ pub async fn create_project_task_async(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<CreateProjectTaskAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<CreateTaskForProjectAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -336,7 +363,7 @@ pub async fn delete_project_period_async(configuration: &configuration::Configur
 }
 
 /// Deletes the specified task from a project.
-pub async fn delete_project_task_async(configuration: &configuration::Configuration, tenant_id: &str, project_id: &str, project_task_id: &str) -> Result<models::EmptyEnvelope, Error<DeleteProjectTaskAsyncError>> {
+pub async fn delete_task_for_project_async(configuration: &configuration::Configuration, tenant_id: &str, project_id: &str, project_task_id: &str) -> Result<models::EmptyEnvelope, Error<DeleteTaskForProjectAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -358,7 +385,7 @@ pub async fn delete_project_task_async(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<DeleteProjectTaskAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<DeleteTaskForProjectAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -480,93 +507,6 @@ pub async fn get_project_task_categories_count_async(configuration: &configurati
     }
 }
 
-/// Gets all tasks for a specific project with OData support.
-pub async fn get_project_tasks_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::ProjectTaskDtoListEnvelope, Error<GetProjectTasksAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}/Tasks", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetProjectTasksAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Gets the count of tasks for a specific project.
-pub async fn get_project_tasks_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetProjectTasksCountAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetProjectTasksCountAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Gets all time log entries for a specific project with OData support.
-pub async fn get_project_time_logs_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::ProjectTimeLogDtoListEnvelope, Error<GetProjectTimeLogsAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}/TimeLogs", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetProjectTimeLogsAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
 /// Gets the count of time log entries for a specific project.
 pub async fn get_project_time_logs_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetProjectTimeLogsCountAsyncError>> {
     let local_var_configuration = configuration;
@@ -654,6 +594,183 @@ pub async fn get_projects_count_by_tenant_id_async(configuration: &configuration
     }
 }
 
+/// Gets all tasks for a specific project with OData support.
+pub async fn get_tasks_for_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::ProjectTaskDtoListEnvelope, Error<GetTasksForProjectAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}/Tasks", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetTasksForProjectAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Gets the count of tasks for a specific project.
+pub async fn get_tasks_for_project_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetTasksForProjectCountAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}/Tasks/Count", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetTasksForProjectCountAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Gets all time log entries for a specific project with OData support.
+pub async fn get_time_logs_for_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::ProjectTimeLogDtoListEnvelope, Error<GetTimeLogsForProjectAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}/TimeLogs", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetTimeLogsForProjectAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Partially updates the specified project.
+pub async fn patch_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchProjectAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.json(&operation);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PatchProjectAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Partially updates the specified period for a project.
+pub async fn patch_project_period_async(configuration: &configuration::Configuration, project_id: &str, project_period_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchProjectPeriodAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}/Periods/{projectPeriodId}", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id), projectPeriodId=crate::apis::urlencode(project_period_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.json(&operation);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PatchProjectPeriodAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Partially updates the specified task in a project.
+pub async fn patch_task_for_project_async(configuration: &configuration::Configuration, project_id: &str, project_task_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTaskForProjectAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/ProjectsService/Projects/{projectId}/Tasks/{projectTaskId}", local_var_configuration.base_path, projectId=crate::apis::urlencode(project_id), projectTaskId=crate::apis::urlencode(project_task_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    local_var_req_builder = local_var_req_builder.json(&operation);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<PatchTaskForProjectAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Updates the specified project.
 pub async fn update_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, project_update_dto: Option<models::ProjectUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateProjectAsyncError>> {
     let local_var_configuration = configuration;
@@ -715,7 +832,7 @@ pub async fn update_project_period_async(configuration: &configuration::Configur
 }
 
 /// Updates the specified task in a project.
-pub async fn update_project_task_async(configuration: &configuration::Configuration, project_id: &str, project_task_id: &str, tenant_id: &str, project_task_update_dto: Option<models::ProjectTaskUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateProjectTaskAsyncError>> {
+pub async fn update_task_for_project_async(configuration: &configuration::Configuration, project_id: &str, project_task_id: &str, tenant_id: &str, project_task_update_dto: Option<models::ProjectTaskUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateTaskForProjectAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -738,7 +855,7 @@ pub async fn update_project_task_async(configuration: &configuration::Configurat
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<UpdateProjectTaskAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<UpdateTaskForProjectAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

@@ -15,12 +15,15 @@ use serde::{Deserialize, Serialize};
 pub struct TaskCategoryUpdateDto {
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
+    #[serde(rename = "projectId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub project_id: Option<Option<String>>,
 }
 
 impl TaskCategoryUpdateDto {
     pub fn new() -> TaskCategoryUpdateDto {
         TaskCategoryUpdateDto {
             title: None,
+            project_id: None,
         }
     }
 }

@@ -19,7 +19,7 @@ pub struct TaskTypeCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
-    #[serde(rename = "taskCategoryID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "taskCategoryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub task_category_id: Option<Option<String>>,
     #[serde(rename = "displayInTimeTracker", skip_serializing_if = "Option::is_none")]
     pub display_in_time_tracker: Option<bool>,

@@ -4,7 +4,6 @@ Cargo.toml
 README.md
 docs/AccessTokenResponse.md
 docs/CurrencyId.md
-docs/DecimalEnvelope.md
 docs/EmailDispatchRequest.md
 docs/EmptyEnvelope.md
 docs/Envelope.md
@@ -67,7 +66,6 @@ src/apis/mod.rs
 src/lib.rs
 src/models/access_token_response.rs
 src/models/currency_id.rs
-src/models/decimal_envelope.rs
 src/models/email_dispatch_request.rs
 src/models/empty_envelope.rs
 src/models/envelope.rs

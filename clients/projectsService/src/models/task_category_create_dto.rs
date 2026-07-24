@@ -19,6 +19,8 @@ pub struct TaskCategoryCreateDto {
     pub timestamp: Option<String>,
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
+    #[serde(rename = "projectId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub project_id: Option<Option<String>>,
 }
 
 impl TaskCategoryCreateDto {
@@ -27,6 +29,7 @@ impl TaskCategoryCreateDto {
             id: None,
             timestamp: None,
             title: None,
+            project_id: None,
         }
     }
 }

@@ -1193,7 +1193,7 @@ No authorization required
 
 ## get_purchase_invoices_sum
 
-> models::DecimalEnvelope get_purchase_invoices_sum(tenant_id)
+> models::MoneyEnvelope get_purchase_invoices_sum(tenant_id)
 Sum tenant purchase-invoice totals.
 
 Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == PurchaseInvoice, filtered by the supplied OData date range.
@@ -1207,7 +1207,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::DecimalEnvelope**](DecimalEnvelope.md)
+[**models::MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 
@@ -1223,7 +1223,7 @@ No authorization required
 
 ## get_sales_invoices_sum
 
-> models::DecimalEnvelope get_sales_invoices_sum(tenant_id)
+> models::MoneyEnvelope get_sales_invoices_sum(tenant_id)
 Sum tenant sales-invoice totals.
 
 Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == SalesInvoice, filtered by the supplied OData date range.
@@ -1237,7 +1237,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::DecimalEnvelope**](DecimalEnvelope.md)
+[**models::MoneyEnvelope**](MoneyEnvelope.md)
 
 ### Authorization
 

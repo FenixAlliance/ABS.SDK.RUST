@@ -25,7 +25,7 @@ pub struct ProjectTaskCreateDto {
     pub start_date: Option<String>,
     #[serde(rename = "dueLine", skip_serializing_if = "Option::is_none")]
     pub due_line: Option<String>,
-    #[serde(rename = "projectID", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    #[serde(rename = "projectId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub project_id: Option<Option<String>>,
 }
 

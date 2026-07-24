@@ -15,30 +15,6 @@ use serde::{Deserialize, Serialize};
 pub struct JournalEntryDto {
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub id: Option<Option<String>>,
-    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub timestamp: Option<Option<String>>,
-    #[serde(rename = "group", skip_serializing_if = "Option::is_none")]
-    pub group: Option<bool>,
-    #[serde(rename = "opening", skip_serializing_if = "Option::is_none")]
-    pub opening: Option<bool>,
-    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub description: Option<Option<String>>,
-    #[serde(rename = "date", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub date: Option<Option<String>>,
-    #[serde(rename = "forexRatesSnapshot", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub forex_rates_snapshot: Option<Option<String>>,
-    #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
-    pub forex_rate: Option<f64>,
-    #[serde(rename = "credit", skip_serializing_if = "Option::is_none")]
-    pub credit: Option<f64>,
-    #[serde(rename = "debit", skip_serializing_if = "Option::is_none")]
-    pub debit: Option<f64>,
-    #[serde(rename = "creditInUsd", skip_serializing_if = "Option::is_none")]
-    pub credit_in_usd: Option<f64>,
-    #[serde(rename = "debitInUsd", skip_serializing_if = "Option::is_none")]
-    pub debit_in_usd: Option<f64>,
-    #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub currency_id: Option<Option<String>>,
     #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tenant_id: Option<Option<String>>,
     #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -49,60 +25,123 @@ pub struct JournalEntryDto {
     pub journal_name: Option<Option<String>>,
     #[serde(rename = "journalCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub journal_code: Option<Option<String>>,
-    #[serde(rename = "creditAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub credit_account_id: Option<Option<String>>,
-    #[serde(rename = "creditAccountName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub credit_account_name: Option<Option<String>>,
-    #[serde(rename = "debitAccountId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub debit_account_id: Option<Option<String>>,
-    #[serde(rename = "debitAccountName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub debit_account_name: Option<Option<String>>,
-    #[serde(rename = "invoiceCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub invoice_code: Option<Option<String>>,
-    #[serde(rename = "parentJournalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub parent_journal_entry_id: Option<Option<String>>,
-    #[serde(rename = "creditAmount", skip_serializing_if = "Option::is_none")]
-    pub credit_amount: Option<Box<models::Money>>,
-    #[serde(rename = "debitAmount", skip_serializing_if = "Option::is_none")]
-    pub debit_amount: Option<Box<models::Money>>,
-    #[serde(rename = "creditAmountInUsd", skip_serializing_if = "Option::is_none")]
-    pub credit_amount_in_usd: Option<Box<models::Money>>,
-    #[serde(rename = "debitAmountInUsd", skip_serializing_if = "Option::is_none")]
-    pub debit_amount_in_usd: Option<Box<models::Money>>,
+    #[serde(rename = "fiscalPeriodId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub fiscal_period_id: Option<Option<String>>,
+    #[serde(rename = "financialBookId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub financial_book_id: Option<Option<String>>,
+    #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub description: Option<Option<String>>,
+    #[serde(rename = "entryType", skip_serializing_if = "Option::is_none")]
+    pub entry_type: Option<EntryType>,
+    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+    pub status: Option<Status>,
+    #[serde(rename = "postingDate", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub posting_date: Option<Option<String>>,
+    #[serde(rename = "isOpeningBalance", skip_serializing_if = "Option::is_none")]
+    pub is_opening_balance: Option<bool>,
+    #[serde(rename = "transactionCurrencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub transaction_currency_id: Option<Option<String>>,
+    #[serde(rename = "sourceDocumentType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub source_document_type: Option<Option<String>>,
+    #[serde(rename = "sourceDocumentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub source_document_id: Option<Option<String>>,
+    #[serde(rename = "idempotencyKey", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub idempotency_key: Option<Option<String>>,
+    #[serde(rename = "reversalOfJournalEntryId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub reversal_of_journal_entry_id: Option<Option<String>>,
+    #[serde(rename = "postedBy", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub posted_by: Option<Option<String>>,
+    #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
+    pub forex_rate: Option<f64>,
+    #[serde(rename = "forexRatesSnapshot", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub forex_rates_snapshot: Option<Option<String>>,
+    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<Option<String>>,
+    #[serde(rename = "debitInUsd", skip_serializing_if = "Option::is_none")]
+    pub debit_in_usd: Option<f64>,
+    #[serde(rename = "creditInUsd", skip_serializing_if = "Option::is_none")]
+    pub credit_in_usd: Option<f64>,
+    #[serde(rename = "accountingEntries", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub accounting_entries: Option<Option<Vec<models::AccountingEntryDto>>>,
+    #[serde(rename = "totalDebit", skip_serializing_if = "Option::is_none")]
+    pub total_debit: Option<f64>,
+    #[serde(rename = "totalCredit", skip_serializing_if = "Option::is_none")]
+    pub total_credit: Option<f64>,
+    #[serde(rename = "totalDebitAmount", skip_serializing_if = "Option::is_none")]
+    pub total_debit_amount: Option<Box<models::Money>>,
+    #[serde(rename = "totalCreditAmount", skip_serializing_if = "Option::is_none")]
+    pub total_credit_amount: Option<Box<models::Money>>,
 }
 
 impl JournalEntryDto {
     pub fn new() -> JournalEntryDto {
         JournalEntryDto {
             id: None,
-            timestamp: None,
-            group: None,
-            opening: None,
-            description: None,
-            date: None,
-            forex_rates_snapshot: None,
-            forex_rate: None,
-            credit: None,
-            debit: None,
-            credit_in_usd: None,
-            debit_in_usd: None,
-            currency_id: None,
             tenant_id: None,
             enrollment_id: None,
             journal_id: None,
             journal_name: None,
             journal_code: None,
-            credit_account_id: None,
-            credit_account_name: None,
-            debit_account_id: None,
-            debit_account_name: None,
-            invoice_code: None,
-            parent_journal_entry_id: None,
-            credit_amount: None,
-            debit_amount: None,
-            credit_amount_in_usd: None,
-            debit_amount_in_usd: None,
+            fiscal_period_id: None,
+            financial_book_id: None,
+            description: None,
+            entry_type: None,
+            status: None,
+            posting_date: None,
+            is_opening_balance: None,
+            transaction_currency_id: None,
+            source_document_type: None,
+            source_document_id: None,
+            idempotency_key: None,
+            reversal_of_journal_entry_id: None,
+            posted_by: None,
+            forex_rate: None,
+            forex_rates_snapshot: None,
+            timestamp: None,
+            debit_in_usd: None,
+            credit_in_usd: None,
+            accounting_entries: None,
+            total_debit: None,
+            total_credit: None,
+            total_debit_amount: None,
+            total_credit_amount: None,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum EntryType {
+    #[serde(rename = "Simple")]
+    Simple,
+    #[serde(rename = "Compound")]
+    Compound,
+    #[serde(rename = "Adjusting")]
+    Adjusting,
+    #[serde(rename = "Reversing")]
+    Reversing,
+}
+
+impl Default for EntryType {
+    fn default() -> EntryType {
+        Self::Simple
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Status {
+    #[serde(rename = "Draft")]
+    Draft,
+    #[serde(rename = "Posted")]
+    Posted,
+    #[serde(rename = "Reversed")]
+    Reversed,
+    #[serde(rename = "Voided")]
+    Voided,
+}
+
+impl Default for Status {
+    fn default() -> Status {
+        Self::Draft
     }
 }
 

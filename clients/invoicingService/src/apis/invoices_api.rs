@@ -1456,7 +1456,7 @@ pub async fn get_invoices_count(configuration: &configuration::Configuration, te
 }
 
 /// Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == PurchaseInvoice, filtered by the supplied OData date range.
-pub async fn get_purchase_invoices_sum(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::DecimalEnvelope, Error<GetPurchaseInvoicesSumError>> {
+pub async fn get_purchase_invoices_sum(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::MoneyEnvelope, Error<GetPurchaseInvoicesSumError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1485,7 +1485,7 @@ pub async fn get_purchase_invoices_sum(configuration: &configuration::Configurat
 }
 
 /// Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == SalesInvoice, filtered by the supplied OData date range.
-pub async fn get_sales_invoices_sum(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::DecimalEnvelope, Error<GetSalesInvoicesSumError>> {
+pub async fn get_sales_invoices_sum(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::MoneyEnvelope, Error<GetSalesInvoicesSumError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;

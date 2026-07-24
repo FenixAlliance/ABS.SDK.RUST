@@ -15,19 +15,19 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
-/// struct for typed errors of method [`create_wallet_bank_account_async`]
+/// struct for typed errors of method [`create_location_for_wallet_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreateWalletBankAccountAsyncError {
+pub enum CreateLocationForWalletAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`create_wallet_location_async`]
+/// struct for typed errors of method [`create_wallet_bank_account_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum CreateWalletLocationAsyncError {
+pub enum CreateWalletBankAccountAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -60,19 +60,19 @@ pub enum CreateWalletWithdrawRequestAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_wallet_bank_account_async`]
+/// struct for typed errors of method [`delete_location_for_wallet_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteWalletBankAccountAsyncError {
+pub enum DeleteLocationForWalletAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`delete_wallet_location_async`]
+/// struct for typed errors of method [`delete_wallet_bank_account_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum DeleteWalletLocationAsyncError {
+pub enum DeleteWalletBankAccountAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -118,6 +118,33 @@ pub enum GetIncomingWalletInvoicesAsyncError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetIncomingWalletInvoicesCountAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_location_for_wallet_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetLocationForWalletAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_locations_for_wallet_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetLocationsForWalletAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_locations_for_wallet_count_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetLocationsForWalletCountAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -235,33 +262,6 @@ pub enum GetWalletInvoicesAsyncError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum GetWalletInvoicesCountAsyncError {
-    Status403(models::ErrorEnvelope),
-    Status401(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_wallet_location_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetWalletLocationAsyncError {
-    Status403(models::ErrorEnvelope),
-    Status401(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_wallet_locations_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetWalletLocationsAsyncError {
-    Status403(models::ErrorEnvelope),
-    Status401(models::ErrorEnvelope),
-    UnknownValue(serde_json::Value),
-}
-
-/// struct for typed errors of method [`get_wallet_locations_count_async`]
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(untagged)]
-pub enum GetWalletLocationsCountAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -420,19 +420,19 @@ pub enum PatchWalletTokenAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_wallet_bank_account_async`]
+/// struct for typed errors of method [`update_location_for_wallet_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateWalletBankAccountAsyncError {
+pub enum UpdateLocationForWalletAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`update_wallet_location_async`]
+/// struct for typed errors of method [`update_wallet_bank_account_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum UpdateWalletLocationAsyncError {
+pub enum UpdateWalletBankAccountAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -447,6 +447,41 @@ pub enum UpdateWalletTokenAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+
+/// Create a new location for a specific wallet by ID.
+pub async fn create_location_for_wallet_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, location_create_dto: Option<models::LocationCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateLocationForWalletAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&location_create_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateLocationForWalletAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
 
 /// Create a new bank account for a specific wallet by ID.
 pub async fn create_wallet_bank_account_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_account_create_dto: Option<models::BankAccountCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateWalletBankAccountAsyncError>> {
@@ -478,41 +513,6 @@ pub async fn create_wallet_bank_account_async(configuration: &configuration::Con
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<CreateWalletBankAccountAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Create a new location for a specific wallet by ID.
-pub async fn create_wallet_location_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, location_create_dto: Option<models::LocationCreateDto>) -> Result<models::EmptyEnvelope, Error<CreateWalletLocationAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-    local_var_req_builder = local_var_req_builder.json(&location_create_dto);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<CreateWalletLocationAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -623,6 +623,40 @@ pub async fn create_wallet_withdraw_request_async(configuration: &configuration:
     }
 }
 
+/// Delete a specific location of a specific wallet by ID.
+pub async fn delete_location_for_wallet_async(configuration: &configuration::Configuration, wallet_id: &str, location_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteLocationForWalletAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id), locationId=crate::apis::urlencode(location_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteLocationForWalletAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Delete a specific bank account of a specific wallet by ID.
 pub async fn delete_wallet_bank_account_async(configuration: &configuration::Configuration, wallet_id: &str, bank_account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteWalletBankAccountAsyncError>> {
     let local_var_configuration = configuration;
@@ -652,40 +686,6 @@ pub async fn delete_wallet_bank_account_async(configuration: &configuration::Con
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<DeleteWalletBankAccountAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Delete a specific location of a specific wallet by ID.
-pub async fn delete_wallet_location_async(configuration: &configuration::Configuration, wallet_id: &str, location_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteWalletLocationAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id), locationId=crate::apis::urlencode(location_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<DeleteWalletLocationAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -856,6 +856,108 @@ pub async fn get_incoming_wallet_invoices_count_async(configuration: &configurat
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetIncomingWalletInvoicesCountAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get a specific location of a specific wallet by ID.
+pub async fn get_location_for_wallet_async(configuration: &configuration::Configuration, wallet_id: &str, location_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LocationDtoEnvelope, Error<GetLocationForWalletAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id), locationId=crate::apis::urlencode(location_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetLocationForWalletAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get locations of a specific wallet by ID.
+pub async fn get_locations_for_wallet_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LocationDtoListEnvelope, Error<GetLocationsForWalletAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetLocationsForWalletAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get locations count of a specific wallet by ID.
+pub async fn get_locations_for_wallet_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetLocationsForWalletCountAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations/Count", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetLocationsForWalletCountAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -1298,108 +1400,6 @@ pub async fn get_wallet_invoices_count_async(configuration: &configuration::Conf
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetWalletInvoicesCountAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Get a specific location of a specific wallet by ID.
-pub async fn get_wallet_location_async(configuration: &configuration::Configuration, wallet_id: &str, location_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LocationDtoEnvelope, Error<GetWalletLocationAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id), locationId=crate::apis::urlencode(location_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetWalletLocationAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Get locations of a specific wallet by ID.
-pub async fn get_wallet_locations_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LocationDtoListEnvelope, Error<GetWalletLocationsAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetWalletLocationsAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Get locations count of a specific wallet by ID.
-pub async fn get_wallet_locations_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletLocationsCountAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations/Count", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<GetWalletLocationsCountAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -1985,6 +1985,41 @@ pub async fn patch_wallet_token_async(configuration: &configuration::Configurati
     }
 }
 
+/// Update a specific location of a specific wallet by ID.
+pub async fn update_location_for_wallet_async(configuration: &configuration::Configuration, wallet_id: &str, location_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, location_update_dto: Option<models::LocationUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateLocationForWalletAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id), locationId=crate::apis::urlencode(location_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&location_update_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateLocationForWalletAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Update a specific bank account of a specific wallet by ID.
 pub async fn update_wallet_bank_account_async(configuration: &configuration::Configuration, wallet_id: &str, bank_account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_account_update_dto: Option<models::BankAccountUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateWalletBankAccountAsyncError>> {
     let local_var_configuration = configuration;
@@ -2015,41 +2050,6 @@ pub async fn update_wallet_bank_account_async(configuration: &configuration::Con
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<UpdateWalletBankAccountAsyncError> = serde_json::from_str(&local_var_content).ok();
-        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
-        Err(Error::ResponseError(local_var_error))
-    }
-}
-
-/// Update a specific location of a specific wallet by ID.
-pub async fn update_wallet_location_async(configuration: &configuration::Configuration, wallet_id: &str, location_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, location_update_dto: Option<models::LocationUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateWalletLocationAsyncError>> {
-    let local_var_configuration = configuration;
-
-    let local_var_client = &local_var_configuration.client;
-
-    let local_var_uri_str = format!("{}/api/v2/WalletsService/Wallets/{walletId}/Locations/{locationId}", local_var_configuration.base_path, walletId=crate::apis::urlencode(wallet_id), locationId=crate::apis::urlencode(location_id));
-    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
-
-    if let Some(ref local_var_str) = api_version {
-        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
-    }
-    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
-        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
-    }
-    if let Some(local_var_param_value) = x_api_version {
-        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
-    }
-    local_var_req_builder = local_var_req_builder.json(&location_update_dto);
-
-    let local_var_req = local_var_req_builder.build()?;
-    let local_var_resp = local_var_client.execute(local_var_req).await?;
-
-    let local_var_status = local_var_resp.status();
-    let local_var_content = local_var_resp.text().await?;
-
-    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
-        serde_json::from_str(&local_var_content).map_err(Error::from)
-    } else {
-        let local_var_entity: Option<UpdateWalletLocationAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

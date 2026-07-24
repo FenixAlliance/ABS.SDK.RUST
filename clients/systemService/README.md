@@ -51,6 +51,7 @@ Class | Method | HTTP request | Description
 *FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
+*FenixAllianceAbsWebApi* | [**api_v2_ai_service_agents_agent_id_agui_post**](docs/FenixAllianceAbsWebApi.md#api_v2_ai_service_agents_agent_id_agui_post) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
 *FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
 *FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
@@ -68,10 +69,10 @@ Class | Method | HTTP request | Description
 *IpLookupsApi* | [**get_system_ip_lookup_by_id**](docs/IpLookupsApi.md#get_system_ip_lookup_by_id) | **GET** /api/v2/SystemService/IPLookups/{ipLookupId} | Retrieve a single system IP lookup by its ID
 *IpLookupsApi* | [**get_system_ip_lookups**](docs/IpLookupsApi.md#get_system_ip_lookups) | **GET** /api/v2/SystemService/IPLookups | Retrieve a list of system IP lookups
 *IpLookupsApi* | [**get_system_ip_lookups_count**](docs/IpLookupsApi.md#get_system_ip_lookups_count) | **GET** /api/v2/SystemService/IPLookups/Count | Get the count of system IP lookups
+*LicensingApi* | [**get_attributes_for_license_async**](docs/LicensingApi.md#get_attributes_for_license_async) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | Retrieve license attributes
+*LicensingApi* | [**get_features_for_license_async**](docs/LicensingApi.md#get_features_for_license_async) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | Retrieve license features
 *LicensingApi* | [**get_license_assignments_async**](docs/LicensingApi.md#get_license_assignments_async) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Assignments | Retrieve license assignments
-*LicensingApi* | [**get_license_attributes_async**](docs/LicensingApi.md#get_license_attributes_async) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Attributes | Retrieve license attributes
 *LicensingApi* | [**get_license_by_id_async**](docs/LicensingApi.md#get_license_by_id_async) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId} | Retrieve a license by ID
-*LicensingApi* | [**get_license_features_async**](docs/LicensingApi.md#get_license_features_async) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Features | Retrieve license features
 *LicensingApi* | [**get_license_records_quota_async**](docs/LicensingApi.md#get_license_records_quota_async) | **GET** /api/v2/SystemService/Licensing/Licenses/{licenseId}/Quota | Retrieve license record quota
 *LicensingApi* | [**get_licenses_async**](docs/LicensingApi.md#get_licenses_async) | **GET** /api/v2/SystemService/Licensing/Licenses | Retrieve a list of licenses
 *LicensingApi* | [**redeem_license_async**](docs/LicensingApi.md#redeem_license_async) | **POST** /api/v2/SystemService/Licensing/Licenses/Redeem | Redeem a license
@@ -157,10 +158,10 @@ Class | Method | HTTP request | Description
  - [ExtendedUserDtoListEnvelope](docs/ExtendedUserDtoListEnvelope.md)
  - [ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
- - [ISwaggerContact](docs/ISwaggerContact.md)
- - [ISwaggerEndpoint](docs/ISwaggerEndpoint.md)
- - [ISwaggerLicense](docs/ISwaggerLicense.md)
- - [ISwaggerSpec](docs/ISwaggerSpec.md)
+ - [IOpenApiContact](docs/IOpenApiContact.md)
+ - [IOpenApiDefinitionSpec](docs/IOpenApiDefinitionSpec.md)
+ - [IOpenApiEndpoint](docs/IOpenApiEndpoint.md)
+ - [IOpenApiLicense](docs/IOpenApiLicense.md)
  - [IValidationFailure](docs/IValidationFailure.md)
  - [IValidationFailureListEnvelope](docs/IValidationFailureListEnvelope.md)
  - [InfoRequest](docs/InfoRequest.md)
@@ -171,8 +172,6 @@ Class | Method | HTTP request | Description
  - [IpLookupDtoListEnvelope](docs/IpLookupDtoListEnvelope.md)
  - [LicenseValidationRequest](docs/LicenseValidationRequest.md)
  - [LoginRequest](docs/LoginRequest.md)
- - [Module](docs/Module.md)
- - [ModuleListEnvelope](docs/ModuleListEnvelope.md)
  - [ObjectEmailDispatchRequest](docs/ObjectEmailDispatchRequest.md)
  - [Operation](docs/Operation.md)
  - [OptionCreateDto](docs/OptionCreateDto.md)
@@ -193,6 +192,8 @@ Class | Method | HTTP request | Description
  - [SuiteLicenseDto](docs/SuiteLicenseDto.md)
  - [SuiteLicenseDtoEnvelope](docs/SuiteLicenseDtoEnvelope.md)
  - [SuiteLicenseDtoListEnvelope](docs/SuiteLicenseDtoListEnvelope.md)
+ - [SuiteModule](docs/SuiteModule.md)
+ - [SuiteModuleListEnvelope](docs/SuiteModuleListEnvelope.md)
  - [SystemOverviewDto](docs/SystemOverviewDto.md)
  - [SystemOverviewDtoEnvelope](docs/SystemOverviewDtoEnvelope.md)
  - [TenantCreateDto](docs/TenantCreateDto.md)

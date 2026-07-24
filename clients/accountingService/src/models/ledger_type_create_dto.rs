@@ -40,14 +40,10 @@ pub enum LedgerClass {
     Assets,
     #[serde(rename = "Equity")]
     Equity,
-    #[serde(rename = "Gains")]
-    Gains,
-    #[serde(rename = "Losses")]
-    Losses,
     #[serde(rename = "Revenue")]
     Revenue,
-    #[serde(rename = "Expenses")]
-    Expenses,
+    #[serde(rename = "Expense")]
+    Expense,
     #[serde(rename = "Liabilities")]
     Liabilities,
 }

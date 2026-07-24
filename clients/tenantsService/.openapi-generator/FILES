@@ -4,6 +4,11 @@ Cargo.toml
 README.md
 docs/AccessTokenResponse.md
 docs/BooleanEnvelope.md
+docs/BusinessRelationshipCreateDto.md
+docs/BusinessRelationshipDto.md
+docs/BusinessRelationshipDtoEnvelope.md
+docs/BusinessRelationshipDtoListEnvelope.md
+docs/BusinessRelationshipUpdateDto.md
 docs/BusinessRelationshipsApi.md
 docs/CartDto.md
 docs/CartDtoEnvelope.md
@@ -149,7 +154,7 @@ docs/UnitGroupUpdateDto.md
 docs/UnitGroupsApi.md
 docs/UnitUpdateDto.md
 docs/UnitsApi.md
-docs/UpdateAvatarAsyncRequest.md
+docs/UpdateTenantAvatarAsyncRequest.md
 docs/UserDto.md
 docs/UserDtoListEnvelope.md
 docs/WalletDto.md
@@ -182,6 +187,11 @@ src/apis/units_api.rs
 src/lib.rs
 src/models/access_token_response.rs
 src/models/boolean_envelope.rs
+src/models/business_relationship_create_dto.rs
+src/models/business_relationship_dto.rs
+src/models/business_relationship_dto_envelope.rs
+src/models/business_relationship_dto_list_envelope.rs
+src/models/business_relationship_update_dto.rs
 src/models/cart_dto.rs
 src/models/cart_dto_envelope.rs
 src/models/empty_envelope.rs
@@ -308,7 +318,7 @@ src/models/unit_group_dto_envelope.rs
 src/models/unit_group_dto_list_envelope.rs
 src/models/unit_group_update_dto.rs
 src/models/unit_update_dto.rs
-src/models/update_avatar_async_request.rs
+src/models/update_tenant_avatar_async_request.rs
 src/models/user_dto.rs
 src/models/user_dto_list_envelope.rs
 src/models/wallet_dto.rs

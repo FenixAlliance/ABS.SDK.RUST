@@ -24,12 +24,48 @@ pub enum CreateContactAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`create_contact_email_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateContactEmailAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`create_profile_for_contact_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateProfileForContactAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`delete_contact_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteContactAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_contact_email_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteContactEmailAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status404(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`delete_profile_for_contact_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteProfileForContactAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status404(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
@@ -117,13 +153,20 @@ pub enum GetContactCartAsyncError {
     UnknownValue(serde_json::Value),
 }
 
-/// struct for typed errors of method [`get_contact_profiles_async`]
+/// struct for typed errors of method [`get_contact_emails_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum GetContactProfilesAsyncError {
-    Status404(models::ErrorEnvelope),
+pub enum GetContactEmailsAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_contact_emails_count_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetContactEmailsCountAsyncError {
+    Status403(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
@@ -237,12 +280,39 @@ pub enum GetOrganizationRelatedOrganizationsAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_profiles_for_contact_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetProfilesForContactAsyncError {
+    Status404(models::ErrorEnvelope),
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_profiles_for_contact_count_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetProfilesForContactCountAsyncError {
+    Status403(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`patch_contact_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchContactAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`patch_contact_email_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PatchContactEmailAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status404(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
@@ -278,6 +348,24 @@ pub enum UpdateContactAvatarAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`update_contact_email_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateContactEmailAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status404(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_profile_for_contact_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateProfileForContactAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status404(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`upsert_tenant_onto_another_tenant_contact_list_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -293,6 +381,16 @@ pub enum UpsertTenantOntoAnotherTenantContactListAsyncError {
 pub enum UpsertUserOntoAnotherTenantContactListAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`verify_contact_email_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum VerifyContactEmailAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status404(models::ErrorEnvelope),
+    Status409(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
 }
 
@@ -335,6 +433,78 @@ pub async fn create_contact_async(configuration: &configuration::Configuration, 
     }
 }
 
+/// Creates a new email address for the specified contact.
+pub async fn create_contact_email_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_email_create_dto: Option<models::ContactEmailCreateDto>) -> Result<(), Error<CreateContactEmailAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Emails/Addresses", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&contact_email_create_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<CreateContactEmailAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Creates a new profile for the specified contact.
+pub async fn create_profile_for_contact_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_profile_create_dto: Option<models::ContactProfileCreateDto>) -> Result<(), Error<CreateProfileForContactAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Profiles", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&contact_profile_create_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<CreateProfileForContactAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Delete a contact
 pub async fn delete_contact_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteContactAsyncError>> {
     let local_var_configuration = configuration;
@@ -365,6 +535,76 @@ pub async fn delete_contact_async(configuration: &configuration::Configuration, 
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<DeleteContactAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Deletes an email address from the specified contact.
+pub async fn delete_contact_email_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, email_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<(), Error<DeleteContactEmailAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id), emailId=crate::apis::urlencode(email_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<DeleteContactEmailAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Deletes a profile for the specified contact.
+pub async fn delete_profile_for_contact_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<(), Error<DeleteProfileForContactAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id), profileId=crate::apis::urlencode(profile_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<DeleteProfileForContactAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -685,13 +925,13 @@ pub async fn get_contact_cart_async(configuration: &configuration::Configuration
     }
 }
 
-/// Get a contact's social profiles
-pub async fn get_contact_profiles_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactProfileDtoListEnvelope, Error<GetContactProfilesAsyncError>> {
+/// Get all email addresses for the specified contact.
+pub async fn get_contact_emails_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactEmailDtoListEnvelope, Error<GetContactEmailsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Profiles", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id));
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Emails", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
@@ -714,7 +954,42 @@ pub async fn get_contact_profiles_async(configuration: &configuration::Configura
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetContactProfilesAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetContactEmailsAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Returns the count of email addresses for the specified contact.
+pub async fn get_contact_emails_count_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetContactEmailsCountAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Emails/Count", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetContactEmailsCountAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -1140,6 +1415,76 @@ pub async fn get_organization_related_organizations_async(configuration: &config
     }
 }
 
+/// Get a contact's social profiles
+pub async fn get_profiles_for_contact_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactProfileDtoListEnvelope, Error<GetProfilesForContactAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Profiles", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetProfilesForContactAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Returns the count of profiles for the specified contact.
+pub async fn get_profiles_for_contact_count_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetProfilesForContactCountAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Profiles/Count", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetProfilesForContactCountAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Patch a contact
 pub async fn patch_contact_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchContactAsyncError>> {
     let local_var_configuration = configuration;
@@ -1171,6 +1516,42 @@ pub async fn patch_contact_async(configuration: &configuration::Configuration, t
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<PatchContactAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Partially updates an existing email address for the specified contact.
+pub async fn patch_contact_email_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, email_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<(), Error<PatchContactEmailAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id), emailId=crate::apis::urlencode(email_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PATCH, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&operation);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<PatchContactEmailAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -1322,6 +1703,78 @@ pub async fn update_contact_avatar_async(configuration: &configuration::Configur
     }
 }
 
+/// Updates an existing email address for the specified contact.
+pub async fn update_contact_email_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, email_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_email_update_dto: Option<models::ContactEmailUpdateDto>) -> Result<(), Error<UpdateContactEmailAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id), emailId=crate::apis::urlencode(email_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&contact_email_update_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<UpdateContactEmailAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Updates an existing profile for the specified contact.
+pub async fn update_profile_for_contact_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_profile_update_dto: Option<models::ContactProfileUpdateDto>) -> Result<(), Error<UpdateProfileForContactAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Profiles/{profileId}", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id), profileId=crate::apis::urlencode(profile_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&contact_profile_update_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<UpdateProfileForContactAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Upsert a tenant onto another tenant's contact list
 pub async fn upsert_tenant_onto_another_tenant_contact_list_async(configuration: &configuration::Configuration, tenant_id: &str, related_tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactDtoEnvelope, Error<UpsertTenantOntoAnotherTenantContactListAsyncError>> {
     let local_var_configuration = configuration;
@@ -1389,6 +1842,41 @@ pub async fn upsert_user_onto_another_tenant_contact_list_async(configuration: &
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<UpsertUserOntoAnotherTenantContactListAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Marks an email address as verified on the specified contact.
+pub async fn verify_contact_email_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, email_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<(), Error<VerifyContactEmailAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/CrmService/Contacts/{contactId}/Emails/{emailId}/Verify", local_var_configuration.base_path, contactId=crate::apis::urlencode(contact_id), emailId=crate::apis::urlencode(email_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        Ok(())
+    } else {
+        let local_var_entity: Option<VerifyContactEmailAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
