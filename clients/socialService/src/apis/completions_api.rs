@@ -30,7 +30,7 @@ pub async fn api_v2_ai_service_completions_complete_get(configuration: &configur
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/v2/AiService/Completions/Complete", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/api/v2/IntelligenceService/Completions/Complete", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
