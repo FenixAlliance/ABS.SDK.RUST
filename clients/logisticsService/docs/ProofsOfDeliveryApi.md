@@ -330,7 +330,7 @@ No authorization required
 
 ## get_proof_of_delivery_lines_async
 
-> models::ProofOfDeliveryLineDtoListEnvelope get_proof_of_delivery_lines_async(tenant_id, pod_id, api_version, x_api_version)
+> models::ProofOfDeliveryLineDtoListEnvelope get_proof_of_delivery_lines_async(tenant_id, pod_id, api_version, x_api_version, proof_of_delivery_line_dto_collection_query_parameters)
 Get proof of delivery lines
 
 Retrieves all lines for a specific proof of delivery.
@@ -344,6 +344,7 @@ Name | Type | Description  | Required | Notes
 **pod_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**proof_of_delivery_line_dto_collection_query_parameters** | Option<[**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -355,7 +356,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -363,7 +364,7 @@ No authorization required
 
 ## get_proof_of_delivery_lines_count_async
 
-> models::Int32Envelope get_proof_of_delivery_lines_count_async(tenant_id, pod_id, api_version, x_api_version)
+> models::Int32Envelope get_proof_of_delivery_lines_count_async(tenant_id, pod_id, api_version, x_api_version, proof_of_delivery_line_dto_collection_query_parameters)
 Get proof of delivery lines count
 
 Returns the count of lines for a specific proof of delivery.
@@ -377,6 +378,7 @@ Name | Type | Description  | Required | Notes
 **pod_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**proof_of_delivery_line_dto_collection_query_parameters** | Option<[**ProofOfDeliveryLineDtoCollectionQueryParameters**](ProofOfDeliveryLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -388,7 +390,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -396,7 +398,7 @@ No authorization required
 
 ## get_proofs_of_delivery_async
 
-> models::ProofOfDeliveryDtoListEnvelope get_proofs_of_delivery_async(tenant_id, api_version, x_api_version)
+> models::ProofOfDeliveryDtoListEnvelope get_proofs_of_delivery_async(tenant_id, api_version, x_api_version, proof_of_delivery_dto_collection_query_parameters)
 Get all proofs of delivery
 
 Retrieves all proofs of delivery for the specified tenant.
@@ -409,6 +411,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**proof_of_delivery_dto_collection_query_parameters** | Option<[**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -420,7 +423,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -428,7 +431,7 @@ No authorization required
 
 ## get_proofs_of_delivery_count_async
 
-> models::Int32Envelope get_proofs_of_delivery_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_proofs_of_delivery_count_async(tenant_id, api_version, x_api_version, proof_of_delivery_dto_collection_query_parameters)
 Get proofs of delivery count
 
 Returns the count of proofs of delivery for the specified tenant.
@@ -441,6 +444,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**proof_of_delivery_dto_collection_query_parameters** | Option<[**ProofOfDeliveryDtoCollectionQueryParameters**](ProofOfDeliveryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -452,7 +456,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -460,7 +464,7 @@ No authorization required
 
 ## patch_proof_of_delivery_async
 
-> models::EmptyEnvelope patch_proof_of_delivery_async(tenant_id, pod_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_proof_of_delivery_async(tenant_id, pod_id, api_version, x_api_version, patch_operation)
 Patch a proof of delivery
 
 Partially updates an existing proof of delivery using JSON Patch.
@@ -474,7 +478,7 @@ Name | Type | Description  | Required | Notes
 **pod_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -494,7 +498,7 @@ No authorization required
 
 ## patch_proof_of_delivery_line_async
 
-> models::EmptyEnvelope patch_proof_of_delivery_line_async(tenant_id, pod_id, line_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_proof_of_delivery_line_async(tenant_id, pod_id, line_id, api_version, x_api_version, patch_operation)
 Patch a proof of delivery line
 
 Partially updates an existing proof of delivery line using JSON Patch.
@@ -509,7 +513,7 @@ Name | Type | Description  | Required | Notes
 **line_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

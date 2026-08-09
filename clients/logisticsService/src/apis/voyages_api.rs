@@ -397,7 +397,7 @@ pub async fn get_voyage_by_id_async(configuration: &configuration::Configuration
 }
 
 /// Retrieves all port calls for a specific voyage.
-pub async fn get_voyage_port_calls_async(configuration: &configuration::Configuration, tenant_id: &str, voyage_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::VoyagePortCallDtoListEnvelope, Error<GetVoyagePortCallsAsyncError>> {
+pub async fn get_voyage_port_calls_async(configuration: &configuration::Configuration, tenant_id: &str, voyage_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, voyage_port_call_dto_collection_query_parameters: Option<models::VoyagePortCallDtoCollectionQueryParameters>) -> Result<models::VoyagePortCallDtoListEnvelope, Error<GetVoyagePortCallsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -415,6 +415,7 @@ pub async fn get_voyage_port_calls_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&voyage_port_call_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -432,7 +433,7 @@ pub async fn get_voyage_port_calls_async(configuration: &configuration::Configur
 }
 
 /// Returns the count of port calls for a specific voyage.
-pub async fn get_voyage_port_calls_count_async(configuration: &configuration::Configuration, tenant_id: &str, voyage_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetVoyagePortCallsCountAsyncError>> {
+pub async fn get_voyage_port_calls_count_async(configuration: &configuration::Configuration, tenant_id: &str, voyage_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, voyage_port_call_dto_collection_query_parameters: Option<models::VoyagePortCallDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetVoyagePortCallsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -450,6 +451,7 @@ pub async fn get_voyage_port_calls_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&voyage_port_call_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -467,7 +469,7 @@ pub async fn get_voyage_port_calls_count_async(configuration: &configuration::Co
 }
 
 /// Retrieves all voyages for the specified tenant.
-pub async fn get_voyages_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::VoyageDtoListEnvelope, Error<GetVoyagesAsyncError>> {
+pub async fn get_voyages_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, voyage_dto_collection_query_parameters: Option<models::VoyageDtoCollectionQueryParameters>) -> Result<models::VoyageDtoListEnvelope, Error<GetVoyagesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -485,6 +487,7 @@ pub async fn get_voyages_async(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&voyage_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -502,7 +505,7 @@ pub async fn get_voyages_async(configuration: &configuration::Configuration, ten
 }
 
 /// Returns the count of voyages for the specified tenant.
-pub async fn get_voyages_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetVoyagesCountAsyncError>> {
+pub async fn get_voyages_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, voyage_dto_collection_query_parameters: Option<models::VoyageDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetVoyagesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -520,6 +523,7 @@ pub async fn get_voyages_count_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&voyage_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -537,7 +541,7 @@ pub async fn get_voyages_count_async(configuration: &configuration::Configuratio
 }
 
 /// Partially updates an existing voyage using JSON Patch.
-pub async fn patch_voyage_async(configuration: &configuration::Configuration, tenant_id: &str, voyage_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchVoyageAsyncError>> {
+pub async fn patch_voyage_async(configuration: &configuration::Configuration, tenant_id: &str, voyage_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchVoyageAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -555,7 +559,7 @@ pub async fn patch_voyage_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -573,7 +577,7 @@ pub async fn patch_voyage_async(configuration: &configuration::Configuration, te
 }
 
 /// Partially updates an existing voyage port call using JSON Patch.
-pub async fn patch_voyage_port_call_async(configuration: &configuration::Configuration, tenant_id: &str, voyage_id: &str, port_call_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchVoyagePortCallAsyncError>> {
+pub async fn patch_voyage_port_call_async(configuration: &configuration::Configuration, tenant_id: &str, voyage_id: &str, port_call_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchVoyagePortCallAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -591,7 +595,7 @@ pub async fn patch_voyage_port_call_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

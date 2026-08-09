@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## count_stores_async
 
-> models::Int32Envelope count_stores_async(tenant_id)
+> models::Int32Envelope count_stores_async(tenant_id, store_dto_collection_query_parameters)
 Get stores count
 
 Returns the total count of stores for the specified tenant with OData filter support.
@@ -27,6 +27,7 @@ Returns the total count of stores for the specified tenant with OData filter sup
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**store_dto_collection_query_parameters** | Option<[**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -38,7 +39,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -139,7 +140,7 @@ No authorization required
 
 ## get_stores_async
 
-> models::StoreDtoListEnvelope get_stores_async(tenant_id)
+> models::StoreDtoListEnvelope get_stores_async(tenant_id, store_dto_collection_query_parameters)
 Get stores
 
 Retrieves a list of stores for the specified tenant with OData query support.
@@ -150,6 +151,7 @@ Retrieves a list of stores for the specified tenant with OData query support.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**store_dto_collection_query_parameters** | Option<[**StoreDtoCollectionQueryParameters**](StoreDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -161,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,7 +171,7 @@ No authorization required
 
 ## patch_store_async
 
-> models::EmptyEnvelope patch_store_async(tenant_id, store_id, operation)
+> models::EmptyEnvelope patch_store_async(tenant_id, store_id, patch_operation)
 Patch a store
 
 Partially updates an existing store using a JSON Patch document.
@@ -181,7 +183,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **store_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

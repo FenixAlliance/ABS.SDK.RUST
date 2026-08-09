@@ -182,7 +182,7 @@ pub async fn get_port_by_id_async(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves all ports for the specified tenant.
-pub async fn get_ports_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PortDtoListEnvelope, Error<GetPortsAsyncError>> {
+pub async fn get_ports_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, port_dto_collection_query_parameters: Option<models::PortDtoCollectionQueryParameters>) -> Result<models::PortDtoListEnvelope, Error<GetPortsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -200,6 +200,7 @@ pub async fn get_ports_async(configuration: &configuration::Configuration, tenan
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&port_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -217,7 +218,7 @@ pub async fn get_ports_async(configuration: &configuration::Configuration, tenan
 }
 
 /// Returns the count of ports for the specified tenant.
-pub async fn get_ports_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetPortsCountAsyncError>> {
+pub async fn get_ports_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, port_dto_collection_query_parameters: Option<models::PortDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetPortsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -235,6 +236,7 @@ pub async fn get_ports_count_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&port_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -252,7 +254,7 @@ pub async fn get_ports_count_async(configuration: &configuration::Configuration,
 }
 
 /// Partially updates an existing port using JSON Patch.
-pub async fn patch_port_async(configuration: &configuration::Configuration, tenant_id: &str, port_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchPortAsyncError>> {
+pub async fn patch_port_async(configuration: &configuration::Configuration, tenant_id: &str, port_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchPortAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -270,7 +272,7 @@ pub async fn patch_port_async(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

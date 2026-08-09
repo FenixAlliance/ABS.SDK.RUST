@@ -23,6 +23,12 @@ pub struct GoogleRecaptchaIntegrationOptions {
     pub secret_key: Option<Option<String>>,
     #[serde(rename = "version", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub version: Option<Option<String>>,
+    #[serde(rename = "projectId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub project_id: Option<Option<String>>,
+    #[serde(rename = "apiKey", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub api_key: Option<Option<String>>,
+    #[serde(rename = "scoreThreshold", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub score_threshold: Option<Option<f64>>,
 }
 
 impl GoogleRecaptchaIntegrationOptions {
@@ -33,6 +39,9 @@ impl GoogleRecaptchaIntegrationOptions {
             site_key: None,
             secret_key: None,
             version: None,
+            project_id: None,
+            api_key: None,
+            score_threshold: None,
         }
     }
 }

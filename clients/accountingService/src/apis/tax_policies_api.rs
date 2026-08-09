@@ -454,7 +454,7 @@ pub async fn get_applied_tax_policy_record(configuration: &configuration::Config
 }
 
 /// Retrieves all applied tax policy records for the specified tax policy.
-pub async fn get_applied_tax_policy_records(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AppliedTaxPolicyRecordDtoListEnvelope, Error<GetAppliedTaxPolicyRecordsError>> {
+pub async fn get_applied_tax_policy_records(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, applied_tax_policy_record_dto_collection_query_parameters: Option<models::AppliedTaxPolicyRecordDtoCollectionQueryParameters>) -> Result<models::AppliedTaxPolicyRecordDtoListEnvelope, Error<GetAppliedTaxPolicyRecordsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -472,6 +472,7 @@ pub async fn get_applied_tax_policy_records(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&applied_tax_policy_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -489,7 +490,7 @@ pub async fn get_applied_tax_policy_records(configuration: &configuration::Confi
 }
 
 /// Returns the total count of applied tax policy records for the specified tax policy.
-pub async fn get_applied_tax_policy_records_count(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetAppliedTaxPolicyRecordsCountError>> {
+pub async fn get_applied_tax_policy_records_count(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, applied_tax_policy_record_dto_collection_query_parameters: Option<models::AppliedTaxPolicyRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAppliedTaxPolicyRecordsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -507,6 +508,7 @@ pub async fn get_applied_tax_policy_records_count(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&applied_tax_policy_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -559,7 +561,7 @@ pub async fn get_item_tax_policy_record(configuration: &configuration::Configura
 }
 
 /// Retrieves all item tax policy records for the specified tax policy.
-pub async fn get_item_tax_policy_records(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemTaxPolicyRecordDtoListEnvelope, Error<GetItemTaxPolicyRecordsError>> {
+pub async fn get_item_tax_policy_records(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_tax_policy_record_dto_collection_query_parameters: Option<models::ItemTaxPolicyRecordDtoCollectionQueryParameters>) -> Result<models::ItemTaxPolicyRecordDtoListEnvelope, Error<GetItemTaxPolicyRecordsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -577,6 +579,7 @@ pub async fn get_item_tax_policy_records(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_tax_policy_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -594,7 +597,7 @@ pub async fn get_item_tax_policy_records(configuration: &configuration::Configur
 }
 
 /// Retrieves all tax policies for the specified tenant using OData query options.
-pub async fn get_tax_policies(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TaxPolicyDtoListEnvelope, Error<GetTaxPoliciesError>> {
+pub async fn get_tax_policies(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tax_policy_dto_collection_query_parameters: Option<models::TaxPolicyDtoCollectionQueryParameters>) -> Result<models::TaxPolicyDtoListEnvelope, Error<GetTaxPoliciesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -612,6 +615,7 @@ pub async fn get_tax_policies(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tax_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -629,7 +633,7 @@ pub async fn get_tax_policies(configuration: &configuration::Configuration, tena
 }
 
 /// Retrieves all tax policies associated with the specified fiscal authority.
-pub async fn get_tax_policies_by_authority(configuration: &configuration::Configuration, tenant_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TaxPolicyDtoListEnvelope, Error<GetTaxPoliciesByAuthorityError>> {
+pub async fn get_tax_policies_by_authority(configuration: &configuration::Configuration, tenant_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tax_policy_dto_collection_query_parameters: Option<models::TaxPolicyDtoCollectionQueryParameters>) -> Result<models::TaxPolicyDtoListEnvelope, Error<GetTaxPoliciesByAuthorityError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -647,6 +651,7 @@ pub async fn get_tax_policies_by_authority(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tax_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -664,7 +669,7 @@ pub async fn get_tax_policies_by_authority(configuration: &configuration::Config
 }
 
 /// Returns the count of tax policies for the specified tenant.
-pub async fn get_tax_policies_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTaxPoliciesCountError>> {
+pub async fn get_tax_policies_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tax_policy_dto_collection_query_parameters: Option<models::TaxPolicyDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTaxPoliciesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -682,6 +687,7 @@ pub async fn get_tax_policies_count(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tax_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -734,7 +740,7 @@ pub async fn get_tax_policy(configuration: &configuration::Configuration, tenant
 }
 
 /// Partially updates an existing applied tax policy record identified by its unique identifier.
-pub async fn patch_applied_tax_policy_record(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, applied_tax_policy_record_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAppliedTaxPolicyRecordError>> {
+pub async fn patch_applied_tax_policy_record(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, applied_tax_policy_record_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAppliedTaxPolicyRecordError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -752,7 +758,7 @@ pub async fn patch_applied_tax_policy_record(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -770,7 +776,7 @@ pub async fn patch_applied_tax_policy_record(configuration: &configuration::Conf
 }
 
 /// Partially updates an existing item tax policy record identified by its unique identifier.
-pub async fn patch_item_tax_policy_record(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, item_tax_policy_record_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchItemTaxPolicyRecordError>> {
+pub async fn patch_item_tax_policy_record(configuration: &configuration::Configuration, tenant_id: &str, tax_policy_id: &str, item_tax_policy_record_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchItemTaxPolicyRecordError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -788,7 +794,7 @@ pub async fn patch_item_tax_policy_record(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -806,7 +812,7 @@ pub async fn patch_item_tax_policy_record(configuration: &configuration::Configu
 }
 
 /// Partially updates an existing tax policy identified by its unique identifier.
-pub async fn patch_tax_policy(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTaxPolicyError>> {
+pub async fn patch_tax_policy(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTaxPolicyError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -824,7 +830,7 @@ pub async fn patch_tax_policy(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

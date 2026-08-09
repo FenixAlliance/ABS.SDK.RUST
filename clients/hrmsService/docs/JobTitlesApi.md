@@ -115,7 +115,7 @@ No authorization required
 
 ## get_job_titles_async
 
-> models::JobTitleDtoListEnvelope get_job_titles_async(tenant_id, api_version, x_api_version)
+> models::JobTitleDtoListEnvelope get_job_titles_async(tenant_id, api_version, x_api_version, job_title_dto_collection_query_parameters)
 Get job titles
 
 Retrieves job titles for the specified tenant.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**job_title_dto_collection_query_parameters** | Option<[**JobTitleDtoCollectionQueryParameters**](JobTitleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_job_titles_count_async
 
-> models::Int32Envelope get_job_titles_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_job_titles_count_async(tenant_id, api_version, x_api_version, job_title_dto_collection_query_parameters)
 Count job titles
 
 Counts job titles for the specified tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**job_title_dto_collection_query_parameters** | Option<[**JobTitleDtoCollectionQueryParameters**](JobTitleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_job_title_async
 
-> models::EmptyEnvelope patch_job_title_async(tenant_id, job_title_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_job_title_async(tenant_id, job_title_id, api_version, x_api_version, patch_operation)
 Patch a job title
 
 Partially updates an existing job title for the specified tenant.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **job_title_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

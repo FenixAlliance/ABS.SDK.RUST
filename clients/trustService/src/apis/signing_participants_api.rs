@@ -88,7 +88,7 @@ pub async fn get_signing_participant_by_id_async(configuration: &configuration::
     }
 }
 
-pub async fn get_signing_participants_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SigningParticipantDtoListEnvelope, Error<GetSigningParticipantsAsyncError>> {
+pub async fn get_signing_participants_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, signing_participant_dto_collection_query_parameters: Option<models::SigningParticipantDtoCollectionQueryParameters>) -> Result<models::SigningParticipantDtoListEnvelope, Error<GetSigningParticipantsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -106,6 +106,7 @@ pub async fn get_signing_participants_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&signing_participant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -122,7 +123,7 @@ pub async fn get_signing_participants_async(configuration: &configuration::Confi
     }
 }
 
-pub async fn get_signing_participants_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSigningParticipantsCountAsyncError>> {
+pub async fn get_signing_participants_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, signing_participant_dto_collection_query_parameters: Option<models::SigningParticipantDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSigningParticipantsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -140,6 +141,7 @@ pub async fn get_signing_participants_count_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&signing_participant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

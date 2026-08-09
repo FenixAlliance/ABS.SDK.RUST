@@ -33,6 +33,16 @@ pub enum AggregateJournalEntryDebitsAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`assign_journal_to_book_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum AssignJournalToBookAsyncError {
+    Status400(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status403(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`count_journals_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -182,7 +192,7 @@ pub enum UpdateJournalEntryAsyncError {
 
 
 /// Returns the sum of all credit amounts for entries in the specified journal, normalized to the target currency.
-pub async fn aggregate_journal_entry_credits_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, currency_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::MoneyEnvelope, Error<AggregateJournalEntryCreditsAsyncError>> {
+pub async fn aggregate_journal_entry_credits_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, currency_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, journal_entry_dto_collection_query_parameters: Option<models::JournalEntryDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<AggregateJournalEntryCreditsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -203,6 +213,7 @@ pub async fn aggregate_journal_entry_credits_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&journal_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -220,7 +231,7 @@ pub async fn aggregate_journal_entry_credits_async(configuration: &configuration
 }
 
 /// Returns the sum of all debit amounts for entries in the specified journal, normalized to the target currency.
-pub async fn aggregate_journal_entry_debits_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, currency_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::MoneyEnvelope, Error<AggregateJournalEntryDebitsAsyncError>> {
+pub async fn aggregate_journal_entry_debits_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, currency_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, journal_entry_dto_collection_query_parameters: Option<models::JournalEntryDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<AggregateJournalEntryDebitsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -241,6 +252,7 @@ pub async fn aggregate_journal_entry_debits_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&journal_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -257,8 +269,44 @@ pub async fn aggregate_journal_entry_debits_async(configuration: &configuration:
     }
 }
 
+/// Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+pub async fn assign_journal_to_book_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, assign_journal_to_book_request: Option<models::AssignJournalToBookRequest>) -> Result<models::EmptyEnvelope, Error<AssignJournalToBookAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/AccountingService/Journals/{journalId}/AssignToBook", local_var_configuration.base_path, journalId=crate::apis::urlencode(journal_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&assign_journal_to_book_request);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<AssignJournalToBookAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Returns the count of journals for the tenant.
-pub async fn count_journals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountJournalsAsyncError>> {
+pub async fn count_journals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, journal_dto_collection_query_parameters: Option<models::JournalDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountJournalsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -276,6 +324,7 @@ pub async fn count_journals_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&journal_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -470,7 +519,7 @@ pub async fn get_journal_details_async(configuration: &configuration::Configurat
 }
 
 /// Gets entries for the specified journal.
-pub async fn get_journal_entries_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::JournalEntryDtoIReadOnlyListEnvelope, Error<GetJournalEntriesAsyncError>> {
+pub async fn get_journal_entries_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, journal_entry_dto_collection_query_parameters: Option<models::JournalEntryDtoCollectionQueryParameters>) -> Result<models::JournalEntryDtoIReadOnlyListEnvelope, Error<GetJournalEntriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -488,6 +537,7 @@ pub async fn get_journal_entries_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&journal_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -505,7 +555,7 @@ pub async fn get_journal_entries_async(configuration: &configuration::Configurat
 }
 
 /// Returns the number of entries in the specified journal.
-pub async fn get_journal_entries_count_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetJournalEntriesCountAsyncError>> {
+pub async fn get_journal_entries_count_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, journal_entry_dto_collection_query_parameters: Option<models::JournalEntryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetJournalEntriesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -523,6 +573,7 @@ pub async fn get_journal_entries_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&journal_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -575,7 +626,7 @@ pub async fn get_journal_entry_details_async(configuration: &configuration::Conf
 }
 
 /// Retrieves all journals for the specified tenant.
-pub async fn get_journals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::JournalDtoIReadOnlyListEnvelope, Error<GetJournalsAsyncError>> {
+pub async fn get_journals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, journal_dto_collection_query_parameters: Option<models::JournalDtoCollectionQueryParameters>) -> Result<models::JournalDtoIReadOnlyListEnvelope, Error<GetJournalsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -593,6 +644,7 @@ pub async fn get_journals_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&journal_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -610,7 +662,7 @@ pub async fn get_journals_async(configuration: &configuration::Configuration, te
 }
 
 /// Partially updates a journal.
-pub async fn patch_journal_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchJournalAsyncError>> {
+pub async fn patch_journal_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchJournalAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -628,7 +680,7 @@ pub async fn patch_journal_async(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -646,7 +698,7 @@ pub async fn patch_journal_async(configuration: &configuration::Configuration, t
 }
 
 /// Partially updates a journal entry.
-pub async fn patch_journal_entry_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchJournalEntryAsyncError>> {
+pub async fn patch_journal_entry_async(configuration: &configuration::Configuration, tenant_id: &str, journal_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchJournalEntryAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -664,7 +716,7 @@ pub async fn patch_journal_entry_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

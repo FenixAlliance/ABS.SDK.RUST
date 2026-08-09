@@ -115,7 +115,7 @@ No authorization required
 
 ## get_email_groups_count_async
 
-> models::Int32Envelope get_email_groups_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_email_groups_count_async(tenant_id, api_version, x_api_version, email_group_dto_collection_query_parameters)
 Get email groups count
 
 Returns the count of email groups for the specified tenant using OData query options.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**email_group_dto_collection_query_parameters** | Option<[**EmailGroupDtoCollectionQueryParameters**](EmailGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_email_groups_o_data_async
 
-> models::EmailGroupDtoListEnvelope get_email_groups_o_data_async(tenant_id, api_version, x_api_version)
+> models::EmailGroupDtoListEnvelope get_email_groups_o_data_async(tenant_id, api_version, x_api_version, email_group_dto_collection_query_parameters)
 Get email groups
 
 Retrieves a collection of email groups for the specified tenant using OData query options.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**email_group_dto_collection_query_parameters** | Option<[**EmailGroupDtoCollectionQueryParameters**](EmailGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_email_group_async
 
-> models::EmptyEnvelope patch_email_group_async(tenant_id, emailgroup_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_email_group_async(tenant_id, emailgroup_id, api_version, x_api_version, patch_operation)
 Patch an email group
 
 Partially updates an email group by its ID using JSON Patch.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **emailgroup_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

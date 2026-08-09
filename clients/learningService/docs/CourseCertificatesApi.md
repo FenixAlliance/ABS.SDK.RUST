@@ -349,7 +349,7 @@ No authorization required
 
 ## patch_course_certificate_async
 
-> models::EmptyEnvelope patch_course_certificate_async(tenant_id, course_certificate_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_course_certificate_async(tenant_id, course_certificate_id, api_version, x_api_version, patch_operation)
 Patch a course certificate
 
 Partially updates a course certificate for the specified tenant.
@@ -363,7 +363,7 @@ Name | Type | Description  | Required | Notes
 **course_certificate_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -383,7 +383,7 @@ No authorization required
 
 ## patch_course_certificate_template_async
 
-> models::EmptyEnvelope patch_course_certificate_template_async(tenant_id, course_certificate_template_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_course_certificate_template_async(tenant_id, course_certificate_template_id, api_version, x_api_version, patch_operation)
 Patch a certificate template
 
 Partially updates a course certificate template for the specified tenant.
@@ -397,7 +397,7 @@ Name | Type | Description  | Required | Notes
 **course_certificate_template_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

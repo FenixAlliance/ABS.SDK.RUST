@@ -115,7 +115,7 @@ No authorization required
 
 ## get_pricing_rules
 
-> models::PricingRuleDtoListEnvelope get_pricing_rules(tenant_id, api_version, x_api_version)
+> models::PricingRuleDtoListEnvelope get_pricing_rules(tenant_id, api_version, x_api_version, pricing_rule_dto_collection_query_parameters)
 Get all pricing rules
 
 Retrieves all pricing rules for the specified tenant, with optional OData query options.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**pricing_rule_dto_collection_query_parameters** | Option<[**PricingRuleDtoCollectionQueryParameters**](PricingRuleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_pricing_rules_count_async
 
-> models::Int32Envelope get_pricing_rules_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_pricing_rules_count_async(tenant_id, api_version, x_api_version, pricing_rule_dto_collection_query_parameters)
 Counts pricing rules
 
 Gets the count of pricing rules for the current tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**pricing_rule_dto_collection_query_parameters** | Option<[**PricingRuleDtoCollectionQueryParameters**](PricingRuleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_pricing_rule
 
-> patch_pricing_rule(tenant_id, pricing_rule_id, api_version, x_api_version, operation)
+> patch_pricing_rule(tenant_id, pricing_rule_id, api_version, x_api_version, patch_operation)
 Patch a pricing rule
 
 Partially updates a pricing rule using a JSON Patch document.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **pricing_rule_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

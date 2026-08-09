@@ -9,6 +9,9 @@ Name | Type | Description | Notes
 **site_key** | Option<**String**> |  | [optional]
 **secret_key** | Option<**String**> |  | [optional]
 **version** | Option<**String**> |  | [optional]
+**project_id** | Option<**String**> |  | [optional]
+**api_key** | Option<**String**> |  | [optional]
+**score_threshold** | Option<**f64**> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

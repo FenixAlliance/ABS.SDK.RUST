@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<[**uuid::Uuid**](uuid::Uuid.md)> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional]
-**message** | **String** |  | 
+**message** | Option<**String**> |  | [optional]
 **body_html** | Option<**String**> |  | [optional]
 **body_format** | Option<**String**> |  | [optional]
 **parent_comment_id** | Option<**String**> |  | [optional]

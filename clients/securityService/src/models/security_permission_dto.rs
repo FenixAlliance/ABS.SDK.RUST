@@ -21,6 +21,8 @@ pub struct SecurityPermissionDto {
     pub name: Option<Option<String>>,
     #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tenant_id: Option<Option<String>>,
+    #[serde(rename = "category", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub category: Option<Option<String>>,
     #[serde(rename = "description", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub description: Option<Option<String>>,
     #[serde(rename = "isSystemPermission", skip_serializing_if = "Option::is_none")]
@@ -34,6 +36,7 @@ impl SecurityPermissionDto {
             timestamp: None,
             name: None,
             tenant_id: None,
+            category: None,
             description: None,
             is_system_permission: None,
         }

@@ -304,7 +304,7 @@ pub async fn get_discount_list(configuration: &configuration::Configuration, ten
 }
 
 /// Gets all discount entries for a specific discount list with OData support.
-pub async fn get_discount_list_entries(configuration: &configuration::Configuration, tenant_id: &str, discount_list_id: &str) -> Result<models::DiscountDtoListEnvelope, Error<GetDiscountListEntriesError>> {
+pub async fn get_discount_list_entries(configuration: &configuration::Configuration, tenant_id: &str, discount_list_id: &str, discount_dto_collection_query_parameters: Option<models::DiscountDtoCollectionQueryParameters>) -> Result<models::DiscountDtoListEnvelope, Error<GetDiscountListEntriesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -316,6 +316,7 @@ pub async fn get_discount_list_entries(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&discount_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -333,7 +334,7 @@ pub async fn get_discount_list_entries(configuration: &configuration::Configurat
 }
 
 /// Gets the count of discount entries for a specific discount list.
-pub async fn get_discount_list_entries_count(configuration: &configuration::Configuration, tenant_id: &str, discount_list_id: &str) -> Result<models::Int32Envelope, Error<GetDiscountListEntriesCountError>> {
+pub async fn get_discount_list_entries_count(configuration: &configuration::Configuration, tenant_id: &str, discount_list_id: &str, discount_dto_collection_query_parameters: Option<models::DiscountDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetDiscountListEntriesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -345,6 +346,7 @@ pub async fn get_discount_list_entries_count(configuration: &configuration::Conf
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&discount_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -391,7 +393,7 @@ pub async fn get_discount_list_entry(configuration: &configuration::Configuratio
 }
 
 /// Gets all discount lists for the current tenant with OData support.
-pub async fn get_discount_lists(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::DiscountListDtoListEnvelope, Error<GetDiscountListsError>> {
+pub async fn get_discount_lists(configuration: &configuration::Configuration, tenant_id: &str, discount_list_dto_collection_query_parameters: Option<models::DiscountListDtoCollectionQueryParameters>) -> Result<models::DiscountListDtoListEnvelope, Error<GetDiscountListsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -403,6 +405,7 @@ pub async fn get_discount_lists(configuration: &configuration::Configuration, te
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&discount_list_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -420,7 +423,7 @@ pub async fn get_discount_lists(configuration: &configuration::Configuration, te
 }
 
 /// Gets the count of discount lists for the current tenant.
-pub async fn get_discount_lists_count(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetDiscountListsCountError>> {
+pub async fn get_discount_lists_count(configuration: &configuration::Configuration, tenant_id: &str, discount_list_dto_collection_query_parameters: Option<models::DiscountListDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetDiscountListsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -432,6 +435,7 @@ pub async fn get_discount_lists_count(configuration: &configuration::Configurati
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&discount_list_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -449,7 +453,7 @@ pub async fn get_discount_lists_count(configuration: &configuration::Configurati
 }
 
 /// Partially updates the specified discount list using a JSON Patch document.
-pub async fn patch_discount_list(configuration: &configuration::Configuration, tenant_id: &str, discount_list_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchDiscountListError>> {
+pub async fn patch_discount_list(configuration: &configuration::Configuration, tenant_id: &str, discount_list_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchDiscountListError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -461,7 +465,7 @@ pub async fn patch_discount_list(configuration: &configuration::Configuration, t
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -479,7 +483,7 @@ pub async fn patch_discount_list(configuration: &configuration::Configuration, t
 }
 
 /// Partially updates the specified discount entry using a JSON Patch document.
-pub async fn patch_discount_list_entry(configuration: &configuration::Configuration, tenant_id: &str, discount_list_id: &str, discount_list_entry_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchDiscountListEntryError>> {
+pub async fn patch_discount_list_entry(configuration: &configuration::Configuration, tenant_id: &str, discount_list_id: &str, discount_list_entry_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchDiscountListEntryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -491,7 +495,7 @@ pub async fn patch_discount_list_entry(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -114,7 +114,7 @@ No authorization required
 
 ## get_course_grading_rubrics_async
 
-> Vec<models::CourseGradingRubricDto> get_course_grading_rubrics_async(tenant_id, api_version, x_api_version)
+> Vec<models::CourseGradingRubricDto> get_course_grading_rubrics_async(tenant_id, api_version, x_api_version, course_grading_rubric_dto_collection_query_parameters)
 Get all course grading rubrics
 
 Retrieves all course grading rubrics for the specified tenant.
@@ -127,6 +127,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_grading_rubric_dto_collection_query_parameters** | Option<[**CourseGradingRubricDtoCollectionQueryParameters**](CourseGradingRubricDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -138,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,7 +147,7 @@ No authorization required
 
 ## get_course_grading_rubrics_count_async
 
-> i32 get_course_grading_rubrics_count_async(tenant_id, api_version, x_api_version)
+> i32 get_course_grading_rubrics_count_async(tenant_id, api_version, x_api_version, course_grading_rubric_dto_collection_query_parameters)
 Get course grading rubrics count
 
 Returns the count of course grading rubrics for the specified tenant.
@@ -159,6 +160,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_grading_rubric_dto_collection_query_parameters** | Option<[**CourseGradingRubricDtoCollectionQueryParameters**](CourseGradingRubricDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -170,7 +172,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -178,7 +180,7 @@ No authorization required
 
 ## patch_course_grading_rubric_async
 
-> patch_course_grading_rubric_async(tenant_id, rubric_id, api_version, x_api_version, operation)
+> patch_course_grading_rubric_async(tenant_id, rubric_id, api_version, x_api_version, patch_operation)
 Patch a course grading rubric
 
 Partially updates an existing course grading rubric.
@@ -192,7 +194,7 @@ Name | Type | Description  | Required | Notes
 **rubric_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

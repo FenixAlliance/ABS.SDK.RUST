@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 ## count_calling_codes_by_country_async
 
-> models::Int32Envelope count_calling_codes_by_country_async(country_id, api_version, x_api_version)
+> models::Int32Envelope count_calling_codes_by_country_async(country_id, api_version, x_api_version, country_calling_code_dto_collection_query_parameters)
 Count calling codes for a country
 
 Returns the total number of calling codes for the specified country, with optional OData filtering.
@@ -38,6 +38,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_calling_code_dto_collection_query_parameters** | Option<[**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -49,7 +50,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -57,7 +58,7 @@ No authorization required
 
 ## count_cities_by_state_async
 
-> models::Int32Envelope count_cities_by_state_async(country_state_id, country_id, api_version, x_api_version)
+> models::Int32Envelope count_cities_by_state_async(country_state_id, country_id, api_version, x_api_version, city_dto_collection_query_parameters)
 Count cities for a state
 
 Returns the total number of cities for the specified state, with optional OData filtering.
@@ -71,6 +72,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**city_dto_collection_query_parameters** | Option<[**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -82,7 +84,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -90,7 +92,7 @@ No authorization required
 
 ## count_countries
 
-> models::Int32Envelope count_countries(api_version, x_api_version)
+> models::Int32Envelope count_countries(api_version, x_api_version, country_dto_collection_query_parameters)
 Count countries
 
 Returns the total number of countries, with optional OData filtering.
@@ -102,6 +104,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_dto_collection_query_parameters** | Option<[**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -113,7 +116,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -121,7 +124,7 @@ No authorization required
 
 ## count_country_states_async
 
-> models::Int32Envelope count_country_states_async(country_id, api_version, x_api_version)
+> models::Int32Envelope count_country_states_async(country_id, api_version, x_api_version, country_state_dto_collection_query_parameters)
 Count states for a country
 
 Returns the total number of states or provinces for the specified country, with optional OData filtering.
@@ -134,6 +137,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_state_dto_collection_query_parameters** | Option<[**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -145,7 +149,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -153,7 +157,7 @@ No authorization required
 
 ## count_timezones_by_country_async
 
-> models::Int32Envelope count_timezones_by_country_async(country_id, api_version, x_api_version)
+> models::Int32Envelope count_timezones_by_country_async(country_id, api_version, x_api_version, timezone_dto_collection_query_parameters)
 Count timezones for a country
 
 Returns the total number of timezones for the specified country, with optional OData filtering.
@@ -166,6 +170,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**timezone_dto_collection_query_parameters** | Option<[**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -177,7 +182,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -185,7 +190,7 @@ No authorization required
 
 ## count_top_level_domains_by_country_async
 
-> models::Int32Envelope count_top_level_domains_by_country_async(country_id, api_version, x_api_version)
+> models::Int32Envelope count_top_level_domains_by_country_async(country_id, api_version, x_api_version, country_top_level_domain_dto_collection_query_parameters)
 Count top-level domains for a country
 
 Returns the total number of top-level domains for the specified country, with optional OData filtering.
@@ -198,6 +203,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_top_level_domain_dto_collection_query_parameters** | Option<[**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -209,7 +215,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -217,7 +223,7 @@ No authorization required
 
 ## get_all_countries
 
-> models::CountryDtoListEnvelope get_all_countries(api_version, x_api_version)
+> models::CountryDtoListEnvelope get_all_countries(api_version, x_api_version, country_dto_collection_query_parameters)
 Get all countries
 
 Retrieves a list of all countries with optional OData pagination and filtering.
@@ -229,6 +235,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_dto_collection_query_parameters** | Option<[**CountryDtoCollectionQueryParameters**](CountryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -240,7 +247,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -248,7 +255,7 @@ No authorization required
 
 ## get_calling_codes_by_country_id_async
 
-> models::CountryCallingCodeDtoListEnvelope get_calling_codes_by_country_id_async(country_id, api_version, x_api_version)
+> models::CountryCallingCodeDtoListEnvelope get_calling_codes_by_country_id_async(country_id, api_version, x_api_version, country_calling_code_dto_collection_query_parameters)
 Get calling codes for a country
 
 Retrieves the list of international telephone calling codes associated with the specified country.
@@ -261,6 +268,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_calling_code_dto_collection_query_parameters** | Option<[**CountryCallingCodeDtoCollectionQueryParameters**](CountryCallingCodeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -272,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -280,7 +288,7 @@ No authorization required
 
 ## get_cities_by_country_state_id_async
 
-> models::CityDtoListEnvelope get_cities_by_country_state_id_async(country_state_id, country_id, api_version, x_api_version)
+> models::CityDtoListEnvelope get_cities_by_country_state_id_async(country_state_id, country_id, api_version, x_api_version, city_dto_collection_query_parameters)
 Get cities for a state
 
 Retrieves the list of cities belonging to the specified state or province.
@@ -294,6 +302,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**city_dto_collection_query_parameters** | Option<[**CityDtoCollectionQueryParameters**](CityDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -305,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -345,7 +354,7 @@ No authorization required
 
 ## get_country_state_by_id_async
 
-> models::CountryStateDtoEnvelope get_country_state_by_id_async(country_state_id, country_id, api_version, x_api_version)
+> models::CountryStateDtoEnvelope get_country_state_by_id_async(country_state_id, country_id, api_version, x_api_version, country_state_dto_collection_query_parameters)
 Get state by ID
 
 Retrieves a single state or province by its unique identifier within a country.
@@ -359,6 +368,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_state_dto_collection_query_parameters** | Option<[**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -370,7 +380,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -378,7 +388,7 @@ No authorization required
 
 ## get_country_states_async
 
-> models::CountryStateDtoListEnvelope get_country_states_async(country_id, api_version, x_api_version)
+> models::CountryStateDtoListEnvelope get_country_states_async(country_id, api_version, x_api_version, country_state_dto_collection_query_parameters)
 Get states for a country
 
 Retrieves the list of states or provinces belonging to the specified country.
@@ -391,6 +401,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_state_dto_collection_query_parameters** | Option<[**CountryStateDtoCollectionQueryParameters**](CountryStateDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -402,7 +413,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -410,7 +421,7 @@ No authorization required
 
 ## get_enabled_currencies_by_country_id_async
 
-> models::CurrencyDtoListEnvelope get_enabled_currencies_by_country_id_async(country_id, api_version, x_api_version)
+> models::CurrencyDtoListEnvelope get_enabled_currencies_by_country_id_async(country_id, api_version, x_api_version, currency_dto_collection_query_parameters)
 Get currencies for a country
 
 Retrieves the list of enabled currencies for the specified country.
@@ -423,6 +434,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**currency_dto_collection_query_parameters** | Option<[**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -434,7 +446,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -442,7 +454,7 @@ No authorization required
 
 ## get_time_zones_by_country_id_async
 
-> models::TimezoneDtoListEnvelope get_time_zones_by_country_id_async(country_id, api_version, x_api_version)
+> models::TimezoneDtoListEnvelope get_time_zones_by_country_id_async(country_id, api_version, x_api_version, timezone_dto_collection_query_parameters)
 Get timezones for a country
 
 Retrieves the list of timezones associated with the specified country.
@@ -455,6 +467,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**timezone_dto_collection_query_parameters** | Option<[**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -466,7 +479,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -474,7 +487,7 @@ No authorization required
 
 ## get_top_level_domains_by_country_id_async
 
-> models::CountryTopLevelDomainDtoListEnvelope get_top_level_domains_by_country_id_async(country_id, api_version, x_api_version)
+> models::CountryTopLevelDomainDtoListEnvelope get_top_level_domains_by_country_id_async(country_id, api_version, x_api_version, country_top_level_domain_dto_collection_query_parameters)
 Get top-level domains for a country
 
 Retrieves the list of internet top-level domains (TLDs) associated with the specified country.
@@ -487,6 +500,7 @@ Name | Type | Description  | Required | Notes
 **country_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**country_top_level_domain_dto_collection_query_parameters** | Option<[**CountryTopLevelDomainDtoCollectionQueryParameters**](CountryTopLevelDomainDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -498,7 +512,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

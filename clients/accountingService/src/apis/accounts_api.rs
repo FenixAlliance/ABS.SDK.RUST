@@ -398,7 +398,7 @@ pub enum UpdateAccountTypeAsyncError {
 
 
 /// Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
-pub async fn aggregate_accounts_balance_async(configuration: &configuration::Configuration, tenant_id: &str, currency_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::MoneyEnvelope, Error<AggregateAccountsBalanceAsyncError>> {
+pub async fn aggregate_accounts_balance_async(configuration: &configuration::Configuration, tenant_id: &str, currency_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, account_dto_collection_query_parameters: Option<models::AccountDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<AggregateAccountsBalanceAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -419,6 +419,7 @@ pub async fn aggregate_accounts_balance_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&account_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -903,7 +904,7 @@ pub async fn get_account_aggregate_async(configuration: &configuration::Configur
 }
 
 /// Get account credits.
-pub async fn get_account_credits_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetAccountCreditsAsyncError>> {
+pub async fn get_account_credits_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetAccountCreditsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -921,6 +922,7 @@ pub async fn get_account_credits_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -938,7 +940,7 @@ pub async fn get_account_credits_async(configuration: &configuration::Configurat
 }
 
 /// Get account credits count.
-pub async fn get_account_credits_count_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetAccountCreditsCountAsyncError>> {
+pub async fn get_account_credits_count_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAccountCreditsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -956,6 +958,7 @@ pub async fn get_account_credits_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -973,7 +976,7 @@ pub async fn get_account_credits_count_async(configuration: &configuration::Conf
 }
 
 /// Get account debits.
-pub async fn get_account_debits_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetAccountDebitsAsyncError>> {
+pub async fn get_account_debits_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetAccountDebitsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -991,6 +994,7 @@ pub async fn get_account_debits_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1008,7 +1012,7 @@ pub async fn get_account_debits_async(configuration: &configuration::Configurati
 }
 
 /// Get account debits count.
-pub async fn get_account_debits_count_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetAccountDebitsCountAsyncError>> {
+pub async fn get_account_debits_count_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAccountDebitsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1026,6 +1030,7 @@ pub async fn get_account_debits_count_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1078,7 +1083,7 @@ pub async fn get_account_details_async(configuration: &configuration::Configurat
 }
 
 /// Get account entries.
-pub async fn get_account_entries_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetAccountEntriesAsyncError>> {
+pub async fn get_account_entries_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetAccountEntriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1096,6 +1101,7 @@ pub async fn get_account_entries_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1148,7 +1154,7 @@ pub async fn get_account_entry_async(configuration: &configuration::Configuratio
 }
 
 /// Get account relations.
-pub async fn get_account_relations_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountRelationDtoListEnvelope, Error<GetAccountRelationsAsyncError>> {
+pub async fn get_account_relations_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, account_relation_dto_collection_query_parameters: Option<models::AccountRelationDtoCollectionQueryParameters>) -> Result<models::AccountRelationDtoListEnvelope, Error<GetAccountRelationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1167,6 +1173,7 @@ pub async fn get_account_relations_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&account_relation_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1184,7 +1191,7 @@ pub async fn get_account_relations_async(configuration: &configuration::Configur
 }
 
 /// Get account relations count.
-pub async fn get_account_relations_count_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetAccountRelationsCountAsyncError>> {
+pub async fn get_account_relations_count_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, account_relation_dto_collection_query_parameters: Option<models::AccountRelationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAccountRelationsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1203,6 +1210,7 @@ pub async fn get_account_relations_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&account_relation_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1255,7 +1263,7 @@ pub async fn get_account_type_by_id_async(configuration: &configuration::Configu
 }
 
 /// Get account types.
-pub async fn get_account_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountTypeDtoListEnvelope, Error<GetAccountTypesAsyncError>> {
+pub async fn get_account_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, account_type_dto_collection_query_parameters: Option<models::AccountTypeDtoCollectionQueryParameters>) -> Result<models::AccountTypeDtoListEnvelope, Error<GetAccountTypesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1273,6 +1281,7 @@ pub async fn get_account_types_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&account_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1290,7 +1299,7 @@ pub async fn get_account_types_async(configuration: &configuration::Configuratio
 }
 
 /// Get account types count.
-pub async fn get_account_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetAccountTypesCountAsyncError>> {
+pub async fn get_account_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, account_type_dto_collection_query_parameters: Option<models::AccountTypeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAccountTypesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1308,6 +1317,7 @@ pub async fn get_account_types_count_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&account_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1325,7 +1335,7 @@ pub async fn get_account_types_count_async(configuration: &configuration::Config
 }
 
 /// Creates a new account.
-pub async fn get_accounts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountDtoListEnvelope, Error<GetAccountsAsyncError>> {
+pub async fn get_accounts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, account_dto_collection_query_parameters: Option<models::AccountDtoCollectionQueryParameters>) -> Result<models::AccountDtoListEnvelope, Error<GetAccountsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1343,6 +1353,7 @@ pub async fn get_accounts_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&account_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1360,7 +1371,7 @@ pub async fn get_accounts_async(configuration: &configuration::Configuration, te
 }
 
 /// Get the number of accounts.
-pub async fn get_accounts_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetAccountsCountAsyncError>> {
+pub async fn get_accounts_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, account_dto_collection_query_parameters: Option<models::AccountDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAccountsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1378,6 +1389,7 @@ pub async fn get_accounts_count_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&account_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1464,7 +1476,7 @@ pub async fn get_child_accounts_async(configuration: &configuration::Configurati
 }
 
 /// Get credit account entries.
-pub async fn get_credit_account_entries_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetCreditAccountEntriesAsyncError>> {
+pub async fn get_credit_account_entries_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetCreditAccountEntriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1482,6 +1494,7 @@ pub async fn get_credit_account_entries_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1499,7 +1512,7 @@ pub async fn get_credit_account_entries_async(configuration: &configuration::Con
 }
 
 /// Get debit account entries.
-pub async fn get_debit_account_entries_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetDebitAccountEntriesAsyncError>> {
+pub async fn get_debit_account_entries_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::AccountingEntryDtoListEnvelope, Error<GetDebitAccountEntriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1517,6 +1530,7 @@ pub async fn get_debit_account_entries_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1534,7 +1548,7 @@ pub async fn get_debit_account_entries_async(configuration: &configuration::Conf
 }
 
 /// Get root accounts.
-pub async fn get_root_accounts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AccountDtoListEnvelope, Error<GetRootAccountsAsyncError>> {
+pub async fn get_root_accounts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, account_dto_collection_query_parameters: Option<models::AccountDtoCollectionQueryParameters>) -> Result<models::AccountDtoListEnvelope, Error<GetRootAccountsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1552,6 +1566,7 @@ pub async fn get_root_accounts_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&account_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1569,7 +1584,7 @@ pub async fn get_root_accounts_async(configuration: &configuration::Configuratio
 }
 
 /// Patch an account.
-pub async fn patch_account_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountAsyncError>> {
+pub async fn patch_account_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1587,7 +1602,7 @@ pub async fn patch_account_async(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1605,7 +1620,7 @@ pub async fn patch_account_async(configuration: &configuration::Configuration, t
 }
 
 /// Patch account entry.
-pub async fn patch_account_entry_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountEntryAsyncError>> {
+pub async fn patch_account_entry_async(configuration: &configuration::Configuration, tenant_id: &str, account_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountEntryAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1623,7 +1638,7 @@ pub async fn patch_account_entry_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1641,7 +1656,7 @@ pub async fn patch_account_entry_async(configuration: &configuration::Configurat
 }
 
 /// Patch account relation.
-pub async fn patch_account_relation_async(configuration: &configuration::Configuration, tenant_id: &str, account_relation_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountRelationAsyncError>> {
+pub async fn patch_account_relation_async(configuration: &configuration::Configuration, tenant_id: &str, account_relation_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountRelationAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1660,7 +1675,7 @@ pub async fn patch_account_relation_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1678,7 +1693,7 @@ pub async fn patch_account_relation_async(configuration: &configuration::Configu
 }
 
 /// Patch account type.
-pub async fn patch_account_type_async(configuration: &configuration::Configuration, tenant_id: &str, account_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountTypeAsyncError>> {
+pub async fn patch_account_type_async(configuration: &configuration::Configuration, tenant_id: &str, account_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountTypeAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1696,7 +1711,7 @@ pub async fn patch_account_type_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

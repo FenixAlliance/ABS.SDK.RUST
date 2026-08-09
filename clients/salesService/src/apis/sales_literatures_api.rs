@@ -81,7 +81,7 @@ pub enum UpdateSalesLiteratureAsyncError {
 
 
 /// Returns the total count of sales literatures for the specified tenant with OData filter support.
-pub async fn count_sales_literatures_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<CountSalesLiteraturesAsyncError>> {
+pub async fn count_sales_literatures_async(configuration: &configuration::Configuration, tenant_id: &str, sales_literature_dto_collection_query_parameters: Option<models::SalesLiteratureDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountSalesLiteraturesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -93,6 +93,7 @@ pub async fn count_sales_literatures_async(configuration: &configuration::Config
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&sales_literature_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -169,7 +170,7 @@ pub async fn delete_sales_literature_async(configuration: &configuration::Config
 }
 
 /// Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
-pub async fn get_extended_sales_literatures_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::ExtendedSalesLiteratureDtoListEnvelope, Error<GetExtendedSalesLiteraturesAsyncError>> {
+pub async fn get_extended_sales_literatures_async(configuration: &configuration::Configuration, tenant_id: &str, extended_sales_literature_dto_collection_query_parameters: Option<models::ExtendedSalesLiteratureDtoCollectionQueryParameters>) -> Result<models::ExtendedSalesLiteratureDtoListEnvelope, Error<GetExtendedSalesLiteraturesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -181,6 +182,7 @@ pub async fn get_extended_sales_literatures_async(configuration: &configuration:
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_sales_literature_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -227,7 +229,7 @@ pub async fn get_sales_literature_async(configuration: &configuration::Configura
 }
 
 /// Retrieves a list of sales literatures for the specified tenant with OData query support.
-pub async fn get_sales_literatures_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::SalesLiteratureDtoListEnvelope, Error<GetSalesLiteraturesAsyncError>> {
+pub async fn get_sales_literatures_async(configuration: &configuration::Configuration, tenant_id: &str, sales_literature_dto_collection_query_parameters: Option<models::SalesLiteratureDtoCollectionQueryParameters>) -> Result<models::SalesLiteratureDtoListEnvelope, Error<GetSalesLiteraturesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +241,7 @@ pub async fn get_sales_literatures_async(configuration: &configuration::Configur
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&sales_literature_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +259,7 @@ pub async fn get_sales_literatures_async(configuration: &configuration::Configur
 }
 
 /// Partially updates an existing sales literature using a JSON Patch document.
-pub async fn patch_sales_literature_async(configuration: &configuration::Configuration, tenant_id: &str, sales_literature_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSalesLiteratureAsyncError>> {
+pub async fn patch_sales_literature_async(configuration: &configuration::Configuration, tenant_id: &str, sales_literature_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSalesLiteratureAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -268,7 +271,7 @@ pub async fn patch_sales_literature_async(configuration: &configuration::Configu
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## count_currencies_async
 
-> models::Int32Envelope count_currencies_async(api_version, x_api_version)
+> models::Int32Envelope count_currencies_async(api_version, x_api_version, currency_dto_collection_query_parameters)
 Count currencies
 
 Returns the total number of enabled currencies, with optional OData filtering.
@@ -24,6 +24,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**currency_dto_collection_query_parameters** | Option<[**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -35,7 +36,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -75,7 +76,7 @@ No authorization required
 
 ## get_enabled_currencies_async
 
-> models::CurrencyDtoListEnvelope get_enabled_currencies_async(api_version, x_api_version)
+> models::CurrencyDtoListEnvelope get_enabled_currencies_async(api_version, x_api_version, currency_dto_collection_query_parameters)
 Get all currencies
 
 Retrieves the list of all enabled currencies with optional OData pagination and filtering.
@@ -87,6 +88,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**currency_dto_collection_query_parameters** | Option<[**CurrencyDtoCollectionQueryParameters**](CurrencyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -98,7 +100,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

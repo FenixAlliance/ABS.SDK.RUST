@@ -364,7 +364,7 @@ pub async fn get_file_thumbnail_async(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_files_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FileUploadDtoEnvelope, Error<GetFilesAsyncError>> {
+pub async fn get_files_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, top: Option<i32>, skip: Option<i32>, count: Option<bool>, filter: Option<&str>, order_by: Option<&str>, search: Option<&str>, select: Option<&str>, expand: Option<&str>, is_empty: Option<bool>) -> Result<models::FileUploadDtoEnvelope, Error<GetFilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -384,6 +384,35 @@ pub async fn get_files_async(configuration: &configuration::Configuration, tenan
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    let mut local_var_form = reqwest::multipart::Form::new();
+    if let Some(local_var_param_value) = top {
+        local_var_form = local_var_form.text("top", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = skip {
+        local_var_form = local_var_form.text("skip", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = count {
+        local_var_form = local_var_form.text("count", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = filter {
+        local_var_form = local_var_form.text("filter", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = order_by {
+        local_var_form = local_var_form.text("orderBy", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = search {
+        local_var_form = local_var_form.text("search", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = select {
+        local_var_form = local_var_form.text("select", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = expand {
+        local_var_form = local_var_form.text("expand", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = is_empty {
+        local_var_form = local_var_form.text("isEmpty", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.multipart(local_var_form);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -400,7 +429,7 @@ pub async fn get_files_async(configuration: &configuration::Configuration, tenan
     }
 }
 
-pub async fn get_files_count_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i64, Error<GetFilesCountAsyncError>> {
+pub async fn get_files_count_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, top: Option<i32>, skip: Option<i32>, count: Option<bool>, filter: Option<&str>, order_by: Option<&str>, search: Option<&str>, select: Option<&str>, expand: Option<&str>, is_empty: Option<bool>) -> Result<i64, Error<GetFilesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -420,6 +449,35 @@ pub async fn get_files_count_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    let mut local_var_form = reqwest::multipart::Form::new();
+    if let Some(local_var_param_value) = top {
+        local_var_form = local_var_form.text("top", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = skip {
+        local_var_form = local_var_form.text("skip", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = count {
+        local_var_form = local_var_form.text("count", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = filter {
+        local_var_form = local_var_form.text("filter", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = order_by {
+        local_var_form = local_var_form.text("orderBy", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = search {
+        local_var_form = local_var_form.text("search", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = select {
+        local_var_form = local_var_form.text("select", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = expand {
+        local_var_form = local_var_form.text("expand", local_var_param_value.to_string());
+    }
+    if let Some(local_var_param_value) = is_empty {
+        local_var_form = local_var_form.text("isEmpty", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.multipart(local_var_form);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

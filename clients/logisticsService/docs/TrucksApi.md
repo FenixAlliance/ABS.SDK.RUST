@@ -364,7 +364,7 @@ No authorization required
 
 ## get_truck_trips_async
 
-> models::TruckTripDtoListEnvelope get_truck_trips_async(tenant_id, truck_id, api_version, x_api_version)
+> models::TruckTripDtoListEnvelope get_truck_trips_async(tenant_id, truck_id, api_version, x_api_version, truck_trip_dto_collection_query_parameters)
 Get truck trips
 
 Retrieves all trips for a specific truck.
@@ -378,6 +378,7 @@ Name | Type | Description  | Required | Notes
 **truck_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**truck_trip_dto_collection_query_parameters** | Option<[**TruckTripDtoCollectionQueryParameters**](TruckTripDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -389,7 +390,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -397,7 +398,7 @@ No authorization required
 
 ## get_truck_trips_count_async
 
-> models::Int32Envelope get_truck_trips_count_async(tenant_id, truck_id, api_version, x_api_version)
+> models::Int32Envelope get_truck_trips_count_async(tenant_id, truck_id, api_version, x_api_version, truck_trip_dto_collection_query_parameters)
 Get truck trips count
 
 Returns the count of trips for a specific truck.
@@ -411,6 +412,7 @@ Name | Type | Description  | Required | Notes
 **truck_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**truck_trip_dto_collection_query_parameters** | Option<[**TruckTripDtoCollectionQueryParameters**](TruckTripDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -422,7 +424,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -430,7 +432,7 @@ No authorization required
 
 ## get_trucks_async
 
-> models::TruckDtoListEnvelope get_trucks_async(tenant_id, api_version, x_api_version)
+> models::TruckDtoListEnvelope get_trucks_async(tenant_id, api_version, x_api_version, truck_dto_collection_query_parameters)
 Get all trucks
 
 Retrieves all trucks for the specified tenant.
@@ -443,6 +445,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**truck_dto_collection_query_parameters** | Option<[**TruckDtoCollectionQueryParameters**](TruckDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -454,7 +457,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -462,7 +465,7 @@ No authorization required
 
 ## get_trucks_count_async
 
-> models::Int32Envelope get_trucks_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_trucks_count_async(tenant_id, api_version, x_api_version, truck_dto_collection_query_parameters)
 Get trucks count
 
 Returns the count of trucks for the specified tenant.
@@ -475,6 +478,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**truck_dto_collection_query_parameters** | Option<[**TruckDtoCollectionQueryParameters**](TruckDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -486,7 +490,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -494,7 +498,7 @@ No authorization required
 
 ## patch_truck_async
 
-> models::EmptyEnvelope patch_truck_async(tenant_id, truck_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_truck_async(tenant_id, truck_id, api_version, x_api_version, patch_operation)
 Patch a truck
 
 Partially updates an existing truck using JSON Patch.
@@ -508,7 +512,7 @@ Name | Type | Description  | Required | Notes
 **truck_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -528,7 +532,7 @@ No authorization required
 
 ## patch_truck_trip_async
 
-> models::EmptyEnvelope patch_truck_trip_async(tenant_id, truck_id, trip_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_truck_trip_async(tenant_id, truck_id, trip_id, api_version, x_api_version, patch_operation)
 Patch a truck trip
 
 Partially updates an existing truck trip using JSON Patch.
@@ -543,7 +547,7 @@ Name | Type | Description  | Required | Notes
 **trip_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

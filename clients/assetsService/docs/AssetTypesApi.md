@@ -109,7 +109,7 @@ No authorization required
 
 ## get_asset_types
 
-> models::AssetTypeDtoListEnvelope get_asset_types(tenant_id)
+> models::AssetTypeDtoListEnvelope get_asset_types(tenant_id, asset_type_dto_collection_query_parameters)
 Gets all asset types for the current tenant
 
 Retrieves all asset types for the authenticated tenant.
@@ -120,6 +120,7 @@ Retrieves all asset types for the authenticated tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**asset_type_dto_collection_query_parameters** | Option<[**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -131,7 +132,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -139,7 +140,7 @@ No authorization required
 
 ## get_asset_types_count
 
-> models::Int32Envelope get_asset_types_count(tenant_id)
+> models::Int32Envelope get_asset_types_count(tenant_id, asset_type_dto_collection_query_parameters)
 Gets the count of asset types
 
 Returns the total number of asset types for the authenticated tenant.
@@ -150,6 +151,7 @@ Returns the total number of asset types for the authenticated tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**asset_type_dto_collection_query_parameters** | Option<[**AssetTypeDtoCollectionQueryParameters**](AssetTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -161,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,7 +171,7 @@ No authorization required
 
 ## patch_asset_type
 
-> models::EmptyEnvelope patch_asset_type(tenant_id, type_id, operation)
+> models::EmptyEnvelope patch_asset_type(tenant_id, type_id, patch_operation)
 Partially updates an existing asset type
 
 Applies a JSON Patch document to an existing asset type for the authenticated tenant.
@@ -181,7 +183,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **type_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -266,7 +266,7 @@ No authorization required
 
 ## get_applied_tax_policy_records
 
-> models::AppliedTaxPolicyRecordDtoListEnvelope get_applied_tax_policy_records(tenant_id, tax_policy_id, api_version, x_api_version)
+> models::AppliedTaxPolicyRecordDtoListEnvelope get_applied_tax_policy_records(tenant_id, tax_policy_id, api_version, x_api_version, applied_tax_policy_record_dto_collection_query_parameters)
 Get applied tax policy records
 
 Retrieves all applied tax policy records for the specified tax policy.
@@ -280,6 +280,7 @@ Name | Type | Description  | Required | Notes
 **tax_policy_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**applied_tax_policy_record_dto_collection_query_parameters** | Option<[**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -291,7 +292,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -299,7 +300,7 @@ No authorization required
 
 ## get_applied_tax_policy_records_count
 
-> models::Int32Envelope get_applied_tax_policy_records_count(tenant_id, tax_policy_id, api_version, x_api_version)
+> models::Int32Envelope get_applied_tax_policy_records_count(tenant_id, tax_policy_id, api_version, x_api_version, applied_tax_policy_record_dto_collection_query_parameters)
 Get applied tax policy records count
 
 Returns the total count of applied tax policy records for the specified tax policy.
@@ -313,6 +314,7 @@ Name | Type | Description  | Required | Notes
 **tax_policy_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**applied_tax_policy_record_dto_collection_query_parameters** | Option<[**AppliedTaxPolicyRecordDtoCollectionQueryParameters**](AppliedTaxPolicyRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -324,7 +326,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -366,7 +368,7 @@ No authorization required
 
 ## get_item_tax_policy_records
 
-> models::ItemTaxPolicyRecordDtoListEnvelope get_item_tax_policy_records(tenant_id, tax_policy_id, api_version, x_api_version)
+> models::ItemTaxPolicyRecordDtoListEnvelope get_item_tax_policy_records(tenant_id, tax_policy_id, api_version, x_api_version, item_tax_policy_record_dto_collection_query_parameters)
 Get item tax policy records
 
 Retrieves all item tax policy records for the specified tax policy.
@@ -380,6 +382,7 @@ Name | Type | Description  | Required | Notes
 **tax_policy_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_tax_policy_record_dto_collection_query_parameters** | Option<[**ItemTaxPolicyRecordDtoCollectionQueryParameters**](ItemTaxPolicyRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -391,7 +394,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -399,7 +402,7 @@ No authorization required
 
 ## get_tax_policies
 
-> models::TaxPolicyDtoListEnvelope get_tax_policies(tenant_id, api_version, x_api_version)
+> models::TaxPolicyDtoListEnvelope get_tax_policies(tenant_id, api_version, x_api_version, tax_policy_dto_collection_query_parameters)
 Get all tax policies for a tenant
 
 Retrieves all tax policies for the specified tenant using OData query options.
@@ -412,6 +415,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tax_policy_dto_collection_query_parameters** | Option<[**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -423,7 +427,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -431,7 +435,7 @@ No authorization required
 
 ## get_tax_policies_by_authority
 
-> models::TaxPolicyDtoListEnvelope get_tax_policies_by_authority(tenant_id, authority_id, api_version, x_api_version)
+> models::TaxPolicyDtoListEnvelope get_tax_policies_by_authority(tenant_id, authority_id, api_version, x_api_version, tax_policy_dto_collection_query_parameters)
 Get tax policies by fiscal authority
 
 Retrieves all tax policies associated with the specified fiscal authority.
@@ -445,6 +449,7 @@ Name | Type | Description  | Required | Notes
 **authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tax_policy_dto_collection_query_parameters** | Option<[**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -456,7 +461,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -464,7 +469,7 @@ No authorization required
 
 ## get_tax_policies_count
 
-> models::Int32Envelope get_tax_policies_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_tax_policies_count(tenant_id, api_version, x_api_version, tax_policy_dto_collection_query_parameters)
 Get tax policies count
 
 Returns the count of tax policies for the specified tenant.
@@ -477,6 +482,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tax_policy_dto_collection_query_parameters** | Option<[**TaxPolicyDtoCollectionQueryParameters**](TaxPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -488,7 +494,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -529,7 +535,7 @@ No authorization required
 
 ## patch_applied_tax_policy_record
 
-> models::EmptyEnvelope patch_applied_tax_policy_record(tenant_id, tax_policy_id, applied_tax_policy_record_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_applied_tax_policy_record(tenant_id, tax_policy_id, applied_tax_policy_record_id, api_version, x_api_version, patch_operation)
 Patch an applied tax policy record
 
 Partially updates an existing applied tax policy record identified by its unique identifier.
@@ -544,7 +550,7 @@ Name | Type | Description  | Required | Notes
 **applied_tax_policy_record_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -564,7 +570,7 @@ No authorization required
 
 ## patch_item_tax_policy_record
 
-> models::EmptyEnvelope patch_item_tax_policy_record(tenant_id, tax_policy_id, item_tax_policy_record_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_tax_policy_record(tenant_id, tax_policy_id, item_tax_policy_record_id, api_version, x_api_version, patch_operation)
 Patch an item tax policy record
 
 Partially updates an existing item tax policy record identified by its unique identifier.
@@ -579,7 +585,7 @@ Name | Type | Description  | Required | Notes
 **item_tax_policy_record_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -599,7 +605,7 @@ No authorization required
 
 ## patch_tax_policy
 
-> models::EmptyEnvelope patch_tax_policy(tenant_id, id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_tax_policy(tenant_id, id, api_version, x_api_version, patch_operation)
 Patch a tax policy
 
 Partially updates an existing tax policy identified by its unique identifier.
@@ -613,7 +619,7 @@ Name | Type | Description  | Required | Notes
 **id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

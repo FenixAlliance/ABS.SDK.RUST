@@ -44,7 +44,7 @@ pub enum GetTimeZonesAsyncError {
 
 
 /// Returns the total number of supported timezones, with optional OData filtering.
-pub async fn count_timezones_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountTimezonesAsyncError>> {
+pub async fn count_timezones_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, timezone_dto_collection_query_parameters: Option<models::TimezoneDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountTimezonesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -61,6 +61,7 @@ pub async fn count_timezones_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&timezone_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -112,7 +113,7 @@ pub async fn get_time_zone_by_id_async(configuration: &configuration::Configurat
 }
 
 /// Retrieves the list of all supported timezones with optional OData pagination and filtering.
-pub async fn get_time_zones_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TimezoneDtoListEnvelope, Error<GetTimeZonesAsyncError>> {
+pub async fn get_time_zones_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, timezone_dto_collection_query_parameters: Option<models::TimezoneDtoCollectionQueryParameters>) -> Result<models::TimezoneDtoListEnvelope, Error<GetTimeZonesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -129,6 +130,7 @@ pub async fn get_time_zones_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&timezone_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

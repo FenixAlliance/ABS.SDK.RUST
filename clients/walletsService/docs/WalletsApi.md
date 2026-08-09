@@ -321,7 +321,7 @@ No authorization required
 
 ## get_incoming_payments_async
 
-> models::PaymentDtoListEnvelope get_incoming_payments_async(wallet_id, api_version, x_api_version)
+> models::PaymentDtoListEnvelope get_incoming_payments_async(wallet_id, api_version, x_api_version, payment_dto_collection_query_parameters)
 Get Incoming Payments
 
 Get incoming payments of a specific wallet by ID.
@@ -334,6 +334,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -345,7 +346,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -353,7 +354,7 @@ No authorization required
 
 ## get_incoming_payments_count_async
 
-> models::Int32Envelope get_incoming_payments_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_incoming_payments_count_async(wallet_id, api_version, x_api_version, payment_dto_collection_query_parameters)
 Get Incoming Payments Count
 
 Get incoming payments count of a specific wallet by ID.
@@ -366,6 +367,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -377,7 +379,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -385,7 +387,7 @@ No authorization required
 
 ## get_incoming_wallet_invoices_async
 
-> models::InvoiceDtoListEnvelope get_incoming_wallet_invoices_async(wallet_id, api_version, x_api_version)
+> models::InvoiceDtoListEnvelope get_incoming_wallet_invoices_async(wallet_id, api_version, x_api_version, invoice_dto_collection_query_parameters)
 Get Incoming Wallet Invoices
 
 Get incoming invoices of a specific wallet by ID.
@@ -398,6 +400,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -409,7 +412,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -417,7 +420,7 @@ No authorization required
 
 ## get_incoming_wallet_invoices_count_async
 
-> models::Int32Envelope get_incoming_wallet_invoices_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_incoming_wallet_invoices_count_async(wallet_id, api_version, x_api_version, invoice_dto_collection_query_parameters)
 Get Incoming Wallet Invoices Count
 
 Get incoming invoices count of a specific wallet by ID.
@@ -430,6 +433,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -441,7 +445,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -482,7 +486,7 @@ No authorization required
 
 ## get_locations_for_wallet_async
 
-> models::LocationDtoListEnvelope get_locations_for_wallet_async(wallet_id, api_version, x_api_version)
+> models::LocationDtoListEnvelope get_locations_for_wallet_async(wallet_id, api_version, x_api_version, location_dto_collection_query_parameters)
 Get Wallet Locations
 
 Get locations of a specific wallet by ID.
@@ -495,6 +499,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**location_dto_collection_query_parameters** | Option<[**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -506,7 +511,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -514,7 +519,7 @@ No authorization required
 
 ## get_locations_for_wallet_count_async
 
-> models::Int32Envelope get_locations_for_wallet_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_locations_for_wallet_count_async(wallet_id, api_version, x_api_version, location_dto_collection_query_parameters)
 Get Wallet Locations Count
 
 Get locations count of a specific wallet by ID.
@@ -527,6 +532,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**location_dto_collection_query_parameters** | Option<[**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -538,7 +544,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -546,7 +552,7 @@ No authorization required
 
 ## get_outgoing_payments_async
 
-> models::PaymentDtoListEnvelope get_outgoing_payments_async(wallet_id, api_version, x_api_version)
+> models::PaymentDtoListEnvelope get_outgoing_payments_async(wallet_id, api_version, x_api_version, payment_dto_collection_query_parameters)
 Get Outgoing Payments
 
 Get outgoing payments of a specific wallet by ID.
@@ -559,6 +565,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -570,7 +577,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -578,7 +585,7 @@ No authorization required
 
 ## get_outgoing_payments_count_async
 
-> models::Int32Envelope get_outgoing_payments_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_outgoing_payments_count_async(wallet_id, api_version, x_api_version, payment_dto_collection_query_parameters)
 Get Outgoing Payments Count
 
 Get outgoing payments count of a specific wallet by ID.
@@ -591,6 +598,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -602,7 +610,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -610,7 +618,7 @@ No authorization required
 
 ## get_outgoing_wallet_invoices_async
 
-> models::InvoiceDtoListEnvelope get_outgoing_wallet_invoices_async(wallet_id, api_version, x_api_version)
+> models::InvoiceDtoListEnvelope get_outgoing_wallet_invoices_async(wallet_id, api_version, x_api_version, invoice_dto_collection_query_parameters)
 Get Outgoing Wallet Invoices
 
 Get outgoing invoices of a specific wallet by ID.
@@ -623,6 +631,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -634,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -642,7 +651,7 @@ No authorization required
 
 ## get_outgoing_wallet_invoices_count_async
 
-> models::Int32Envelope get_outgoing_wallet_invoices_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_outgoing_wallet_invoices_count_async(wallet_id, api_version, x_api_version, invoice_dto_collection_query_parameters)
 Get Outgoing Wallet Invoices Count
 
 Get outgoing invoices count of a specific wallet by ID.
@@ -655,6 +664,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -666,7 +676,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -707,7 +717,7 @@ No authorization required
 
 ## get_wallet_bank_accounts_async
 
-> models::BankAccountDtoListEnvelope get_wallet_bank_accounts_async(wallet_id, api_version, x_api_version)
+> models::BankAccountDtoListEnvelope get_wallet_bank_accounts_async(wallet_id, api_version, x_api_version, bank_account_dto_collection_query_parameters)
 Get Wallet Bank Accounts
 
 Get bank accounts of a specific wallet by ID.
@@ -720,6 +730,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_account_dto_collection_query_parameters** | Option<[**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -731,7 +742,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -739,7 +750,7 @@ No authorization required
 
 ## get_wallet_bank_accounts_count_async
 
-> models::Int32Envelope get_wallet_bank_accounts_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_bank_accounts_count_async(wallet_id, api_version, x_api_version, bank_account_dto_collection_query_parameters)
 Get Wallet Bank Accounts Count
 
 Get bank accounts count of a specific wallet by ID.
@@ -752,6 +763,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_account_dto_collection_query_parameters** | Option<[**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -763,7 +775,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -771,7 +783,7 @@ No authorization required
 
 ## get_wallet_chargebacks_async
 
-> models::PaymentChargebackDtoListEnvelope get_wallet_chargebacks_async(wallet_id, api_version, x_api_version)
+> models::PaymentChargebackDtoListEnvelope get_wallet_chargebacks_async(wallet_id, api_version, x_api_version, payment_chargeback_dto_collection_query_parameters)
 Get Wallet Chargebacks
 
 Get chargebacks of a specific wallet by ID.
@@ -784,6 +796,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_chargeback_dto_collection_query_parameters** | Option<[**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -795,7 +808,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -803,7 +816,7 @@ No authorization required
 
 ## get_wallet_chargebacks_count_async
 
-> models::Int32Envelope get_wallet_chargebacks_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_chargebacks_count_async(wallet_id, api_version, x_api_version, payment_chargeback_dto_collection_query_parameters)
 Get Wallet Chargebacks Count
 
 Get chargebacks count of a specific wallet by ID.
@@ -816,6 +829,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_chargeback_dto_collection_query_parameters** | Option<[**PaymentChargebackDtoCollectionQueryParameters**](PaymentChargebackDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -827,7 +841,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -867,7 +881,7 @@ No authorization required
 
 ## get_wallet_extended_orders_async
 
-> models::ExtendedOrderDtoListEnvelope get_wallet_extended_orders_async(wallet_id, api_version, x_api_version)
+> models::ExtendedOrderDtoListEnvelope get_wallet_extended_orders_async(wallet_id, api_version, x_api_version, extended_order_dto_collection_query_parameters)
 Get Wallet Extended Orders
 
 Get extended orders of a specific wallet by ID.
@@ -880,6 +894,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**extended_order_dto_collection_query_parameters** | Option<[**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -891,7 +906,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -899,7 +914,7 @@ No authorization required
 
 ## get_wallet_invoices_async
 
-> models::InvoiceDtoListEnvelope get_wallet_invoices_async(wallet_id, api_version, x_api_version)
+> models::InvoiceDtoListEnvelope get_wallet_invoices_async(wallet_id, api_version, x_api_version, invoice_dto_collection_query_parameters)
 Get Wallet Invoices
 
 Get invoices of a specific wallet by ID.
@@ -912,6 +927,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -923,7 +939,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -931,7 +947,7 @@ No authorization required
 
 ## get_wallet_invoices_count_async
 
-> models::Int32Envelope get_wallet_invoices_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_invoices_count_async(wallet_id, api_version, x_api_version, invoice_dto_collection_query_parameters)
 Get Wallet Invoices Count
 
 Get invoices count of a specific wallet by ID.
@@ -944,6 +960,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -955,7 +972,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -963,7 +980,7 @@ No authorization required
 
 ## get_wallet_orders_async
 
-> models::OrderDtoListEnvelope get_wallet_orders_async(wallet_id, api_version, x_api_version)
+> models::OrderDtoListEnvelope get_wallet_orders_async(wallet_id, api_version, x_api_version, order_dto_collection_query_parameters)
 Get Wallet Orders
 
 Get orders of a specific wallet by ID.
@@ -976,6 +993,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**order_dto_collection_query_parameters** | Option<[**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -987,7 +1005,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -995,7 +1013,7 @@ No authorization required
 
 ## get_wallet_orders_count_async
 
-> models::Int32Envelope get_wallet_orders_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_orders_count_async(wallet_id, api_version, x_api_version, order_dto_collection_query_parameters)
 Get Wallet Orders Count
 
 Get orders count of a specific wallet by ID.
@@ -1008,6 +1026,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**order_dto_collection_query_parameters** | Option<[**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1019,7 +1038,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1027,7 +1046,7 @@ No authorization required
 
 ## get_wallet_payments_async
 
-> models::PaymentDtoListEnvelope get_wallet_payments_async(wallet_id, api_version, x_api_version)
+> models::PaymentDtoListEnvelope get_wallet_payments_async(wallet_id, api_version, x_api_version, payment_dto_collection_query_parameters)
 Get Wallet Payments
 
 Get payments of a specific wallet by ID.
@@ -1040,6 +1059,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1051,7 +1071,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1059,7 +1079,7 @@ No authorization required
 
 ## get_wallet_payments_count_async
 
-> models::Int32Envelope get_wallet_payments_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_payments_count_async(wallet_id, api_version, x_api_version, payment_dto_collection_query_parameters)
 Get Wallet Payments Count
 
 Get payments count of a specific wallet by ID.
@@ -1072,6 +1092,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1083,7 +1104,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1091,7 +1112,7 @@ No authorization required
 
 ## get_wallet_quotes_async
 
-> models::QuoteDtoListEnvelope get_wallet_quotes_async(wallet_id, api_version, x_api_version)
+> models::QuoteDtoListEnvelope get_wallet_quotes_async(wallet_id, api_version, x_api_version, quote_dto_collection_query_parameters)
 Get Wallet Quotes
 
 Get quotes of a specific wallet by ID.
@@ -1104,6 +1125,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**quote_dto_collection_query_parameters** | Option<[**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1115,7 +1137,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1123,7 +1145,7 @@ No authorization required
 
 ## get_wallet_quotes_count_async
 
-> models::Int32Envelope get_wallet_quotes_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_quotes_count_async(wallet_id, api_version, x_api_version, quote_dto_collection_query_parameters)
 Get Wallet Quotes Count
 
 Get quotes count of a specific wallet by ID.
@@ -1136,6 +1158,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**quote_dto_collection_query_parameters** | Option<[**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1147,7 +1170,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1155,7 +1178,7 @@ No authorization required
 
 ## get_wallet_refunds_async
 
-> models::PaymentRefundDtoListEnvelope get_wallet_refunds_async(wallet_id, api_version, x_api_version)
+> models::PaymentRefundDtoListEnvelope get_wallet_refunds_async(wallet_id, api_version, x_api_version, payment_refund_dto_collection_query_parameters)
 Get Wallet Refunds
 
 Get refunds of a specific wallet by ID.
@@ -1168,6 +1191,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_refund_dto_collection_query_parameters** | Option<[**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1179,7 +1203,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1187,7 +1211,7 @@ No authorization required
 
 ## get_wallet_refunds_count_async
 
-> models::Int32Envelope get_wallet_refunds_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_refunds_count_async(wallet_id, api_version, x_api_version, payment_refund_dto_collection_query_parameters)
 Get Wallet Refunds Count
 
 Get refunds count of a specific wallet by ID.
@@ -1200,6 +1224,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_refund_dto_collection_query_parameters** | Option<[**PaymentRefundDtoCollectionQueryParameters**](PaymentRefundDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1211,7 +1236,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1252,7 +1277,7 @@ No authorization required
 
 ## get_wallet_tokens_async
 
-> models::PaymentTokenDtoListEnvelope get_wallet_tokens_async(wallet_id, api_version, x_api_version)
+> models::PaymentTokenDtoListEnvelope get_wallet_tokens_async(wallet_id, api_version, x_api_version, payment_token_dto_collection_query_parameters)
 Get Wallet Tokens
 
 Get payment tokens of a specific wallet by ID.
@@ -1265,6 +1290,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_token_dto_collection_query_parameters** | Option<[**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1276,7 +1302,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1284,7 +1310,7 @@ No authorization required
 
 ## get_wallet_tokens_count_async
 
-> models::Int32Envelope get_wallet_tokens_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_tokens_count_async(wallet_id, api_version, x_api_version, payment_token_dto_collection_query_parameters)
 Get Wallet Tokens Count
 
 Get payment tokens count of a specific wallet by ID.
@@ -1297,6 +1323,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_token_dto_collection_query_parameters** | Option<[**PaymentTokenDtoCollectionQueryParameters**](PaymentTokenDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1308,7 +1335,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1316,7 +1343,7 @@ No authorization required
 
 ## get_wallet_withdraw_requests_async
 
-> models::WalletWithdrawRequestDtoListEnvelope get_wallet_withdraw_requests_async(wallet_id, api_version, x_api_version)
+> models::WalletWithdrawRequestDtoListEnvelope get_wallet_withdraw_requests_async(wallet_id, api_version, x_api_version, wallet_withdraw_request_dto_collection_query_parameters)
 Get Wallet Withdraw Requests
 
 Get withdraw requests of a specific wallet by ID.
@@ -1329,6 +1356,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**wallet_withdraw_request_dto_collection_query_parameters** | Option<[**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1340,7 +1368,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1348,7 +1376,7 @@ No authorization required
 
 ## get_wallet_withdraw_requests_count_async
 
-> models::Int32Envelope get_wallet_withdraw_requests_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_withdraw_requests_count_async(wallet_id, api_version, x_api_version, wallet_withdraw_request_dto_collection_query_parameters)
 Get Wallet Withdraw Requests Count
 
 Get withdraw requests count of a specific wallet by ID.
@@ -1361,6 +1389,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**wallet_withdraw_request_dto_collection_query_parameters** | Option<[**WalletWithdrawRequestDtoCollectionQueryParameters**](WalletWithdrawRequestDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1372,7 +1401,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1380,7 +1409,7 @@ No authorization required
 
 ## get_wallet_withdraws_async
 
-> models::WalletWithdrawDtoListEnvelope get_wallet_withdraws_async(wallet_id, api_version, x_api_version)
+> models::WalletWithdrawDtoListEnvelope get_wallet_withdraws_async(wallet_id, api_version, x_api_version, wallet_withdraw_dto_collection_query_parameters)
 Get Wallet Withdraws
 
 Get withdraws of a specific wallet by ID.
@@ -1393,6 +1422,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**wallet_withdraw_dto_collection_query_parameters** | Option<[**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1404,7 +1434,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1412,7 +1442,7 @@ No authorization required
 
 ## get_wallet_withdraws_count_async
 
-> models::Int32Envelope get_wallet_withdraws_count_async(wallet_id, api_version, x_api_version)
+> models::Int32Envelope get_wallet_withdraws_count_async(wallet_id, api_version, x_api_version, wallet_withdraw_dto_collection_query_parameters)
 Get Wallet Withdraws Count
 
 Get withdraws count of a specific wallet by ID.
@@ -1425,6 +1455,7 @@ Name | Type | Description  | Required | Notes
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**wallet_withdraw_dto_collection_query_parameters** | Option<[**WalletWithdrawDtoCollectionQueryParameters**](WalletWithdrawDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1436,7 +1467,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1444,7 +1475,7 @@ No authorization required
 
 ## patch_wallet_bank_account_async
 
-> models::EmptyEnvelope patch_wallet_bank_account_async(wallet_id, bank_account_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_wallet_bank_account_async(wallet_id, bank_account_id, api_version, x_api_version, patch_operation)
 Patch Wallet Bank Account
 
 Partially update a specific bank account of a specific wallet by ID.
@@ -1458,7 +1489,7 @@ Name | Type | Description  | Required | Notes
 **bank_account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1478,7 +1509,7 @@ No authorization required
 
 ## patch_wallet_token_async
 
-> models::EmptyEnvelope patch_wallet_token_async(wallet_id, token_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_wallet_token_async(wallet_id, token_id, api_version, x_api_version, patch_operation)
 Patch Wallet Token
 
 Partially update a specific payment token of a specific wallet by ID.
@@ -1492,7 +1523,7 @@ Name | Type | Description  | Required | Notes
 **token_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

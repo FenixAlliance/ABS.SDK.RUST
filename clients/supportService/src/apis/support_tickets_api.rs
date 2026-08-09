@@ -342,7 +342,7 @@ pub async fn get_support_ticket_conversation_messages_async(configuration: &conf
 }
 
 /// Retrieves the list of conversations associated with a specific support ticket.
-pub async fn get_support_ticket_conversations_async(configuration: &configuration::Configuration, tenant_id: &str, support_ticket_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SupportTicketConversationDtoListEnvelope, Error<GetSupportTicketConversationsAsyncError>> {
+pub async fn get_support_ticket_conversations_async(configuration: &configuration::Configuration, tenant_id: &str, support_ticket_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, support_ticket_conversation_dto_collection_query_parameters: Option<models::SupportTicketConversationDtoCollectionQueryParameters>) -> Result<models::SupportTicketConversationDtoListEnvelope, Error<GetSupportTicketConversationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -360,6 +360,7 @@ pub async fn get_support_ticket_conversations_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&support_ticket_conversation_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -377,7 +378,7 @@ pub async fn get_support_ticket_conversations_async(configuration: &configuratio
 }
 
 /// Retrieves a list of support tickets for the specified tenant with OData query support.
-pub async fn get_support_tickets_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SupportTicketDtoListEnvelope, Error<GetSupportTicketsAsyncError>> {
+pub async fn get_support_tickets_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, support_ticket_dto_collection_query_parameters: Option<models::SupportTicketDtoCollectionQueryParameters>) -> Result<models::SupportTicketDtoListEnvelope, Error<GetSupportTicketsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -395,6 +396,7 @@ pub async fn get_support_tickets_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&support_ticket_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -412,7 +414,7 @@ pub async fn get_support_tickets_async(configuration: &configuration::Configurat
 }
 
 /// Returns the total count of support tickets for the specified tenant with OData query support.
-pub async fn get_support_tickets_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSupportTicketsCountAsyncError>> {
+pub async fn get_support_tickets_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, support_ticket_dto_collection_query_parameters: Option<models::SupportTicketDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSupportTicketsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -430,6 +432,7 @@ pub async fn get_support_tickets_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&support_ticket_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -447,7 +450,7 @@ pub async fn get_support_tickets_count_async(configuration: &configuration::Conf
 }
 
 /// Partially updates an existing support ticket by its unique identifier.
-pub async fn patch_support_ticket_async(configuration: &configuration::Configuration, tenant_id: &str, support_ticket_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSupportTicketAsyncError>> {
+pub async fn patch_support_ticket_async(configuration: &configuration::Configuration, tenant_id: &str, support_ticket_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSupportTicketAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -465,7 +468,7 @@ pub async fn patch_support_ticket_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

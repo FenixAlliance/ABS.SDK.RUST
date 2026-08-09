@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## count_loyalty_programs_async
 
-> models::Int32Envelope count_loyalty_programs_async(tenant_id)
+> models::Int32Envelope count_loyalty_programs_async(tenant_id, loyalty_program_dto_collection_query_parameters)
 Get loyalty programs count
 
 Returns the total count of loyalty programs for the specified tenant with OData filter support.
@@ -27,6 +27,7 @@ Returns the total count of loyalty programs for the specified tenant with OData 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**loyalty_program_dto_collection_query_parameters** | Option<[**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -38,7 +39,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -139,7 +140,7 @@ No authorization required
 
 ## get_loyalty_programs_async
 
-> models::LoyaltyProgramDtoListEnvelope get_loyalty_programs_async(tenant_id)
+> models::LoyaltyProgramDtoListEnvelope get_loyalty_programs_async(tenant_id, loyalty_program_dto_collection_query_parameters)
 Get loyalty programs
 
 Retrieves a list of loyalty programs for the specified tenant with OData query support.
@@ -150,6 +151,7 @@ Retrieves a list of loyalty programs for the specified tenant with OData query s
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**loyalty_program_dto_collection_query_parameters** | Option<[**LoyaltyProgramDtoCollectionQueryParameters**](LoyaltyProgramDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -161,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,7 +171,7 @@ No authorization required
 
 ## patch_loyalty_program_async
 
-> models::EmptyEnvelope patch_loyalty_program_async(tenant_id, loyalty_program_id, operation)
+> models::EmptyEnvelope patch_loyalty_program_async(tenant_id, loyalty_program_id, patch_operation)
 Patch a loyalty program
 
 Partially updates an existing loyalty program using a JSON Patch document.
@@ -181,7 +183,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **loyalty_program_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## count_blog_posts_by_author_async
 
-> models::Int32Envelope count_blog_posts_by_author_async(author_id, api_version, x_api_version)
+> models::Int32Envelope count_blog_posts_by_author_async(author_id, api_version, x_api_version, blog_post_dto_collection_query_parameters)
 Count blog posts by author
 
 Returns the count of blog posts written by a specific author.
@@ -26,6 +26,7 @@ Name | Type | Description  | Required | Notes
 **author_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**blog_post_dto_collection_query_parameters** | Option<[**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -37,7 +38,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -77,7 +78,7 @@ No authorization required
 
 ## get_blog_authors_async
 
-> models::BlogAuthorDtoListEnvelope get_blog_authors_async(tenant_id, api_version, x_api_version)
+> models::BlogAuthorDtoListEnvelope get_blog_authors_async(tenant_id, api_version, x_api_version, blog_author_dto_collection_query_parameters)
 Get blog authors
 
 Retrieves all blog authors, optionally filtered by tenant.
@@ -90,6 +91,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**blog_author_dto_collection_query_parameters** | Option<[**BlogAuthorDtoCollectionQueryParameters**](BlogAuthorDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -101,7 +103,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -109,7 +111,7 @@ No authorization required
 
 ## get_blog_posts_by_author_async
 
-> models::BlogPostDtoListEnvelope get_blog_posts_by_author_async(author_id, api_version, x_api_version)
+> models::BlogPostDtoListEnvelope get_blog_posts_by_author_async(author_id, api_version, x_api_version, blog_post_dto_collection_query_parameters)
 Get blog posts by author
 
 Retrieves all blog posts written by a specific author.
@@ -122,6 +124,7 @@ Name | Type | Description  | Required | Notes
 **author_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**blog_post_dto_collection_query_parameters** | Option<[**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -133,7 +136,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -53,7 +53,7 @@ No authorization required
 
 ## get_my_certificates_async
 
-> models::CourseCompletionCertificateDtoIReadOnlyListEnvelope get_my_certificates_async(api_version, x_api_version)
+> models::CourseCompletionCertificateDtoIReadOnlyListEnvelope get_my_certificates_async(api_version, x_api_version, course_completion_certificate_dto_collection_query_parameters)
 Get current user's completion certificates
 
 ### Parameters
@@ -63,6 +63,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_completion_certificate_dto_collection_query_parameters** | Option<[**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -74,7 +75,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -82,7 +83,7 @@ No authorization required
 
 ## get_my_certificates_count_async
 
-> i32 get_my_certificates_count_async(api_version, x_api_version)
+> i32 get_my_certificates_count_async(api_version, x_api_version, course_completion_certificate_dto_collection_query_parameters)
 Get current user's certificates count
 
 ### Parameters
@@ -92,6 +93,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_completion_certificate_dto_collection_query_parameters** | Option<[**CourseCompletionCertificateDtoCollectionQueryParameters**](CourseCompletionCertificateDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -103,7 +105,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -111,7 +113,7 @@ No authorization required
 
 ## get_my_enrollments_async
 
-> models::CourseEnrollmentDtoIReadOnlyListEnvelope get_my_enrollments_async(api_version, x_api_version)
+> models::CourseEnrollmentDtoIReadOnlyListEnvelope get_my_enrollments_async(api_version, x_api_version, course_enrollment_dto_collection_query_parameters)
 Get current user's course enrollments
 
 ### Parameters
@@ -121,6 +123,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_enrollment_dto_collection_query_parameters** | Option<[**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -132,7 +135,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -140,7 +143,7 @@ No authorization required
 
 ## get_my_enrollments_count_async
 
-> i32 get_my_enrollments_count_async(api_version, x_api_version)
+> i32 get_my_enrollments_count_async(api_version, x_api_version, course_enrollment_dto_collection_query_parameters)
 Get current user's enrollment count
 
 ### Parameters
@@ -150,6 +153,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_enrollment_dto_collection_query_parameters** | Option<[**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -161,7 +165,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -198,7 +202,7 @@ No authorization required
 
 ## get_my_instructor_courses_async
 
-> models::CourseDtoIReadOnlyListEnvelope get_my_instructor_courses_async(api_version, x_api_version)
+> models::CourseDtoIReadOnlyListEnvelope get_my_instructor_courses_async(api_version, x_api_version, course_dto_collection_query_parameters)
 Get current user's instructor courses
 
 ### Parameters
@@ -208,6 +212,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_dto_collection_query_parameters** | Option<[**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -219,7 +224,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -227,7 +232,7 @@ No authorization required
 
 ## get_my_instructor_courses_count_async
 
-> i32 get_my_instructor_courses_count_async(api_version, x_api_version)
+> i32 get_my_instructor_courses_count_async(api_version, x_api_version, course_dto_collection_query_parameters)
 Get current user's instructor courses count
 
 ### Parameters
@@ -237,6 +242,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_dto_collection_query_parameters** | Option<[**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -248,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -256,7 +262,7 @@ No authorization required
 
 ## get_my_instructor_profiles_async
 
-> models::InstructorProfileDtoIReadOnlyListEnvelope get_my_instructor_profiles_async(api_version, x_api_version)
+> models::InstructorProfileDtoIReadOnlyListEnvelope get_my_instructor_profiles_async(api_version, x_api_version, instructor_profile_dto_collection_query_parameters)
 Get current user's instructor profiles
 
 ### Parameters
@@ -266,6 +272,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**instructor_profile_dto_collection_query_parameters** | Option<[**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -277,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -285,7 +292,7 @@ No authorization required
 
 ## get_my_instructor_profiles_count_async
 
-> i32 get_my_instructor_profiles_count_async(api_version, x_api_version)
+> i32 get_my_instructor_profiles_count_async(api_version, x_api_version, instructor_profile_dto_collection_query_parameters)
 Get current user's instructor profiles count
 
 ### Parameters
@@ -295,6 +302,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**instructor_profile_dto_collection_query_parameters** | Option<[**InstructorProfileDtoCollectionQueryParameters**](InstructorProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -306,7 +314,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -343,7 +351,7 @@ No authorization required
 
 ## get_my_student_courses_async
 
-> models::CourseDtoIReadOnlyListEnvelope get_my_student_courses_async(api_version, x_api_version)
+> models::CourseDtoIReadOnlyListEnvelope get_my_student_courses_async(api_version, x_api_version, course_dto_collection_query_parameters)
 Get current user's enrolled courses
 
 ### Parameters
@@ -353,6 +361,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_dto_collection_query_parameters** | Option<[**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -364,7 +373,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -372,7 +381,7 @@ No authorization required
 
 ## get_my_student_courses_count_async
 
-> i32 get_my_student_courses_count_async(api_version, x_api_version)
+> i32 get_my_student_courses_count_async(api_version, x_api_version, course_dto_collection_query_parameters)
 Get current user's enrolled courses count
 
 ### Parameters
@@ -382,6 +391,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_dto_collection_query_parameters** | Option<[**CourseDtoCollectionQueryParameters**](CourseDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -393,7 +403,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -401,7 +411,7 @@ No authorization required
 
 ## get_my_student_profiles_async
 
-> models::StudentProfileDtoIReadOnlyListEnvelope get_my_student_profiles_async(api_version, x_api_version)
+> models::StudentProfileDtoIReadOnlyListEnvelope get_my_student_profiles_async(api_version, x_api_version, student_profile_dto_collection_query_parameters)
 Get current user's student profiles
 
 ### Parameters
@@ -411,6 +421,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**student_profile_dto_collection_query_parameters** | Option<[**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -422,7 +433,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -430,7 +441,7 @@ No authorization required
 
 ## get_my_student_profiles_count_async
 
-> i32 get_my_student_profiles_count_async(api_version, x_api_version)
+> i32 get_my_student_profiles_count_async(api_version, x_api_version, student_profile_dto_collection_query_parameters)
 Get current user's student profiles count
 
 ### Parameters
@@ -440,6 +451,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**student_profile_dto_collection_query_parameters** | Option<[**StudentProfileDtoCollectionQueryParameters**](StudentProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -451,7 +463,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

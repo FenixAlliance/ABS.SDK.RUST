@@ -155,7 +155,7 @@ No authorization required
 
 ## count_stock_item_tags_by_item_id
 
-> models::Int32Envelope count_stock_item_tags_by_item_id(tenant_id, item_id, api_version, x_api_version)
+> models::Int32Envelope count_stock_item_tags_by_item_id(tenant_id, item_id, api_version, x_api_version, item_tag_dto_collection_query_parameters)
 Count tags for a stock item
 
 Counts the number of tags associated with a specific stock item.
@@ -169,6 +169,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_tag_dto_collection_query_parameters** | Option<[**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -180,7 +181,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -188,7 +189,7 @@ No authorization required
 
 ## count_stock_items_by_business
 
-> models::Int32Envelope count_stock_items_by_business(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_stock_items_by_business(tenant_id, api_version, x_api_version, catalog_item_dto_collection_query_parameters)
 Count stock items by business
 
 Counts the number of stock items for a business, optionally filtered by tenant and OData query options.
@@ -201,6 +202,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**catalog_item_dto_collection_query_parameters** | Option<[**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -212,7 +214,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -383,7 +385,7 @@ No authorization required
 
 ## get_stock_item_attachments_by_item_id
 
-> models::ItemAttachmentDtoListEnvelope get_stock_item_attachments_by_item_id(item_id, api_version, x_api_version)
+> models::ItemAttachmentDtoListEnvelope get_stock_item_attachments_by_item_id(item_id, api_version, x_api_version, item_attachment_dto_collection_query_parameters)
 Get attachments for a stock item
 
 Retrieves all attachments associated with a specific stock item.
@@ -396,6 +398,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_attachment_dto_collection_query_parameters** | Option<[**ItemAttachmentDtoCollectionQueryParameters**](ItemAttachmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -407,7 +410,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -513,7 +516,7 @@ No authorization required
 
 ## get_stock_item_brands_by_item_id
 
-> models::ItemBrandDtoListEnvelope get_stock_item_brands_by_item_id(item_id, api_version, x_api_version)
+> models::ItemBrandDtoListEnvelope get_stock_item_brands_by_item_id(item_id, api_version, x_api_version, item_brand_dto_collection_query_parameters)
 Get brands for a stock item
 
 Retrieves all brands associated with a specific stock item.
@@ -526,6 +529,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_brand_dto_collection_query_parameters** | Option<[**ItemBrandDtoCollectionQueryParameters**](ItemBrandDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -537,7 +541,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -577,7 +581,7 @@ No authorization required
 
 ## get_stock_item_categories_by_item_id
 
-> models::ItemCategoryDtoListEnvelope get_stock_item_categories_by_item_id(item_id, api_version, x_api_version)
+> models::ItemCategoryDtoListEnvelope get_stock_item_categories_by_item_id(item_id, api_version, x_api_version, item_category_dto_collection_query_parameters)
 Get categories for a stock item
 
 Retrieves all categories associated with a specific stock item.
@@ -590,6 +594,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_category_dto_collection_query_parameters** | Option<[**ItemCategoryDtoCollectionQueryParameters**](ItemCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -601,7 +606,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -642,7 +647,7 @@ No authorization required
 
 ## get_stock_item_google_categories_by_item_id
 
-> models::ItemGoogleCategoryDtoListEnvelope get_stock_item_google_categories_by_item_id(item_id, api_version, x_api_version)
+> models::ItemGoogleCategoryDtoListEnvelope get_stock_item_google_categories_by_item_id(item_id, api_version, x_api_version, item_google_category_dto_collection_query_parameters)
 Get Google categories for a stock item
 
 Retrieves all Google categories associated with a specific stock item.
@@ -655,6 +660,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_google_category_dto_collection_query_parameters** | Option<[**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -666,7 +672,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -740,7 +746,7 @@ No authorization required
 
 ## get_stock_item_images_by_item_id
 
-> models::ItemImageDtoListEnvelope get_stock_item_images_by_item_id(item_id, api_version, x_api_version)
+> models::ItemImageDtoListEnvelope get_stock_item_images_by_item_id(item_id, api_version, x_api_version, item_image_dto_collection_query_parameters)
 Get images for a stock item
 
 Retrieves all images associated with a specific stock item.
@@ -753,6 +759,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_image_dto_collection_query_parameters** | Option<[**ItemImageDtoCollectionQueryParameters**](ItemImageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -764,7 +771,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -870,7 +877,7 @@ No authorization required
 
 ## get_stock_item_questions_by_item_id
 
-> models::ItemQuestionDtoListEnvelope get_stock_item_questions_by_item_id(item_id, api_version, x_api_version)
+> models::ItemQuestionDtoListEnvelope get_stock_item_questions_by_item_id(item_id, api_version, x_api_version, item_question_dto_collection_query_parameters)
 Get questions for a stock item
 
 Retrieves all questions associated with a specific stock item.
@@ -883,6 +890,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_question_dto_collection_query_parameters** | Option<[**ItemQuestionDtoCollectionQueryParameters**](ItemQuestionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -894,7 +902,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -902,7 +910,7 @@ No authorization required
 
 ## get_stock_item_refund_policies_by_item_id
 
-> models::ItemRefundPolicyDtoListEnvelope get_stock_item_refund_policies_by_item_id(item_id, api_version, x_api_version)
+> models::ItemRefundPolicyDtoListEnvelope get_stock_item_refund_policies_by_item_id(item_id, api_version, x_api_version, item_refund_policy_dto_collection_query_parameters)
 Get refund policies for a stock item
 
 Retrieves all refund policies associated with a specific stock item.
@@ -915,6 +923,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_refund_policy_dto_collection_query_parameters** | Option<[**ItemRefundPolicyDtoCollectionQueryParameters**](ItemRefundPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -926,7 +935,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -967,7 +976,7 @@ No authorization required
 
 ## get_stock_item_return_policies_by_item_id
 
-> models::ItemReturnPolicyDtoListEnvelope get_stock_item_return_policies_by_item_id(item_id, api_version, x_api_version)
+> models::ItemReturnPolicyDtoListEnvelope get_stock_item_return_policies_by_item_id(item_id, api_version, x_api_version, item_return_policy_dto_collection_query_parameters)
 Get return policies for a stock item
 
 Retrieves all return policies associated with a specific stock item.
@@ -980,6 +989,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_return_policy_dto_collection_query_parameters** | Option<[**ItemReturnPolicyDtoCollectionQueryParameters**](ItemReturnPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -991,7 +1001,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1065,7 +1075,7 @@ No authorization required
 
 ## get_stock_item_reviews_by_item_id
 
-> models::ItemReviewDtoListEnvelope get_stock_item_reviews_by_item_id(item_id, api_version, x_api_version)
+> models::ItemReviewDtoListEnvelope get_stock_item_reviews_by_item_id(item_id, api_version, x_api_version, item_review_dto_collection_query_parameters)
 Get reviews for a stock item
 
 Retrieves all reviews associated with a specific stock item.
@@ -1078,6 +1088,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_review_dto_collection_query_parameters** | Option<[**ItemReviewDtoCollectionQueryParameters**](ItemReviewDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1089,7 +1100,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1097,7 +1108,7 @@ No authorization required
 
 ## get_stock_item_shipping_policies_by_item_id
 
-> models::ItemShippingPolicyDtoListEnvelope get_stock_item_shipping_policies_by_item_id(item_id, api_version, x_api_version)
+> models::ItemShippingPolicyDtoListEnvelope get_stock_item_shipping_policies_by_item_id(item_id, api_version, x_api_version, item_shipping_policy_dto_collection_query_parameters)
 Get shipping policies for a stock item
 
 Retrieves all shipping policies associated with a specific stock item.
@@ -1110,6 +1121,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_shipping_policy_dto_collection_query_parameters** | Option<[**ItemShippingPolicyDtoCollectionQueryParameters**](ItemShippingPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1121,7 +1133,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1196,7 +1208,7 @@ No authorization required
 
 ## get_stock_item_tags_by_item_id
 
-> models::ItemTagDtoListEnvelope get_stock_item_tags_by_item_id(tenant_id, item_id, api_version, x_api_version)
+> models::ItemTagDtoListEnvelope get_stock_item_tags_by_item_id(tenant_id, item_id, api_version, x_api_version, item_tag_dto_collection_query_parameters)
 Get tags for a stock item
 
 Retrieves all tags associated with a specific stock item.
@@ -1210,6 +1222,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_tag_dto_collection_query_parameters** | Option<[**ItemTagDtoCollectionQueryParameters**](ItemTagDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1221,7 +1234,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1229,7 +1242,7 @@ No authorization required
 
 ## get_stock_item_tax_policies_by_item_id
 
-> models::ItemTaxPolicyDtoListEnvelope get_stock_item_tax_policies_by_item_id(item_id, api_version, x_api_version)
+> models::ItemTaxPolicyDtoListEnvelope get_stock_item_tax_policies_by_item_id(item_id, api_version, x_api_version, item_tax_policy_dto_collection_query_parameters)
 Get tax policies for a stock item
 
 Retrieves all tax policies associated with a specific stock item.
@@ -1242,6 +1255,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_tax_policy_dto_collection_query_parameters** | Option<[**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1253,7 +1267,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1328,7 +1342,7 @@ No authorization required
 
 ## get_stock_item_types_by_item_id
 
-> models::ItemTypeDtoListEnvelope get_stock_item_types_by_item_id(tenant_id, item_id, api_version, x_api_version)
+> models::ItemTypeDtoListEnvelope get_stock_item_types_by_item_id(tenant_id, item_id, api_version, x_api_version, item_type_dto_collection_query_parameters)
 Get types for a stock item
 
 Retrieves all types associated with a specific stock item.
@@ -1342,6 +1356,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_type_dto_collection_query_parameters** | Option<[**ItemTypeDtoCollectionQueryParameters**](ItemTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1353,7 +1368,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1361,7 +1376,7 @@ No authorization required
 
 ## get_stock_item_warranty_policies_by_item_id
 
-> models::ItemWarrantyPolicyDtoListEnvelope get_stock_item_warranty_policies_by_item_id(item_id, api_version, x_api_version)
+> models::ItemWarrantyPolicyDtoListEnvelope get_stock_item_warranty_policies_by_item_id(item_id, api_version, x_api_version, item_warranty_policy_dto_collection_query_parameters)
 Get warranty policies for a stock item
 
 Retrieves all warranty policies associated with a specific stock item.
@@ -1374,6 +1389,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_warranty_policy_dto_collection_query_parameters** | Option<[**ItemWarrantyPolicyDtoCollectionQueryParameters**](ItemWarrantyPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1385,7 +1401,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1426,7 +1442,7 @@ No authorization required
 
 ## get_stock_items_odata_max_price
 
-> models::MoneyEnvelope get_stock_items_odata_max_price(tenant_id, api_version, x_api_version)
+> models::MoneyEnvelope get_stock_items_odata_max_price(tenant_id, api_version, x_api_version, catalog_item_dto_collection_query_parameters)
 Get max price of stock items
 
 Retrieves the maximum price among all stock items, optionally filtered by tenant and OData query options.
@@ -1439,6 +1455,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**catalog_item_dto_collection_query_parameters** | Option<[**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1450,7 +1467,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1458,7 +1475,7 @@ No authorization required
 
 ## get_stock_items_odata_min_price
 
-> models::MoneyEnvelope get_stock_items_odata_min_price(tenant_id, api_version, x_api_version)
+> models::MoneyEnvelope get_stock_items_odata_min_price(tenant_id, api_version, x_api_version, catalog_item_dto_collection_query_parameters)
 Get min price of stock items
 
 Retrieves the minimum price among all stock items, optionally filtered by tenant and OData query options.
@@ -1471,6 +1488,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**catalog_item_dto_collection_query_parameters** | Option<[**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1482,7 +1500,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1490,7 +1508,7 @@ No authorization required
 
 ## get_stock_items_query
 
-> models::CatalogItemDtoListEnvelope get_stock_items_query(tenant_id, api_version, x_api_version)
+> models::CatalogItemDtoListEnvelope get_stock_items_query(tenant_id, api_version, x_api_version, catalog_item_dto_collection_query_parameters)
 Get all stock items
 
 Retrieves all stock items, optionally filtered by tenant and OData query options.
@@ -1503,6 +1521,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**catalog_item_dto_collection_query_parameters** | Option<[**CatalogItemDtoCollectionQueryParameters**](CatalogItemDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1514,7 +1533,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1522,7 +1541,7 @@ No authorization required
 
 ## patch_stock_item
 
-> patch_stock_item(tenant_id, item_id, api_version, x_api_version, operation)
+> patch_stock_item(tenant_id, item_id, api_version, x_api_version, patch_operation)
 Patch a stock item
 
 Partially updates an existing stock item for the specified tenant and item ID.
@@ -1536,7 +1555,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

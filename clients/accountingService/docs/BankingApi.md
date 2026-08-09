@@ -374,7 +374,7 @@ No authorization required
 
 ## get_bank_accounts
 
-> models::BankAccountDtoListEnvelope get_bank_accounts(tenant_id, bank_id, api_version, x_api_version)
+> models::BankAccountDtoListEnvelope get_bank_accounts(tenant_id, bank_id, api_version, x_api_version, bank_account_dto_collection_query_parameters)
 Gets the current tenant bank accounts
 
 Get the currently acting tenant bank accounts.
@@ -388,6 +388,7 @@ Name | Type | Description  | Required | Notes
 **bank_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_account_dto_collection_query_parameters** | Option<[**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -399,7 +400,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -407,7 +408,7 @@ No authorization required
 
 ## get_bank_accounts_count
 
-> models::Int32Envelope get_bank_accounts_count(tenant_id, bank_id, api_version, x_api_version)
+> models::Int32Envelope get_bank_accounts_count(tenant_id, bank_id, api_version, x_api_version, bank_account_dto_collection_query_parameters)
 Gets the current tenant bank accounts count
 
 Get the currently acting tenant bank accounts count.
@@ -421,6 +422,7 @@ Name | Type | Description  | Required | Notes
 **bank_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_account_dto_collection_query_parameters** | Option<[**BankAccountDtoCollectionQueryParameters**](BankAccountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -432,7 +434,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -474,7 +476,7 @@ No authorization required
 
 ## get_bank_guarantees
 
-> models::BankGuaranteeDtoListEnvelope get_bank_guarantees(tenant_id, bank_id, api_version, x_api_version)
+> models::BankGuaranteeDtoListEnvelope get_bank_guarantees(tenant_id, bank_id, api_version, x_api_version, bank_guarantee_dto_collection_query_parameters)
 Gets the current tenant bank guarantees
 
 Get the currently acting tenant bank guarantees.
@@ -488,6 +490,7 @@ Name | Type | Description  | Required | Notes
 **bank_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_guarantee_dto_collection_query_parameters** | Option<[**BankGuaranteeDtoCollectionQueryParameters**](BankGuaranteeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -499,7 +502,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -507,7 +510,7 @@ No authorization required
 
 ## get_bank_guarantees_count
 
-> models::Int32Envelope get_bank_guarantees_count(tenant_id, bank_id, api_version, x_api_version)
+> models::Int32Envelope get_bank_guarantees_count(tenant_id, bank_id, api_version, x_api_version, bank_guarantee_dto_collection_query_parameters)
 Gets the current tenant bank guarantees count
 
 Get the currently acting tenant bank guarantees count.
@@ -521,6 +524,7 @@ Name | Type | Description  | Required | Notes
 **bank_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_guarantee_dto_collection_query_parameters** | Option<[**BankGuaranteeDtoCollectionQueryParameters**](BankGuaranteeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -532,7 +536,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -574,7 +578,7 @@ No authorization required
 
 ## get_bank_transactions
 
-> models::BankTransactionDtoListEnvelope get_bank_transactions(tenant_id, bank_id, api_version, x_api_version)
+> models::BankTransactionDtoListEnvelope get_bank_transactions(tenant_id, bank_id, api_version, x_api_version, bank_transaction_dto_collection_query_parameters)
 Gets the current tenant bank transactions
 
 Get the currently acting tenant bank transactions.
@@ -588,6 +592,7 @@ Name | Type | Description  | Required | Notes
 **bank_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_transaction_dto_collection_query_parameters** | Option<[**BankTransactionDtoCollectionQueryParameters**](BankTransactionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -599,7 +604,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -607,7 +612,7 @@ No authorization required
 
 ## get_bank_transactions_count
 
-> models::Int32Envelope get_bank_transactions_count(tenant_id, bank_id, api_version, x_api_version)
+> models::Int32Envelope get_bank_transactions_count(tenant_id, bank_id, api_version, x_api_version, bank_transaction_dto_collection_query_parameters)
 Gets the current tenant bank transactions count
 
 Get the currently acting tenant bank transactions count.
@@ -621,6 +626,7 @@ Name | Type | Description  | Required | Notes
 **bank_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_transaction_dto_collection_query_parameters** | Option<[**BankTransactionDtoCollectionQueryParameters**](BankTransactionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -632,7 +638,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -640,7 +646,7 @@ No authorization required
 
 ## get_banks
 
-> models::BankDtoListEnvelope get_banks(tenant_id, api_version, x_api_version)
+> models::BankDtoListEnvelope get_banks(tenant_id, api_version, x_api_version, bank_dto_collection_query_parameters)
 Gets the current tenant banks
 
 Get the currently acting tenant banks.
@@ -653,6 +659,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_dto_collection_query_parameters** | Option<[**BankDtoCollectionQueryParameters**](BankDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -664,7 +671,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -672,7 +679,7 @@ No authorization required
 
 ## get_banks_count
 
-> models::Int32Envelope get_banks_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_banks_count(tenant_id, api_version, x_api_version, bank_dto_collection_query_parameters)
 Gets the current tenant banks count
 
 Get the currently acting tenant banks count.
@@ -685,6 +692,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_dto_collection_query_parameters** | Option<[**BankDtoCollectionQueryParameters**](BankDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -696,7 +704,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -704,7 +712,7 @@ No authorization required
 
 ## patch_bank
 
-> models::EmptyEnvelope patch_bank(tenant_id, bank_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_bank(tenant_id, bank_id, api_version, x_api_version, patch_operation)
 Patches a bank
 
 Partially update a bank using JSON Patch.
@@ -718,7 +726,7 @@ Name | Type | Description  | Required | Notes
 **bank_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -738,7 +746,7 @@ No authorization required
 
 ## patch_bank_account
 
-> models::EmptyEnvelope patch_bank_account(tenant_id, bank_id, account_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_bank_account(tenant_id, bank_id, account_id, api_version, x_api_version, patch_operation)
 Patches a bank account
 
 Partially update a bank account using JSON Patch.
@@ -753,7 +761,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -773,7 +781,7 @@ No authorization required
 
 ## patch_bank_guarantee
 
-> models::EmptyEnvelope patch_bank_guarantee(tenant_id, bank_id, guarantee_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_bank_guarantee(tenant_id, bank_id, guarantee_id, api_version, x_api_version, patch_operation)
 Patches a bank guarantee
 
 Partially update a bank guarantee using JSON Patch.
@@ -788,7 +796,7 @@ Name | Type | Description  | Required | Notes
 **guarantee_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -808,7 +816,7 @@ No authorization required
 
 ## patch_bank_transaction
 
-> models::EmptyEnvelope patch_bank_transaction(tenant_id, bank_id, transaction_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_bank_transaction(tenant_id, bank_id, transaction_id, api_version, x_api_version, patch_operation)
 Patches a bank transaction
 
 Partially update a bank transaction using JSON Patch.
@@ -823,7 +831,7 @@ Name | Type | Description  | Required | Notes
 **transaction_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
 **enrollment_id** | Option<**String**> |  | [optional]
 **journal_id** | Option<**String**> |  | [optional]
@@ -25,7 +26,6 @@ Name | Type | Description | Notes
 **posted_by** | Option<**String**> |  | [optional]
 **forex_rate** | Option<**f64**> |  | [optional]
 **forex_rates_snapshot** | Option<**String**> |  | [optional]
-**timestamp** | Option<**String**> |  | [optional]
 **debit_in_usd** | Option<**f64**> |  | [optional]
 **credit_in_usd** | Option<**f64**> |  | [optional]
 **accounting_entries** | Option<[**Vec<models::AccountingEntryDto>**](AccountingEntryDto.md)> |  | [optional]
@@ -33,6 +33,8 @@ Name | Type | Description | Notes
 **total_credit** | Option<**f64**> |  | [optional][readonly]
 **total_debit_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
 **total_credit_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
+**debit_in_usd_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
+**credit_in_usd_amount** | Option<[**models::Money**](Money.md)> |  | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

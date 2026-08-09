@@ -180,7 +180,7 @@ pub async fn get_supplier_profile_by_id_async(configuration: &configuration::Con
 }
 
 /// Retrieves all supplier profiles for the specified tenant.
-pub async fn get_supplier_profiles_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SupplierProfileDtoListEnvelope, Error<GetSupplierProfilesAsyncError>> {
+pub async fn get_supplier_profiles_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, supplier_profile_dto_collection_query_parameters: Option<models::SupplierProfileDtoCollectionQueryParameters>) -> Result<models::SupplierProfileDtoListEnvelope, Error<GetSupplierProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -198,6 +198,7 @@ pub async fn get_supplier_profiles_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&supplier_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -215,7 +216,7 @@ pub async fn get_supplier_profiles_async(configuration: &configuration::Configur
 }
 
 /// Returns the count of supplier profiles for the specified tenant.
-pub async fn get_supplier_profiles_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSupplierProfilesCountAsyncError>> {
+pub async fn get_supplier_profiles_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, supplier_profile_dto_collection_query_parameters: Option<models::SupplierProfileDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSupplierProfilesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -233,6 +234,7 @@ pub async fn get_supplier_profiles_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&supplier_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -250,7 +252,7 @@ pub async fn get_supplier_profiles_count_async(configuration: &configuration::Co
 }
 
 /// Applies a JSON Patch document to a supplier profile.
-pub async fn patch_supplier_profile_async(configuration: &configuration::Configuration, tenant_id: &str, supplier_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSupplierProfileAsyncError>> {
+pub async fn patch_supplier_profile_async(configuration: &configuration::Configuration, tenant_id: &str, supplier_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSupplierProfileAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -268,7 +270,7 @@ pub async fn patch_supplier_profile_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

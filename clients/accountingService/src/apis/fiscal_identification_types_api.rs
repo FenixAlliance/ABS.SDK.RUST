@@ -186,7 +186,7 @@ pub async fn get_fiscal_identification_type(configuration: &configuration::Confi
 }
 
 /// Retrieves all fiscal identification types for the specified fiscal authority.
-pub async fn get_fiscal_identification_types(configuration: &configuration::Configuration, tenant_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalIdentificationTypeDtoListEnvelope, Error<GetFiscalIdentificationTypesError>> {
+pub async fn get_fiscal_identification_types(configuration: &configuration::Configuration, tenant_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_identification_type_dto_collection_query_parameters: Option<models::FiscalIdentificationTypeDtoCollectionQueryParameters>) -> Result<models::FiscalIdentificationTypeDtoListEnvelope, Error<GetFiscalIdentificationTypesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +204,7 @@ pub async fn get_fiscal_identification_types(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&fiscal_identification_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_fiscal_identification_types(configuration: &configuration::Conf
 }
 
 /// Returns the total count of fiscal identification types for the specified fiscal authority.
-pub async fn get_fiscal_identification_types_count(configuration: &configuration::Configuration, tenant_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetFiscalIdentificationTypesCountError>> {
+pub async fn get_fiscal_identification_types_count(configuration: &configuration::Configuration, tenant_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_identification_type_dto_collection_query_parameters: Option<models::FiscalIdentificationTypeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetFiscalIdentificationTypesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_fiscal_identification_types_count(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&fiscal_identification_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_fiscal_identification_types_count(configuration: &configuration
 }
 
 /// Partially updates a fiscal identification type.
-pub async fn patch_fiscal_identification_type_async(configuration: &configuration::Configuration, tenant_id: &str, identification_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchFiscalIdentificationTypeAsyncError>> {
+pub async fn patch_fiscal_identification_type_async(configuration: &configuration::Configuration, tenant_id: &str, identification_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchFiscalIdentificationTypeAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_fiscal_identification_type_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -27,7 +27,7 @@ Method | HTTP request | Description
 
 ## count_activity_types_async
 
-> models::Int32Envelope count_activity_types_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_activity_types_async(tenant_id, api_version, x_api_version, activity_type_dto_collection_query_parameters)
 Count Activity Types
 
 Count activity types for the current tenant.
@@ -40,6 +40,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**activity_type_dto_collection_query_parameters** | Option<[**ActivityTypeDtoCollectionQueryParameters**](ActivityTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -51,7 +52,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -193,7 +194,7 @@ No authorization required
 
 ## get_activities_async
 
-> models::ActivityRecordDtoListEnvelope get_activities_async(tenant_id, activity_feed_id, api_version, x_api_version)
+> models::ActivityRecordDtoListEnvelope get_activities_async(tenant_id, activity_feed_id, api_version, x_api_version, activity_record_dto_collection_query_parameters)
 Get activities
 
 Retrieves activities for a specific activity feed.
@@ -207,6 +208,7 @@ Name | Type | Description  | Required | Notes
 **activity_feed_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**activity_record_dto_collection_query_parameters** | Option<[**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -218,7 +220,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -226,7 +228,7 @@ No authorization required
 
 ## get_activities_count_async
 
-> models::Int32Envelope get_activities_count_async(tenant_id, activity_feed_id, api_version, x_api_version)
+> models::Int32Envelope get_activities_count_async(tenant_id, activity_feed_id, api_version, x_api_version, activity_record_dto_collection_query_parameters)
 Count activities
 
 Returns the count of activities for a specific activity feed.
@@ -240,6 +242,7 @@ Name | Type | Description  | Required | Notes
 **activity_feed_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**activity_record_dto_collection_query_parameters** | Option<[**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -251,7 +254,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -326,7 +329,7 @@ No authorization required
 
 ## get_activity_feeds_async
 
-> models::ActivityFeedDtoListEnvelope get_activity_feeds_async(tenant_id, api_version, x_api_version)
+> models::ActivityFeedDtoListEnvelope get_activity_feeds_async(tenant_id, api_version, x_api_version, activity_feed_dto_collection_query_parameters)
 Get activity feeds
 
 Retrieves a list of activity feeds for the specified tenant.
@@ -339,6 +342,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**activity_feed_dto_collection_query_parameters** | Option<[**ActivityFeedDtoCollectionQueryParameters**](ActivityFeedDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -350,7 +354,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -358,7 +362,7 @@ No authorization required
 
 ## get_activity_feeds_count_async
 
-> models::Int32Envelope get_activity_feeds_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_activity_feeds_count_async(tenant_id, api_version, x_api_version, activity_feed_dto_collection_query_parameters)
 Count activity feeds
 
 Returns the count of activity feeds for the specified tenant.
@@ -371,6 +375,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**activity_feed_dto_collection_query_parameters** | Option<[**ActivityFeedDtoCollectionQueryParameters**](ActivityFeedDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -382,7 +387,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -390,7 +395,7 @@ No authorization required
 
 ## get_activity_records_count_async
 
-> models::Int32Envelope get_activity_records_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_activity_records_count_async(tenant_id, api_version, x_api_version, activity_record_dto_collection_query_parameters)
 Count activity records
 
 Returns the tenant-wide count of activity records across all feeds owned by the tenant.
@@ -403,6 +408,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**activity_record_dto_collection_query_parameters** | Option<[**ActivityRecordDtoCollectionQueryParameters**](ActivityRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -414,7 +420,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -455,7 +461,7 @@ No authorization required
 
 ## get_activity_types_async
 
-> models::ActivityTypeDtoListEnvelope get_activity_types_async(tenant_id, api_version, x_api_version)
+> models::ActivityTypeDtoListEnvelope get_activity_types_async(tenant_id, api_version, x_api_version, activity_type_dto_collection_query_parameters)
 Get Activity Types
 
 Get a list of activity types for the current tenant.
@@ -468,6 +474,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**activity_type_dto_collection_query_parameters** | Option<[**ActivityTypeDtoCollectionQueryParameters**](ActivityTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -479,7 +486,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -487,7 +494,7 @@ No authorization required
 
 ## patch_activity_async
 
-> models::EmptyEnvelope patch_activity_async(tenant_id, activity_feed_id, activity_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_activity_async(tenant_id, activity_feed_id, activity_id, api_version, x_api_version, patch_operation)
 Patch an activity
 
 Patch an activity
@@ -502,7 +509,7 @@ Name | Type | Description  | Required | Notes
 **activity_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -522,7 +529,7 @@ No authorization required
 
 ## patch_activity_type_async
 
-> models::EmptyEnvelope patch_activity_type_async(tenant_id, activity_type_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_activity_type_async(tenant_id, activity_type_id, api_version, x_api_version, patch_operation)
 Patch Activity Type
 
 Patch an activity type
@@ -536,7 +543,7 @@ Name | Type | Description  | Required | Notes
 **activity_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

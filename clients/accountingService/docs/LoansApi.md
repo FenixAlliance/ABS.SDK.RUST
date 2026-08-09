@@ -261,7 +261,7 @@ No authorization required
 
 ## get_loan_applications_async
 
-> models::LoanApplicationDtoIReadOnlyListEnvelope get_loan_applications_async(tenant_id, api_version, x_api_version)
+> models::LoanApplicationDtoIReadOnlyListEnvelope get_loan_applications_async(tenant_id, api_version, x_api_version, loan_application_dto_collection_query_parameters)
 Gets all loan applications
 
 Retrieves all loan applications for the current tenant.
@@ -274,6 +274,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**loan_application_dto_collection_query_parameters** | Option<[**LoanApplicationDtoCollectionQueryParameters**](LoanApplicationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -285,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -293,7 +294,7 @@ No authorization required
 
 ## get_loan_applications_count_async
 
-> models::Int32Envelope get_loan_applications_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_loan_applications_count_async(tenant_id, api_version, x_api_version, loan_application_dto_collection_query_parameters)
 Counts loan applications
 
 Gets the count of loan applications for the current tenant.
@@ -306,6 +307,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**loan_application_dto_collection_query_parameters** | Option<[**LoanApplicationDtoCollectionQueryParameters**](LoanApplicationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -317,7 +319,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -391,7 +393,7 @@ No authorization required
 
 ## get_loan_types_async
 
-> models::LoanTypeDtoIReadOnlyListEnvelope get_loan_types_async(tenant_id, api_version, x_api_version)
+> models::LoanTypeDtoIReadOnlyListEnvelope get_loan_types_async(tenant_id, api_version, x_api_version, loan_type_dto_collection_query_parameters)
 Gets all loan types
 
 Retrieves all loan types for the current tenant with OData support.
@@ -404,6 +406,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**loan_type_dto_collection_query_parameters** | Option<[**LoanTypeDtoCollectionQueryParameters**](LoanTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -415,7 +418,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -423,7 +426,7 @@ No authorization required
 
 ## get_loan_types_count_async
 
-> models::Int32Envelope get_loan_types_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_loan_types_count_async(tenant_id, api_version, x_api_version, loan_type_dto_collection_query_parameters)
 Counts loan types
 
 Gets the count of loan types for the current tenant.
@@ -436,6 +439,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**loan_type_dto_collection_query_parameters** | Option<[**LoanTypeDtoCollectionQueryParameters**](LoanTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -447,7 +451,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -455,7 +459,7 @@ No authorization required
 
 ## get_loans_async
 
-> models::LoanDtoIReadOnlyListEnvelope get_loans_async(tenant_id, api_version, x_api_version)
+> models::LoanDtoIReadOnlyListEnvelope get_loans_async(tenant_id, api_version, x_api_version, loan_dto_collection_query_parameters)
 Gets all loans
 
 Retrieves all loans for the current tenant with OData support.
@@ -468,6 +472,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**loan_dto_collection_query_parameters** | Option<[**LoanDtoCollectionQueryParameters**](LoanDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -479,7 +484,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -487,7 +492,7 @@ No authorization required
 
 ## get_loans_count_async
 
-> models::Int32Envelope get_loans_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_loans_count_async(tenant_id, api_version, x_api_version, loan_dto_collection_query_parameters)
 Counts loans
 
 Gets the count of loans for the current tenant.
@@ -500,6 +505,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**loan_dto_collection_query_parameters** | Option<[**LoanDtoCollectionQueryParameters**](LoanDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -511,7 +517,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -519,7 +525,7 @@ No authorization required
 
 ## patch_loan_application_async
 
-> models::EmptyEnvelope patch_loan_application_async(tenant_id, application_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_loan_application_async(tenant_id, application_id, api_version, x_api_version, patch_operation)
 Patches a loan application
 
 Partially updates the specified loan application using a JSON Patch document.
@@ -533,7 +539,7 @@ Name | Type | Description  | Required | Notes
 **application_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -553,7 +559,7 @@ No authorization required
 
 ## patch_loan_async
 
-> models::EmptyEnvelope patch_loan_async(tenant_id, loan_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_loan_async(tenant_id, loan_id, api_version, x_api_version, patch_operation)
 Patches a loan
 
 Partially updates the specified loan using a JSON Patch document.
@@ -567,7 +573,7 @@ Name | Type | Description  | Required | Notes
 **loan_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -587,7 +593,7 @@ No authorization required
 
 ## patch_loan_type_async
 
-> models::EmptyEnvelope patch_loan_type_async(tenant_id, loan_type_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_loan_type_async(tenant_id, loan_type_id, api_version, x_api_version, patch_operation)
 Patches a loan type
 
 Partially updates the specified loan type using a JSON Patch document.
@@ -601,7 +607,7 @@ Name | Type | Description  | Required | Notes
 **loan_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

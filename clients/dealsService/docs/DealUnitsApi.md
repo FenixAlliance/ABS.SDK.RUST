@@ -247,7 +247,7 @@ No authorization required
 
 ## get_deal_unit_lines_async
 
-> models::DealUnitLineDtoListEnvelope get_deal_unit_lines_async(tenant_id, deal_unit_id, item_id)
+> models::DealUnitLineDtoListEnvelope get_deal_unit_lines_async(tenant_id, deal_unit_id, item_id, deal_unit_line_dto_collection_query_parameters)
 Get deal unit lines
 
 Retrieves a list of lines for a specific deal unit with OData query support.
@@ -260,6 +260,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_id** | **uuid::Uuid** |  | [required] |
 **item_id** | Option<**uuid::Uuid**> |  |  |
+**deal_unit_line_dto_collection_query_parameters** | Option<[**DealUnitLineDtoCollectionQueryParameters**](DealUnitLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -271,7 +272,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -279,7 +280,7 @@ No authorization required
 
 ## get_deal_unit_lines_count_async
 
-> models::Int32Envelope get_deal_unit_lines_count_async(tenant_id, deal_unit_id)
+> models::Int32Envelope get_deal_unit_lines_count_async(tenant_id, deal_unit_id, deal_unit_line_dto_collection_query_parameters)
 Get deal unit lines count
 
 Returns the total count of lines for a specific deal unit with OData filter support.
@@ -291,6 +292,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_id** | **uuid::Uuid** |  | [required] |
+**deal_unit_line_dto_collection_query_parameters** | Option<[**DealUnitLineDtoCollectionQueryParameters**](DealUnitLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -302,7 +304,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -342,7 +344,7 @@ No authorization required
 
 ## get_deal_units_async
 
-> models::DealUnitDtoListEnvelope get_deal_units_async(tenant_id)
+> models::DealUnitDtoListEnvelope get_deal_units_async(tenant_id, deal_unit_dto_collection_query_parameters)
 Get deal units
 
 Retrieves a list of deal units for the specified tenant with OData query support.
@@ -353,6 +355,7 @@ Retrieves a list of deal units for the specified tenant with OData query support
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**deal_unit_dto_collection_query_parameters** | Option<[**DealUnitDtoCollectionQueryParameters**](DealUnitDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -364,7 +367,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -372,7 +375,7 @@ No authorization required
 
 ## get_deal_units_count_async
 
-> models::Int32Envelope get_deal_units_count_async(tenant_id)
+> models::Int32Envelope get_deal_units_count_async(tenant_id, deal_unit_dto_collection_query_parameters)
 Get deal units count
 
 Returns the total count of deal units for the specified tenant with OData filter support.
@@ -383,6 +386,7 @@ Returns the total count of deal units for the specified tenant with OData filter
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**deal_unit_dto_collection_query_parameters** | Option<[**DealUnitDtoCollectionQueryParameters**](DealUnitDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -394,7 +398,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -433,7 +437,7 @@ No authorization required
 
 ## get_extended_deal_units_async
 
-> models::ExtendedDealUnitDtoListEnvelope get_extended_deal_units_async(tenant_id)
+> models::ExtendedDealUnitDtoListEnvelope get_extended_deal_units_async(tenant_id, extended_deal_unit_dto_collection_query_parameters)
 Get extended deal units
 
 Retrieves a list of deal units with extended details for the specified tenant with OData query support.
@@ -444,6 +448,7 @@ Retrieves a list of deal units with extended details for the specified tenant wi
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**extended_deal_unit_dto_collection_query_parameters** | Option<[**ExtendedDealUnitDtoCollectionQueryParameters**](ExtendedDealUnitDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -455,7 +460,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -463,7 +468,7 @@ No authorization required
 
 ## patch_deal_unit_async
 
-> models::EmptyEnvelope patch_deal_unit_async(tenant_id, deal_unit_id, operation)
+> models::EmptyEnvelope patch_deal_unit_async(tenant_id, deal_unit_id, patch_operation)
 Patch a deal unit
 
 Partially updates an existing deal unit by its unique identifier using a JSON Patch document.
@@ -475,7 +480,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -495,7 +500,7 @@ No authorization required
 
 ## patch_deal_unit_line_async
 
-> models::EmptyEnvelope patch_deal_unit_line_async(tenant_id, deal_unit_id, deal_unit_line_id, operation)
+> models::EmptyEnvelope patch_deal_unit_line_async(tenant_id, deal_unit_id, deal_unit_line_id, patch_operation)
 Patch a deal unit line
 
 Partially updates an existing line within a specific deal unit using a JSON Patch document.
@@ -508,7 +513,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_line_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -224,7 +224,7 @@ No authorization required
 
 ## get_support_ticket_conversations_async
 
-> models::SupportTicketConversationDtoListEnvelope get_support_ticket_conversations_async(tenant_id, support_ticket_id, api_version, x_api_version)
+> models::SupportTicketConversationDtoListEnvelope get_support_ticket_conversations_async(tenant_id, support_ticket_id, api_version, x_api_version, support_ticket_conversation_dto_collection_query_parameters)
 Retrieve conversations for a support ticket
 
 Retrieves the list of conversations associated with a specific support ticket.
@@ -238,6 +238,7 @@ Name | Type | Description  | Required | Notes
 **support_ticket_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**support_ticket_conversation_dto_collection_query_parameters** | Option<[**SupportTicketConversationDtoCollectionQueryParameters**](SupportTicketConversationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -249,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -257,7 +258,7 @@ No authorization required
 
 ## get_support_tickets_async
 
-> models::SupportTicketDtoListEnvelope get_support_tickets_async(tenant_id, api_version, x_api_version)
+> models::SupportTicketDtoListEnvelope get_support_tickets_async(tenant_id, api_version, x_api_version, support_ticket_dto_collection_query_parameters)
 Retrieve a list of support tickets
 
 Retrieves a list of support tickets for the specified tenant with OData query support.
@@ -270,6 +271,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**support_ticket_dto_collection_query_parameters** | Option<[**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -281,7 +283,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -289,7 +291,7 @@ No authorization required
 
 ## get_support_tickets_count_async
 
-> models::Int32Envelope get_support_tickets_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_support_tickets_count_async(tenant_id, api_version, x_api_version, support_ticket_dto_collection_query_parameters)
 Get the count of support tickets
 
 Returns the total count of support tickets for the specified tenant with OData query support.
@@ -302,6 +304,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**support_ticket_dto_collection_query_parameters** | Option<[**SupportTicketDtoCollectionQueryParameters**](SupportTicketDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -313,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -321,7 +324,7 @@ No authorization required
 
 ## patch_support_ticket_async
 
-> models::EmptyEnvelope patch_support_ticket_async(tenant_id, support_ticket_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_support_ticket_async(tenant_id, support_ticket_id, api_version, x_api_version, patch_operation)
 Patch a support ticket
 
 Partially updates an existing support ticket by its unique identifier.
@@ -335,7 +338,7 @@ Name | Type | Description  | Required | Notes
 **support_ticket_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

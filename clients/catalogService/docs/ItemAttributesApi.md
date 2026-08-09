@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## count_item_attributes_async
 
-> models::Int32Envelope count_item_attributes_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_item_attributes_async(tenant_id, api_version, x_api_version, item_attribute_dto_collection_query_parameters)
 Count item attributes
 
 Counts all item attributes for the specified tenant.
@@ -29,6 +29,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_attribute_dto_collection_query_parameters** | Option<[**ItemAttributeDtoCollectionQueryParameters**](ItemAttributeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -40,7 +41,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_item_attributes_async
 
-> models::ItemAttributeDtoListEnvelope get_item_attributes_async(tenant_id, api_version, x_api_version)
+> models::ItemAttributeDtoListEnvelope get_item_attributes_async(tenant_id, api_version, x_api_version, item_attribute_dto_collection_query_parameters)
 Get all item attributes
 
 Retrieves all item attributes for the specified tenant using OData query options.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_attribute_dto_collection_query_parameters** | Option<[**ItemAttributeDtoCollectionQueryParameters**](ItemAttributeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_item_attribute_async
 
-> patch_item_attribute_async(tenant_id, item_attribute_id, api_version, x_api_version, operation)
+> patch_item_attribute_async(tenant_id, item_attribute_id, api_version, x_api_version, patch_operation)
 Patch an item attribute
 
 Partially updates an existing item attribute for the specified tenant.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **item_attribute_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

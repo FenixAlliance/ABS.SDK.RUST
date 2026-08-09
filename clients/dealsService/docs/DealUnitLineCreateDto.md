@@ -85,7 +85,6 @@ Name | Type | Description | Notes
 **price_list_item_id** | Option<**String**> |  | [optional]
 **unit_id** | Option<**String**> |  | [optional]
 **unit_group_id** | Option<**String**> |  | [optional]
-**forex_rates_snapshot** | Option<**String**> |  | [optional]
 **total_base_amount_in_usd** | Option<**f64**> |  | [optional]
 **total_profit_in_usd** | Option<**f64**> |  | [optional]
 **total_detail_amount_in_usd** | Option<**f64**> |  | [optional]

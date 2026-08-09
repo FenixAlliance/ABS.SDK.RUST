@@ -161,7 +161,7 @@ pub enum SearchCountriesByNameAsyncError {
 
 
 /// Returns the total number of calling codes for the specified country, with optional OData filtering.
-pub async fn count_calling_codes_by_country_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountCallingCodesByCountryAsyncError>> {
+pub async fn count_calling_codes_by_country_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, country_calling_code_dto_collection_query_parameters: Option<models::CountryCallingCodeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountCallingCodesByCountryAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -178,6 +178,7 @@ pub async fn count_calling_codes_by_country_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_calling_code_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -195,7 +196,7 @@ pub async fn count_calling_codes_by_country_async(configuration: &configuration:
 }
 
 /// Returns the total number of cities for the specified state, with optional OData filtering.
-pub async fn count_cities_by_state_async(configuration: &configuration::Configuration, country_state_id: &str, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountCitiesByStateAsyncError>> {
+pub async fn count_cities_by_state_async(configuration: &configuration::Configuration, country_state_id: &str, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, city_dto_collection_query_parameters: Option<models::CityDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountCitiesByStateAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -212,6 +213,7 @@ pub async fn count_cities_by_state_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&city_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -229,7 +231,7 @@ pub async fn count_cities_by_state_async(configuration: &configuration::Configur
 }
 
 /// Returns the total number of countries, with optional OData filtering.
-pub async fn count_countries(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountCountriesError>> {
+pub async fn count_countries(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, country_dto_collection_query_parameters: Option<models::CountryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountCountriesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -246,6 +248,7 @@ pub async fn count_countries(configuration: &configuration::Configuration, api_v
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -263,7 +266,7 @@ pub async fn count_countries(configuration: &configuration::Configuration, api_v
 }
 
 /// Returns the total number of states or provinces for the specified country, with optional OData filtering.
-pub async fn count_country_states_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountCountryStatesAsyncError>> {
+pub async fn count_country_states_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, country_state_dto_collection_query_parameters: Option<models::CountryStateDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountCountryStatesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -280,6 +283,7 @@ pub async fn count_country_states_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_state_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -297,7 +301,7 @@ pub async fn count_country_states_async(configuration: &configuration::Configura
 }
 
 /// Returns the total number of timezones for the specified country, with optional OData filtering.
-pub async fn count_timezones_by_country_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountTimezonesByCountryAsyncError>> {
+pub async fn count_timezones_by_country_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, timezone_dto_collection_query_parameters: Option<models::TimezoneDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountTimezonesByCountryAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -314,6 +318,7 @@ pub async fn count_timezones_by_country_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&timezone_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -331,7 +336,7 @@ pub async fn count_timezones_by_country_async(configuration: &configuration::Con
 }
 
 /// Returns the total number of top-level domains for the specified country, with optional OData filtering.
-pub async fn count_top_level_domains_by_country_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountTopLevelDomainsByCountryAsyncError>> {
+pub async fn count_top_level_domains_by_country_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, country_top_level_domain_dto_collection_query_parameters: Option<models::CountryTopLevelDomainDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountTopLevelDomainsByCountryAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -348,6 +353,7 @@ pub async fn count_top_level_domains_by_country_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_top_level_domain_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -365,7 +371,7 @@ pub async fn count_top_level_domains_by_country_async(configuration: &configurat
 }
 
 /// Retrieves a list of all countries with optional OData pagination and filtering.
-pub async fn get_all_countries(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CountryDtoListEnvelope, Error<GetAllCountriesError>> {
+pub async fn get_all_countries(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, country_dto_collection_query_parameters: Option<models::CountryDtoCollectionQueryParameters>) -> Result<models::CountryDtoListEnvelope, Error<GetAllCountriesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -382,6 +388,7 @@ pub async fn get_all_countries(configuration: &configuration::Configuration, api
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -399,7 +406,7 @@ pub async fn get_all_countries(configuration: &configuration::Configuration, api
 }
 
 /// Retrieves the list of international telephone calling codes associated with the specified country.
-pub async fn get_calling_codes_by_country_id_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CountryCallingCodeDtoListEnvelope, Error<GetCallingCodesByCountryIdAsyncError>> {
+pub async fn get_calling_codes_by_country_id_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, country_calling_code_dto_collection_query_parameters: Option<models::CountryCallingCodeDtoCollectionQueryParameters>) -> Result<models::CountryCallingCodeDtoListEnvelope, Error<GetCallingCodesByCountryIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -416,6 +423,7 @@ pub async fn get_calling_codes_by_country_id_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_calling_code_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -433,7 +441,7 @@ pub async fn get_calling_codes_by_country_id_async(configuration: &configuration
 }
 
 /// Retrieves the list of cities belonging to the specified state or province.
-pub async fn get_cities_by_country_state_id_async(configuration: &configuration::Configuration, country_state_id: &str, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CityDtoListEnvelope, Error<GetCitiesByCountryStateIdAsyncError>> {
+pub async fn get_cities_by_country_state_id_async(configuration: &configuration::Configuration, country_state_id: &str, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, city_dto_collection_query_parameters: Option<models::CityDtoCollectionQueryParameters>) -> Result<models::CityDtoListEnvelope, Error<GetCitiesByCountryStateIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -450,6 +458,7 @@ pub async fn get_cities_by_country_state_id_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&city_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -501,7 +510,7 @@ pub async fn get_country_by_id(configuration: &configuration::Configuration, cou
 }
 
 /// Retrieves a single state or province by its unique identifier within a country.
-pub async fn get_country_state_by_id_async(configuration: &configuration::Configuration, country_state_id: &str, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CountryStateDtoEnvelope, Error<GetCountryStateByIdAsyncError>> {
+pub async fn get_country_state_by_id_async(configuration: &configuration::Configuration, country_state_id: &str, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, country_state_dto_collection_query_parameters: Option<models::CountryStateDtoCollectionQueryParameters>) -> Result<models::CountryStateDtoEnvelope, Error<GetCountryStateByIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -518,6 +527,7 @@ pub async fn get_country_state_by_id_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_state_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -535,7 +545,7 @@ pub async fn get_country_state_by_id_async(configuration: &configuration::Config
 }
 
 /// Retrieves the list of states or provinces belonging to the specified country.
-pub async fn get_country_states_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CountryStateDtoListEnvelope, Error<GetCountryStatesAsyncError>> {
+pub async fn get_country_states_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, country_state_dto_collection_query_parameters: Option<models::CountryStateDtoCollectionQueryParameters>) -> Result<models::CountryStateDtoListEnvelope, Error<GetCountryStatesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -552,6 +562,7 @@ pub async fn get_country_states_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_state_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -569,7 +580,7 @@ pub async fn get_country_states_async(configuration: &configuration::Configurati
 }
 
 /// Retrieves the list of enabled currencies for the specified country.
-pub async fn get_enabled_currencies_by_country_id_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CurrencyDtoListEnvelope, Error<GetEnabledCurrenciesByCountryIdAsyncError>> {
+pub async fn get_enabled_currencies_by_country_id_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, currency_dto_collection_query_parameters: Option<models::CurrencyDtoCollectionQueryParameters>) -> Result<models::CurrencyDtoListEnvelope, Error<GetEnabledCurrenciesByCountryIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -586,6 +597,7 @@ pub async fn get_enabled_currencies_by_country_id_async(configuration: &configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&currency_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -603,7 +615,7 @@ pub async fn get_enabled_currencies_by_country_id_async(configuration: &configur
 }
 
 /// Retrieves the list of timezones associated with the specified country.
-pub async fn get_time_zones_by_country_id_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TimezoneDtoListEnvelope, Error<GetTimeZonesByCountryIdAsyncError>> {
+pub async fn get_time_zones_by_country_id_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, timezone_dto_collection_query_parameters: Option<models::TimezoneDtoCollectionQueryParameters>) -> Result<models::TimezoneDtoListEnvelope, Error<GetTimeZonesByCountryIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -620,6 +632,7 @@ pub async fn get_time_zones_by_country_id_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&timezone_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -637,7 +650,7 @@ pub async fn get_time_zones_by_country_id_async(configuration: &configuration::C
 }
 
 /// Retrieves the list of internet top-level domains (TLDs) associated with the specified country.
-pub async fn get_top_level_domains_by_country_id_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CountryTopLevelDomainDtoListEnvelope, Error<GetTopLevelDomainsByCountryIdAsyncError>> {
+pub async fn get_top_level_domains_by_country_id_async(configuration: &configuration::Configuration, country_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, country_top_level_domain_dto_collection_query_parameters: Option<models::CountryTopLevelDomainDtoCollectionQueryParameters>) -> Result<models::CountryTopLevelDomainDtoListEnvelope, Error<GetTopLevelDomainsByCountryIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -654,6 +667,7 @@ pub async fn get_top_level_domains_by_country_id_async(configuration: &configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&country_top_level_domain_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

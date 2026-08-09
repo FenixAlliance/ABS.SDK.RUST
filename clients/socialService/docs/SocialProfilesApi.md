@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**get_messages_async**](SocialProfilesApi.md#get_messages_async) | **GET** /api/v2/SocialService/SocialProfiles/{conversationId}/Messages | Get Messages
 [**get_notification_by_id_async**](SocialProfilesApi.md#get_notification_by_id_async) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications/{notificationId} | Get Notification
 [**get_notifications_async**](SocialProfilesApi.md#get_notifications_async) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Notifications | Get Notifications
+[**get_or_create_direct_conversation_async**](SocialProfilesApi.md#get_or_create_direct_conversation_async) | **POST** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct | Get or Create Direct Conversation
 [**get_social_profile_async**](SocialProfilesApi.md#get_social_profile_async) | **GET** /api/v2/SocialService/SocialProfiles/{socialProfileId} | Get Social Profile
 [**get_social_profiles_async**](SocialProfilesApi.md#get_social_profiles_async) | **GET** /api/v2/SocialService/SocialProfiles | Get Social Profiles
 [**unfollow_async**](SocialProfilesApi.md#unfollow_async) | **DELETE** /api/v2/SocialService/SocialProfiles/{socialProfileId}/Follows/{followedSocialProfileId} | Unfollow
@@ -34,7 +35,7 @@ Method | HTTP request | Description
 
 ## count_conversations_async
 
-> models::Int32Envelope count_conversations_async(social_profile_id, api_version, x_api_version)
+> models::Int32Envelope count_conversations_async(social_profile_id, api_version, x_api_version, conversation_dto_collection_query_parameters)
 Count Conversations
 
 Count conversations for a social profile.
@@ -47,6 +48,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**conversation_dto_collection_query_parameters** | Option<[**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -58,7 +60,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -66,7 +68,7 @@ No authorization required
 
 ## count_followed_profiles_async
 
-> models::Int32Envelope count_followed_profiles_async(social_profile_id, api_version, x_api_version)
+> models::Int32Envelope count_followed_profiles_async(social_profile_id, api_version, x_api_version, social_profile_dto_collection_query_parameters)
 Count Followed Profiles
 
 Count followed profiles for a social profile.
@@ -79,6 +81,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_profile_dto_collection_query_parameters** | Option<[**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -90,7 +93,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -98,7 +101,7 @@ No authorization required
 
 ## count_follower_profiles_async
 
-> models::Int32Envelope count_follower_profiles_async(social_profile_id, api_version, x_api_version)
+> models::Int32Envelope count_follower_profiles_async(social_profile_id, api_version, x_api_version, social_profile_dto_collection_query_parameters)
 Count Follower Profiles
 
 Count follower profiles for a social profile.
@@ -111,6 +114,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_profile_dto_collection_query_parameters** | Option<[**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -122,7 +126,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -130,7 +134,7 @@ No authorization required
 
 ## count_followers_async
 
-> models::Int32Envelope count_followers_async(social_profile_id, api_version, x_api_version)
+> models::Int32Envelope count_followers_async(social_profile_id, api_version, x_api_version, follow_record_dto_collection_query_parameters)
 Count Followers
 
 Count followers for a social profile.
@@ -143,6 +147,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**follow_record_dto_collection_query_parameters** | Option<[**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -154,7 +159,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -162,7 +167,7 @@ No authorization required
 
 ## count_follows_async
 
-> models::Int32Envelope count_follows_async(social_profile_id, api_version, x_api_version)
+> models::Int32Envelope count_follows_async(social_profile_id, api_version, x_api_version, follow_record_dto_collection_query_parameters)
 Count Follows
 
 Count follows for a social profile.
@@ -175,6 +180,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**follow_record_dto_collection_query_parameters** | Option<[**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -186,7 +192,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -194,7 +200,7 @@ No authorization required
 
 ## count_messages_async
 
-> models::Int32Envelope count_messages_async(social_profile_id, conversation_id, api_version, x_api_version)
+> models::Int32Envelope count_messages_async(social_profile_id, conversation_id, api_version, x_api_version, private_message_dto_collection_query_parameters)
 Count Messages
 
 Count messages for a conversation.
@@ -208,6 +214,7 @@ Name | Type | Description  | Required | Notes
 **conversation_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**private_message_dto_collection_query_parameters** | Option<[**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -219,7 +226,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -227,7 +234,7 @@ No authorization required
 
 ## count_notifications_async
 
-> models::Int32Envelope count_notifications_async(social_profile_id, api_version, x_api_version)
+> models::Int32Envelope count_notifications_async(social_profile_id, api_version, x_api_version, notification_dto_collection_query_parameters)
 Count Notifications
 
 Count notifications for a social profile.
@@ -240,6 +247,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**notification_dto_collection_query_parameters** | Option<[**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -251,7 +259,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -259,7 +267,7 @@ No authorization required
 
 ## count_social_profiles_async
 
-> models::Int32Envelope count_social_profiles_async(api_version, x_api_version)
+> models::Int32Envelope count_social_profiles_async(api_version, x_api_version, social_profile_dto_collection_query_parameters)
 Count Social Profiles
 
 Count social profiles.
@@ -271,6 +279,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_profile_dto_collection_query_parameters** | Option<[**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -282,7 +291,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -457,7 +466,7 @@ No authorization required
 
 ## get_conversations_async
 
-> models::ConversationDtoListEnvelope get_conversations_async(social_profile_id, api_version, x_api_version)
+> models::ConversationDtoListEnvelope get_conversations_async(social_profile_id, api_version, x_api_version, conversation_dto_collection_query_parameters)
 Get Conversations
 
 Get a list of conversations for a social profile.
@@ -470,6 +479,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**conversation_dto_collection_query_parameters** | Option<[**ConversationDtoCollectionQueryParameters**](ConversationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -481,7 +491,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -489,7 +499,7 @@ No authorization required
 
 ## get_followed_profiles_async
 
-> models::SocialProfileDtoListEnvelope get_followed_profiles_async(social_profile_id, api_version, x_api_version)
+> models::SocialProfileDtoListEnvelope get_followed_profiles_async(social_profile_id, api_version, x_api_version, social_profile_dto_collection_query_parameters)
 Get Followed Profiles
 
 Get a list of followed profiles for a social profile.
@@ -502,6 +512,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_profile_dto_collection_query_parameters** | Option<[**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -513,7 +524,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -521,7 +532,7 @@ No authorization required
 
 ## get_follower_profiles_async
 
-> models::SocialProfileDtoListEnvelope get_follower_profiles_async(social_profile_id, api_version, x_api_version)
+> models::SocialProfileDtoListEnvelope get_follower_profiles_async(social_profile_id, api_version, x_api_version, social_profile_dto_collection_query_parameters)
 Get Follower Profiles
 
 Get a list of follower profiles for a social profile.
@@ -534,6 +545,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_profile_dto_collection_query_parameters** | Option<[**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -545,7 +557,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -553,7 +565,7 @@ No authorization required
 
 ## get_followers_async
 
-> models::FollowRecordDtoListEnvelope get_followers_async(social_profile_id, api_version, x_api_version)
+> models::FollowRecordDtoListEnvelope get_followers_async(social_profile_id, api_version, x_api_version, follow_record_dto_collection_query_parameters)
 Get Followers
 
 Get a list of followers for a social profile.
@@ -566,6 +578,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**follow_record_dto_collection_query_parameters** | Option<[**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -577,7 +590,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -585,7 +598,7 @@ No authorization required
 
 ## get_follows_async
 
-> models::FollowRecordDtoListEnvelope get_follows_async(social_profile_id, api_version, x_api_version)
+> models::FollowRecordDtoListEnvelope get_follows_async(social_profile_id, api_version, x_api_version, follow_record_dto_collection_query_parameters)
 Get Follows
 
 Get a list of follows for a social profile.
@@ -598,6 +611,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**follow_record_dto_collection_query_parameters** | Option<[**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -609,7 +623,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -617,7 +631,7 @@ No authorization required
 
 ## get_messages_async
 
-> models::PrivateMessageDtoListEnvelope get_messages_async(social_profile_id, conversation_id, api_version, x_api_version)
+> models::PrivateMessageDtoListEnvelope get_messages_async(social_profile_id, conversation_id, api_version, x_api_version, private_message_dto_collection_query_parameters)
 Get Messages
 
 Get a list of messages for a conversation.
@@ -631,6 +645,7 @@ Name | Type | Description  | Required | Notes
 **conversation_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**private_message_dto_collection_query_parameters** | Option<[**PrivateMessageDtoCollectionQueryParameters**](PrivateMessageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -642,7 +657,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -683,7 +698,7 @@ No authorization required
 
 ## get_notifications_async
 
-> models::NotificationDtoListEnvelope get_notifications_async(social_profile_id, api_version, x_api_version)
+> models::NotificationDtoListEnvelope get_notifications_async(social_profile_id, api_version, x_api_version, notification_dto_collection_query_parameters)
 Get Notifications
 
 Get a list of notifications for a social profile.
@@ -696,6 +711,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**notification_dto_collection_query_parameters** | Option<[**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -707,7 +723,40 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_or_create_direct_conversation_async
+
+> models::ConversationDtoEnvelope get_or_create_direct_conversation_async(social_profile_id, api_version, x_api_version, body)
+Get or Create Direct Conversation
+
+Get or create the direct two-party conversation between the acting profile and a counterparty.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**body** | Option<**uuid::Uuid**> |  |  |
+
+### Return type
+
+[**models::ConversationDtoEnvelope**](ConversationDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -747,7 +796,7 @@ No authorization required
 
 ## get_social_profiles_async
 
-> models::SocialProfileDtoListEnvelope get_social_profiles_async(api_version, x_api_version)
+> models::SocialProfileDtoListEnvelope get_social_profiles_async(api_version, x_api_version, social_profile_dto_collection_query_parameters)
 Get Social Profiles
 
 Get a list of social profiles.
@@ -759,6 +808,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_profile_dto_collection_query_parameters** | Option<[**SocialProfileDtoCollectionQueryParameters**](SocialProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -770,7 +820,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

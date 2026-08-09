@@ -180,7 +180,7 @@ pub async fn get_leave_type_by_id_async(configuration: &configuration::Configura
 }
 
 /// Retrieves leave types for the specified tenant.
-pub async fn get_leave_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LeaveTypeDtoListEnvelope, Error<GetLeaveTypesAsyncError>> {
+pub async fn get_leave_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, leave_type_dto_collection_query_parameters: Option<models::LeaveTypeDtoCollectionQueryParameters>) -> Result<models::LeaveTypeDtoListEnvelope, Error<GetLeaveTypesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -198,6 +198,7 @@ pub async fn get_leave_types_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&leave_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -215,7 +216,7 @@ pub async fn get_leave_types_async(configuration: &configuration::Configuration,
 }
 
 /// Counts leave types for the specified tenant.
-pub async fn get_leave_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetLeaveTypesCountAsyncError>> {
+pub async fn get_leave_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, leave_type_dto_collection_query_parameters: Option<models::LeaveTypeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetLeaveTypesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -233,6 +234,7 @@ pub async fn get_leave_types_count_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&leave_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

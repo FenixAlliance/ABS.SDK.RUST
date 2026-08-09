@@ -115,7 +115,7 @@ No authorization required
 
 ## get_marketing_campaign_o_data_async
 
-> get_marketing_campaign_o_data_async(tenant_id, api_version, x_api_version)
+> get_marketing_campaign_o_data_async(tenant_id, api_version, x_api_version, marketing_campaign_dto_collection_query_parameters)
 Get marketing campaigns
 
 Retrieves a collection of marketing campaigns for the specified tenant using OData query options.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**marketing_campaign_dto_collection_query_parameters** | Option<[**MarketingCampaignDtoCollectionQueryParameters**](MarketingCampaignDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_marketing_campaigns_count_async
 
-> models::Int32Envelope get_marketing_campaigns_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_marketing_campaigns_count_async(tenant_id, api_version, x_api_version, marketing_campaign_dto_collection_query_parameters)
 Get marketing campaigns count
 
 Returns the count of marketing campaigns for the specified tenant using OData query options.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**marketing_campaign_dto_collection_query_parameters** | Option<[**MarketingCampaignDtoCollectionQueryParameters**](MarketingCampaignDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_marketing_campaign_async
 
-> models::EmptyEnvelope patch_marketing_campaign_async(tenant_id, marketingcampaign_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_marketing_campaign_async(tenant_id, marketingcampaign_id, api_version, x_api_version, patch_operation)
 Patch a marketing campaign
 
 Partially updates a marketing campaign by its ID using JSON Patch.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **marketingcampaign_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

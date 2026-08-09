@@ -726,7 +726,7 @@ pub async fn delete_wallet_token_async(configuration: &configuration::Configurat
 }
 
 /// Get incoming payments of a specific wallet by ID.
-pub async fn get_incoming_payments_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PaymentDtoListEnvelope, Error<GetIncomingPaymentsAsyncError>> {
+pub async fn get_incoming_payments_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::PaymentDtoListEnvelope, Error<GetIncomingPaymentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -743,6 +743,7 @@ pub async fn get_incoming_payments_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -760,7 +761,7 @@ pub async fn get_incoming_payments_async(configuration: &configuration::Configur
 }
 
 /// Get incoming payments count of a specific wallet by ID.
-pub async fn get_incoming_payments_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetIncomingPaymentsCountAsyncError>> {
+pub async fn get_incoming_payments_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetIncomingPaymentsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -777,6 +778,7 @@ pub async fn get_incoming_payments_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -794,7 +796,7 @@ pub async fn get_incoming_payments_count_async(configuration: &configuration::Co
 }
 
 /// Get incoming invoices of a specific wallet by ID.
-pub async fn get_incoming_wallet_invoices_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::InvoiceDtoListEnvelope, Error<GetIncomingWalletInvoicesAsyncError>> {
+pub async fn get_incoming_wallet_invoices_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::InvoiceDtoListEnvelope, Error<GetIncomingWalletInvoicesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -811,6 +813,7 @@ pub async fn get_incoming_wallet_invoices_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -828,7 +831,7 @@ pub async fn get_incoming_wallet_invoices_async(configuration: &configuration::C
 }
 
 /// Get incoming invoices count of a specific wallet by ID.
-pub async fn get_incoming_wallet_invoices_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetIncomingWalletInvoicesCountAsyncError>> {
+pub async fn get_incoming_wallet_invoices_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetIncomingWalletInvoicesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -845,6 +848,7 @@ pub async fn get_incoming_wallet_invoices_count_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -896,7 +900,7 @@ pub async fn get_location_for_wallet_async(configuration: &configuration::Config
 }
 
 /// Get locations of a specific wallet by ID.
-pub async fn get_locations_for_wallet_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LocationDtoListEnvelope, Error<GetLocationsForWalletAsyncError>> {
+pub async fn get_locations_for_wallet_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, location_dto_collection_query_parameters: Option<models::LocationDtoCollectionQueryParameters>) -> Result<models::LocationDtoListEnvelope, Error<GetLocationsForWalletAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -913,6 +917,7 @@ pub async fn get_locations_for_wallet_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&location_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -930,7 +935,7 @@ pub async fn get_locations_for_wallet_async(configuration: &configuration::Confi
 }
 
 /// Get locations count of a specific wallet by ID.
-pub async fn get_locations_for_wallet_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetLocationsForWalletCountAsyncError>> {
+pub async fn get_locations_for_wallet_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, location_dto_collection_query_parameters: Option<models::LocationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetLocationsForWalletCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -947,6 +952,7 @@ pub async fn get_locations_for_wallet_count_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&location_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -964,7 +970,7 @@ pub async fn get_locations_for_wallet_count_async(configuration: &configuration:
 }
 
 /// Get outgoing payments of a specific wallet by ID.
-pub async fn get_outgoing_payments_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PaymentDtoListEnvelope, Error<GetOutgoingPaymentsAsyncError>> {
+pub async fn get_outgoing_payments_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::PaymentDtoListEnvelope, Error<GetOutgoingPaymentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -981,6 +987,7 @@ pub async fn get_outgoing_payments_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -998,7 +1005,7 @@ pub async fn get_outgoing_payments_async(configuration: &configuration::Configur
 }
 
 /// Get outgoing payments count of a specific wallet by ID.
-pub async fn get_outgoing_payments_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetOutgoingPaymentsCountAsyncError>> {
+pub async fn get_outgoing_payments_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetOutgoingPaymentsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1015,6 +1022,7 @@ pub async fn get_outgoing_payments_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1032,7 +1040,7 @@ pub async fn get_outgoing_payments_count_async(configuration: &configuration::Co
 }
 
 /// Get outgoing invoices of a specific wallet by ID.
-pub async fn get_outgoing_wallet_invoices_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::InvoiceDtoListEnvelope, Error<GetOutgoingWalletInvoicesAsyncError>> {
+pub async fn get_outgoing_wallet_invoices_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::InvoiceDtoListEnvelope, Error<GetOutgoingWalletInvoicesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1049,6 +1057,7 @@ pub async fn get_outgoing_wallet_invoices_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1066,7 +1075,7 @@ pub async fn get_outgoing_wallet_invoices_async(configuration: &configuration::C
 }
 
 /// Get outgoing invoices count of a specific wallet by ID.
-pub async fn get_outgoing_wallet_invoices_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetOutgoingWalletInvoicesCountAsyncError>> {
+pub async fn get_outgoing_wallet_invoices_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetOutgoingWalletInvoicesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1083,6 +1092,7 @@ pub async fn get_outgoing_wallet_invoices_count_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1134,7 +1144,7 @@ pub async fn get_wallet_bank_account_async(configuration: &configuration::Config
 }
 
 /// Get bank accounts of a specific wallet by ID.
-pub async fn get_wallet_bank_accounts_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BankAccountDtoListEnvelope, Error<GetWalletBankAccountsAsyncError>> {
+pub async fn get_wallet_bank_accounts_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_account_dto_collection_query_parameters: Option<models::BankAccountDtoCollectionQueryParameters>) -> Result<models::BankAccountDtoListEnvelope, Error<GetWalletBankAccountsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1151,6 +1161,7 @@ pub async fn get_wallet_bank_accounts_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_account_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1168,7 +1179,7 @@ pub async fn get_wallet_bank_accounts_async(configuration: &configuration::Confi
 }
 
 /// Get bank accounts count of a specific wallet by ID.
-pub async fn get_wallet_bank_accounts_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletBankAccountsCountAsyncError>> {
+pub async fn get_wallet_bank_accounts_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_account_dto_collection_query_parameters: Option<models::BankAccountDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletBankAccountsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1185,6 +1196,7 @@ pub async fn get_wallet_bank_accounts_count_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_account_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1202,7 +1214,7 @@ pub async fn get_wallet_bank_accounts_count_async(configuration: &configuration:
 }
 
 /// Get chargebacks of a specific wallet by ID.
-pub async fn get_wallet_chargebacks_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PaymentChargebackDtoListEnvelope, Error<GetWalletChargebacksAsyncError>> {
+pub async fn get_wallet_chargebacks_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_chargeback_dto_collection_query_parameters: Option<models::PaymentChargebackDtoCollectionQueryParameters>) -> Result<models::PaymentChargebackDtoListEnvelope, Error<GetWalletChargebacksAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1219,6 +1231,7 @@ pub async fn get_wallet_chargebacks_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_chargeback_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1236,7 +1249,7 @@ pub async fn get_wallet_chargebacks_async(configuration: &configuration::Configu
 }
 
 /// Get chargebacks count of a specific wallet by ID.
-pub async fn get_wallet_chargebacks_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletChargebacksCountAsyncError>> {
+pub async fn get_wallet_chargebacks_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_chargeback_dto_collection_query_parameters: Option<models::PaymentChargebackDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletChargebacksCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1253,6 +1266,7 @@ pub async fn get_wallet_chargebacks_count_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_chargeback_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1304,7 +1318,7 @@ pub async fn get_wallet_details_async(configuration: &configuration::Configurati
 }
 
 /// Get extended orders of a specific wallet by ID.
-pub async fn get_wallet_extended_orders_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ExtendedOrderDtoListEnvelope, Error<GetWalletExtendedOrdersAsyncError>> {
+pub async fn get_wallet_extended_orders_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, extended_order_dto_collection_query_parameters: Option<models::ExtendedOrderDtoCollectionQueryParameters>) -> Result<models::ExtendedOrderDtoListEnvelope, Error<GetWalletExtendedOrdersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1321,6 +1335,7 @@ pub async fn get_wallet_extended_orders_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_order_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1338,7 +1353,7 @@ pub async fn get_wallet_extended_orders_async(configuration: &configuration::Con
 }
 
 /// Get invoices of a specific wallet by ID.
-pub async fn get_wallet_invoices_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::InvoiceDtoListEnvelope, Error<GetWalletInvoicesAsyncError>> {
+pub async fn get_wallet_invoices_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::InvoiceDtoListEnvelope, Error<GetWalletInvoicesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1355,6 +1370,7 @@ pub async fn get_wallet_invoices_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1372,7 +1388,7 @@ pub async fn get_wallet_invoices_async(configuration: &configuration::Configurat
 }
 
 /// Get invoices count of a specific wallet by ID.
-pub async fn get_wallet_invoices_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletInvoicesCountAsyncError>> {
+pub async fn get_wallet_invoices_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletInvoicesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1389,6 +1405,7 @@ pub async fn get_wallet_invoices_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1406,7 +1423,7 @@ pub async fn get_wallet_invoices_count_async(configuration: &configuration::Conf
 }
 
 /// Get orders of a specific wallet by ID.
-pub async fn get_wallet_orders_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::OrderDtoListEnvelope, Error<GetWalletOrdersAsyncError>> {
+pub async fn get_wallet_orders_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, order_dto_collection_query_parameters: Option<models::OrderDtoCollectionQueryParameters>) -> Result<models::OrderDtoListEnvelope, Error<GetWalletOrdersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1423,6 +1440,7 @@ pub async fn get_wallet_orders_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&order_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1440,7 +1458,7 @@ pub async fn get_wallet_orders_async(configuration: &configuration::Configuratio
 }
 
 /// Get orders count of a specific wallet by ID.
-pub async fn get_wallet_orders_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletOrdersCountAsyncError>> {
+pub async fn get_wallet_orders_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, order_dto_collection_query_parameters: Option<models::OrderDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletOrdersCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1457,6 +1475,7 @@ pub async fn get_wallet_orders_count_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&order_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1474,7 +1493,7 @@ pub async fn get_wallet_orders_count_async(configuration: &configuration::Config
 }
 
 /// Get payments of a specific wallet by ID.
-pub async fn get_wallet_payments_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PaymentDtoListEnvelope, Error<GetWalletPaymentsAsyncError>> {
+pub async fn get_wallet_payments_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::PaymentDtoListEnvelope, Error<GetWalletPaymentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1491,6 +1510,7 @@ pub async fn get_wallet_payments_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1508,7 +1528,7 @@ pub async fn get_wallet_payments_async(configuration: &configuration::Configurat
 }
 
 /// Get payments count of a specific wallet by ID.
-pub async fn get_wallet_payments_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletPaymentsCountAsyncError>> {
+pub async fn get_wallet_payments_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletPaymentsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1525,6 +1545,7 @@ pub async fn get_wallet_payments_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1542,7 +1563,7 @@ pub async fn get_wallet_payments_count_async(configuration: &configuration::Conf
 }
 
 /// Get quotes of a specific wallet by ID.
-pub async fn get_wallet_quotes_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::QuoteDtoListEnvelope, Error<GetWalletQuotesAsyncError>> {
+pub async fn get_wallet_quotes_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, quote_dto_collection_query_parameters: Option<models::QuoteDtoCollectionQueryParameters>) -> Result<models::QuoteDtoListEnvelope, Error<GetWalletQuotesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1559,6 +1580,7 @@ pub async fn get_wallet_quotes_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&quote_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1576,7 +1598,7 @@ pub async fn get_wallet_quotes_async(configuration: &configuration::Configuratio
 }
 
 /// Get quotes count of a specific wallet by ID.
-pub async fn get_wallet_quotes_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletQuotesCountAsyncError>> {
+pub async fn get_wallet_quotes_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, quote_dto_collection_query_parameters: Option<models::QuoteDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletQuotesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1593,6 +1615,7 @@ pub async fn get_wallet_quotes_count_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&quote_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1610,7 +1633,7 @@ pub async fn get_wallet_quotes_count_async(configuration: &configuration::Config
 }
 
 /// Get refunds of a specific wallet by ID.
-pub async fn get_wallet_refunds_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PaymentRefundDtoListEnvelope, Error<GetWalletRefundsAsyncError>> {
+pub async fn get_wallet_refunds_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_refund_dto_collection_query_parameters: Option<models::PaymentRefundDtoCollectionQueryParameters>) -> Result<models::PaymentRefundDtoListEnvelope, Error<GetWalletRefundsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1627,6 +1650,7 @@ pub async fn get_wallet_refunds_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_refund_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1644,7 +1668,7 @@ pub async fn get_wallet_refunds_async(configuration: &configuration::Configurati
 }
 
 /// Get refunds count of a specific wallet by ID.
-pub async fn get_wallet_refunds_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletRefundsCountAsyncError>> {
+pub async fn get_wallet_refunds_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_refund_dto_collection_query_parameters: Option<models::PaymentRefundDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletRefundsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1661,6 +1685,7 @@ pub async fn get_wallet_refunds_count_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_refund_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1712,7 +1737,7 @@ pub async fn get_wallet_token_async(configuration: &configuration::Configuration
 }
 
 /// Get payment tokens of a specific wallet by ID.
-pub async fn get_wallet_tokens_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PaymentTokenDtoListEnvelope, Error<GetWalletTokensAsyncError>> {
+pub async fn get_wallet_tokens_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_token_dto_collection_query_parameters: Option<models::PaymentTokenDtoCollectionQueryParameters>) -> Result<models::PaymentTokenDtoListEnvelope, Error<GetWalletTokensAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1729,6 +1754,7 @@ pub async fn get_wallet_tokens_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_token_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1746,7 +1772,7 @@ pub async fn get_wallet_tokens_async(configuration: &configuration::Configuratio
 }
 
 /// Get payment tokens count of a specific wallet by ID.
-pub async fn get_wallet_tokens_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletTokensCountAsyncError>> {
+pub async fn get_wallet_tokens_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_token_dto_collection_query_parameters: Option<models::PaymentTokenDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletTokensCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1763,6 +1789,7 @@ pub async fn get_wallet_tokens_count_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_token_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1780,7 +1807,7 @@ pub async fn get_wallet_tokens_count_async(configuration: &configuration::Config
 }
 
 /// Get withdraw requests of a specific wallet by ID.
-pub async fn get_wallet_withdraw_requests_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WalletWithdrawRequestDtoListEnvelope, Error<GetWalletWithdrawRequestsAsyncError>> {
+pub async fn get_wallet_withdraw_requests_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, wallet_withdraw_request_dto_collection_query_parameters: Option<models::WalletWithdrawRequestDtoCollectionQueryParameters>) -> Result<models::WalletWithdrawRequestDtoListEnvelope, Error<GetWalletWithdrawRequestsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1797,6 +1824,7 @@ pub async fn get_wallet_withdraw_requests_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&wallet_withdraw_request_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1814,7 +1842,7 @@ pub async fn get_wallet_withdraw_requests_async(configuration: &configuration::C
 }
 
 /// Get withdraw requests count of a specific wallet by ID.
-pub async fn get_wallet_withdraw_requests_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletWithdrawRequestsCountAsyncError>> {
+pub async fn get_wallet_withdraw_requests_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, wallet_withdraw_request_dto_collection_query_parameters: Option<models::WalletWithdrawRequestDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletWithdrawRequestsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1831,6 +1859,7 @@ pub async fn get_wallet_withdraw_requests_count_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&wallet_withdraw_request_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1848,7 +1877,7 @@ pub async fn get_wallet_withdraw_requests_count_async(configuration: &configurat
 }
 
 /// Get withdraws of a specific wallet by ID.
-pub async fn get_wallet_withdraws_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WalletWithdrawDtoListEnvelope, Error<GetWalletWithdrawsAsyncError>> {
+pub async fn get_wallet_withdraws_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, wallet_withdraw_dto_collection_query_parameters: Option<models::WalletWithdrawDtoCollectionQueryParameters>) -> Result<models::WalletWithdrawDtoListEnvelope, Error<GetWalletWithdrawsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1865,6 +1894,7 @@ pub async fn get_wallet_withdraws_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&wallet_withdraw_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1882,7 +1912,7 @@ pub async fn get_wallet_withdraws_async(configuration: &configuration::Configura
 }
 
 /// Get withdraws count of a specific wallet by ID.
-pub async fn get_wallet_withdraws_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWalletWithdrawsCountAsyncError>> {
+pub async fn get_wallet_withdraws_count_async(configuration: &configuration::Configuration, wallet_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, wallet_withdraw_dto_collection_query_parameters: Option<models::WalletWithdrawDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletWithdrawsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1899,6 +1929,7 @@ pub async fn get_wallet_withdraws_count_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&wallet_withdraw_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1916,7 +1947,7 @@ pub async fn get_wallet_withdraws_count_async(configuration: &configuration::Con
 }
 
 /// Partially update a specific bank account of a specific wallet by ID.
-pub async fn patch_wallet_bank_account_async(configuration: &configuration::Configuration, wallet_id: &str, bank_account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchWalletBankAccountAsyncError>> {
+pub async fn patch_wallet_bank_account_async(configuration: &configuration::Configuration, wallet_id: &str, bank_account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchWalletBankAccountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1933,7 +1964,7 @@ pub async fn patch_wallet_bank_account_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1951,7 +1982,7 @@ pub async fn patch_wallet_bank_account_async(configuration: &configuration::Conf
 }
 
 /// Partially update a specific payment token of a specific wallet by ID.
-pub async fn patch_wallet_token_async(configuration: &configuration::Configuration, wallet_id: &str, token_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchWalletTokenAsyncError>> {
+pub async fn patch_wallet_token_async(configuration: &configuration::Configuration, wallet_id: &str, token_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchWalletTokenAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1968,7 +1999,7 @@ pub async fn patch_wallet_token_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

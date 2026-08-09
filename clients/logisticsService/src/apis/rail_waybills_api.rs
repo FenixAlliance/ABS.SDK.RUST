@@ -331,7 +331,7 @@ pub async fn get_rail_waybill_by_id_async(configuration: &configuration::Configu
 }
 
 /// Retrieves all lines for a specific rail waybill.
-pub async fn get_rail_waybill_lines_async(configuration: &configuration::Configuration, tenant_id: &str, waybill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WaybillLineDtoListEnvelope, Error<GetRailWaybillLinesAsyncError>> {
+pub async fn get_rail_waybill_lines_async(configuration: &configuration::Configuration, tenant_id: &str, waybill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, waybill_line_dto_collection_query_parameters: Option<models::WaybillLineDtoCollectionQueryParameters>) -> Result<models::WaybillLineDtoListEnvelope, Error<GetRailWaybillLinesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -349,6 +349,7 @@ pub async fn get_rail_waybill_lines_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&waybill_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -366,7 +367,7 @@ pub async fn get_rail_waybill_lines_async(configuration: &configuration::Configu
 }
 
 /// Returns the count of lines for a specific rail waybill.
-pub async fn get_rail_waybill_lines_count_async(configuration: &configuration::Configuration, tenant_id: &str, waybill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetRailWaybillLinesCountAsyncError>> {
+pub async fn get_rail_waybill_lines_count_async(configuration: &configuration::Configuration, tenant_id: &str, waybill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, waybill_line_dto_collection_query_parameters: Option<models::WaybillLineDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetRailWaybillLinesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -384,6 +385,7 @@ pub async fn get_rail_waybill_lines_count_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&waybill_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -401,7 +403,7 @@ pub async fn get_rail_waybill_lines_count_async(configuration: &configuration::C
 }
 
 /// Retrieves all rail waybills for the specified tenant.
-pub async fn get_rail_waybills_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::RailWaybillDtoListEnvelope, Error<GetRailWaybillsAsyncError>> {
+pub async fn get_rail_waybills_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, rail_waybill_dto_collection_query_parameters: Option<models::RailWaybillDtoCollectionQueryParameters>) -> Result<models::RailWaybillDtoListEnvelope, Error<GetRailWaybillsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -419,6 +421,7 @@ pub async fn get_rail_waybills_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&rail_waybill_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -436,7 +439,7 @@ pub async fn get_rail_waybills_async(configuration: &configuration::Configuratio
 }
 
 /// Returns the count of rail waybills for the specified tenant.
-pub async fn get_rail_waybills_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetRailWaybillsCountAsyncError>> {
+pub async fn get_rail_waybills_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, rail_waybill_dto_collection_query_parameters: Option<models::RailWaybillDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetRailWaybillsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -454,6 +457,7 @@ pub async fn get_rail_waybills_count_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&rail_waybill_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -576,7 +580,7 @@ pub async fn mark_rail_waybill_in_transit_async(configuration: &configuration::C
 }
 
 /// Partially updates an existing rail waybill using a JSON Patch document.
-pub async fn patch_rail_waybill_async(configuration: &configuration::Configuration, tenant_id: &str, waybill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchRailWaybillAsyncError>> {
+pub async fn patch_rail_waybill_async(configuration: &configuration::Configuration, tenant_id: &str, waybill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchRailWaybillAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -594,7 +598,7 @@ pub async fn patch_rail_waybill_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -612,7 +616,7 @@ pub async fn patch_rail_waybill_async(configuration: &configuration::Configurati
 }
 
 /// Partially updates a line on a rail waybill using a JSON Patch document.
-pub async fn patch_rail_waybill_line_async(configuration: &configuration::Configuration, tenant_id: &str, waybill_id: &str, line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchRailWaybillLineAsyncError>> {
+pub async fn patch_rail_waybill_line_async(configuration: &configuration::Configuration, tenant_id: &str, waybill_id: &str, line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchRailWaybillLineAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -630,7 +634,7 @@ pub async fn patch_rail_waybill_line_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

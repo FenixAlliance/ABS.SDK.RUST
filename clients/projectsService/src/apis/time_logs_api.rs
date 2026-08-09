@@ -107,7 +107,7 @@ pub enum UpdateProjectTimeLogAsyncError {
 
 
 /// Returns the total count of time logs for a specific project period with OData query support.
-pub async fn count_project_period_time_logs_async(configuration: &configuration::Configuration, tenant_id: &str, project_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountProjectPeriodTimeLogsAsyncError>> {
+pub async fn count_project_period_time_logs_async(configuration: &configuration::Configuration, tenant_id: &str, project_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, project_time_log_dto_collection_query_parameters: Option<models::ProjectTimeLogDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountProjectPeriodTimeLogsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -126,6 +126,7 @@ pub async fn count_project_period_time_logs_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&project_time_log_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -214,7 +215,7 @@ pub async fn delete_project_time_log_async(configuration: &configuration::Config
 }
 
 /// Retrieves a list of time logs for a specific project period with OData query support.
-pub async fn get_project_period_time_logs_async(configuration: &configuration::Configuration, tenant_id: &str, project_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ProjectTimeLogDtoListEnvelope, Error<GetProjectPeriodTimeLogsAsyncError>> {
+pub async fn get_project_period_time_logs_async(configuration: &configuration::Configuration, tenant_id: &str, project_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, project_time_log_dto_collection_query_parameters: Option<models::ProjectTimeLogDtoCollectionQueryParameters>) -> Result<models::ProjectTimeLogDtoListEnvelope, Error<GetProjectPeriodTimeLogsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -233,6 +234,7 @@ pub async fn get_project_period_time_logs_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&project_time_log_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -392,7 +394,7 @@ pub async fn get_project_time_logs_created_by_contact_async(configuration: &conf
 }
 
 /// Partially updates an existing project time log entry.
-pub async fn patch_project_time_log_async(configuration: &configuration::Configuration, time_log_id: &str, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<(), Error<PatchProjectTimeLogAsyncError>> {
+pub async fn patch_project_time_log_async(configuration: &configuration::Configuration, time_log_id: &str, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<(), Error<PatchProjectTimeLogAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -410,7 +412,7 @@ pub async fn patch_project_time_log_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

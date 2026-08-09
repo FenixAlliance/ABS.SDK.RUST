@@ -648,7 +648,7 @@ pub async fn get_bank_account(configuration: &configuration::Configuration, tena
 }
 
 /// Get the currently acting tenant bank accounts.
-pub async fn get_bank_accounts(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BankAccountDtoListEnvelope, Error<GetBankAccountsError>> {
+pub async fn get_bank_accounts(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_account_dto_collection_query_parameters: Option<models::BankAccountDtoCollectionQueryParameters>) -> Result<models::BankAccountDtoListEnvelope, Error<GetBankAccountsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -666,6 +666,7 @@ pub async fn get_bank_accounts(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_account_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -683,7 +684,7 @@ pub async fn get_bank_accounts(configuration: &configuration::Configuration, ten
 }
 
 /// Get the currently acting tenant bank accounts count.
-pub async fn get_bank_accounts_count(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBankAccountsCountError>> {
+pub async fn get_bank_accounts_count(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_account_dto_collection_query_parameters: Option<models::BankAccountDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBankAccountsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -701,6 +702,7 @@ pub async fn get_bank_accounts_count(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_account_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -753,7 +755,7 @@ pub async fn get_bank_guarantee(configuration: &configuration::Configuration, te
 }
 
 /// Get the currently acting tenant bank guarantees.
-pub async fn get_bank_guarantees(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BankGuaranteeDtoListEnvelope, Error<GetBankGuaranteesError>> {
+pub async fn get_bank_guarantees(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_guarantee_dto_collection_query_parameters: Option<models::BankGuaranteeDtoCollectionQueryParameters>) -> Result<models::BankGuaranteeDtoListEnvelope, Error<GetBankGuaranteesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -771,6 +773,7 @@ pub async fn get_bank_guarantees(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_guarantee_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -788,7 +791,7 @@ pub async fn get_bank_guarantees(configuration: &configuration::Configuration, t
 }
 
 /// Get the currently acting tenant bank guarantees count.
-pub async fn get_bank_guarantees_count(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBankGuaranteesCountError>> {
+pub async fn get_bank_guarantees_count(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_guarantee_dto_collection_query_parameters: Option<models::BankGuaranteeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBankGuaranteesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -806,6 +809,7 @@ pub async fn get_bank_guarantees_count(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_guarantee_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -858,7 +862,7 @@ pub async fn get_bank_transaction(configuration: &configuration::Configuration, 
 }
 
 /// Get the currently acting tenant bank transactions.
-pub async fn get_bank_transactions(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BankTransactionDtoListEnvelope, Error<GetBankTransactionsError>> {
+pub async fn get_bank_transactions(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_transaction_dto_collection_query_parameters: Option<models::BankTransactionDtoCollectionQueryParameters>) -> Result<models::BankTransactionDtoListEnvelope, Error<GetBankTransactionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -876,6 +880,7 @@ pub async fn get_bank_transactions(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_transaction_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -893,7 +898,7 @@ pub async fn get_bank_transactions(configuration: &configuration::Configuration,
 }
 
 /// Get the currently acting tenant bank transactions count.
-pub async fn get_bank_transactions_count(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBankTransactionsCountError>> {
+pub async fn get_bank_transactions_count(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_transaction_dto_collection_query_parameters: Option<models::BankTransactionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBankTransactionsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -911,6 +916,7 @@ pub async fn get_bank_transactions_count(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_transaction_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -928,7 +934,7 @@ pub async fn get_bank_transactions_count(configuration: &configuration::Configur
 }
 
 /// Get the currently acting tenant banks.
-pub async fn get_banks(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BankDtoListEnvelope, Error<GetBanksError>> {
+pub async fn get_banks(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_dto_collection_query_parameters: Option<models::BankDtoCollectionQueryParameters>) -> Result<models::BankDtoListEnvelope, Error<GetBanksError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -946,6 +952,7 @@ pub async fn get_banks(configuration: &configuration::Configuration, tenant_id: 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -963,7 +970,7 @@ pub async fn get_banks(configuration: &configuration::Configuration, tenant_id: 
 }
 
 /// Get the currently acting tenant banks count.
-pub async fn get_banks_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBanksCountError>> {
+pub async fn get_banks_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_dto_collection_query_parameters: Option<models::BankDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBanksCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -981,6 +988,7 @@ pub async fn get_banks_count(configuration: &configuration::Configuration, tenan
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -998,7 +1006,7 @@ pub async fn get_banks_count(configuration: &configuration::Configuration, tenan
 }
 
 /// Partially update a bank using JSON Patch.
-pub async fn patch_bank(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBankError>> {
+pub async fn patch_bank(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBankError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1016,7 +1024,7 @@ pub async fn patch_bank(configuration: &configuration::Configuration, tenant_id:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1034,7 +1042,7 @@ pub async fn patch_bank(configuration: &configuration::Configuration, tenant_id:
 }
 
 /// Partially update a bank account using JSON Patch.
-pub async fn patch_bank_account(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBankAccountError>> {
+pub async fn patch_bank_account(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, account_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBankAccountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1052,7 +1060,7 @@ pub async fn patch_bank_account(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1070,7 +1078,7 @@ pub async fn patch_bank_account(configuration: &configuration::Configuration, te
 }
 
 /// Partially update a bank guarantee using JSON Patch.
-pub async fn patch_bank_guarantee(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, guarantee_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBankGuaranteeError>> {
+pub async fn patch_bank_guarantee(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, guarantee_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBankGuaranteeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1088,7 +1096,7 @@ pub async fn patch_bank_guarantee(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1106,7 +1114,7 @@ pub async fn patch_bank_guarantee(configuration: &configuration::Configuration, 
 }
 
 /// Partially update a bank transaction using JSON Patch.
-pub async fn patch_bank_transaction(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, transaction_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBankTransactionError>> {
+pub async fn patch_bank_transaction(configuration: &configuration::Configuration, tenant_id: &str, bank_id: &str, transaction_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBankTransactionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1124,7 +1132,7 @@ pub async fn patch_bank_transaction(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

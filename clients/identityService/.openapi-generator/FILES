@@ -8,6 +8,7 @@ docs/AuthResult.md
 docs/AuthResultEnvelope.md
 docs/CheckerApi.md
 docs/ErrorEnvelope.md
+docs/ExecutionProvenance.md
 docs/FenixAllianceAbsWebApi.md
 docs/ForgotPasswordRequest.md
 docs/HttpValidationProblemDetails.md
@@ -51,6 +52,7 @@ src/models/access_token_response.rs
 src/models/auth_result.rs
 src/models/auth_result_envelope.rs
 src/models/error_envelope.rs
+src/models/execution_provenance.rs
 src/models/forgot_password_request.rs
 src/models/http_validation_problem_details.rs
 src/models/info_request.rs

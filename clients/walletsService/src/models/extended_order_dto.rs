@@ -63,6 +63,8 @@ pub struct ExtendedOrderDto {
     pub customer_notes: Option<Option<String>>,
     #[serde(rename = "taxCalculationMethod", skip_serializing_if = "Option::is_none")]
     pub tax_calculation_method: Option<TaxCalculationMethod>,
+    #[serde(rename = "costCalculationMethod", skip_serializing_if = "Option::is_none")]
+    pub cost_calculation_method: Option<CostCalculationMethod>,
     #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
     pub forex_rate: Option<f64>,
     #[serde(rename = "forexRatesSnapshot", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -163,8 +165,6 @@ pub struct ExtendedOrderDto {
     pub seller_billing_profile_id: Option<Option<String>>,
     #[serde(rename = "buyerBillingProfileId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub buyer_billing_profile_id: Option<Option<String>>,
-    #[serde(rename = "costCalculationMethod", skip_serializing_if = "Option::is_none")]
-    pub cost_calculation_method: Option<CostCalculationMethod>,
     #[serde(rename = "freightTerms", skip_serializing_if = "Option::is_none")]
     pub freight_terms: Option<FreightTerms>,
     #[serde(rename = "orderStatus", skip_serializing_if = "Option::is_none")]
@@ -231,6 +231,7 @@ impl ExtendedOrderDto {
             city_id: None,
             customer_notes: None,
             tax_calculation_method: None,
+            cost_calculation_method: None,
             forex_rate: None,
             forex_rates_snapshot: None,
             currency_id: None,
@@ -281,7 +282,6 @@ impl ExtendedOrderDto {
             qualified_identifier: None,
             seller_billing_profile_id: None,
             buyer_billing_profile_id: None,
-            cost_calculation_method: None,
             freight_terms: None,
             order_status: None,
             requested_delivery_date: None,

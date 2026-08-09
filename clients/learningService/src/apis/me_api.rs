@@ -169,7 +169,7 @@ pub async fn get_my_average_score_async(configuration: &configuration::Configura
     }
 }
 
-pub async fn get_my_certificates_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CourseCompletionCertificateDtoIReadOnlyListEnvelope, Error<GetMyCertificatesAsyncError>> {
+pub async fn get_my_certificates_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, course_completion_certificate_dto_collection_query_parameters: Option<models::CourseCompletionCertificateDtoCollectionQueryParameters>) -> Result<models::CourseCompletionCertificateDtoIReadOnlyListEnvelope, Error<GetMyCertificatesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -186,6 +186,7 @@ pub async fn get_my_certificates_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_completion_certificate_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -202,7 +203,7 @@ pub async fn get_my_certificates_async(configuration: &configuration::Configurat
     }
 }
 
-pub async fn get_my_certificates_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetMyCertificatesCountAsyncError>> {
+pub async fn get_my_certificates_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, course_completion_certificate_dto_collection_query_parameters: Option<models::CourseCompletionCertificateDtoCollectionQueryParameters>) -> Result<i32, Error<GetMyCertificatesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -219,6 +220,7 @@ pub async fn get_my_certificates_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_completion_certificate_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -235,7 +237,7 @@ pub async fn get_my_certificates_count_async(configuration: &configuration::Conf
     }
 }
 
-pub async fn get_my_enrollments_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CourseEnrollmentDtoIReadOnlyListEnvelope, Error<GetMyEnrollmentsAsyncError>> {
+pub async fn get_my_enrollments_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, course_enrollment_dto_collection_query_parameters: Option<models::CourseEnrollmentDtoCollectionQueryParameters>) -> Result<models::CourseEnrollmentDtoIReadOnlyListEnvelope, Error<GetMyEnrollmentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -252,6 +254,7 @@ pub async fn get_my_enrollments_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_enrollment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -268,7 +271,7 @@ pub async fn get_my_enrollments_async(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_my_enrollments_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetMyEnrollmentsCountAsyncError>> {
+pub async fn get_my_enrollments_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, course_enrollment_dto_collection_query_parameters: Option<models::CourseEnrollmentDtoCollectionQueryParameters>) -> Result<i32, Error<GetMyEnrollmentsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -285,6 +288,7 @@ pub async fn get_my_enrollments_count_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_enrollment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -334,7 +338,7 @@ pub async fn get_my_hours_completed_async(configuration: &configuration::Configu
     }
 }
 
-pub async fn get_my_instructor_courses_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CourseDtoIReadOnlyListEnvelope, Error<GetMyInstructorCoursesAsyncError>> {
+pub async fn get_my_instructor_courses_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, course_dto_collection_query_parameters: Option<models::CourseDtoCollectionQueryParameters>) -> Result<models::CourseDtoIReadOnlyListEnvelope, Error<GetMyInstructorCoursesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -351,6 +355,7 @@ pub async fn get_my_instructor_courses_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -367,7 +372,7 @@ pub async fn get_my_instructor_courses_async(configuration: &configuration::Conf
     }
 }
 
-pub async fn get_my_instructor_courses_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetMyInstructorCoursesCountAsyncError>> {
+pub async fn get_my_instructor_courses_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, course_dto_collection_query_parameters: Option<models::CourseDtoCollectionQueryParameters>) -> Result<i32, Error<GetMyInstructorCoursesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -384,6 +389,7 @@ pub async fn get_my_instructor_courses_count_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -400,7 +406,7 @@ pub async fn get_my_instructor_courses_count_async(configuration: &configuration
     }
 }
 
-pub async fn get_my_instructor_profiles_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::InstructorProfileDtoIReadOnlyListEnvelope, Error<GetMyInstructorProfilesAsyncError>> {
+pub async fn get_my_instructor_profiles_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, instructor_profile_dto_collection_query_parameters: Option<models::InstructorProfileDtoCollectionQueryParameters>) -> Result<models::InstructorProfileDtoIReadOnlyListEnvelope, Error<GetMyInstructorProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -417,6 +423,7 @@ pub async fn get_my_instructor_profiles_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&instructor_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -433,7 +440,7 @@ pub async fn get_my_instructor_profiles_async(configuration: &configuration::Con
     }
 }
 
-pub async fn get_my_instructor_profiles_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetMyInstructorProfilesCountAsyncError>> {
+pub async fn get_my_instructor_profiles_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, instructor_profile_dto_collection_query_parameters: Option<models::InstructorProfileDtoCollectionQueryParameters>) -> Result<i32, Error<GetMyInstructorProfilesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -450,6 +457,7 @@ pub async fn get_my_instructor_profiles_count_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&instructor_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -499,7 +507,7 @@ pub async fn get_my_pending_task_count_async(configuration: &configuration::Conf
     }
 }
 
-pub async fn get_my_student_courses_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CourseDtoIReadOnlyListEnvelope, Error<GetMyStudentCoursesAsyncError>> {
+pub async fn get_my_student_courses_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, course_dto_collection_query_parameters: Option<models::CourseDtoCollectionQueryParameters>) -> Result<models::CourseDtoIReadOnlyListEnvelope, Error<GetMyStudentCoursesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -516,6 +524,7 @@ pub async fn get_my_student_courses_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -532,7 +541,7 @@ pub async fn get_my_student_courses_async(configuration: &configuration::Configu
     }
 }
 
-pub async fn get_my_student_courses_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetMyStudentCoursesCountAsyncError>> {
+pub async fn get_my_student_courses_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, course_dto_collection_query_parameters: Option<models::CourseDtoCollectionQueryParameters>) -> Result<i32, Error<GetMyStudentCoursesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -549,6 +558,7 @@ pub async fn get_my_student_courses_count_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -565,7 +575,7 @@ pub async fn get_my_student_courses_count_async(configuration: &configuration::C
     }
 }
 
-pub async fn get_my_student_profiles_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::StudentProfileDtoIReadOnlyListEnvelope, Error<GetMyStudentProfilesAsyncError>> {
+pub async fn get_my_student_profiles_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, student_profile_dto_collection_query_parameters: Option<models::StudentProfileDtoCollectionQueryParameters>) -> Result<models::StudentProfileDtoIReadOnlyListEnvelope, Error<GetMyStudentProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -582,6 +592,7 @@ pub async fn get_my_student_profiles_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&student_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -598,7 +609,7 @@ pub async fn get_my_student_profiles_async(configuration: &configuration::Config
     }
 }
 
-pub async fn get_my_student_profiles_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetMyStudentProfilesCountAsyncError>> {
+pub async fn get_my_student_profiles_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, student_profile_dto_collection_query_parameters: Option<models::StudentProfileDtoCollectionQueryParameters>) -> Result<i32, Error<GetMyStudentProfilesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -615,6 +626,7 @@ pub async fn get_my_student_profiles_count_async(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&student_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

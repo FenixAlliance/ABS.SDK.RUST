@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## count_timezones_async
 
-> models::Int32Envelope count_timezones_async(api_version, x_api_version)
+> models::Int32Envelope count_timezones_async(api_version, x_api_version, timezone_dto_collection_query_parameters)
 Count timezones
 
 Returns the total number of supported timezones, with optional OData filtering.
@@ -24,6 +24,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**timezone_dto_collection_query_parameters** | Option<[**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -35,7 +36,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -75,7 +76,7 @@ No authorization required
 
 ## get_time_zones_async
 
-> models::TimezoneDtoListEnvelope get_time_zones_async(api_version, x_api_version)
+> models::TimezoneDtoListEnvelope get_time_zones_async(api_version, x_api_version, timezone_dto_collection_query_parameters)
 Get all timezones
 
 Retrieves the list of all supported timezones with optional OData pagination and filtering.
@@ -87,6 +88,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**timezone_dto_collection_query_parameters** | Option<[**TimezoneDtoCollectionQueryParameters**](TimezoneDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -98,7 +100,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

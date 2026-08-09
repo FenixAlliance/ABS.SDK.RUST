@@ -1068,7 +1068,7 @@ No authorization required
 
 ## patch_cart_async
 
-> models::EmptyEnvelope patch_cart_async(cart_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_cart_async(cart_id, api_version, x_api_version, patch_operation)
 Patch a cart
 
 Partially updates a cart using a JSON Patch document.
@@ -1081,7 +1081,7 @@ Name | Type | Description  | Required | Notes
 **cart_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

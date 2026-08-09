@@ -89,7 +89,7 @@ pub enum UpdateTaskCategoryAsyncError {
 
 
 /// Gets the count of task categories for the current tenant.
-pub async fn count_tenant_task_categories_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<CountTenantTaskCategoriesAsyncError>> {
+pub async fn count_tenant_task_categories_async(configuration: &configuration::Configuration, tenant_id: &str, task_category_dto_collection_query_parameters: Option<models::TaskCategoryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountTenantTaskCategoriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -101,6 +101,7 @@ pub async fn count_tenant_task_categories_async(configuration: &configuration::C
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&task_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -235,7 +236,7 @@ pub async fn get_task_category_task_types_async(configuration: &configuration::C
 }
 
 /// Gets all task categories for the current tenant with OData support.
-pub async fn get_tenant_task_categories_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::TaskCategoryDtoListEnvelope, Error<GetTenantTaskCategoriesAsyncError>> {
+pub async fn get_tenant_task_categories_async(configuration: &configuration::Configuration, tenant_id: &str, task_category_dto_collection_query_parameters: Option<models::TaskCategoryDtoCollectionQueryParameters>) -> Result<models::TaskCategoryDtoListEnvelope, Error<GetTenantTaskCategoriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -247,6 +248,7 @@ pub async fn get_tenant_task_categories_async(configuration: &configuration::Con
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&task_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -264,7 +266,7 @@ pub async fn get_tenant_task_categories_async(configuration: &configuration::Con
 }
 
 /// Partially updates the specified task category.
-pub async fn patch_task_category_async(configuration: &configuration::Configuration, task_category_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTaskCategoryAsyncError>> {
+pub async fn patch_task_category_async(configuration: &configuration::Configuration, task_category_id: &str, tenant_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTaskCategoryAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -276,7 +278,7 @@ pub async fn patch_task_category_async(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

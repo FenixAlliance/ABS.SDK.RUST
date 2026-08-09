@@ -186,7 +186,7 @@ pub async fn get_tax_rate(configuration: &configuration::Configuration, tenant_i
 }
 
 /// Retrieves all tax rates for the specified tenant using OData query options.
-pub async fn get_tax_rates(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TaxRateDtoListEnvelope, Error<GetTaxRatesError>> {
+pub async fn get_tax_rates(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tax_rate_dto_collection_query_parameters: Option<models::TaxRateDtoCollectionQueryParameters>) -> Result<models::TaxRateDtoListEnvelope, Error<GetTaxRatesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +204,7 @@ pub async fn get_tax_rates(configuration: &configuration::Configuration, tenant_
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tax_rate_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_tax_rates(configuration: &configuration::Configuration, tenant_
 }
 
 /// Returns the count of tax rates for the specified tenant.
-pub async fn get_tax_rates_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTaxRatesCountError>> {
+pub async fn get_tax_rates_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tax_rate_dto_collection_query_parameters: Option<models::TaxRateDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTaxRatesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_tax_rates_count(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tax_rate_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_tax_rates_count(configuration: &configuration::Configuration, t
 }
 
 /// Partially updates an existing tax rate identified by its unique identifier.
-pub async fn patch_tax_rate(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTaxRateError>> {
+pub async fn patch_tax_rate(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTaxRateError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_tax_rate(configuration: &configuration::Configuration, tenant
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

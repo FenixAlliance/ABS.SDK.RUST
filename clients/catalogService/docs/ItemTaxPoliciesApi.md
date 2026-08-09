@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## count_item_tax_policies_async
 
-> models::Int32Envelope count_item_tax_policies_async(tenant_id, item_id, api_version, x_api_version)
+> models::Int32Envelope count_item_tax_policies_async(tenant_id, item_id, api_version, x_api_version, item_tax_policy_dto_collection_query_parameters)
 Count item tax policies
 
 Counts all tax policies for a specific item.
@@ -28,6 +28,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_tax_policy_dto_collection_query_parameters** | Option<[**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -39,7 +40,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -47,7 +48,7 @@ No authorization required
 
 ## get_item_tax_policies_async
 
-> models::ItemTaxPolicyDtoListEnvelope get_item_tax_policies_async(tenant_id, item_id, api_version, x_api_version)
+> models::ItemTaxPolicyDtoListEnvelope get_item_tax_policies_async(tenant_id, item_id, api_version, x_api_version, item_tax_policy_dto_collection_query_parameters)
 Get item tax policies
 
 Retrieves all tax policies for a specific item.
@@ -61,6 +62,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_tax_policy_dto_collection_query_parameters** | Option<[**ItemTaxPolicyDtoCollectionQueryParameters**](ItemTaxPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -72,7 +74,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

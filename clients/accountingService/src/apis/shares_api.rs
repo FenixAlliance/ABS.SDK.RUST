@@ -617,7 +617,7 @@ pub async fn get_share_class(configuration: &configuration::Configuration, tenan
 }
 
 /// Get the currently acting tenant share classes.
-pub async fn get_share_classes(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ShareClassDtoListEnvelope, Error<GetShareClassesError>> {
+pub async fn get_share_classes(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_class_dto_collection_query_parameters: Option<models::ShareClassDtoCollectionQueryParameters>) -> Result<models::ShareClassDtoListEnvelope, Error<GetShareClassesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -635,6 +635,7 @@ pub async fn get_share_classes(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_class_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -652,7 +653,7 @@ pub async fn get_share_classes(configuration: &configuration::Configuration, ten
 }
 
 /// Get the currently acting tenant share classes count.
-pub async fn get_share_classes_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetShareClassesCountError>> {
+pub async fn get_share_classes_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_class_dto_collection_query_parameters: Option<models::ShareClassDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetShareClassesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -670,6 +671,7 @@ pub async fn get_share_classes_count(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_class_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -722,7 +724,7 @@ pub async fn get_share_issuance(configuration: &configuration::Configuration, te
 }
 
 /// Get the currently acting tenant share issuances.
-pub async fn get_share_issuances(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ShareIssuanceDtoListEnvelope, Error<GetShareIssuancesError>> {
+pub async fn get_share_issuances(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_issuance_dto_collection_query_parameters: Option<models::ShareIssuanceDtoCollectionQueryParameters>) -> Result<models::ShareIssuanceDtoListEnvelope, Error<GetShareIssuancesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -740,6 +742,7 @@ pub async fn get_share_issuances(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_issuance_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -757,7 +760,7 @@ pub async fn get_share_issuances(configuration: &configuration::Configuration, t
 }
 
 /// Get the currently acting tenant share issuances count.
-pub async fn get_share_issuances_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetShareIssuancesCountError>> {
+pub async fn get_share_issuances_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_issuance_dto_collection_query_parameters: Option<models::ShareIssuanceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetShareIssuancesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -775,6 +778,7 @@ pub async fn get_share_issuances_count(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_issuance_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -792,7 +796,7 @@ pub async fn get_share_issuances_count(configuration: &configuration::Configurat
 }
 
 /// Returns SUM(ShareIssuance.Quantity) for the tenant, filtered by the supplied OData date range.
-pub async fn get_share_issuances_sum(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::DecimalEnvelope, Error<GetShareIssuancesSumError>> {
+pub async fn get_share_issuances_sum(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_issuance_dto_collection_query_parameters: Option<models::ShareIssuanceDtoCollectionQueryParameters>) -> Result<models::DecimalEnvelope, Error<GetShareIssuancesSumError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -810,6 +814,7 @@ pub async fn get_share_issuances_sum(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_issuance_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -897,7 +902,7 @@ pub async fn get_share_transfer_reason(configuration: &configuration::Configurat
 }
 
 /// Get the currently acting tenant share transfer reasons.
-pub async fn get_share_transfer_reasons(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ShareTransferReasonDtoListEnvelope, Error<GetShareTransferReasonsError>> {
+pub async fn get_share_transfer_reasons(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_transfer_reason_dto_collection_query_parameters: Option<models::ShareTransferReasonDtoCollectionQueryParameters>) -> Result<models::ShareTransferReasonDtoListEnvelope, Error<GetShareTransferReasonsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -915,6 +920,7 @@ pub async fn get_share_transfer_reasons(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_transfer_reason_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -932,7 +938,7 @@ pub async fn get_share_transfer_reasons(configuration: &configuration::Configura
 }
 
 /// Get the currently acting tenant share transfer reasons count.
-pub async fn get_share_transfer_reasons_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetShareTransferReasonsCountError>> {
+pub async fn get_share_transfer_reasons_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_transfer_reason_dto_collection_query_parameters: Option<models::ShareTransferReasonDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetShareTransferReasonsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -950,6 +956,7 @@ pub async fn get_share_transfer_reasons_count(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_transfer_reason_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -967,7 +974,7 @@ pub async fn get_share_transfer_reasons_count(configuration: &configuration::Con
 }
 
 /// Get the currently acting tenant share transfers.
-pub async fn get_share_transfers(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ShareTransferDtoListEnvelope, Error<GetShareTransfersError>> {
+pub async fn get_share_transfers(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_transfer_dto_collection_query_parameters: Option<models::ShareTransferDtoCollectionQueryParameters>) -> Result<models::ShareTransferDtoListEnvelope, Error<GetShareTransfersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -985,6 +992,7 @@ pub async fn get_share_transfers(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_transfer_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1002,7 +1010,7 @@ pub async fn get_share_transfers(configuration: &configuration::Configuration, t
 }
 
 /// Get the currently acting tenant share transfers count.
-pub async fn get_share_transfers_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetShareTransfersCountError>> {
+pub async fn get_share_transfers_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, share_transfer_dto_collection_query_parameters: Option<models::ShareTransferDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetShareTransfersCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1020,6 +1028,7 @@ pub async fn get_share_transfers_count(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&share_transfer_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1037,7 +1046,7 @@ pub async fn get_share_transfers_count(configuration: &configuration::Configurat
 }
 
 /// Partially updates a share class using a JSON Patch document.
-pub async fn patch_share_class(configuration: &configuration::Configuration, tenant_id: &str, share_class_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchShareClassError>> {
+pub async fn patch_share_class(configuration: &configuration::Configuration, tenant_id: &str, share_class_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchShareClassError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1055,7 +1064,7 @@ pub async fn patch_share_class(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1073,7 +1082,7 @@ pub async fn patch_share_class(configuration: &configuration::Configuration, ten
 }
 
 /// Partially updates a share issuance using a JSON Patch document.
-pub async fn patch_share_issuance(configuration: &configuration::Configuration, tenant_id: &str, issuance_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchShareIssuanceError>> {
+pub async fn patch_share_issuance(configuration: &configuration::Configuration, tenant_id: &str, issuance_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchShareIssuanceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1091,7 +1100,7 @@ pub async fn patch_share_issuance(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1109,7 +1118,7 @@ pub async fn patch_share_issuance(configuration: &configuration::Configuration, 
 }
 
 /// Partially updates a share transfer using a JSON Patch document.
-pub async fn patch_share_transfer(configuration: &configuration::Configuration, tenant_id: &str, transfer_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchShareTransferError>> {
+pub async fn patch_share_transfer(configuration: &configuration::Configuration, tenant_id: &str, transfer_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchShareTransferError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1127,7 +1136,7 @@ pub async fn patch_share_transfer(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1145,7 +1154,7 @@ pub async fn patch_share_transfer(configuration: &configuration::Configuration, 
 }
 
 /// Partially updates a share transfer reason using a JSON Patch document.
-pub async fn patch_share_transfer_reason(configuration: &configuration::Configuration, tenant_id: &str, reason_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchShareTransferReasonError>> {
+pub async fn patch_share_transfer_reason(configuration: &configuration::Configuration, tenant_id: &str, reason_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchShareTransferReasonError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1163,7 +1172,7 @@ pub async fn patch_share_transfer_reason(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

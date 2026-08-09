@@ -115,7 +115,7 @@ No authorization required
 
 ## get_leave_applications_async
 
-> models::LeaveApplicationDtoListEnvelope get_leave_applications_async(tenant_id, api_version, x_api_version)
+> models::LeaveApplicationDtoListEnvelope get_leave_applications_async(tenant_id, api_version, x_api_version, leave_application_dto_collection_query_parameters)
 Get leave applications
 
 Retrieves leave applications for the specified tenant.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**leave_application_dto_collection_query_parameters** | Option<[**LeaveApplicationDtoCollectionQueryParameters**](LeaveApplicationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_leave_applications_count_async
 
-> models::Int32Envelope get_leave_applications_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_leave_applications_count_async(tenant_id, api_version, x_api_version, leave_application_dto_collection_query_parameters)
 Count leave applications
 
 Counts leave applications for the specified tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**leave_application_dto_collection_query_parameters** | Option<[**LeaveApplicationDtoCollectionQueryParameters**](LeaveApplicationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_leave_application_async
 
-> models::EmptyEnvelope patch_leave_application_async(tenant_id, leave_application_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_leave_application_async(tenant_id, leave_application_id, api_version, x_api_version, patch_operation)
 Patch a leave application
 
 Partially updates an existing leave application for the specified tenant.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **leave_application_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

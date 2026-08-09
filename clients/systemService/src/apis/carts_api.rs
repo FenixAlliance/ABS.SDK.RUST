@@ -51,6 +51,15 @@ pub enum GetSystemCartsCountError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`purge_system_guest_carts`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum PurgeSystemGuestCartsError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 
 /// Delete a system cart by its ID
 pub async fn delete_system_cart(configuration: &configuration::Configuration, cart_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteSystemCartError>> {
@@ -121,7 +130,7 @@ pub async fn get_system_cart_by_id(configuration: &configuration::Configuration,
 }
 
 /// Retrieve a list of all carts in the system
-pub async fn get_system_carts(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CartDtoListEnvelope, Error<GetSystemCartsError>> {
+pub async fn get_system_carts(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, cart_dto_collection_query_parameters: Option<models::CartDtoCollectionQueryParameters>) -> Result<models::CartDtoListEnvelope, Error<GetSystemCartsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -138,6 +147,7 @@ pub async fn get_system_carts(configuration: &configuration::Configuration, api_
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&cart_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -155,13 +165,48 @@ pub async fn get_system_carts(configuration: &configuration::Configuration, api_
 }
 
 /// Get the count of all carts in the system
-pub async fn get_system_carts_count(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSystemCartsCountError>> {
+pub async fn get_system_carts_count(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, cart_dto_collection_query_parameters: Option<models::CartDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSystemCartsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
     let local_var_uri_str = format!("{}/api/v2/SystemService/Carts/Count", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&cart_dto_collection_query_parameters);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetSystemCartsCountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
+pub async fn purge_system_guest_carts(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::GuestCartPurgeResultDtoEnvelope, Error<PurgeSystemGuestCartsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Carts/Guests", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
@@ -182,7 +227,7 @@ pub async fn get_system_carts_count(configuration: &configuration::Configuration
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetSystemCartsCountError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<PurgeSystemGuestCartsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

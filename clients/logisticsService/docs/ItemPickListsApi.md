@@ -190,7 +190,7 @@ No authorization required
 
 ## get_item_pick_list_entries_async
 
-> models::ItemPickListEntryDtoListEnvelope get_item_pick_list_entries_async(tenant_id, pick_list_id, api_version, x_api_version)
+> models::ItemPickListEntryDtoListEnvelope get_item_pick_list_entries_async(tenant_id, pick_list_id, api_version, x_api_version, item_pick_list_entry_dto_collection_query_parameters)
 Get pick list entries
 
 Retrieves all entries for the specified pick list.
@@ -204,6 +204,7 @@ Name | Type | Description  | Required | Notes
 **pick_list_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_pick_list_entry_dto_collection_query_parameters** | Option<[**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -215,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -223,7 +224,7 @@ No authorization required
 
 ## get_item_pick_list_entries_count_async
 
-> models::Int32Envelope get_item_pick_list_entries_count_async(tenant_id, pick_list_id, api_version, x_api_version)
+> models::Int32Envelope get_item_pick_list_entries_count_async(tenant_id, pick_list_id, api_version, x_api_version, item_pick_list_entry_dto_collection_query_parameters)
 Get pick list entries count
 
 Returns the count of pick list entries.
@@ -237,6 +238,7 @@ Name | Type | Description  | Required | Notes
 **pick_list_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_pick_list_entry_dto_collection_query_parameters** | Option<[**ItemPickListEntryDtoCollectionQueryParameters**](ItemPickListEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -290,7 +292,7 @@ No authorization required
 
 ## get_item_pick_lists_async
 
-> models::ItemPickListDtoListEnvelope get_item_pick_lists_async(tenant_id, api_version, x_api_version)
+> models::ItemPickListDtoListEnvelope get_item_pick_lists_async(tenant_id, api_version, x_api_version, item_pick_list_dto_collection_query_parameters)
 Get all item pick lists
 
 Retrieves all item pick lists for the specified tenant.
@@ -303,6 +305,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_pick_list_dto_collection_query_parameters** | Option<[**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -314,7 +317,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -322,7 +325,7 @@ No authorization required
 
 ## get_item_pick_lists_count_async
 
-> models::Int32Envelope get_item_pick_lists_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_item_pick_lists_count_async(tenant_id, api_version, x_api_version, item_pick_list_dto_collection_query_parameters)
 Get item pick lists count
 
 Returns the count of item pick lists.
@@ -335,6 +338,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_pick_list_dto_collection_query_parameters** | Option<[**ItemPickListDtoCollectionQueryParameters**](ItemPickListDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -354,7 +358,7 @@ No authorization required
 
 ## patch_item_pick_list_async
 
-> models::EmptyEnvelope patch_item_pick_list_async(tenant_id, pick_list_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_pick_list_async(tenant_id, pick_list_id, api_version, x_api_version, patch_operation)
 Patch an item pick list
 
 Applies a JSON Patch document to an item pick list.
@@ -368,7 +372,7 @@ Name | Type | Description  | Required | Notes
 **pick_list_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -388,7 +392,7 @@ No authorization required
 
 ## patch_item_pick_list_entry_async
 
-> models::EmptyEnvelope patch_item_pick_list_entry_async(tenant_id, pick_list_id, entry_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_pick_list_entry_async(tenant_id, pick_list_id, entry_id, api_version, x_api_version, patch_operation)
 Patch a pick list entry
 
 Applies a JSON Patch document to a pick list entry.
@@ -403,7 +407,7 @@ Name | Type | Description  | Required | Notes
 **entry_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

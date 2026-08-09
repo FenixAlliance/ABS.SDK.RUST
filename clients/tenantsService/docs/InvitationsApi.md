@@ -146,7 +146,7 @@ No authorization required
 
 ## get_tenant_invitations
 
-> models::TenantInvitationDtoListEnvelope get_tenant_invitations(tenant_id, api_version, x_api_version)
+> models::TenantInvitationDtoListEnvelope get_tenant_invitations(tenant_id, api_version, x_api_version, tenant_invitation_dto_collection_query_parameters)
 Retrieve a list of tenant invitations
 
 Retrieve a list of tenant invitations
@@ -159,6 +159,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tenant_invitation_dto_collection_query_parameters** | Option<[**TenantInvitationDtoCollectionQueryParameters**](TenantInvitationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -170,7 +171,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -178,7 +179,7 @@ No authorization required
 
 ## get_tenant_invitations_count
 
-> models::Int32Envelope get_tenant_invitations_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_tenant_invitations_count(tenant_id, api_version, x_api_version, tenant_invitation_dto_collection_query_parameters)
 Get the count of tenant invitations
 
 Get the count of tenant invitations
@@ -191,6 +192,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tenant_invitation_dto_collection_query_parameters** | Option<[**TenantInvitationDtoCollectionQueryParameters**](TenantInvitationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -202,7 +204,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

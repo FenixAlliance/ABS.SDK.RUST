@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## count_sales_literatures_async
 
-> models::Int32Envelope count_sales_literatures_async(tenant_id)
+> models::Int32Envelope count_sales_literatures_async(tenant_id, sales_literature_dto_collection_query_parameters)
 Get sales literatures count
 
 Returns the total count of sales literatures for the specified tenant with OData filter support.
@@ -28,6 +28,7 @@ Returns the total count of sales literatures for the specified tenant with OData
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**sales_literature_dto_collection_query_parameters** | Option<[**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -39,7 +40,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -109,7 +110,7 @@ No authorization required
 
 ## get_extended_sales_literatures_async
 
-> models::ExtendedSalesLiteratureDtoListEnvelope get_extended_sales_literatures_async(tenant_id)
+> models::ExtendedSalesLiteratureDtoListEnvelope get_extended_sales_literatures_async(tenant_id, extended_sales_literature_dto_collection_query_parameters)
 Get extended sales literatures
 
 Retrieves a list of sales literatures with extended details for the specified tenant with OData query support.
@@ -120,6 +121,7 @@ Retrieves a list of sales literatures with extended details for the specified te
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**extended_sales_literature_dto_collection_query_parameters** | Option<[**ExtendedSalesLiteratureDtoCollectionQueryParameters**](ExtendedSalesLiteratureDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -131,7 +133,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -170,7 +172,7 @@ No authorization required
 
 ## get_sales_literatures_async
 
-> models::SalesLiteratureDtoListEnvelope get_sales_literatures_async(tenant_id)
+> models::SalesLiteratureDtoListEnvelope get_sales_literatures_async(tenant_id, sales_literature_dto_collection_query_parameters)
 Get sales literatures
 
 Retrieves a list of sales literatures for the specified tenant with OData query support.
@@ -181,6 +183,7 @@ Retrieves a list of sales literatures for the specified tenant with OData query 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**sales_literature_dto_collection_query_parameters** | Option<[**SalesLiteratureDtoCollectionQueryParameters**](SalesLiteratureDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -192,7 +195,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -200,7 +203,7 @@ No authorization required
 
 ## patch_sales_literature_async
 
-> models::EmptyEnvelope patch_sales_literature_async(tenant_id, sales_literature_id, operation)
+> models::EmptyEnvelope patch_sales_literature_async(tenant_id, sales_literature_id, patch_operation)
 Patch a sales literature
 
 Partially updates an existing sales literature using a JSON Patch document.
@@ -212,7 +215,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **sales_literature_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

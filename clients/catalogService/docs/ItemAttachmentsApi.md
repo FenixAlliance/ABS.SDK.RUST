@@ -114,7 +114,7 @@ No authorization required
 
 ## get_item_attachments_async
 
-> models::ItemAttachmentDtoListEnvelope get_item_attachments_async(tenant_id, api_version, x_api_version)
+> models::ItemAttachmentDtoListEnvelope get_item_attachments_async(tenant_id, api_version, x_api_version, item_attachment_dto_collection_query_parameters)
 Get all item attachments
 
 Retrieves all item attachments for the specified tenant using OData query options.
@@ -127,6 +127,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_attachment_dto_collection_query_parameters** | Option<[**ItemAttachmentDtoCollectionQueryParameters**](ItemAttachmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -138,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,7 +147,7 @@ No authorization required
 
 ## patch_item_attachment_async
 
-> models::EmptyEnvelope patch_item_attachment_async(tenant_id, item_attachment_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_attachment_async(tenant_id, item_attachment_id, api_version, x_api_version, patch_operation)
 Patch an item attachment
 
 Partially updates an existing item attachment for the specified tenant using a JSON Patch document.
@@ -160,7 +161,7 @@ Name | Type | Description  | Required | Notes
 **item_attachment_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

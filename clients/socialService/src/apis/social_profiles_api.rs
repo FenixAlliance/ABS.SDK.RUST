@@ -204,6 +204,15 @@ pub enum GetNotificationsAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_or_create_direct_conversation_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetOrCreateDirectConversationAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_social_profile_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -242,7 +251,7 @@ pub enum UpdateMessageAsyncError {
 
 
 /// Count conversations for a social profile.
-pub async fn count_conversations_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountConversationsAsyncError>> {
+pub async fn count_conversations_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, conversation_dto_collection_query_parameters: Option<models::ConversationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountConversationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -259,6 +268,7 @@ pub async fn count_conversations_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&conversation_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -276,7 +286,7 @@ pub async fn count_conversations_async(configuration: &configuration::Configurat
 }
 
 /// Count followed profiles for a social profile.
-pub async fn count_followed_profiles_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountFollowedProfilesAsyncError>> {
+pub async fn count_followed_profiles_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_profile_dto_collection_query_parameters: Option<models::SocialProfileDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountFollowedProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -293,6 +303,7 @@ pub async fn count_followed_profiles_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -310,7 +321,7 @@ pub async fn count_followed_profiles_async(configuration: &configuration::Config
 }
 
 /// Count follower profiles for a social profile.
-pub async fn count_follower_profiles_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountFollowerProfilesAsyncError>> {
+pub async fn count_follower_profiles_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_profile_dto_collection_query_parameters: Option<models::SocialProfileDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountFollowerProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -327,6 +338,7 @@ pub async fn count_follower_profiles_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -344,7 +356,7 @@ pub async fn count_follower_profiles_async(configuration: &configuration::Config
 }
 
 /// Count followers for a social profile.
-pub async fn count_followers_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountFollowersAsyncError>> {
+pub async fn count_followers_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, follow_record_dto_collection_query_parameters: Option<models::FollowRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountFollowersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -361,6 +373,7 @@ pub async fn count_followers_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&follow_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -378,7 +391,7 @@ pub async fn count_followers_async(configuration: &configuration::Configuration,
 }
 
 /// Count follows for a social profile.
-pub async fn count_follows_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountFollowsAsyncError>> {
+pub async fn count_follows_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, follow_record_dto_collection_query_parameters: Option<models::FollowRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountFollowsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -395,6 +408,7 @@ pub async fn count_follows_async(configuration: &configuration::Configuration, s
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&follow_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -412,7 +426,7 @@ pub async fn count_follows_async(configuration: &configuration::Configuration, s
 }
 
 /// Count messages for a conversation.
-pub async fn count_messages_async(configuration: &configuration::Configuration, social_profile_id: &str, conversation_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountMessagesAsyncError>> {
+pub async fn count_messages_async(configuration: &configuration::Configuration, social_profile_id: &str, conversation_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, private_message_dto_collection_query_parameters: Option<models::PrivateMessageDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountMessagesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -430,6 +444,7 @@ pub async fn count_messages_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&private_message_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -447,7 +462,7 @@ pub async fn count_messages_async(configuration: &configuration::Configuration, 
 }
 
 /// Count notifications for a social profile.
-pub async fn count_notifications_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountNotificationsAsyncError>> {
+pub async fn count_notifications_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, notification_dto_collection_query_parameters: Option<models::NotificationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountNotificationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -464,6 +479,7 @@ pub async fn count_notifications_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&notification_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -481,7 +497,7 @@ pub async fn count_notifications_async(configuration: &configuration::Configurat
 }
 
 /// Count social profiles.
-pub async fn count_social_profiles_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountSocialProfilesAsyncError>> {
+pub async fn count_social_profiles_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, social_profile_dto_collection_query_parameters: Option<models::SocialProfileDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountSocialProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -498,6 +514,7 @@ pub async fn count_social_profiles_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -689,7 +706,7 @@ pub async fn follow_exists_async(configuration: &configuration::Configuration, s
 }
 
 /// Get a list of conversations for a social profile.
-pub async fn get_conversations_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ConversationDtoListEnvelope, Error<GetConversationsAsyncError>> {
+pub async fn get_conversations_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, conversation_dto_collection_query_parameters: Option<models::ConversationDtoCollectionQueryParameters>) -> Result<models::ConversationDtoListEnvelope, Error<GetConversationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -706,6 +723,7 @@ pub async fn get_conversations_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&conversation_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -723,7 +741,7 @@ pub async fn get_conversations_async(configuration: &configuration::Configuratio
 }
 
 /// Get a list of followed profiles for a social profile.
-pub async fn get_followed_profiles_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialProfileDtoListEnvelope, Error<GetFollowedProfilesAsyncError>> {
+pub async fn get_followed_profiles_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_profile_dto_collection_query_parameters: Option<models::SocialProfileDtoCollectionQueryParameters>) -> Result<models::SocialProfileDtoListEnvelope, Error<GetFollowedProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -740,6 +758,7 @@ pub async fn get_followed_profiles_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -757,7 +776,7 @@ pub async fn get_followed_profiles_async(configuration: &configuration::Configur
 }
 
 /// Get a list of follower profiles for a social profile.
-pub async fn get_follower_profiles_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialProfileDtoListEnvelope, Error<GetFollowerProfilesAsyncError>> {
+pub async fn get_follower_profiles_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_profile_dto_collection_query_parameters: Option<models::SocialProfileDtoCollectionQueryParameters>) -> Result<models::SocialProfileDtoListEnvelope, Error<GetFollowerProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -774,6 +793,7 @@ pub async fn get_follower_profiles_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -791,7 +811,7 @@ pub async fn get_follower_profiles_async(configuration: &configuration::Configur
 }
 
 /// Get a list of followers for a social profile.
-pub async fn get_followers_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FollowRecordDtoListEnvelope, Error<GetFollowersAsyncError>> {
+pub async fn get_followers_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, follow_record_dto_collection_query_parameters: Option<models::FollowRecordDtoCollectionQueryParameters>) -> Result<models::FollowRecordDtoListEnvelope, Error<GetFollowersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -808,6 +828,7 @@ pub async fn get_followers_async(configuration: &configuration::Configuration, s
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&follow_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -825,7 +846,7 @@ pub async fn get_followers_async(configuration: &configuration::Configuration, s
 }
 
 /// Get a list of follows for a social profile.
-pub async fn get_follows_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FollowRecordDtoListEnvelope, Error<GetFollowsAsyncError>> {
+pub async fn get_follows_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, follow_record_dto_collection_query_parameters: Option<models::FollowRecordDtoCollectionQueryParameters>) -> Result<models::FollowRecordDtoListEnvelope, Error<GetFollowsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -842,6 +863,7 @@ pub async fn get_follows_async(configuration: &configuration::Configuration, soc
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&follow_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -859,7 +881,7 @@ pub async fn get_follows_async(configuration: &configuration::Configuration, soc
 }
 
 /// Get a list of messages for a conversation.
-pub async fn get_messages_async(configuration: &configuration::Configuration, social_profile_id: &str, conversation_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PrivateMessageDtoListEnvelope, Error<GetMessagesAsyncError>> {
+pub async fn get_messages_async(configuration: &configuration::Configuration, social_profile_id: &str, conversation_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, private_message_dto_collection_query_parameters: Option<models::PrivateMessageDtoCollectionQueryParameters>) -> Result<models::PrivateMessageDtoListEnvelope, Error<GetMessagesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -877,6 +899,7 @@ pub async fn get_messages_async(configuration: &configuration::Configuration, so
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&private_message_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -928,7 +951,7 @@ pub async fn get_notification_by_id_async(configuration: &configuration::Configu
 }
 
 /// Get a list of notifications for a social profile.
-pub async fn get_notifications_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::NotificationDtoListEnvelope, Error<GetNotificationsAsyncError>> {
+pub async fn get_notifications_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, notification_dto_collection_query_parameters: Option<models::NotificationDtoCollectionQueryParameters>) -> Result<models::NotificationDtoListEnvelope, Error<GetNotificationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -945,6 +968,7 @@ pub async fn get_notifications_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&notification_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -956,6 +980,41 @@ pub async fn get_notifications_async(configuration: &configuration::Configuratio
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<GetNotificationsAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Get or create the direct two-party conversation between the acting profile and a counterparty.
+pub async fn get_or_create_direct_conversation_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, body: Option<&str>) -> Result<models::ConversationDtoEnvelope, Error<GetOrCreateDirectConversationAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SocialService/SocialProfiles/{socialProfileId}/Conversations/Direct", local_var_configuration.base_path, socialProfileId=crate::apis::urlencode(social_profile_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&body);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetOrCreateDirectConversationAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -996,7 +1055,7 @@ pub async fn get_social_profile_async(configuration: &configuration::Configurati
 }
 
 /// Get a list of social profiles.
-pub async fn get_social_profiles_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialProfileDtoListEnvelope, Error<GetSocialProfilesAsyncError>> {
+pub async fn get_social_profiles_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, social_profile_dto_collection_query_parameters: Option<models::SocialProfileDtoCollectionQueryParameters>) -> Result<models::SocialProfileDtoListEnvelope, Error<GetSocialProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1013,6 +1072,7 @@ pub async fn get_social_profiles_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

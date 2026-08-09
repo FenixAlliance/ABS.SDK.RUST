@@ -115,7 +115,7 @@ No authorization required
 
 ## get_billing_profiles_async
 
-> models::BillingProfileDtoIReadOnlyListEnvelope get_billing_profiles_async(tenant_id, api_version, x_api_version)
+> models::BillingProfileDtoIReadOnlyListEnvelope get_billing_profiles_async(tenant_id, api_version, x_api_version, billing_profile_dto_collection_query_parameters)
 Gets all billing profiles
 
 Fetches all billing profiles for a tenant with support for OData queries.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**billing_profile_dto_collection_query_parameters** | Option<[**BillingProfileDtoCollectionQueryParameters**](BillingProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_billing_profiles_count_async
 
-> models::Int32Envelope get_billing_profiles_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_billing_profiles_count_async(tenant_id, api_version, x_api_version, billing_profile_dto_collection_query_parameters)
 Gets the count of billing profiles
 
 Returns the number of billing profiles for a tenant, supporting OData filtering.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**billing_profile_dto_collection_query_parameters** | Option<[**BillingProfileDtoCollectionQueryParameters**](BillingProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_billing_profile_async
 
-> models::EmptyEnvelope patch_billing_profile_async(tenant_id, billing_profile_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_billing_profile_async(tenant_id, billing_profile_id, api_version, x_api_version, patch_operation)
 Patch a billing profile
 
 Partially updates a billing profile.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **billing_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

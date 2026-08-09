@@ -646,7 +646,7 @@ pub async fn get_business_owned_individual_async(configuration: &configuration::
 }
 
 /// Get all contacts of type individual
-pub async fn get_business_owned_individuals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactDtoListEnvelope, Error<GetBusinessOwnedIndividualsAsyncError>> {
+pub async fn get_business_owned_individuals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_dto_collection_query_parameters: Option<models::ContactDtoCollectionQueryParameters>) -> Result<models::ContactDtoListEnvelope, Error<GetBusinessOwnedIndividualsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -664,6 +664,7 @@ pub async fn get_business_owned_individuals_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -681,7 +682,7 @@ pub async fn get_business_owned_individuals_async(configuration: &configuration:
 }
 
 /// Get all contacts of type individual count
-pub async fn get_business_owned_individuals_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactDtoListEnvelope, Error<GetBusinessOwnedIndividualsCountAsyncError>> {
+pub async fn get_business_owned_individuals_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_dto_collection_query_parameters: Option<models::ContactDtoCollectionQueryParameters>) -> Result<models::ContactDtoListEnvelope, Error<GetBusinessOwnedIndividualsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -699,6 +700,7 @@ pub async fn get_business_owned_individuals_count_async(configuration: &configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -751,7 +753,7 @@ pub async fn get_business_owned_organization_async(configuration: &configuration
 }
 
 /// Get all contacts of type organization
-pub async fn get_business_owned_organizations_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::ContactDto>, Error<GetBusinessOwnedOrganizationsAsyncError>> {
+pub async fn get_business_owned_organizations_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_dto_collection_query_parameters: Option<models::ContactDtoCollectionQueryParameters>) -> Result<Vec<models::ContactDto>, Error<GetBusinessOwnedOrganizationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -769,6 +771,7 @@ pub async fn get_business_owned_organizations_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -786,7 +789,7 @@ pub async fn get_business_owned_organizations_async(configuration: &configuratio
 }
 
 /// Get all contacts of type organization count
-pub async fn get_business_owned_organizations_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactDtoListEnvelope, Error<GetBusinessOwnedOrganizationsCountAsyncError>> {
+pub async fn get_business_owned_organizations_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_dto_collection_query_parameters: Option<models::ContactDtoCollectionQueryParameters>) -> Result<models::ContactDtoListEnvelope, Error<GetBusinessOwnedOrganizationsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -804,6 +807,7 @@ pub async fn get_business_owned_organizations_count_async(configuration: &config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -926,7 +930,7 @@ pub async fn get_contact_cart_async(configuration: &configuration::Configuration
 }
 
 /// Get all email addresses for the specified contact.
-pub async fn get_contact_emails_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactEmailDtoListEnvelope, Error<GetContactEmailsAsyncError>> {
+pub async fn get_contact_emails_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_email_dto_collection_query_parameters: Option<models::ContactEmailDtoCollectionQueryParameters>) -> Result<models::ContactEmailDtoListEnvelope, Error<GetContactEmailsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -944,6 +948,7 @@ pub async fn get_contact_emails_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_email_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -961,7 +966,7 @@ pub async fn get_contact_emails_async(configuration: &configuration::Configurati
 }
 
 /// Returns the count of email addresses for the specified contact.
-pub async fn get_contact_emails_count_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetContactEmailsCountAsyncError>> {
+pub async fn get_contact_emails_count_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_email_dto_collection_query_parameters: Option<models::ContactEmailDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetContactEmailsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -979,6 +984,7 @@ pub async fn get_contact_emails_count_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_email_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1066,7 +1072,7 @@ pub async fn get_contact_wallet_async(configuration: &configuration::Configurati
 }
 
 /// Get all business owned contacts
-pub async fn get_contacts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactDtoListEnvelope, Error<GetContactsAsyncError>> {
+pub async fn get_contacts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_dto_collection_query_parameters: Option<models::ContactDtoCollectionQueryParameters>) -> Result<models::ContactDtoListEnvelope, Error<GetContactsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1084,6 +1090,7 @@ pub async fn get_contacts_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1101,7 +1108,7 @@ pub async fn get_contacts_async(configuration: &configuration::Configuration, te
 }
 
 /// Get all business owned contacts count
-pub async fn get_contacts_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactDtoListEnvelope, Error<GetContactsCountAsyncError>> {
+pub async fn get_contacts_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_dto_collection_query_parameters: Option<models::ContactDtoCollectionQueryParameters>) -> Result<models::ContactDtoListEnvelope, Error<GetContactsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1119,6 +1126,7 @@ pub async fn get_contacts_count_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1136,7 +1144,7 @@ pub async fn get_contacts_count_async(configuration: &configuration::Configurati
 }
 
 /// Get all contacts of type individual
-pub async fn get_extended_business_owned_individuals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ExtendedContactDtoListEnvelope, Error<GetExtendedBusinessOwnedIndividualsAsyncError>> {
+pub async fn get_extended_business_owned_individuals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, extended_contact_dto_collection_query_parameters: Option<models::ExtendedContactDtoCollectionQueryParameters>) -> Result<models::ExtendedContactDtoListEnvelope, Error<GetExtendedBusinessOwnedIndividualsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1154,6 +1162,7 @@ pub async fn get_extended_business_owned_individuals_async(configuration: &confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1171,7 +1180,7 @@ pub async fn get_extended_business_owned_individuals_async(configuration: &confi
 }
 
 /// Get all contacts of type organization
-pub async fn get_extended_business_owned_organizations_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ExtendedContactDtoListEnvelope, Error<GetExtendedBusinessOwnedOrganizationsAsyncError>> {
+pub async fn get_extended_business_owned_organizations_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, extended_contact_dto_collection_query_parameters: Option<models::ExtendedContactDtoCollectionQueryParameters>) -> Result<models::ExtendedContactDtoListEnvelope, Error<GetExtendedBusinessOwnedOrganizationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1189,6 +1198,7 @@ pub async fn get_extended_business_owned_organizations_async(configuration: &con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1241,7 +1251,7 @@ pub async fn get_extended_contact_async(configuration: &configuration::Configura
 }
 
 /// Get all business owned contacts
-pub async fn get_extended_contacts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ExtendedContactDtoListEnvelope, Error<GetExtendedContactsAsyncError>> {
+pub async fn get_extended_contacts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, extended_contact_dto_collection_query_parameters: Option<models::ExtendedContactDtoCollectionQueryParameters>) -> Result<models::ExtendedContactDtoListEnvelope, Error<GetExtendedContactsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1259,6 +1269,7 @@ pub async fn get_extended_contacts_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_contact_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1451,7 +1462,7 @@ pub async fn get_profiles_for_contact_async(configuration: &configuration::Confi
 }
 
 /// Returns the count of profiles for the specified contact.
-pub async fn get_profiles_for_contact_count_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetProfilesForContactCountAsyncError>> {
+pub async fn get_profiles_for_contact_count_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_profile_dto_collection_query_parameters: Option<models::ContactProfileDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetProfilesForContactCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1469,6 +1480,7 @@ pub async fn get_profiles_for_contact_count_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1486,7 +1498,7 @@ pub async fn get_profiles_for_contact_count_async(configuration: &configuration:
 }
 
 /// Patch a contact
-pub async fn patch_contact_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchContactAsyncError>> {
+pub async fn patch_contact_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchContactAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1504,7 +1516,7 @@ pub async fn patch_contact_async(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1522,7 +1534,7 @@ pub async fn patch_contact_async(configuration: &configuration::Configuration, t
 }
 
 /// Partially updates an existing email address for the specified contact.
-pub async fn patch_contact_email_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, email_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<(), Error<PatchContactEmailAsyncError>> {
+pub async fn patch_contact_email_async(configuration: &configuration::Configuration, tenant_id: &str, contact_id: &str, email_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<(), Error<PatchContactEmailAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1540,7 +1552,7 @@ pub async fn patch_contact_email_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

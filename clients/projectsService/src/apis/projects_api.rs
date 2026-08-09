@@ -450,7 +450,7 @@ pub async fn get_project_periods_async(configuration: &configuration::Configurat
 }
 
 /// Gets all task categories for a specific project with OData support.
-pub async fn get_project_task_categories_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::TaskCategoryDtoListEnvelope, Error<GetProjectTaskCategoriesAsyncError>> {
+pub async fn get_project_task_categories_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, task_category_dto_collection_query_parameters: Option<models::TaskCategoryDtoCollectionQueryParameters>) -> Result<models::TaskCategoryDtoListEnvelope, Error<GetProjectTaskCategoriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -462,6 +462,7 @@ pub async fn get_project_task_categories_async(configuration: &configuration::Co
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&task_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -479,7 +480,7 @@ pub async fn get_project_task_categories_async(configuration: &configuration::Co
 }
 
 /// Gets the count of task categories for a specific project.
-pub async fn get_project_task_categories_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetProjectTaskCategoriesCountAsyncError>> {
+pub async fn get_project_task_categories_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, task_category_dto_collection_query_parameters: Option<models::TaskCategoryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetProjectTaskCategoriesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -491,6 +492,7 @@ pub async fn get_project_task_categories_count_async(configuration: &configurati
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&task_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -508,7 +510,7 @@ pub async fn get_project_task_categories_count_async(configuration: &configurati
 }
 
 /// Gets the count of time log entries for a specific project.
-pub async fn get_project_time_logs_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetProjectTimeLogsCountAsyncError>> {
+pub async fn get_project_time_logs_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, project_time_log_dto_collection_query_parameters: Option<models::ProjectTimeLogDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetProjectTimeLogsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -520,6 +522,7 @@ pub async fn get_project_time_logs_count_async(configuration: &configuration::Co
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&project_time_log_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -537,7 +540,7 @@ pub async fn get_project_time_logs_count_async(configuration: &configuration::Co
 }
 
 /// Gets all projects for the current tenant with OData support.
-pub async fn get_projects_by_tenant_id_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::ProjectDtoListEnvelope, Error<GetProjectsByTenantIdAsyncError>> {
+pub async fn get_projects_by_tenant_id_async(configuration: &configuration::Configuration, tenant_id: &str, project_dto_collection_query_parameters: Option<models::ProjectDtoCollectionQueryParameters>) -> Result<models::ProjectDtoListEnvelope, Error<GetProjectsByTenantIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -549,6 +552,7 @@ pub async fn get_projects_by_tenant_id_async(configuration: &configuration::Conf
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&project_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -566,7 +570,7 @@ pub async fn get_projects_by_tenant_id_async(configuration: &configuration::Conf
 }
 
 /// Gets the count of projects for the current tenant.
-pub async fn get_projects_count_by_tenant_id_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetProjectsCountByTenantIdAsyncError>> {
+pub async fn get_projects_count_by_tenant_id_async(configuration: &configuration::Configuration, tenant_id: &str, project_dto_collection_query_parameters: Option<models::ProjectDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetProjectsCountByTenantIdAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -578,6 +582,7 @@ pub async fn get_projects_count_by_tenant_id_async(configuration: &configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&project_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -595,7 +600,7 @@ pub async fn get_projects_count_by_tenant_id_async(configuration: &configuration
 }
 
 /// Gets all tasks for a specific project with OData support.
-pub async fn get_tasks_for_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::ProjectTaskDtoListEnvelope, Error<GetTasksForProjectAsyncError>> {
+pub async fn get_tasks_for_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, project_task_dto_collection_query_parameters: Option<models::ProjectTaskDtoCollectionQueryParameters>) -> Result<models::ProjectTaskDtoListEnvelope, Error<GetTasksForProjectAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -607,6 +612,7 @@ pub async fn get_tasks_for_project_async(configuration: &configuration::Configur
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&project_task_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -624,7 +630,7 @@ pub async fn get_tasks_for_project_async(configuration: &configuration::Configur
 }
 
 /// Gets the count of tasks for a specific project.
-pub async fn get_tasks_for_project_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetTasksForProjectCountAsyncError>> {
+pub async fn get_tasks_for_project_count_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, project_task_dto_collection_query_parameters: Option<models::ProjectTaskDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTasksForProjectCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -636,6 +642,7 @@ pub async fn get_tasks_for_project_count_async(configuration: &configuration::Co
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&project_task_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -653,7 +660,7 @@ pub async fn get_tasks_for_project_count_async(configuration: &configuration::Co
 }
 
 /// Gets all time log entries for a specific project with OData support.
-pub async fn get_time_logs_for_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str) -> Result<models::ProjectTimeLogDtoListEnvelope, Error<GetTimeLogsForProjectAsyncError>> {
+pub async fn get_time_logs_for_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, project_time_log_dto_collection_query_parameters: Option<models::ProjectTimeLogDtoCollectionQueryParameters>) -> Result<models::ProjectTimeLogDtoListEnvelope, Error<GetTimeLogsForProjectAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -665,6 +672,7 @@ pub async fn get_time_logs_for_project_async(configuration: &configuration::Conf
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&project_time_log_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -682,7 +690,7 @@ pub async fn get_time_logs_for_project_async(configuration: &configuration::Conf
 }
 
 /// Partially updates the specified project.
-pub async fn patch_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchProjectAsyncError>> {
+pub async fn patch_project_async(configuration: &configuration::Configuration, project_id: &str, tenant_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchProjectAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -694,7 +702,7 @@ pub async fn patch_project_async(configuration: &configuration::Configuration, p
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -712,7 +720,7 @@ pub async fn patch_project_async(configuration: &configuration::Configuration, p
 }
 
 /// Partially updates the specified period for a project.
-pub async fn patch_project_period_async(configuration: &configuration::Configuration, project_id: &str, project_period_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchProjectPeriodAsyncError>> {
+pub async fn patch_project_period_async(configuration: &configuration::Configuration, project_id: &str, project_period_id: &str, tenant_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchProjectPeriodAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -724,7 +732,7 @@ pub async fn patch_project_period_async(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -742,7 +750,7 @@ pub async fn patch_project_period_async(configuration: &configuration::Configura
 }
 
 /// Partially updates the specified task in a project.
-pub async fn patch_task_for_project_async(configuration: &configuration::Configuration, project_id: &str, project_task_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTaskForProjectAsyncError>> {
+pub async fn patch_task_for_project_async(configuration: &configuration::Configuration, project_id: &str, project_task_id: &str, tenant_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTaskForProjectAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -754,7 +762,7 @@ pub async fn patch_task_for_project_async(configuration: &configuration::Configu
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

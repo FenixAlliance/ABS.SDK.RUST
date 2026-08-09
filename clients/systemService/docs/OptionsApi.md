@@ -149,7 +149,7 @@ No authorization required
 
 ## get_system_options
 
-> models::OptionDtoListEnvelope get_system_options(portal_id, api_version, x_api_version)
+> models::OptionDtoListEnvelope get_system_options(portal_id, api_version, x_api_version, option_dto_collection_query_parameters)
 Retrieve a list of system options
 
 Retrieve a list of system options for a portal
@@ -162,6 +162,7 @@ Name | Type | Description  | Required | Notes
 **portal_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**option_dto_collection_query_parameters** | Option<[**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -173,7 +174,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -181,7 +182,7 @@ No authorization required
 
 ## get_system_options_count
 
-> models::Int32Envelope get_system_options_count(portal_id, api_version, x_api_version)
+> models::Int32Envelope get_system_options_count(portal_id, api_version, x_api_version, option_dto_collection_query_parameters)
 Get the count of system options
 
 Get the count of system options for a portal
@@ -194,6 +195,7 @@ Name | Type | Description  | Required | Notes
 **portal_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**option_dto_collection_query_parameters** | Option<[**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -205,7 +207,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -213,7 +215,7 @@ No authorization required
 
 ## patch_system_option
 
-> models::EmptyEnvelope patch_system_option(option_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_system_option(option_id, api_version, x_api_version, patch_operation)
 Partially update a system option
 
 Partially update a system option using a JSON Patch document
@@ -226,7 +228,7 @@ Name | Type | Description  | Required | Notes
 **option_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

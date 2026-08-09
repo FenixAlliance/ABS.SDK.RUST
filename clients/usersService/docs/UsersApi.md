@@ -34,7 +34,7 @@ Method | HTTP request | Description
 
 ## count_current_user_followers_async
 
-> models::Int32Envelope count_current_user_followers_async(api_version, x_api_version)
+> models::Int32Envelope count_current_user_followers_async(api_version, x_api_version, follow_record_dto_collection_query_parameters)
 Count the social profiles that follow the current user
 
 Count the social profiles that follow the current user
@@ -46,6 +46,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**follow_record_dto_collection_query_parameters** | Option<[**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -57,7 +58,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -65,7 +66,7 @@ No authorization required
 
 ## count_current_user_follows_async
 
-> models::Int32Envelope count_current_user_follows_async(api_version, x_api_version)
+> models::Int32Envelope count_current_user_follows_async(api_version, x_api_version, follow_record_dto_collection_query_parameters)
 Count the social profiles that the current user follows
 
 Count the social profiles that the current user follows
@@ -77,6 +78,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**follow_record_dto_collection_query_parameters** | Option<[**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -88,7 +90,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -96,7 +98,7 @@ No authorization required
 
 ## count_current_user_notifications_async
 
-> models::Int32Envelope count_current_user_notifications_async(api_version, x_api_version)
+> models::Int32Envelope count_current_user_notifications_async(api_version, x_api_version, notification_dto_collection_query_parameters)
 Count the notifications for the current user
 
 Count the notifications for the current user
@@ -108,6 +110,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**notification_dto_collection_query_parameters** | Option<[**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -119,7 +122,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -127,7 +130,7 @@ No authorization required
 
 ## count_current_user_tenants_async
 
-> models::Int32Envelope count_current_user_tenants_async(api_version, x_api_version)
+> models::Int32Envelope count_current_user_tenants_async(api_version, x_api_version, tenant_dto_collection_query_parameters)
 Count the tenants that the current user is enrolled in
 
 Count the tenants that the current user is enrolled in
@@ -139,6 +142,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tenant_dto_collection_query_parameters** | Option<[**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -150,7 +154,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -158,7 +162,7 @@ No authorization required
 
 ## get_current_user_addresses_async
 
-> models::AddressDtoListEnvelope get_current_user_addresses_async(api_version, x_api_version)
+> models::AddressDtoListEnvelope get_current_user_addresses_async(api_version, x_api_version, address_dto_collection_query_parameters)
 Get the list of addresses for the current user
 
 Get the list of addresses for the current user
@@ -170,6 +174,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**address_dto_collection_query_parameters** | Option<[**AddressDtoCollectionQueryParameters**](AddressDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -181,7 +186,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -344,7 +349,7 @@ No authorization required
 
 ## get_current_user_followers_async
 
-> models::FollowRecordDtoListEnvelope get_current_user_followers_async(api_version, x_api_version)
+> models::FollowRecordDtoListEnvelope get_current_user_followers_async(api_version, x_api_version, follow_record_dto_collection_query_parameters)
 Get the social profiles that follow the current user
 
 Get the social profiles that follow the current user
@@ -356,6 +361,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**follow_record_dto_collection_query_parameters** | Option<[**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -367,7 +373,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -375,7 +381,7 @@ No authorization required
 
 ## get_current_user_follows_async
 
-> models::FollowRecordDtoListEnvelope get_current_user_follows_async(api_version, x_api_version)
+> models::FollowRecordDtoListEnvelope get_current_user_follows_async(api_version, x_api_version, follow_record_dto_collection_query_parameters)
 Get the social profiles that the current user follows
 
 Get the social profiles that the current user follows
@@ -387,6 +393,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**follow_record_dto_collection_query_parameters** | Option<[**FollowRecordDtoCollectionQueryParameters**](FollowRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -398,7 +405,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -437,7 +444,7 @@ No authorization required
 
 ## get_current_user_notifications_async
 
-> models::NotificationDtoListEnvelope get_current_user_notifications_async(api_version, x_api_version)
+> models::NotificationDtoListEnvelope get_current_user_notifications_async(api_version, x_api_version, notification_dto_collection_query_parameters)
 Get the list of notifications for the current user
 
 Get the list of notifications for the current user
@@ -449,6 +456,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**notification_dto_collection_query_parameters** | Option<[**NotificationDtoCollectionQueryParameters**](NotificationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -460,7 +468,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -530,7 +538,7 @@ No authorization required
 
 ## get_current_user_tenants_async
 
-> models::TenantDtoListEnvelope get_current_user_tenants_async(api_version, x_api_version)
+> models::TenantDtoListEnvelope get_current_user_tenants_async(api_version, x_api_version, tenant_dto_collection_query_parameters)
 Get the tenants that the current user is enrolled in
 
 Get the tenants that the current user is enrolled in
@@ -542,6 +550,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tenant_dto_collection_query_parameters** | Option<[**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -553,7 +562,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml, multipart/form-data
 - **Accept**: application/json, application/xml, multipart/form-data
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -686,7 +695,7 @@ No authorization required
 
 ## patch_current_user_async
 
-> models::EmptyEnvelope patch_current_user_async(api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_current_user_async(api_version, x_api_version, patch_operation)
 Partially update the current user's profile
 
 Partially update the current user's profile
@@ -698,7 +707,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

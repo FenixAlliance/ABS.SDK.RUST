@@ -29,6 +29,10 @@ pub struct JournalCreateDto {
     pub journal_type_id: Option<Option<String>>,
     #[serde(rename = "ledgerId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub ledger_id: Option<Option<String>>,
+    #[serde(rename = "financialBookId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub financial_book_id: Option<Option<String>>,
+    #[serde(rename = "code", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub code: Option<Option<String>>,
 }
 
 impl JournalCreateDto {
@@ -42,6 +46,8 @@ impl JournalCreateDto {
             parent_journal_id: None,
             journal_type_id: None,
             ledger_id: None,
+            financial_book_id: None,
+            code: None,
         }
     }
 }

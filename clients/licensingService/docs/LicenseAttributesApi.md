@@ -115,7 +115,7 @@ No authorization required
 
 ## get_license_attributes_async
 
-> models::LicenseAttributeDtoListEnvelope get_license_attributes_async(tenant_id, api_version, x_api_version)
+> models::LicenseAttributeDtoListEnvelope get_license_attributes_async(tenant_id, api_version, x_api_version, license_attribute_dto_collection_query_parameters)
 Get all license attributes
 
 Retrieves all license attributes for the specified tenant.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**license_attribute_dto_collection_query_parameters** | Option<[**LicenseAttributeDtoCollectionQueryParameters**](LicenseAttributeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_license_attributes_count_async
 
-> models::Int32Envelope get_license_attributes_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_license_attributes_count_async(tenant_id, api_version, x_api_version, license_attribute_dto_collection_query_parameters)
 Get license attributes count
 
 Returns the count of license attributes for the specified tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**license_attribute_dto_collection_query_parameters** | Option<[**LicenseAttributeDtoCollectionQueryParameters**](LicenseAttributeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_license_attribute_async
 
-> models::EmptyEnvelope patch_license_attribute_async(tenant_id, id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_license_attribute_async(tenant_id, id, api_version, x_api_version, patch_operation)
 Patch a license attribute
 
 Patch a license attribute for the specified tenant.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

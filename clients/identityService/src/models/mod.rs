@@ -6,6 +6,8 @@ pub mod auth_result_envelope;
 pub use self::auth_result_envelope::AuthResultEnvelope;
 pub mod error_envelope;
 pub use self::error_envelope::ErrorEnvelope;
+pub mod execution_provenance;
+pub use self::execution_provenance::ExecutionProvenance;
 pub mod forgot_password_request;
 pub use self::forgot_password_request::ForgotPasswordRequest;
 pub mod http_validation_problem_details;

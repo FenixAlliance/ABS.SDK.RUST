@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_system_cart_by_id**](CartsApi.md#get_system_cart_by_id) | **GET** /api/v2/SystemService/Carts/{cartId} | Retrieve a single system cart by its ID
 [**get_system_carts**](CartsApi.md#get_system_carts) | **GET** /api/v2/SystemService/Carts | Retrieve a list of system carts
 [**get_system_carts_count**](CartsApi.md#get_system_carts_count) | **GET** /api/v2/SystemService/Carts/Count | Get the count of system carts
+[**purge_system_guest_carts**](CartsApi.md#purge_system_guest_carts) | **DELETE** /api/v2/SystemService/Carts/Guests | Purge all guest carts
 
 
 
@@ -77,7 +78,7 @@ No authorization required
 
 ## get_system_carts
 
-> models::CartDtoListEnvelope get_system_carts(api_version, x_api_version)
+> models::CartDtoListEnvelope get_system_carts(api_version, x_api_version, cart_dto_collection_query_parameters)
 Retrieve a list of system carts
 
 Retrieve a list of all carts in the system
@@ -89,6 +90,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**cart_dto_collection_query_parameters** | Option<[**CartDtoCollectionQueryParameters**](CartDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -100,7 +102,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -108,7 +110,7 @@ No authorization required
 
 ## get_system_carts_count
 
-> models::Int32Envelope get_system_carts_count(api_version, x_api_version)
+> models::Int32Envelope get_system_carts_count(api_version, x_api_version, cart_dto_collection_query_parameters)
 Get the count of system carts
 
 Get the count of all carts in the system
@@ -120,10 +122,42 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**cart_dto_collection_query_parameters** | Option<[**CartDtoCollectionQueryParameters**](CartDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
 [**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## purge_system_guest_carts
+
+> models::GuestCartPurgeResultDtoEnvelope purge_system_guest_carts(api_version, x_api_version)
+Purge all guest carts
+
+Deletes every guest cart, cascading its item cart records, compare records and wish lists, and returns the removed-row counts. Idempotent.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::GuestCartPurgeResultDtoEnvelope**](GuestCartPurgeResultDtoEnvelope.md)
 
 ### Authorization
 

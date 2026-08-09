@@ -150,7 +150,7 @@ pub async fn get_task_type_by_id_async(configuration: &configuration::Configurat
 }
 
 /// Partially updates the specified task type.
-pub async fn patch_task_type_async(configuration: &configuration::Configuration, task_type_id: &str, tenant_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTaskTypeAsyncError>> {
+pub async fn patch_task_type_async(configuration: &configuration::Configuration, task_type_id: &str, tenant_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTaskTypeAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -162,7 +162,7 @@ pub async fn patch_task_type_async(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

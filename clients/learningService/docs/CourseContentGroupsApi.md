@@ -116,7 +116,7 @@ No authorization required
 
 ## get_course_content_groups_async
 
-> Vec<models::CourseContentGroupDto> get_course_content_groups_async(tenant_id, api_version, x_api_version)
+> Vec<models::CourseContentGroupDto> get_course_content_groups_async(tenant_id, api_version, x_api_version, course_content_group_dto_collection_query_parameters)
 Get all course content groups
 
 Retrieves all course content groups for the specified tenant.
@@ -129,6 +129,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_content_group_dto_collection_query_parameters** | Option<[**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -140,7 +141,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -148,7 +149,7 @@ No authorization required
 
 ## get_course_content_groups_by_course_async
 
-> Vec<models::CourseContentGroupDto> get_course_content_groups_by_course_async(course_id, api_version, x_api_version)
+> Vec<models::CourseContentGroupDto> get_course_content_groups_by_course_async(course_id, api_version, x_api_version, course_content_group_dto_collection_query_parameters)
 Get course content groups by course
 
 Retrieves all course content groups for a specific course.
@@ -161,6 +162,7 @@ Name | Type | Description  | Required | Notes
 **course_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_content_group_dto_collection_query_parameters** | Option<[**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -172,7 +174,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -180,7 +182,7 @@ No authorization required
 
 ## get_course_content_groups_by_course_count_async
 
-> i32 get_course_content_groups_by_course_count_async(course_id, api_version, x_api_version)
+> i32 get_course_content_groups_by_course_count_async(course_id, api_version, x_api_version, course_content_group_dto_collection_query_parameters)
 Get course content groups count by course
 
 Returns the count of course content groups for a specific course.
@@ -193,6 +195,7 @@ Name | Type | Description  | Required | Notes
 **course_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_content_group_dto_collection_query_parameters** | Option<[**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -204,7 +207,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -212,7 +215,7 @@ No authorization required
 
 ## get_course_content_groups_count_async
 
-> i32 get_course_content_groups_count_async(tenant_id, api_version, x_api_version)
+> i32 get_course_content_groups_count_async(tenant_id, api_version, x_api_version, course_content_group_dto_collection_query_parameters)
 Get course content groups count
 
 Returns the count of course content groups for the specified tenant.
@@ -225,6 +228,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_content_group_dto_collection_query_parameters** | Option<[**CourseContentGroupDtoCollectionQueryParameters**](CourseContentGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -236,7 +240,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -244,7 +248,7 @@ No authorization required
 
 ## patch_course_content_group_async
 
-> models::EmptyEnvelope patch_course_content_group_async(tenant_id, group_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_course_content_group_async(tenant_id, group_id, api_version, x_api_version, patch_operation)
 Patch a course content group
 
 Partially updates a course content group for the specified tenant.
@@ -258,7 +262,7 @@ Name | Type | Description  | Required | Notes
 **group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

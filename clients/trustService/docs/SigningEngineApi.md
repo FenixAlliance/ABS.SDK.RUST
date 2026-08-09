@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## get_providers_async
 
-> models::TrustSigningProviderDescriptorDtoListEnvelope get_providers_async(tenant_id, api_version, x_api_version)
+> models::TrustSigningProviderDescriptorDtoListEnvelope get_providers_async(tenant_id, api_version, x_api_version, trust_signing_provider_descriptor_dto_collection_query_parameters)
 List signing providers
 
 Returns the registered alpha signing providers (Noop / Manual / External). OData-queryable.
@@ -25,6 +25,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**trust_signing_provider_descriptor_dto_collection_query_parameters** | Option<[**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -36,7 +37,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -44,7 +45,7 @@ No authorization required
 
 ## get_providers_count_async
 
-> models::Int32Envelope get_providers_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_providers_count_async(tenant_id, api_version, x_api_version, trust_signing_provider_descriptor_dto_collection_query_parameters)
 Count signing providers
 
 Returns the count of registered alpha signing providers. OData-queryable.
@@ -57,6 +58,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**trust_signing_provider_descriptor_dto_collection_query_parameters** | Option<[**TrustSigningProviderDescriptorDtoCollectionQueryParameters**](TrustSigningProviderDescriptorDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -68,7 +70,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

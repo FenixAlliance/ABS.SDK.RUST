@@ -180,7 +180,7 @@ No authorization required
 
 ## get_discount_list_entries
 
-> models::DiscountDtoListEnvelope get_discount_list_entries(tenant_id, discount_list_id)
+> models::DiscountDtoListEnvelope get_discount_list_entries(tenant_id, discount_list_id, discount_dto_collection_query_parameters)
 Retrieves discounts in a discount list
 
 Gets all discount entries for a specific discount list with OData support.
@@ -192,6 +192,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **discount_list_id** | **uuid::Uuid** |  | [required] |
+**discount_dto_collection_query_parameters** | Option<[**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -203,7 +204,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -211,7 +212,7 @@ No authorization required
 
 ## get_discount_list_entries_count
 
-> models::Int32Envelope get_discount_list_entries_count(tenant_id, discount_list_id)
+> models::Int32Envelope get_discount_list_entries_count(tenant_id, discount_list_id, discount_dto_collection_query_parameters)
 Counts discounts in a discount list
 
 Gets the count of discount entries for a specific discount list.
@@ -223,6 +224,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **discount_list_id** | **uuid::Uuid** |  | [required] |
+**discount_dto_collection_query_parameters** | Option<[**DiscountDtoCollectionQueryParameters**](DiscountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -234,7 +236,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -274,7 +276,7 @@ No authorization required
 
 ## get_discount_lists
 
-> models::DiscountListDtoListEnvelope get_discount_lists(tenant_id)
+> models::DiscountListDtoListEnvelope get_discount_lists(tenant_id, discount_list_dto_collection_query_parameters)
 Retrieves all discount lists
 
 Gets all discount lists for the current tenant with OData support.
@@ -285,6 +287,7 @@ Gets all discount lists for the current tenant with OData support.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**discount_list_dto_collection_query_parameters** | Option<[**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -296,7 +299,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -304,7 +307,7 @@ No authorization required
 
 ## get_discount_lists_count
 
-> models::Int32Envelope get_discount_lists_count(tenant_id)
+> models::Int32Envelope get_discount_lists_count(tenant_id, discount_list_dto_collection_query_parameters)
 Counts discount lists
 
 Gets the count of discount lists for the current tenant.
@@ -315,6 +318,7 @@ Gets the count of discount lists for the current tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**discount_list_dto_collection_query_parameters** | Option<[**DiscountListDtoCollectionQueryParameters**](DiscountListDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -326,7 +330,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -334,7 +338,7 @@ No authorization required
 
 ## patch_discount_list
 
-> models::EmptyEnvelope patch_discount_list(tenant_id, discount_list_id, operation)
+> models::EmptyEnvelope patch_discount_list(tenant_id, discount_list_id, patch_operation)
 Patches a discount list
 
 Partially updates the specified discount list using a JSON Patch document.
@@ -346,7 +350,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **discount_list_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -366,7 +370,7 @@ No authorization required
 
 ## patch_discount_list_entry
 
-> models::EmptyEnvelope patch_discount_list_entry(tenant_id, discount_list_id, discount_list_entry_id, operation)
+> models::EmptyEnvelope patch_discount_list_entry(tenant_id, discount_list_id, discount_list_entry_id, patch_operation)
 Patches a discount list entry
 
 Partially updates the specified discount entry using a JSON Patch document.
@@ -379,7 +383,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **discount_list_id** | **uuid::Uuid** |  | [required] |
 **discount_list_entry_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

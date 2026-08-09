@@ -320,7 +320,7 @@ pub async fn get_commission_async(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves all commissions for the specified tenant using OData query options.
-pub async fn get_commissions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CommissionDtoListEnvelope, Error<GetCommissionsAsyncError>> {
+pub async fn get_commissions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, commission_dto_collection_query_parameters: Option<models::CommissionDtoCollectionQueryParameters>) -> Result<models::CommissionDtoListEnvelope, Error<GetCommissionsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -338,6 +338,7 @@ pub async fn get_commissions_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&commission_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -355,7 +356,7 @@ pub async fn get_commissions_async(configuration: &configuration::Configuration,
 }
 
 /// Retrieves the count of commissions for the specified tenant using OData query options.
-pub async fn get_commissions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetCommissionsCountAsyncError>> {
+pub async fn get_commissions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, commission_dto_collection_query_parameters: Option<models::CommissionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetCommissionsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -373,6 +374,7 @@ pub async fn get_commissions_count_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&commission_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -425,7 +427,7 @@ pub async fn get_payment_commission_async(configuration: &configuration::Configu
 }
 
 /// Retrieves all payment commissions for the specified tenant using OData query options.
-pub async fn get_payment_commissions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PaymentCommissionDtoListEnvelope, Error<GetPaymentCommissionsAsyncError>> {
+pub async fn get_payment_commissions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_commission_dto_collection_query_parameters: Option<models::PaymentCommissionDtoCollectionQueryParameters>) -> Result<models::PaymentCommissionDtoListEnvelope, Error<GetPaymentCommissionsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -443,6 +445,7 @@ pub async fn get_payment_commissions_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_commission_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -460,7 +463,7 @@ pub async fn get_payment_commissions_async(configuration: &configuration::Config
 }
 
 /// Retrieves the count of payment commissions for the specified tenant using OData query options.
-pub async fn get_payment_commissions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetPaymentCommissionsCountAsyncError>> {
+pub async fn get_payment_commissions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_commission_dto_collection_query_parameters: Option<models::PaymentCommissionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetPaymentCommissionsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -478,6 +481,7 @@ pub async fn get_payment_commissions_count_async(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_commission_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -495,7 +499,7 @@ pub async fn get_payment_commissions_count_async(configuration: &configuration::
 }
 
 /// Partially updates an existing commission.
-pub async fn patch_commission_async(configuration: &configuration::Configuration, tenant_id: &str, commission_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCommissionAsyncError>> {
+pub async fn patch_commission_async(configuration: &configuration::Configuration, tenant_id: &str, commission_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCommissionAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -513,7 +517,7 @@ pub async fn patch_commission_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -531,7 +535,7 @@ pub async fn patch_commission_async(configuration: &configuration::Configuration
 }
 
 /// Partially updates an existing payment commission.
-pub async fn patch_payment_commission_async(configuration: &configuration::Configuration, tenant_id: &str, payment_commission_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchPaymentCommissionAsyncError>> {
+pub async fn patch_payment_commission_async(configuration: &configuration::Configuration, tenant_id: &str, payment_commission_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchPaymentCommissionAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -549,7 +553,7 @@ pub async fn patch_payment_commission_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | Option<**String**> |  | [optional]
+**timestamp** | Option<**String**> |  | [optional]
 **tenant_id** | Option<**String**> |  | [optional]
 **enrollment_id** | Option<**String**> |  | [optional]
 **journal_entry_id** | Option<**String**> |  | [optional]
@@ -23,7 +24,6 @@ Name | Type | Description | Notes
 **forex_rates_snapshot** | Option<**String**> |  | [optional]
 **cost_centre_id** | Option<**String**> |  | [optional]
 **project_id** | Option<**String**> |  | [optional]
-**timestamp** | Option<**String**> |  | [optional]
 **debit** | Option<**f64**> |  | [optional][readonly]
 **credit** | Option<**f64**> |  | [optional][readonly]
 **amount** | Option<[**models::Money**](Money.md)> |  | [optional]

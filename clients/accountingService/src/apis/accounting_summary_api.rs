@@ -53,7 +53,7 @@ pub enum GetIncomesSumAsyncError {
 
 
 /// Returns SUM(AccountingEntry.Credit) for the tenant, filtered by the supplied OData date range.
-pub async fn get_credits_sum_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::DecimalEnvelope, Error<GetCreditsSumAsyncError>> {
+pub async fn get_credits_sum_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::DecimalEnvelope, Error<GetCreditsSumAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -71,6 +71,7 @@ pub async fn get_credits_sum_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -88,7 +89,7 @@ pub async fn get_credits_sum_async(configuration: &configuration::Configuration,
 }
 
 /// Returns SUM(AccountingEntry.Debit) for the tenant, filtered by the supplied OData date range.
-pub async fn get_debits_sum_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::DecimalEnvelope, Error<GetDebitsSumAsyncError>> {
+pub async fn get_debits_sum_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, accounting_entry_dto_collection_query_parameters: Option<models::AccountingEntryDtoCollectionQueryParameters>) -> Result<models::DecimalEnvelope, Error<GetDebitsSumAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -106,6 +107,7 @@ pub async fn get_debits_sum_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&accounting_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -123,7 +125,7 @@ pub async fn get_debits_sum_async(configuration: &configuration::Configuration, 
 }
 
 /// Returns SUM(JournalEntry.Debit) for Debit-direction journal entries in the tenant, filtered by the supplied OData date range.
-pub async fn get_expenses_sum_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::MoneyEnvelope, Error<GetExpensesSumAsyncError>> {
+pub async fn get_expenses_sum_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, journal_entry_dto_collection_query_parameters: Option<models::JournalEntryDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<GetExpensesSumAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -141,6 +143,7 @@ pub async fn get_expenses_sum_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&journal_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -158,7 +161,7 @@ pub async fn get_expenses_sum_async(configuration: &configuration::Configuration
 }
 
 /// Returns SUM(JournalEntry.Credit) for Credit-direction journal entries in the tenant, filtered by the supplied OData date range.
-pub async fn get_incomes_sum_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::MoneyEnvelope, Error<GetIncomesSumAsyncError>> {
+pub async fn get_incomes_sum_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, journal_entry_dto_collection_query_parameters: Option<models::JournalEntryDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<GetIncomesSumAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -176,6 +179,7 @@ pub async fn get_incomes_sum_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&journal_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

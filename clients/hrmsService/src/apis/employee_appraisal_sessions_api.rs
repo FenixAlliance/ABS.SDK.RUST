@@ -190,7 +190,7 @@ pub async fn get_employee_appraisal_session_by_id_async(configuration: &configur
 }
 
 /// Retrieves employee appraisal sessions for the specified tenant.
-pub async fn get_employee_appraisal_sessions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmployeeAppraisalSessionDtoListEnvelope, Error<GetEmployeeAppraisalSessionsAsyncError>> {
+pub async fn get_employee_appraisal_sessions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, employee_appraisal_session_dto_collection_query_parameters: Option<models::EmployeeAppraisalSessionDtoCollectionQueryParameters>) -> Result<models::EmployeeAppraisalSessionDtoListEnvelope, Error<GetEmployeeAppraisalSessionsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,6 +208,7 @@ pub async fn get_employee_appraisal_sessions_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&employee_appraisal_session_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -225,7 +226,7 @@ pub async fn get_employee_appraisal_sessions_async(configuration: &configuration
 }
 
 /// Counts employee appraisal sessions for the specified tenant.
-pub async fn get_employee_appraisal_sessions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetEmployeeAppraisalSessionsCountAsyncError>> {
+pub async fn get_employee_appraisal_sessions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, employee_appraisal_session_dto_collection_query_parameters: Option<models::EmployeeAppraisalSessionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetEmployeeAppraisalSessionsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -243,6 +244,7 @@ pub async fn get_employee_appraisal_sessions_count_async(configuration: &configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&employee_appraisal_session_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -260,7 +262,7 @@ pub async fn get_employee_appraisal_sessions_count_async(configuration: &configu
 }
 
 /// Partially updates an existing employee appraisal session for the specified tenant.
-pub async fn patch_employee_appraisal_session_async(configuration: &configuration::Configuration, tenant_id: &str, session_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchEmployeeAppraisalSessionAsyncError>> {
+pub async fn patch_employee_appraisal_session_async(configuration: &configuration::Configuration, tenant_id: &str, session_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchEmployeeAppraisalSessionAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +280,7 @@ pub async fn patch_employee_appraisal_session_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

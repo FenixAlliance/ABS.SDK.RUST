@@ -73,7 +73,7 @@ pub enum UpdateStoreAsyncError {
 
 
 /// Returns the total count of stores for the specified tenant with OData filter support.
-pub async fn count_stores_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<CountStoresAsyncError>> {
+pub async fn count_stores_async(configuration: &configuration::Configuration, tenant_id: &str, store_dto_collection_query_parameters: Option<models::StoreDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountStoresAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -85,6 +85,7 @@ pub async fn count_stores_async(configuration: &configuration::Configuration, te
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&store_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -190,7 +191,7 @@ pub async fn get_store_async(configuration: &configuration::Configuration, tenan
 }
 
 /// Retrieves a list of stores for the specified tenant with OData query support.
-pub async fn get_stores_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::StoreDtoListEnvelope, Error<GetStoresAsyncError>> {
+pub async fn get_stores_async(configuration: &configuration::Configuration, tenant_id: &str, store_dto_collection_query_parameters: Option<models::StoreDtoCollectionQueryParameters>) -> Result<models::StoreDtoListEnvelope, Error<GetStoresAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,6 +203,7 @@ pub async fn get_stores_async(configuration: &configuration::Configuration, tena
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&store_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -219,7 +221,7 @@ pub async fn get_stores_async(configuration: &configuration::Configuration, tena
 }
 
 /// Partially updates an existing store using a JSON Patch document.
-pub async fn patch_store_async(configuration: &configuration::Configuration, tenant_id: &str, store_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchStoreAsyncError>> {
+pub async fn patch_store_async(configuration: &configuration::Configuration, tenant_id: &str, store_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchStoreAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -231,7 +233,7 @@ pub async fn patch_store_async(configuration: &configuration::Configuration, ten
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

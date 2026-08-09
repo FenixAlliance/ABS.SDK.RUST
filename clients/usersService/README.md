@@ -31,7 +31,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceAbsWebApi* | [**api_v2_ai_service_agents_agent_id_agui_post**](docs/FenixAllianceAbsWebApi.md#api_v2_ai_service_agents_agent_id_agui_post) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
 *FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
 *FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
@@ -85,6 +84,7 @@ Class | Method | HTTP request | Description
 
  - [AccessTokenResponse](docs/AccessTokenResponse.md)
  - [AddressDto](docs/AddressDto.md)
+ - [AddressDtoCollectionQueryParameters](docs/AddressDtoCollectionQueryParameters.md)
  - [AddressDtoListEnvelope](docs/AddressDtoListEnvelope.md)
  - [CartDto](docs/CartDto.md)
  - [CartDtoEnvelope](docs/CartDtoEnvelope.md)
@@ -97,6 +97,7 @@ Class | Method | HTTP request | Description
  - [ExtendedUserDto](docs/ExtendedUserDto.md)
  - [ExtendedUserDtoEnvelope](docs/ExtendedUserDtoEnvelope.md)
  - [FollowRecordDto](docs/FollowRecordDto.md)
+ - [FollowRecordDtoCollectionQueryParameters](docs/FollowRecordDtoCollectionQueryParameters.md)
  - [FollowRecordDtoListEnvelope](docs/FollowRecordDtoListEnvelope.md)
  - [ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -105,13 +106,15 @@ Class | Method | HTTP request | Description
  - [Int32Envelope](docs/Int32Envelope.md)
  - [LoginRequest](docs/LoginRequest.md)
  - [NotificationDto](docs/NotificationDto.md)
+ - [NotificationDtoCollectionQueryParameters](docs/NotificationDtoCollectionQueryParameters.md)
  - [NotificationDtoListEnvelope](docs/NotificationDtoListEnvelope.md)
- - [Operation](docs/Operation.md)
  - [OptionCreateDto](docs/OptionCreateDto.md)
  - [OptionDto](docs/OptionDto.md)
+ - [OptionDtoCollectionQueryParameters](docs/OptionDtoCollectionQueryParameters.md)
  - [OptionDtoEnvelope](docs/OptionDtoEnvelope.md)
  - [OptionDtoListEnvelope](docs/OptionDtoListEnvelope.md)
  - [OptionUpdateDto](docs/OptionUpdateDto.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [RefreshRequest](docs/RefreshRequest.md)
  - [RegisterRequest](docs/RegisterRequest.md)
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)
@@ -119,6 +122,7 @@ Class | Method | HTTP request | Description
  - [SocialProfileDto](docs/SocialProfileDto.md)
  - [SocialProfileDtoEnvelope](docs/SocialProfileDtoEnvelope.md)
  - [TenantDto](docs/TenantDto.md)
+ - [TenantDtoCollectionQueryParameters](docs/TenantDtoCollectionQueryParameters.md)
  - [TenantDtoListEnvelope](docs/TenantDtoListEnvelope.md)
  - [TenantEnrollmentDto](docs/TenantEnrollmentDto.md)
  - [TenantEnrollmentDtoEnvelope](docs/TenantEnrollmentDtoEnvelope.md)

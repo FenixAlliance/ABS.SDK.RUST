@@ -35,7 +35,7 @@ pub enum GetBankProfilesCountError {
 
 
 /// Retrieves all bank profiles for the specified tenant using OData query options.
-pub async fn get_bank_profiles(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BankProfileDtoListEnvelope, Error<GetBankProfilesError>> {
+pub async fn get_bank_profiles(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_profile_dto_collection_query_parameters: Option<models::BankProfileDtoCollectionQueryParameters>) -> Result<models::BankProfileDtoListEnvelope, Error<GetBankProfilesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -53,6 +53,7 @@ pub async fn get_bank_profiles(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -70,7 +71,7 @@ pub async fn get_bank_profiles(configuration: &configuration::Configuration, ten
 }
 
 /// Returns the count of bank profiles for the specified tenant.
-pub async fn get_bank_profiles_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBankProfilesCountError>> {
+pub async fn get_bank_profiles_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, bank_profile_dto_collection_query_parameters: Option<models::BankProfileDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBankProfilesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -88,6 +89,7 @@ pub async fn get_bank_profiles_count(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&bank_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

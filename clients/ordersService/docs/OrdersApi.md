@@ -218,7 +218,7 @@ No authorization required
 
 ## get_extended_orders
 
-> models::ExtendedOrderDtoListEnvelope get_extended_orders(tenant_id)
+> models::ExtendedOrderDtoListEnvelope get_extended_orders(tenant_id, extended_order_dto_collection_query_parameters)
 Gets a list of extended orders for a tenant.
 
 Retrieves a list of extended order details for the specified tenant.
@@ -229,6 +229,7 @@ Retrieves a list of extended order details for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**extended_order_dto_collection_query_parameters** | Option<[**ExtendedOrderDtoCollectionQueryParameters**](ExtendedOrderDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -240,7 +241,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -311,7 +312,7 @@ No authorization required
 
 ## get_order_lines
 
-> models::OrderLineDtoListEnvelope get_order_lines(tenant_id, order_id, item_id)
+> models::OrderLineDtoListEnvelope get_order_lines(tenant_id, order_id, item_id, order_line_dto_collection_query_parameters)
 Gets order lines for an order.
 
 Retrieves the lines (items) for the specified order.
@@ -324,6 +325,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **order_id** | **uuid::Uuid** |  | [required] |
 **item_id** | Option<**uuid::Uuid**> |  |  |
+**order_line_dto_collection_query_parameters** | Option<[**OrderLineDtoCollectionQueryParameters**](OrderLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -335,7 +337,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -343,7 +345,7 @@ No authorization required
 
 ## get_order_lines_count
 
-> models::Int32Envelope get_order_lines_count(tenant_id, order_id)
+> models::Int32Envelope get_order_lines_count(tenant_id, order_id, order_line_dto_collection_query_parameters)
 Gets the count of order lines for an order.
 
 Retrieves the total number of lines for the specified order.
@@ -355,6 +357,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **order_id** | **uuid::Uuid** |  | [required] |
+**order_line_dto_collection_query_parameters** | Option<[**OrderLineDtoCollectionQueryParameters**](OrderLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -366,7 +369,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -374,7 +377,7 @@ No authorization required
 
 ## get_orders
 
-> models::OrderDtoListEnvelope get_orders(tenant_id)
+> models::OrderDtoListEnvelope get_orders(tenant_id, order_dto_collection_query_parameters)
 Gets a list of orders for a tenant.
 
 Retrieves a list of orders for the specified tenant.
@@ -385,6 +388,7 @@ Retrieves a list of orders for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**order_dto_collection_query_parameters** | Option<[**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -396,7 +400,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -404,7 +408,7 @@ No authorization required
 
 ## get_orders_count
 
-> models::Int32Envelope get_orders_count(tenant_id)
+> models::Int32Envelope get_orders_count(tenant_id, order_dto_collection_query_parameters)
 Gets the count of orders for a tenant.
 
 Retrieves the total number of orders for the specified tenant.
@@ -415,6 +419,7 @@ Retrieves the total number of orders for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**order_dto_collection_query_parameters** | Option<[**OrderDtoCollectionQueryParameters**](OrderDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -426,7 +431,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -434,7 +439,7 @@ No authorization required
 
 ## patch_order
 
-> models::EmptyEnvelope patch_order(tenant_id, order_id, operation)
+> models::EmptyEnvelope patch_order(tenant_id, order_id, patch_operation)
 Partially updates an existing order.
 
 Applies a JSON Patch document to partially update an existing order.
@@ -446,7 +451,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **order_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -466,7 +471,7 @@ No authorization required
 
 ## patch_order_line
 
-> models::EmptyEnvelope patch_order_line(tenant_id, order_id, order_line_id, operation)
+> models::EmptyEnvelope patch_order_line(tenant_id, order_id, order_line_id, patch_operation)
 Partially updates an order line.
 
 Applies a JSON Patch document to partially update a specific order line.
@@ -479,7 +484,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **order_id** | **uuid::Uuid** |  | [required] |
 **order_line_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

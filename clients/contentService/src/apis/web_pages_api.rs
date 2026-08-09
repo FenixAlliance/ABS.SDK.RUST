@@ -137,7 +137,7 @@ pub enum UpdateWebPageAsyncError {
 
 
 /// Counts all web pages for the specified tenant.
-pub async fn count_web_pages_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountWebPagesAsyncError>> {
+pub async fn count_web_pages_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, web_page_dto_collection_query_parameters: Option<models::WebPageDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountWebPagesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -155,6 +155,7 @@ pub async fn count_web_pages_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&web_page_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -315,7 +316,7 @@ pub async fn delete_web_page_async(configuration: &configuration::Configuration,
 }
 
 /// Retrieves all categories related to a specific web page.
-pub async fn get_categories_by_web_page_async(configuration: &configuration::Configuration, web_page_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WebPageCategoryDtoListEnvelope, Error<GetCategoriesByWebPageAsyncError>> {
+pub async fn get_categories_by_web_page_async(configuration: &configuration::Configuration, web_page_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, web_page_category_dto_collection_query_parameters: Option<models::WebPageCategoryDtoCollectionQueryParameters>) -> Result<models::WebPageCategoryDtoListEnvelope, Error<GetCategoriesByWebPageAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -332,6 +333,7 @@ pub async fn get_categories_by_web_page_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&web_page_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -349,7 +351,7 @@ pub async fn get_categories_by_web_page_async(configuration: &configuration::Con
 }
 
 /// Retrieves all tags related to a specific web page.
-pub async fn get_tags_by_web_page_async(configuration: &configuration::Configuration, web_page_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WebPageTagDtoListEnvelope, Error<GetTagsByWebPageAsyncError>> {
+pub async fn get_tags_by_web_page_async(configuration: &configuration::Configuration, web_page_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, web_page_tag_dto_collection_query_parameters: Option<models::WebPageTagDtoCollectionQueryParameters>) -> Result<models::WebPageTagDtoListEnvelope, Error<GetTagsByWebPageAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -366,6 +368,7 @@ pub async fn get_tags_by_web_page_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&web_page_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -418,7 +421,7 @@ pub async fn get_web_page_by_id_async(configuration: &configuration::Configurati
 }
 
 /// Retrieves all web pages for the specified tenant.
-pub async fn get_web_pages_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WebPageDtoListEnvelope, Error<GetWebPagesAsyncError>> {
+pub async fn get_web_pages_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, web_page_dto_collection_query_parameters: Option<models::WebPageDtoCollectionQueryParameters>) -> Result<models::WebPageDtoListEnvelope, Error<GetWebPagesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -436,6 +439,7 @@ pub async fn get_web_pages_async(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&web_page_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -453,7 +457,7 @@ pub async fn get_web_pages_async(configuration: &configuration::Configuration, t
 }
 
 /// Partially updates an existing web page for the specified tenant.
-pub async fn patch_web_page_async(configuration: &configuration::Configuration, tenant_id: &str, web_page_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<(), Error<PatchWebPageAsyncError>> {
+pub async fn patch_web_page_async(configuration: &configuration::Configuration, tenant_id: &str, web_page_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<(), Error<PatchWebPageAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -471,7 +475,7 @@ pub async fn patch_web_page_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

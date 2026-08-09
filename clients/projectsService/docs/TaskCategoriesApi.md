@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ## count_tenant_task_categories_async
 
-> models::Int32Envelope count_tenant_task_categories_async(tenant_id)
+> models::Int32Envelope count_tenant_task_categories_async(tenant_id, task_category_dto_collection_query_parameters)
 Counts task categories
 
 Gets the count of task categories for the current tenant.
@@ -28,6 +28,7 @@ Gets the count of task categories for the current tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**task_category_dto_collection_query_parameters** | Option<[**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -39,7 +40,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -171,7 +172,7 @@ No authorization required
 
 ## get_tenant_task_categories_async
 
-> models::TaskCategoryDtoListEnvelope get_tenant_task_categories_async(tenant_id)
+> models::TaskCategoryDtoListEnvelope get_tenant_task_categories_async(tenant_id, task_category_dto_collection_query_parameters)
 Retrieves all task categories
 
 Gets all task categories for the current tenant with OData support.
@@ -182,6 +183,7 @@ Gets all task categories for the current tenant with OData support.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**task_category_dto_collection_query_parameters** | Option<[**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -193,7 +195,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -201,7 +203,7 @@ No authorization required
 
 ## patch_task_category_async
 
-> models::EmptyEnvelope patch_task_category_async(task_category_id, tenant_id, operation)
+> models::EmptyEnvelope patch_task_category_async(task_category_id, tenant_id, patch_operation)
 Patches a task category
 
 Partially updates the specified task category.
@@ -213,7 +215,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **task_category_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

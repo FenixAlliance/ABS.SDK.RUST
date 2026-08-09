@@ -258,7 +258,7 @@ No authorization required
 
 ## get_voyage_port_calls_async
 
-> models::VoyagePortCallDtoListEnvelope get_voyage_port_calls_async(tenant_id, voyage_id, api_version, x_api_version)
+> models::VoyagePortCallDtoListEnvelope get_voyage_port_calls_async(tenant_id, voyage_id, api_version, x_api_version, voyage_port_call_dto_collection_query_parameters)
 Get voyage port calls
 
 Retrieves all port calls for a specific voyage.
@@ -272,6 +272,7 @@ Name | Type | Description  | Required | Notes
 **voyage_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**voyage_port_call_dto_collection_query_parameters** | Option<[**VoyagePortCallDtoCollectionQueryParameters**](VoyagePortCallDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -283,7 +284,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -291,7 +292,7 @@ No authorization required
 
 ## get_voyage_port_calls_count_async
 
-> models::Int32Envelope get_voyage_port_calls_count_async(tenant_id, voyage_id, api_version, x_api_version)
+> models::Int32Envelope get_voyage_port_calls_count_async(tenant_id, voyage_id, api_version, x_api_version, voyage_port_call_dto_collection_query_parameters)
 Get voyage port calls count
 
 Returns the count of port calls for a specific voyage.
@@ -305,6 +306,7 @@ Name | Type | Description  | Required | Notes
 **voyage_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**voyage_port_call_dto_collection_query_parameters** | Option<[**VoyagePortCallDtoCollectionQueryParameters**](VoyagePortCallDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -316,7 +318,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -324,7 +326,7 @@ No authorization required
 
 ## get_voyages_async
 
-> models::VoyageDtoListEnvelope get_voyages_async(tenant_id, api_version, x_api_version)
+> models::VoyageDtoListEnvelope get_voyages_async(tenant_id, api_version, x_api_version, voyage_dto_collection_query_parameters)
 Get all voyages
 
 Retrieves all voyages for the specified tenant.
@@ -337,6 +339,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**voyage_dto_collection_query_parameters** | Option<[**VoyageDtoCollectionQueryParameters**](VoyageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -348,7 +351,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -356,7 +359,7 @@ No authorization required
 
 ## get_voyages_count_async
 
-> models::Int32Envelope get_voyages_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_voyages_count_async(tenant_id, api_version, x_api_version, voyage_dto_collection_query_parameters)
 Get voyages count
 
 Returns the count of voyages for the specified tenant.
@@ -369,6 +372,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**voyage_dto_collection_query_parameters** | Option<[**VoyageDtoCollectionQueryParameters**](VoyageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -380,7 +384,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -388,7 +392,7 @@ No authorization required
 
 ## patch_voyage_async
 
-> models::EmptyEnvelope patch_voyage_async(tenant_id, voyage_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_voyage_async(tenant_id, voyage_id, api_version, x_api_version, patch_operation)
 Patch a voyage
 
 Partially updates an existing voyage using JSON Patch.
@@ -402,7 +406,7 @@ Name | Type | Description  | Required | Notes
 **voyage_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -422,7 +426,7 @@ No authorization required
 
 ## patch_voyage_port_call_async
 
-> models::EmptyEnvelope patch_voyage_port_call_async(tenant_id, voyage_id, port_call_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_voyage_port_call_async(tenant_id, voyage_id, port_call_id, api_version, x_api_version, patch_operation)
 Patch a voyage port call
 
 Partially updates an existing voyage port call using JSON Patch.
@@ -437,7 +441,7 @@ Name | Type | Description  | Required | Notes
 **port_call_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

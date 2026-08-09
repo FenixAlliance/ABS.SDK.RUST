@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## get_security_logs_async
 
-> models::BusinessSecurityLogDtoListEnvelope get_security_logs_async(tenant_id, api_version, x_api_version)
+> models::BusinessSecurityLogDtoListEnvelope get_security_logs_async(tenant_id, api_version, x_api_version, business_security_log_dto_collection_query_parameters)
 Get business security logs
 
 Retrieves security logs for the specified tenant.
@@ -24,6 +24,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**business_security_log_dto_collection_query_parameters** | Option<[**BusinessSecurityLogDtoCollectionQueryParameters**](BusinessSecurityLogDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -35,7 +36,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -43,7 +44,7 @@ No authorization required
 
 ## get_security_logs_count_async
 
-> models::Int32Envelope get_security_logs_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_security_logs_count_async(tenant_id, api_version, x_api_version, business_security_log_dto_collection_query_parameters)
 Get business security logs count
 
 Retrieves the count of security logs for the specified tenant.
@@ -56,6 +57,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**business_security_log_dto_collection_query_parameters** | Option<[**BusinessSecurityLogDtoCollectionQueryParameters**](BusinessSecurityLogDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -67,7 +69,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

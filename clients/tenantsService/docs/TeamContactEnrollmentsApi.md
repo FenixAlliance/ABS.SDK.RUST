@@ -115,7 +115,7 @@ No authorization required
 
 ## get_tenant_team_contact_enrollments
 
-> models::TenantTeamContactEnrollmentDtoListEnvelope get_tenant_team_contact_enrollments(tenant_id, api_version, x_api_version)
+> models::TenantTeamContactEnrollmentDtoListEnvelope get_tenant_team_contact_enrollments(tenant_id, api_version, x_api_version, tenant_team_contact_enrollment_dto_collection_query_parameters)
 Retrieve a list of tenant team contact enrollments
 
 Retrieve a list of tenant team contact enrollments
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tenant_team_contact_enrollment_dto_collection_query_parameters** | Option<[**TenantTeamContactEnrollmentDtoCollectionQueryParameters**](TenantTeamContactEnrollmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_tenant_team_contact_enrollments_count
 
-> models::Int32Envelope get_tenant_team_contact_enrollments_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_tenant_team_contact_enrollments_count(tenant_id, api_version, x_api_version, tenant_team_contact_enrollment_dto_collection_query_parameters)
 Get the count of tenant team contact enrollments
 
 Get the count of tenant team contact enrollments
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tenant_team_contact_enrollment_dto_collection_query_parameters** | Option<[**TenantTeamContactEnrollmentDtoCollectionQueryParameters**](TenantTeamContactEnrollmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_tenant_team_contact_enrollment
 
-> models::EmptyEnvelope patch_tenant_team_contact_enrollment(tenant_id, tenant_team_contact_enrollment_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_tenant_team_contact_enrollment(tenant_id, tenant_team_contact_enrollment_id, api_version, x_api_version, patch_operation)
 Patch a tenant team contact enrollment
 
 Patch a tenant team contact enrollment
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **tenant_team_contact_enrollment_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

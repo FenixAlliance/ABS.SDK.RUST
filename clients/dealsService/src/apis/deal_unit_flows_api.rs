@@ -305,7 +305,7 @@ pub async fn get_deal_unit_flow_stage_async(configuration: &configuration::Confi
 }
 
 /// Retrieves a list of stages for a specific deal unit flow with OData query support.
-pub async fn get_deal_unit_flow_stages_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_id: &str) -> Result<models::DealUnitFlowStageDtoListEnvelope, Error<GetDealUnitFlowStagesAsyncError>> {
+pub async fn get_deal_unit_flow_stages_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_id: &str, deal_unit_flow_stage_dto_collection_query_parameters: Option<models::DealUnitFlowStageDtoCollectionQueryParameters>) -> Result<models::DealUnitFlowStageDtoListEnvelope, Error<GetDealUnitFlowStagesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -317,6 +317,7 @@ pub async fn get_deal_unit_flow_stages_async(configuration: &configuration::Conf
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&deal_unit_flow_stage_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -334,7 +335,7 @@ pub async fn get_deal_unit_flow_stages_async(configuration: &configuration::Conf
 }
 
 /// Returns the total count of stages for a specific deal unit flow with OData filter support.
-pub async fn get_deal_unit_flow_stages_count_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_id: &str) -> Result<models::Int32Envelope, Error<GetDealUnitFlowStagesCountAsyncError>> {
+pub async fn get_deal_unit_flow_stages_count_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_id: &str, deal_unit_flow_stage_dto_collection_query_parameters: Option<models::DealUnitFlowStageDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetDealUnitFlowStagesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -346,6 +347,7 @@ pub async fn get_deal_unit_flow_stages_count_async(configuration: &configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&deal_unit_flow_stage_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -363,7 +365,7 @@ pub async fn get_deal_unit_flow_stages_count_async(configuration: &configuration
 }
 
 /// Retrieves a list of deal unit flows for the specified tenant with OData query support.
-pub async fn get_deal_unit_flows_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::DealUnitFlowDtoListEnvelope, Error<GetDealUnitFlowsAsyncError>> {
+pub async fn get_deal_unit_flows_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_dto_collection_query_parameters: Option<models::DealUnitFlowDtoCollectionQueryParameters>) -> Result<models::DealUnitFlowDtoListEnvelope, Error<GetDealUnitFlowsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -375,6 +377,7 @@ pub async fn get_deal_unit_flows_async(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&deal_unit_flow_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -392,7 +395,7 @@ pub async fn get_deal_unit_flows_async(configuration: &configuration::Configurat
 }
 
 /// Returns the total count of deal unit flows for the specified tenant with OData filter support.
-pub async fn get_deal_unit_flows_count_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetDealUnitFlowsCountAsyncError>> {
+pub async fn get_deal_unit_flows_count_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_dto_collection_query_parameters: Option<models::DealUnitFlowDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetDealUnitFlowsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -404,6 +407,7 @@ pub async fn get_deal_unit_flows_count_async(configuration: &configuration::Conf
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&deal_unit_flow_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -421,7 +425,7 @@ pub async fn get_deal_unit_flows_count_async(configuration: &configuration::Conf
 }
 
 /// Partially updates an existing deal unit flow by its unique identifier using a JSON Patch document.
-pub async fn patch_deal_unit_flow_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchDealUnitFlowAsyncError>> {
+pub async fn patch_deal_unit_flow_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchDealUnitFlowAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -433,7 +437,7 @@ pub async fn patch_deal_unit_flow_async(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -451,7 +455,7 @@ pub async fn patch_deal_unit_flow_async(configuration: &configuration::Configura
 }
 
 /// Partially updates an existing stage within a specific deal unit flow using a JSON Patch document.
-pub async fn patch_deal_unit_flow_stage_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_id: &str, deal_unit_flow_stage_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchDealUnitFlowStageAsyncError>> {
+pub async fn patch_deal_unit_flow_stage_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_flow_id: &str, deal_unit_flow_stage_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchDealUnitFlowStageAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -463,7 +467,7 @@ pub async fn patch_deal_unit_flow_stage_async(configuration: &configuration::Con
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

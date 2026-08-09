@@ -234,7 +234,7 @@ pub async fn get_gig_application_by_id_async(configuration: &configuration::Conf
 }
 
 /// Retrieves proposals submitted against the tenant's gigs. Filter with `$filter=GigId eq '...'` or `JobApplicantProfileId eq '...'`.
-pub async fn get_gig_applications_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::GigApplicationDtoListEnvelope, Error<GetGigApplicationsAsyncError>> {
+pub async fn get_gig_applications_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, gig_application_dto_collection_query_parameters: Option<models::GigApplicationDtoCollectionQueryParameters>) -> Result<models::GigApplicationDtoListEnvelope, Error<GetGigApplicationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -252,6 +252,7 @@ pub async fn get_gig_applications_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&gig_application_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -269,7 +270,7 @@ pub async fn get_gig_applications_async(configuration: &configuration::Configura
 }
 
 /// Counts proposals submitted against the tenant's gigs.
-pub async fn get_gig_applications_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetGigApplicationsCountAsyncError>> {
+pub async fn get_gig_applications_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, gig_application_dto_collection_query_parameters: Option<models::GigApplicationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetGigApplicationsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -287,6 +288,7 @@ pub async fn get_gig_applications_count_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&gig_application_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -304,7 +306,7 @@ pub async fn get_gig_applications_count_async(configuration: &configuration::Con
 }
 
 /// Partially updates an existing proposal submitted against one of the tenant's gigs.
-pub async fn patch_gig_application_async(configuration: &configuration::Configuration, tenant_id: &str, gig_application_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchGigApplicationAsyncError>> {
+pub async fn patch_gig_application_async(configuration: &configuration::Configuration, tenant_id: &str, gig_application_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchGigApplicationAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -322,7 +324,7 @@ pub async fn patch_gig_application_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

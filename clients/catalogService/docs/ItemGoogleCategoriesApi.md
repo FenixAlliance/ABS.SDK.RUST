@@ -80,7 +80,7 @@ No authorization required
 
 ## get_item_google_categories_async
 
-> models::ItemGoogleCategoryDtoListEnvelope get_item_google_categories_async(api_version, x_api_version)
+> models::ItemGoogleCategoryDtoListEnvelope get_item_google_categories_async(api_version, x_api_version, item_google_category_dto_collection_query_parameters)
 Get all Google item categories
 
 Retrieves all Google item categories using OData query options.
@@ -92,6 +92,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_google_category_dto_collection_query_parameters** | Option<[**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -103,7 +104,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -111,7 +112,7 @@ No authorization required
 
 ## get_item_google_categories_count_async
 
-> models::Int32Envelope get_item_google_categories_count_async(api_version, x_api_version)
+> models::Int32Envelope get_item_google_categories_count_async(api_version, x_api_version, item_google_category_dto_collection_query_parameters)
 Get Google item categories count
 
 Retrieves the count of Google item categories using OData query options.
@@ -123,6 +124,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_google_category_dto_collection_query_parameters** | Option<[**ItemGoogleCategoryDtoCollectionQueryParameters**](ItemGoogleCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -134,7 +136,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

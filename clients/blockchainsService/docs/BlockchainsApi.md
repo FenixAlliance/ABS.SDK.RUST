@@ -185,7 +185,7 @@ No authorization required
 
 ## get_blockchain_blocks_async
 
-> models::BlockchainBlockDtoListEnvelope get_blockchain_blocks_async(tenant_id, blockchain_id, api_version, x_api_version)
+> models::BlockchainBlockDtoListEnvelope get_blockchain_blocks_async(tenant_id, blockchain_id, api_version, x_api_version, blockchain_block_dto_collection_query_parameters)
 Get blocks for a blockchain
 
 ### Parameters
@@ -197,6 +197,7 @@ Name | Type | Description  | Required | Notes
 **blockchain_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**blockchain_block_dto_collection_query_parameters** | Option<[**BlockchainBlockDtoCollectionQueryParameters**](BlockchainBlockDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -208,7 +209,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -216,7 +217,7 @@ No authorization required
 
 ## get_blockchain_blocks_count_async
 
-> models::Int32Envelope get_blockchain_blocks_count_async(tenant_id, blockchain_id, api_version, x_api_version)
+> models::Int32Envelope get_blockchain_blocks_count_async(tenant_id, blockchain_id, api_version, x_api_version, blockchain_block_dto_collection_query_parameters)
 Get block count for a blockchain
 
 ### Parameters
@@ -228,6 +229,7 @@ Name | Type | Description  | Required | Notes
 **blockchain_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**blockchain_block_dto_collection_query_parameters** | Option<[**BlockchainBlockDtoCollectionQueryParameters**](BlockchainBlockDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -239,7 +241,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -280,7 +282,7 @@ No authorization required
 
 ## get_blockchains_async
 
-> models::BlockchainDtoListEnvelope get_blockchains_async(tenant_id, api_version, x_api_version)
+> models::BlockchainDtoListEnvelope get_blockchains_async(tenant_id, api_version, x_api_version, blockchain_dto_collection_query_parameters)
 Get all blockchains
 
 Retrieves all blockchains for the specified tenant.
@@ -293,6 +295,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**blockchain_dto_collection_query_parameters** | Option<[**BlockchainDtoCollectionQueryParameters**](BlockchainDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -304,7 +307,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -312,7 +315,7 @@ No authorization required
 
 ## get_blockchains_count_async
 
-> models::Int32Envelope get_blockchains_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_blockchains_count_async(tenant_id, api_version, x_api_version, blockchain_dto_collection_query_parameters)
 Get blockchains count
 
 Returns the count of blockchains for the specified tenant.
@@ -325,6 +328,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**blockchain_dto_collection_query_parameters** | Option<[**BlockchainDtoCollectionQueryParameters**](BlockchainDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -336,7 +340,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -344,7 +348,7 @@ No authorization required
 
 ## patch_blockchain_async
 
-> models::EmptyEnvelope patch_blockchain_async(tenant_id, id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_blockchain_async(tenant_id, id, api_version, x_api_version, patch_operation)
 Patch a blockchain
 
 Patch a blockchain
@@ -358,7 +362,7 @@ Name | Type | Description  | Required | Notes
 **id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -378,7 +382,7 @@ No authorization required
 
 ## patch_blockchain_block_async
 
-> models::EmptyEnvelope patch_blockchain_block_async(tenant_id, blockchain_id, block_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_blockchain_block_async(tenant_id, blockchain_id, block_id, api_version, x_api_version, patch_operation)
 Patch a blockchain block
 
 Patch a blockchain block
@@ -393,7 +397,7 @@ Name | Type | Description  | Required | Notes
 **block_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -151,7 +151,7 @@ pub async fn delete_tenant_territory(configuration: &configuration::Configuratio
 }
 
 /// Retrieve a list of tenant territories
-pub async fn get_tenant_territories(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TenantTerritoryDtoListEnvelope, Error<GetTenantTerritoriesError>> {
+pub async fn get_tenant_territories(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_territory_dto_collection_query_parameters: Option<models::TenantTerritoryDtoCollectionQueryParameters>) -> Result<models::TenantTerritoryDtoListEnvelope, Error<GetTenantTerritoriesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -169,6 +169,7 @@ pub async fn get_tenant_territories(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_territory_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -186,7 +187,7 @@ pub async fn get_tenant_territories(configuration: &configuration::Configuration
 }
 
 /// Get the count of tenant territories
-pub async fn get_tenant_territories_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTenantTerritoriesCountError>> {
+pub async fn get_tenant_territories_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_territory_dto_collection_query_parameters: Option<models::TenantTerritoryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTenantTerritoriesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +205,7 @@ pub async fn get_tenant_territories_count(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_territory_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_tenant_territory_by_id(configuration: &configuration::Configura
 }
 
 /// Patch a tenant territory
-pub async fn patch_tenant_territory(configuration: &configuration::Configuration, tenant_id: &str, tenant_territory_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantTerritoryError>> {
+pub async fn patch_tenant_territory(configuration: &configuration::Configuration, tenant_id: &str, tenant_territory_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantTerritoryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_tenant_territory(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

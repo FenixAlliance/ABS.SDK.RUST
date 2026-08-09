@@ -190,7 +190,7 @@ pub async fn get_job_offer_field_by_id_async(configuration: &configuration::Conf
 }
 
 /// Retrieves job-offer field link records for the tenant. Filter with `$filter=JobOfferId eq '...'` or `JobFieldId eq '...'`.
-pub async fn get_job_offer_fields_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::JobOfferFieldRecordDtoListEnvelope, Error<GetJobOfferFieldsAsyncError>> {
+pub async fn get_job_offer_fields_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, job_offer_field_record_dto_collection_query_parameters: Option<models::JobOfferFieldRecordDtoCollectionQueryParameters>) -> Result<models::JobOfferFieldRecordDtoListEnvelope, Error<GetJobOfferFieldsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,6 +208,7 @@ pub async fn get_job_offer_fields_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&job_offer_field_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -225,7 +226,7 @@ pub async fn get_job_offer_fields_async(configuration: &configuration::Configura
 }
 
 /// Counts job-offer field link records for the specified tenant.
-pub async fn get_job_offer_fields_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetJobOfferFieldsCountAsyncError>> {
+pub async fn get_job_offer_fields_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, job_offer_field_record_dto_collection_query_parameters: Option<models::JobOfferFieldRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetJobOfferFieldsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -243,6 +244,7 @@ pub async fn get_job_offer_fields_count_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&job_offer_field_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -260,7 +262,7 @@ pub async fn get_job_offer_fields_count_async(configuration: &configuration::Con
 }
 
 /// Partially updates an existing job-offer field link record for the specified tenant.
-pub async fn patch_job_offer_field_async(configuration: &configuration::Configuration, tenant_id: &str, job_offer_field_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchJobOfferFieldAsyncError>> {
+pub async fn patch_job_offer_field_async(configuration: &configuration::Configuration, tenant_id: &str, job_offer_field_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchJobOfferFieldAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +280,7 @@ pub async fn patch_job_offer_field_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

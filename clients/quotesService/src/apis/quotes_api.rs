@@ -447,7 +447,7 @@ pub async fn delete_quote_line(configuration: &configuration::Configuration, ten
 }
 
 /// Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
-pub async fn get_extended_quotes(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::ExtendedQuoteDtoListEnvelope, Error<GetExtendedQuotesError>> {
+pub async fn get_extended_quotes(configuration: &configuration::Configuration, tenant_id: &str, extended_quote_dto_collection_query_parameters: Option<models::ExtendedQuoteDtoCollectionQueryParameters>) -> Result<models::ExtendedQuoteDtoListEnvelope, Error<GetExtendedQuotesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -459,6 +459,7 @@ pub async fn get_extended_quotes(configuration: &configuration::Configuration, t
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_quote_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -534,7 +535,7 @@ pub async fn get_quote_line(configuration: &configuration::Configuration, tenant
 }
 
 /// Retrieves all quote lines for the specified quote and tenant.
-pub async fn get_quote_lines(configuration: &configuration::Configuration, tenant_id: &str, quote_id: &str, item_id: Option<&str>) -> Result<models::QuoteLineDtoListEnvelope, Error<GetQuoteLinesError>> {
+pub async fn get_quote_lines(configuration: &configuration::Configuration, tenant_id: &str, quote_id: &str, item_id: Option<&str>, quote_line_dto_collection_query_parameters: Option<models::QuoteLineDtoCollectionQueryParameters>) -> Result<models::QuoteLineDtoListEnvelope, Error<GetQuoteLinesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -549,6 +550,7 @@ pub async fn get_quote_lines(configuration: &configuration::Configuration, tenan
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&quote_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -566,7 +568,7 @@ pub async fn get_quote_lines(configuration: &configuration::Configuration, tenan
 }
 
 /// Retrieves the total count of quote lines for the specified quote and tenant.
-pub async fn get_quote_lines_count(configuration: &configuration::Configuration, tenant_id: &str, quote_id: &str) -> Result<models::Int32Envelope, Error<GetQuoteLinesCountError>> {
+pub async fn get_quote_lines_count(configuration: &configuration::Configuration, tenant_id: &str, quote_id: &str, quote_line_dto_collection_query_parameters: Option<models::QuoteLineDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetQuoteLinesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -578,6 +580,7 @@ pub async fn get_quote_lines_count(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&quote_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -595,7 +598,7 @@ pub async fn get_quote_lines_count(configuration: &configuration::Configuration,
 }
 
 /// Retrieves a list of quotes for the specified tenant, supporting OData query options.
-pub async fn get_quotes(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::QuoteDtoListEnvelope, Error<GetQuotesError>> {
+pub async fn get_quotes(configuration: &configuration::Configuration, tenant_id: &str, quote_dto_collection_query_parameters: Option<models::QuoteDtoCollectionQueryParameters>) -> Result<models::QuoteDtoListEnvelope, Error<GetQuotesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -607,6 +610,7 @@ pub async fn get_quotes(configuration: &configuration::Configuration, tenant_id:
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&quote_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -624,7 +628,7 @@ pub async fn get_quotes(configuration: &configuration::Configuration, tenant_id:
 }
 
 /// Retrieves the total count of quotes for the specified tenant, supporting OData query options.
-pub async fn get_quotes_count(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetQuotesCountError>> {
+pub async fn get_quotes_count(configuration: &configuration::Configuration, tenant_id: &str, quote_dto_collection_query_parameters: Option<models::QuoteDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetQuotesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -636,6 +640,7 @@ pub async fn get_quotes_count(configuration: &configuration::Configuration, tena
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&quote_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -653,7 +658,7 @@ pub async fn get_quotes_count(configuration: &configuration::Configuration, tena
 }
 
 /// Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
-pub async fn patch_quote_async(configuration: &configuration::Configuration, tenant_id: &str, quote_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchQuoteAsyncError>> {
+pub async fn patch_quote_async(configuration: &configuration::Configuration, tenant_id: &str, quote_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchQuoteAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -665,7 +670,7 @@ pub async fn patch_quote_async(configuration: &configuration::Configuration, ten
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -683,7 +688,7 @@ pub async fn patch_quote_async(configuration: &configuration::Configuration, ten
 }
 
 /// Partially updates an existing quote line for the specified quote and tenant using a JSON Patch document.
-pub async fn patch_quote_line_async(configuration: &configuration::Configuration, tenant_id: &str, quote_id: &str, quote_line_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchQuoteLineAsyncError>> {
+pub async fn patch_quote_line_async(configuration: &configuration::Configuration, tenant_id: &str, quote_id: &str, quote_line_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchQuoteLineAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -695,7 +700,7 @@ pub async fn patch_quote_line_async(configuration: &configuration::Configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

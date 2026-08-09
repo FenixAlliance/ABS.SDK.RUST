@@ -282,7 +282,7 @@ No authorization required
 
 ## patch_item_cart_record
 
-> models::EmptyEnvelope patch_item_cart_record(record_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_cart_record(record_id, api_version, x_api_version, patch_operation)
 Patch a cart record
 
 Partially updates the specified item cart record using a JSON Patch document.
@@ -295,7 +295,7 @@ Name | Type | Description  | Required | Notes
 **record_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

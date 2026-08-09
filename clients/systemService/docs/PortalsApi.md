@@ -112,7 +112,7 @@ No authorization required
 
 ## get_system_portals
 
-> models::WebPortalDtoListEnvelope get_system_portals(api_version, x_api_version)
+> models::WebPortalDtoListEnvelope get_system_portals(api_version, x_api_version, web_portal_dto_collection_query_parameters)
 Retrieve a list of system portals
 
 Retrieve a list of all web portals in the system
@@ -124,6 +124,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**web_portal_dto_collection_query_parameters** | Option<[**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -135,7 +136,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -143,7 +144,7 @@ No authorization required
 
 ## get_system_portals_count
 
-> models::Int32Envelope get_system_portals_count(api_version, x_api_version)
+> models::Int32Envelope get_system_portals_count(api_version, x_api_version, web_portal_dto_collection_query_parameters)
 Get the count of system portals
 
 Get the count of all web portals in the system
@@ -155,6 +156,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**web_portal_dto_collection_query_parameters** | Option<[**WebPortalDtoCollectionQueryParameters**](WebPortalDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -166,7 +168,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -174,7 +176,7 @@ No authorization required
 
 ## patch_system_portal
 
-> models::EmptyEnvelope patch_system_portal(portal_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_system_portal(portal_id, api_version, x_api_version, patch_operation)
 Partially update a system portal
 
 Partially update an existing web portal in the system using a JSON Patch document
@@ -187,7 +189,7 @@ Name | Type | Description  | Required | Notes
 **portal_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

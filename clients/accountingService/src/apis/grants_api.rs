@@ -174,7 +174,7 @@ pub async fn get_grant_details_async(configuration: &configuration::Configuratio
 }
 
 /// Retrieves a list of grants associated with the tenant.
-pub async fn get_grants_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::GrantDtoIReadOnlyListEnvelope, Error<GetGrantsAsyncError>> {
+pub async fn get_grants_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, grant_dto_collection_query_parameters: Option<models::GrantDtoCollectionQueryParameters>) -> Result<models::GrantDtoIReadOnlyListEnvelope, Error<GetGrantsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -192,6 +192,7 @@ pub async fn get_grants_async(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&grant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -209,7 +210,7 @@ pub async fn get_grants_async(configuration: &configuration::Configuration, tena
 }
 
 /// Returns the number of grants for the tenant.
-pub async fn get_grants_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetGrantsCountAsyncError>> {
+pub async fn get_grants_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, grant_dto_collection_query_parameters: Option<models::GrantDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetGrantsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -227,6 +228,7 @@ pub async fn get_grants_count_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&grant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -244,7 +246,7 @@ pub async fn get_grants_count_async(configuration: &configuration::Configuration
 }
 
 /// Partially updates a grant.
-pub async fn patch_grant_async(configuration: &configuration::Configuration, tenant_id: &str, grant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchGrantAsyncError>> {
+pub async fn patch_grant_async(configuration: &configuration::Configuration, tenant_id: &str, grant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchGrantAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -262,7 +264,7 @@ pub async fn patch_grant_async(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

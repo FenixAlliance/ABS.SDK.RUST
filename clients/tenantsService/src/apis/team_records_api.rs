@@ -186,7 +186,7 @@ pub async fn get_tenant_team_record_by_id(configuration: &configuration::Configu
 }
 
 /// Retrieve a list of tenant team records
-pub async fn get_tenant_team_records(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TenantTeamRecordDtoListEnvelope, Error<GetTenantTeamRecordsError>> {
+pub async fn get_tenant_team_records(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_team_record_dto_collection_query_parameters: Option<models::TenantTeamRecordDtoCollectionQueryParameters>) -> Result<models::TenantTeamRecordDtoListEnvelope, Error<GetTenantTeamRecordsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +204,7 @@ pub async fn get_tenant_team_records(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_team_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_tenant_team_records(configuration: &configuration::Configuratio
 }
 
 /// Get the count of tenant team records
-pub async fn get_tenant_team_records_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTenantTeamRecordsCountError>> {
+pub async fn get_tenant_team_records_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_team_record_dto_collection_query_parameters: Option<models::TenantTeamRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTenantTeamRecordsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_tenant_team_records_count(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_team_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_tenant_team_records_count(configuration: &configuration::Config
 }
 
 /// Patch a tenant team record
-pub async fn patch_tenant_team_record(configuration: &configuration::Configuration, tenant_id: &str, tenant_team_record_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantTeamRecordError>> {
+pub async fn patch_tenant_team_record(configuration: &configuration::Configuration, tenant_id: &str, tenant_team_record_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantTeamRecordError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_tenant_team_record(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

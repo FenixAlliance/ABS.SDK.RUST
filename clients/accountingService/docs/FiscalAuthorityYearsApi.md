@@ -116,7 +116,7 @@ No authorization required
 
 ## get_fiscal_years
 
-> models::FiscalYearDtoListEnvelope get_fiscal_years(tenant_id, fiscal_authority_id, authority_id, api_version, x_api_version)
+> models::FiscalYearDtoListEnvelope get_fiscal_years(tenant_id, fiscal_authority_id, authority_id, api_version, x_api_version, fiscal_year_dto_collection_query_parameters)
 Get fiscal years for an authority
 
 Retrieves all fiscal years associated with the specified fiscal authority.
@@ -131,6 +131,7 @@ Name | Type | Description  | Required | Notes
 **authority_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**fiscal_year_dto_collection_query_parameters** | Option<[**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -142,7 +143,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -150,7 +151,7 @@ No authorization required
 
 ## get_fiscal_years_count
 
-> models::Int32Envelope get_fiscal_years_count(tenant_id, fiscal_authority_id, api_version, x_api_version)
+> models::Int32Envelope get_fiscal_years_count(tenant_id, fiscal_authority_id, api_version, x_api_version, fiscal_year_dto_collection_query_parameters)
 Get fiscal years count for an authority
 
 Returns the total count of fiscal years for the specified fiscal authority.
@@ -164,6 +165,7 @@ Name | Type | Description  | Required | Notes
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**fiscal_year_dto_collection_query_parameters** | Option<[**FiscalYearDtoCollectionQueryParameters**](FiscalYearDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -175,7 +177,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -183,7 +185,7 @@ No authorization required
 
 ## patch_fiscal_authority_year_async
 
-> models::EmptyEnvelope patch_fiscal_authority_year_async(tenant_id, fiscal_year_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_fiscal_authority_year_async(tenant_id, fiscal_year_id, api_version, x_api_version, patch_operation)
 Patch a fiscal authority year
 
 Partially updates a fiscal authority year.
@@ -197,7 +199,7 @@ Name | Type | Description  | Required | Notes
 **fiscal_year_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

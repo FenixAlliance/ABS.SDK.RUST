@@ -199,7 +199,7 @@ pub async fn get_curriculum_async(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves the curricula (CVs) authored on the specified social profile.
-pub async fn get_curriculums_async(configuration: &configuration::Configuration, social_profile_id: &str, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CurriculumDtoListEnvelope, Error<GetCurriculumsAsyncError>> {
+pub async fn get_curriculums_async(configuration: &configuration::Configuration, social_profile_id: &str, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, curriculum_dto_collection_query_parameters: Option<models::CurriculumDtoCollectionQueryParameters>) -> Result<models::CurriculumDtoListEnvelope, Error<GetCurriculumsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -220,6 +220,7 @@ pub async fn get_curriculums_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&curriculum_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -237,7 +238,7 @@ pub async fn get_curriculums_async(configuration: &configuration::Configuration,
 }
 
 /// Returns the count of curricula authored on the specified social profile.
-pub async fn get_curriculums_count_async(configuration: &configuration::Configuration, social_profile_id: &str, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetCurriculumsCountAsyncError>> {
+pub async fn get_curriculums_count_async(configuration: &configuration::Configuration, social_profile_id: &str, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, curriculum_dto_collection_query_parameters: Option<models::CurriculumDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetCurriculumsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -258,6 +259,7 @@ pub async fn get_curriculums_count_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&curriculum_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -275,7 +277,7 @@ pub async fn get_curriculums_count_async(configuration: &configuration::Configur
 }
 
 /// Partially updates an existing curriculum authored on the specified social profile.
-pub async fn patch_curriculum_async(configuration: &configuration::Configuration, social_profile_id: &str, curriculum_id: &str, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCurriculumAsyncError>> {
+pub async fn patch_curriculum_async(configuration: &configuration::Configuration, social_profile_id: &str, curriculum_id: &str, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCurriculumAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -296,7 +298,7 @@ pub async fn patch_curriculum_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

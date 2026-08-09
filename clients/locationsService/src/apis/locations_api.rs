@@ -288,7 +288,7 @@ pub async fn get_location_async(configuration: &configuration::Configuration, te
 }
 
 /// Get all locations with OData query support.
-pub async fn get_locations_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::LocationDtoIReadOnlyListEnvelope, Error<GetLocationsAsyncError>> {
+pub async fn get_locations_async(configuration: &configuration::Configuration, tenant_id: &str, location_dto_collection_query_parameters: Option<models::LocationDtoCollectionQueryParameters>) -> Result<models::LocationDtoIReadOnlyListEnvelope, Error<GetLocationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -300,6 +300,7 @@ pub async fn get_locations_async(configuration: &configuration::Configuration, t
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&location_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -317,7 +318,7 @@ pub async fn get_locations_async(configuration: &configuration::Configuration, t
 }
 
 /// Get the count of locations with OData query support.
-pub async fn get_locations_count_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetLocationsCountAsyncError>> {
+pub async fn get_locations_count_async(configuration: &configuration::Configuration, tenant_id: &str, location_dto_collection_query_parameters: Option<models::LocationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetLocationsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -329,6 +330,7 @@ pub async fn get_locations_count_async(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&location_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -374,7 +376,7 @@ pub async fn get_wallet_location_async(configuration: &configuration::Configurat
 }
 
 /// Get locations for a specific wallet by ID.
-pub async fn get_wallet_locations_async(configuration: &configuration::Configuration, wallet_id: &str) -> Result<models::LocationDtoIReadOnlyListEnvelope, Error<GetWalletLocationsAsyncError>> {
+pub async fn get_wallet_locations_async(configuration: &configuration::Configuration, wallet_id: &str, location_dto_collection_query_parameters: Option<models::LocationDtoCollectionQueryParameters>) -> Result<models::LocationDtoIReadOnlyListEnvelope, Error<GetWalletLocationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -385,6 +387,7 @@ pub async fn get_wallet_locations_async(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&location_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -402,7 +405,7 @@ pub async fn get_wallet_locations_async(configuration: &configuration::Configura
 }
 
 /// Get the count of locations for a specific wallet by ID.
-pub async fn get_wallet_locations_count_async(configuration: &configuration::Configuration, wallet_id: &str) -> Result<models::Int32Envelope, Error<GetWalletLocationsCountAsyncError>> {
+pub async fn get_wallet_locations_count_async(configuration: &configuration::Configuration, wallet_id: &str, location_dto_collection_query_parameters: Option<models::LocationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWalletLocationsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -413,6 +416,7 @@ pub async fn get_wallet_locations_count_async(configuration: &configuration::Con
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&location_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -430,7 +434,7 @@ pub async fn get_wallet_locations_count_async(configuration: &configuration::Con
 }
 
 /// Patch a location
-pub async fn patch_location_async(configuration: &configuration::Configuration, tenant_id: &str, location_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchLocationAsyncError>> {
+pub async fn patch_location_async(configuration: &configuration::Configuration, tenant_id: &str, location_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchLocationAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -442,7 +446,7 @@ pub async fn patch_location_async(configuration: &configuration::Configuration, 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -460,7 +464,7 @@ pub async fn patch_location_async(configuration: &configuration::Configuration, 
 }
 
 /// Patch a wallet location
-pub async fn patch_wallet_location_async(configuration: &configuration::Configuration, wallet_id: &str, location_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchWalletLocationAsyncError>> {
+pub async fn patch_wallet_location_async(configuration: &configuration::Configuration, wallet_id: &str, location_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchWalletLocationAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -471,7 +475,7 @@ pub async fn patch_wallet_location_async(configuration: &configuration::Configur
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -212,7 +212,7 @@ No authorization required
 
 ## get_deal_unit_flow_stages_async
 
-> models::DealUnitFlowStageDtoListEnvelope get_deal_unit_flow_stages_async(tenant_id, deal_unit_flow_id)
+> models::DealUnitFlowStageDtoListEnvelope get_deal_unit_flow_stages_async(tenant_id, deal_unit_flow_id, deal_unit_flow_stage_dto_collection_query_parameters)
 Get stages for a deal unit flow
 
 Retrieves a list of stages for a specific deal unit flow with OData query support.
@@ -224,6 +224,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_flow_id** | **uuid::Uuid** |  | [required] |
+**deal_unit_flow_stage_dto_collection_query_parameters** | Option<[**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -235,7 +236,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -243,7 +244,7 @@ No authorization required
 
 ## get_deal_unit_flow_stages_count_async
 
-> models::Int32Envelope get_deal_unit_flow_stages_count_async(tenant_id, deal_unit_flow_id)
+> models::Int32Envelope get_deal_unit_flow_stages_count_async(tenant_id, deal_unit_flow_id, deal_unit_flow_stage_dto_collection_query_parameters)
 Get stages count for a deal unit flow
 
 Returns the total count of stages for a specific deal unit flow with OData filter support.
@@ -255,6 +256,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_flow_id** | **uuid::Uuid** |  | [required] |
+**deal_unit_flow_stage_dto_collection_query_parameters** | Option<[**DealUnitFlowStageDtoCollectionQueryParameters**](DealUnitFlowStageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -266,7 +268,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -274,7 +276,7 @@ No authorization required
 
 ## get_deal_unit_flows_async
 
-> models::DealUnitFlowDtoListEnvelope get_deal_unit_flows_async(tenant_id)
+> models::DealUnitFlowDtoListEnvelope get_deal_unit_flows_async(tenant_id, deal_unit_flow_dto_collection_query_parameters)
 Get deal unit flows
 
 Retrieves a list of deal unit flows for the specified tenant with OData query support.
@@ -285,6 +287,7 @@ Retrieves a list of deal unit flows for the specified tenant with OData query su
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**deal_unit_flow_dto_collection_query_parameters** | Option<[**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -296,7 +299,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -304,7 +307,7 @@ No authorization required
 
 ## get_deal_unit_flows_count_async
 
-> models::Int32Envelope get_deal_unit_flows_count_async(tenant_id)
+> models::Int32Envelope get_deal_unit_flows_count_async(tenant_id, deal_unit_flow_dto_collection_query_parameters)
 Get deal unit flows count
 
 Returns the total count of deal unit flows for the specified tenant with OData filter support.
@@ -315,6 +318,7 @@ Returns the total count of deal unit flows for the specified tenant with OData f
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**deal_unit_flow_dto_collection_query_parameters** | Option<[**DealUnitFlowDtoCollectionQueryParameters**](DealUnitFlowDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -326,7 +330,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -334,7 +338,7 @@ No authorization required
 
 ## patch_deal_unit_flow_async
 
-> models::EmptyEnvelope patch_deal_unit_flow_async(tenant_id, deal_unit_flow_id, operation)
+> models::EmptyEnvelope patch_deal_unit_flow_async(tenant_id, deal_unit_flow_id, patch_operation)
 Patch a deal unit flow
 
 Partially updates an existing deal unit flow by its unique identifier using a JSON Patch document.
@@ -346,7 +350,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_flow_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -366,7 +370,7 @@ No authorization required
 
 ## patch_deal_unit_flow_stage_async
 
-> models::EmptyEnvelope patch_deal_unit_flow_stage_async(tenant_id, deal_unit_flow_id, deal_unit_flow_stage_id, operation)
+> models::EmptyEnvelope patch_deal_unit_flow_stage_async(tenant_id, deal_unit_flow_id, deal_unit_flow_stage_id, patch_operation)
 Patch a deal unit flow stage
 
 Partially updates an existing stage within a specific deal unit flow using a JSON Patch document.
@@ -379,7 +383,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_flow_id** | **uuid::Uuid** |  | [required] |
 **deal_unit_flow_stage_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

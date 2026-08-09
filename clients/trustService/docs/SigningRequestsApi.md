@@ -242,7 +242,7 @@ No authorization required
 
 ## get_signing_requests_async
 
-> models::SigningRequestDtoListEnvelope get_signing_requests_async(tenant_id, api_version, x_api_version)
+> models::SigningRequestDtoListEnvelope get_signing_requests_async(tenant_id, api_version, x_api_version, signing_request_dto_collection_query_parameters)
 Get all signing requests
 
 ### Parameters
@@ -253,6 +253,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**signing_request_dto_collection_query_parameters** | Option<[**SigningRequestDtoCollectionQueryParameters**](SigningRequestDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -264,7 +265,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -272,7 +273,7 @@ No authorization required
 
 ## get_signing_requests_count_async
 
-> models::Int32Envelope get_signing_requests_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_signing_requests_count_async(tenant_id, api_version, x_api_version, signing_request_dto_collection_query_parameters)
 Get signing requests count
 
 ### Parameters
@@ -283,6 +284,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**signing_request_dto_collection_query_parameters** | Option<[**SigningRequestDtoCollectionQueryParameters**](SigningRequestDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -294,7 +296,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

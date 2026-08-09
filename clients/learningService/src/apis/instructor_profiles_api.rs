@@ -208,7 +208,7 @@ pub async fn api_v2_learning_service_instructor_profiles_instructor_profile_id_g
     }
 }
 
-pub async fn api_v2_learning_service_instructor_profiles_instructor_profile_id_patch(configuration: &configuration::Configuration, tenant_id: &str, instructor_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchError>> {
+pub async fn api_v2_learning_service_instructor_profiles_instructor_profile_id_patch(configuration: &configuration::Configuration, tenant_id: &str, instructor_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<ApiV2LearningServiceInstructorProfilesInstructorProfileIdPatchError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -226,7 +226,7 @@ pub async fn api_v2_learning_service_instructor_profiles_instructor_profile_id_p
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

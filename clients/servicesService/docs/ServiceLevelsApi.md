@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## count_all_service_levels_async
 
-> models::Int32Envelope count_all_service_levels_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_all_service_levels_async(tenant_id, api_version, x_api_version, service_level_dto_collection_query_parameters)
 Get all service levels count
 
 Returns the count of all service levels for the specified tenant.
@@ -31,6 +31,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**service_level_dto_collection_query_parameters** | Option<[**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -42,7 +43,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -118,7 +119,7 @@ No authorization required
 
 ## get_all_service_levels_async
 
-> models::ServiceLevelDtoIReadOnlyListEnvelope get_all_service_levels_async(tenant_id, api_version, x_api_version)
+> models::ServiceLevelDtoIReadOnlyListEnvelope get_all_service_levels_async(tenant_id, api_version, x_api_version, service_level_dto_collection_query_parameters)
 Get all service levels
 
 Retrieves all service levels for the specified tenant.
@@ -131,6 +132,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**service_level_dto_collection_query_parameters** | Option<[**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -142,7 +144,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -184,7 +186,7 @@ No authorization required
 
 ## get_service_levels_async
 
-> models::ServiceLevelDtoIReadOnlyListEnvelope get_service_levels_async(tenant_id, service_id, api_version, x_api_version)
+> models::ServiceLevelDtoIReadOnlyListEnvelope get_service_levels_async(tenant_id, service_id, api_version, x_api_version, service_level_dto_collection_query_parameters)
 Get all service levels
 
 Retrieves all service levels for the specified service.
@@ -198,6 +200,7 @@ Name | Type | Description  | Required | Notes
 **service_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**service_level_dto_collection_query_parameters** | Option<[**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -209,7 +212,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -217,7 +220,7 @@ No authorization required
 
 ## get_service_levels_count_async
 
-> models::Int32Envelope get_service_levels_count_async(tenant_id, service_id, api_version, x_api_version)
+> models::Int32Envelope get_service_levels_count_async(tenant_id, service_id, api_version, x_api_version, service_level_dto_collection_query_parameters)
 Get service levels count
 
 Returns the count of service levels for the specified service.
@@ -231,6 +234,7 @@ Name | Type | Description  | Required | Notes
 **service_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**service_level_dto_collection_query_parameters** | Option<[**ServiceLevelDtoCollectionQueryParameters**](ServiceLevelDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -242,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -250,7 +254,7 @@ No authorization required
 
 ## patch_service_level_async
 
-> models::Envelope patch_service_level_async(tenant_id, service_id, service_level_id, api_version, x_api_version, operation)
+> models::Envelope patch_service_level_async(tenant_id, service_id, service_level_id, api_version, x_api_version, patch_operation)
 Patch a service level
 
 Partially updates an existing service level using a JSON Patch document.
@@ -265,7 +269,7 @@ Name | Type | Description  | Required | Notes
 **service_level_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

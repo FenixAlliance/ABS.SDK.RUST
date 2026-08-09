@@ -109,7 +109,7 @@ No authorization required
 
 ## get_knowledge_articles_async
 
-> models::KnowledgeArticleDtoListEnvelope get_knowledge_articles_async(tenant_id, api_version, x_api_version)
+> models::KnowledgeArticleDtoListEnvelope get_knowledge_articles_async(tenant_id, api_version, x_api_version, knowledge_article_dto_collection_query_parameters)
 Retrieve knowledge articles
 
 ### Parameters
@@ -120,6 +120,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**knowledge_article_dto_collection_query_parameters** | Option<[**KnowledgeArticleDtoCollectionQueryParameters**](KnowledgeArticleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -131,7 +132,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -139,7 +140,7 @@ No authorization required
 
 ## get_knowledge_articles_count_async
 
-> models::Int32Envelope get_knowledge_articles_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_knowledge_articles_count_async(tenant_id, api_version, x_api_version, knowledge_article_dto_collection_query_parameters)
 Get knowledge articles count
 
 ### Parameters
@@ -150,6 +151,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**knowledge_article_dto_collection_query_parameters** | Option<[**KnowledgeArticleDtoCollectionQueryParameters**](KnowledgeArticleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -161,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,7 +171,7 @@ No authorization required
 
 ## patch_knowledge_article_async
 
-> models::EmptyEnvelope patch_knowledge_article_async(tenant_id, knowledge_article_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_knowledge_article_async(tenant_id, knowledge_article_id, api_version, x_api_version, patch_operation)
 Patch a knowledge article
 
 Partially updates an existing knowledge article by its unique identifier.
@@ -183,7 +185,7 @@ Name | Type | Description  | Required | Notes
 **knowledge_article_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

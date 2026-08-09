@@ -91,16 +91,19 @@ pub fn parse_deep_object(prefix: &str, value: &serde_json::Value) -> Vec<(String
 }
 
 pub mod antiforgery_api;
+pub mod application_principals_api;
 pub mod business_domains_api;
 pub mod carts_api;
 pub mod contact_options_api;
 pub mod emails_api;
 pub mod fenix_alliance_abs_web_api;
 pub mod ip_lookups_api;
+pub mod inbox_api;
 pub mod licensing_api;
 pub mod migrations_api;
 pub mod modules_api;
 pub mod options_api;
+pub mod outbox_api;
 pub mod overview_api;
 pub mod portals_api;
 pub mod tenant_options_api;

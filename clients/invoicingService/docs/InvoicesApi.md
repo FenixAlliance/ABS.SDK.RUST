@@ -633,7 +633,7 @@ No authorization required
 
 ## get_extended_invoices
 
-> models::ExtendedInvoiceDtoListEnvelope get_extended_invoices(tenant_id)
+> models::ExtendedInvoiceDtoListEnvelope get_extended_invoices(tenant_id, extended_invoice_dto_collection_query_parameters)
 Get a list of extended invoices.
 
 Retrieves a list of extended invoice details for the specified tenant.
@@ -644,6 +644,7 @@ Retrieves a list of extended invoice details for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**extended_invoice_dto_collection_query_parameters** | Option<[**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -655,7 +656,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -663,7 +664,7 @@ No authorization required
 
 ## get_extended_invoices_count
 
-> models::Int32Envelope get_extended_invoices_count(tenant_id)
+> models::Int32Envelope get_extended_invoices_count(tenant_id, extended_invoice_dto_collection_query_parameters)
 Get the count of extended invoices.
 
 Retrieves the total count of extended invoices for the specified tenant.
@@ -674,6 +675,7 @@ Retrieves the total count of extended invoices for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**extended_invoice_dto_collection_query_parameters** | Option<[**ExtendedInvoiceDtoCollectionQueryParameters**](ExtendedInvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -685,7 +687,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -756,7 +758,7 @@ No authorization required
 
 ## get_invoice_adjustments
 
-> models::InvoiceAdjustmentDtoIReadOnlyListEnvelope get_invoice_adjustments(tenant_id, invoice_id)
+> models::InvoiceAdjustmentDtoIReadOnlyListEnvelope get_invoice_adjustments(tenant_id, invoice_id, invoice_adjustment_dto_collection_query_parameters)
 Get invoice adjustments.
 
 Retrieves the adjustments for the specified invoice.
@@ -768,6 +770,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
+**invoice_adjustment_dto_collection_query_parameters** | Option<[**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -779,7 +782,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -787,7 +790,7 @@ No authorization required
 
 ## get_invoice_adjustments_count
 
-> models::Int32Envelope get_invoice_adjustments_count(tenant_id, invoice_id)
+> models::Int32Envelope get_invoice_adjustments_count(tenant_id, invoice_id, invoice_adjustment_dto_collection_query_parameters)
 Get the count of invoice adjustments.
 
 Retrieves the total count of adjustments for the specified invoice.
@@ -799,6 +802,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
+**invoice_adjustment_dto_collection_query_parameters** | Option<[**InvoiceAdjustmentDtoCollectionQueryParameters**](InvoiceAdjustmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -810,7 +814,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -850,7 +854,7 @@ No authorization required
 
 ## get_invoice_line_taxes
 
-> models::InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope get_invoice_line_taxes(tenant_id, invoice_id, invoice_line_id)
+> models::InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope get_invoice_line_taxes(tenant_id, invoice_id, invoice_line_id, invoice_line_applied_tax_dto_collection_query_parameters)
 Get taxes for an invoice line.
 
 Retrieves the taxes applied to the specified invoice line.
@@ -863,6 +867,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
 **invoice_line_id** | **uuid::Uuid** |  | [required] |
+**invoice_line_applied_tax_dto_collection_query_parameters** | Option<[**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -874,7 +879,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -882,7 +887,7 @@ No authorization required
 
 ## get_invoice_line_taxes_count
 
-> models::Int32Envelope get_invoice_line_taxes_count(tenant_id, invoice_id, invoice_line_id)
+> models::Int32Envelope get_invoice_line_taxes_count(tenant_id, invoice_id, invoice_line_id, invoice_line_applied_tax_dto_collection_query_parameters)
 Get the count of taxes for an invoice line.
 
 Retrieves the total count of taxes applied to the specified invoice line.
@@ -895,6 +900,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
 **invoice_line_id** | **uuid::Uuid** |  | [required] |
+**invoice_line_applied_tax_dto_collection_query_parameters** | Option<[**InvoiceLineAppliedTaxDtoCollectionQueryParameters**](InvoiceLineAppliedTaxDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -906,7 +912,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -914,7 +920,7 @@ No authorization required
 
 ## get_invoice_lines
 
-> models::InvoiceLineDtoListEnvelope get_invoice_lines(tenant_id, invoice_id, item_id)
+> models::InvoiceLineDtoListEnvelope get_invoice_lines(tenant_id, invoice_id, item_id, invoice_line_dto_collection_query_parameters)
 Get invoice lines.
 
 Retrieves the invoice lines for the specified invoice.
@@ -927,6 +933,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
 **item_id** | Option<**uuid::Uuid**> |  |  |
+**invoice_line_dto_collection_query_parameters** | Option<[**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -938,7 +945,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -946,7 +953,7 @@ No authorization required
 
 ## get_invoice_lines_count
 
-> models::Int32Envelope get_invoice_lines_count(tenant_id, invoice_id)
+> models::Int32Envelope get_invoice_lines_count(tenant_id, invoice_id, invoice_line_dto_collection_query_parameters)
 Get the count of invoice lines.
 
 Retrieves the total count of invoice lines for the specified invoice.
@@ -958,6 +965,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
+**invoice_line_dto_collection_query_parameters** | Option<[**InvoiceLineDtoCollectionQueryParameters**](InvoiceLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -969,7 +977,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -977,7 +985,7 @@ No authorization required
 
 ## get_invoice_payments
 
-> models::PaymentDtoIReadOnlyListEnvelope get_invoice_payments(tenant_id, invoice_id)
+> models::PaymentDtoIReadOnlyListEnvelope get_invoice_payments(tenant_id, invoice_id, payment_dto_collection_query_parameters)
 Get payments for an invoice.
 
 Retrieves the list of payments related to the specified invoice.
@@ -989,6 +997,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1000,7 +1009,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1008,7 +1017,7 @@ No authorization required
 
 ## get_invoice_payments_count
 
-> models::Int32Envelope get_invoice_payments_count(tenant_id, invoice_id)
+> models::Int32Envelope get_invoice_payments_count(tenant_id, invoice_id, payment_dto_collection_query_parameters)
 Get the count of payments for an invoice.
 
 Retrieves the total count of payments for the specified invoice.
@@ -1020,6 +1029,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1031,7 +1041,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1071,7 +1081,7 @@ No authorization required
 
 ## get_invoice_references
 
-> models::InvoiceReferenceDtoIReadOnlyListEnvelope get_invoice_references(tenant_id, invoice_id)
+> models::InvoiceReferenceDtoIReadOnlyListEnvelope get_invoice_references(tenant_id, invoice_id, invoice_reference_dto_collection_query_parameters)
 Get invoice references.
 
 Retrieves the references for the specified invoice.
@@ -1083,6 +1093,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
+**invoice_reference_dto_collection_query_parameters** | Option<[**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1094,7 +1105,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1102,7 +1113,7 @@ No authorization required
 
 ## get_invoice_references_count
 
-> models::Int32Envelope get_invoice_references_count(tenant_id, invoice_id)
+> models::Int32Envelope get_invoice_references_count(tenant_id, invoice_id, invoice_reference_dto_collection_query_parameters)
 Get the count of invoice references.
 
 Retrieves the total count of references for the specified invoice.
@@ -1114,6 +1125,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
+**invoice_reference_dto_collection_query_parameters** | Option<[**InvoiceReferenceDtoCollectionQueryParameters**](InvoiceReferenceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1125,7 +1137,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1133,7 +1145,7 @@ No authorization required
 
 ## get_invoices
 
-> models::InvoiceDtoListEnvelope get_invoices(tenant_id)
+> models::InvoiceDtoListEnvelope get_invoices(tenant_id, invoice_dto_collection_query_parameters)
 Get a list of invoices.
 
 Retrieves a list of invoices for the specified tenant.
@@ -1144,6 +1156,7 @@ Retrieves a list of invoices for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1155,7 +1168,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1163,7 +1176,7 @@ No authorization required
 
 ## get_invoices_count
 
-> models::Int32Envelope get_invoices_count(tenant_id)
+> models::Int32Envelope get_invoices_count(tenant_id, invoice_dto_collection_query_parameters)
 Get the count of invoices.
 
 Retrieves the total count of invoices for the specified tenant.
@@ -1174,6 +1187,7 @@ Retrieves the total count of invoices for the specified tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1185,7 +1199,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1193,7 +1207,7 @@ No authorization required
 
 ## get_purchase_invoices_sum
 
-> models::MoneyEnvelope get_purchase_invoices_sum(tenant_id)
+> models::MoneyEnvelope get_purchase_invoices_sum(tenant_id, invoice_dto_collection_query_parameters)
 Sum tenant purchase-invoice totals.
 
 Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == PurchaseInvoice, filtered by the supplied OData date range.
@@ -1204,6 +1218,7 @@ Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == PurchaseI
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1215,7 +1230,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1223,7 +1238,7 @@ No authorization required
 
 ## get_sales_invoices_sum
 
-> models::MoneyEnvelope get_sales_invoices_sum(tenant_id)
+> models::MoneyEnvelope get_sales_invoices_sum(tenant_id, invoice_dto_collection_query_parameters)
 Sum tenant sales-invoice totals.
 
 Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == SalesInvoice, filtered by the supplied OData date range.
@@ -1234,6 +1249,7 @@ Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == SalesInvo
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**invoice_dto_collection_query_parameters** | Option<[**InvoiceDtoCollectionQueryParameters**](InvoiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1245,7 +1261,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1253,7 +1269,7 @@ No authorization required
 
 ## patch_invoice
 
-> models::EmptyEnvelope patch_invoice(tenant_id, invoice_id, operation)
+> models::EmptyEnvelope patch_invoice(tenant_id, invoice_id, patch_operation)
 Patch an invoice.
 
 Partially updates the specified invoice for the tenant.
@@ -1265,7 +1281,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1285,7 +1301,7 @@ No authorization required
 
 ## patch_invoice_adjustment
 
-> models::EmptyEnvelope patch_invoice_adjustment(tenant_id, invoice_id, invoice_adjustment_id, operation)
+> models::EmptyEnvelope patch_invoice_adjustment(tenant_id, invoice_id, invoice_adjustment_id, patch_operation)
 Patch an invoice adjustment.
 
 Partially updates the specified adjustment for the invoice.
@@ -1298,7 +1314,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
 **invoice_adjustment_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1318,7 +1334,7 @@ No authorization required
 
 ## patch_invoice_line
 
-> models::EmptyEnvelope patch_invoice_line(tenant_id, invoice_id, invoice_line_id, operation)
+> models::EmptyEnvelope patch_invoice_line(tenant_id, invoice_id, invoice_line_id, patch_operation)
 Patch an invoice line.
 
 Partially updates the specified invoice line.
@@ -1331,7 +1347,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
 **invoice_line_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1351,7 +1367,7 @@ No authorization required
 
 ## patch_invoice_line_tax
 
-> models::EmptyEnvelope patch_invoice_line_tax(tenant_id, invoice_id, invoice_line_id, invoice_line_tax_id, operation)
+> models::EmptyEnvelope patch_invoice_line_tax(tenant_id, invoice_id, invoice_line_id, invoice_line_tax_id, patch_operation)
 Patch a tax for an invoice line.
 
 Partially updates the specified tax entry for the invoice line.
@@ -1365,7 +1381,7 @@ Name | Type | Description  | Required | Notes
 **invoice_id** | **uuid::Uuid** |  | [required] |
 **invoice_line_id** | **uuid::Uuid** |  | [required] |
 **invoice_line_tax_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1385,7 +1401,7 @@ No authorization required
 
 ## patch_invoice_reference
 
-> models::EmptyEnvelope patch_invoice_reference(tenant_id, invoice_id, invoice_reference_id, operation)
+> models::EmptyEnvelope patch_invoice_reference(tenant_id, invoice_id, invoice_reference_id, patch_operation)
 Patch an invoice reference.
 
 Partially updates the specified reference for the invoice.
@@ -1398,7 +1414,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **invoice_id** | **uuid::Uuid** |  | [required] |
 **invoice_reference_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

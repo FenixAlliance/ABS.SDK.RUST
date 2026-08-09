@@ -283,7 +283,7 @@ No authorization required
 
 ## get_project_task_categories_async
 
-> models::TaskCategoryDtoListEnvelope get_project_task_categories_async(project_id, tenant_id)
+> models::TaskCategoryDtoListEnvelope get_project_task_categories_async(project_id, tenant_id, task_category_dto_collection_query_parameters)
 Retrieves project task categories
 
 Gets all task categories for a specific project with OData support.
@@ -295,6 +295,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **project_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**task_category_dto_collection_query_parameters** | Option<[**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -306,7 +307,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -314,7 +315,7 @@ No authorization required
 
 ## get_project_task_categories_count_async
 
-> models::Int32Envelope get_project_task_categories_count_async(project_id, tenant_id)
+> models::Int32Envelope get_project_task_categories_count_async(project_id, tenant_id, task_category_dto_collection_query_parameters)
 Counts project task categories
 
 Gets the count of task categories for a specific project.
@@ -326,6 +327,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **project_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**task_category_dto_collection_query_parameters** | Option<[**TaskCategoryDtoCollectionQueryParameters**](TaskCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -337,7 +339,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -345,7 +347,7 @@ No authorization required
 
 ## get_project_time_logs_count_async
 
-> models::Int32Envelope get_project_time_logs_count_async(project_id, tenant_id)
+> models::Int32Envelope get_project_time_logs_count_async(project_id, tenant_id, project_time_log_dto_collection_query_parameters)
 Counts project time logs
 
 Gets the count of time log entries for a specific project.
@@ -357,6 +359,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **project_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**project_time_log_dto_collection_query_parameters** | Option<[**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -368,7 +371,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -376,7 +379,7 @@ No authorization required
 
 ## get_projects_by_tenant_id_async
 
-> models::ProjectDtoListEnvelope get_projects_by_tenant_id_async(tenant_id)
+> models::ProjectDtoListEnvelope get_projects_by_tenant_id_async(tenant_id, project_dto_collection_query_parameters)
 Retrieves all projects
 
 Gets all projects for the current tenant with OData support.
@@ -387,6 +390,7 @@ Gets all projects for the current tenant with OData support.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**project_dto_collection_query_parameters** | Option<[**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -398,7 +402,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -406,7 +410,7 @@ No authorization required
 
 ## get_projects_count_by_tenant_id_async
 
-> models::Int32Envelope get_projects_count_by_tenant_id_async(tenant_id)
+> models::Int32Envelope get_projects_count_by_tenant_id_async(tenant_id, project_dto_collection_query_parameters)
 Counts projects
 
 Gets the count of projects for the current tenant.
@@ -417,6 +421,7 @@ Gets the count of projects for the current tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**project_dto_collection_query_parameters** | Option<[**ProjectDtoCollectionQueryParameters**](ProjectDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -428,7 +433,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -436,7 +441,7 @@ No authorization required
 
 ## get_tasks_for_project_async
 
-> models::ProjectTaskDtoListEnvelope get_tasks_for_project_async(project_id, tenant_id)
+> models::ProjectTaskDtoListEnvelope get_tasks_for_project_async(project_id, tenant_id, project_task_dto_collection_query_parameters)
 Retrieves project tasks
 
 Gets all tasks for a specific project with OData support.
@@ -448,6 +453,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **project_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**project_task_dto_collection_query_parameters** | Option<[**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -459,7 +465,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -467,7 +473,7 @@ No authorization required
 
 ## get_tasks_for_project_count_async
 
-> models::Int32Envelope get_tasks_for_project_count_async(project_id, tenant_id)
+> models::Int32Envelope get_tasks_for_project_count_async(project_id, tenant_id, project_task_dto_collection_query_parameters)
 Counts project tasks
 
 Gets the count of tasks for a specific project.
@@ -479,6 +485,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **project_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**project_task_dto_collection_query_parameters** | Option<[**ProjectTaskDtoCollectionQueryParameters**](ProjectTaskDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -490,7 +497,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -498,7 +505,7 @@ No authorization required
 
 ## get_time_logs_for_project_async
 
-> models::ProjectTimeLogDtoListEnvelope get_time_logs_for_project_async(project_id, tenant_id)
+> models::ProjectTimeLogDtoListEnvelope get_time_logs_for_project_async(project_id, tenant_id, project_time_log_dto_collection_query_parameters)
 Retrieves project time logs
 
 Gets all time log entries for a specific project with OData support.
@@ -510,6 +517,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **project_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**project_time_log_dto_collection_query_parameters** | Option<[**ProjectTimeLogDtoCollectionQueryParameters**](ProjectTimeLogDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -521,7 +529,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -529,7 +537,7 @@ No authorization required
 
 ## patch_project_async
 
-> models::EmptyEnvelope patch_project_async(project_id, tenant_id, operation)
+> models::EmptyEnvelope patch_project_async(project_id, tenant_id, patch_operation)
 Patches a project
 
 Partially updates the specified project.
@@ -541,7 +549,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **project_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -561,7 +569,7 @@ No authorization required
 
 ## patch_project_period_async
 
-> models::EmptyEnvelope patch_project_period_async(project_id, project_period_id, tenant_id, operation)
+> models::EmptyEnvelope patch_project_period_async(project_id, project_period_id, tenant_id, patch_operation)
 Patches a project period
 
 Partially updates the specified period for a project.
@@ -574,7 +582,7 @@ Name | Type | Description  | Required | Notes
 **project_id** | **uuid::Uuid** |  | [required] |
 **project_period_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -594,7 +602,7 @@ No authorization required
 
 ## patch_task_for_project_async
 
-> models::EmptyEnvelope patch_task_for_project_async(project_id, project_task_id, tenant_id, operation)
+> models::EmptyEnvelope patch_task_for_project_async(project_id, project_task_id, tenant_id, patch_operation)
 Patches a project task
 
 Partially updates the specified task in a project.
@@ -607,7 +615,7 @@ Name | Type | Description  | Required | Notes
 **project_id** | **uuid::Uuid** |  | [required] |
 **project_task_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

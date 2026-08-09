@@ -328,7 +328,7 @@ pub async fn get_transaction(configuration: &configuration::Configuration, tenan
 }
 
 /// Retrieves all transaction categories for the specified tenant.
-pub async fn get_transaction_categories(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TransactionCategoryDtoListEnvelope, Error<GetTransactionCategoriesError>> {
+pub async fn get_transaction_categories(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, transaction_category_dto_collection_query_parameters: Option<models::TransactionCategoryDtoCollectionQueryParameters>) -> Result<models::TransactionCategoryDtoListEnvelope, Error<GetTransactionCategoriesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -346,6 +346,7 @@ pub async fn get_transaction_categories(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&transaction_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -363,7 +364,7 @@ pub async fn get_transaction_categories(configuration: &configuration::Configura
 }
 
 /// Returns total number of transaction categories for the tenant.
-pub async fn get_transaction_categories_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTransactionCategoriesCountError>> {
+pub async fn get_transaction_categories_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, transaction_category_dto_collection_query_parameters: Option<models::TransactionCategoryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTransactionCategoriesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -381,6 +382,7 @@ pub async fn get_transaction_categories_count(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&transaction_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -433,7 +435,7 @@ pub async fn get_transaction_category(configuration: &configuration::Configurati
 }
 
 /// Retrieves all transactions for the specified tenant using OData query options.
-pub async fn get_transactions(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TransactionDtoListEnvelope, Error<GetTransactionsError>> {
+pub async fn get_transactions(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, transaction_dto_collection_query_parameters: Option<models::TransactionDtoCollectionQueryParameters>) -> Result<models::TransactionDtoListEnvelope, Error<GetTransactionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -451,6 +453,7 @@ pub async fn get_transactions(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&transaction_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -468,7 +471,7 @@ pub async fn get_transactions(configuration: &configuration::Configuration, tena
 }
 
 /// Returns total number of transactions for the tenant with OData filter support.
-pub async fn get_transactions_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTransactionsCountError>> {
+pub async fn get_transactions_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, transaction_dto_collection_query_parameters: Option<models::TransactionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTransactionsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -486,6 +489,7 @@ pub async fn get_transactions_count(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&transaction_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -503,7 +507,7 @@ pub async fn get_transactions_count(configuration: &configuration::Configuration
 }
 
 /// Partially updates an existing transaction identified by its unique identifier.
-pub async fn patch_transaction(configuration: &configuration::Configuration, tenant_id: &str, transaction_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTransactionError>> {
+pub async fn patch_transaction(configuration: &configuration::Configuration, tenant_id: &str, transaction_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTransactionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -521,7 +525,7 @@ pub async fn patch_transaction(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -539,7 +543,7 @@ pub async fn patch_transaction(configuration: &configuration::Configuration, ten
 }
 
 /// Partially updates an existing transaction category identified by its unique identifier.
-pub async fn patch_transaction_category(configuration: &configuration::Configuration, tenant_id: &str, category_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTransactionCategoryError>> {
+pub async fn patch_transaction_category(configuration: &configuration::Configuration, tenant_id: &str, category_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTransactionCategoryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -557,7 +561,7 @@ pub async fn patch_transaction_category(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

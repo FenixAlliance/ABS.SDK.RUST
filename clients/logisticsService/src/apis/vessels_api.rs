@@ -182,7 +182,7 @@ pub async fn get_vessel_by_id_async(configuration: &configuration::Configuration
 }
 
 /// Retrieves all vessels for the specified tenant.
-pub async fn get_vessels_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::VesselDtoListEnvelope, Error<GetVesselsAsyncError>> {
+pub async fn get_vessels_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, vessel_dto_collection_query_parameters: Option<models::VesselDtoCollectionQueryParameters>) -> Result<models::VesselDtoListEnvelope, Error<GetVesselsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -200,6 +200,7 @@ pub async fn get_vessels_async(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&vessel_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -217,7 +218,7 @@ pub async fn get_vessels_async(configuration: &configuration::Configuration, ten
 }
 
 /// Returns the count of vessels for the specified tenant.
-pub async fn get_vessels_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetVesselsCountAsyncError>> {
+pub async fn get_vessels_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, vessel_dto_collection_query_parameters: Option<models::VesselDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetVesselsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -235,6 +236,7 @@ pub async fn get_vessels_count_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&vessel_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -252,7 +254,7 @@ pub async fn get_vessels_count_async(configuration: &configuration::Configuratio
 }
 
 /// Partially updates an existing vessel using JSON Patch.
-pub async fn patch_vessel_async(configuration: &configuration::Configuration, tenant_id: &str, vessel_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchVesselAsyncError>> {
+pub async fn patch_vessel_async(configuration: &configuration::Configuration, tenant_id: &str, vessel_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchVesselAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -270,7 +272,7 @@ pub async fn patch_vessel_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

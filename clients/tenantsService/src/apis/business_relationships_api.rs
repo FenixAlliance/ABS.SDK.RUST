@@ -182,7 +182,7 @@ pub async fn get_business_relationship_by_id_async(configuration: &configuration
 }
 
 /// Retrieves the child business relationships owned by the specified parent tenant using OData query options.
-pub async fn get_business_relationships_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BusinessRelationshipDtoListEnvelope, Error<GetBusinessRelationshipsAsyncError>> {
+pub async fn get_business_relationships_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, business_relationship_dto_collection_query_parameters: Option<models::BusinessRelationshipDtoCollectionQueryParameters>) -> Result<models::BusinessRelationshipDtoListEnvelope, Error<GetBusinessRelationshipsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -200,6 +200,7 @@ pub async fn get_business_relationships_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&business_relationship_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -217,7 +218,7 @@ pub async fn get_business_relationships_async(configuration: &configuration::Con
 }
 
 /// Returns the count of child business relationships owned by the specified parent tenant.
-pub async fn get_business_relationships_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBusinessRelationshipsCountAsyncError>> {
+pub async fn get_business_relationships_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, business_relationship_dto_collection_query_parameters: Option<models::BusinessRelationshipDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBusinessRelationshipsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -235,6 +236,7 @@ pub async fn get_business_relationships_count_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&business_relationship_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -403,7 +403,7 @@ pub async fn get_blog_post_by_id_async(configuration: &configuration::Configurat
 }
 
 /// Retrieves all blog posts, optionally filtered by tenant using OData query options.
-pub async fn get_blog_posts_async(configuration: &configuration::Configuration, tenant_id: Option<&str>) -> Result<models::BlogPostDtoListEnvelope, Error<GetBlogPostsAsyncError>> {
+pub async fn get_blog_posts_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, blog_post_dto_collection_query_parameters: Option<models::BlogPostDtoCollectionQueryParameters>) -> Result<models::BlogPostDtoListEnvelope, Error<GetBlogPostsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -417,6 +417,7 @@ pub async fn get_blog_posts_async(configuration: &configuration::Configuration, 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -434,7 +435,7 @@ pub async fn get_blog_posts_async(configuration: &configuration::Configuration, 
 }
 
 /// Returns the total count of blog posts, optionally filtered by tenant using OData query options.
-pub async fn get_blog_posts_count_async(configuration: &configuration::Configuration, tenant_id: Option<&str>) -> Result<models::Int32Envelope, Error<GetBlogPostsCountAsyncError>> {
+pub async fn get_blog_posts_count_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, blog_post_dto_collection_query_parameters: Option<models::BlogPostDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBlogPostsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -448,6 +449,7 @@ pub async fn get_blog_posts_count_async(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -465,7 +467,7 @@ pub async fn get_blog_posts_count_async(configuration: &configuration::Configura
 }
 
 /// Retrieves all categories related to a specific blog post.
-pub async fn get_categories_for_blog_post_async(configuration: &configuration::Configuration, blog_post_id: &str) -> Result<models::BlogPostCategoryDtoListEnvelope, Error<GetCategoriesForBlogPostAsyncError>> {
+pub async fn get_categories_for_blog_post_async(configuration: &configuration::Configuration, blog_post_id: &str, blog_post_category_dto_collection_query_parameters: Option<models::BlogPostCategoryDtoCollectionQueryParameters>) -> Result<models::BlogPostCategoryDtoListEnvelope, Error<GetCategoriesForBlogPostAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -476,6 +478,7 @@ pub async fn get_categories_for_blog_post_async(configuration: &configuration::C
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -493,7 +496,7 @@ pub async fn get_categories_for_blog_post_async(configuration: &configuration::C
 }
 
 /// Retrieves all comments for a specific blog post.
-pub async fn get_comments_for_blog_post_async(configuration: &configuration::Configuration, blog_post_id: &str) -> Result<models::BlogPostCommentDtoListEnvelope, Error<GetCommentsForBlogPostAsyncError>> {
+pub async fn get_comments_for_blog_post_async(configuration: &configuration::Configuration, blog_post_id: &str, blog_post_comment_dto_collection_query_parameters: Option<models::BlogPostCommentDtoCollectionQueryParameters>) -> Result<models::BlogPostCommentDtoListEnvelope, Error<GetCommentsForBlogPostAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -504,6 +507,7 @@ pub async fn get_comments_for_blog_post_async(configuration: &configuration::Con
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_comment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -521,7 +525,7 @@ pub async fn get_comments_for_blog_post_async(configuration: &configuration::Con
 }
 
 /// Retrieves all replies for a specific blog post comment.
-pub async fn get_replies_for_comment_async(configuration: &configuration::Configuration, comment_id: &str, blog_post_id: &str) -> Result<models::BlogPostCommentDtoListEnvelope, Error<GetRepliesForCommentAsyncError>> {
+pub async fn get_replies_for_comment_async(configuration: &configuration::Configuration, comment_id: &str, blog_post_id: &str, blog_post_comment_dto_collection_query_parameters: Option<models::BlogPostCommentDtoCollectionQueryParameters>) -> Result<models::BlogPostCommentDtoListEnvelope, Error<GetRepliesForCommentAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -532,6 +536,7 @@ pub async fn get_replies_for_comment_async(configuration: &configuration::Config
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_comment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -549,7 +554,7 @@ pub async fn get_replies_for_comment_async(configuration: &configuration::Config
 }
 
 /// Retrieves all tags related to a specific blog post.
-pub async fn get_tags_for_blog_post_async(configuration: &configuration::Configuration, blog_post_id: &str) -> Result<models::BlogPostTagDtoListEnvelope, Error<GetTagsForBlogPostAsyncError>> {
+pub async fn get_tags_for_blog_post_async(configuration: &configuration::Configuration, blog_post_id: &str, blog_post_tag_dto_collection_query_parameters: Option<models::BlogPostTagDtoCollectionQueryParameters>) -> Result<models::BlogPostTagDtoListEnvelope, Error<GetTagsForBlogPostAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -560,6 +565,7 @@ pub async fn get_tags_for_blog_post_async(configuration: &configuration::Configu
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -577,7 +583,7 @@ pub async fn get_tags_for_blog_post_async(configuration: &configuration::Configu
 }
 
 /// Partially updates an existing blog post for the specified tenant.
-pub async fn patch_blog_post_async(configuration: &configuration::Configuration, tenant_id: &str, blog_post_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBlogPostAsyncError>> {
+pub async fn patch_blog_post_async(configuration: &configuration::Configuration, tenant_id: &str, blog_post_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBlogPostAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -589,7 +595,7 @@ pub async fn patch_blog_post_async(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

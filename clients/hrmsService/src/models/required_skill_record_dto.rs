@@ -15,8 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct RequiredSkillRecordDto {
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub id: Option<Option<String>>,
-    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
-    pub timestamp: Option<String>,
+    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<Option<String>>,
     #[serde(rename = "experienceInYears", skip_serializing_if = "Option::is_none")]
     pub experience_in_years: Option<i32>,
     #[serde(rename = "priority", skip_serializing_if = "Option::is_none")]

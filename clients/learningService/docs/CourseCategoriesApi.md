@@ -82,7 +82,7 @@ No authorization required
 
 ## get_course_categories_async
 
-> Vec<models::CourseCategoryDto> get_course_categories_async(tenant_id, api_version, x_api_version)
+> Vec<models::CourseCategoryDto> get_course_categories_async(tenant_id, api_version, x_api_version, course_category_dto_collection_query_parameters)
 Get all course categories
 
 Retrieves all course categories for the specified tenant.
@@ -95,6 +95,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_category_dto_collection_query_parameters** | Option<[**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -106,7 +107,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -114,7 +115,7 @@ No authorization required
 
 ## get_course_categories_count_async
 
-> i32 get_course_categories_count_async(tenant_id, api_version, x_api_version)
+> i32 get_course_categories_count_async(tenant_id, api_version, x_api_version, course_category_dto_collection_query_parameters)
 Get course categories count
 
 Returns the count of course categories for the specified tenant.
@@ -127,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_category_dto_collection_query_parameters** | Option<[**CourseCategoryDtoCollectionQueryParameters**](CourseCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -138,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -178,7 +180,7 @@ No authorization required
 
 ## patch_course_category_async
 
-> models::EmptyEnvelope patch_course_category_async(tenant_id, category_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_course_category_async(tenant_id, category_id, api_version, x_api_version, patch_operation)
 Patch a course category
 
 Partially updates a course category for the specified tenant.
@@ -192,7 +194,7 @@ Name | Type | Description  | Required | Notes
 **category_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -44,7 +44,7 @@ No authorization required
 
 ## get_merchants
 
-> models::MerchantDtoListEnvelope get_merchants(api_version, x_api_version)
+> models::MerchantDtoListEnvelope get_merchants(api_version, x_api_version, merchant_dto_collection_query_parameters)
 Get all merchants
 
 Retrieves all merchants, optionally filtered by OData query options.
@@ -56,6 +56,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**merchant_dto_collection_query_parameters** | Option<[**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -67,7 +68,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -75,7 +76,7 @@ No authorization required
 
 ## get_merchants_count
 
-> models::Int32Envelope get_merchants_count(api_version, x_api_version)
+> models::Int32Envelope get_merchants_count(api_version, x_api_version, merchant_dto_collection_query_parameters)
 Count merchants
 
 Counts the number of merchants, optionally filtered by OData query options.
@@ -87,6 +88,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**merchant_dto_collection_query_parameters** | Option<[**MerchantDtoCollectionQueryParameters**](MerchantDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -98,7 +100,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

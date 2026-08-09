@@ -115,7 +115,7 @@ No authorization required
 
 ## get_service_queues_async
 
-> models::ServiceQueueDtoIReadOnlyListEnvelope get_service_queues_async(tenant_id, api_version, x_api_version)
+> models::ServiceQueueDtoIReadOnlyListEnvelope get_service_queues_async(tenant_id, api_version, x_api_version, service_queue_dto_collection_query_parameters)
 Get all service queues
 
 Retrieves all service queues for the specified tenant.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**service_queue_dto_collection_query_parameters** | Option<[**ServiceQueueDtoCollectionQueryParameters**](ServiceQueueDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_service_queues_count_async
 
-> models::Int32Envelope get_service_queues_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_service_queues_count_async(tenant_id, api_version, x_api_version, service_queue_dto_collection_query_parameters)
 Get service queues count
 
 Returns the count of service queues for the specified tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**service_queue_dto_collection_query_parameters** | Option<[**ServiceQueueDtoCollectionQueryParameters**](ServiceQueueDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_service_queue_async
 
-> models::Envelope patch_service_queue_async(tenant_id, service_queue_id, api_version, x_api_version, operation)
+> models::Envelope patch_service_queue_async(tenant_id, service_queue_id, api_version, x_api_version, patch_operation)
 Patch a service queue
 
 Partially updates an existing service queue using a JSON Patch document.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **service_queue_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

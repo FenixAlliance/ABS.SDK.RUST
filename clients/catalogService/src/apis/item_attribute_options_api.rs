@@ -188,7 +188,7 @@ pub async fn get_item_attribute_option_by_id_async(configuration: &configuration
 }
 
 /// Retrieves all item attribute options for the specified tenant using OData query options.
-pub async fn get_item_attribute_options_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemAttributeOptionDtoListEnvelope, Error<GetItemAttributeOptionsAsyncError>> {
+pub async fn get_item_attribute_options_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, item_attribute_option_dto_collection_query_parameters: Option<models::ItemAttributeOptionDtoCollectionQueryParameters>) -> Result<models::ItemAttributeOptionDtoListEnvelope, Error<GetItemAttributeOptionsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,6 +208,7 @@ pub async fn get_item_attribute_options_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_attribute_option_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -225,7 +226,7 @@ pub async fn get_item_attribute_options_async(configuration: &configuration::Con
 }
 
 /// Returns the count of item attribute options for the specified tenant.
-pub async fn get_item_attribute_options_count_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetItemAttributeOptionsCountAsyncError>> {
+pub async fn get_item_attribute_options_count_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, item_attribute_option_dto_collection_query_parameters: Option<models::ItemAttributeOptionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetItemAttributeOptionsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -245,6 +246,7 @@ pub async fn get_item_attribute_options_count_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_attribute_option_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -262,7 +264,7 @@ pub async fn get_item_attribute_options_count_async(configuration: &configuratio
 }
 
 /// Partially updates an existing item attribute option for the specified tenant using a JSON Patch document.
-pub async fn patch_item_attribute_option_async(configuration: &configuration::Configuration, tenant_id: &str, item_attribute_option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchItemAttributeOptionAsyncError>> {
+pub async fn patch_item_attribute_option_async(configuration: &configuration::Configuration, tenant_id: &str, item_attribute_option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchItemAttributeOptionAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -280,7 +282,7 @@ pub async fn patch_item_attribute_option_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -109,7 +109,7 @@ No authorization required
 
 ## get_asset_transfers_async
 
-> models::AssetTransferDtoListEnvelope get_asset_transfers_async(tenant_id)
+> models::AssetTransferDtoListEnvelope get_asset_transfers_async(tenant_id, asset_transfer_dto_collection_query_parameters)
 Gets a list of asset transfers
 
 Retrieves all asset transfers for the authenticated tenant.
@@ -120,6 +120,7 @@ Retrieves all asset transfers for the authenticated tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**asset_transfer_dto_collection_query_parameters** | Option<[**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -131,7 +132,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -139,7 +140,7 @@ No authorization required
 
 ## get_asset_transfers_count_async
 
-> models::Int32Envelope get_asset_transfers_count_async(tenant_id)
+> models::Int32Envelope get_asset_transfers_count_async(tenant_id, asset_transfer_dto_collection_query_parameters)
 Gets the count of asset transfers
 
 Returns the total number of asset transfers for the authenticated tenant.
@@ -150,6 +151,7 @@ Returns the total number of asset transfers for the authenticated tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**asset_transfer_dto_collection_query_parameters** | Option<[**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -161,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,7 +171,7 @@ No authorization required
 
 ## patch_asset_transfer_async
 
-> models::EmptyEnvelope patch_asset_transfer_async(tenant_id, transfer_id, operation)
+> models::EmptyEnvelope patch_asset_transfer_async(tenant_id, transfer_id, patch_operation)
 Partially updates an existing asset transfer
 
 Applies a JSON Patch document to an existing asset transfer for the authenticated tenant.
@@ -181,7 +183,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **transfer_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

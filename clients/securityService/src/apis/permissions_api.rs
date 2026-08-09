@@ -461,7 +461,7 @@ pub async fn get_permission_async(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves all security permissions for the specified tenant.
-pub async fn get_permissions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SecurityPermissionDtoListEnvelope, Error<GetPermissionsAsyncError>> {
+pub async fn get_permissions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, security_permission_dto_collection_query_parameters: Option<models::SecurityPermissionDtoCollectionQueryParameters>) -> Result<models::SecurityPermissionDtoListEnvelope, Error<GetPermissionsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -479,6 +479,7 @@ pub async fn get_permissions_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&security_permission_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -531,7 +532,7 @@ pub async fn get_permissions_by_enrollment_async(configuration: &configuration::
 }
 
 /// Retrieves the count of security permissions for the specified tenant.
-pub async fn get_permissions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetPermissionsCountAsyncError>> {
+pub async fn get_permissions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, security_permission_dto_collection_query_parameters: Option<models::SecurityPermissionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetPermissionsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -549,6 +550,7 @@ pub async fn get_permissions_count_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&security_permission_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -601,7 +603,7 @@ pub async fn get_roles_by_permission_async(configuration: &configuration::Config
 }
 
 /// Partially updates an existing security permission using a JSON Patch document.
-pub async fn patch_permission_async(configuration: &configuration::Configuration, tenant_id: &str, security_permission_id: &str, operation: Vec<models::Operation>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<PatchPermissionAsyncError>> {
+pub async fn patch_permission_async(configuration: &configuration::Configuration, tenant_id: &str, security_permission_id: &str, patch_operation: Vec<models::PatchOperation>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<PatchPermissionAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -619,7 +621,7 @@ pub async fn patch_permission_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

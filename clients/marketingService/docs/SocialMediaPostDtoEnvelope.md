@@ -8,6 +8,9 @@ Name | Type | Description | Notes
 **error_message** | Option<**String**> |  | [optional]
 **correlation_id** | Option<**String**> |  | [optional]
 **timestamp** | Option<**String**> |  | [optional][readonly]
+**http_status** | Option<**i32**> |  | [optional]
+**error_code** | Option<**String**> |  | [optional]
+**validation_details** | Option<[**std::collections::HashMap<String, Vec<String>>**](Vec.md)> |  | [optional]
 **activity_id** | Option<**String**> |  | [optional][readonly]
 **result** | Option<[**models::SocialMediaPostDto**](SocialMediaPostDto.md)> |  | [optional]
 

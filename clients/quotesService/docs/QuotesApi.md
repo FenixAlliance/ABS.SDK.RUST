@@ -284,7 +284,7 @@ No authorization required
 
 ## get_extended_quotes
 
-> models::ExtendedQuoteDtoListEnvelope get_extended_quotes(tenant_id)
+> models::ExtendedQuoteDtoListEnvelope get_extended_quotes(tenant_id, extended_quote_dto_collection_query_parameters)
 Get a list of extended quotes.
 
 Retrieves a list of extended quotes for the specified tenant, supporting OData query options.
@@ -295,6 +295,7 @@ Retrieves a list of extended quotes for the specified tenant, supporting OData q
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**extended_quote_dto_collection_query_parameters** | Option<[**ExtendedQuoteDtoCollectionQueryParameters**](ExtendedQuoteDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -306,7 +307,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -377,7 +378,7 @@ No authorization required
 
 ## get_quote_lines
 
-> models::QuoteLineDtoListEnvelope get_quote_lines(tenant_id, quote_id, item_id)
+> models::QuoteLineDtoListEnvelope get_quote_lines(tenant_id, quote_id, item_id, quote_line_dto_collection_query_parameters)
 Get quote lines for a quote.
 
 Retrieves all quote lines for the specified quote and tenant.
@@ -390,6 +391,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **quote_id** | **uuid::Uuid** |  | [required] |
 **item_id** | Option<**uuid::Uuid**> |  |  |
+**quote_line_dto_collection_query_parameters** | Option<[**QuoteLineDtoCollectionQueryParameters**](QuoteLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -401,7 +403,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -409,7 +411,7 @@ No authorization required
 
 ## get_quote_lines_count
 
-> models::Int32Envelope get_quote_lines_count(tenant_id, quote_id)
+> models::Int32Envelope get_quote_lines_count(tenant_id, quote_id, quote_line_dto_collection_query_parameters)
 Get the count of quote lines.
 
 Retrieves the total count of quote lines for the specified quote and tenant.
@@ -421,6 +423,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **quote_id** | **uuid::Uuid** |  | [required] |
+**quote_line_dto_collection_query_parameters** | Option<[**QuoteLineDtoCollectionQueryParameters**](QuoteLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -432,7 +435,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -440,7 +443,7 @@ No authorization required
 
 ## get_quotes
 
-> models::QuoteDtoListEnvelope get_quotes(tenant_id)
+> models::QuoteDtoListEnvelope get_quotes(tenant_id, quote_dto_collection_query_parameters)
 Get a list of quotes.
 
 Retrieves a list of quotes for the specified tenant, supporting OData query options.
@@ -451,6 +454,7 @@ Retrieves a list of quotes for the specified tenant, supporting OData query opti
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**quote_dto_collection_query_parameters** | Option<[**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -462,7 +466,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -470,7 +474,7 @@ No authorization required
 
 ## get_quotes_count
 
-> models::Int32Envelope get_quotes_count(tenant_id)
+> models::Int32Envelope get_quotes_count(tenant_id, quote_dto_collection_query_parameters)
 Get the count of quotes.
 
 Retrieves the total count of quotes for the specified tenant, supporting OData query options.
@@ -481,6 +485,7 @@ Retrieves the total count of quotes for the specified tenant, supporting OData q
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**quote_dto_collection_query_parameters** | Option<[**QuoteDtoCollectionQueryParameters**](QuoteDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -492,7 +497,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -500,7 +505,7 @@ No authorization required
 
 ## patch_quote_async
 
-> models::EmptyEnvelope patch_quote_async(tenant_id, quote_id, operation)
+> models::EmptyEnvelope patch_quote_async(tenant_id, quote_id, patch_operation)
 Patch an existing quote.
 
 Partially updates an existing quote for the specified tenant and quote ID using a JSON Patch document.
@@ -512,7 +517,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **quote_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -532,7 +537,7 @@ No authorization required
 
 ## patch_quote_line_async
 
-> models::EmptyEnvelope patch_quote_line_async(tenant_id, quote_id, quote_line_id, operation)
+> models::EmptyEnvelope patch_quote_line_async(tenant_id, quote_id, quote_line_id, patch_operation)
 Patch a quote line.
 
 Partially updates an existing quote line for the specified quote and tenant using a JSON Patch document.
@@ -545,7 +550,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **quote_id** | **uuid::Uuid** |  | [required] |
 **quote_line_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

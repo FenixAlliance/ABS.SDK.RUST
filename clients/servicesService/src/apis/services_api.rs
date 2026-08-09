@@ -186,7 +186,7 @@ pub async fn get_service_by_id_async(configuration: &configuration::Configuratio
 }
 
 /// Retrieves all services for the specified tenant.
-pub async fn get_services_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ServiceDtoIReadOnlyListEnvelope, Error<GetServicesAsyncError>> {
+pub async fn get_services_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, service_dto_collection_query_parameters: Option<models::ServiceDtoCollectionQueryParameters>) -> Result<models::ServiceDtoIReadOnlyListEnvelope, Error<GetServicesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +204,7 @@ pub async fn get_services_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&service_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_services_async(configuration: &configuration::Configuration, te
 }
 
 /// Returns the count of services for the specified tenant.
-pub async fn get_services_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetServicesCountAsyncError>> {
+pub async fn get_services_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, service_dto_collection_query_parameters: Option<models::ServiceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetServicesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_services_count_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&service_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_services_count_async(configuration: &configuration::Configurati
 }
 
 /// Partially updates an existing service using a JSON Patch document.
-pub async fn patch_service_async(configuration: &configuration::Configuration, tenant_id: &str, service_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::Envelope, Error<PatchServiceAsyncError>> {
+pub async fn patch_service_async(configuration: &configuration::Configuration, tenant_id: &str, service_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::Envelope, Error<PatchServiceAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_service_async(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

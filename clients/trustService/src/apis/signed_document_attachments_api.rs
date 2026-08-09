@@ -184,7 +184,7 @@ pub async fn get_signed_document_attachment_by_id_async(configuration: &configur
 }
 
 /// Retrieves all signed document attachments for the specified tenant.
-pub async fn get_signed_document_attachments_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SignedDocumentAttachmentDtoListEnvelope, Error<GetSignedDocumentAttachmentsAsyncError>> {
+pub async fn get_signed_document_attachments_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, signed_document_attachment_dto_collection_query_parameters: Option<models::SignedDocumentAttachmentDtoCollectionQueryParameters>) -> Result<models::SignedDocumentAttachmentDtoListEnvelope, Error<GetSignedDocumentAttachmentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,6 +202,7 @@ pub async fn get_signed_document_attachments_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&signed_document_attachment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -219,7 +220,7 @@ pub async fn get_signed_document_attachments_async(configuration: &configuration
 }
 
 /// Returns the count of signed document attachments for the specified tenant.
-pub async fn get_signed_document_attachments_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSignedDocumentAttachmentsCountAsyncError>> {
+pub async fn get_signed_document_attachments_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, signed_document_attachment_dto_collection_query_parameters: Option<models::SignedDocumentAttachmentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSignedDocumentAttachmentsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -237,6 +238,7 @@ pub async fn get_signed_document_attachments_count_async(configuration: &configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&signed_document_attachment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -254,7 +256,7 @@ pub async fn get_signed_document_attachments_count_async(configuration: &configu
 }
 
 /// Patch a signed document attachment
-pub async fn patch_signed_document_attachment_async(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSignedDocumentAttachmentAsyncError>> {
+pub async fn patch_signed_document_attachment_async(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSignedDocumentAttachmentAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -272,7 +274,7 @@ pub async fn patch_signed_document_attachment_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

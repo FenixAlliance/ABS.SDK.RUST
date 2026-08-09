@@ -62,7 +62,7 @@ pub enum RemoveShippingPolicyFromItemAsyncError {
 
 
 /// Counts all shipping policies for a specific item.
-pub async fn count_item_shipping_policies_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, item_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountItemShippingPoliciesAsyncError>> {
+pub async fn count_item_shipping_policies_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, item_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, item_shipping_policy_dto_collection_query_parameters: Option<models::ItemShippingPolicyDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountItemShippingPoliciesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -85,6 +85,7 @@ pub async fn count_item_shipping_policies_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_shipping_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -102,7 +103,7 @@ pub async fn count_item_shipping_policies_async(configuration: &configuration::C
 }
 
 /// Retrieves all shipping policies for a specific item.
-pub async fn get_catalog_item_shipping_policies_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, item_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemShippingPolicyDtoListEnvelope, Error<GetCatalogItemShippingPoliciesAsyncError>> {
+pub async fn get_catalog_item_shipping_policies_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, item_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, item_shipping_policy_dto_collection_query_parameters: Option<models::ItemShippingPolicyDtoCollectionQueryParameters>) -> Result<models::ItemShippingPolicyDtoListEnvelope, Error<GetCatalogItemShippingPoliciesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -125,6 +126,7 @@ pub async fn get_catalog_item_shipping_policies_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_shipping_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

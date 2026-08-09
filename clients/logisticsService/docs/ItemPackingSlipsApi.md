@@ -190,7 +190,7 @@ No authorization required
 
 ## get_item_packing_slip_entries_async
 
-> models::ItemPackingSlipEntryDtoListEnvelope get_item_packing_slip_entries_async(tenant_id, packing_slip_id, api_version, x_api_version)
+> models::ItemPackingSlipEntryDtoListEnvelope get_item_packing_slip_entries_async(tenant_id, packing_slip_id, api_version, x_api_version, item_packing_slip_entry_dto_collection_query_parameters)
 Get packing slip entries
 
 Retrieves all entries for the specified packing slip.
@@ -204,6 +204,7 @@ Name | Type | Description  | Required | Notes
 **packing_slip_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_packing_slip_entry_dto_collection_query_parameters** | Option<[**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -215,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -223,7 +224,7 @@ No authorization required
 
 ## get_item_packing_slip_entries_count_async
 
-> models::Int32Envelope get_item_packing_slip_entries_count_async(tenant_id, packing_slip_id, api_version, x_api_version)
+> models::Int32Envelope get_item_packing_slip_entries_count_async(tenant_id, packing_slip_id, api_version, x_api_version, item_packing_slip_entry_dto_collection_query_parameters)
 Get packing slip entries count
 
 Returns the count of packing slip entries.
@@ -237,6 +238,7 @@ Name | Type | Description  | Required | Notes
 **packing_slip_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_packing_slip_entry_dto_collection_query_parameters** | Option<[**ItemPackingSlipEntryDtoCollectionQueryParameters**](ItemPackingSlipEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -248,7 +250,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -290,7 +292,7 @@ No authorization required
 
 ## get_item_packing_slips_async
 
-> models::ItemPackingSlipDtoListEnvelope get_item_packing_slips_async(tenant_id, api_version, x_api_version)
+> models::ItemPackingSlipDtoListEnvelope get_item_packing_slips_async(tenant_id, api_version, x_api_version, item_packing_slip_dto_collection_query_parameters)
 Get all item packing slips
 
 Retrieves all item packing slips for the specified tenant.
@@ -303,6 +305,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_packing_slip_dto_collection_query_parameters** | Option<[**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -314,7 +317,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -322,7 +325,7 @@ No authorization required
 
 ## get_item_packing_slips_count_async
 
-> models::Int32Envelope get_item_packing_slips_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_item_packing_slips_count_async(tenant_id, api_version, x_api_version, item_packing_slip_dto_collection_query_parameters)
 Get item packing slips count
 
 Returns the count of item packing slips.
@@ -335,6 +338,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_packing_slip_dto_collection_query_parameters** | Option<[**ItemPackingSlipDtoCollectionQueryParameters**](ItemPackingSlipDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -354,7 +358,7 @@ No authorization required
 
 ## patch_item_packing_slip_async
 
-> models::EmptyEnvelope patch_item_packing_slip_async(tenant_id, packing_slip_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_packing_slip_async(tenant_id, packing_slip_id, api_version, x_api_version, patch_operation)
 Patch an item packing slip
 
 Applies a JSON Patch document to an item packing slip.
@@ -368,7 +372,7 @@ Name | Type | Description  | Required | Notes
 **packing_slip_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -388,7 +392,7 @@ No authorization required
 
 ## patch_item_packing_slip_entry_async
 
-> models::EmptyEnvelope patch_item_packing_slip_entry_async(tenant_id, packing_slip_id, entry_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_packing_slip_entry_async(tenant_id, packing_slip_id, entry_id, api_version, x_api_version, patch_operation)
 Patch a packing slip entry
 
 Applies a JSON Patch document to a packing slip entry.
@@ -403,7 +407,7 @@ Name | Type | Description  | Required | Notes
 **entry_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

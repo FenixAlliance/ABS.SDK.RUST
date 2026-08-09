@@ -183,7 +183,7 @@ pub async fn get_newsletter_subscription_by_id_async(configuration: &configurati
 }
 
 /// Retrieves a collection of newsletter subscriptions for the specified tenant using OData query options.
-pub async fn get_newsletter_subscriptions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::NewsletterSubscriptionDtoListEnvelope, Error<GetNewsletterSubscriptionsAsyncError>> {
+pub async fn get_newsletter_subscriptions_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, newsletter_subscription_dto_collection_query_parameters: Option<models::NewsletterSubscriptionDtoCollectionQueryParameters>) -> Result<models::NewsletterSubscriptionDtoListEnvelope, Error<GetNewsletterSubscriptionsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -201,6 +201,7 @@ pub async fn get_newsletter_subscriptions_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&newsletter_subscription_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -218,7 +219,7 @@ pub async fn get_newsletter_subscriptions_async(configuration: &configuration::C
 }
 
 /// Returns the count of newsletter subscriptions for the specified tenant using OData query options.
-pub async fn get_newsletter_subscriptions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetNewsletterSubscriptionsCountAsyncError>> {
+pub async fn get_newsletter_subscriptions_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, newsletter_subscription_dto_collection_query_parameters: Option<models::NewsletterSubscriptionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetNewsletterSubscriptionsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -236,6 +237,7 @@ pub async fn get_newsletter_subscriptions_count_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&newsletter_subscription_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

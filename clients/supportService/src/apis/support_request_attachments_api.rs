@@ -186,7 +186,7 @@ pub async fn get_support_request_attachment_async(configuration: &configuration:
 }
 
 /// Retrieves a list of support request attachments for the specified tenant with OData query support.
-pub async fn get_support_request_attachments_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SupportRequestAttachmentDtoListEnvelope, Error<GetSupportRequestAttachmentsAsyncError>> {
+pub async fn get_support_request_attachments_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, support_request_attachment_dto_collection_query_parameters: Option<models::SupportRequestAttachmentDtoCollectionQueryParameters>) -> Result<models::SupportRequestAttachmentDtoListEnvelope, Error<GetSupportRequestAttachmentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +204,7 @@ pub async fn get_support_request_attachments_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&support_request_attachment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_support_request_attachments_async(configuration: &configuration
 }
 
 /// Returns the total count of support request attachments for the specified tenant with OData query support.
-pub async fn get_support_request_attachments_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSupportRequestAttachmentsCountAsyncError>> {
+pub async fn get_support_request_attachments_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, support_request_attachment_dto_collection_query_parameters: Option<models::SupportRequestAttachmentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSupportRequestAttachmentsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_support_request_attachments_count_async(configuration: &configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&support_request_attachment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_support_request_attachments_count_async(configuration: &configu
 }
 
 /// Partially updates an existing support request attachment by its unique identifier.
-pub async fn patch_support_request_attachment_async(configuration: &configuration::Configuration, tenant_id: &str, support_request_attachment_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSupportRequestAttachmentAsyncError>> {
+pub async fn patch_support_request_attachment_async(configuration: &configuration::Configuration, tenant_id: &str, support_request_attachment_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSupportRequestAttachmentAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_support_request_attachment_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

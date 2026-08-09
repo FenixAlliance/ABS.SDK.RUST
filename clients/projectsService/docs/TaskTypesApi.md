@@ -107,7 +107,7 @@ No authorization required
 
 ## patch_task_type_async
 
-> models::EmptyEnvelope patch_task_type_async(task_type_id, tenant_id, operation)
+> models::EmptyEnvelope patch_task_type_async(task_type_id, tenant_id, patch_operation)
 Patches a task type
 
 Partially updates the specified task type.
@@ -119,7 +119,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **task_type_id** | **uuid::Uuid** |  | [required] |
 **tenant_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

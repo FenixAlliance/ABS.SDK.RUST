@@ -157,7 +157,7 @@ pub async fn get_children_item_google_categories_by_id_async(configuration: &con
 }
 
 /// Retrieves all Google item categories using OData query options.
-pub async fn get_item_google_categories_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemGoogleCategoryDtoListEnvelope, Error<GetItemGoogleCategoriesAsyncError>> {
+pub async fn get_item_google_categories_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, item_google_category_dto_collection_query_parameters: Option<models::ItemGoogleCategoryDtoCollectionQueryParameters>) -> Result<models::ItemGoogleCategoryDtoListEnvelope, Error<GetItemGoogleCategoriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -174,6 +174,7 @@ pub async fn get_item_google_categories_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_google_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -191,7 +192,7 @@ pub async fn get_item_google_categories_async(configuration: &configuration::Con
 }
 
 /// Retrieves the count of Google item categories using OData query options.
-pub async fn get_item_google_categories_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetItemGoogleCategoriesCountAsyncError>> {
+pub async fn get_item_google_categories_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, item_google_category_dto_collection_query_parameters: Option<models::ItemGoogleCategoryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetItemGoogleCategoriesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,6 +209,7 @@ pub async fn get_item_google_categories_count_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_google_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

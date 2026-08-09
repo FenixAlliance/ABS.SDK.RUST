@@ -454,7 +454,7 @@ pub async fn get_loan_application_details_async(configuration: &configuration::C
 }
 
 /// Retrieves all loan applications for the current tenant.
-pub async fn get_loan_applications_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LoanApplicationDtoIReadOnlyListEnvelope, Error<GetLoanApplicationsAsyncError>> {
+pub async fn get_loan_applications_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, loan_application_dto_collection_query_parameters: Option<models::LoanApplicationDtoCollectionQueryParameters>) -> Result<models::LoanApplicationDtoIReadOnlyListEnvelope, Error<GetLoanApplicationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -472,6 +472,7 @@ pub async fn get_loan_applications_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&loan_application_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -489,7 +490,7 @@ pub async fn get_loan_applications_async(configuration: &configuration::Configur
 }
 
 /// Gets the count of loan applications for the current tenant.
-pub async fn get_loan_applications_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetLoanApplicationsCountAsyncError>> {
+pub async fn get_loan_applications_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, loan_application_dto_collection_query_parameters: Option<models::LoanApplicationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetLoanApplicationsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -507,6 +508,7 @@ pub async fn get_loan_applications_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&loan_application_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -594,7 +596,7 @@ pub async fn get_loan_type_by_id_async(configuration: &configuration::Configurat
 }
 
 /// Retrieves all loan types for the current tenant with OData support.
-pub async fn get_loan_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LoanTypeDtoIReadOnlyListEnvelope, Error<GetLoanTypesAsyncError>> {
+pub async fn get_loan_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, loan_type_dto_collection_query_parameters: Option<models::LoanTypeDtoCollectionQueryParameters>) -> Result<models::LoanTypeDtoIReadOnlyListEnvelope, Error<GetLoanTypesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -612,6 +614,7 @@ pub async fn get_loan_types_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&loan_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -629,7 +632,7 @@ pub async fn get_loan_types_async(configuration: &configuration::Configuration, 
 }
 
 /// Gets the count of loan types for the current tenant.
-pub async fn get_loan_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetLoanTypesCountAsyncError>> {
+pub async fn get_loan_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, loan_type_dto_collection_query_parameters: Option<models::LoanTypeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetLoanTypesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -647,6 +650,7 @@ pub async fn get_loan_types_count_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&loan_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -664,7 +668,7 @@ pub async fn get_loan_types_count_async(configuration: &configuration::Configura
 }
 
 /// Retrieves all loans for the current tenant with OData support.
-pub async fn get_loans_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LoanDtoIReadOnlyListEnvelope, Error<GetLoansAsyncError>> {
+pub async fn get_loans_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, loan_dto_collection_query_parameters: Option<models::LoanDtoCollectionQueryParameters>) -> Result<models::LoanDtoIReadOnlyListEnvelope, Error<GetLoansAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -682,6 +686,7 @@ pub async fn get_loans_async(configuration: &configuration::Configuration, tenan
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&loan_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -699,7 +704,7 @@ pub async fn get_loans_async(configuration: &configuration::Configuration, tenan
 }
 
 /// Gets the count of loans for the current tenant.
-pub async fn get_loans_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetLoansCountAsyncError>> {
+pub async fn get_loans_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, loan_dto_collection_query_parameters: Option<models::LoanDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetLoansCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -717,6 +722,7 @@ pub async fn get_loans_count_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&loan_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -734,7 +740,7 @@ pub async fn get_loans_count_async(configuration: &configuration::Configuration,
 }
 
 /// Partially updates the specified loan application using a JSON Patch document.
-pub async fn patch_loan_application_async(configuration: &configuration::Configuration, tenant_id: &str, application_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchLoanApplicationAsyncError>> {
+pub async fn patch_loan_application_async(configuration: &configuration::Configuration, tenant_id: &str, application_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchLoanApplicationAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -752,7 +758,7 @@ pub async fn patch_loan_application_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -770,7 +776,7 @@ pub async fn patch_loan_application_async(configuration: &configuration::Configu
 }
 
 /// Partially updates the specified loan using a JSON Patch document.
-pub async fn patch_loan_async(configuration: &configuration::Configuration, tenant_id: &str, loan_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchLoanAsyncError>> {
+pub async fn patch_loan_async(configuration: &configuration::Configuration, tenant_id: &str, loan_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchLoanAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -788,7 +794,7 @@ pub async fn patch_loan_async(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -806,7 +812,7 @@ pub async fn patch_loan_async(configuration: &configuration::Configuration, tena
 }
 
 /// Partially updates the specified loan type using a JSON Patch document.
-pub async fn patch_loan_type_async(configuration: &configuration::Configuration, tenant_id: &str, loan_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchLoanTypeAsyncError>> {
+pub async fn patch_loan_type_async(configuration: &configuration::Configuration, tenant_id: &str, loan_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchLoanTypeAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -824,7 +830,7 @@ pub async fn patch_loan_type_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

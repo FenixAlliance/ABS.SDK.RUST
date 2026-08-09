@@ -184,7 +184,7 @@ pub async fn get_contact_source_by_id_async(configuration: &configuration::Confi
 }
 
 /// Retrieves all contact sources for the specified tenant.
-pub async fn get_contact_sources_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ContactSourceDtoListEnvelope, Error<GetContactSourcesAsyncError>> {
+pub async fn get_contact_sources_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_source_dto_collection_query_parameters: Option<models::ContactSourceDtoCollectionQueryParameters>) -> Result<models::ContactSourceDtoListEnvelope, Error<GetContactSourcesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,6 +202,7 @@ pub async fn get_contact_sources_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_source_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -219,7 +220,7 @@ pub async fn get_contact_sources_async(configuration: &configuration::Configurat
 }
 
 /// Returns the count of contact sources for the specified tenant.
-pub async fn get_contact_sources_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetContactSourcesCountAsyncError>> {
+pub async fn get_contact_sources_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, contact_source_dto_collection_query_parameters: Option<models::ContactSourceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetContactSourcesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -237,6 +238,7 @@ pub async fn get_contact_sources_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&contact_source_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -254,7 +256,7 @@ pub async fn get_contact_sources_count_async(configuration: &configuration::Conf
 }
 
 /// Patch a contact source
-pub async fn patch_contact_source_async(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchContactSourceAsyncError>> {
+pub async fn patch_contact_source_async(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchContactSourceAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -272,7 +274,7 @@ pub async fn patch_contact_source_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

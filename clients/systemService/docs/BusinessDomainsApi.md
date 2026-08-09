@@ -78,7 +78,7 @@ No authorization required
 
 ## get_system_business_domains
 
-> models::BusinessDomainDtoListEnvelope get_system_business_domains(api_version, x_api_version)
+> models::BusinessDomainDtoListEnvelope get_system_business_domains(api_version, x_api_version, business_domain_dto_collection_query_parameters)
 Retrieve all business domains in the system
 
 Retrieve all registered business domains across every tenant (global administrators only).
@@ -90,6 +90,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**business_domain_dto_collection_query_parameters** | Option<[**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -101,7 +102,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -109,7 +110,7 @@ No authorization required
 
 ## get_system_business_domains_count
 
-> models::Int32Envelope get_system_business_domains_count(api_version, x_api_version)
+> models::Int32Envelope get_system_business_domains_count(api_version, x_api_version, business_domain_dto_collection_query_parameters)
 Get the count of all business domains in the system
 
 Get the count of all registered business domains across every tenant.
@@ -121,6 +122,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**business_domain_dto_collection_query_parameters** | Option<[**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -132,7 +134,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

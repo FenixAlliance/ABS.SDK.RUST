@@ -107,7 +107,7 @@ pub enum UpdateFeedPostAsyncError {
 
 
 /// Creates a new post in a specific social feed.
-pub async fn create_feed_post_async(configuration: &configuration::Configuration, social_profile_id: &str, social_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_feed_post_create_dto: Option<models::SocialFeedPostCreateDto>) -> Result<models::SocialFeedPostDtoEnvelope, Error<CreateFeedPostAsyncError>> {
+pub async fn create_feed_post_async(configuration: &configuration::Configuration, social_profile_id: &str, social_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_feed_post_create_dto: Option<models::SocialFeedPostCreateDto>) -> Result<models::StringEnvelope, Error<CreateFeedPostAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -178,7 +178,7 @@ pub async fn delete_feed_post_async(configuration: &configuration::Configuration
 }
 
 /// Retrieves a list of social feeds for the specified social profile.
-pub async fn get_feed_notifications(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialFeedDtoListEnvelope, Error<GetFeedNotificationsError>> {
+pub async fn get_feed_notifications(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_feed_dto_collection_query_parameters: Option<models::SocialFeedDtoCollectionQueryParameters>) -> Result<models::SocialFeedDtoListEnvelope, Error<GetFeedNotificationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -196,6 +196,7 @@ pub async fn get_feed_notifications(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_feed_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -248,7 +249,7 @@ pub async fn get_feed_post_async(configuration: &configuration::Configuration, s
 }
 
 /// Retrieves a list of posts for a specific social feed.
-pub async fn get_feed_posts_async(configuration: &configuration::Configuration, social_profile_id: &str, social_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialFeedPostDtoListEnvelope, Error<GetFeedPostsAsyncError>> {
+pub async fn get_feed_posts_async(configuration: &configuration::Configuration, social_profile_id: &str, social_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_feed_post_dto_collection_query_parameters: Option<models::SocialFeedPostDtoCollectionQueryParameters>) -> Result<models::SocialFeedPostDtoListEnvelope, Error<GetFeedPostsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -266,6 +267,7 @@ pub async fn get_feed_posts_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_feed_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -283,7 +285,7 @@ pub async fn get_feed_posts_async(configuration: &configuration::Configuration, 
 }
 
 /// Returns the count of posts for a specific social feed.
-pub async fn get_feed_posts_count_async(configuration: &configuration::Configuration, social_profile_id: &str, social_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetFeedPostsCountAsyncError>> {
+pub async fn get_feed_posts_count_async(configuration: &configuration::Configuration, social_profile_id: &str, social_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_feed_post_dto_collection_query_parameters: Option<models::SocialFeedPostDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetFeedPostsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -301,6 +303,7 @@ pub async fn get_feed_posts_count_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_feed_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -353,7 +356,7 @@ pub async fn get_notification_async(configuration: &configuration::Configuration
 }
 
 /// Returns the count of social feeds for the specified social profile.
-pub async fn get_notifications_count_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetNotificationsCountAsyncError>> {
+pub async fn get_notifications_count_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_feed_dto_collection_query_parameters: Option<models::SocialFeedDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetNotificationsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -371,6 +374,7 @@ pub async fn get_notifications_count_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_feed_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -388,7 +392,7 @@ pub async fn get_notifications_count_async(configuration: &configuration::Config
 }
 
 /// Partially updates an existing post in a specific social feed using a JSON Patch document.
-pub async fn patch_feed_post_async(configuration: &configuration::Configuration, social_profile_id: &str, social_feed_id: &str, feed_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchFeedPostAsyncError>> {
+pub async fn patch_feed_post_async(configuration: &configuration::Configuration, social_profile_id: &str, social_feed_id: &str, feed_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchFeedPostAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -406,7 +410,7 @@ pub async fn patch_feed_post_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

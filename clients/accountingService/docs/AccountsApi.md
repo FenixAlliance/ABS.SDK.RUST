@@ -51,7 +51,7 @@ Method | HTTP request | Description
 
 ## aggregate_accounts_balance_async
 
-> models::MoneyEnvelope aggregate_accounts_balance_async(tenant_id, currency_id, api_version, x_api_version)
+> models::MoneyEnvelope aggregate_accounts_balance_async(tenant_id, currency_id, api_version, x_api_version, account_dto_collection_query_parameters)
 Aggregate accounts balance
 
 Returns the sum of all account balances matching OData filters, normalized to the target currency using stored USD values.
@@ -65,6 +65,7 @@ Name | Type | Description  | Required | Notes
 **currency_id** | Option<**String**> |  |  |[default to USD.USA]
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**account_dto_collection_query_parameters** | Option<[**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -76,7 +77,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -519,7 +520,7 @@ No authorization required
 
 ## get_account_credits_async
 
-> models::AccountingEntryDtoListEnvelope get_account_credits_async(tenant_id, account_id, api_version, x_api_version)
+> models::AccountingEntryDtoListEnvelope get_account_credits_async(tenant_id, account_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Get account credits
 
 Get account credits.
@@ -533,6 +534,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -544,7 +546,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -552,7 +554,7 @@ No authorization required
 
 ## get_account_credits_count_async
 
-> models::Int32Envelope get_account_credits_count_async(tenant_id, account_id, api_version, x_api_version)
+> models::Int32Envelope get_account_credits_count_async(tenant_id, account_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Get account credits count
 
 Get account credits count.
@@ -566,6 +568,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -577,7 +580,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -585,7 +588,7 @@ No authorization required
 
 ## get_account_debits_async
 
-> models::AccountingEntryDtoListEnvelope get_account_debits_async(tenant_id, account_id, api_version, x_api_version)
+> models::AccountingEntryDtoListEnvelope get_account_debits_async(tenant_id, account_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Get account debits
 
 Get account debits.
@@ -599,6 +602,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -610,7 +614,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -618,7 +622,7 @@ No authorization required
 
 ## get_account_debits_count_async
 
-> models::Int32Envelope get_account_debits_count_async(tenant_id, account_id, api_version, x_api_version)
+> models::Int32Envelope get_account_debits_count_async(tenant_id, account_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Get account debits count
 
 Get account debits count.
@@ -632,6 +636,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -643,7 +648,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -684,7 +689,7 @@ No authorization required
 
 ## get_account_entries_async
 
-> models::AccountingEntryDtoListEnvelope get_account_entries_async(tenant_id, account_id, api_version, x_api_version)
+> models::AccountingEntryDtoListEnvelope get_account_entries_async(tenant_id, account_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Get account entries
 
 Get account entries.
@@ -698,6 +703,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -709,7 +715,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -751,7 +757,7 @@ No authorization required
 
 ## get_account_relations_async
 
-> models::AccountRelationDtoListEnvelope get_account_relations_async(tenant_id, account_id, api_version, x_api_version)
+> models::AccountRelationDtoListEnvelope get_account_relations_async(tenant_id, account_id, api_version, x_api_version, account_relation_dto_collection_query_parameters)
 Get account relations
 
 Get account relations.
@@ -765,6 +771,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**account_relation_dto_collection_query_parameters** | Option<[**AccountRelationDtoCollectionQueryParameters**](AccountRelationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -776,7 +783,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -784,7 +791,7 @@ No authorization required
 
 ## get_account_relations_count_async
 
-> models::Int32Envelope get_account_relations_count_async(tenant_id, account_id, api_version, x_api_version)
+> models::Int32Envelope get_account_relations_count_async(tenant_id, account_id, api_version, x_api_version, account_relation_dto_collection_query_parameters)
 Get account relations count
 
 Get account relations count.
@@ -798,6 +805,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**account_relation_dto_collection_query_parameters** | Option<[**AccountRelationDtoCollectionQueryParameters**](AccountRelationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -809,7 +817,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -850,7 +858,7 @@ No authorization required
 
 ## get_account_types_async
 
-> models::AccountTypeDtoListEnvelope get_account_types_async(tenant_id, api_version, x_api_version)
+> models::AccountTypeDtoListEnvelope get_account_types_async(tenant_id, api_version, x_api_version, account_type_dto_collection_query_parameters)
 Get account types
 
 Get account types.
@@ -863,6 +871,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**account_type_dto_collection_query_parameters** | Option<[**AccountTypeDtoCollectionQueryParameters**](AccountTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -874,7 +883,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -882,7 +891,7 @@ No authorization required
 
 ## get_account_types_count_async
 
-> models::Int32Envelope get_account_types_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_account_types_count_async(tenant_id, api_version, x_api_version, account_type_dto_collection_query_parameters)
 Get account types count
 
 Get account types count.
@@ -895,6 +904,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**account_type_dto_collection_query_parameters** | Option<[**AccountTypeDtoCollectionQueryParameters**](AccountTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -906,7 +916,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -914,7 +924,7 @@ No authorization required
 
 ## get_accounts_async
 
-> models::AccountDtoListEnvelope get_accounts_async(tenant_id, api_version, x_api_version)
+> models::AccountDtoListEnvelope get_accounts_async(tenant_id, api_version, x_api_version, account_dto_collection_query_parameters)
 Creates a new account
 
 Creates a new account.
@@ -927,6 +937,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**account_dto_collection_query_parameters** | Option<[**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -938,7 +949,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -946,7 +957,7 @@ No authorization required
 
 ## get_accounts_count_async
 
-> models::Int32Envelope get_accounts_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_accounts_count_async(tenant_id, api_version, x_api_version, account_dto_collection_query_parameters)
 Get the number of accounts
 
 Get the number of accounts.
@@ -959,6 +970,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**account_dto_collection_query_parameters** | Option<[**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -970,7 +982,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1042,7 +1054,7 @@ No authorization required
 
 ## get_credit_account_entries_async
 
-> models::AccountingEntryDtoListEnvelope get_credit_account_entries_async(tenant_id, account_id, api_version, x_api_version)
+> models::AccountingEntryDtoListEnvelope get_credit_account_entries_async(tenant_id, account_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Get credit account entries
 
 Get credit account entries.
@@ -1056,6 +1068,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1067,7 +1080,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1075,7 +1088,7 @@ No authorization required
 
 ## get_debit_account_entries_async
 
-> models::AccountingEntryDtoListEnvelope get_debit_account_entries_async(tenant_id, account_id, api_version, x_api_version)
+> models::AccountingEntryDtoListEnvelope get_debit_account_entries_async(tenant_id, account_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Get debit account entries
 
 Get debit account entries.
@@ -1089,6 +1102,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1100,7 +1114,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1108,7 +1122,7 @@ No authorization required
 
 ## get_root_accounts_async
 
-> models::AccountDtoListEnvelope get_root_accounts_async(tenant_id, api_version, x_api_version)
+> models::AccountDtoListEnvelope get_root_accounts_async(tenant_id, api_version, x_api_version, account_dto_collection_query_parameters)
 Get root accounts
 
 Get root accounts.
@@ -1121,6 +1135,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**account_dto_collection_query_parameters** | Option<[**AccountDtoCollectionQueryParameters**](AccountDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1132,7 +1147,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1140,7 +1155,7 @@ No authorization required
 
 ## patch_account_async
 
-> models::EmptyEnvelope patch_account_async(tenant_id, account_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_account_async(tenant_id, account_id, api_version, x_api_version, patch_operation)
 Patch an account
 
 Patch an account.
@@ -1154,7 +1169,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1174,7 +1189,7 @@ No authorization required
 
 ## patch_account_entry_async
 
-> models::EmptyEnvelope patch_account_entry_async(tenant_id, account_id, entry_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_account_entry_async(tenant_id, account_id, entry_id, api_version, x_api_version, patch_operation)
 Patch account entry
 
 Patch account entry.
@@ -1189,7 +1204,7 @@ Name | Type | Description  | Required | Notes
 **entry_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1209,7 +1224,7 @@ No authorization required
 
 ## patch_account_relation_async
 
-> models::EmptyEnvelope patch_account_relation_async(tenant_id, account_relation_id, account_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_account_relation_async(tenant_id, account_relation_id, account_id, api_version, x_api_version, patch_operation)
 Patch account relation
 
 Patch account relation.
@@ -1224,7 +1239,7 @@ Name | Type | Description  | Required | Notes
 **account_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1244,7 +1259,7 @@ No authorization required
 
 ## patch_account_type_async
 
-> models::EmptyEnvelope patch_account_type_async(tenant_id, account_type_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_account_type_async(tenant_id, account_type_id, api_version, x_api_version, patch_operation)
 Patch account type
 
 Patch account type.
@@ -1258,7 +1273,7 @@ Name | Type | Description  | Required | Notes
 **account_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

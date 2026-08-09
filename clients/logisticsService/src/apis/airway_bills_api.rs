@@ -339,7 +339,7 @@ pub async fn get_airway_bill_by_id_async(configuration: &configuration::Configur
 }
 
 /// Retrieves all lines for a specific airway bill.
-pub async fn get_airway_bill_lines_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WaybillLineDtoListEnvelope, Error<GetAirwayBillLinesAsyncError>> {
+pub async fn get_airway_bill_lines_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, waybill_line_dto_collection_query_parameters: Option<models::WaybillLineDtoCollectionQueryParameters>) -> Result<models::WaybillLineDtoListEnvelope, Error<GetAirwayBillLinesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -357,6 +357,7 @@ pub async fn get_airway_bill_lines_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&waybill_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -374,7 +375,7 @@ pub async fn get_airway_bill_lines_async(configuration: &configuration::Configur
 }
 
 /// Returns the count of lines for a specific airway bill.
-pub async fn get_airway_bill_lines_count_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetAirwayBillLinesCountAsyncError>> {
+pub async fn get_airway_bill_lines_count_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, waybill_line_dto_collection_query_parameters: Option<models::WaybillLineDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAirwayBillLinesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -392,6 +393,7 @@ pub async fn get_airway_bill_lines_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&waybill_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -409,7 +411,7 @@ pub async fn get_airway_bill_lines_count_async(configuration: &configuration::Co
 }
 
 /// Retrieves all airway bills for the specified tenant.
-pub async fn get_airway_bills_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AirwayBillDtoListEnvelope, Error<GetAirwayBillsAsyncError>> {
+pub async fn get_airway_bills_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, airway_bill_dto_collection_query_parameters: Option<models::AirwayBillDtoCollectionQueryParameters>) -> Result<models::AirwayBillDtoListEnvelope, Error<GetAirwayBillsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -427,6 +429,7 @@ pub async fn get_airway_bills_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&airway_bill_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -444,7 +447,7 @@ pub async fn get_airway_bills_async(configuration: &configuration::Configuration
 }
 
 /// Returns the count of airway bills for the specified tenant.
-pub async fn get_airway_bills_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetAirwayBillsCountAsyncError>> {
+pub async fn get_airway_bills_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, airway_bill_dto_collection_query_parameters: Option<models::AirwayBillDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAirwayBillsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -462,6 +465,7 @@ pub async fn get_airway_bills_count_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&airway_bill_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -619,7 +623,7 @@ pub async fn mark_airway_bill_in_transit_async(configuration: &configuration::Co
 }
 
 /// Partially updates an existing airway bill using a JSON Patch document.
-pub async fn patch_airway_bill_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAirwayBillAsyncError>> {
+pub async fn patch_airway_bill_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAirwayBillAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -637,7 +641,7 @@ pub async fn patch_airway_bill_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -655,7 +659,7 @@ pub async fn patch_airway_bill_async(configuration: &configuration::Configuratio
 }
 
 /// Partially updates a line on an airway bill using a JSON Patch document.
-pub async fn patch_airway_bill_line_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAirwayBillLineAsyncError>> {
+pub async fn patch_airway_bill_line_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAirwayBillLineAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -673,7 +677,7 @@ pub async fn patch_airway_bill_line_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

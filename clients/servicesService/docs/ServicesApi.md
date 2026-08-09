@@ -115,7 +115,7 @@ No authorization required
 
 ## get_services_async
 
-> models::ServiceDtoIReadOnlyListEnvelope get_services_async(tenant_id, api_version, x_api_version)
+> models::ServiceDtoIReadOnlyListEnvelope get_services_async(tenant_id, api_version, x_api_version, service_dto_collection_query_parameters)
 Get all services
 
 Retrieves all services for the specified tenant.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**service_dto_collection_query_parameters** | Option<[**ServiceDtoCollectionQueryParameters**](ServiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_services_count_async
 
-> models::Int32Envelope get_services_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_services_count_async(tenant_id, api_version, x_api_version, service_dto_collection_query_parameters)
 Get services count
 
 Returns the count of services for the specified tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**service_dto_collection_query_parameters** | Option<[**ServiceDtoCollectionQueryParameters**](ServiceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_service_async
 
-> models::Envelope patch_service_async(tenant_id, service_id, api_version, x_api_version, operation)
+> models::Envelope patch_service_async(tenant_id, service_id, api_version, x_api_version, patch_operation)
 Patch a service
 
 Partially updates an existing service using a JSON Patch document.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **service_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -179,7 +179,7 @@ pub async fn get_item_tag_by_id_async(configuration: &configuration::Configurati
 }
 
 /// Retrieves all item tags for the specified tenant using OData query options.
-pub async fn get_item_tags_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemTagDtoListEnvelope, Error<GetItemTagsAsyncError>> {
+pub async fn get_item_tags_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, item_tag_dto_collection_query_parameters: Option<models::ItemTagDtoCollectionQueryParameters>) -> Result<models::ItemTagDtoListEnvelope, Error<GetItemTagsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -199,6 +199,7 @@ pub async fn get_item_tags_async(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -216,7 +217,7 @@ pub async fn get_item_tags_async(configuration: &configuration::Configuration, t
 }
 
 /// Partially updates an existing item tag for the specified tenant.
-pub async fn patch_item_tag_async(configuration: &configuration::Configuration, tenant_id: &str, item_tag_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<(), Error<PatchItemTagAsyncError>> {
+pub async fn patch_item_tag_async(configuration: &configuration::Configuration, tenant_id: &str, item_tag_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<(), Error<PatchItemTagAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -234,7 +235,7 @@ pub async fn patch_item_tag_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

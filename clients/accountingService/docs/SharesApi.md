@@ -335,7 +335,7 @@ No authorization required
 
 ## get_share_classes
 
-> models::ShareClassDtoListEnvelope get_share_classes(tenant_id, api_version, x_api_version)
+> models::ShareClassDtoListEnvelope get_share_classes(tenant_id, api_version, x_api_version, share_class_dto_collection_query_parameters)
 Gets the current tenant share classes
 
 Get the currently acting tenant share classes.
@@ -348,6 +348,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_class_dto_collection_query_parameters** | Option<[**ShareClassDtoCollectionQueryParameters**](ShareClassDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -359,7 +360,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -367,7 +368,7 @@ No authorization required
 
 ## get_share_classes_count
 
-> models::Int32Envelope get_share_classes_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_share_classes_count(tenant_id, api_version, x_api_version, share_class_dto_collection_query_parameters)
 Gets the current tenant share classes count
 
 Get the currently acting tenant share classes count.
@@ -380,6 +381,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_class_dto_collection_query_parameters** | Option<[**ShareClassDtoCollectionQueryParameters**](ShareClassDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -391,7 +393,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -432,7 +434,7 @@ No authorization required
 
 ## get_share_issuances
 
-> models::ShareIssuanceDtoListEnvelope get_share_issuances(tenant_id, api_version, x_api_version)
+> models::ShareIssuanceDtoListEnvelope get_share_issuances(tenant_id, api_version, x_api_version, share_issuance_dto_collection_query_parameters)
 Gets the current tenant share issuances
 
 Get the currently acting tenant share issuances.
@@ -445,6 +447,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_issuance_dto_collection_query_parameters** | Option<[**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -456,7 +459,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -464,7 +467,7 @@ No authorization required
 
 ## get_share_issuances_count
 
-> models::Int32Envelope get_share_issuances_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_share_issuances_count(tenant_id, api_version, x_api_version, share_issuance_dto_collection_query_parameters)
 Gets the current tenant share issuances count
 
 Get the currently acting tenant share issuances count.
@@ -477,6 +480,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_issuance_dto_collection_query_parameters** | Option<[**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -488,7 +492,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -496,7 +500,7 @@ No authorization required
 
 ## get_share_issuances_sum
 
-> models::DecimalEnvelope get_share_issuances_sum(tenant_id, api_version, x_api_version)
+> models::DecimalEnvelope get_share_issuances_sum(tenant_id, api_version, x_api_version, share_issuance_dto_collection_query_parameters)
 Sum tenant share issuance quantities
 
 Returns SUM(ShareIssuance.Quantity) for the tenant, filtered by the supplied OData date range.
@@ -509,6 +513,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_issuance_dto_collection_query_parameters** | Option<[**ShareIssuanceDtoCollectionQueryParameters**](ShareIssuanceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -520,7 +525,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -594,7 +599,7 @@ No authorization required
 
 ## get_share_transfer_reasons
 
-> models::ShareTransferReasonDtoListEnvelope get_share_transfer_reasons(tenant_id, api_version, x_api_version)
+> models::ShareTransferReasonDtoListEnvelope get_share_transfer_reasons(tenant_id, api_version, x_api_version, share_transfer_reason_dto_collection_query_parameters)
 Gets the current tenant share transfer reasons
 
 Get the currently acting tenant share transfer reasons.
@@ -607,6 +612,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_transfer_reason_dto_collection_query_parameters** | Option<[**ShareTransferReasonDtoCollectionQueryParameters**](ShareTransferReasonDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -618,7 +624,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -626,7 +632,7 @@ No authorization required
 
 ## get_share_transfer_reasons_count
 
-> models::Int32Envelope get_share_transfer_reasons_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_share_transfer_reasons_count(tenant_id, api_version, x_api_version, share_transfer_reason_dto_collection_query_parameters)
 Gets the current tenant share transfer reasons count
 
 Get the currently acting tenant share transfer reasons count.
@@ -639,6 +645,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_transfer_reason_dto_collection_query_parameters** | Option<[**ShareTransferReasonDtoCollectionQueryParameters**](ShareTransferReasonDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -650,7 +657,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -658,7 +665,7 @@ No authorization required
 
 ## get_share_transfers
 
-> models::ShareTransferDtoListEnvelope get_share_transfers(tenant_id, api_version, x_api_version)
+> models::ShareTransferDtoListEnvelope get_share_transfers(tenant_id, api_version, x_api_version, share_transfer_dto_collection_query_parameters)
 Gets the current tenant share transfers
 
 Get the currently acting tenant share transfers.
@@ -671,6 +678,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_transfer_dto_collection_query_parameters** | Option<[**ShareTransferDtoCollectionQueryParameters**](ShareTransferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -682,7 +690,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -690,7 +698,7 @@ No authorization required
 
 ## get_share_transfers_count
 
-> models::Int32Envelope get_share_transfers_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_share_transfers_count(tenant_id, api_version, x_api_version, share_transfer_dto_collection_query_parameters)
 Gets the current tenant share transfers count
 
 Get the currently acting tenant share transfers count.
@@ -703,6 +711,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**share_transfer_dto_collection_query_parameters** | Option<[**ShareTransferDtoCollectionQueryParameters**](ShareTransferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -714,7 +723,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -722,7 +731,7 @@ No authorization required
 
 ## patch_share_class
 
-> models::EmptyEnvelope patch_share_class(tenant_id, share_class_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_share_class(tenant_id, share_class_id, api_version, x_api_version, patch_operation)
 Patches a share class
 
 Partially updates a share class using a JSON Patch document.
@@ -736,7 +745,7 @@ Name | Type | Description  | Required | Notes
 **share_class_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -756,7 +765,7 @@ No authorization required
 
 ## patch_share_issuance
 
-> models::EmptyEnvelope patch_share_issuance(tenant_id, issuance_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_share_issuance(tenant_id, issuance_id, api_version, x_api_version, patch_operation)
 Patches a share issuance
 
 Partially updates a share issuance using a JSON Patch document.
@@ -770,7 +779,7 @@ Name | Type | Description  | Required | Notes
 **issuance_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -790,7 +799,7 @@ No authorization required
 
 ## patch_share_transfer
 
-> models::EmptyEnvelope patch_share_transfer(tenant_id, transfer_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_share_transfer(tenant_id, transfer_id, api_version, x_api_version, patch_operation)
 Patches a share transfer
 
 Partially updates a share transfer using a JSON Patch document.
@@ -804,7 +813,7 @@ Name | Type | Description  | Required | Notes
 **transfer_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -824,7 +833,7 @@ No authorization required
 
 ## patch_share_transfer_reason
 
-> models::EmptyEnvelope patch_share_transfer_reason(tenant_id, reason_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_share_transfer_reason(tenant_id, reason_id, api_version, x_api_version, patch_operation)
 Patches a share transfer reason
 
 Partially updates a share transfer reason using a JSON Patch document.
@@ -838,7 +847,7 @@ Name | Type | Description  | Required | Notes
 **reason_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

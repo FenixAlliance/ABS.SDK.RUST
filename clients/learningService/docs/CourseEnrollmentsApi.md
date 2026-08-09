@@ -116,7 +116,7 @@ No authorization required
 
 ## get_enrollments_async
 
-> Vec<models::CourseEnrollmentDto> get_enrollments_async(tenant_id, api_version, x_api_version)
+> Vec<models::CourseEnrollmentDto> get_enrollments_async(tenant_id, api_version, x_api_version, course_enrollment_dto_collection_query_parameters)
 Get all course enrollments
 
 Retrieves all course enrollments for the specified tenant.
@@ -129,6 +129,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_enrollment_dto_collection_query_parameters** | Option<[**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -140,7 +141,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -148,7 +149,7 @@ No authorization required
 
 ## get_enrollments_count_async
 
-> i32 get_enrollments_count_async(tenant_id, api_version, x_api_version)
+> i32 get_enrollments_count_async(tenant_id, api_version, x_api_version, course_enrollment_dto_collection_query_parameters)
 Get course enrollments count
 
 Returns the count of course enrollments for the specified tenant.
@@ -161,6 +162,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_enrollment_dto_collection_query_parameters** | Option<[**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -172,7 +174,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -180,7 +182,7 @@ No authorization required
 
 ## get_student_course_enrollments_async
 
-> Vec<models::CourseEnrollmentDto> get_student_course_enrollments_async(tenant_id, student_profile_id, api_version, x_api_version)
+> Vec<models::CourseEnrollmentDto> get_student_course_enrollments_async(tenant_id, student_profile_id, api_version, x_api_version, course_enrollment_dto_collection_query_parameters)
 Get enrollments by student
 
 Retrieves all enrollments for a specific student.
@@ -194,6 +196,7 @@ Name | Type | Description  | Required | Notes
 **student_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_enrollment_dto_collection_query_parameters** | Option<[**CourseEnrollmentDtoCollectionQueryParameters**](CourseEnrollmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -205,7 +208,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -213,7 +216,7 @@ No authorization required
 
 ## patch_course_enrollment_async
 
-> patch_course_enrollment_async(tenant_id, course_enrollment_id, api_version, x_api_version, operation)
+> patch_course_enrollment_async(tenant_id, course_enrollment_id, api_version, x_api_version, patch_operation)
 Patch a course enrollment
 
 Partially updates an existing course enrollment for the specified tenant.
@@ -227,7 +230,7 @@ Name | Type | Description  | Required | Notes
 **course_enrollment_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

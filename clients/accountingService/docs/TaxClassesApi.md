@@ -115,7 +115,7 @@ No authorization required
 
 ## get_tax_classes
 
-> models::TaxClassDtoListEnvelope get_tax_classes(tenant_id, api_version, x_api_version)
+> models::TaxClassDtoListEnvelope get_tax_classes(tenant_id, api_version, x_api_version, tax_class_dto_collection_query_parameters)
 Get all tax classes for a tenant
 
 Retrieves all tax classes for the specified tenant using OData query options.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tax_class_dto_collection_query_parameters** | Option<[**TaxClassDtoCollectionQueryParameters**](TaxClassDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_tax_classes_count
 
-> models::Int32Envelope get_tax_classes_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_tax_classes_count(tenant_id, api_version, x_api_version, tax_class_dto_collection_query_parameters)
 Get tax classes count
 
 Returns the count of tax classes for the specified tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tax_class_dto_collection_query_parameters** | Option<[**TaxClassDtoCollectionQueryParameters**](TaxClassDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_tax_class
 
-> models::EmptyEnvelope patch_tax_class(tenant_id, id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_tax_class(tenant_id, id, api_version, x_api_version, patch_operation)
 Patch a tax class
 
 Partially updates an existing tax class identified by its unique identifier.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

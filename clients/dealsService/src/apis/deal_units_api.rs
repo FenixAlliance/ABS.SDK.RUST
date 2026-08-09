@@ -366,7 +366,7 @@ pub async fn get_deal_unit_async(configuration: &configuration::Configuration, t
 }
 
 /// Retrieves a list of lines for a specific deal unit with OData query support.
-pub async fn get_deal_unit_lines_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_id: &str, item_id: Option<&str>) -> Result<models::DealUnitLineDtoListEnvelope, Error<GetDealUnitLinesAsyncError>> {
+pub async fn get_deal_unit_lines_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_id: &str, item_id: Option<&str>, deal_unit_line_dto_collection_query_parameters: Option<models::DealUnitLineDtoCollectionQueryParameters>) -> Result<models::DealUnitLineDtoListEnvelope, Error<GetDealUnitLinesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -381,6 +381,7 @@ pub async fn get_deal_unit_lines_async(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&deal_unit_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -398,7 +399,7 @@ pub async fn get_deal_unit_lines_async(configuration: &configuration::Configurat
 }
 
 /// Returns the total count of lines for a specific deal unit with OData filter support.
-pub async fn get_deal_unit_lines_count_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_id: &str) -> Result<models::Int32Envelope, Error<GetDealUnitLinesCountAsyncError>> {
+pub async fn get_deal_unit_lines_count_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_id: &str, deal_unit_line_dto_collection_query_parameters: Option<models::DealUnitLineDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetDealUnitLinesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -410,6 +411,7 @@ pub async fn get_deal_unit_lines_count_async(configuration: &configuration::Conf
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&deal_unit_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -456,7 +458,7 @@ pub async fn get_deal_unit_price_async(configuration: &configuration::Configurat
 }
 
 /// Retrieves a list of deal units for the specified tenant with OData query support.
-pub async fn get_deal_units_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::DealUnitDtoListEnvelope, Error<GetDealUnitsAsyncError>> {
+pub async fn get_deal_units_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_dto_collection_query_parameters: Option<models::DealUnitDtoCollectionQueryParameters>) -> Result<models::DealUnitDtoListEnvelope, Error<GetDealUnitsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -468,6 +470,7 @@ pub async fn get_deal_units_async(configuration: &configuration::Configuration, 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&deal_unit_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -485,7 +488,7 @@ pub async fn get_deal_units_async(configuration: &configuration::Configuration, 
 }
 
 /// Returns the total count of deal units for the specified tenant with OData filter support.
-pub async fn get_deal_units_count_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetDealUnitsCountAsyncError>> {
+pub async fn get_deal_units_count_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_dto_collection_query_parameters: Option<models::DealUnitDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetDealUnitsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -497,6 +500,7 @@ pub async fn get_deal_units_count_async(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&deal_unit_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -543,7 +547,7 @@ pub async fn get_extended_deal_unit_async(configuration: &configuration::Configu
 }
 
 /// Retrieves a list of deal units with extended details for the specified tenant with OData query support.
-pub async fn get_extended_deal_units_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::ExtendedDealUnitDtoListEnvelope, Error<GetExtendedDealUnitsAsyncError>> {
+pub async fn get_extended_deal_units_async(configuration: &configuration::Configuration, tenant_id: &str, extended_deal_unit_dto_collection_query_parameters: Option<models::ExtendedDealUnitDtoCollectionQueryParameters>) -> Result<models::ExtendedDealUnitDtoListEnvelope, Error<GetExtendedDealUnitsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -555,6 +559,7 @@ pub async fn get_extended_deal_units_async(configuration: &configuration::Config
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_deal_unit_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -572,7 +577,7 @@ pub async fn get_extended_deal_units_async(configuration: &configuration::Config
 }
 
 /// Partially updates an existing deal unit by its unique identifier using a JSON Patch document.
-pub async fn patch_deal_unit_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchDealUnitAsyncError>> {
+pub async fn patch_deal_unit_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchDealUnitAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -584,7 +589,7 @@ pub async fn patch_deal_unit_async(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -602,7 +607,7 @@ pub async fn patch_deal_unit_async(configuration: &configuration::Configuration,
 }
 
 /// Partially updates an existing line within a specific deal unit using a JSON Patch document.
-pub async fn patch_deal_unit_line_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_id: &str, deal_unit_line_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchDealUnitLineAsyncError>> {
+pub async fn patch_deal_unit_line_async(configuration: &configuration::Configuration, tenant_id: &str, deal_unit_id: &str, deal_unit_line_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchDealUnitLineAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -614,7 +619,7 @@ pub async fn patch_deal_unit_line_async(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

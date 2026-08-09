@@ -155,7 +155,7 @@ pub async fn delete_salary_async(configuration: &configuration::Configuration, t
 }
 
 /// Retrieves salaries for the specified tenant.
-pub async fn get_salaries_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SalaryDtoListEnvelope, Error<GetSalariesAsyncError>> {
+pub async fn get_salaries_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, salary_dto_collection_query_parameters: Option<models::SalaryDtoCollectionQueryParameters>) -> Result<models::SalaryDtoListEnvelope, Error<GetSalariesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -173,6 +173,7 @@ pub async fn get_salaries_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&salary_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -190,7 +191,7 @@ pub async fn get_salaries_async(configuration: &configuration::Configuration, te
 }
 
 /// Counts salaries for the specified tenant.
-pub async fn get_salaries_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSalariesCountAsyncError>> {
+pub async fn get_salaries_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, salary_dto_collection_query_parameters: Option<models::SalaryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSalariesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,6 +209,7 @@ pub async fn get_salaries_count_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&salary_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -260,7 +262,7 @@ pub async fn get_salary_by_id_async(configuration: &configuration::Configuration
 }
 
 /// Partially updates an existing salary for the specified tenant.
-pub async fn patch_salary_async(configuration: &configuration::Configuration, tenant_id: &str, salary_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSalaryAsyncError>> {
+pub async fn patch_salary_async(configuration: &configuration::Configuration, tenant_id: &str, salary_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSalaryAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +280,7 @@ pub async fn patch_salary_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

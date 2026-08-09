@@ -191,7 +191,7 @@ pub async fn get_email_template_details_async(configuration: &configuration::Con
 }
 
 /// Returns the count of email templates for the specified tenant using OData query options.
-pub async fn get_email_templates_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetEmailTemplatesCountAsyncError>> {
+pub async fn get_email_templates_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, email_template_dto_collection_query_parameters: Option<models::EmailTemplateDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetEmailTemplatesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -209,6 +209,7 @@ pub async fn get_email_templates_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&email_template_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -226,7 +227,7 @@ pub async fn get_email_templates_count_async(configuration: &configuration::Conf
 }
 
 /// Retrieves a collection of email templates for the specified tenant using OData query options.
-pub async fn get_email_templates_o_data_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmailTemplateDtoListEnvelope, Error<GetEmailTemplatesODataAsyncError>> {
+pub async fn get_email_templates_o_data_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, email_template_dto_collection_query_parameters: Option<models::EmailTemplateDtoCollectionQueryParameters>) -> Result<models::EmailTemplateDtoListEnvelope, Error<GetEmailTemplatesODataAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,6 +245,7 @@ pub async fn get_email_templates_o_data_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&email_template_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -261,7 +263,7 @@ pub async fn get_email_templates_o_data_async(configuration: &configuration::Con
 }
 
 /// Partially updates an email template by its ID using JSON Patch.
-pub async fn patch_email_template_async(configuration: &configuration::Configuration, tenant_id: &str, email_template_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchEmailTemplateAsyncError>> {
+pub async fn patch_email_template_async(configuration: &configuration::Configuration, tenant_id: &str, email_template_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchEmailTemplateAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -279,7 +281,7 @@ pub async fn patch_email_template_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

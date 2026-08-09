@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## count_menu_contexts_async
 
-> models::Int32Envelope count_menu_contexts_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_menu_contexts_async(tenant_id, api_version, x_api_version, menu_context_dto_collection_query_parameters)
 Count menu contexts
 
 Counts all menu contexts for the specified tenant.
@@ -28,6 +28,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**menu_context_dto_collection_query_parameters** | Option<[**MenuContextDtoCollectionQueryParameters**](MenuContextDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -39,7 +40,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,7 +147,7 @@ No authorization required
 
 ## get_menu_contexts_async
 
-> models::MenuContextDtoListEnvelope get_menu_contexts_async(tenant_id, api_version, x_api_version)
+> models::MenuContextDtoListEnvelope get_menu_contexts_async(tenant_id, api_version, x_api_version, menu_context_dto_collection_query_parameters)
 Get menu contexts
 
 Retrieves all menu contexts for the specified tenant.
@@ -159,6 +160,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**menu_context_dto_collection_query_parameters** | Option<[**MenuContextDtoCollectionQueryParameters**](MenuContextDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -170,7 +172,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

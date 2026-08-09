@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 ## get_credits_sum_async
 
-> models::DecimalEnvelope get_credits_sum_async(tenant_id, api_version, x_api_version)
+> models::DecimalEnvelope get_credits_sum_async(tenant_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Sum tenant accounting-entry credits
 
 Returns SUM(AccountingEntry.Credit) for the tenant, filtered by the supplied OData date range.
@@ -26,6 +26,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -37,7 +38,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -45,7 +46,7 @@ No authorization required
 
 ## get_debits_sum_async
 
-> models::DecimalEnvelope get_debits_sum_async(tenant_id, api_version, x_api_version)
+> models::DecimalEnvelope get_debits_sum_async(tenant_id, api_version, x_api_version, accounting_entry_dto_collection_query_parameters)
 Sum tenant accounting-entry debits
 
 Returns SUM(AccountingEntry.Debit) for the tenant, filtered by the supplied OData date range.
@@ -58,6 +59,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_entry_dto_collection_query_parameters** | Option<[**AccountingEntryDtoCollectionQueryParameters**](AccountingEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -69,7 +71,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -77,7 +79,7 @@ No authorization required
 
 ## get_expenses_sum_async
 
-> models::MoneyEnvelope get_expenses_sum_async(tenant_id, api_version, x_api_version)
+> models::MoneyEnvelope get_expenses_sum_async(tenant_id, api_version, x_api_version, journal_entry_dto_collection_query_parameters)
 Sum tenant expenses
 
 Returns SUM(JournalEntry.Debit) for Debit-direction journal entries in the tenant, filtered by the supplied OData date range.
@@ -90,6 +92,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**journal_entry_dto_collection_query_parameters** | Option<[**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -101,7 +104,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -109,7 +112,7 @@ No authorization required
 
 ## get_incomes_sum_async
 
-> models::MoneyEnvelope get_incomes_sum_async(tenant_id, api_version, x_api_version)
+> models::MoneyEnvelope get_incomes_sum_async(tenant_id, api_version, x_api_version, journal_entry_dto_collection_query_parameters)
 Sum tenant incomes
 
 Returns SUM(JournalEntry.Credit) for Credit-direction journal entries in the tenant, filtered by the supplied OData date range.
@@ -122,6 +125,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**journal_entry_dto_collection_query_parameters** | Option<[**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -133,7 +137,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

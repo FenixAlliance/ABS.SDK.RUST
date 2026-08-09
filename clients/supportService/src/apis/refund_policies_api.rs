@@ -148,7 +148,7 @@ pub async fn delete_refund_policy_async(configuration: &configuration::Configura
     }
 }
 
-pub async fn get_refund_policies_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemRefundPolicyDtoListEnvelope, Error<GetRefundPoliciesAsyncError>> {
+pub async fn get_refund_policies_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_refund_policy_dto_collection_query_parameters: Option<models::ItemRefundPolicyDtoCollectionQueryParameters>) -> Result<models::ItemRefundPolicyDtoListEnvelope, Error<GetRefundPoliciesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -166,6 +166,7 @@ pub async fn get_refund_policies_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_refund_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -182,7 +183,7 @@ pub async fn get_refund_policies_async(configuration: &configuration::Configurat
     }
 }
 
-pub async fn get_refund_policies_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetRefundPoliciesCountAsyncError>> {
+pub async fn get_refund_policies_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_refund_policy_dto_collection_query_parameters: Option<models::ItemRefundPolicyDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetRefundPoliciesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -200,6 +201,7 @@ pub async fn get_refund_policies_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_refund_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -251,7 +253,7 @@ pub async fn get_refund_policy_async(configuration: &configuration::Configuratio
 }
 
 /// Partially updates an existing refund policy by its unique identifier.
-pub async fn patch_refund_policy_async(configuration: &configuration::Configuration, tenant_id: &str, refund_policy_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchRefundPolicyAsyncError>> {
+pub async fn patch_refund_policy_async(configuration: &configuration::Configuration, tenant_id: &str, refund_policy_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchRefundPolicyAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -269,7 +271,7 @@ pub async fn patch_refund_policy_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

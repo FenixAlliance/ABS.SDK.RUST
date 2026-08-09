@@ -233,7 +233,7 @@ No authorization required
 
 ## api_v2_learning_service_student_profiles_student_profile_id_patch
 
-> models::EmptyEnvelope api_v2_learning_service_student_profiles_student_profile_id_patch(tenant_id, student_profile_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope api_v2_learning_service_student_profiles_student_profile_id_patch(tenant_id, student_profile_id, api_version, x_api_version, patch_operation)
 
 
 ### Parameters
@@ -245,7 +245,7 @@ Name | Type | Description  | Required | Notes
 **student_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -4,14 +4,19 @@ All URIs are relative to *https://absuite.net*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**create_social_comment_reaction_async**](SocialPostsApi.md#create_social_comment_reaction_async) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Create a social comment reaction
 [**create_social_post_async**](SocialPostsApi.md#create_social_post_async) | **POST** /api/v2/SocialService/SocialPosts | Create a social post
 [**create_social_post_attachment_async**](SocialPostsApi.md#create_social_post_attachment_async) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Create a social post attachment
 [**create_social_post_comment_async**](SocialPostsApi.md#create_social_post_comment_async) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments | Create a social post comment
 [**create_social_post_reaction_async**](SocialPostsApi.md#create_social_post_reaction_async) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions | Create a social post reaction
+[**delete_social_comment_reaction_async**](SocialPostsApi.md#delete_social_comment_reaction_async) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Delete a social comment reaction
 [**delete_social_post_async**](SocialPostsApi.md#delete_social_post_async) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId} | Delete a social post
 [**delete_social_post_attachment_async**](SocialPostsApi.md#delete_social_post_attachment_async) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Delete a social post attachment
 [**delete_social_post_comment_async**](SocialPostsApi.md#delete_social_post_comment_async) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Delete a social post comment
 [**delete_social_post_reaction_async**](SocialPostsApi.md#delete_social_post_reaction_async) | **DELETE** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Delete a social post reaction
+[**get_social_comment_reaction_async**](SocialPostsApi.md#get_social_comment_reaction_async) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Get social comment reaction by ID
+[**get_social_comment_reactions_async**](SocialPostsApi.md#get_social_comment_reactions_async) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions | Get social comment reactions
+[**get_social_comment_reactions_count_async**](SocialPostsApi.md#get_social_comment_reactions_count_async) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count | Count social comment reactions
 [**get_social_post_async**](SocialPostsApi.md#get_social_post_async) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId} | Get social post by ID
 [**get_social_post_attachment_async**](SocialPostsApi.md#get_social_post_attachment_async) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Get social post attachment by ID
 [**get_social_post_attachments_async**](SocialPostsApi.md#get_social_post_attachments_async) | **GET** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments | Get social post attachments
@@ -25,11 +30,48 @@ Method | HTTP request | Description
 [**get_social_posts_async**](SocialPostsApi.md#get_social_posts_async) | **GET** /api/v2/SocialService/SocialPosts | Get social posts
 [**get_social_posts_count_async**](SocialPostsApi.md#get_social_posts_count_async) | **GET** /api/v2/SocialService/SocialPosts/Count | Count social posts
 [**patch_social_post_async**](SocialPostsApi.md#patch_social_post_async) | **PATCH** /api/v2/SocialService/SocialPosts/{socialPostId} | Patch a social post
+[**update_social_comment_reaction_async**](SocialPostsApi.md#update_social_comment_reaction_async) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId} | Update a social comment reaction
 [**update_social_post_async**](SocialPostsApi.md#update_social_post_async) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId} | Update a social post
 [**update_social_post_attachment_async**](SocialPostsApi.md#update_social_post_attachment_async) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/{attachmentId} | Update a social post attachment
 [**update_social_post_comment_async**](SocialPostsApi.md#update_social_post_comment_async) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId} | Update a social post comment
 [**update_social_post_reaction_async**](SocialPostsApi.md#update_social_post_reaction_async) | **PUT** /api/v2/SocialService/SocialPosts/{socialPostId}/Reactions/{reactionId} | Update a social post reaction
+[**upload_social_post_image_attachment_async**](SocialPostsApi.md#upload_social_post_image_attachment_async) | **POST** /api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image | Upload a social post image attachment
 
+
+
+## create_social_comment_reaction_async
+
+> models::SocialCommentReactionDtoEnvelope create_social_comment_reaction_async(social_post_id, comment_id, social_profile_id, api_version, x_api_version, social_reaction_create_dto)
+Create a social comment reaction
+
+Creates a new reaction on a specific social comment.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_post_id** | **uuid::Uuid** |  | [required] |
+**comment_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**social_reaction_create_dto** | Option<[**SocialReactionCreateDto**](SocialReactionCreateDto.md)> |  |  |
+
+### Return type
+
+[**models::SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
 ## create_social_post_async
@@ -135,7 +177,7 @@ No authorization required
 
 ## create_social_post_reaction_async
 
-> models::SocialReactionDtoEnvelope create_social_post_reaction_async(social_post_id, social_profile_id, api_version, x_api_version, social_reaction_create_dto)
+> models::SocialPostReactionDtoEnvelope create_social_post_reaction_async(social_post_id, social_profile_id, api_version, x_api_version, social_reaction_create_dto)
 Create a social post reaction
 
 Creates a new reaction on a specific social post.
@@ -153,7 +195,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::SocialReactionDtoEnvelope**](SocialReactionDtoEnvelope.md)
+[**models::SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -162,6 +204,41 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## delete_social_comment_reaction_async
+
+> models::EmptyEnvelope delete_social_comment_reaction_async(social_post_id, comment_id, reaction_id, social_profile_id, api_version, x_api_version)
+Delete a social comment reaction
+
+Deletes a reaction from a specific social comment.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_post_id** | **uuid::Uuid** |  | [required] |
+**comment_id** | **uuid::Uuid** |  | [required] |
+**reaction_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -302,6 +379,110 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_social_comment_reaction_async
+
+> models::SocialCommentReactionDtoEnvelope get_social_comment_reaction_async(social_post_id, comment_id, reaction_id, api_version, x_api_version)
+Get social comment reaction by ID
+
+Retrieves a specific reaction from a social comment by its ID.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_post_id** | **uuid::Uuid** |  | [required] |
+**comment_id** | **uuid::Uuid** |  | [required] |
+**reaction_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_social_comment_reactions_async
+
+> models::SocialCommentReactionDtoListEnvelope get_social_comment_reactions_async(social_post_id, comment_id, social_profile_id, api_version, x_api_version, social_comment_reaction_dto_collection_query_parameters)
+Get social comment reactions
+
+Retrieves a list of reactions for a specific social comment.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_post_id** | **uuid::Uuid** |  | [required] |
+**comment_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**social_comment_reaction_dto_collection_query_parameters** | Option<[**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md)> |  |  |
+
+### Return type
+
+[**models::SocialCommentReactionDtoListEnvelope**](SocialCommentReactionDtoListEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_social_comment_reactions_count_async
+
+> models::Int32Envelope get_social_comment_reactions_count_async(social_post_id, comment_id, social_profile_id, api_version, x_api_version, social_comment_reaction_dto_collection_query_parameters)
+Count social comment reactions
+
+Returns the count of reactions for a specific social comment.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_post_id** | **uuid::Uuid** |  | [required] |
+**comment_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**social_comment_reaction_dto_collection_query_parameters** | Option<[**SocialCommentReactionDtoCollectionQueryParameters**](SocialCommentReactionDtoCollectionQueryParameters.md)> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## get_social_post_async
 
 > models::SocialPostDtoEnvelope get_social_post_async(social_profile_id, social_post_id, api_version, x_api_version)
@@ -370,7 +551,7 @@ No authorization required
 
 ## get_social_post_attachments_async
 
-> models::SocialPostAttachmentDtoListEnvelope get_social_post_attachments_async(social_post_id, api_version, x_api_version)
+> models::SocialPostAttachmentDtoListEnvelope get_social_post_attachments_async(social_post_id, api_version, x_api_version, social_post_attachment_dto_collection_query_parameters)
 Get social post attachments
 
 Retrieves a list of attachments for a specific social post.
@@ -383,6 +564,7 @@ Name | Type | Description  | Required | Notes
 **social_post_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_attachment_dto_collection_query_parameters** | Option<[**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -394,7 +576,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -402,7 +584,7 @@ No authorization required
 
 ## get_social_post_attachments_count_async
 
-> models::Int32Envelope get_social_post_attachments_count_async(social_post_id, api_version, x_api_version)
+> models::Int32Envelope get_social_post_attachments_count_async(social_post_id, api_version, x_api_version, social_post_attachment_dto_collection_query_parameters)
 Count social post attachments
 
 Returns the count of attachments for a specific social post.
@@ -415,6 +597,7 @@ Name | Type | Description  | Required | Notes
 **social_post_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_attachment_dto_collection_query_parameters** | Option<[**SocialPostAttachmentDtoCollectionQueryParameters**](SocialPostAttachmentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -426,7 +609,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -468,7 +651,7 @@ No authorization required
 
 ## get_social_post_comments_async
 
-> models::SocialPostCommentDtoListEnvelope get_social_post_comments_async(social_profile_id, social_post_id, api_version, x_api_version)
+> models::SocialPostCommentDtoListEnvelope get_social_post_comments_async(social_profile_id, social_post_id, parent_comment_id, api_version, x_api_version, social_post_comment_dto_collection_query_parameters)
 Get social post comments
 
 Retrieves a list of comments for a specific social post.
@@ -480,8 +663,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **social_post_id** | **uuid::Uuid** |  | [required] |
+**parent_comment_id** | Option<**String**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_comment_dto_collection_query_parameters** | Option<[**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -493,7 +678,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -501,7 +686,7 @@ No authorization required
 
 ## get_social_post_comments_count_async
 
-> models::Int32Envelope get_social_post_comments_count_async(social_profile_id, social_post_id, api_version, x_api_version)
+> models::Int32Envelope get_social_post_comments_count_async(social_profile_id, social_post_id, parent_comment_id, api_version, x_api_version, social_post_comment_dto_collection_query_parameters)
 Count social post comments
 
 Returns the count of comments for a specific social post.
@@ -513,8 +698,10 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **social_post_id** | **uuid::Uuid** |  | [required] |
+**parent_comment_id** | Option<**String**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_comment_dto_collection_query_parameters** | Option<[**SocialPostCommentDtoCollectionQueryParameters**](SocialPostCommentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -526,7 +713,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -567,7 +754,7 @@ No authorization required
 
 ## get_social_post_reactions_async
 
-> models::SocialReactionDtoListEnvelope get_social_post_reactions_async(social_post_id, social_profile_id, api_version, x_api_version)
+> models::SocialReactionDtoListEnvelope get_social_post_reactions_async(social_post_id, social_profile_id, api_version, x_api_version, social_post_reaction_dto_collection_query_parameters)
 Get social post reactions
 
 Retrieves a list of reactions for a specific social post.
@@ -581,6 +768,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_reaction_dto_collection_query_parameters** | Option<[**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -592,7 +780,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -600,7 +788,7 @@ No authorization required
 
 ## get_social_post_reactions_count_async
 
-> models::Int32Envelope get_social_post_reactions_count_async(social_post_id, social_profile_id, api_version, x_api_version)
+> models::Int32Envelope get_social_post_reactions_count_async(social_post_id, social_profile_id, api_version, x_api_version, social_post_reaction_dto_collection_query_parameters)
 Count social post reactions
 
 Returns the count of reactions for a specific social post.
@@ -614,6 +802,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_reaction_dto_collection_query_parameters** | Option<[**SocialPostReactionDtoCollectionQueryParameters**](SocialPostReactionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -625,7 +814,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -633,7 +822,7 @@ No authorization required
 
 ## get_social_posts_async
 
-> models::SocialPostDtoListEnvelope get_social_posts_async(social_profile_id, api_version, x_api_version)
+> models::SocialPostDtoListEnvelope get_social_posts_async(social_profile_id, api_version, x_api_version, social_post_dto_collection_query_parameters)
 Get social posts
 
 Retrieves a list of social posts for the specified social profile.
@@ -646,6 +835,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_dto_collection_query_parameters** | Option<[**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -657,7 +847,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -665,7 +855,7 @@ No authorization required
 
 ## get_social_posts_count_async
 
-> models::Int32Envelope get_social_posts_count_async(social_profile_id, api_version, x_api_version)
+> models::Int32Envelope get_social_posts_count_async(social_profile_id, api_version, x_api_version, social_post_dto_collection_query_parameters)
 Count social posts
 
 Returns the count of social posts for the specified social profile.
@@ -678,6 +868,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_dto_collection_query_parameters** | Option<[**SocialPostDtoCollectionQueryParameters**](SocialPostDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -689,7 +880,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -697,7 +888,7 @@ No authorization required
 
 ## patch_social_post_async
 
-> models::EmptyEnvelope patch_social_post_async(social_profile_id, social_post_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_social_post_async(social_profile_id, social_post_id, api_version, x_api_version, patch_operation)
 Patch a social post
 
 Partially updates an existing social post by its ID using a JSON Patch document.
@@ -711,11 +902,47 @@ Name | Type | Description  | Required | Notes
 **social_post_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
 [**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_social_comment_reaction_async
+
+> models::SocialCommentReactionDtoEnvelope update_social_comment_reaction_async(social_post_id, comment_id, reaction_id, social_profile_id, api_version, x_api_version, social_reaction_update_dto)
+Update a social comment reaction
+
+Updates an existing reaction on a specific social comment.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_post_id** | **uuid::Uuid** |  | [required] |
+**comment_id** | **uuid::Uuid** |  | [required] |
+**reaction_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**social_reaction_update_dto** | Option<[**SocialReactionUpdateDto**](SocialReactionUpdateDto.md)> |  |  |
+
+### Return type
+
+[**models::SocialCommentReactionDtoEnvelope**](SocialCommentReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -835,7 +1062,7 @@ No authorization required
 
 ## update_social_post_reaction_async
 
-> models::EmptyEnvelope update_social_post_reaction_async(social_profile_id, social_post_id, reaction_id, api_version, x_api_version, social_reaction_update_dto)
+> models::SocialPostReactionDtoEnvelope update_social_post_reaction_async(social_profile_id, social_post_id, reaction_id, api_version, x_api_version, social_reaction_update_dto)
 Update a social post reaction
 
 Updates an existing reaction on a specific social post.
@@ -854,7 +1081,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::EmptyEnvelope**](EmptyEnvelope.md)
+[**models::SocialPostReactionDtoEnvelope**](SocialPostReactionDtoEnvelope.md)
 
 ### Authorization
 
@@ -863,6 +1090,40 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## upload_social_post_image_attachment_async
+
+> models::SocialPostAttachmentDtoEnvelope upload_social_post_image_attachment_async(social_post_id, social_profile_id, api_version, x_api_version, file)
+Upload a social post image attachment
+
+Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**social_post_id** | **uuid::Uuid** |  | [required] |
+**social_profile_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**file** | Option<**std::path::PathBuf**> |  |  |
+
+### Return type
+
+[**models::SocialPostAttachmentDtoEnvelope**](SocialPostAttachmentDtoEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: multipart/form-data, application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

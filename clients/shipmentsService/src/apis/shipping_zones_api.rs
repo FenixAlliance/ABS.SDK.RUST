@@ -181,7 +181,7 @@ pub async fn get_shipping_zone_by_id_async(configuration: &configuration::Config
 }
 
 /// Retrieves all shipping zones for the specified tenant.
-pub async fn get_shipping_zones_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ShippingZoneDtoListEnvelope, Error<GetShippingZonesAsyncError>> {
+pub async fn get_shipping_zones_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, shipping_zone_dto_collection_query_parameters: Option<models::ShippingZoneDtoCollectionQueryParameters>) -> Result<models::ShippingZoneDtoListEnvelope, Error<GetShippingZonesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -199,6 +199,7 @@ pub async fn get_shipping_zones_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&shipping_zone_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -216,7 +217,7 @@ pub async fn get_shipping_zones_async(configuration: &configuration::Configurati
 }
 
 /// Returns the count of shipping zones.
-pub async fn get_shipping_zones_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetShippingZonesCountAsyncError>> {
+pub async fn get_shipping_zones_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, shipping_zone_dto_collection_query_parameters: Option<models::ShippingZoneDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetShippingZonesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -234,6 +235,7 @@ pub async fn get_shipping_zones_count_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&shipping_zone_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -251,7 +253,7 @@ pub async fn get_shipping_zones_count_async(configuration: &configuration::Confi
 }
 
 /// Partially updates an existing shipping zone using JSON Patch.
-pub async fn patch_shipping_zone_async(configuration: &configuration::Configuration, tenant_id: &str, zone_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchShippingZoneAsyncError>> {
+pub async fn patch_shipping_zone_async(configuration: &configuration::Configuration, tenant_id: &str, zone_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchShippingZoneAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -269,7 +271,7 @@ pub async fn patch_shipping_zone_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

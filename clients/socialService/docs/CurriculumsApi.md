@@ -118,7 +118,7 @@ No authorization required
 
 ## get_curriculums_async
 
-> models::CurriculumDtoListEnvelope get_curriculums_async(social_profile_id, tenant_id, api_version, x_api_version)
+> models::CurriculumDtoListEnvelope get_curriculums_async(social_profile_id, tenant_id, api_version, x_api_version, curriculum_dto_collection_query_parameters)
 Get curricula
 
 Retrieves the curricula (CVs) authored on the specified social profile.
@@ -132,6 +132,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**curriculum_dto_collection_query_parameters** | Option<[**CurriculumDtoCollectionQueryParameters**](CurriculumDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -143,7 +144,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -151,7 +152,7 @@ No authorization required
 
 ## get_curriculums_count_async
 
-> models::Int32Envelope get_curriculums_count_async(social_profile_id, tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_curriculums_count_async(social_profile_id, tenant_id, api_version, x_api_version, curriculum_dto_collection_query_parameters)
 Count curricula
 
 Returns the count of curricula authored on the specified social profile.
@@ -165,6 +166,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**curriculum_dto_collection_query_parameters** | Option<[**CurriculumDtoCollectionQueryParameters**](CurriculumDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -176,7 +178,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -184,7 +186,7 @@ No authorization required
 
 ## patch_curriculum_async
 
-> models::EmptyEnvelope patch_curriculum_async(social_profile_id, curriculum_id, tenant_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_curriculum_async(social_profile_id, curriculum_id, tenant_id, api_version, x_api_version, patch_operation)
 Patch a curriculum
 
 Partially updates an existing curriculum authored on the specified social profile.
@@ -199,7 +201,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

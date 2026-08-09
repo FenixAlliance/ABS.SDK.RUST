@@ -186,7 +186,7 @@ pub async fn get_ledger_type_details_async(configuration: &configuration::Config
 }
 
 /// Gets all ledger types for the current tenant with OData support.
-pub async fn get_ledger_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::LedgerTypeDtoIReadOnlyListEnvelope, Error<GetLedgerTypesAsyncError>> {
+pub async fn get_ledger_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, ledger_type_dto_collection_query_parameters: Option<models::LedgerTypeDtoCollectionQueryParameters>) -> Result<models::LedgerTypeDtoIReadOnlyListEnvelope, Error<GetLedgerTypesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +204,7 @@ pub async fn get_ledger_types_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&ledger_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_ledger_types_async(configuration: &configuration::Configuration
 }
 
 /// Gets the count of ledger types for the current tenant.
-pub async fn get_ledger_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetLedgerTypesCountAsyncError>> {
+pub async fn get_ledger_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, ledger_type_dto_collection_query_parameters: Option<models::LedgerTypeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetLedgerTypesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_ledger_types_count_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&ledger_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_ledger_types_count_async(configuration: &configuration::Configu
 }
 
 /// Partially updates the specified ledger type using a JSON Patch document.
-pub async fn patch_ledger_type_async(configuration: &configuration::Configuration, tenant_id: &str, ledger_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchLedgerTypeAsyncError>> {
+pub async fn patch_ledger_type_async(configuration: &configuration::Configuration, tenant_id: &str, ledger_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchLedgerTypeAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_ledger_type_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

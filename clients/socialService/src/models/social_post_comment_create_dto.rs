@@ -17,8 +17,8 @@ pub struct SocialPostCommentCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
-    #[serde(rename = "message")]
-    pub message: String,
+    #[serde(rename = "message", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub message: Option<Option<String>>,
     #[serde(rename = "bodyHtml", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub body_html: Option<Option<String>>,
     #[serde(rename = "bodyFormat", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -34,11 +34,11 @@ pub struct SocialPostCommentCreateDto {
 }
 
 impl SocialPostCommentCreateDto {
-    pub fn new(message: String) -> SocialPostCommentCreateDto {
+    pub fn new() -> SocialPostCommentCreateDto {
         SocialPostCommentCreateDto {
             id: None,
             timestamp: None,
-            message,
+            message: None,
             body_html: None,
             body_format: None,
             parent_comment_id: None,

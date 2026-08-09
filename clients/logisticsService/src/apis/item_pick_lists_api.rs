@@ -304,7 +304,7 @@ pub async fn get_item_pick_list_by_id_async(configuration: &configuration::Confi
 }
 
 /// Retrieves all entries for the specified pick list.
-pub async fn get_item_pick_list_entries_async(configuration: &configuration::Configuration, tenant_id: &str, pick_list_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemPickListEntryDtoListEnvelope, Error<GetItemPickListEntriesAsyncError>> {
+pub async fn get_item_pick_list_entries_async(configuration: &configuration::Configuration, tenant_id: &str, pick_list_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_pick_list_entry_dto_collection_query_parameters: Option<models::ItemPickListEntryDtoCollectionQueryParameters>) -> Result<models::ItemPickListEntryDtoListEnvelope, Error<GetItemPickListEntriesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -322,6 +322,7 @@ pub async fn get_item_pick_list_entries_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_pick_list_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -339,7 +340,7 @@ pub async fn get_item_pick_list_entries_async(configuration: &configuration::Con
 }
 
 /// Returns the count of pick list entries.
-pub async fn get_item_pick_list_entries_count_async(configuration: &configuration::Configuration, tenant_id: &str, pick_list_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetItemPickListEntriesCountAsyncError>> {
+pub async fn get_item_pick_list_entries_count_async(configuration: &configuration::Configuration, tenant_id: &str, pick_list_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_pick_list_entry_dto_collection_query_parameters: Option<models::ItemPickListEntryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetItemPickListEntriesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -357,6 +358,7 @@ pub async fn get_item_pick_list_entries_count_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_pick_list_entry_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -409,7 +411,7 @@ pub async fn get_item_pick_list_entry_by_id_async(configuration: &configuration:
 }
 
 /// Retrieves all item pick lists for the specified tenant.
-pub async fn get_item_pick_lists_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemPickListDtoListEnvelope, Error<GetItemPickListsAsyncError>> {
+pub async fn get_item_pick_lists_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_pick_list_dto_collection_query_parameters: Option<models::ItemPickListDtoCollectionQueryParameters>) -> Result<models::ItemPickListDtoListEnvelope, Error<GetItemPickListsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -427,6 +429,7 @@ pub async fn get_item_pick_lists_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_pick_list_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -444,7 +447,7 @@ pub async fn get_item_pick_lists_async(configuration: &configuration::Configurat
 }
 
 /// Returns the count of item pick lists.
-pub async fn get_item_pick_lists_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetItemPickListsCountAsyncError>> {
+pub async fn get_item_pick_lists_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_pick_list_dto_collection_query_parameters: Option<models::ItemPickListDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetItemPickListsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -462,6 +465,7 @@ pub async fn get_item_pick_lists_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_pick_list_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -479,7 +483,7 @@ pub async fn get_item_pick_lists_count_async(configuration: &configuration::Conf
 }
 
 /// Applies a JSON Patch document to an item pick list.
-pub async fn patch_item_pick_list_async(configuration: &configuration::Configuration, tenant_id: &str, pick_list_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchItemPickListAsyncError>> {
+pub async fn patch_item_pick_list_async(configuration: &configuration::Configuration, tenant_id: &str, pick_list_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchItemPickListAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -497,7 +501,7 @@ pub async fn patch_item_pick_list_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -515,7 +519,7 @@ pub async fn patch_item_pick_list_async(configuration: &configuration::Configura
 }
 
 /// Applies a JSON Patch document to a pick list entry.
-pub async fn patch_item_pick_list_entry_async(configuration: &configuration::Configuration, tenant_id: &str, pick_list_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchItemPickListEntryAsyncError>> {
+pub async fn patch_item_pick_list_entry_async(configuration: &configuration::Configuration, tenant_id: &str, pick_list_id: &str, entry_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchItemPickListEntryAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -533,7 +537,7 @@ pub async fn patch_item_pick_list_entry_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

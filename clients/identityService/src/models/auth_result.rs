@@ -29,6 +29,12 @@ pub struct AuthResult {
     pub scopes: Option<Option<Vec<String>>>,
     #[serde(rename = "error", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub error: Option<Option<String>>,
+    #[serde(rename = "runAs", skip_serializing_if = "Option::is_none")]
+    pub run_as: Option<RunAs>,
+    #[serde(rename = "principalKind", skip_serializing_if = "Option::is_none")]
+    pub principal_kind: Option<PrincipalKind>,
+    #[serde(rename = "provenance", skip_serializing_if = "Option::is_none")]
+    pub provenance: Option<Box<models::ExecutionProvenance>>,
 }
 
 impl AuthResult {
@@ -42,7 +48,48 @@ impl AuthResult {
             correlation_id: None,
             scopes: None,
             error: None,
+            run_as: None,
+            principal_kind: None,
+            provenance: None,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum RunAs {
+    #[serde(rename = "Invoker")]
+    Invoker,
+    #[serde(rename = "Application")]
+    Application,
+    #[serde(rename = "System")]
+    System,
+    #[serde(rename = "Service")]
+    Service,
+}
+
+impl Default for RunAs {
+    fn default() -> RunAs {
+        Self::Invoker
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum PrincipalKind {
+    #[serde(rename = "Human")]
+    Human,
+    #[serde(rename = "Agent")]
+    Agent,
+    #[serde(rename = "Application")]
+    Application,
+    #[serde(rename = "Service")]
+    Service,
+    #[serde(rename = "System")]
+    System,
+}
+
+impl Default for PrincipalKind {
+    fn default() -> PrincipalKind {
+        Self::Human
     }
 }
 

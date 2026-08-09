@@ -31,6 +31,8 @@ pub struct OrderCreateDto {
     pub payment_term_id: Option<Option<String>>,
     #[serde(rename = "organizationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<Option<String>>,
+    #[serde(rename = "receiverTenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub receiver_tenant_id: Option<Option<String>>,
     #[serde(rename = "firstName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub first_name: Option<Option<String>>,
     #[serde(rename = "lastName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -127,8 +129,6 @@ pub struct OrderCreateDto {
     pub quote_status: Option<QuoteStatus>,
     #[serde(rename = "freightTerms", skip_serializing_if = "Option::is_none")]
     pub freight_terms: Option<FreightTerms>,
-    #[serde(rename = "receiverTenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub receiver_tenant_id: Option<Option<String>>,
     #[serde(rename = "shippingLocationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub shipping_location_id: Option<Option<String>>,
     #[serde(rename = "qualifiedIdentifier", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -165,6 +165,7 @@ impl OrderCreateDto {
             individual_id: None,
             payment_term_id: None,
             organization_id: None,
+            receiver_tenant_id: None,
             first_name: None,
             last_name: None,
             company_name: None,
@@ -213,7 +214,6 @@ impl OrderCreateDto {
             order_status: None,
             quote_status: None,
             freight_terms: None,
-            receiver_tenant_id: None,
             shipping_location_id: None,
             qualified_identifier: None,
             total_taxes_in_usd: None,

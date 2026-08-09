@@ -187,7 +187,7 @@ pub async fn get_system_tenant_option_by_id(configuration: &configuration::Confi
 }
 
 /// Admin endpoint to retrieve options for any tenant
-pub async fn get_system_tenant_options(configuration: &configuration::Configuration, tenant_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::OptionDtoListEnvelope, Error<GetSystemTenantOptionsError>> {
+pub async fn get_system_tenant_options(configuration: &configuration::Configuration, tenant_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, option_dto_collection_query_parameters: Option<models::OptionDtoCollectionQueryParameters>) -> Result<models::OptionDtoListEnvelope, Error<GetSystemTenantOptionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -207,6 +207,7 @@ pub async fn get_system_tenant_options(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&option_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -224,7 +225,7 @@ pub async fn get_system_tenant_options(configuration: &configuration::Configurat
 }
 
 /// Admin endpoint to get the count of options for any tenant
-pub async fn get_system_tenant_options_count(configuration: &configuration::Configuration, tenant_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSystemTenantOptionsCountError>> {
+pub async fn get_system_tenant_options_count(configuration: &configuration::Configuration, tenant_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, option_dto_collection_query_parameters: Option<models::OptionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSystemTenantOptionsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,6 +245,7 @@ pub async fn get_system_tenant_options_count(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&option_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -261,7 +263,7 @@ pub async fn get_system_tenant_options_count(configuration: &configuration::Conf
 }
 
 /// Admin endpoint to partially update an option for any tenant using a JSON Patch document
-pub async fn patch_system_tenant_option(configuration: &configuration::Configuration, tenant_id: &str, option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSystemTenantOptionError>> {
+pub async fn patch_system_tenant_option(configuration: &configuration::Configuration, tenant_id: &str, option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSystemTenantOptionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +280,7 @@ pub async fn patch_system_tenant_option(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

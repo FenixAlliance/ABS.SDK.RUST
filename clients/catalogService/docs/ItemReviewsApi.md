@@ -114,7 +114,7 @@ No authorization required
 
 ## get_item_reviews_async
 
-> models::ItemReviewDtoListEnvelope get_item_reviews_async(item_id, api_version, x_api_version)
+> models::ItemReviewDtoListEnvelope get_item_reviews_async(item_id, api_version, x_api_version, item_review_dto_collection_query_parameters)
 Get all item reviews
 
 Retrieves all item reviews for the specified item using OData query options.
@@ -127,6 +127,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_review_dto_collection_query_parameters** | Option<[**ItemReviewDtoCollectionQueryParameters**](ItemReviewDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -138,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,7 +147,7 @@ No authorization required
 
 ## patch_item_review_async
 
-> patch_item_review_async(tenant_id, item_review_id, api_version, x_api_version, operation)
+> patch_item_review_async(tenant_id, item_review_id, api_version, x_api_version, patch_operation)
 Patch an item review
 
 Partially updates an existing item review for the specified tenant.
@@ -160,7 +161,7 @@ Name | Type | Description  | Required | Notes
 **item_review_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

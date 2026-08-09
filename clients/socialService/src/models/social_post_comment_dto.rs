@@ -29,12 +29,24 @@ pub struct SocialPostCommentDto {
     pub social_profile_name: Option<Option<String>>,
     #[serde(rename = "socialProfileAvatarUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub social_profile_avatar_url: Option<Option<String>>,
+    #[serde(rename = "socialProfileType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub social_profile_type: Option<Option<SocialProfileType>>,
     #[serde(rename = "bodyHtml", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub body_html: Option<Option<String>>,
     #[serde(rename = "bodyFormat", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub body_format: Option<Option<BodyFormat>>,
+    #[serde(rename = "replyCount", skip_serializing_if = "Option::is_none")]
+    pub reply_count: Option<i32>,
+    #[serde(rename = "reactionsCount", skip_serializing_if = "Option::is_none")]
+    pub reactions_count: Option<i32>,
     #[serde(rename = "socialPostId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub social_post_id: Option<Option<String>>,
+    #[serde(rename = "facepile", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub facepile: Option<Option<Vec<models::SocialPostReactionFacepileDto>>>,
+    #[serde(rename = "myReaction", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub my_reaction: Option<Option<MyReaction>>,
+    #[serde(rename = "myReactionId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub my_reaction_id: Option<Option<String>>,
 }
 
 impl SocialPostCommentDto {
@@ -48,10 +60,32 @@ impl SocialPostCommentDto {
             social_feed_post_id: None,
             social_profile_name: None,
             social_profile_avatar_url: None,
+            social_profile_type: None,
             body_html: None,
             body_format: None,
+            reply_count: None,
+            reactions_count: None,
             social_post_id: None,
+            facepile: None,
+            my_reaction: None,
+            my_reaction_id: None,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum SocialProfileType {
+    #[serde(rename = "User")]
+    User,
+    #[serde(rename = "Tenant")]
+    Tenant,
+    #[serde(rename = "Contact")]
+    Contact,
+}
+
+impl Default for SocialProfileType {
+    fn default() -> SocialProfileType {
+        Self::User
     }
 }
 /// 
@@ -66,6 +100,32 @@ pub enum BodyFormat {
 impl Default for BodyFormat {
     fn default() -> BodyFormat {
         Self::PlainText
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum MyReaction {
+    #[serde(rename = "Like")]
+    Like,
+    #[serde(rename = "Happy")]
+    Happy,
+    #[serde(rename = "HaHa")]
+    HaHa,
+    #[serde(rename = "Love")]
+    Love,
+    #[serde(rename = "Sad")]
+    Sad,
+    #[serde(rename = "Angry")]
+    Angry,
+    #[serde(rename = "Wow")]
+    Wow,
+    #[serde(rename = "Afraid")]
+    Afraid,
+}
+
+impl Default for MyReaction {
+    fn default() -> MyReaction {
+        Self::Like
     }
 }
 

@@ -17,6 +17,12 @@ pub struct SocialFeedPostUpdateDto {
     pub title: Option<Option<String>>,
     #[serde(rename = "message", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub message: Option<Option<String>>,
+    #[serde(rename = "bodyHtml", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub body_html: Option<Option<String>>,
+    #[serde(rename = "bodyFormat", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub body_format: Option<Option<BodyFormat>>,
+    #[serde(rename = "backgroundStyle", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub background_style: Option<Option<String>>,
 }
 
 impl SocialFeedPostUpdateDto {
@@ -24,7 +30,24 @@ impl SocialFeedPostUpdateDto {
         SocialFeedPostUpdateDto {
             title: None,
             message: None,
+            body_html: None,
+            body_format: None,
+            background_style: None,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum BodyFormat {
+    #[serde(rename = "PlainText")]
+    PlainText,
+    #[serde(rename = "Html")]
+    Html,
+}
+
+impl Default for BodyFormat {
+    fn default() -> BodyFormat {
+        Self::PlainText
     }
 }
 

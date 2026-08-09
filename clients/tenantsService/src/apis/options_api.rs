@@ -246,7 +246,7 @@ pub async fn get_tenant_option_by_key(configuration: &configuration::Configurati
 }
 
 /// Retrieve a list of tenant options
-pub async fn get_tenant_options(configuration: &configuration::Configuration, tenant_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::OptionDtoListEnvelope, Error<GetTenantOptionsError>> {
+pub async fn get_tenant_options(configuration: &configuration::Configuration, tenant_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, option_dto_collection_query_parameters: Option<models::OptionDtoCollectionQueryParameters>) -> Result<models::OptionDtoListEnvelope, Error<GetTenantOptionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -267,6 +267,7 @@ pub async fn get_tenant_options(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&option_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -284,7 +285,7 @@ pub async fn get_tenant_options(configuration: &configuration::Configuration, te
 }
 
 /// Get the count of tenant options
-pub async fn get_tenant_options_count(configuration: &configuration::Configuration, tenant_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTenantOptionsCountError>> {
+pub async fn get_tenant_options_count(configuration: &configuration::Configuration, tenant_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, option_dto_collection_query_parameters: Option<models::OptionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTenantOptionsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -305,6 +306,7 @@ pub async fn get_tenant_options_count(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&option_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -322,7 +324,7 @@ pub async fn get_tenant_options_count(configuration: &configuration::Configurati
 }
 
 /// Patch a tenant option
-pub async fn patch_tenant_option(configuration: &configuration::Configuration, tenant_id: &str, option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantOptionError>> {
+pub async fn patch_tenant_option(configuration: &configuration::Configuration, tenant_id: &str, option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantOptionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -340,7 +342,7 @@ pub async fn patch_tenant_option(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

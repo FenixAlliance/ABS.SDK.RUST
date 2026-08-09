@@ -116,7 +116,7 @@ No authorization required
 
 ## get_fiscal_identification_types
 
-> models::FiscalIdentificationTypeDtoListEnvelope get_fiscal_identification_types(tenant_id, authority_id, api_version, x_api_version)
+> models::FiscalIdentificationTypeDtoListEnvelope get_fiscal_identification_types(tenant_id, authority_id, api_version, x_api_version, fiscal_identification_type_dto_collection_query_parameters)
 Get fiscal identification types for an authority
 
 Retrieves all fiscal identification types for the specified fiscal authority.
@@ -130,6 +130,7 @@ Name | Type | Description  | Required | Notes
 **authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**fiscal_identification_type_dto_collection_query_parameters** | Option<[**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -141,7 +142,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -149,7 +150,7 @@ No authorization required
 
 ## get_fiscal_identification_types_count
 
-> models::Int32Envelope get_fiscal_identification_types_count(tenant_id, authority_id, api_version, x_api_version)
+> models::Int32Envelope get_fiscal_identification_types_count(tenant_id, authority_id, api_version, x_api_version, fiscal_identification_type_dto_collection_query_parameters)
 Get fiscal identification types count
 
 Returns the total count of fiscal identification types for the specified fiscal authority.
@@ -163,6 +164,7 @@ Name | Type | Description  | Required | Notes
 **authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**fiscal_identification_type_dto_collection_query_parameters** | Option<[**FiscalIdentificationTypeDtoCollectionQueryParameters**](FiscalIdentificationTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -174,7 +176,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -182,7 +184,7 @@ No authorization required
 
 ## patch_fiscal_identification_type_async
 
-> models::EmptyEnvelope patch_fiscal_identification_type_async(tenant_id, identification_type_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_fiscal_identification_type_async(tenant_id, identification_type_id, api_version, x_api_version, patch_operation)
 Patch a fiscal identification type
 
 Partially updates a fiscal identification type.
@@ -196,7 +198,7 @@ Name | Type | Description  | Required | Notes
 **identification_type_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

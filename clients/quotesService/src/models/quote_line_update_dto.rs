@@ -179,8 +179,6 @@ pub struct QuoteLineUpdateDto {
     pub unit_id: Option<Option<String>>,
     #[serde(rename = "unitGroupId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub unit_group_id: Option<Option<String>>,
-    #[serde(rename = "forexRatesSnapshot", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub forex_rates_snapshot: Option<Option<String>>,
     #[serde(rename = "totalBaseAmountInUsd", skip_serializing_if = "Option::is_none")]
     pub total_base_amount_in_usd: Option<f64>,
     #[serde(rename = "totalProfitInUsd", skip_serializing_if = "Option::is_none")]
@@ -323,7 +321,6 @@ impl QuoteLineUpdateDto {
             price_list_item_id: None,
             unit_id: None,
             unit_group_id: None,
-            forex_rates_snapshot: None,
             total_base_amount_in_usd: None,
             total_profit_in_usd: None,
             total_detail_amount_in_usd: None,

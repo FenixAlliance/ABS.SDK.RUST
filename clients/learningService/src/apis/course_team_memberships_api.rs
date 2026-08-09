@@ -178,7 +178,7 @@ pub async fn get_course_team_membership_by_id_async(configuration: &configuratio
 }
 
 /// Retrieves all course team memberships for the specified tenant.
-pub async fn get_course_team_memberships_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseTeamMembershipDto>, Error<GetCourseTeamMembershipsAsyncError>> {
+pub async fn get_course_team_memberships_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_team_membership_dto_collection_query_parameters: Option<models::CourseTeamMembershipDtoCollectionQueryParameters>) -> Result<Vec<models::CourseTeamMembershipDto>, Error<GetCourseTeamMembershipsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -196,6 +196,7 @@ pub async fn get_course_team_memberships_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_team_membership_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -213,7 +214,7 @@ pub async fn get_course_team_memberships_async(configuration: &configuration::Co
 }
 
 /// Returns the count of course team memberships for the specified tenant.
-pub async fn get_course_team_memberships_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseTeamMembershipsCountAsyncError>> {
+pub async fn get_course_team_memberships_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_team_membership_dto_collection_query_parameters: Option<models::CourseTeamMembershipDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseTeamMembershipsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -231,6 +232,7 @@ pub async fn get_course_team_memberships_count_async(configuration: &configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_team_membership_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -248,7 +250,7 @@ pub async fn get_course_team_memberships_count_async(configuration: &configurati
 }
 
 /// Partially updates a course team membership for the specified tenant.
-pub async fn patch_course_team_membership_async(configuration: &configuration::Configuration, tenant_id: &str, membership_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCourseTeamMembershipAsyncError>> {
+pub async fn patch_course_team_membership_async(configuration: &configuration::Configuration, tenant_id: &str, membership_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCourseTeamMembershipAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -266,7 +268,7 @@ pub async fn patch_course_team_membership_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

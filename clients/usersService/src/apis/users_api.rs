@@ -222,7 +222,7 @@ pub enum UpdateCurrentUserSettingsAsyncError {
 
 
 /// Count the social profiles that follow the current user
-pub async fn count_current_user_followers_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountCurrentUserFollowersAsyncError>> {
+pub async fn count_current_user_followers_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, follow_record_dto_collection_query_parameters: Option<models::FollowRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountCurrentUserFollowersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +239,7 @@ pub async fn count_current_user_followers_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&follow_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +257,7 @@ pub async fn count_current_user_followers_async(configuration: &configuration::C
 }
 
 /// Count the social profiles that the current user follows
-pub async fn count_current_user_follows_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountCurrentUserFollowsAsyncError>> {
+pub async fn count_current_user_follows_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, follow_record_dto_collection_query_parameters: Option<models::FollowRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountCurrentUserFollowsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -273,6 +274,7 @@ pub async fn count_current_user_follows_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&follow_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -290,7 +292,7 @@ pub async fn count_current_user_follows_async(configuration: &configuration::Con
 }
 
 /// Count the notifications for the current user
-pub async fn count_current_user_notifications_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountCurrentUserNotificationsAsyncError>> {
+pub async fn count_current_user_notifications_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, notification_dto_collection_query_parameters: Option<models::NotificationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountCurrentUserNotificationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -307,6 +309,7 @@ pub async fn count_current_user_notifications_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&notification_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -324,7 +327,7 @@ pub async fn count_current_user_notifications_async(configuration: &configuratio
 }
 
 /// Count the tenants that the current user is enrolled in
-pub async fn count_current_user_tenants_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountCurrentUserTenantsAsyncError>> {
+pub async fn count_current_user_tenants_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, tenant_dto_collection_query_parameters: Option<models::TenantDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountCurrentUserTenantsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -341,6 +344,7 @@ pub async fn count_current_user_tenants_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -358,7 +362,7 @@ pub async fn count_current_user_tenants_async(configuration: &configuration::Con
 }
 
 /// Get the list of addresses for the current user
-pub async fn get_current_user_addresses_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AddressDtoListEnvelope, Error<GetCurrentUserAddressesAsyncError>> {
+pub async fn get_current_user_addresses_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, address_dto_collection_query_parameters: Option<models::AddressDtoCollectionQueryParameters>) -> Result<models::AddressDtoListEnvelope, Error<GetCurrentUserAddressesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -375,6 +379,7 @@ pub async fn get_current_user_addresses_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&address_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -562,7 +567,7 @@ pub async fn get_current_user_enrollments_extended_async(configuration: &configu
 }
 
 /// Get the social profiles that follow the current user
-pub async fn get_current_user_followers_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FollowRecordDtoListEnvelope, Error<GetCurrentUserFollowersAsyncError>> {
+pub async fn get_current_user_followers_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, follow_record_dto_collection_query_parameters: Option<models::FollowRecordDtoCollectionQueryParameters>) -> Result<models::FollowRecordDtoListEnvelope, Error<GetCurrentUserFollowersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -579,6 +584,7 @@ pub async fn get_current_user_followers_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&follow_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -596,7 +602,7 @@ pub async fn get_current_user_followers_async(configuration: &configuration::Con
 }
 
 /// Get the social profiles that the current user follows
-pub async fn get_current_user_follows_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FollowRecordDtoListEnvelope, Error<GetCurrentUserFollowsAsyncError>> {
+pub async fn get_current_user_follows_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, follow_record_dto_collection_query_parameters: Option<models::FollowRecordDtoCollectionQueryParameters>) -> Result<models::FollowRecordDtoListEnvelope, Error<GetCurrentUserFollowsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -613,6 +619,7 @@ pub async fn get_current_user_follows_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&follow_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -664,7 +671,7 @@ pub async fn get_current_user_invitation_async(configuration: &configuration::Co
 }
 
 /// Get the list of notifications for the current user
-pub async fn get_current_user_notifications_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::NotificationDtoListEnvelope, Error<GetCurrentUserNotificationsAsyncError>> {
+pub async fn get_current_user_notifications_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, notification_dto_collection_query_parameters: Option<models::NotificationDtoCollectionQueryParameters>) -> Result<models::NotificationDtoListEnvelope, Error<GetCurrentUserNotificationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -681,6 +688,7 @@ pub async fn get_current_user_notifications_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&notification_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -766,7 +774,7 @@ pub async fn get_current_user_social_profile_async(configuration: &configuration
 }
 
 /// Get the tenants that the current user is enrolled in
-pub async fn get_current_user_tenants_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TenantDtoListEnvelope, Error<GetCurrentUserTenantsAsyncError>> {
+pub async fn get_current_user_tenants_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, tenant_dto_collection_query_parameters: Option<models::TenantDtoCollectionQueryParameters>) -> Result<models::TenantDtoListEnvelope, Error<GetCurrentUserTenantsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -783,6 +791,7 @@ pub async fn get_current_user_tenants_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -936,7 +945,7 @@ pub async fn get_extended_current_user_async(configuration: &configuration::Conf
 }
 
 /// Partially update the current user's profile
-pub async fn patch_current_user_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCurrentUserAsyncError>> {
+pub async fn patch_current_user_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCurrentUserAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -953,7 +962,7 @@ pub async fn patch_current_user_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

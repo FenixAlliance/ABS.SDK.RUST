@@ -17,6 +17,8 @@ pub struct ReceiptCreateDto {
     pub id: Option<uuid::Uuid>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
+    #[serde(rename = "closed", skip_serializing_if = "Option::is_none")]
+    pub closed: Option<bool>,
     #[serde(rename = "title", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub title: Option<Option<String>>,
     #[serde(rename = "priceListId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -51,6 +53,8 @@ pub struct ReceiptCreateDto {
     pub state_id: Option<Option<String>>,
     #[serde(rename = "cityId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub city_id: Option<Option<String>>,
+    #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
+    pub forex_rate: Option<f64>,
     #[serde(rename = "currencyId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub currency_id: Option<Option<String>>,
     #[serde(rename = "totalDetail", skip_serializing_if = "Option::is_none")]
@@ -107,14 +111,10 @@ pub struct ReceiptCreateDto {
     pub tax_calculation_method: Option<TaxCalculationMethod>,
     #[serde(rename = "paymentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub payment_id: Option<Option<String>>,
-    #[serde(rename = "forexRate", skip_serializing_if = "Option::is_none")]
-    pub forex_rate: Option<f64>,
     #[serde(rename = "totalAmount", skip_serializing_if = "Option::is_none")]
     pub total_amount: Option<f64>,
     #[serde(rename = "totalAmountInUSD", skip_serializing_if = "Option::is_none")]
     pub total_amount_in_usd: Option<f64>,
-    #[serde(rename = "closed", skip_serializing_if = "Option::is_none")]
-    pub closed: Option<bool>,
     #[serde(rename = "contactId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub contact_id: Option<Option<String>>,
     #[serde(rename = "receiptType", skip_serializing_if = "Option::is_none")]
@@ -130,6 +130,7 @@ impl ReceiptCreateDto {
         ReceiptCreateDto {
             id: None,
             timestamp: None,
+            closed: None,
             title: None,
             price_list_id: None,
             description: None,
@@ -147,6 +148,7 @@ impl ReceiptCreateDto {
             country_id: None,
             state_id: None,
             city_id: None,
+            forex_rate: None,
             currency_id: None,
             total_detail: None,
             total_detail_currency_id: None,
@@ -175,10 +177,8 @@ impl ReceiptCreateDto {
             cost_calculation_method: None,
             tax_calculation_method: None,
             payment_id: None,
-            forex_rate: None,
             total_amount: None,
             total_amount_in_usd: None,
-            closed: None,
             contact_id: None,
             receipt_type: None,
             order_id: None,

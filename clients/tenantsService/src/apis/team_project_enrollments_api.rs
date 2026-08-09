@@ -186,7 +186,7 @@ pub async fn get_tenant_team_project_enrollment_by_id(configuration: &configurat
 }
 
 /// Retrieve a list of tenant team project enrollments
-pub async fn get_tenant_team_project_enrollments(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TenantTeamProjectEnrollmentDtoListEnvelope, Error<GetTenantTeamProjectEnrollmentsError>> {
+pub async fn get_tenant_team_project_enrollments(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_team_project_enrollment_dto_collection_query_parameters: Option<models::TenantTeamProjectEnrollmentDtoCollectionQueryParameters>) -> Result<models::TenantTeamProjectEnrollmentDtoListEnvelope, Error<GetTenantTeamProjectEnrollmentsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +204,7 @@ pub async fn get_tenant_team_project_enrollments(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_team_project_enrollment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_tenant_team_project_enrollments(configuration: &configuration::
 }
 
 /// Get the count of tenant team project enrollments
-pub async fn get_tenant_team_project_enrollments_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTenantTeamProjectEnrollmentsCountError>> {
+pub async fn get_tenant_team_project_enrollments_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_team_project_enrollment_dto_collection_query_parameters: Option<models::TenantTeamProjectEnrollmentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTenantTeamProjectEnrollmentsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_tenant_team_project_enrollments_count(configuration: &configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_team_project_enrollment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_tenant_team_project_enrollments_count(configuration: &configura
 }
 
 /// Patch a tenant team project enrollment
-pub async fn patch_tenant_team_project_enrollment(configuration: &configuration::Configuration, tenant_id: &str, tenant_team_project_enrollment_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantTeamProjectEnrollmentError>> {
+pub async fn patch_tenant_team_project_enrollment(configuration: &configuration::Configuration, tenant_id: &str, tenant_team_project_enrollment_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantTeamProjectEnrollmentError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_tenant_team_project_enrollment(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -353,7 +353,7 @@ pub async fn delete_order_line(configuration: &configuration::Configuration, ten
 }
 
 /// Retrieves a list of extended order details for the specified tenant.
-pub async fn get_extended_orders(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::ExtendedOrderDtoListEnvelope, Error<GetExtendedOrdersError>> {
+pub async fn get_extended_orders(configuration: &configuration::Configuration, tenant_id: &str, extended_order_dto_collection_query_parameters: Option<models::ExtendedOrderDtoCollectionQueryParameters>) -> Result<models::ExtendedOrderDtoListEnvelope, Error<GetExtendedOrdersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -365,6 +365,7 @@ pub async fn get_extended_orders(configuration: &configuration::Configuration, t
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_order_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -440,7 +441,7 @@ pub async fn get_order_line(configuration: &configuration::Configuration, tenant
 }
 
 /// Retrieves the lines (items) for the specified order.
-pub async fn get_order_lines(configuration: &configuration::Configuration, tenant_id: &str, order_id: &str, item_id: Option<&str>) -> Result<models::OrderLineDtoListEnvelope, Error<GetOrderLinesError>> {
+pub async fn get_order_lines(configuration: &configuration::Configuration, tenant_id: &str, order_id: &str, item_id: Option<&str>, order_line_dto_collection_query_parameters: Option<models::OrderLineDtoCollectionQueryParameters>) -> Result<models::OrderLineDtoListEnvelope, Error<GetOrderLinesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -455,6 +456,7 @@ pub async fn get_order_lines(configuration: &configuration::Configuration, tenan
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&order_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -472,7 +474,7 @@ pub async fn get_order_lines(configuration: &configuration::Configuration, tenan
 }
 
 /// Retrieves the total number of lines for the specified order.
-pub async fn get_order_lines_count(configuration: &configuration::Configuration, tenant_id: &str, order_id: &str) -> Result<models::Int32Envelope, Error<GetOrderLinesCountError>> {
+pub async fn get_order_lines_count(configuration: &configuration::Configuration, tenant_id: &str, order_id: &str, order_line_dto_collection_query_parameters: Option<models::OrderLineDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetOrderLinesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -484,6 +486,7 @@ pub async fn get_order_lines_count(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&order_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -501,7 +504,7 @@ pub async fn get_order_lines_count(configuration: &configuration::Configuration,
 }
 
 /// Retrieves a list of orders for the specified tenant.
-pub async fn get_orders(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::OrderDtoListEnvelope, Error<GetOrdersError>> {
+pub async fn get_orders(configuration: &configuration::Configuration, tenant_id: &str, order_dto_collection_query_parameters: Option<models::OrderDtoCollectionQueryParameters>) -> Result<models::OrderDtoListEnvelope, Error<GetOrdersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -513,6 +516,7 @@ pub async fn get_orders(configuration: &configuration::Configuration, tenant_id:
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&order_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -530,7 +534,7 @@ pub async fn get_orders(configuration: &configuration::Configuration, tenant_id:
 }
 
 /// Retrieves the total number of orders for the specified tenant.
-pub async fn get_orders_count(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetOrdersCountError>> {
+pub async fn get_orders_count(configuration: &configuration::Configuration, tenant_id: &str, order_dto_collection_query_parameters: Option<models::OrderDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetOrdersCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -542,6 +546,7 @@ pub async fn get_orders_count(configuration: &configuration::Configuration, tena
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&order_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -559,7 +564,7 @@ pub async fn get_orders_count(configuration: &configuration::Configuration, tena
 }
 
 /// Applies a JSON Patch document to partially update an existing order.
-pub async fn patch_order(configuration: &configuration::Configuration, tenant_id: &str, order_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchOrderError>> {
+pub async fn patch_order(configuration: &configuration::Configuration, tenant_id: &str, order_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchOrderError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -571,7 +576,7 @@ pub async fn patch_order(configuration: &configuration::Configuration, tenant_id
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -589,7 +594,7 @@ pub async fn patch_order(configuration: &configuration::Configuration, tenant_id
 }
 
 /// Applies a JSON Patch document to partially update a specific order line.
-pub async fn patch_order_line(configuration: &configuration::Configuration, tenant_id: &str, order_id: &str, order_line_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchOrderLineError>> {
+pub async fn patch_order_line(configuration: &configuration::Configuration, tenant_id: &str, order_id: &str, order_line_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchOrderLineError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -601,7 +606,7 @@ pub async fn patch_order_line(configuration: &configuration::Configuration, tena
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

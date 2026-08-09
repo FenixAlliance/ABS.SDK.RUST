@@ -424,7 +424,7 @@ pub async fn delete_course_async(configuration: &configuration::Configuration, t
 }
 
 /// Retrieves all course articles for a specific course wiki.
-pub async fn get_course_articles_by_course_wiki_async(configuration: &configuration::Configuration, course_id: &str, wiki_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseArticleDto>, Error<GetCourseArticlesByCourseWikiAsyncError>> {
+pub async fn get_course_articles_by_course_wiki_async(configuration: &configuration::Configuration, course_id: &str, wiki_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_article_dto_collection_query_parameters: Option<models::CourseArticleDtoCollectionQueryParameters>) -> Result<Vec<models::CourseArticleDto>, Error<GetCourseArticlesByCourseWikiAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -441,6 +441,7 @@ pub async fn get_course_articles_by_course_wiki_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_article_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -458,7 +459,7 @@ pub async fn get_course_articles_by_course_wiki_async(configuration: &configurat
 }
 
 /// Returns the count of course articles for a specific course wiki.
-pub async fn get_course_articles_by_course_wiki_count_async(configuration: &configuration::Configuration, course_id: &str, wiki_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseArticlesByCourseWikiCountAsyncError>> {
+pub async fn get_course_articles_by_course_wiki_count_async(configuration: &configuration::Configuration, course_id: &str, wiki_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_article_dto_collection_query_parameters: Option<models::CourseArticleDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseArticlesByCourseWikiCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -475,6 +476,7 @@ pub async fn get_course_articles_by_course_wiki_count_async(configuration: &conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_article_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -492,7 +494,7 @@ pub async fn get_course_articles_by_course_wiki_count_async(configuration: &conf
 }
 
 /// Retrieves all course assignments for a specific course.
-pub async fn get_course_assignments_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseAssignmentDto>, Error<GetCourseAssignmentsByCourseAsyncError>> {
+pub async fn get_course_assignments_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_assignment_dto_collection_query_parameters: Option<models::CourseAssignmentDtoCollectionQueryParameters>) -> Result<Vec<models::CourseAssignmentDto>, Error<GetCourseAssignmentsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -509,6 +511,7 @@ pub async fn get_course_assignments_by_course_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_assignment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -526,7 +529,7 @@ pub async fn get_course_assignments_by_course_async(configuration: &configuratio
 }
 
 /// Returns the count of course assignments for a specific course.
-pub async fn get_course_assignments_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseAssignmentsByCourseCountAsyncError>> {
+pub async fn get_course_assignments_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_assignment_dto_collection_query_parameters: Option<models::CourseAssignmentDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseAssignmentsByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -543,6 +546,7 @@ pub async fn get_course_assignments_by_course_count_async(configuration: &config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_assignment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -597,7 +601,7 @@ pub async fn get_course_by_id_async(configuration: &configuration::Configuration
 }
 
 /// Retrieves all course categories for a specific course.
-pub async fn get_course_categories_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseCategoryDto>, Error<GetCourseCategoriesByCourseAsyncError>> {
+pub async fn get_course_categories_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_category_dto_collection_query_parameters: Option<models::CourseCategoryDtoCollectionQueryParameters>) -> Result<Vec<models::CourseCategoryDto>, Error<GetCourseCategoriesByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -614,6 +618,7 @@ pub async fn get_course_categories_by_course_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -631,7 +636,7 @@ pub async fn get_course_categories_by_course_async(configuration: &configuration
 }
 
 /// Returns the count of course categories for a specific course.
-pub async fn get_course_categories_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseCategoriesByCourseCountAsyncError>> {
+pub async fn get_course_categories_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_category_dto_collection_query_parameters: Option<models::CourseCategoryDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseCategoriesByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -648,6 +653,7 @@ pub async fn get_course_categories_by_course_count_async(configuration: &configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -665,7 +671,7 @@ pub async fn get_course_categories_by_course_count_async(configuration: &configu
 }
 
 /// Retrieves all course cohorts for a specific course.
-pub async fn get_course_cohorts_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseCohortDto>, Error<GetCourseCohortsByCourseAsyncError>> {
+pub async fn get_course_cohorts_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_cohort_dto_collection_query_parameters: Option<models::CourseCohortDtoCollectionQueryParameters>) -> Result<Vec<models::CourseCohortDto>, Error<GetCourseCohortsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -682,6 +688,7 @@ pub async fn get_course_cohorts_by_course_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_cohort_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -699,7 +706,7 @@ pub async fn get_course_cohorts_by_course_async(configuration: &configuration::C
 }
 
 /// Returns the count of course cohorts for a specific course.
-pub async fn get_course_cohorts_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseCohortsByCourseCountAsyncError>> {
+pub async fn get_course_cohorts_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_cohort_dto_collection_query_parameters: Option<models::CourseCohortDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseCohortsByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -716,6 +723,7 @@ pub async fn get_course_cohorts_by_course_count_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_cohort_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -733,7 +741,7 @@ pub async fn get_course_cohorts_by_course_count_async(configuration: &configurat
 }
 
 /// Retrieves all enrollments for a specific course.
-pub async fn get_course_enrollments_by_course_async(configuration: &configuration::Configuration, tenant_id: &str, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseEnrollmentDto>, Error<GetCourseEnrollmentsByCourseAsyncError>> {
+pub async fn get_course_enrollments_by_course_async(configuration: &configuration::Configuration, tenant_id: &str, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_enrollment_dto_collection_query_parameters: Option<models::CourseEnrollmentDtoCollectionQueryParameters>) -> Result<Vec<models::CourseEnrollmentDto>, Error<GetCourseEnrollmentsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -751,6 +759,7 @@ pub async fn get_course_enrollments_by_course_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_enrollment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -768,7 +777,7 @@ pub async fn get_course_enrollments_by_course_async(configuration: &configuratio
 }
 
 /// Retrieves all course files for a specific course.
-pub async fn get_course_files_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseFileDto>, Error<GetCourseFilesByCourseAsyncError>> {
+pub async fn get_course_files_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_file_dto_collection_query_parameters: Option<models::CourseFileDtoCollectionQueryParameters>) -> Result<Vec<models::CourseFileDto>, Error<GetCourseFilesByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -785,6 +794,7 @@ pub async fn get_course_files_by_course_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_file_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -802,7 +812,7 @@ pub async fn get_course_files_by_course_async(configuration: &configuration::Con
 }
 
 /// Returns the count of course files for a specific course.
-pub async fn get_course_files_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseFilesByCourseCountAsyncError>> {
+pub async fn get_course_files_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_file_dto_collection_query_parameters: Option<models::CourseFileDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseFilesByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -819,6 +829,7 @@ pub async fn get_course_files_by_course_count_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_file_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -836,7 +847,7 @@ pub async fn get_course_files_by_course_count_async(configuration: &configuratio
 }
 
 /// Retrieves all course forums for a specific course.
-pub async fn get_course_forums_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseForumDto>, Error<GetCourseForumsByCourseAsyncError>> {
+pub async fn get_course_forums_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_forum_dto_collection_query_parameters: Option<models::CourseForumDtoCollectionQueryParameters>) -> Result<Vec<models::CourseForumDto>, Error<GetCourseForumsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -853,6 +864,7 @@ pub async fn get_course_forums_by_course_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_forum_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -870,7 +882,7 @@ pub async fn get_course_forums_by_course_async(configuration: &configuration::Co
 }
 
 /// Returns the count of course forums for a specific course.
-pub async fn get_course_forums_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseForumsByCourseCountAsyncError>> {
+pub async fn get_course_forums_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_forum_dto_collection_query_parameters: Option<models::CourseForumDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseForumsByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -887,6 +899,7 @@ pub async fn get_course_forums_by_course_count_async(configuration: &configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_forum_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -904,7 +917,7 @@ pub async fn get_course_forums_by_course_count_async(configuration: &configurati
 }
 
 /// Retrieves all course handouts for a specific course.
-pub async fn get_course_handouts_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseHandoutDto>, Error<GetCourseHandoutsByCourseAsyncError>> {
+pub async fn get_course_handouts_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_handout_dto_collection_query_parameters: Option<models::CourseHandoutDtoCollectionQueryParameters>) -> Result<Vec<models::CourseHandoutDto>, Error<GetCourseHandoutsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -921,6 +934,7 @@ pub async fn get_course_handouts_by_course_async(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_handout_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -938,7 +952,7 @@ pub async fn get_course_handouts_by_course_async(configuration: &configuration::
 }
 
 /// Returns the count of course handouts for a specific course.
-pub async fn get_course_handouts_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseHandoutsByCourseCountAsyncError>> {
+pub async fn get_course_handouts_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_handout_dto_collection_query_parameters: Option<models::CourseHandoutDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseHandoutsByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -955,6 +969,7 @@ pub async fn get_course_handouts_by_course_count_async(configuration: &configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_handout_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -972,7 +987,7 @@ pub async fn get_course_handouts_by_course_count_async(configuration: &configura
 }
 
 /// Retrieves all course libraries for a specific course.
-pub async fn get_course_libraries_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseLibraryDto>, Error<GetCourseLibrariesByCourseAsyncError>> {
+pub async fn get_course_libraries_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_library_dto_collection_query_parameters: Option<models::CourseLibraryDtoCollectionQueryParameters>) -> Result<Vec<models::CourseLibraryDto>, Error<GetCourseLibrariesByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -989,6 +1004,7 @@ pub async fn get_course_libraries_by_course_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_library_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1006,7 +1022,7 @@ pub async fn get_course_libraries_by_course_async(configuration: &configuration:
 }
 
 /// Returns the count of course libraries for a specific course.
-pub async fn get_course_libraries_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseLibrariesByCourseCountAsyncError>> {
+pub async fn get_course_libraries_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_library_dto_collection_query_parameters: Option<models::CourseLibraryDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseLibrariesByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1023,6 +1039,7 @@ pub async fn get_course_libraries_by_course_count_async(configuration: &configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_library_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1040,7 +1057,7 @@ pub async fn get_course_libraries_by_course_count_async(configuration: &configur
 }
 
 /// Retrieves all course pages for a specific course.
-pub async fn get_course_pages_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CoursePageDto>, Error<GetCoursePagesByCourseAsyncError>> {
+pub async fn get_course_pages_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_page_dto_collection_query_parameters: Option<models::CoursePageDtoCollectionQueryParameters>) -> Result<Vec<models::CoursePageDto>, Error<GetCoursePagesByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1057,6 +1074,7 @@ pub async fn get_course_pages_by_course_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_page_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1074,7 +1092,7 @@ pub async fn get_course_pages_by_course_async(configuration: &configuration::Con
 }
 
 /// Returns the count of course pages for a specific course.
-pub async fn get_course_pages_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCoursePagesByCourseCountAsyncError>> {
+pub async fn get_course_pages_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_page_dto_collection_query_parameters: Option<models::CoursePageDtoCollectionQueryParameters>) -> Result<i32, Error<GetCoursePagesByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1091,6 +1109,7 @@ pub async fn get_course_pages_by_course_count_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_page_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1108,7 +1127,7 @@ pub async fn get_course_pages_by_course_count_async(configuration: &configuratio
 }
 
 /// Retrieves all course problem sets for a specific course.
-pub async fn get_course_problem_sets_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseProblemSetDto>, Error<GetCourseProblemSetsByCourseAsyncError>> {
+pub async fn get_course_problem_sets_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_problem_set_dto_collection_query_parameters: Option<models::CourseProblemSetDtoCollectionQueryParameters>) -> Result<Vec<models::CourseProblemSetDto>, Error<GetCourseProblemSetsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1125,6 +1144,7 @@ pub async fn get_course_problem_sets_by_course_async(configuration: &configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_problem_set_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1142,7 +1162,7 @@ pub async fn get_course_problem_sets_by_course_async(configuration: &configurati
 }
 
 /// Returns the count of course problem sets for a specific course.
-pub async fn get_course_problem_sets_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseProblemSetsByCourseCountAsyncError>> {
+pub async fn get_course_problem_sets_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_problem_set_dto_collection_query_parameters: Option<models::CourseProblemSetDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseProblemSetsByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1159,6 +1179,7 @@ pub async fn get_course_problem_sets_by_course_count_async(configuration: &confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_problem_set_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1176,7 +1197,7 @@ pub async fn get_course_problem_sets_by_course_count_async(configuration: &confi
 }
 
 /// Retrieves all course sections for a specific course.
-pub async fn get_course_sections_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseSectionDto>, Error<GetCourseSectionsByCourseAsyncError>> {
+pub async fn get_course_sections_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_section_dto_collection_query_parameters: Option<models::CourseSectionDtoCollectionQueryParameters>) -> Result<Vec<models::CourseSectionDto>, Error<GetCourseSectionsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1193,6 +1214,7 @@ pub async fn get_course_sections_by_course_async(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_section_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1210,7 +1232,7 @@ pub async fn get_course_sections_by_course_async(configuration: &configuration::
 }
 
 /// Returns the count of course sections for a specific course.
-pub async fn get_course_sections_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseSectionsByCourseCountAsyncError>> {
+pub async fn get_course_sections_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_section_dto_collection_query_parameters: Option<models::CourseSectionDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseSectionsByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1227,6 +1249,7 @@ pub async fn get_course_sections_by_course_count_async(configuration: &configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_section_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1244,7 +1267,7 @@ pub async fn get_course_sections_by_course_count_async(configuration: &configura
 }
 
 /// Retrieves all course unit components for a specific course.
-pub async fn get_course_unit_components_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseUnitComponentDto>, Error<GetCourseUnitComponentsByCourseAsyncError>> {
+pub async fn get_course_unit_components_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_unit_component_dto_collection_query_parameters: Option<models::CourseUnitComponentDtoCollectionQueryParameters>) -> Result<Vec<models::CourseUnitComponentDto>, Error<GetCourseUnitComponentsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1261,6 +1284,7 @@ pub async fn get_course_unit_components_by_course_async(configuration: &configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_unit_component_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1278,7 +1302,7 @@ pub async fn get_course_unit_components_by_course_async(configuration: &configur
 }
 
 /// Returns the count of course unit components for a specific course.
-pub async fn get_course_unit_components_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseUnitComponentsByCourseCountAsyncError>> {
+pub async fn get_course_unit_components_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_unit_component_dto_collection_query_parameters: Option<models::CourseUnitComponentDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseUnitComponentsByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1295,6 +1319,7 @@ pub async fn get_course_unit_components_by_course_count_async(configuration: &co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_unit_component_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1312,7 +1337,7 @@ pub async fn get_course_unit_components_by_course_count_async(configuration: &co
 }
 
 /// Retrieves all course units for a specific course section.
-pub async fn get_course_units_by_section_async(configuration: &configuration::Configuration, course_id: &str, section_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseUnitDto>, Error<GetCourseUnitsBySectionAsyncError>> {
+pub async fn get_course_units_by_section_async(configuration: &configuration::Configuration, course_id: &str, section_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_unit_dto_collection_query_parameters: Option<models::CourseUnitDtoCollectionQueryParameters>) -> Result<Vec<models::CourseUnitDto>, Error<GetCourseUnitsBySectionAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1329,6 +1354,7 @@ pub async fn get_course_units_by_section_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_unit_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1346,7 +1372,7 @@ pub async fn get_course_units_by_section_async(configuration: &configuration::Co
 }
 
 /// Returns the count of course units for a specific course section.
-pub async fn get_course_units_by_section_count_async(configuration: &configuration::Configuration, course_id: &str, section_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseUnitsBySectionCountAsyncError>> {
+pub async fn get_course_units_by_section_count_async(configuration: &configuration::Configuration, course_id: &str, section_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_unit_dto_collection_query_parameters: Option<models::CourseUnitDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseUnitsBySectionCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1363,6 +1389,7 @@ pub async fn get_course_units_by_section_count_async(configuration: &configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_unit_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1380,7 +1407,7 @@ pub async fn get_course_units_by_section_count_async(configuration: &configurati
 }
 
 /// Retrieves all course updates for a specific course.
-pub async fn get_course_updates_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseNewsDto>, Error<GetCourseUpdatesByCourseAsyncError>> {
+pub async fn get_course_updates_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_news_dto_collection_query_parameters: Option<models::CourseNewsDtoCollectionQueryParameters>) -> Result<Vec<models::CourseNewsDto>, Error<GetCourseUpdatesByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1397,6 +1424,7 @@ pub async fn get_course_updates_by_course_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_news_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1414,7 +1442,7 @@ pub async fn get_course_updates_by_course_async(configuration: &configuration::C
 }
 
 /// Returns the count of course updates for a specific course.
-pub async fn get_course_updates_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseUpdatesByCourseCountAsyncError>> {
+pub async fn get_course_updates_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_news_dto_collection_query_parameters: Option<models::CourseNewsDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseUpdatesByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1431,6 +1459,7 @@ pub async fn get_course_updates_by_course_count_async(configuration: &configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_news_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1448,7 +1477,7 @@ pub async fn get_course_updates_by_course_count_async(configuration: &configurat
 }
 
 /// Retrieves all course wikis for a specific course.
-pub async fn get_course_wikis_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseWikiDto>, Error<GetCourseWikisByCourseAsyncError>> {
+pub async fn get_course_wikis_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_wiki_dto_collection_query_parameters: Option<models::CourseWikiDtoCollectionQueryParameters>) -> Result<Vec<models::CourseWikiDto>, Error<GetCourseWikisByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1465,6 +1494,7 @@ pub async fn get_course_wikis_by_course_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_wiki_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1482,7 +1512,7 @@ pub async fn get_course_wikis_by_course_async(configuration: &configuration::Con
 }
 
 /// Returns the count of course wikis for a specific course.
-pub async fn get_course_wikis_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseWikisByCourseCountAsyncError>> {
+pub async fn get_course_wikis_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_wiki_dto_collection_query_parameters: Option<models::CourseWikiDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseWikisByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1499,6 +1529,7 @@ pub async fn get_course_wikis_by_course_count_async(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_wiki_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1516,7 +1547,7 @@ pub async fn get_course_wikis_by_course_count_async(configuration: &configuratio
 }
 
 /// Retrieves courses. When tenantId is provided, returns tenant-scoped courses; otherwise returns all courses.
-pub async fn get_courses_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseDto>, Error<GetCoursesAsyncError>> {
+pub async fn get_courses_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_dto_collection_query_parameters: Option<models::CourseDtoCollectionQueryParameters>) -> Result<Vec<models::CourseDto>, Error<GetCoursesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1534,6 +1565,7 @@ pub async fn get_courses_async(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1551,7 +1583,7 @@ pub async fn get_courses_async(configuration: &configuration::Configuration, ten
 }
 
 /// Returns the count of courses. When tenantId is provided, returns tenant-scoped count; otherwise returns global count.
-pub async fn get_courses_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCoursesCountAsyncError>> {
+pub async fn get_courses_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_dto_collection_query_parameters: Option<models::CourseDtoCollectionQueryParameters>) -> Result<i32, Error<GetCoursesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1569,6 +1601,7 @@ pub async fn get_courses_count_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1722,7 +1755,7 @@ pub async fn get_student_profiles_by_course_count_async(configuration: &configur
 }
 
 /// Partially updates a course for the specified tenant.
-pub async fn patch_course_async(configuration: &configuration::Configuration, tenant_id: &str, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCourseAsyncError>> {
+pub async fn patch_course_async(configuration: &configuration::Configuration, tenant_id: &str, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1740,7 +1773,7 @@ pub async fn patch_course_async(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

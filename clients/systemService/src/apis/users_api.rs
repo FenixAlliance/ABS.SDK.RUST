@@ -78,6 +78,15 @@ pub enum GetExtendedUsersCountAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_user_admin_detail_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetUserAdminDetailAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_user_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -109,6 +118,25 @@ pub enum GetUsersCountAsyncError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchAccountHolderAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`set_user_password_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SetUserPasswordAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`update_account_holder_admin_profile_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateAccountHolderAdminProfileAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -298,7 +326,7 @@ pub async fn get_extended_account_holder_async(configuration: &configuration::Co
 }
 
 /// This action is only available for global administrators.
-pub async fn get_extended_users_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ExtendedUserDtoListEnvelope, Error<GetExtendedUsersAsyncError>> {
+pub async fn get_extended_users_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, extended_user_dto_collection_query_parameters: Option<models::ExtendedUserDtoCollectionQueryParameters>) -> Result<models::ExtendedUserDtoListEnvelope, Error<GetExtendedUsersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -315,6 +343,7 @@ pub async fn get_extended_users_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_user_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -332,7 +361,7 @@ pub async fn get_extended_users_async(configuration: &configuration::Configurati
 }
 
 /// This action is only available for global administrators.
-pub async fn get_extended_users_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetExtendedUsersCountAsyncError>> {
+pub async fn get_extended_users_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, extended_user_dto_collection_query_parameters: Option<models::ExtendedUserDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetExtendedUsersCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -340,6 +369,42 @@ pub async fn get_extended_users_count_async(configuration: &configuration::Confi
     let local_var_uri_str = format!("{}/api/v2/SystemService/Users/Extended/Count", local_var_configuration.base_path);
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&extended_user_dto_collection_query_parameters);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetExtendedUsersCountAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Returns the user's orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+pub async fn get_user_admin_detail_async(configuration: &configuration::Configuration, user_id: &str, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::UserAdminDetailDtoEnvelope, Error<GetUserAdminDetailAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Users/{userId}/AdminDetail", local_var_configuration.base_path, userId=crate::apis::urlencode(user_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("tenantId", &tenant_id.to_string())]);
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }
@@ -359,7 +424,7 @@ pub async fn get_extended_users_count_async(configuration: &configuration::Confi
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
-        let local_var_entity: Option<GetExtendedUsersCountAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_entity: Option<GetUserAdminDetailAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -400,7 +465,7 @@ pub async fn get_user_async(configuration: &configuration::Configuration, user_i
 }
 
 /// This action is only available for global administrators.
-pub async fn get_users_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::UserDtoListEnvelope, Error<GetUsersAsyncError>> {
+pub async fn get_users_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, user_dto_collection_query_parameters: Option<models::UserDtoCollectionQueryParameters>) -> Result<models::UserDtoListEnvelope, Error<GetUsersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -417,6 +482,7 @@ pub async fn get_users_async(configuration: &configuration::Configuration, api_v
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&user_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -434,7 +500,7 @@ pub async fn get_users_async(configuration: &configuration::Configuration, api_v
 }
 
 /// This action is only available for global administrators.
-pub async fn get_users_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetUsersCountAsyncError>> {
+pub async fn get_users_count_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, user_dto_collection_query_parameters: Option<models::UserDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetUsersCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -451,6 +517,7 @@ pub async fn get_users_count_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&user_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -468,7 +535,7 @@ pub async fn get_users_count_async(configuration: &configuration::Configuration,
 }
 
 /// This action is only available for global administrators.
-pub async fn patch_account_holder_async(configuration: &configuration::Configuration, user_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountHolderAsyncError>> {
+pub async fn patch_account_holder_async(configuration: &configuration::Configuration, user_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAccountHolderAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -485,7 +552,7 @@ pub async fn patch_account_holder_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -497,6 +564,76 @@ pub async fn patch_account_holder_async(configuration: &configuration::Configura
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<PatchAccountHolderAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Replaces the user's password with the supplied value. Global administrators only.
+pub async fn set_user_password_async(configuration: &configuration::Configuration, user_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, set_user_password_dto: Option<models::SetUserPasswordDto>) -> Result<models::EmptyEnvelope, Error<SetUserPasswordAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Users/{userId}/Password", local_var_configuration.base_path, userId=crate::apis::urlencode(user_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&set_user_password_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<SetUserPasswordAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+pub async fn update_account_holder_admin_profile_async(configuration: &configuration::Configuration, user_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, user_admin_update_dto: Option<models::UserAdminUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateAccountHolderAdminProfileAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Users/{userId}/AdminProfile", local_var_configuration.base_path, userId=crate::apis::urlencode(user_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&user_admin_update_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateAccountHolderAdminProfileAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

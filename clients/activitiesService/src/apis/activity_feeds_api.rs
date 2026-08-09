@@ -179,7 +179,7 @@ pub enum UpdateActivityTypeAsyncError {
 
 
 /// Count activity types for the current tenant.
-pub async fn count_activity_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountActivityTypesAsyncError>> {
+pub async fn count_activity_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, activity_type_dto_collection_query_parameters: Option<models::ActivityTypeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountActivityTypesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -197,6 +197,7 @@ pub async fn count_activity_types_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&activity_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -356,7 +357,7 @@ pub async fn delete_activity_type_async(configuration: &configuration::Configura
 }
 
 /// Retrieves activities for a specific activity feed.
-pub async fn get_activities_async(configuration: &configuration::Configuration, tenant_id: &str, activity_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ActivityRecordDtoListEnvelope, Error<GetActivitiesAsyncError>> {
+pub async fn get_activities_async(configuration: &configuration::Configuration, tenant_id: &str, activity_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, activity_record_dto_collection_query_parameters: Option<models::ActivityRecordDtoCollectionQueryParameters>) -> Result<models::ActivityRecordDtoListEnvelope, Error<GetActivitiesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -374,6 +375,7 @@ pub async fn get_activities_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&activity_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -391,7 +393,7 @@ pub async fn get_activities_async(configuration: &configuration::Configuration, 
 }
 
 /// Returns the count of activities for a specific activity feed.
-pub async fn get_activities_count_async(configuration: &configuration::Configuration, tenant_id: &str, activity_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetActivitiesCountAsyncError>> {
+pub async fn get_activities_count_async(configuration: &configuration::Configuration, tenant_id: &str, activity_feed_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, activity_record_dto_collection_query_parameters: Option<models::ActivityRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetActivitiesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -409,6 +411,7 @@ pub async fn get_activities_count_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&activity_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -496,7 +499,7 @@ pub async fn get_activity_feed_async(configuration: &configuration::Configuratio
 }
 
 /// Retrieves a list of activity feeds for the specified tenant.
-pub async fn get_activity_feeds_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ActivityFeedDtoListEnvelope, Error<GetActivityFeedsAsyncError>> {
+pub async fn get_activity_feeds_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, activity_feed_dto_collection_query_parameters: Option<models::ActivityFeedDtoCollectionQueryParameters>) -> Result<models::ActivityFeedDtoListEnvelope, Error<GetActivityFeedsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -514,6 +517,7 @@ pub async fn get_activity_feeds_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&activity_feed_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -531,7 +535,7 @@ pub async fn get_activity_feeds_async(configuration: &configuration::Configurati
 }
 
 /// Returns the count of activity feeds for the specified tenant.
-pub async fn get_activity_feeds_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetActivityFeedsCountAsyncError>> {
+pub async fn get_activity_feeds_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, activity_feed_dto_collection_query_parameters: Option<models::ActivityFeedDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetActivityFeedsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -549,6 +553,7 @@ pub async fn get_activity_feeds_count_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&activity_feed_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -566,7 +571,7 @@ pub async fn get_activity_feeds_count_async(configuration: &configuration::Confi
 }
 
 /// Returns the tenant-wide count of activity records across all feeds owned by the tenant.
-pub async fn get_activity_records_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetActivityRecordsCountAsyncError>> {
+pub async fn get_activity_records_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, activity_record_dto_collection_query_parameters: Option<models::ActivityRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetActivityRecordsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -584,6 +589,7 @@ pub async fn get_activity_records_count_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&activity_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -636,7 +642,7 @@ pub async fn get_activity_type_by_id_async(configuration: &configuration::Config
 }
 
 /// Get a list of activity types for the current tenant.
-pub async fn get_activity_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ActivityTypeDtoListEnvelope, Error<GetActivityTypesAsyncError>> {
+pub async fn get_activity_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, activity_type_dto_collection_query_parameters: Option<models::ActivityTypeDtoCollectionQueryParameters>) -> Result<models::ActivityTypeDtoListEnvelope, Error<GetActivityTypesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -654,6 +660,7 @@ pub async fn get_activity_types_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&activity_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -671,7 +678,7 @@ pub async fn get_activity_types_async(configuration: &configuration::Configurati
 }
 
 /// Patch an activity
-pub async fn patch_activity_async(configuration: &configuration::Configuration, tenant_id: &str, activity_feed_id: &str, activity_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchActivityAsyncError>> {
+pub async fn patch_activity_async(configuration: &configuration::Configuration, tenant_id: &str, activity_feed_id: &str, activity_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchActivityAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -689,7 +696,7 @@ pub async fn patch_activity_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -707,7 +714,7 @@ pub async fn patch_activity_async(configuration: &configuration::Configuration, 
 }
 
 /// Patch an activity type
-pub async fn patch_activity_type_async(configuration: &configuration::Configuration, tenant_id: &str, activity_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchActivityTypeAsyncError>> {
+pub async fn patch_activity_type_async(configuration: &configuration::Configuration, tenant_id: &str, activity_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchActivityTypeAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -725,7 +732,7 @@ pub async fn patch_activity_type_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

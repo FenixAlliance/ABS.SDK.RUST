@@ -140,7 +140,7 @@ No authorization required
 
 ## get_payments_async
 
-> models::PaymentDtoListEnvelope get_payments_async(tenant_id)
+> models::PaymentDtoListEnvelope get_payments_async(tenant_id, payment_dto_collection_query_parameters)
 Retrieves all payments
 
 Gets all payments for the current tenant with OData support.
@@ -151,6 +151,7 @@ Gets all payments for the current tenant with OData support.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**payment_dto_collection_query_parameters** | Option<[**PaymentDtoCollectionQueryParameters**](PaymentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -162,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -170,7 +171,7 @@ No authorization required
 
 ## patch_payment_async
 
-> models::EmptyEnvelope patch_payment_async(tenant_id, payment_id, operation)
+> models::EmptyEnvelope patch_payment_async(tenant_id, payment_id, patch_operation)
 Patch a payment
 
 Patch a payment
@@ -182,7 +183,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **payment_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

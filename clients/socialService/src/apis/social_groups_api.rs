@@ -80,7 +80,7 @@ pub enum UpdateSocialGroupAsyncError {
 
 
 /// Counts all social groups for the specified tenant.
-pub async fn count_social_groups_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountSocialGroupsAsyncError>> {
+pub async fn count_social_groups_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_group_dto_collection_query_parameters: Option<models::SocialGroupDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountSocialGroupsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -98,6 +98,7 @@ pub async fn count_social_groups_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -223,7 +224,7 @@ pub async fn get_social_group_by_id_async(configuration: &configuration::Configu
 }
 
 /// Retrieves all social groups for the specified tenant.
-pub async fn get_social_groups_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialGroupDtoListEnvelope, Error<GetSocialGroupsAsyncError>> {
+pub async fn get_social_groups_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_group_dto_collection_query_parameters: Option<models::SocialGroupDtoCollectionQueryParameters>) -> Result<models::SocialGroupDtoListEnvelope, Error<GetSocialGroupsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -241,6 +242,7 @@ pub async fn get_social_groups_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -258,7 +260,7 @@ pub async fn get_social_groups_async(configuration: &configuration::Configuratio
 }
 
 /// Partially updates an existing social group using a JSON Patch document.
-pub async fn patch_social_group_async(configuration: &configuration::Configuration, tenant_id: &str, social_profile_id: &str, social_group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSocialGroupAsyncError>> {
+pub async fn patch_social_group_async(configuration: &configuration::Configuration, tenant_id: &str, social_profile_id: &str, social_group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSocialGroupAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -277,7 +279,7 @@ pub async fn patch_social_group_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

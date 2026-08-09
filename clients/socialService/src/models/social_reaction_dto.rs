@@ -27,6 +27,8 @@ pub struct SocialReactionDto {
     pub social_profile_name: Option<Option<String>>,
     #[serde(rename = "socialProfileAvatarUrl", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub social_profile_avatar_url: Option<Option<String>>,
+    #[serde(rename = "socialProfileType", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub social_profile_type: Option<Option<SocialProfileType>>,
 }
 
 impl SocialReactionDto {
@@ -39,6 +41,7 @@ impl SocialReactionDto {
             social_profile_id: None,
             social_profile_name: None,
             social_profile_avatar_url: None,
+            social_profile_type: None,
         }
     }
 }
@@ -66,6 +69,22 @@ pub enum Reaction {
 impl Default for Reaction {
     fn default() -> Reaction {
         Self::Like
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum SocialProfileType {
+    #[serde(rename = "User")]
+    User,
+    #[serde(rename = "Tenant")]
+    Tenant,
+    #[serde(rename = "Contact")]
+    Contact,
+}
+
+impl Default for SocialProfileType {
+    fn default() -> SocialProfileType {
+        Self::User
     }
 }
 

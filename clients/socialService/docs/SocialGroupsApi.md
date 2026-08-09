@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## count_social_groups_async
 
-> models::Int32Envelope count_social_groups_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_social_groups_async(tenant_id, api_version, x_api_version, social_group_dto_collection_query_parameters)
 Count social groups
 
 Counts all social groups for the specified tenant.
@@ -29,6 +29,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_group_dto_collection_query_parameters** | Option<[**SocialGroupDtoCollectionQueryParameters**](SocialGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -40,7 +41,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -149,7 +150,7 @@ No authorization required
 
 ## get_social_groups_async
 
-> models::SocialGroupDtoListEnvelope get_social_groups_async(tenant_id, api_version, x_api_version)
+> models::SocialGroupDtoListEnvelope get_social_groups_async(tenant_id, api_version, x_api_version, social_group_dto_collection_query_parameters)
 Get social groups
 
 Retrieves all social groups for the specified tenant.
@@ -162,6 +163,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_group_dto_collection_query_parameters** | Option<[**SocialGroupDtoCollectionQueryParameters**](SocialGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -173,7 +175,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -181,7 +183,7 @@ No authorization required
 
 ## patch_social_group_async
 
-> models::EmptyEnvelope patch_social_group_async(tenant_id, social_profile_id, social_group_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_social_group_async(tenant_id, social_profile_id, social_group_id, api_version, x_api_version, patch_operation)
 Patch a social group
 
 Partially updates an existing social group using a JSON Patch document.
@@ -196,7 +198,7 @@ Name | Type | Description  | Required | Notes
 **social_group_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

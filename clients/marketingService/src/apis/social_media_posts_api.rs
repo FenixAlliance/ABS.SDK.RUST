@@ -191,7 +191,7 @@ pub async fn get_social_media_post_details_async(configuration: &configuration::
 }
 
 /// Returns the count of social media posts for the specified tenant using OData query options.
-pub async fn get_social_media_posts_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSocialMediaPostsCountAsyncError>> {
+pub async fn get_social_media_posts_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_media_post_dto_collection_query_parameters: Option<models::SocialMediaPostDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSocialMediaPostsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -209,6 +209,7 @@ pub async fn get_social_media_posts_count_async(configuration: &configuration::C
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_media_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -226,7 +227,7 @@ pub async fn get_social_media_posts_count_async(configuration: &configuration::C
 }
 
 /// Retrieves a collection of social media posts for the specified tenant using OData query options.
-pub async fn get_social_media_posts_o_data_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialMediaPostDtoListEnvelope, Error<GetSocialMediaPostsODataAsyncError>> {
+pub async fn get_social_media_posts_o_data_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_media_post_dto_collection_query_parameters: Option<models::SocialMediaPostDtoCollectionQueryParameters>) -> Result<models::SocialMediaPostDtoListEnvelope, Error<GetSocialMediaPostsODataAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,6 +245,7 @@ pub async fn get_social_media_posts_o_data_async(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_media_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -261,7 +263,7 @@ pub async fn get_social_media_posts_o_data_async(configuration: &configuration::
 }
 
 /// Partially updates a social media post by its ID using JSON Patch.
-pub async fn patch_social_media_post_async(configuration: &configuration::Configuration, tenant_id: &str, socialmediapost_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSocialMediaPostAsyncError>> {
+pub async fn patch_social_media_post_async(configuration: &configuration::Configuration, tenant_id: &str, socialmediapost_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSocialMediaPostAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -279,7 +281,7 @@ pub async fn patch_social_media_post_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

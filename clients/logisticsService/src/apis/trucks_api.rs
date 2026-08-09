@@ -518,7 +518,7 @@ pub async fn get_truck_by_id_async(configuration: &configuration::Configuration,
 }
 
 /// Retrieves all trips for a specific truck.
-pub async fn get_truck_trips_async(configuration: &configuration::Configuration, tenant_id: &str, truck_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TruckTripDtoListEnvelope, Error<GetTruckTripsAsyncError>> {
+pub async fn get_truck_trips_async(configuration: &configuration::Configuration, tenant_id: &str, truck_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, truck_trip_dto_collection_query_parameters: Option<models::TruckTripDtoCollectionQueryParameters>) -> Result<models::TruckTripDtoListEnvelope, Error<GetTruckTripsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -536,6 +536,7 @@ pub async fn get_truck_trips_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&truck_trip_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -553,7 +554,7 @@ pub async fn get_truck_trips_async(configuration: &configuration::Configuration,
 }
 
 /// Returns the count of trips for a specific truck.
-pub async fn get_truck_trips_count_async(configuration: &configuration::Configuration, tenant_id: &str, truck_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTruckTripsCountAsyncError>> {
+pub async fn get_truck_trips_count_async(configuration: &configuration::Configuration, tenant_id: &str, truck_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, truck_trip_dto_collection_query_parameters: Option<models::TruckTripDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTruckTripsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -571,6 +572,7 @@ pub async fn get_truck_trips_count_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&truck_trip_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -588,7 +590,7 @@ pub async fn get_truck_trips_count_async(configuration: &configuration::Configur
 }
 
 /// Retrieves all trucks for the specified tenant.
-pub async fn get_trucks_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TruckDtoListEnvelope, Error<GetTrucksAsyncError>> {
+pub async fn get_trucks_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, truck_dto_collection_query_parameters: Option<models::TruckDtoCollectionQueryParameters>) -> Result<models::TruckDtoListEnvelope, Error<GetTrucksAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -606,6 +608,7 @@ pub async fn get_trucks_async(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&truck_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -623,7 +626,7 @@ pub async fn get_trucks_async(configuration: &configuration::Configuration, tena
 }
 
 /// Returns the count of trucks for the specified tenant.
-pub async fn get_trucks_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTrucksCountAsyncError>> {
+pub async fn get_trucks_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, truck_dto_collection_query_parameters: Option<models::TruckDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTrucksCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -641,6 +644,7 @@ pub async fn get_trucks_count_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&truck_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -658,7 +662,7 @@ pub async fn get_trucks_count_async(configuration: &configuration::Configuration
 }
 
 /// Partially updates an existing truck using JSON Patch.
-pub async fn patch_truck_async(configuration: &configuration::Configuration, tenant_id: &str, truck_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTruckAsyncError>> {
+pub async fn patch_truck_async(configuration: &configuration::Configuration, tenant_id: &str, truck_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTruckAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -676,7 +680,7 @@ pub async fn patch_truck_async(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -694,7 +698,7 @@ pub async fn patch_truck_async(configuration: &configuration::Configuration, ten
 }
 
 /// Partially updates an existing truck trip using JSON Patch.
-pub async fn patch_truck_trip_async(configuration: &configuration::Configuration, tenant_id: &str, truck_id: &str, trip_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTruckTripAsyncError>> {
+pub async fn patch_truck_trip_async(configuration: &configuration::Configuration, tenant_id: &str, truck_id: &str, trip_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTruckTripAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -712,7 +716,7 @@ pub async fn patch_truck_trip_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

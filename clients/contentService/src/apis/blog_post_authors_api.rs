@@ -49,7 +49,7 @@ pub enum GetBlogPostsByAuthorAsyncError {
 
 
 /// Returns the count of blog posts written by a specific author.
-pub async fn count_blog_posts_by_author_async(configuration: &configuration::Configuration, author_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountBlogPostsByAuthorAsyncError>> {
+pub async fn count_blog_posts_by_author_async(configuration: &configuration::Configuration, author_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, blog_post_dto_collection_query_parameters: Option<models::BlogPostDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountBlogPostsByAuthorAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -66,6 +66,7 @@ pub async fn count_blog_posts_by_author_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -117,7 +118,7 @@ pub async fn get_blog_author_by_id_async(configuration: &configuration::Configur
 }
 
 /// Retrieves all blog authors, optionally filtered by tenant.
-pub async fn get_blog_authors_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlogAuthorDtoListEnvelope, Error<GetBlogAuthorsAsyncError>> {
+pub async fn get_blog_authors_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, blog_author_dto_collection_query_parameters: Option<models::BlogAuthorDtoCollectionQueryParameters>) -> Result<models::BlogAuthorDtoListEnvelope, Error<GetBlogAuthorsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -137,6 +138,7 @@ pub async fn get_blog_authors_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_author_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -154,7 +156,7 @@ pub async fn get_blog_authors_async(configuration: &configuration::Configuration
 }
 
 /// Retrieves all blog posts written by a specific author.
-pub async fn get_blog_posts_by_author_async(configuration: &configuration::Configuration, author_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlogPostDtoListEnvelope, Error<GetBlogPostsByAuthorAsyncError>> {
+pub async fn get_blog_posts_by_author_async(configuration: &configuration::Configuration, author_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, blog_post_dto_collection_query_parameters: Option<models::BlogPostDtoCollectionQueryParameters>) -> Result<models::BlogPostDtoListEnvelope, Error<GetBlogPostsByAuthorAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -171,6 +173,7 @@ pub async fn get_blog_posts_by_author_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -190,7 +190,7 @@ pub async fn get_shift_by_id_async(configuration: &configuration::Configuration,
 }
 
 /// Retrieves shifts for the specified tenant.
-pub async fn get_shifts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ShiftDtoListEnvelope, Error<GetShiftsAsyncError>> {
+pub async fn get_shifts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, shift_dto_collection_query_parameters: Option<models::ShiftDtoCollectionQueryParameters>) -> Result<models::ShiftDtoListEnvelope, Error<GetShiftsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,6 +208,7 @@ pub async fn get_shifts_async(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&shift_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -225,7 +226,7 @@ pub async fn get_shifts_async(configuration: &configuration::Configuration, tena
 }
 
 /// Counts shifts for the specified tenant.
-pub async fn get_shifts_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetShiftsCountAsyncError>> {
+pub async fn get_shifts_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, shift_dto_collection_query_parameters: Option<models::ShiftDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetShiftsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -243,6 +244,7 @@ pub async fn get_shifts_count_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&shift_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -260,7 +262,7 @@ pub async fn get_shifts_count_async(configuration: &configuration::Configuration
 }
 
 /// Partially updates an existing shift for the specified tenant.
-pub async fn patch_shift_async(configuration: &configuration::Configuration, tenant_id: &str, shift_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchShiftAsyncError>> {
+pub async fn patch_shift_async(configuration: &configuration::Configuration, tenant_id: &str, shift_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchShiftAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +280,7 @@ pub async fn patch_shift_async(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

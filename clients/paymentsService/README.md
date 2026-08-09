@@ -31,7 +31,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceAbsWebApi* | [**api_v2_ai_service_agents_agent_id_agui_post**](docs/FenixAllianceAbsWebApi.md#api_v2_ai_service_agents_agent_id_agui_post) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
 *FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
 *FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
@@ -59,6 +58,10 @@ Class | Method | HTTP request | Description
 *PaymentModesApi* | [**get_payment_modes_count_async**](docs/PaymentModesApi.md#get_payment_modes_count_async) | **GET** /api/v2/PaymentsService/PaymentModes/Count | Counts payment modes
 *PaymentModesApi* | [**patch_payment_mode_async**](docs/PaymentModesApi.md#patch_payment_mode_async) | **PATCH** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Patch a payment mode
 *PaymentModesApi* | [**update_payment_mode_async**](docs/PaymentModesApi.md#update_payment_mode_async) | **PUT** /api/v2/PaymentsService/PaymentModes/{paymentModeId} | Updates a payment mode
+*PaymentProviderRegistrationsApi* | [**create_async**](docs/PaymentProviderRegistrationsApi.md#create_async) | **POST** /api/v2/PaymentsService/PaymentProviderRegistrations | Provisions a provider webhook registration
+*PaymentProviderRegistrationsApi* | [**get_async**](docs/PaymentProviderRegistrationsApi.md#get_async) | **GET** /api/v2/PaymentsService/PaymentProviderRegistrations | Lists the tenant's provider registrations
+*PaymentProviderRegistrationsApi* | [**get_count_async**](docs/PaymentProviderRegistrationsApi.md#get_count_async) | **GET** /api/v2/PaymentsService/PaymentProviderRegistrations/Count | Counts the tenant's provider registrations
+*PaymentProviderRegistrationsApi* | [**rotate_key_async**](docs/PaymentProviderRegistrationsApi.md#rotate_key_async) | **POST** /api/v2/PaymentsService/PaymentProviderRegistrations/{registrationId}/RotateKey | Rotates a registration's webhook key
 *PaymentTermsApi* | [**create_payment_term_async**](docs/PaymentTermsApi.md#create_payment_term_async) | **POST** /api/v2/PaymentsService/PaymentTerms | Creates a new payment term
 *PaymentTermsApi* | [**delete_payment_term_async**](docs/PaymentTermsApi.md#delete_payment_term_async) | **DELETE** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Deletes a payment term
 *PaymentTermsApi* | [**get_payment_term_details_async**](docs/PaymentTermsApi.md#get_payment_term_details_async) | **GET** /api/v2/PaymentsService/PaymentTerms/{paymentTermId} | Gets a payment term by ID
@@ -78,6 +81,7 @@ Class | Method | HTTP request | Description
 ## Documentation For Models
 
  - [AccessTokenResponse](docs/AccessTokenResponse.md)
+ - [CreateProviderWebhookRegistrationRequest](docs/CreateProviderWebhookRegistrationRequest.md)
  - [EmptyEnvelope](docs/EmptyEnvelope.md)
  - [ErrorEnvelope](docs/ErrorEnvelope.md)
  - [ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
@@ -86,26 +90,35 @@ Class | Method | HTTP request | Description
  - [InfoResponse](docs/InfoResponse.md)
  - [Int32Envelope](docs/Int32Envelope.md)
  - [LoginRequest](docs/LoginRequest.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [PaymentCreateDto](docs/PaymentCreateDto.md)
  - [PaymentDto](docs/PaymentDto.md)
+ - [PaymentDtoCollectionQueryParameters](docs/PaymentDtoCollectionQueryParameters.md)
  - [PaymentDtoListEnvelope](docs/PaymentDtoListEnvelope.md)
  - [PaymentMethodCreateDto](docs/PaymentMethodCreateDto.md)
  - [PaymentMethodDto](docs/PaymentMethodDto.md)
+ - [PaymentMethodDtoCollectionQueryParameters](docs/PaymentMethodDtoCollectionQueryParameters.md)
  - [PaymentMethodDtoEnvelope](docs/PaymentMethodDtoEnvelope.md)
  - [PaymentMethodDtoIReadOnlyListEnvelope](docs/PaymentMethodDtoIReadOnlyListEnvelope.md)
  - [PaymentMethodUpdateDto](docs/PaymentMethodUpdateDto.md)
  - [PaymentModeCreateDto](docs/PaymentModeCreateDto.md)
  - [PaymentModeDto](docs/PaymentModeDto.md)
+ - [PaymentModeDtoCollectionQueryParameters](docs/PaymentModeDtoCollectionQueryParameters.md)
  - [PaymentModeDtoEnvelope](docs/PaymentModeDtoEnvelope.md)
  - [PaymentModeDtoIReadOnlyListEnvelope](docs/PaymentModeDtoIReadOnlyListEnvelope.md)
  - [PaymentModeUpdateDto](docs/PaymentModeUpdateDto.md)
+ - [PaymentProviderRegistrationDto](docs/PaymentProviderRegistrationDto.md)
+ - [PaymentProviderRegistrationDtoCollectionQueryParameters](docs/PaymentProviderRegistrationDtoCollectionQueryParameters.md)
+ - [PaymentProviderRegistrationDtoListEnvelope](docs/PaymentProviderRegistrationDtoListEnvelope.md)
  - [PaymentTermCreateDto](docs/PaymentTermCreateDto.md)
  - [PaymentTermDto](docs/PaymentTermDto.md)
+ - [PaymentTermDtoCollectionQueryParameters](docs/PaymentTermDtoCollectionQueryParameters.md)
  - [PaymentTermDtoEnvelope](docs/PaymentTermDtoEnvelope.md)
  - [PaymentTermDtoIReadOnlyListEnvelope](docs/PaymentTermDtoIReadOnlyListEnvelope.md)
  - [PaymentTermUpdateDto](docs/PaymentTermUpdateDto.md)
  - [PaymentUpdateDto](docs/PaymentUpdateDto.md)
+ - [ProviderWebhookRegistrationCreatedDto](docs/ProviderWebhookRegistrationCreatedDto.md)
+ - [ProviderWebhookRegistrationCreatedDtoEnvelope](docs/ProviderWebhookRegistrationCreatedDtoEnvelope.md)
  - [RefreshRequest](docs/RefreshRequest.md)
  - [RegisterRequest](docs/RegisterRequest.md)
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

@@ -208,7 +208,7 @@ pub async fn get_business_application_by_id_async(configuration: &configuration:
 }
 
 /// Retrieves all business applications for the specified tenant.
-pub async fn get_business_applications_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BusinessApplicationDtoListEnvelope, Error<GetBusinessApplicationsAsyncError>> {
+pub async fn get_business_applications_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, business_application_dto_collection_query_parameters: Option<models::BusinessApplicationDtoCollectionQueryParameters>) -> Result<models::BusinessApplicationDtoListEnvelope, Error<GetBusinessApplicationsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -226,6 +226,7 @@ pub async fn get_business_applications_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&business_application_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -243,7 +244,7 @@ pub async fn get_business_applications_async(configuration: &configuration::Conf
 }
 
 /// Retrieves the count of business applications for the specified tenant.
-pub async fn get_business_applications_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBusinessApplicationsCountAsyncError>> {
+pub async fn get_business_applications_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, business_application_dto_collection_query_parameters: Option<models::BusinessApplicationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBusinessApplicationsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -261,6 +262,7 @@ pub async fn get_business_applications_count_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&business_application_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -348,7 +350,7 @@ pub async fn get_roles_by_application_async(configuration: &configuration::Confi
 }
 
 /// Partially updates an existing business application using a JSON Patch document.
-pub async fn patch_business_application_async(configuration: &configuration::Configuration, tenant_id: &str, application_id: &str, operation: Vec<models::Operation>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<PatchBusinessApplicationAsyncError>> {
+pub async fn patch_business_application_async(configuration: &configuration::Configuration, tenant_id: &str, application_id: &str, patch_operation: Vec<models::PatchOperation>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<PatchBusinessApplicationAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -366,7 +368,7 @@ pub async fn patch_business_application_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

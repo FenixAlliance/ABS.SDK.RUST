@@ -115,7 +115,7 @@ No authorization required
 
 ## get_subscription_plans_async
 
-> models::SubscriptionPlanDtoIReadOnlyListEnvelope get_subscription_plans_async(tenant_id, api_version, x_api_version)
+> models::SubscriptionPlanDtoIReadOnlyListEnvelope get_subscription_plans_async(tenant_id, api_version, x_api_version, subscription_dto_collection_query_parameters)
 Get all subscription plans
 
 Retrieves all subscription plans for the specified tenant.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**subscription_dto_collection_query_parameters** | Option<[**SubscriptionDtoCollectionQueryParameters**](SubscriptionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_subscription_plans_count_async
 
-> models::Int32Envelope get_subscription_plans_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_subscription_plans_count_async(tenant_id, api_version, x_api_version, subscription_dto_collection_query_parameters)
 Get subscription plans count
 
 Returns the count of subscription plans for the specified tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**subscription_dto_collection_query_parameters** | Option<[**SubscriptionDtoCollectionQueryParameters**](SubscriptionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_subscription_plan_async
 
-> models::EmptyEnvelope patch_subscription_plan_async(tenant_id, plan_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_subscription_plan_async(tenant_id, plan_id, api_version, x_api_version, patch_operation)
 Patch a subscription plan
 
 Patch a subscription plan
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **plan_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

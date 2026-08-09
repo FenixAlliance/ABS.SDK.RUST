@@ -15,6 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct AccountingEntryDto {
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub id: Option<Option<String>>,
+    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<Option<String>>,
     #[serde(rename = "tenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub tenant_id: Option<Option<String>>,
     #[serde(rename = "enrollmentId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -51,8 +53,6 @@ pub struct AccountingEntryDto {
     pub cost_centre_id: Option<Option<String>>,
     #[serde(rename = "projectId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub project_id: Option<Option<String>>,
-    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub timestamp: Option<Option<String>>,
     #[serde(rename = "debit", skip_serializing_if = "Option::is_none")]
     pub debit: Option<f64>,
     #[serde(rename = "credit", skip_serializing_if = "Option::is_none")]
@@ -67,6 +67,7 @@ impl AccountingEntryDto {
     pub fn new() -> AccountingEntryDto {
         AccountingEntryDto {
             id: None,
+            timestamp: None,
             tenant_id: None,
             enrollment_id: None,
             journal_entry_id: None,
@@ -85,7 +86,6 @@ impl AccountingEntryDto {
             forex_rates_snapshot: None,
             cost_centre_id: None,
             project_id: None,
-            timestamp: None,
             debit: None,
             credit: None,
             amount: None,

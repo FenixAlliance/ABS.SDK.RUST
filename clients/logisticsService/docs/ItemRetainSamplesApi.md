@@ -115,7 +115,7 @@ No authorization required
 
 ## get_item_retain_samples_async
 
-> models::ItemRetainSampleDtoListEnvelope get_item_retain_samples_async(tenant_id, api_version, x_api_version)
+> models::ItemRetainSampleDtoListEnvelope get_item_retain_samples_async(tenant_id, api_version, x_api_version, item_retain_sample_dto_collection_query_parameters)
 Get all item retain samples
 
 Retrieves all item retain samples for the specified tenant.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_retain_sample_dto_collection_query_parameters** | Option<[**ItemRetainSampleDtoCollectionQueryParameters**](ItemRetainSampleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_item_retain_samples_count_async
 
-> models::Int32Envelope get_item_retain_samples_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_item_retain_samples_count_async(tenant_id, api_version, x_api_version, item_retain_sample_dto_collection_query_parameters)
 Get item retain samples count
 
 Returns the count of item retain samples.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_retain_sample_dto_collection_query_parameters** | Option<[**ItemRetainSampleDtoCollectionQueryParameters**](ItemRetainSampleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_item_retain_sample_async
 
-> models::EmptyEnvelope patch_item_retain_sample_async(tenant_id, retain_sample_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_retain_sample_async(tenant_id, retain_sample_id, api_version, x_api_version, patch_operation)
 Patch an item retain sample
 
 Applies a JSON Patch document to an item retain sample.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **retain_sample_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

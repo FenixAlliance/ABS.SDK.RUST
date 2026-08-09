@@ -190,7 +190,7 @@ pub async fn get_employee_type_by_id_async(configuration: &configuration::Config
 }
 
 /// Retrieves employee types for the specified tenant.
-pub async fn get_employee_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmployeeTypeDtoListEnvelope, Error<GetEmployeeTypesAsyncError>> {
+pub async fn get_employee_types_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, employee_type_dto_collection_query_parameters: Option<models::EmployeeTypeDtoCollectionQueryParameters>) -> Result<models::EmployeeTypeDtoListEnvelope, Error<GetEmployeeTypesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -208,6 +208,7 @@ pub async fn get_employee_types_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&employee_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -225,7 +226,7 @@ pub async fn get_employee_types_async(configuration: &configuration::Configurati
 }
 
 /// Counts employee types for the specified tenant.
-pub async fn get_employee_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetEmployeeTypesCountAsyncError>> {
+pub async fn get_employee_types_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, employee_type_dto_collection_query_parameters: Option<models::EmployeeTypeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetEmployeeTypesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -243,6 +244,7 @@ pub async fn get_employee_types_count_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&employee_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -260,7 +262,7 @@ pub async fn get_employee_types_count_async(configuration: &configuration::Confi
 }
 
 /// Partially updates an existing employee type for the specified tenant.
-pub async fn patch_employee_type_async(configuration: &configuration::Configuration, tenant_id: &str, employee_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchEmployeeTypeAsyncError>> {
+pub async fn patch_employee_type_async(configuration: &configuration::Configuration, tenant_id: &str, employee_type_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchEmployeeTypeAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +280,7 @@ pub async fn patch_employee_type_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

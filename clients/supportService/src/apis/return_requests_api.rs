@@ -170,7 +170,7 @@ pub async fn get_return_request_async(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_return_requests_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ReturnRequestDtoListEnvelope, Error<GetReturnRequestsAsyncError>> {
+pub async fn get_return_requests_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, return_request_dto_collection_query_parameters: Option<models::ReturnRequestDtoCollectionQueryParameters>) -> Result<models::ReturnRequestDtoListEnvelope, Error<GetReturnRequestsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -188,6 +188,7 @@ pub async fn get_return_requests_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&return_request_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -204,7 +205,7 @@ pub async fn get_return_requests_async(configuration: &configuration::Configurat
     }
 }
 
-pub async fn get_return_requests_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetReturnRequestsCountAsyncError>> {
+pub async fn get_return_requests_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, return_request_dto_collection_query_parameters: Option<models::ReturnRequestDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetReturnRequestsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -222,6 +223,7 @@ pub async fn get_return_requests_count_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&return_request_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -239,7 +241,7 @@ pub async fn get_return_requests_count_async(configuration: &configuration::Conf
 }
 
 /// Partially updates an existing return request by its unique identifier.
-pub async fn patch_return_request_async(configuration: &configuration::Configuration, tenant_id: &str, return_request_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchReturnRequestAsyncError>> {
+pub async fn patch_return_request_async(configuration: &configuration::Configuration, tenant_id: &str, return_request_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchReturnRequestAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -257,7 +259,7 @@ pub async fn patch_return_request_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

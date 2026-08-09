@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## count_point_of_sales_async
 
-> models::Int32Envelope count_point_of_sales_async(tenant_id)
+> models::Int32Envelope count_point_of_sales_async(tenant_id, point_of_sale_dto_collection_query_parameters)
 Get point of sales count
 
 Returns the total count of point of sales for the specified tenant with OData filter support.
@@ -27,6 +27,7 @@ Returns the total count of point of sales for the specified tenant with OData fi
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**point_of_sale_dto_collection_query_parameters** | Option<[**PointOfSaleDtoCollectionQueryParameters**](PointOfSaleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -38,7 +39,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -139,7 +140,7 @@ No authorization required
 
 ## get_point_of_sales_async
 
-> models::PointOfSaleDtoListEnvelope get_point_of_sales_async(tenant_id)
+> models::PointOfSaleDtoListEnvelope get_point_of_sales_async(tenant_id, point_of_sale_dto_collection_query_parameters)
 Get point of sales
 
 Retrieves a list of point of sales for the specified tenant with OData query support.
@@ -150,6 +151,7 @@ Retrieves a list of point of sales for the specified tenant with OData query sup
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**point_of_sale_dto_collection_query_parameters** | Option<[**PointOfSaleDtoCollectionQueryParameters**](PointOfSaleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -161,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,7 +171,7 @@ No authorization required
 
 ## patch_point_of_sale_async
 
-> models::EmptyEnvelope patch_point_of_sale_async(tenant_id, point_of_sale_id, operation)
+> models::EmptyEnvelope patch_point_of_sale_async(tenant_id, point_of_sale_id, patch_operation)
 Patch a point of sale
 
 Partially updates an existing point of sale using a JSON Patch document.
@@ -181,7 +183,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **point_of_sale_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -171,7 +171,7 @@ pub async fn get_delivery_note_by_id_async(configuration: &configuration::Config
 }
 
 /// Retrieves all delivery notes for the specified tenant.
-pub async fn get_delivery_notes_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::DeliveryNoteDtoListEnvelope, Error<GetDeliveryNotesAsyncError>> {
+pub async fn get_delivery_notes_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, delivery_note_dto_collection_query_parameters: Option<models::DeliveryNoteDtoCollectionQueryParameters>) -> Result<models::DeliveryNoteDtoListEnvelope, Error<GetDeliveryNotesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -189,6 +189,7 @@ pub async fn get_delivery_notes_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&delivery_note_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -206,7 +207,7 @@ pub async fn get_delivery_notes_async(configuration: &configuration::Configurati
 }
 
 /// Returns the count of delivery notes.
-pub async fn get_delivery_notes_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetDeliveryNotesCountAsyncError>> {
+pub async fn get_delivery_notes_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, delivery_note_dto_collection_query_parameters: Option<models::DeliveryNoteDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetDeliveryNotesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -224,6 +225,7 @@ pub async fn get_delivery_notes_count_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&delivery_note_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

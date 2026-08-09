@@ -73,7 +73,7 @@ pub enum UpdateLoyaltyProgramAsyncError {
 
 
 /// Returns the total count of loyalty programs for the specified tenant with OData filter support.
-pub async fn count_loyalty_programs_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<CountLoyaltyProgramsAsyncError>> {
+pub async fn count_loyalty_programs_async(configuration: &configuration::Configuration, tenant_id: &str, loyalty_program_dto_collection_query_parameters: Option<models::LoyaltyProgramDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountLoyaltyProgramsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -85,6 +85,7 @@ pub async fn count_loyalty_programs_async(configuration: &configuration::Configu
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&loyalty_program_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -190,7 +191,7 @@ pub async fn get_loyalty_program_async(configuration: &configuration::Configurat
 }
 
 /// Retrieves a list of loyalty programs for the specified tenant with OData query support.
-pub async fn get_loyalty_programs_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::LoyaltyProgramDtoListEnvelope, Error<GetLoyaltyProgramsAsyncError>> {
+pub async fn get_loyalty_programs_async(configuration: &configuration::Configuration, tenant_id: &str, loyalty_program_dto_collection_query_parameters: Option<models::LoyaltyProgramDtoCollectionQueryParameters>) -> Result<models::LoyaltyProgramDtoListEnvelope, Error<GetLoyaltyProgramsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,6 +203,7 @@ pub async fn get_loyalty_programs_async(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&loyalty_program_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -219,7 +221,7 @@ pub async fn get_loyalty_programs_async(configuration: &configuration::Configura
 }
 
 /// Partially updates an existing loyalty program using a JSON Patch document.
-pub async fn patch_loyalty_program_async(configuration: &configuration::Configuration, tenant_id: &str, loyalty_program_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchLoyaltyProgramAsyncError>> {
+pub async fn patch_loyalty_program_async(configuration: &configuration::Configuration, tenant_id: &str, loyalty_program_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchLoyaltyProgramAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -231,7 +233,7 @@ pub async fn patch_loyalty_program_async(configuration: &configuration::Configur
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

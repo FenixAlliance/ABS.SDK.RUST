@@ -114,7 +114,7 @@ No authorization required
 
 ## get_licenses_async
 
-> models::LicenseDtoListEnvelope get_licenses_async(tenant_id, api_version, x_api_version)
+> models::LicenseDtoListEnvelope get_licenses_async(tenant_id, api_version, x_api_version, license_dto_collection_query_parameters)
 Get licenses
 
 Retrieves the license instances owned by the specified tenant, filtered via OData query options.
@@ -127,6 +127,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**license_dto_collection_query_parameters** | Option<[**LicenseDtoCollectionQueryParameters**](LicenseDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -138,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,7 +147,7 @@ No authorization required
 
 ## get_licenses_count_async
 
-> models::Int32Envelope get_licenses_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_licenses_count_async(tenant_id, api_version, x_api_version, license_dto_collection_query_parameters)
 Get licenses count
 
 Returns the count of license instances owned by the specified tenant.
@@ -159,6 +160,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**license_dto_collection_query_parameters** | Option<[**LicenseDtoCollectionQueryParameters**](LicenseDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -170,7 +172,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

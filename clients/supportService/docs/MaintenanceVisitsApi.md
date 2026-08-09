@@ -109,7 +109,7 @@ No authorization required
 
 ## get_maintenance_visits_async
 
-> models::MaintenanceVisitDtoListEnvelope get_maintenance_visits_async(tenant_id, api_version, x_api_version)
+> models::MaintenanceVisitDtoListEnvelope get_maintenance_visits_async(tenant_id, api_version, x_api_version, maintenance_visit_dto_collection_query_parameters)
 Retrieve maintenance visits
 
 ### Parameters
@@ -120,6 +120,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**maintenance_visit_dto_collection_query_parameters** | Option<[**MaintenanceVisitDtoCollectionQueryParameters**](MaintenanceVisitDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -131,7 +132,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -139,7 +140,7 @@ No authorization required
 
 ## get_maintenance_visits_count_async
 
-> models::Int32Envelope get_maintenance_visits_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_maintenance_visits_count_async(tenant_id, api_version, x_api_version, maintenance_visit_dto_collection_query_parameters)
 Get maintenance visits count
 
 ### Parameters
@@ -150,6 +151,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**maintenance_visit_dto_collection_query_parameters** | Option<[**MaintenanceVisitDtoCollectionQueryParameters**](MaintenanceVisitDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -161,7 +163,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -169,7 +171,7 @@ No authorization required
 
 ## patch_maintenance_visit_async
 
-> models::EmptyEnvelope patch_maintenance_visit_async(tenant_id, maintenance_visit_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_maintenance_visit_async(tenant_id, maintenance_visit_id, api_version, x_api_version, patch_operation)
 Patch a maintenance visit
 
 Partially updates an existing maintenance visit by its unique identifier.
@@ -183,7 +185,7 @@ Name | Type | Description  | Required | Notes
 **maintenance_visit_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

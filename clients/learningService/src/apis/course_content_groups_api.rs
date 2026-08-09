@@ -194,7 +194,7 @@ pub async fn get_course_content_group_by_id_async(configuration: &configuration:
 }
 
 /// Retrieves all course content groups for the specified tenant.
-pub async fn get_course_content_groups_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseContentGroupDto>, Error<GetCourseContentGroupsAsyncError>> {
+pub async fn get_course_content_groups_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_content_group_dto_collection_query_parameters: Option<models::CourseContentGroupDtoCollectionQueryParameters>) -> Result<Vec<models::CourseContentGroupDto>, Error<GetCourseContentGroupsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -212,6 +212,7 @@ pub async fn get_course_content_groups_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_content_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -229,7 +230,7 @@ pub async fn get_course_content_groups_async(configuration: &configuration::Conf
 }
 
 /// Retrieves all course content groups for a specific course.
-pub async fn get_course_content_groups_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<Vec<models::CourseContentGroupDto>, Error<GetCourseContentGroupsByCourseAsyncError>> {
+pub async fn get_course_content_groups_by_course_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_content_group_dto_collection_query_parameters: Option<models::CourseContentGroupDtoCollectionQueryParameters>) -> Result<Vec<models::CourseContentGroupDto>, Error<GetCourseContentGroupsByCourseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -246,6 +247,7 @@ pub async fn get_course_content_groups_by_course_async(configuration: &configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_content_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -263,7 +265,7 @@ pub async fn get_course_content_groups_by_course_async(configuration: &configura
 }
 
 /// Returns the count of course content groups for a specific course.
-pub async fn get_course_content_groups_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseContentGroupsByCourseCountAsyncError>> {
+pub async fn get_course_content_groups_by_course_count_async(configuration: &configuration::Configuration, course_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_content_group_dto_collection_query_parameters: Option<models::CourseContentGroupDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseContentGroupsByCourseCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -280,6 +282,7 @@ pub async fn get_course_content_groups_by_course_count_async(configuration: &con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_content_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -297,7 +300,7 @@ pub async fn get_course_content_groups_by_course_count_async(configuration: &con
 }
 
 /// Returns the count of course content groups for the specified tenant.
-pub async fn get_course_content_groups_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<i32, Error<GetCourseContentGroupsCountAsyncError>> {
+pub async fn get_course_content_groups_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, course_content_group_dto_collection_query_parameters: Option<models::CourseContentGroupDtoCollectionQueryParameters>) -> Result<i32, Error<GetCourseContentGroupsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -315,6 +318,7 @@ pub async fn get_course_content_groups_count_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&course_content_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -332,7 +336,7 @@ pub async fn get_course_content_groups_count_async(configuration: &configuration
 }
 
 /// Partially updates a course content group for the specified tenant.
-pub async fn patch_course_content_group_async(configuration: &configuration::Configuration, tenant_id: &str, group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCourseContentGroupAsyncError>> {
+pub async fn patch_course_content_group_async(configuration: &configuration::Configuration, tenant_id: &str, group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCourseContentGroupAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -350,7 +354,7 @@ pub async fn patch_course_content_group_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**aggregate_journal_entry_credits_async**](JournalsApi.md#aggregate_journal_entry_credits_async) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Credits | Aggregate journal entry credits
 [**aggregate_journal_entry_debits_async**](JournalsApi.md#aggregate_journal_entry_debits_async) | **GET** /api/v2/AccountingService/Journals/{journalId}/Entries/Aggregate/Debits | Aggregate journal entry debits
+[**assign_journal_to_book_async**](JournalsApi.md#assign_journal_to_book_async) | **POST** /api/v2/AccountingService/Journals/{journalId}/AssignToBook | Bind a journal to a financial book
 [**count_journals_async**](JournalsApi.md#count_journals_async) | **GET** /api/v2/AccountingService/Journals/Count | Count journals
 [**create_journal_async**](JournalsApi.md#create_journal_async) | **POST** /api/v2/AccountingService/Journals | Create journal
 [**create_journal_entry_async**](JournalsApi.md#create_journal_entry_async) | **POST** /api/v2/AccountingService/Journals/{journalId}/Entries | Create journal entry
@@ -27,7 +28,7 @@ Method | HTTP request | Description
 
 ## aggregate_journal_entry_credits_async
 
-> models::MoneyEnvelope aggregate_journal_entry_credits_async(tenant_id, journal_id, currency_id, api_version, x_api_version)
+> models::MoneyEnvelope aggregate_journal_entry_credits_async(tenant_id, journal_id, currency_id, api_version, x_api_version, journal_entry_dto_collection_query_parameters)
 Aggregate journal entry credits
 
 Returns the sum of all credit amounts for entries in the specified journal, normalized to the target currency.
@@ -42,6 +43,7 @@ Name | Type | Description  | Required | Notes
 **currency_id** | Option<**String**> |  |  |[default to USD.USA]
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**journal_entry_dto_collection_query_parameters** | Option<[**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -53,7 +55,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -61,7 +63,7 @@ No authorization required
 
 ## aggregate_journal_entry_debits_async
 
-> models::MoneyEnvelope aggregate_journal_entry_debits_async(tenant_id, journal_id, currency_id, api_version, x_api_version)
+> models::MoneyEnvelope aggregate_journal_entry_debits_async(tenant_id, journal_id, currency_id, api_version, x_api_version, journal_entry_dto_collection_query_parameters)
 Aggregate journal entry debits
 
 Returns the sum of all debit amounts for entries in the specified journal, normalized to the target currency.
@@ -76,6 +78,7 @@ Name | Type | Description  | Required | Notes
 **currency_id** | Option<**String**> |  |  |[default to USD.USA]
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**journal_entry_dto_collection_query_parameters** | Option<[**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -87,7 +90,41 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## assign_journal_to_book_async
+
+> models::EmptyEnvelope assign_journal_to_book_async(tenant_id, journal_id, api_version, x_api_version, assign_journal_to_book_request)
+Bind a journal to a financial book
+
+Establishes the one-way Journal↔FinancialBook binding (finish-line #5): binds an unbound journal to the supplied book and sets its book-scoped code, enforcing (Tenant, Book, Code) uniqueness. Binding an unbound journal or re-affirming the same book succeeds; a duplicate code in the book is rejected (400), and re-homing an already-bound journal to a DIFFERENT book is rejected by the aggregate. Requires the journals_update permission.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**journal_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**assign_journal_to_book_request** | Option<[**AssignJournalToBookRequest**](AssignJournalToBookRequest.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -95,7 +132,7 @@ No authorization required
 
 ## count_journals_async
 
-> models::Int32Envelope count_journals_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_journals_async(tenant_id, api_version, x_api_version, journal_dto_collection_query_parameters)
 Count journals
 
 Returns the count of journals for the tenant.
@@ -108,6 +145,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**journal_dto_collection_query_parameters** | Option<[**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -119,7 +157,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -294,7 +332,7 @@ No authorization required
 
 ## get_journal_entries_async
 
-> models::JournalEntryDtoIReadOnlyListEnvelope get_journal_entries_async(tenant_id, journal_id, api_version, x_api_version)
+> models::JournalEntryDtoIReadOnlyListEnvelope get_journal_entries_async(tenant_id, journal_id, api_version, x_api_version, journal_entry_dto_collection_query_parameters)
 Get journal entries
 
 Gets entries for the specified journal.
@@ -308,6 +346,7 @@ Name | Type | Description  | Required | Notes
 **journal_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**journal_entry_dto_collection_query_parameters** | Option<[**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -319,7 +358,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -327,7 +366,7 @@ No authorization required
 
 ## get_journal_entries_count_async
 
-> models::Int32Envelope get_journal_entries_count_async(tenant_id, journal_id, api_version, x_api_version)
+> models::Int32Envelope get_journal_entries_count_async(tenant_id, journal_id, api_version, x_api_version, journal_entry_dto_collection_query_parameters)
 Count journal entries
 
 Returns the number of entries in the specified journal.
@@ -341,6 +380,7 @@ Name | Type | Description  | Required | Notes
 **journal_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**journal_entry_dto_collection_query_parameters** | Option<[**JournalEntryDtoCollectionQueryParameters**](JournalEntryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -352,7 +392,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -394,7 +434,7 @@ No authorization required
 
 ## get_journals_async
 
-> models::JournalDtoIReadOnlyListEnvelope get_journals_async(tenant_id, api_version, x_api_version)
+> models::JournalDtoIReadOnlyListEnvelope get_journals_async(tenant_id, api_version, x_api_version, journal_dto_collection_query_parameters)
 Get all journals
 
 Retrieves all journals for the specified tenant.
@@ -407,6 +447,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**journal_dto_collection_query_parameters** | Option<[**JournalDtoCollectionQueryParameters**](JournalDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -418,7 +459,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -426,7 +467,7 @@ No authorization required
 
 ## patch_journal_async
 
-> models::EmptyEnvelope patch_journal_async(tenant_id, journal_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_journal_async(tenant_id, journal_id, api_version, x_api_version, patch_operation)
 Patch a journal
 
 Partially updates a journal.
@@ -440,7 +481,7 @@ Name | Type | Description  | Required | Notes
 **journal_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -460,7 +501,7 @@ No authorization required
 
 ## patch_journal_entry_async
 
-> models::EmptyEnvelope patch_journal_entry_async(tenant_id, journal_id, entry_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_journal_entry_async(tenant_id, journal_id, entry_id, api_version, x_api_version, patch_operation)
 Patch a journal entry
 
 Partially updates a journal entry.
@@ -475,7 +516,7 @@ Name | Type | Description  | Required | Notes
 **entry_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

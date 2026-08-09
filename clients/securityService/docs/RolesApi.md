@@ -326,7 +326,7 @@ No authorization required
 
 ## get_roles_async
 
-> models::SecurityRoleDtoListEnvelope get_roles_async(tenant_id, api_version, x_api_version)
+> models::SecurityRoleDtoListEnvelope get_roles_async(tenant_id, api_version, x_api_version, security_role_dto_collection_query_parameters)
 Get all roles
 
 Retrieves all security roles for the specified tenant.
@@ -339,6 +339,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**security_role_dto_collection_query_parameters** | Option<[**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -350,7 +351,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -391,7 +392,7 @@ No authorization required
 
 ## get_roles_count_async
 
-> models::Int32Envelope get_roles_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_roles_count_async(tenant_id, api_version, x_api_version, security_role_dto_collection_query_parameters)
 Get roles count
 
 Retrieves the count of security roles for the specified tenant.
@@ -404,6 +405,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**security_role_dto_collection_query_parameters** | Option<[**SecurityRoleDtoCollectionQueryParameters**](SecurityRoleDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -415,7 +417,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -423,7 +425,7 @@ No authorization required
 
 ## patch_role_async
 
-> models::EmptyEnvelope patch_role_async(tenant_id, security_role_id, operation, api_version, x_api_version)
+> models::EmptyEnvelope patch_role_async(tenant_id, security_role_id, patch_operation, api_version, x_api_version)
 Patch an existing role
 
 Partially updates an existing security role using a JSON Patch document.
@@ -435,7 +437,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **security_role_id** | **String** |  | [required] |
-**operation** | [**Vec<models::Operation>**](Operation.md) |  | [required] |
+**patch_operation** | [**Vec<models::PatchOperation>**](PatchOperation.md) |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

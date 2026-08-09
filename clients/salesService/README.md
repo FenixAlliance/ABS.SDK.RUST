@@ -31,7 +31,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceAbsWebApi* | [**api_v2_ai_service_agents_agent_id_agui_post**](docs/FenixAllianceAbsWebApi.md#api_v2_ai_service_agents_agent_id_agui_post) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
 *FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
 *FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
@@ -83,6 +82,7 @@ Class | Method | HTTP request | Description
  - [EmptyEnvelope](docs/EmptyEnvelope.md)
  - [ErrorEnvelope](docs/ErrorEnvelope.md)
  - [ExtendedSalesLiteratureDto](docs/ExtendedSalesLiteratureDto.md)
+ - [ExtendedSalesLiteratureDtoCollectionQueryParameters](docs/ExtendedSalesLiteratureDtoCollectionQueryParameters.md)
  - [ExtendedSalesLiteratureDtoListEnvelope](docs/ExtendedSalesLiteratureDtoListEnvelope.md)
  - [ForgotPasswordRequest](docs/ForgotPasswordRequest.md)
  - [HttpValidationProblemDetails](docs/HttpValidationProblemDetails.md)
@@ -92,12 +92,14 @@ Class | Method | HTTP request | Description
  - [LoginRequest](docs/LoginRequest.md)
  - [LoyaltyProgramCreateDto](docs/LoyaltyProgramCreateDto.md)
  - [LoyaltyProgramDto](docs/LoyaltyProgramDto.md)
+ - [LoyaltyProgramDtoCollectionQueryParameters](docs/LoyaltyProgramDtoCollectionQueryParameters.md)
  - [LoyaltyProgramDtoEnvelope](docs/LoyaltyProgramDtoEnvelope.md)
  - [LoyaltyProgramDtoListEnvelope](docs/LoyaltyProgramDtoListEnvelope.md)
  - [LoyaltyProgramUpdateDto](docs/LoyaltyProgramUpdateDto.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [PointOfSaleCreateDto](docs/PointOfSaleCreateDto.md)
  - [PointOfSaleDto](docs/PointOfSaleDto.md)
+ - [PointOfSaleDtoCollectionQueryParameters](docs/PointOfSaleDtoCollectionQueryParameters.md)
  - [PointOfSaleDtoEnvelope](docs/PointOfSaleDtoEnvelope.md)
  - [PointOfSaleDtoListEnvelope](docs/PointOfSaleDtoListEnvelope.md)
  - [PointOfSaleUpdateDto](docs/PointOfSaleUpdateDto.md)
@@ -107,12 +109,14 @@ Class | Method | HTTP request | Description
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [SalesLiteratureCreateDto](docs/SalesLiteratureCreateDto.md)
  - [SalesLiteratureDto](docs/SalesLiteratureDto.md)
+ - [SalesLiteratureDtoCollectionQueryParameters](docs/SalesLiteratureDtoCollectionQueryParameters.md)
  - [SalesLiteratureDtoEnvelope](docs/SalesLiteratureDtoEnvelope.md)
  - [SalesLiteratureDtoListEnvelope](docs/SalesLiteratureDtoListEnvelope.md)
  - [SalesLiteratureTypeDto](docs/SalesLiteratureTypeDto.md)
  - [SalesLiteratureUpdateDto](docs/SalesLiteratureUpdateDto.md)
  - [StoreCreateDto](docs/StoreCreateDto.md)
  - [StoreDto](docs/StoreDto.md)
+ - [StoreDtoCollectionQueryParameters](docs/StoreDtoCollectionQueryParameters.md)
  - [StoreDtoEnvelope](docs/StoreDtoEnvelope.md)
  - [StoreDtoListEnvelope](docs/StoreDtoListEnvelope.md)
  - [StoreUpdateDto](docs/StoreUpdateDto.md)

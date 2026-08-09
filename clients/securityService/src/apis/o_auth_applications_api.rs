@@ -398,7 +398,7 @@ pub async fn get_o_auth_authorizations_count_async(configuration: &configuration
 }
 
 /// Partially updates an existing OAuth application using a JSON Patch document.
-pub async fn patch_o_auth_application_async(configuration: &configuration::Configuration, tenant_id: &str, application_id: &str, operation: Vec<models::Operation>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<PatchOAuthApplicationAsyncError>> {
+pub async fn patch_o_auth_application_async(configuration: &configuration::Configuration, tenant_id: &str, application_id: &str, patch_operation: Vec<models::PatchOperation>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<PatchOAuthApplicationAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -416,7 +416,7 @@ pub async fn patch_o_auth_application_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

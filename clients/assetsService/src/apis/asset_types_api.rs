@@ -175,7 +175,7 @@ pub async fn get_asset_type(configuration: &configuration::Configuration, tenant
 }
 
 /// Retrieves all asset types for the authenticated tenant.
-pub async fn get_asset_types(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::AssetTypeDtoListEnvelope, Error<GetAssetTypesError>> {
+pub async fn get_asset_types(configuration: &configuration::Configuration, tenant_id: &str, asset_type_dto_collection_query_parameters: Option<models::AssetTypeDtoCollectionQueryParameters>) -> Result<models::AssetTypeDtoListEnvelope, Error<GetAssetTypesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -187,6 +187,7 @@ pub async fn get_asset_types(configuration: &configuration::Configuration, tenan
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -204,7 +205,7 @@ pub async fn get_asset_types(configuration: &configuration::Configuration, tenan
 }
 
 /// Returns the total number of asset types for the authenticated tenant.
-pub async fn get_asset_types_count(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetAssetTypesCountError>> {
+pub async fn get_asset_types_count(configuration: &configuration::Configuration, tenant_id: &str, asset_type_dto_collection_query_parameters: Option<models::AssetTypeDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAssetTypesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -216,6 +217,7 @@ pub async fn get_asset_types_count(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -233,7 +235,7 @@ pub async fn get_asset_types_count(configuration: &configuration::Configuration,
 }
 
 /// Applies a JSON Patch document to an existing asset type for the authenticated tenant.
-pub async fn patch_asset_type(configuration: &configuration::Configuration, tenant_id: &str, type_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetTypeError>> {
+pub async fn patch_asset_type(configuration: &configuration::Configuration, tenant_id: &str, type_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetTypeError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -245,7 +247,7 @@ pub async fn patch_asset_type(configuration: &configuration::Configuration, tena
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

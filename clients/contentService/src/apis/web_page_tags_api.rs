@@ -80,7 +80,7 @@ pub enum UpdateWebPageTagAsyncError {
 
 
 /// Counts all web page tags for the specified tenant.
-pub async fn count_web_page_tags_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountWebPageTagsAsyncError>> {
+pub async fn count_web_page_tags_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, web_page_tag_dto_collection_query_parameters: Option<models::WebPageTagDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountWebPageTagsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -98,6 +98,7 @@ pub async fn count_web_page_tags_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&web_page_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_web_page_tag_by_id_async(configuration: &configuration::Configu
 }
 
 /// Retrieves all web page tags for the specified tenant.
-pub async fn get_web_page_tags_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WebPageTagDtoListEnvelope, Error<GetWebPageTagsAsyncError>> {
+pub async fn get_web_page_tags_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, web_page_tag_dto_collection_query_parameters: Option<models::WebPageTagDtoCollectionQueryParameters>) -> Result<models::WebPageTagDtoListEnvelope, Error<GetWebPageTagsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_web_page_tags_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&web_page_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_web_page_tags_async(configuration: &configuration::Configuratio
 }
 
 /// Partially updates an existing web page tag for the specified tenant.
-pub async fn patch_web_page_tag_async(configuration: &configuration::Configuration, tenant_id: &str, web_page_tag_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchWebPageTagAsyncError>> {
+pub async fn patch_web_page_tag_async(configuration: &configuration::Configuration, tenant_id: &str, web_page_tag_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchWebPageTagAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_web_page_tag_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -302,7 +302,7 @@ pub async fn get_blockchain_block_by_id_async(configuration: &configuration::Con
     }
 }
 
-pub async fn get_blockchain_blocks_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlockchainBlockDtoListEnvelope, Error<GetBlockchainBlocksAsyncError>> {
+pub async fn get_blockchain_blocks_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, blockchain_block_dto_collection_query_parameters: Option<models::BlockchainBlockDtoCollectionQueryParameters>) -> Result<models::BlockchainBlockDtoListEnvelope, Error<GetBlockchainBlocksAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -320,6 +320,7 @@ pub async fn get_blockchain_blocks_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blockchain_block_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -336,7 +337,7 @@ pub async fn get_blockchain_blocks_async(configuration: &configuration::Configur
     }
 }
 
-pub async fn get_blockchain_blocks_count_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBlockchainBlocksCountAsyncError>> {
+pub async fn get_blockchain_blocks_count_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, blockchain_block_dto_collection_query_parameters: Option<models::BlockchainBlockDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBlockchainBlocksCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -354,6 +355,7 @@ pub async fn get_blockchain_blocks_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blockchain_block_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -406,7 +408,7 @@ pub async fn get_blockchain_by_id_async(configuration: &configuration::Configura
 }
 
 /// Retrieves all blockchains for the specified tenant.
-pub async fn get_blockchains_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlockchainDtoListEnvelope, Error<GetBlockchainsAsyncError>> {
+pub async fn get_blockchains_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, blockchain_dto_collection_query_parameters: Option<models::BlockchainDtoCollectionQueryParameters>) -> Result<models::BlockchainDtoListEnvelope, Error<GetBlockchainsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -424,6 +426,7 @@ pub async fn get_blockchains_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blockchain_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -441,7 +444,7 @@ pub async fn get_blockchains_async(configuration: &configuration::Configuration,
 }
 
 /// Returns the count of blockchains for the specified tenant.
-pub async fn get_blockchains_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBlockchainsCountAsyncError>> {
+pub async fn get_blockchains_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, blockchain_dto_collection_query_parameters: Option<models::BlockchainDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBlockchainsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -459,6 +462,7 @@ pub async fn get_blockchains_count_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blockchain_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -476,7 +480,7 @@ pub async fn get_blockchains_count_async(configuration: &configuration::Configur
 }
 
 /// Patch a blockchain
-pub async fn patch_blockchain_async(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBlockchainAsyncError>> {
+pub async fn patch_blockchain_async(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBlockchainAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -494,7 +498,7 @@ pub async fn patch_blockchain_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -512,7 +516,7 @@ pub async fn patch_blockchain_async(configuration: &configuration::Configuration
 }
 
 /// Patch a blockchain block
-pub async fn patch_blockchain_block_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, block_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBlockchainBlockAsyncError>> {
+pub async fn patch_blockchain_block_async(configuration: &configuration::Configuration, tenant_id: &str, blockchain_id: &str, block_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBlockchainBlockAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -530,7 +534,7 @@ pub async fn patch_blockchain_block_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

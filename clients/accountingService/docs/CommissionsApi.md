@@ -188,7 +188,7 @@ No authorization required
 
 ## get_commissions_async
 
-> models::CommissionDtoListEnvelope get_commissions_async(tenant_id, api_version, x_api_version)
+> models::CommissionDtoListEnvelope get_commissions_async(tenant_id, api_version, x_api_version, commission_dto_collection_query_parameters)
 Get all commissions for a tenant
 
 Retrieves all commissions for the specified tenant using OData query options.
@@ -201,6 +201,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**commission_dto_collection_query_parameters** | Option<[**CommissionDtoCollectionQueryParameters**](CommissionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -212,7 +213,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -220,7 +221,7 @@ No authorization required
 
 ## get_commissions_count_async
 
-> models::Int32Envelope get_commissions_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_commissions_count_async(tenant_id, api_version, x_api_version, commission_dto_collection_query_parameters)
 Get the count of commissions for a tenant
 
 Retrieves the count of commissions for the specified tenant using OData query options.
@@ -233,6 +234,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**commission_dto_collection_query_parameters** | Option<[**CommissionDtoCollectionQueryParameters**](CommissionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -244,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -285,7 +287,7 @@ No authorization required
 
 ## get_payment_commissions_async
 
-> models::PaymentCommissionDtoListEnvelope get_payment_commissions_async(tenant_id, api_version, x_api_version)
+> models::PaymentCommissionDtoListEnvelope get_payment_commissions_async(tenant_id, api_version, x_api_version, payment_commission_dto_collection_query_parameters)
 Get all payment commissions for a tenant
 
 Retrieves all payment commissions for the specified tenant using OData query options.
@@ -298,6 +300,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_commission_dto_collection_query_parameters** | Option<[**PaymentCommissionDtoCollectionQueryParameters**](PaymentCommissionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -309,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -317,7 +320,7 @@ No authorization required
 
 ## get_payment_commissions_count_async
 
-> models::Int32Envelope get_payment_commissions_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_payment_commissions_count_async(tenant_id, api_version, x_api_version, payment_commission_dto_collection_query_parameters)
 Get the count of payment commissions for a tenant
 
 Retrieves the count of payment commissions for the specified tenant using OData query options.
@@ -330,6 +333,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_commission_dto_collection_query_parameters** | Option<[**PaymentCommissionDtoCollectionQueryParameters**](PaymentCommissionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -349,7 +353,7 @@ No authorization required
 
 ## patch_commission_async
 
-> models::EmptyEnvelope patch_commission_async(tenant_id, commission_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_commission_async(tenant_id, commission_id, api_version, x_api_version, patch_operation)
 Patch a commission
 
 Partially updates an existing commission.
@@ -363,7 +367,7 @@ Name | Type | Description  | Required | Notes
 **commission_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -383,7 +387,7 @@ No authorization required
 
 ## patch_payment_commission_async
 
-> models::EmptyEnvelope patch_payment_commission_async(tenant_id, payment_commission_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_payment_commission_async(tenant_id, payment_commission_id, api_version, x_api_version, patch_operation)
 Patch a payment commission
 
 Partially updates an existing payment commission.
@@ -397,7 +401,7 @@ Name | Type | Description  | Required | Notes
 **payment_commission_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

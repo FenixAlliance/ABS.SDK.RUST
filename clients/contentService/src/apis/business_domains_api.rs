@@ -188,7 +188,7 @@ pub async fn get_business_domain_by_id_async(configuration: &configuration::Conf
 }
 
 /// Retrieves business domains for the specified tenant.
-pub async fn get_business_domains_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BusinessDomainDtoListEnvelope, Error<GetBusinessDomainsAsyncError>> {
+pub async fn get_business_domains_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, business_domain_dto_collection_query_parameters: Option<models::BusinessDomainDtoCollectionQueryParameters>) -> Result<models::BusinessDomainDtoListEnvelope, Error<GetBusinessDomainsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -206,6 +206,7 @@ pub async fn get_business_domains_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&business_domain_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -223,7 +224,7 @@ pub async fn get_business_domains_async(configuration: &configuration::Configura
 }
 
 /// Retrieves the count of business domains for the specified tenant.
-pub async fn get_business_domains_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBusinessDomainsCountAsyncError>> {
+pub async fn get_business_domains_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, business_domain_dto_collection_query_parameters: Option<models::BusinessDomainDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBusinessDomainsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -241,6 +242,7 @@ pub async fn get_business_domains_count_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&business_domain_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

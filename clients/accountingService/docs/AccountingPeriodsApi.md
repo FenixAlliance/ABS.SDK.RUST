@@ -115,7 +115,7 @@ No authorization required
 
 ## get_accounting_periods
 
-> models::AccountingPeriodDtoListEnvelope get_accounting_periods(tenant_id, api_version, x_api_version)
+> models::AccountingPeriodDtoListEnvelope get_accounting_periods(tenant_id, api_version, x_api_version, accounting_period_dto_collection_query_parameters)
 Get all accounting periods for a tenant
 
 Retrieves all accounting periods for the specified tenant using OData query options.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_period_dto_collection_query_parameters** | Option<[**AccountingPeriodDtoCollectionQueryParameters**](AccountingPeriodDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_accounting_periods_count_async
 
-> models::Int32Envelope get_accounting_periods_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_accounting_periods_count_async(tenant_id, api_version, x_api_version, accounting_period_dto_collection_query_parameters)
 Gets the current tenant accounting periods count
 
 Get the currently acting tenant accounting periods count.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**accounting_period_dto_collection_query_parameters** | Option<[**AccountingPeriodDtoCollectionQueryParameters**](AccountingPeriodDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_accounting_period_async
 
-> models::EmptyEnvelope patch_accounting_period_async(tenant_id, accounting_period_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_accounting_period_async(tenant_id, accounting_period_id, api_version, x_api_version, patch_operation)
 Patch an accounting period
 
 Partially updates an accounting period.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **accounting_period_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

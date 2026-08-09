@@ -188,7 +188,7 @@ No authorization required
 
 ## get_transaction_categories
 
-> models::TransactionCategoryDtoListEnvelope get_transaction_categories(tenant_id, api_version, x_api_version)
+> models::TransactionCategoryDtoListEnvelope get_transaction_categories(tenant_id, api_version, x_api_version, transaction_category_dto_collection_query_parameters)
 Get all transaction categories
 
 Retrieves all transaction categories for the specified tenant.
@@ -201,6 +201,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**transaction_category_dto_collection_query_parameters** | Option<[**TransactionCategoryDtoCollectionQueryParameters**](TransactionCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -212,7 +213,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -220,7 +221,7 @@ No authorization required
 
 ## get_transaction_categories_count
 
-> models::Int32Envelope get_transaction_categories_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_transaction_categories_count(tenant_id, api_version, x_api_version, transaction_category_dto_collection_query_parameters)
 Get transaction categories count
 
 Returns total number of transaction categories for the tenant.
@@ -233,6 +234,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**transaction_category_dto_collection_query_parameters** | Option<[**TransactionCategoryDtoCollectionQueryParameters**](TransactionCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -244,7 +246,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -285,7 +287,7 @@ No authorization required
 
 ## get_transactions
 
-> models::TransactionDtoListEnvelope get_transactions(tenant_id, api_version, x_api_version)
+> models::TransactionDtoListEnvelope get_transactions(tenant_id, api_version, x_api_version, transaction_dto_collection_query_parameters)
 Get all transactions for a tenant
 
 Retrieves all transactions for the specified tenant using OData query options.
@@ -298,6 +300,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**transaction_dto_collection_query_parameters** | Option<[**TransactionDtoCollectionQueryParameters**](TransactionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -309,7 +312,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -317,7 +320,7 @@ No authorization required
 
 ## get_transactions_count
 
-> models::Int32Envelope get_transactions_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_transactions_count(tenant_id, api_version, x_api_version, transaction_dto_collection_query_parameters)
 Get transactions count
 
 Returns total number of transactions for the tenant with OData filter support.
@@ -330,6 +333,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**transaction_dto_collection_query_parameters** | Option<[**TransactionDtoCollectionQueryParameters**](TransactionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -341,7 +345,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -349,7 +353,7 @@ No authorization required
 
 ## patch_transaction
 
-> models::EmptyEnvelope patch_transaction(tenant_id, transaction_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_transaction(tenant_id, transaction_id, api_version, x_api_version, patch_operation)
 Patch a transaction
 
 Partially updates an existing transaction identified by its unique identifier.
@@ -363,7 +367,7 @@ Name | Type | Description  | Required | Notes
 **transaction_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -383,7 +387,7 @@ No authorization required
 
 ## patch_transaction_category
 
-> models::EmptyEnvelope patch_transaction_category(tenant_id, category_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_transaction_category(tenant_id, category_id, api_version, x_api_version, patch_operation)
 Patch a transaction category
 
 Partially updates an existing transaction category identified by its unique identifier.
@@ -397,7 +401,7 @@ Name | Type | Description  | Required | Notes
 **category_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

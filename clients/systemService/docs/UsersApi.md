@@ -11,10 +11,13 @@ Method | HTTP request | Description
 [**get_extended_account_holder_async**](UsersApi.md#get_extended_account_holder_async) | **GET** /api/v2/SystemService/Users/{userId}/Extended | Retrieve an extended user by ID
 [**get_extended_users_async**](UsersApi.md#get_extended_users_async) | **GET** /api/v2/SystemService/Users/Extended | Retrieve a list of extended users
 [**get_extended_users_count_async**](UsersApi.md#get_extended_users_count_async) | **GET** /api/v2/SystemService/Users/Extended/Count | Get the count of extended users
+[**get_user_admin_detail_async**](UsersApi.md#get_user_admin_detail_async) | **GET** /api/v2/SystemService/Users/{userId}/AdminDetail | Retrieve the admin detail aggregate for a user
 [**get_user_async**](UsersApi.md#get_user_async) | **GET** /api/v2/SystemService/Users/{userId} | Retrieve a user by ID
 [**get_users_async**](UsersApi.md#get_users_async) | **GET** /api/v2/SystemService/Users | Retrieve a list of users
 [**get_users_count_async**](UsersApi.md#get_users_count_async) | **GET** /api/v2/SystemService/Users/Count | Get the count of users
 [**patch_account_holder_async**](UsersApi.md#patch_account_holder_async) | **PATCH** /api/v2/SystemService/Users/{userId} | Partially update a user
+[**set_user_password_async**](UsersApi.md#set_user_password_async) | **POST** /api/v2/SystemService/Users/{userId}/Password | Set a user's password
+[**update_account_holder_admin_profile_async**](UsersApi.md#update_account_holder_admin_profile_async) | **PUT** /api/v2/SystemService/Users/{userId}/AdminProfile | Update a user's admin-managed profile
 [**update_account_holder_async**](UsersApi.md#update_account_holder_async) | **PUT** /api/v2/SystemService/Users/{userId} | Update a user
 
 
@@ -183,7 +186,7 @@ No authorization required
 
 ## get_extended_users_async
 
-> models::ExtendedUserDtoListEnvelope get_extended_users_async(api_version, x_api_version)
+> models::ExtendedUserDtoListEnvelope get_extended_users_async(api_version, x_api_version, extended_user_dto_collection_query_parameters)
 Retrieve a list of extended users
 
 This action is only available for global administrators.
@@ -195,6 +198,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**extended_user_dto_collection_query_parameters** | Option<[**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -206,7 +210,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -214,7 +218,7 @@ No authorization required
 
 ## get_extended_users_count_async
 
-> models::Int32Envelope get_extended_users_count_async(api_version, x_api_version)
+> models::Int32Envelope get_extended_users_count_async(api_version, x_api_version, extended_user_dto_collection_query_parameters)
 Get the count of extended users
 
 This action is only available for global administrators.
@@ -226,10 +230,44 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**extended_user_dto_collection_query_parameters** | Option<[**ExtendedUserDtoCollectionQueryParameters**](ExtendedUserDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
 [**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## get_user_admin_detail_async
+
+> models::UserAdminDetailDtoEnvelope get_user_admin_detail_async(user_id, tenant_id, api_version, x_api_version)
+Retrieve the admin detail aggregate for a user
+
+Returns the user's orders, external logins, and — for the supplied tenant — the enrollment with its granted roles/permissions and the tenant role/permission catalogs. Global administrators only.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**user_id** | **String** |  | [required] |
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+
+### Return type
+
+[**models::UserAdminDetailDtoEnvelope**](UserAdminDetailDtoEnvelope.md)
 
 ### Authorization
 
@@ -277,7 +315,7 @@ No authorization required
 
 ## get_users_async
 
-> models::UserDtoListEnvelope get_users_async(api_version, x_api_version)
+> models::UserDtoListEnvelope get_users_async(api_version, x_api_version, user_dto_collection_query_parameters)
 Retrieve a list of users
 
 This action is only available for global administrators.
@@ -289,6 +327,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**user_dto_collection_query_parameters** | Option<[**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -300,7 +339,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -308,7 +347,7 @@ No authorization required
 
 ## get_users_count_async
 
-> models::Int32Envelope get_users_count_async(api_version, x_api_version)
+> models::Int32Envelope get_users_count_async(api_version, x_api_version, user_dto_collection_query_parameters)
 Get the count of users
 
 This action is only available for global administrators.
@@ -320,6 +359,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**user_dto_collection_query_parameters** | Option<[**UserDtoCollectionQueryParameters**](UserDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -331,7 +371,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -339,7 +379,7 @@ No authorization required
 
 ## patch_account_holder_async
 
-> models::EmptyEnvelope patch_account_holder_async(user_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_account_holder_async(user_id, api_version, x_api_version, patch_operation)
 Partially update a user
 
 This action is only available for global administrators.
@@ -352,7 +392,73 @@ Name | Type | Description  | Required | Notes
 **user_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## set_user_password_async
+
+> models::EmptyEnvelope set_user_password_async(user_id, api_version, x_api_version, set_user_password_dto)
+Set a user's password
+
+Replaces the user's password with the supplied value. Global administrators only.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**user_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**set_user_password_dto** | Option<[**SetUserPasswordDto**](SetUserPasswordDto.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## update_account_holder_admin_profile_async
+
+> models::EmptyEnvelope update_account_holder_admin_profile_async(user_id, api_version, x_api_version, user_admin_update_dto)
+Update a user's admin-managed profile
+
+Updates the identity fields (email/username, re-normalized by Identity) and display fields a global administrator may change on a user, and toggles two-factor and lockout. Normalized email/username and the access-failed count are never accepted. This action is only available for global administrators.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**user_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**user_admin_update_dto** | Option<[**UserAdminUpdateDto**](UserAdminUpdateDto.md)> |  |  |
 
 ### Return type
 

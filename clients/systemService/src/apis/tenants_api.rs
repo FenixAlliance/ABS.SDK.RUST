@@ -83,6 +83,15 @@ pub enum GetTenantError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`get_tenant_module_grants`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetTenantModuleGrantsError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`get_tenants_count`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -96,6 +105,15 @@ pub enum GetTenantsCountError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum PatchTenantError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`set_tenant_module_grants`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum SetTenantModuleGrantsError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -251,7 +269,7 @@ pub async fn delete_tenant(configuration: &configuration::Configuration, tenant_
 }
 
 /// This action is only available for global administrators.
-pub async fn get_all_extended_tenants(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ExtendedTenantDtoListEnvelope, Error<GetAllExtendedTenantsError>> {
+pub async fn get_all_extended_tenants(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, extended_tenant_dto_collection_query_parameters: Option<models::ExtendedTenantDtoCollectionQueryParameters>) -> Result<models::ExtendedTenantDtoListEnvelope, Error<GetAllExtendedTenantsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -268,6 +286,7 @@ pub async fn get_all_extended_tenants(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_tenant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -285,7 +304,7 @@ pub async fn get_all_extended_tenants(configuration: &configuration::Configurati
 }
 
 /// This action is only available for global administrators.
-pub async fn get_all_tenants(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TenantDtoListEnvelope, Error<GetAllTenantsError>> {
+pub async fn get_all_tenants(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, tenant_dto_collection_query_parameters: Option<models::TenantDtoCollectionQueryParameters>) -> Result<models::TenantDtoListEnvelope, Error<GetAllTenantsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -302,6 +321,7 @@ pub async fn get_all_tenants(configuration: &configuration::Configuration, api_v
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -319,7 +339,7 @@ pub async fn get_all_tenants(configuration: &configuration::Configuration, api_v
 }
 
 /// This action is only available for global administrators.
-pub async fn get_extended_tenants_count(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetExtendedTenantsCountError>> {
+pub async fn get_extended_tenants_count(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, extended_tenant_dto_collection_query_parameters: Option<models::ExtendedTenantDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetExtendedTenantsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -336,6 +356,7 @@ pub async fn get_extended_tenants_count(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_tenant_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -387,12 +408,12 @@ pub async fn get_tenant(configuration: &configuration::Configuration, tenant_id:
 }
 
 /// This action is only available for global administrators.
-pub async fn get_tenants_count(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTenantsCountError>> {
+pub async fn get_tenant_module_grants(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ModuleGrantDtoListEnvelope, Error<GetTenantModuleGrantsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
 
-    let local_var_uri_str = format!("{}/api/v2/SystemService/Tenants/Count", local_var_configuration.base_path);
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants", local_var_configuration.base_path, tenantId=crate::apis::urlencode(tenant_id));
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     if let Some(ref local_var_str) = api_version {
@@ -414,6 +435,41 @@ pub async fn get_tenants_count(configuration: &configuration::Configuration, api
     if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
+        let local_var_entity: Option<GetTenantModuleGrantsError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// This action is only available for global administrators.
+pub async fn get_tenants_count(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>, tenant_dto_collection_query_parameters: Option<models::TenantDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTenantsCountError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Tenants/Count", local_var_configuration.base_path);
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&tenant_dto_collection_query_parameters);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
         let local_var_entity: Option<GetTenantsCountError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
@@ -421,7 +477,7 @@ pub async fn get_tenants_count(configuration: &configuration::Configuration, api
 }
 
 /// This action is only available for global administrators.
-pub async fn patch_tenant(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantError>> {
+pub async fn patch_tenant(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchTenantError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -438,7 +494,7 @@ pub async fn patch_tenant(configuration: &configuration::Configuration, tenant_i
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -450,6 +506,41 @@ pub async fn patch_tenant(configuration: &configuration::Configuration, tenant_i
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<PatchTenantError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// This action is only available for global administrators. Grants supplement licensing.
+pub async fn set_tenant_module_grants(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, module_grant_dto: Option<Vec<models::ModuleGrantDto>>) -> Result<models::EmptyEnvelope, Error<SetTenantModuleGrantsError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SystemService/Tenants/{tenantId}/ModuleGrants", local_var_configuration.base_path, tenantId=crate::apis::urlencode(tenant_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&module_grant_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<SetTenantModuleGrantsError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }

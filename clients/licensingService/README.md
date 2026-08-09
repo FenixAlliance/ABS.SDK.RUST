@@ -31,7 +31,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceAbsWebApi* | [**api_v2_ai_service_agents_agent_id_agui_post**](docs/FenixAllianceAbsWebApi.md#api_v2_ai_service_agents_agent_id_agui_post) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
 *FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
 *FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
@@ -93,26 +92,31 @@ Class | Method | HTTP request | Description
  - [Int32Envelope](docs/Int32Envelope.md)
  - [LicenseAttributeCreateDto](docs/LicenseAttributeCreateDto.md)
  - [LicenseAttributeDto](docs/LicenseAttributeDto.md)
+ - [LicenseAttributeDtoCollectionQueryParameters](docs/LicenseAttributeDtoCollectionQueryParameters.md)
  - [LicenseAttributeDtoListEnvelope](docs/LicenseAttributeDtoListEnvelope.md)
  - [LicenseAttributeUpdateDto](docs/LicenseAttributeUpdateDto.md)
  - [LicenseCreateDto](docs/LicenseCreateDto.md)
  - [LicenseDto](docs/LicenseDto.md)
+ - [LicenseDtoCollectionQueryParameters](docs/LicenseDtoCollectionQueryParameters.md)
  - [LicenseDtoListEnvelope](docs/LicenseDtoListEnvelope.md)
  - [LicenseFeatureCreateDto](docs/LicenseFeatureCreateDto.md)
  - [LicenseFeatureDto](docs/LicenseFeatureDto.md)
+ - [LicenseFeatureDtoCollectionQueryParameters](docs/LicenseFeatureDtoCollectionQueryParameters.md)
  - [LicenseFeatureDtoListEnvelope](docs/LicenseFeatureDtoListEnvelope.md)
  - [LicenseFeatureUpdateDto](docs/LicenseFeatureUpdateDto.md)
  - [LicenseTypeCreateDto](docs/LicenseTypeCreateDto.md)
  - [LicenseTypeDto](docs/LicenseTypeDto.md)
+ - [LicenseTypeDtoCollectionQueryParameters](docs/LicenseTypeDtoCollectionQueryParameters.md)
  - [LicenseTypeDtoListEnvelope](docs/LicenseTypeDtoListEnvelope.md)
  - [LicenseTypeUpdateDto](docs/LicenseTypeUpdateDto.md)
  - [LicenseUpdateDto](docs/LicenseUpdateDto.md)
  - [LicensingCertificateCreateDto](docs/LicensingCertificateCreateDto.md)
  - [LicensingCertificateDto](docs/LicensingCertificateDto.md)
+ - [LicensingCertificateDtoCollectionQueryParameters](docs/LicensingCertificateDtoCollectionQueryParameters.md)
  - [LicensingCertificateDtoListEnvelope](docs/LicensingCertificateDtoListEnvelope.md)
  - [LicensingCertificateUpdateDto](docs/LicensingCertificateUpdateDto.md)
  - [LoginRequest](docs/LoginRequest.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [RefreshRequest](docs/RefreshRequest.md)
  - [RegisterRequest](docs/RegisterRequest.md)
  - [ResendConfirmationEmailRequest](docs/ResendConfirmationEmailRequest.md)

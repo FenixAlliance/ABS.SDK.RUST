@@ -226,7 +226,7 @@ No authorization required
 
 ## get_road_waybill_lines_async
 
-> models::WaybillLineDtoListEnvelope get_road_waybill_lines_async(tenant_id, waybill_id, api_version, x_api_version)
+> models::WaybillLineDtoListEnvelope get_road_waybill_lines_async(tenant_id, waybill_id, api_version, x_api_version, waybill_line_dto_collection_query_parameters)
 Get road waybill lines
 
 Retrieves all lines for a specific road waybill.
@@ -240,6 +240,7 @@ Name | Type | Description  | Required | Notes
 **waybill_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**waybill_line_dto_collection_query_parameters** | Option<[**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -251,7 +252,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -259,7 +260,7 @@ No authorization required
 
 ## get_road_waybill_lines_count_async
 
-> models::Int32Envelope get_road_waybill_lines_count_async(tenant_id, waybill_id, api_version, x_api_version)
+> models::Int32Envelope get_road_waybill_lines_count_async(tenant_id, waybill_id, api_version, x_api_version, waybill_line_dto_collection_query_parameters)
 Get road waybill lines count
 
 Returns the count of lines for a specific road waybill.
@@ -273,6 +274,7 @@ Name | Type | Description  | Required | Notes
 **waybill_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**waybill_line_dto_collection_query_parameters** | Option<[**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -284,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -292,7 +294,7 @@ No authorization required
 
 ## get_road_waybills_async
 
-> models::RoadWaybillDtoListEnvelope get_road_waybills_async(tenant_id, api_version, x_api_version)
+> models::RoadWaybillDtoListEnvelope get_road_waybills_async(tenant_id, api_version, x_api_version, road_waybill_dto_collection_query_parameters)
 Get all road waybills
 
 Retrieves all road waybills for the specified tenant.
@@ -305,6 +307,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**road_waybill_dto_collection_query_parameters** | Option<[**RoadWaybillDtoCollectionQueryParameters**](RoadWaybillDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -316,7 +319,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -324,7 +327,7 @@ No authorization required
 
 ## get_road_waybills_count_async
 
-> models::Int32Envelope get_road_waybills_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_road_waybills_count_async(tenant_id, api_version, x_api_version, road_waybill_dto_collection_query_parameters)
 Get road waybills count
 
 Returns the count of road waybills for the specified tenant.
@@ -337,6 +340,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**road_waybill_dto_collection_query_parameters** | Option<[**RoadWaybillDtoCollectionQueryParameters**](RoadWaybillDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -348,7 +352,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -455,7 +459,7 @@ No authorization required
 
 ## patch_road_waybill_async
 
-> models::EmptyEnvelope patch_road_waybill_async(tenant_id, waybill_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_road_waybill_async(tenant_id, waybill_id, api_version, x_api_version, patch_operation)
 Patch a road waybill
 
 Partially updates an existing road waybill using a JSON Patch document.
@@ -469,7 +473,7 @@ Name | Type | Description  | Required | Notes
 **waybill_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -489,7 +493,7 @@ No authorization required
 
 ## patch_road_waybill_line_async
 
-> models::EmptyEnvelope patch_road_waybill_line_async(tenant_id, waybill_id, line_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_road_waybill_line_async(tenant_id, waybill_id, line_id, api_version, x_api_version, patch_operation)
 Patch a road waybill line
 
 Partially updates a line on a road waybill using a JSON Patch document.
@@ -504,7 +508,7 @@ Name | Type | Description  | Required | Notes
 **line_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

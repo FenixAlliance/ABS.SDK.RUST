@@ -224,7 +224,7 @@ No authorization required
 
 ## get_unit_groups_async
 
-> models::UnitGroupDtoListEnvelope get_unit_groups_async(tenant_id, api_version, x_api_version)
+> models::UnitGroupDtoListEnvelope get_unit_groups_async(tenant_id, api_version, x_api_version, unit_group_dto_collection_query_parameters)
 Retrieve a list of unit groups
 
 Retrieves a list of unit groups for the specified tenant with OData query support.
@@ -237,6 +237,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**unit_group_dto_collection_query_parameters** | Option<[**UnitGroupDtoCollectionQueryParameters**](UnitGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -248,7 +249,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -256,7 +257,7 @@ No authorization required
 
 ## get_unit_groups_count_async
 
-> models::Int32Envelope get_unit_groups_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_unit_groups_count_async(tenant_id, api_version, x_api_version, unit_group_dto_collection_query_parameters)
 Get the count of unit groups
 
 Returns the total count of unit groups for the specified tenant with OData query support.
@@ -269,6 +270,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**unit_group_dto_collection_query_parameters** | Option<[**UnitGroupDtoCollectionQueryParameters**](UnitGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -280,7 +282,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -288,7 +290,7 @@ No authorization required
 
 ## get_units_async
 
-> models::UnitDtoListEnvelope get_units_async(tenant_id, unit_group_id, api_version, x_api_version)
+> models::UnitDtoListEnvelope get_units_async(tenant_id, unit_group_id, api_version, x_api_version, unit_dto_collection_query_parameters)
 Retrieve units for a unit group
 
 Retrieves a list of units belonging to a specific unit group.
@@ -302,6 +304,7 @@ Name | Type | Description  | Required | Notes
 **unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**unit_dto_collection_query_parameters** | Option<[**UnitDtoCollectionQueryParameters**](UnitDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -313,7 +316,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -321,7 +324,7 @@ No authorization required
 
 ## get_units_count_async
 
-> models::Int32Envelope get_units_count_async(tenant_id, unit_group_id, api_version, x_api_version)
+> models::Int32Envelope get_units_count_async(tenant_id, unit_group_id, api_version, x_api_version, unit_dto_collection_query_parameters)
 Get the count of units in a unit group
 
 Returns the total count of units in a specific unit group.
@@ -335,6 +338,7 @@ Name | Type | Description  | Required | Notes
 **unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**unit_dto_collection_query_parameters** | Option<[**UnitDtoCollectionQueryParameters**](UnitDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -346,7 +350,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -354,7 +358,7 @@ No authorization required
 
 ## patch_unit_async
 
-> models::EmptyEnvelope patch_unit_async(tenant_id, unit_group_id, unit_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_unit_async(tenant_id, unit_group_id, unit_id, api_version, x_api_version, patch_operation)
 Patch a unit within a unit group
 
 Partially updates an existing unit within a specific unit group.
@@ -369,7 +373,7 @@ Name | Type | Description  | Required | Notes
 **unit_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -389,7 +393,7 @@ No authorization required
 
 ## patch_unit_group_async
 
-> models::EmptyEnvelope patch_unit_group_async(tenant_id, unit_group_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_unit_group_async(tenant_id, unit_group_id, api_version, x_api_version, patch_operation)
 Patch a unit group
 
 Partially updates an existing unit group by its unique identifier.
@@ -403,7 +407,7 @@ Name | Type | Description  | Required | Notes
 **unit_group_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

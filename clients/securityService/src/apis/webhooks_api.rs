@@ -35,7 +35,7 @@ pub enum GetWebhookRequestsCountAsyncError {
 
 
 /// Retrieves all webhook requests for the specified tenant.
-pub async fn get_webhook_requests_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WebhookRequestDtoListEnvelope, Error<GetWebhookRequestsAsyncError>> {
+pub async fn get_webhook_requests_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, webhook_request_dto_collection_query_parameters: Option<models::WebhookRequestDtoCollectionQueryParameters>) -> Result<models::WebhookRequestDtoListEnvelope, Error<GetWebhookRequestsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -53,6 +53,7 @@ pub async fn get_webhook_requests_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&webhook_request_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -70,7 +71,7 @@ pub async fn get_webhook_requests_async(configuration: &configuration::Configura
 }
 
 /// Retrieves the count of webhook requests for the specified tenant.
-pub async fn get_webhook_requests_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWebhookRequestsCountAsyncError>> {
+pub async fn get_webhook_requests_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, webhook_request_dto_collection_query_parameters: Option<models::WebhookRequestDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWebhookRequestsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -88,6 +89,7 @@ pub async fn get_webhook_requests_count_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&webhook_request_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

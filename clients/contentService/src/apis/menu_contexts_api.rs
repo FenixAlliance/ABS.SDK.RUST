@@ -71,7 +71,7 @@ pub enum UpdateMenuContextAsyncError {
 
 
 /// Counts all menu contexts for the specified tenant.
-pub async fn count_menu_contexts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountMenuContextsAsyncError>> {
+pub async fn count_menu_contexts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, menu_context_dto_collection_query_parameters: Option<models::MenuContextDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountMenuContextsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -89,6 +89,7 @@ pub async fn count_menu_contexts_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&menu_context_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -212,7 +213,7 @@ pub async fn get_menu_context_by_id_async(configuration: &configuration::Configu
 }
 
 /// Retrieves all menu contexts for the specified tenant.
-pub async fn get_menu_contexts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::MenuContextDtoListEnvelope, Error<GetMenuContextsAsyncError>> {
+pub async fn get_menu_contexts_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, menu_context_dto_collection_query_parameters: Option<models::MenuContextDtoCollectionQueryParameters>) -> Result<models::MenuContextDtoListEnvelope, Error<GetMenuContextsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -230,6 +231,7 @@ pub async fn get_menu_contexts_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&menu_context_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

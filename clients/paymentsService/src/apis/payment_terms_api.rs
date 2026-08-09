@@ -186,7 +186,7 @@ pub async fn get_payment_term_details_async(configuration: &configuration::Confi
 }
 
 /// Gets all payment terms for the current tenant with OData support.
-pub async fn get_payment_terms_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::PaymentTermDtoIReadOnlyListEnvelope, Error<GetPaymentTermsAsyncError>> {
+pub async fn get_payment_terms_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_term_dto_collection_query_parameters: Option<models::PaymentTermDtoCollectionQueryParameters>) -> Result<models::PaymentTermDtoIReadOnlyListEnvelope, Error<GetPaymentTermsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -204,6 +204,7 @@ pub async fn get_payment_terms_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_term_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_payment_terms_async(configuration: &configuration::Configuratio
 }
 
 /// Gets the count of payment terms for the current tenant.
-pub async fn get_payment_terms_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetPaymentTermsCountAsyncError>> {
+pub async fn get_payment_terms_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, payment_term_dto_collection_query_parameters: Option<models::PaymentTermDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetPaymentTermsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_payment_terms_count_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_term_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_payment_terms_count_async(configuration: &configuration::Config
 }
 
 /// Patch a payment term
-pub async fn patch_payment_term_async(configuration: &configuration::Configuration, tenant_id: &str, payment_term_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchPaymentTermAsyncError>> {
+pub async fn patch_payment_term_async(configuration: &configuration::Configuration, tenant_id: &str, payment_term_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchPaymentTermAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_payment_term_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

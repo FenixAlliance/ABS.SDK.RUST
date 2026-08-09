@@ -29,6 +29,8 @@ pub struct FiscalPeriodDto {
     pub enrollment_id: Option<Option<String>>,
     #[serde(rename = "fiscalYearId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub fiscal_year_id: Option<Option<String>>,
+    #[serde(rename = "status", skip_serializing_if = "Option::is_none")]
+    pub status: Option<Status>,
 }
 
 impl FiscalPeriodDto {
@@ -42,7 +44,24 @@ impl FiscalPeriodDto {
             tenant_id: None,
             enrollment_id: None,
             fiscal_year_id: None,
+            status: None,
         }
+    }
+}
+/// 
+#[derive(Clone, Copy, Debug, Eq, PartialEq, Ord, PartialOrd, Hash, Serialize, Deserialize)]
+pub enum Status {
+    #[serde(rename = "Open")]
+    Open,
+    #[serde(rename = "Closed")]
+    Closed,
+    #[serde(rename = "Locked")]
+    Locked,
+}
+
+impl Default for Status {
+    fn default() -> Status {
+        Self::Open
     }
 }
 

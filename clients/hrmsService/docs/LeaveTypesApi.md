@@ -114,7 +114,7 @@ No authorization required
 
 ## get_leave_types_async
 
-> models::LeaveTypeDtoListEnvelope get_leave_types_async(tenant_id, api_version, x_api_version)
+> models::LeaveTypeDtoListEnvelope get_leave_types_async(tenant_id, api_version, x_api_version, leave_type_dto_collection_query_parameters)
 Get leave types
 
 Retrieves leave types for the specified tenant.
@@ -127,6 +127,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**leave_type_dto_collection_query_parameters** | Option<[**LeaveTypeDtoCollectionQueryParameters**](LeaveTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -138,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,7 +147,7 @@ No authorization required
 
 ## get_leave_types_count_async
 
-> models::Int32Envelope get_leave_types_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_leave_types_count_async(tenant_id, api_version, x_api_version, leave_type_dto_collection_query_parameters)
 Count leave types
 
 Counts leave types for the specified tenant.
@@ -159,6 +160,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**leave_type_dto_collection_query_parameters** | Option<[**LeaveTypeDtoCollectionQueryParameters**](LeaveTypeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -170,7 +172,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

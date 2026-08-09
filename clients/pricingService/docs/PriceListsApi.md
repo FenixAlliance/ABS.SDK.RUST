@@ -212,7 +212,7 @@ No authorization required
 
 ## get_price_list_prices_async
 
-> models::ItemPriceDtoListEnvelope get_price_list_prices_async(tenant_id, price_list_id, item_id)
+> models::ItemPriceDtoListEnvelope get_price_list_prices_async(tenant_id, price_list_id, item_id, item_price_dto_collection_query_parameters)
 Retrieves prices in a price list
 
 Gets all price entries for a specific price list with OData support.
@@ -225,6 +225,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **price_list_id** | **uuid::Uuid** |  | [required] |
 **item_id** | Option<**uuid::Uuid**> |  |  |
+**item_price_dto_collection_query_parameters** | Option<[**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -236,7 +237,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -244,7 +245,7 @@ No authorization required
 
 ## get_price_list_prices_count_async
 
-> models::Int32Envelope get_price_list_prices_count_async(tenant_id, price_list_id)
+> models::Int32Envelope get_price_list_prices_count_async(tenant_id, price_list_id, item_price_dto_collection_query_parameters)
 Counts prices in a price list
 
 Gets the count of price entries for a specific price list.
@@ -256,6 +257,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **price_list_id** | **uuid::Uuid** |  | [required] |
+**item_price_dto_collection_query_parameters** | Option<[**ItemPriceDtoCollectionQueryParameters**](ItemPriceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -267,7 +269,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -275,7 +277,7 @@ No authorization required
 
 ## get_price_lists_async
 
-> models::PriceListDtoListEnvelope get_price_lists_async(tenant_id)
+> models::PriceListDtoListEnvelope get_price_lists_async(tenant_id, price_list_dto_collection_query_parameters)
 Retrieves all price lists
 
 Gets all price lists for the current tenant with OData support.
@@ -286,6 +288,7 @@ Gets all price lists for the current tenant with OData support.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**price_list_dto_collection_query_parameters** | Option<[**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -297,7 +300,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -305,7 +308,7 @@ No authorization required
 
 ## get_price_lists_count_async
 
-> models::Int32Envelope get_price_lists_count_async(tenant_id)
+> models::Int32Envelope get_price_lists_count_async(tenant_id, price_list_dto_collection_query_parameters)
 Counts price lists
 
 Gets the count of price lists for the current tenant.
@@ -316,6 +319,7 @@ Gets the count of price lists for the current tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**price_list_dto_collection_query_parameters** | Option<[**PriceListDtoCollectionQueryParameters**](PriceListDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -327,7 +331,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -335,7 +339,7 @@ No authorization required
 
 ## patch_price_list_async
 
-> models::EmptyEnvelope patch_price_list_async(tenant_id, price_list_id, operation)
+> models::EmptyEnvelope patch_price_list_async(tenant_id, price_list_id, patch_operation)
 Patches a price list
 
 Partially updates the specified price list using a JSON Patch document.
@@ -347,7 +351,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **price_list_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -367,7 +371,7 @@ No authorization required
 
 ## patch_price_list_price_async
 
-> models::EmptyEnvelope patch_price_list_price_async(tenant_id, price_list_id, price_id, operation)
+> models::EmptyEnvelope patch_price_list_price_async(tenant_id, price_list_id, price_id, patch_operation)
 Patches a price list entry
 
 Partially updates the specified price entry in a price list using a JSON Patch document.
@@ -380,7 +384,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **price_list_id** | **uuid::Uuid** |  | [required] |
 **price_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -202,7 +202,7 @@ No authorization required
 
 ## get_files_async
 
-> models::FileUploadDtoEnvelope get_files_async(tenant_id, api_version, x_api_version)
+> models::FileUploadDtoEnvelope get_files_async(tenant_id, api_version, x_api_version, top, skip, count, filter, order_by, search, select, expand, is_empty)
 
 
 ### Parameters
@@ -213,6 +213,15 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**top** | Option<**i32**> |  |  |
+**skip** | Option<**i32**> |  |  |
+**count** | Option<**bool**> |  |  |
+**filter** | Option<**String**> |  |  |
+**order_by** | Option<**String**> |  |  |
+**search** | Option<**String**> |  |  |
+**select** | Option<**String**> |  |  |
+**expand** | Option<**String**> |  |  |
+**is_empty** | Option<**bool**> |  |  |
 
 ### Return type
 
@@ -224,7 +233,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json, image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -232,7 +241,7 @@ No authorization required
 
 ## get_files_count_async
 
-> i64 get_files_count_async(tenant_id, api_version, x_api_version)
+> i64 get_files_count_async(tenant_id, api_version, x_api_version, top, skip, count, filter, order_by, search, select, expand, is_empty)
 
 
 ### Parameters
@@ -243,6 +252,15 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**top** | Option<**i32**> |  |  |
+**skip** | Option<**i32**> |  |  |
+**count** | Option<**bool**> |  |  |
+**filter** | Option<**String**> |  |  |
+**order_by** | Option<**String**> |  |  |
+**search** | Option<**String**> |  |  |
+**select** | Option<**String**> |  |  |
+**expand** | Option<**String**> |  |  |
+**is_empty** | Option<**bool**> |  |  |
 
 ### Return type
 
@@ -254,7 +272,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json, image/png
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

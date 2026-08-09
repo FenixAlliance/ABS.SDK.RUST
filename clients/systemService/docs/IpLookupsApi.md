@@ -77,7 +77,7 @@ No authorization required
 
 ## get_system_ip_lookups
 
-> models::IpLookupDtoListEnvelope get_system_ip_lookups(api_version, x_api_version)
+> models::IpLookupDtoListEnvelope get_system_ip_lookups(api_version, x_api_version, ip_lookup_dto_collection_query_parameters)
 Retrieve a list of system IP lookups
 
 Retrieve a list of all IP lookups in the system
@@ -89,6 +89,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**ip_lookup_dto_collection_query_parameters** | Option<[**IpLookupDtoCollectionQueryParameters**](IpLookupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -100,7 +101,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -108,7 +109,7 @@ No authorization required
 
 ## get_system_ip_lookups_count
 
-> models::Int32Envelope get_system_ip_lookups_count(api_version, x_api_version)
+> models::Int32Envelope get_system_ip_lookups_count(api_version, x_api_version, ip_lookup_dto_collection_query_parameters)
 Get the count of system IP lookups
 
 Get the count of all IP lookups in the system
@@ -120,6 +121,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**ip_lookup_dto_collection_query_parameters** | Option<[**IpLookupDtoCollectionQueryParameters**](IpLookupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -131,7 +133,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

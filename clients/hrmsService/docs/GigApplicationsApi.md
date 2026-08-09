@@ -149,7 +149,7 @@ No authorization required
 
 ## get_gig_applications_async
 
-> models::GigApplicationDtoListEnvelope get_gig_applications_async(tenant_id, api_version, x_api_version)
+> models::GigApplicationDtoListEnvelope get_gig_applications_async(tenant_id, api_version, x_api_version, gig_application_dto_collection_query_parameters)
 Get gig applications
 
 Retrieves proposals submitted against the tenant's gigs. Filter with `$filter=GigId eq '...'` or `JobApplicantProfileId eq '...'`.
@@ -162,6 +162,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**gig_application_dto_collection_query_parameters** | Option<[**GigApplicationDtoCollectionQueryParameters**](GigApplicationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -173,7 +174,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -181,7 +182,7 @@ No authorization required
 
 ## get_gig_applications_count_async
 
-> models::Int32Envelope get_gig_applications_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_gig_applications_count_async(tenant_id, api_version, x_api_version, gig_application_dto_collection_query_parameters)
 Count gig applications
 
 Counts proposals submitted against the tenant's gigs.
@@ -194,6 +195,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**gig_application_dto_collection_query_parameters** | Option<[**GigApplicationDtoCollectionQueryParameters**](GigApplicationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -205,7 +207,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -213,7 +215,7 @@ No authorization required
 
 ## patch_gig_application_async
 
-> models::EmptyEnvelope patch_gig_application_async(tenant_id, gig_application_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_gig_application_async(tenant_id, gig_application_id, api_version, x_api_version, patch_operation)
 Patch a gig application
 
 Partially updates an existing proposal submitted against one of the tenant's gigs.
@@ -227,7 +229,7 @@ Name | Type | Description  | Required | Notes
 **gig_application_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

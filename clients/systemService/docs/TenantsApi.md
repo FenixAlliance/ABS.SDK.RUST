@@ -12,8 +12,10 @@ Method | HTTP request | Description
 [**get_all_tenants**](TenantsApi.md#get_all_tenants) | **GET** /api/v2/SystemService/Tenants | Get all tenants available on this suite server instance.
 [**get_extended_tenants_count**](TenantsApi.md#get_extended_tenants_count) | **GET** /api/v2/SystemService/Tenants/Extended/Count | Get the total count of extended tenants available on this suite server instance.
 [**get_tenant**](TenantsApi.md#get_tenant) | **GET** /api/v2/SystemService/Tenants/{tenantId} | Get a specific tenant by ID.
+[**get_tenant_module_grants**](TenantsApi.md#get_tenant_module_grants) | **GET** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Get the per-tenant admin module grants for a specific tenant.
 [**get_tenants_count**](TenantsApi.md#get_tenants_count) | **GET** /api/v2/SystemService/Tenants/Count | Get the total count of tenants available on this suite server instance.
 [**patch_tenant**](TenantsApi.md#patch_tenant) | **PATCH** /api/v2/SystemService/Tenants/{tenantId} | Partially update a specific tenant by ID.
+[**set_tenant_module_grants**](TenantsApi.md#set_tenant_module_grants) | **PUT** /api/v2/SystemService/Tenants/{tenantId}/ModuleGrants | Replace the per-tenant admin module grants for a specific tenant.
 [**update_tenant**](TenantsApi.md#update_tenant) | **PUT** /api/v2/SystemService/Tenants/{tenantId} | Update a specific tenant by ID.
 
 
@@ -150,7 +152,7 @@ No authorization required
 
 ## get_all_extended_tenants
 
-> models::ExtendedTenantDtoListEnvelope get_all_extended_tenants(api_version, x_api_version)
+> models::ExtendedTenantDtoListEnvelope get_all_extended_tenants(api_version, x_api_version, extended_tenant_dto_collection_query_parameters)
 Get all extended tenants available on this suite server instance.
 
 This action is only available for global administrators.
@@ -162,6 +164,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**extended_tenant_dto_collection_query_parameters** | Option<[**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -173,7 +176,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -181,7 +184,7 @@ No authorization required
 
 ## get_all_tenants
 
-> models::TenantDtoListEnvelope get_all_tenants(api_version, x_api_version)
+> models::TenantDtoListEnvelope get_all_tenants(api_version, x_api_version, tenant_dto_collection_query_parameters)
 Get all tenants available on this suite server instance.
 
 This action is only available for global administrators.
@@ -193,6 +196,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**tenant_dto_collection_query_parameters** | Option<[**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -204,7 +208,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -212,7 +216,7 @@ No authorization required
 
 ## get_extended_tenants_count
 
-> models::Int32Envelope get_extended_tenants_count(api_version, x_api_version)
+> models::Int32Envelope get_extended_tenants_count(api_version, x_api_version, extended_tenant_dto_collection_query_parameters)
 Get the total count of extended tenants available on this suite server instance.
 
 This action is only available for global administrators.
@@ -224,6 +228,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**extended_tenant_dto_collection_query_parameters** | Option<[**ExtendedTenantDtoCollectionQueryParameters**](ExtendedTenantDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -235,7 +240,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -273,10 +278,10 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
-## get_tenants_count
+## get_tenant_module_grants
 
-> models::Int32Envelope get_tenants_count(api_version, x_api_version)
-Get the total count of tenants available on this suite server instance.
+> models::ModuleGrantDtoListEnvelope get_tenant_module_grants(tenant_id, api_version, x_api_version)
+Get the per-tenant admin module grants for a specific tenant.
 
 This action is only available for global administrators.
 
@@ -285,12 +290,13 @@ This action is only available for global administrators.
 
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 
 ### Return type
 
-[**models::Int32Envelope**](Int32Envelope.md)
+[**models::ModuleGrantDtoListEnvelope**](ModuleGrantDtoListEnvelope.md)
 
 ### Authorization
 
@@ -304,9 +310,41 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 
+## get_tenants_count
+
+> models::Int32Envelope get_tenants_count(api_version, x_api_version, tenant_dto_collection_query_parameters)
+Get the total count of tenants available on this suite server instance.
+
+This action is only available for global administrators.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**tenant_dto_collection_query_parameters** | Option<[**TenantDtoCollectionQueryParameters**](TenantDtoCollectionQueryParameters.md)> |  |  |
+
+### Return type
+
+[**models::Int32Envelope**](Int32Envelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
 ## patch_tenant
 
-> models::EmptyEnvelope patch_tenant(tenant_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_tenant(tenant_id, api_version, x_api_version, patch_operation)
 Partially update a specific tenant by ID.
 
 This action is only available for global administrators.
@@ -319,7 +357,40 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
+
+### Return type
+
+[**models::EmptyEnvelope**](EmptyEnvelope.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json, application/xml
+- **Accept**: application/json, application/xml
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+
+## set_tenant_module_grants
+
+> models::EmptyEnvelope set_tenant_module_grants(tenant_id, api_version, x_api_version, module_grant_dto)
+Replace the per-tenant admin module grants for a specific tenant.
+
+This action is only available for global administrators. Grants supplement licensing.
+
+### Parameters
+
+
+Name | Type | Description  | Required | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+**tenant_id** | **uuid::Uuid** |  | [required] |
+**api_version** | Option<**String**> |  |  |
+**x_api_version** | Option<**String**> |  |  |
+**module_grant_dto** | Option<[**Vec<models::ModuleGrantDto>**](ModuleGrantDto.md)> |  |  |
 
 ### Return type
 

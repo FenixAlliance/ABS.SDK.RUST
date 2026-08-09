@@ -121,7 +121,7 @@ No authorization required
 
 ## get_curriculum_experiences_async
 
-> models::CurriculumExperienceDtoListEnvelope get_curriculum_experiences_async(curriculum_id, social_profile_id, tenant_id, api_version, x_api_version)
+> models::CurriculumExperienceDtoListEnvelope get_curriculum_experiences_async(curriculum_id, social_profile_id, tenant_id, api_version, x_api_version, curriculum_experience_dto_collection_query_parameters)
 Get curriculum experiences
 
 Retrieves the work-experience records of a curriculum authored on the specified social profile.
@@ -136,6 +136,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**curriculum_experience_dto_collection_query_parameters** | Option<[**CurriculumExperienceDtoCollectionQueryParameters**](CurriculumExperienceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -147,7 +148,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -155,7 +156,7 @@ No authorization required
 
 ## get_curriculum_experiences_count_async
 
-> models::Int32Envelope get_curriculum_experiences_count_async(curriculum_id, social_profile_id, tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_curriculum_experiences_count_async(curriculum_id, social_profile_id, tenant_id, api_version, x_api_version, curriculum_experience_dto_collection_query_parameters)
 Count curriculum experiences
 
 Returns the count of work-experience records of a curriculum.
@@ -170,6 +171,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**curriculum_experience_dto_collection_query_parameters** | Option<[**CurriculumExperienceDtoCollectionQueryParameters**](CurriculumExperienceDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -181,7 +183,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -189,7 +191,7 @@ No authorization required
 
 ## patch_curriculum_experience_async
 
-> models::EmptyEnvelope patch_curriculum_experience_async(curriculum_id, experience_id, social_profile_id, tenant_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_curriculum_experience_async(curriculum_id, experience_id, social_profile_id, tenant_id, api_version, x_api_version, patch_operation)
 Patch a curriculum experience
 
 Partially updates an existing work-experience record of a curriculum.
@@ -205,7 +207,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -201,7 +201,7 @@ pub async fn get_payment_async_v2(configuration: &configuration::Configuration, 
 }
 
 /// Gets all payments for the current tenant with OData support.
-pub async fn get_payments_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::PaymentDtoListEnvelope, Error<GetPaymentsAsyncError>> {
+pub async fn get_payments_async(configuration: &configuration::Configuration, tenant_id: &str, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::PaymentDtoListEnvelope, Error<GetPaymentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -213,6 +213,7 @@ pub async fn get_payments_async(configuration: &configuration::Configuration, te
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -230,7 +231,7 @@ pub async fn get_payments_async(configuration: &configuration::Configuration, te
 }
 
 /// Patch a payment
-pub async fn patch_payment_async(configuration: &configuration::Configuration, tenant_id: &str, payment_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchPaymentAsyncError>> {
+pub async fn patch_payment_async(configuration: &configuration::Configuration, tenant_id: &str, payment_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchPaymentAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -242,7 +243,7 @@ pub async fn patch_payment_async(configuration: &configuration::Configuration, t
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

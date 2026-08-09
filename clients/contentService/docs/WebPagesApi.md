@@ -24,7 +24,7 @@ Method | HTTP request | Description
 
 ## count_web_pages_async
 
-> models::Int32Envelope count_web_pages_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_web_pages_async(tenant_id, api_version, x_api_version, web_page_dto_collection_query_parameters)
 Count web pages
 
 Counts all web pages for the specified tenant.
@@ -37,6 +37,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**web_page_dto_collection_query_parameters** | Option<[**WebPageDtoCollectionQueryParameters**](WebPageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -48,7 +49,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -190,7 +191,7 @@ No authorization required
 
 ## get_categories_by_web_page_async
 
-> models::WebPageCategoryDtoListEnvelope get_categories_by_web_page_async(web_page_id, api_version, x_api_version)
+> models::WebPageCategoryDtoListEnvelope get_categories_by_web_page_async(web_page_id, api_version, x_api_version, web_page_category_dto_collection_query_parameters)
 Get categories by web page
 
 Retrieves all categories related to a specific web page.
@@ -203,6 +204,7 @@ Name | Type | Description  | Required | Notes
 **web_page_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**web_page_category_dto_collection_query_parameters** | Option<[**WebPageCategoryDtoCollectionQueryParameters**](WebPageCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -214,7 +216,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -222,7 +224,7 @@ No authorization required
 
 ## get_tags_by_web_page_async
 
-> models::WebPageTagDtoListEnvelope get_tags_by_web_page_async(web_page_id, api_version, x_api_version)
+> models::WebPageTagDtoListEnvelope get_tags_by_web_page_async(web_page_id, api_version, x_api_version, web_page_tag_dto_collection_query_parameters)
 Get tags by web page
 
 Retrieves all tags related to a specific web page.
@@ -235,6 +237,7 @@ Name | Type | Description  | Required | Notes
 **web_page_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**web_page_tag_dto_collection_query_parameters** | Option<[**WebPageTagDtoCollectionQueryParameters**](WebPageTagDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -246,7 +249,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -287,7 +290,7 @@ No authorization required
 
 ## get_web_pages_async
 
-> models::WebPageDtoListEnvelope get_web_pages_async(tenant_id, api_version, x_api_version)
+> models::WebPageDtoListEnvelope get_web_pages_async(tenant_id, api_version, x_api_version, web_page_dto_collection_query_parameters)
 Get web pages
 
 Retrieves all web pages for the specified tenant.
@@ -300,6 +303,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**web_page_dto_collection_query_parameters** | Option<[**WebPageDtoCollectionQueryParameters**](WebPageDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -311,7 +315,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -319,7 +323,7 @@ No authorization required
 
 ## patch_web_page_async
 
-> patch_web_page_async(tenant_id, web_page_id, api_version, x_api_version, operation)
+> patch_web_page_async(tenant_id, web_page_id, api_version, x_api_version, patch_operation)
 Patch a web page
 
 Partially updates an existing web page for the specified tenant.
@@ -333,7 +337,7 @@ Name | Type | Description  | Required | Notes
 **web_page_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

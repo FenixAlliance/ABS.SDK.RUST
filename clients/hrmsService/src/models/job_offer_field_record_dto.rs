@@ -15,8 +15,8 @@ use serde::{Deserialize, Serialize};
 pub struct JobOfferFieldRecordDto {
     #[serde(rename = "id", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub id: Option<Option<String>>,
-    #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
-    pub timestamp: Option<String>,
+    #[serde(rename = "timestamp", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub timestamp: Option<Option<String>>,
     #[serde(rename = "jobFieldId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub job_field_id: Option<Option<String>>,
     #[serde(rename = "jobOfferId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]

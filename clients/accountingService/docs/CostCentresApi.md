@@ -293,7 +293,7 @@ No authorization required
 
 ## get_cost_centre_budgets
 
-> models::CostCentreBudgetDtoListEnvelope get_cost_centre_budgets(tenant_id, api_version, x_api_version)
+> models::CostCentreBudgetDtoListEnvelope get_cost_centre_budgets(tenant_id, api_version, x_api_version, cost_centre_budget_dto_collection_query_parameters)
 Get all cost centre budgets for a tenant
 
 Retrieves all cost centre budgets for the specified tenant using OData query options.
@@ -306,6 +306,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**cost_centre_budget_dto_collection_query_parameters** | Option<[**CostCentreBudgetDtoCollectionQueryParameters**](CostCentreBudgetDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -317,7 +318,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -358,7 +359,7 @@ No authorization required
 
 ## get_cost_centre_groups
 
-> models::CostCentreGroupDtoListEnvelope get_cost_centre_groups(tenant_id, api_version, x_api_version)
+> models::CostCentreGroupDtoListEnvelope get_cost_centre_groups(tenant_id, api_version, x_api_version, cost_centre_group_dto_collection_query_parameters)
 Get all cost centre groups for a tenant
 
 Retrieves all cost centre groups for the specified tenant using OData query options.
@@ -371,6 +372,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**cost_centre_group_dto_collection_query_parameters** | Option<[**CostCentreGroupDtoCollectionQueryParameters**](CostCentreGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -382,7 +384,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -390,7 +392,7 @@ No authorization required
 
 ## get_cost_centre_groups_count
 
-> models::Int32Envelope get_cost_centre_groups_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_cost_centre_groups_count(tenant_id, api_version, x_api_version, cost_centre_group_dto_collection_query_parameters)
 Get the count of cost centre groups for a tenant
 
 Retrieves the count of cost centre groups for the specified tenant using OData query options.
@@ -403,6 +405,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**cost_centre_group_dto_collection_query_parameters** | Option<[**CostCentreGroupDtoCollectionQueryParameters**](CostCentreGroupDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -414,7 +417,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -422,7 +425,7 @@ No authorization required
 
 ## get_cost_centres
 
-> models::CostCentreDtoListEnvelope get_cost_centres(tenant_id, api_version, x_api_version)
+> models::CostCentreDtoListEnvelope get_cost_centres(tenant_id, api_version, x_api_version, cost_centre_dto_collection_query_parameters)
 Get all cost centres for a tenant
 
 Retrieves all cost centres for the specified tenant using OData query options.
@@ -435,6 +438,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**cost_centre_dto_collection_query_parameters** | Option<[**CostCentreDtoCollectionQueryParameters**](CostCentreDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -446,7 +450,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -454,7 +458,7 @@ No authorization required
 
 ## get_cost_centres_count
 
-> models::Int32Envelope get_cost_centres_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_cost_centres_count(tenant_id, api_version, x_api_version, cost_centre_dto_collection_query_parameters)
 Get the count of cost centres for a tenant
 
 Retrieves the count of cost centres for the specified tenant using OData query options.
@@ -467,6 +471,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**cost_centre_dto_collection_query_parameters** | Option<[**CostCentreDtoCollectionQueryParameters**](CostCentreDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -478,7 +483,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -486,7 +491,7 @@ No authorization required
 
 ## patch_cost_centre
 
-> models::EmptyEnvelope patch_cost_centre(tenant_id, cost_centre_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_cost_centre(tenant_id, cost_centre_id, api_version, x_api_version, patch_operation)
 Patch a cost centre
 
 Partially updates an existing cost centre.
@@ -500,7 +505,7 @@ Name | Type | Description  | Required | Notes
 **cost_centre_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -520,7 +525,7 @@ No authorization required
 
 ## patch_cost_centre_budget
 
-> models::EmptyEnvelope patch_cost_centre_budget(tenant_id, budget_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_cost_centre_budget(tenant_id, budget_id, api_version, x_api_version, patch_operation)
 Patch a cost centre budget
 
 Partially updates an existing cost centre budget.
@@ -534,7 +539,7 @@ Name | Type | Description  | Required | Notes
 **budget_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -554,7 +559,7 @@ No authorization required
 
 ## patch_cost_centre_group
 
-> models::EmptyEnvelope patch_cost_centre_group(tenant_id, group_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_cost_centre_group(tenant_id, group_id, api_version, x_api_version, patch_operation)
 Patch a cost centre group
 
 Partially updates an existing cost centre group.
@@ -568,7 +573,7 @@ Name | Type | Description  | Required | Notes
 **group_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

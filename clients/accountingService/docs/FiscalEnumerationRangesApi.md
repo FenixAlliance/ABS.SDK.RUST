@@ -116,7 +116,7 @@ No authorization required
 
 ## get_invoice_enumeration_ranges
 
-> models::InvoiceEnumerationRangeDtoListEnvelope get_invoice_enumeration_ranges(tenant_id, fiscal_authority_id, authority_id, api_version, x_api_version)
+> models::InvoiceEnumerationRangeDtoListEnvelope get_invoice_enumeration_ranges(tenant_id, fiscal_authority_id, authority_id, api_version, x_api_version, invoice_enumeration_range_dto_collection_query_parameters)
 Get invoice enumeration ranges for an authority
 
 Retrieves all invoice enumeration ranges for the specified fiscal authority.
@@ -131,6 +131,7 @@ Name | Type | Description  | Required | Notes
 **authority_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**invoice_enumeration_range_dto_collection_query_parameters** | Option<[**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -142,7 +143,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -150,7 +151,7 @@ No authorization required
 
 ## get_invoice_enumeration_ranges_count
 
-> models::Int32Envelope get_invoice_enumeration_ranges_count(tenant_id, fiscal_authority_id, api_version, x_api_version)
+> models::Int32Envelope get_invoice_enumeration_ranges_count(tenant_id, fiscal_authority_id, api_version, x_api_version, invoice_enumeration_range_dto_collection_query_parameters)
 Get invoice enumeration ranges count
 
 Returns the total count of invoice enumeration ranges for the specified fiscal authority.
@@ -164,6 +165,7 @@ Name | Type | Description  | Required | Notes
 **fiscal_authority_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**invoice_enumeration_range_dto_collection_query_parameters** | Option<[**InvoiceEnumerationRangeDtoCollectionQueryParameters**](InvoiceEnumerationRangeDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -175,7 +177,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -183,7 +185,7 @@ No authorization required
 
 ## patch_fiscal_enumeration_range_async
 
-> models::EmptyEnvelope patch_fiscal_enumeration_range_async(tenant_id, enumeration_range_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_fiscal_enumeration_range_async(tenant_id, enumeration_range_id, api_version, x_api_version, patch_operation)
 Patch an invoice enumeration range
 
 Partially updates an invoice enumeration range.
@@ -197,7 +199,7 @@ Name | Type | Description  | Required | Notes
 **enumeration_range_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

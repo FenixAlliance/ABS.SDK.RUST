@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 ## get_bank_profiles
 
-> models::BankProfileDtoListEnvelope get_bank_profiles(tenant_id, api_version, x_api_version)
+> models::BankProfileDtoListEnvelope get_bank_profiles(tenant_id, api_version, x_api_version, bank_profile_dto_collection_query_parameters)
 Get all bank profiles for a tenant
 
 Retrieves all bank profiles for the specified tenant using OData query options.
@@ -24,6 +24,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_profile_dto_collection_query_parameters** | Option<[**BankProfileDtoCollectionQueryParameters**](BankProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -35,7 +36,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -43,7 +44,7 @@ No authorization required
 
 ## get_bank_profiles_count
 
-> models::Int32Envelope get_bank_profiles_count(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_bank_profiles_count(tenant_id, api_version, x_api_version, bank_profile_dto_collection_query_parameters)
 Get bank profiles count
 
 Returns the count of bank profiles for the specified tenant.
@@ -56,6 +57,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**bank_profile_dto_collection_query_parameters** | Option<[**BankProfileDtoCollectionQueryParameters**](BankProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -67,7 +69,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

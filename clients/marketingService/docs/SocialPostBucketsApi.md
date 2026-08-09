@@ -115,7 +115,7 @@ No authorization required
 
 ## get_social_post_buckets_count_async
 
-> models::Int32Envelope get_social_post_buckets_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_social_post_buckets_count_async(tenant_id, api_version, x_api_version, social_post_bucket_dto_collection_query_parameters)
 Get social post buckets count
 
 Returns the count of social post buckets for the specified tenant using OData query options.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_bucket_dto_collection_query_parameters** | Option<[**SocialPostBucketDtoCollectionQueryParameters**](SocialPostBucketDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_social_post_buckets_o_data_async
 
-> models::SocialPostBucketDtoListEnvelope get_social_post_buckets_o_data_async(tenant_id, api_version, x_api_version)
+> models::SocialPostBucketDtoListEnvelope get_social_post_buckets_o_data_async(tenant_id, api_version, x_api_version, social_post_bucket_dto_collection_query_parameters)
 Get social post buckets
 
 Retrieves a collection of social post buckets for the specified tenant using OData query options.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_post_bucket_dto_collection_query_parameters** | Option<[**SocialPostBucketDtoCollectionQueryParameters**](SocialPostBucketDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_social_post_bucket_async
 
-> models::EmptyEnvelope patch_social_post_bucket_async(tenant_id, socialpostbucket_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_social_post_bucket_async(tenant_id, socialpostbucket_id, api_version, x_api_version, patch_operation)
 Patch a social post bucket
 
 Partially updates a social post bucket by its ID using JSON Patch.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **socialpostbucket_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

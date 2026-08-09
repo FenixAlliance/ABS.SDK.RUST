@@ -132,7 +132,7 @@ pub async fn delete_billable_line_tax(configuration: &configuration::Configurati
 }
 
 /// Retrieves the taxes applied to the specified billable line.
-pub async fn get_billable_line_taxes(configuration: &configuration::Configuration, tenant_id: &str, billable_line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::AppliedItemTaxRecordDtoIReadOnlyListEnvelope, Error<GetBillableLineTaxesError>> {
+pub async fn get_billable_line_taxes(configuration: &configuration::Configuration, tenant_id: &str, billable_line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, applied_item_tax_record_dto_collection_query_parameters: Option<models::AppliedItemTaxRecordDtoCollectionQueryParameters>) -> Result<models::AppliedItemTaxRecordDtoIReadOnlyListEnvelope, Error<GetBillableLineTaxesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -150,6 +150,7 @@ pub async fn get_billable_line_taxes(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&applied_item_tax_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -167,7 +168,7 @@ pub async fn get_billable_line_taxes(configuration: &configuration::Configuratio
 }
 
 /// Retrieves the total count of taxes applied to the specified billable line.
-pub async fn get_billable_line_taxes_count(configuration: &configuration::Configuration, tenant_id: &str, billable_line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBillableLineTaxesCountError>> {
+pub async fn get_billable_line_taxes_count(configuration: &configuration::Configuration, tenant_id: &str, billable_line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, applied_item_tax_record_dto_collection_query_parameters: Option<models::AppliedItemTaxRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBillableLineTaxesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -185,6 +186,7 @@ pub async fn get_billable_line_taxes_count(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&applied_item_tax_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -202,7 +204,7 @@ pub async fn get_billable_line_taxes_count(configuration: &configuration::Config
 }
 
 /// Partially updates a billable line tax.
-pub async fn patch_billable_line_tax_async(configuration: &configuration::Configuration, tenant_id: &str, billable_line_id: &str, tax_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBillableLineTaxAsyncError>> {
+pub async fn patch_billable_line_tax_async(configuration: &configuration::Configuration, tenant_id: &str, billable_line_id: &str, tax_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBillableLineTaxAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -220,7 +222,7 @@ pub async fn patch_billable_line_tax_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

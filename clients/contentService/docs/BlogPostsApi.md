@@ -249,7 +249,7 @@ No authorization required
 
 ## get_blog_posts_async
 
-> models::BlogPostDtoListEnvelope get_blog_posts_async(tenant_id)
+> models::BlogPostDtoListEnvelope get_blog_posts_async(tenant_id, blog_post_dto_collection_query_parameters)
 Retrieve a list of blog posts
 
 Retrieves all blog posts, optionally filtered by tenant using OData query options.
@@ -260,6 +260,7 @@ Retrieves all blog posts, optionally filtered by tenant using OData query option
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
+**blog_post_dto_collection_query_parameters** | Option<[**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -271,7 +272,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -279,7 +280,7 @@ No authorization required
 
 ## get_blog_posts_count_async
 
-> models::Int32Envelope get_blog_posts_count_async(tenant_id)
+> models::Int32Envelope get_blog_posts_count_async(tenant_id, blog_post_dto_collection_query_parameters)
 Get the count of blog posts
 
 Returns the total count of blog posts, optionally filtered by tenant using OData query options.
@@ -290,6 +291,7 @@ Returns the total count of blog posts, optionally filtered by tenant using OData
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
+**blog_post_dto_collection_query_parameters** | Option<[**BlogPostDtoCollectionQueryParameters**](BlogPostDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -301,7 +303,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -309,7 +311,7 @@ No authorization required
 
 ## get_categories_for_blog_post_async
 
-> models::BlogPostCategoryDtoListEnvelope get_categories_for_blog_post_async(blog_post_id)
+> models::BlogPostCategoryDtoListEnvelope get_categories_for_blog_post_async(blog_post_id, blog_post_category_dto_collection_query_parameters)
 Get categories for a blog post
 
 Retrieves all categories related to a specific blog post.
@@ -320,6 +322,7 @@ Retrieves all categories related to a specific blog post.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **blog_post_id** | **uuid::Uuid** |  | [required] |
+**blog_post_category_dto_collection_query_parameters** | Option<[**BlogPostCategoryDtoCollectionQueryParameters**](BlogPostCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -331,7 +334,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -339,7 +342,7 @@ No authorization required
 
 ## get_comments_for_blog_post_async
 
-> models::BlogPostCommentDtoListEnvelope get_comments_for_blog_post_async(blog_post_id)
+> models::BlogPostCommentDtoListEnvelope get_comments_for_blog_post_async(blog_post_id, blog_post_comment_dto_collection_query_parameters)
 Get comments for a blog post
 
 Retrieves all comments for a specific blog post.
@@ -350,6 +353,7 @@ Retrieves all comments for a specific blog post.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **blog_post_id** | **uuid::Uuid** |  | [required] |
+**blog_post_comment_dto_collection_query_parameters** | Option<[**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -361,7 +365,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -369,7 +373,7 @@ No authorization required
 
 ## get_replies_for_comment_async
 
-> models::BlogPostCommentDtoListEnvelope get_replies_for_comment_async(comment_id, blog_post_id)
+> models::BlogPostCommentDtoListEnvelope get_replies_for_comment_async(comment_id, blog_post_id, blog_post_comment_dto_collection_query_parameters)
 Get replies for a comment
 
 Retrieves all replies for a specific blog post comment.
@@ -381,6 +385,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **comment_id** | **uuid::Uuid** |  | [required] |
 **blog_post_id** | **String** |  | [required] |
+**blog_post_comment_dto_collection_query_parameters** | Option<[**BlogPostCommentDtoCollectionQueryParameters**](BlogPostCommentDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -392,7 +397,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -400,7 +405,7 @@ No authorization required
 
 ## get_tags_for_blog_post_async
 
-> models::BlogPostTagDtoListEnvelope get_tags_for_blog_post_async(blog_post_id)
+> models::BlogPostTagDtoListEnvelope get_tags_for_blog_post_async(blog_post_id, blog_post_tag_dto_collection_query_parameters)
 Get tags for a blog post
 
 Retrieves all tags related to a specific blog post.
@@ -411,6 +416,7 @@ Retrieves all tags related to a specific blog post.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **blog_post_id** | **uuid::Uuid** |  | [required] |
+**blog_post_tag_dto_collection_query_parameters** | Option<[**BlogPostTagDtoCollectionQueryParameters**](BlogPostTagDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -422,7 +428,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -430,7 +436,7 @@ No authorization required
 
 ## patch_blog_post_async
 
-> models::EmptyEnvelope patch_blog_post_async(tenant_id, blog_post_id, operation)
+> models::EmptyEnvelope patch_blog_post_async(tenant_id, blog_post_id, patch_operation)
 Patch a blog post
 
 Partially updates an existing blog post for the specified tenant.
@@ -442,7 +448,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **blog_post_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

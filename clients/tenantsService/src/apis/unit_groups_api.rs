@@ -355,7 +355,7 @@ pub async fn get_unit_group_async(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves a list of unit groups for the specified tenant with OData query support.
-pub async fn get_unit_groups_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::UnitGroupDtoListEnvelope, Error<GetUnitGroupsAsyncError>> {
+pub async fn get_unit_groups_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, unit_group_dto_collection_query_parameters: Option<models::UnitGroupDtoCollectionQueryParameters>) -> Result<models::UnitGroupDtoListEnvelope, Error<GetUnitGroupsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -373,6 +373,7 @@ pub async fn get_unit_groups_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&unit_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -390,7 +391,7 @@ pub async fn get_unit_groups_async(configuration: &configuration::Configuration,
 }
 
 /// Returns the total count of unit groups for the specified tenant with OData query support.
-pub async fn get_unit_groups_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetUnitGroupsCountAsyncError>> {
+pub async fn get_unit_groups_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, unit_group_dto_collection_query_parameters: Option<models::UnitGroupDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetUnitGroupsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -408,6 +409,7 @@ pub async fn get_unit_groups_count_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&unit_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -425,7 +427,7 @@ pub async fn get_unit_groups_count_async(configuration: &configuration::Configur
 }
 
 /// Retrieves a list of units belonging to a specific unit group.
-pub async fn get_units_async(configuration: &configuration::Configuration, tenant_id: &str, unit_group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::UnitDtoListEnvelope, Error<GetUnitsAsyncError>> {
+pub async fn get_units_async(configuration: &configuration::Configuration, tenant_id: &str, unit_group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, unit_dto_collection_query_parameters: Option<models::UnitDtoCollectionQueryParameters>) -> Result<models::UnitDtoListEnvelope, Error<GetUnitsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -443,6 +445,7 @@ pub async fn get_units_async(configuration: &configuration::Configuration, tenan
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&unit_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -460,7 +463,7 @@ pub async fn get_units_async(configuration: &configuration::Configuration, tenan
 }
 
 /// Returns the total count of units in a specific unit group.
-pub async fn get_units_count_async(configuration: &configuration::Configuration, tenant_id: &str, unit_group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetUnitsCountAsyncError>> {
+pub async fn get_units_count_async(configuration: &configuration::Configuration, tenant_id: &str, unit_group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, unit_dto_collection_query_parameters: Option<models::UnitDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetUnitsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -478,6 +481,7 @@ pub async fn get_units_count_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&unit_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -495,7 +499,7 @@ pub async fn get_units_count_async(configuration: &configuration::Configuration,
 }
 
 /// Partially updates an existing unit within a specific unit group.
-pub async fn patch_unit_async(configuration: &configuration::Configuration, tenant_id: &str, unit_group_id: &str, unit_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchUnitAsyncError>> {
+pub async fn patch_unit_async(configuration: &configuration::Configuration, tenant_id: &str, unit_group_id: &str, unit_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchUnitAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -513,7 +517,7 @@ pub async fn patch_unit_async(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -531,7 +535,7 @@ pub async fn patch_unit_async(configuration: &configuration::Configuration, tena
 }
 
 /// Partially updates an existing unit group by its unique identifier.
-pub async fn patch_unit_group_async(configuration: &configuration::Configuration, tenant_id: &str, unit_group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchUnitGroupAsyncError>> {
+pub async fn patch_unit_group_async(configuration: &configuration::Configuration, tenant_id: &str, unit_group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchUnitGroupAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -549,7 +553,7 @@ pub async fn patch_unit_group_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

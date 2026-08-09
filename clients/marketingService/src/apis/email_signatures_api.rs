@@ -191,7 +191,7 @@ pub async fn get_email_signature_details_async(configuration: &configuration::Co
 }
 
 /// Returns the count of email signatures for the specified tenant using OData query options.
-pub async fn get_email_signatures_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetEmailSignaturesCountAsyncError>> {
+pub async fn get_email_signatures_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, email_signature_dto_collection_query_parameters: Option<models::EmailSignatureDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetEmailSignaturesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -209,6 +209,7 @@ pub async fn get_email_signatures_count_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&email_signature_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -226,7 +227,7 @@ pub async fn get_email_signatures_count_async(configuration: &configuration::Con
 }
 
 /// Retrieves a collection of email signatures for the specified tenant using OData query options.
-pub async fn get_email_signatures_o_data_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmailSignatureDtoListEnvelope, Error<GetEmailSignaturesODataAsyncError>> {
+pub async fn get_email_signatures_o_data_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, email_signature_dto_collection_query_parameters: Option<models::EmailSignatureDtoCollectionQueryParameters>) -> Result<models::EmailSignatureDtoListEnvelope, Error<GetEmailSignaturesODataAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,6 +245,7 @@ pub async fn get_email_signatures_o_data_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&email_signature_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -261,7 +263,7 @@ pub async fn get_email_signatures_o_data_async(configuration: &configuration::Co
 }
 
 /// Partially updates an email signature by its ID using JSON Patch.
-pub async fn patch_email_signature_async(configuration: &configuration::Configuration, tenant_id: &str, emailsignature_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchEmailSignatureAsyncError>> {
+pub async fn patch_email_signature_async(configuration: &configuration::Configuration, tenant_id: &str, emailsignature_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchEmailSignatureAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -279,7 +281,7 @@ pub async fn patch_email_signature_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

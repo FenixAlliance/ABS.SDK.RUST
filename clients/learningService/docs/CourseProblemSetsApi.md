@@ -114,7 +114,7 @@ No authorization required
 
 ## get_course_problem_sets_async
 
-> Vec<models::CourseProblemSetDto> get_course_problem_sets_async(tenant_id, api_version, x_api_version)
+> Vec<models::CourseProblemSetDto> get_course_problem_sets_async(tenant_id, api_version, x_api_version, course_problem_set_dto_collection_query_parameters)
 Get all course problem sets
 
 Retrieves all course problem sets for the specified tenant.
@@ -127,6 +127,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_problem_set_dto_collection_query_parameters** | Option<[**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -138,7 +139,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,7 +147,7 @@ No authorization required
 
 ## get_course_problem_sets_count_async
 
-> i32 get_course_problem_sets_count_async(tenant_id, api_version, x_api_version)
+> i32 get_course_problem_sets_count_async(tenant_id, api_version, x_api_version, course_problem_set_dto_collection_query_parameters)
 Get course problem sets count
 
 Returns the count of course problem sets for the specified tenant.
@@ -159,6 +160,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**course_problem_set_dto_collection_query_parameters** | Option<[**CourseProblemSetDtoCollectionQueryParameters**](CourseProblemSetDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -170,7 +172,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -178,7 +180,7 @@ No authorization required
 
 ## patch_course_problem_set_async
 
-> models::EmptyEnvelope patch_course_problem_set_async(tenant_id, problem_set_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_course_problem_set_async(tenant_id, problem_set_id, api_version, x_api_version, patch_operation)
 Patch a course problem set
 
 Partially updates a course problem set for the specified tenant.
@@ -192,7 +194,7 @@ Name | Type | Description  | Required | Notes
 **problem_set_id** | **String** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

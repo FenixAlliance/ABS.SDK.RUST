@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## count_localization_strings_async
 
-> models::Int32Envelope count_localization_strings_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope count_localization_strings_async(tenant_id, api_version, x_api_version, localization_string_dto_collection_query_parameters)
 Count localization strings
 
 Counts all localization strings for the specified tenant.
@@ -28,6 +28,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**localization_string_dto_collection_query_parameters** | Option<[**LocalizationStringDtoCollectionQueryParameters**](LocalizationStringDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -39,7 +40,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -146,7 +147,7 @@ No authorization required
 
 ## get_localization_strings_async
 
-> models::LocalizationStringDtoListEnvelope get_localization_strings_async(tenant_id, api_version, x_api_version)
+> models::LocalizationStringDtoListEnvelope get_localization_strings_async(tenant_id, api_version, x_api_version, localization_string_dto_collection_query_parameters)
 Get localization strings
 
 Retrieves all localization strings for the specified tenant.
@@ -159,6 +160,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**localization_string_dto_collection_query_parameters** | Option<[**LocalizationStringDtoCollectionQueryParameters**](LocalizationStringDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -170,7 +172,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

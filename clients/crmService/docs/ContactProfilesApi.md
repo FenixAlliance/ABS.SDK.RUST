@@ -117,7 +117,7 @@ No authorization required
 
 ## get_contact_profiles_async
 
-> models::ContactProfileDtoListEnvelope get_contact_profiles_async(tenant_id, api_version, x_api_version)
+> models::ContactProfileDtoListEnvelope get_contact_profiles_async(tenant_id, api_version, x_api_version, contact_profile_dto_collection_query_parameters)
 Get all contact profiles
 
 Retrieves all contact profiles for the specified tenant.
@@ -130,6 +130,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_profile_dto_collection_query_parameters** | Option<[**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -141,7 +142,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -149,7 +150,7 @@ No authorization required
 
 ## get_contact_profiles_count_async
 
-> models::Int32Envelope get_contact_profiles_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_contact_profiles_count_async(tenant_id, api_version, x_api_version, contact_profile_dto_collection_query_parameters)
 Get contact profiles count
 
 Returns the count of contact profiles for the specified tenant.
@@ -162,6 +163,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_profile_dto_collection_query_parameters** | Option<[**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -173,7 +175,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -181,7 +183,7 @@ No authorization required
 
 ## get_partner_profiles_count_async
 
-> models::Int32Envelope get_partner_profiles_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_partner_profiles_count_async(tenant_id, api_version, x_api_version, contact_profile_dto_collection_query_parameters)
 Get partner profiles count
 
 Returns the count of partner contact profiles for the specified tenant.
@@ -194,6 +196,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_profile_dto_collection_query_parameters** | Option<[**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -205,7 +208,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -213,7 +216,7 @@ No authorization required
 
 ## get_patient_profiles_count_async
 
-> models::Int32Envelope get_patient_profiles_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_patient_profiles_count_async(tenant_id, api_version, x_api_version, contact_profile_dto_collection_query_parameters)
 Get patient profiles count
 
 Returns the count of patient contact profiles for the specified tenant.
@@ -226,6 +229,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_profile_dto_collection_query_parameters** | Option<[**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -237,7 +241,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -245,7 +249,7 @@ No authorization required
 
 ## patch_contact_profile_async
 
-> models::EmptyEnvelope patch_contact_profile_async(tenant_id, id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_contact_profile_async(tenant_id, id, api_version, x_api_version, patch_operation)
 Patch a contact profile
 
 Patch a contact profile
@@ -259,7 +263,7 @@ Name | Type | Description  | Required | Notes
 **id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

@@ -181,7 +181,7 @@ pub async fn get_warehouse_by_id_async(configuration: &configuration::Configurat
 }
 
 /// Retrieves all warehouses for the specified tenant.
-pub async fn get_warehouses_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WarehouseDtoListEnvelope, Error<GetWarehousesAsyncError>> {
+pub async fn get_warehouses_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, warehouse_dto_collection_query_parameters: Option<models::WarehouseDtoCollectionQueryParameters>) -> Result<models::WarehouseDtoListEnvelope, Error<GetWarehousesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -199,6 +199,7 @@ pub async fn get_warehouses_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&warehouse_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -216,7 +217,7 @@ pub async fn get_warehouses_async(configuration: &configuration::Configuration, 
 }
 
 /// Returns the count of warehouses.
-pub async fn get_warehouses_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetWarehousesCountAsyncError>> {
+pub async fn get_warehouses_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, warehouse_dto_collection_query_parameters: Option<models::WarehouseDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetWarehousesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -234,6 +235,7 @@ pub async fn get_warehouses_count_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&warehouse_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -251,7 +253,7 @@ pub async fn get_warehouses_count_async(configuration: &configuration::Configura
 }
 
 /// Partially updates an existing warehouse using JSON Patch.
-pub async fn patch_warehouse_async(configuration: &configuration::Configuration, tenant_id: &str, warehouse_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchWarehouseAsyncError>> {
+pub async fn patch_warehouse_async(configuration: &configuration::Configuration, tenant_id: &str, warehouse_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchWarehouseAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -269,7 +271,7 @@ pub async fn patch_warehouse_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -218,7 +218,7 @@ pub async fn get_tenant_invitation_by_id(configuration: &configuration::Configur
 }
 
 /// Retrieve a list of tenant invitations
-pub async fn get_tenant_invitations(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::TenantInvitationDtoListEnvelope, Error<GetTenantInvitationsError>> {
+pub async fn get_tenant_invitations(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_invitation_dto_collection_query_parameters: Option<models::TenantInvitationDtoCollectionQueryParameters>) -> Result<models::TenantInvitationDtoListEnvelope, Error<GetTenantInvitationsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -236,6 +236,7 @@ pub async fn get_tenant_invitations(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_invitation_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -253,7 +254,7 @@ pub async fn get_tenant_invitations(configuration: &configuration::Configuration
 }
 
 /// Get the count of tenant invitations
-pub async fn get_tenant_invitations_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetTenantInvitationsCountError>> {
+pub async fn get_tenant_invitations_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, tenant_invitation_dto_collection_query_parameters: Option<models::TenantInvitationDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetTenantInvitationsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -271,6 +272,7 @@ pub async fn get_tenant_invitations_count(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&tenant_invitation_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

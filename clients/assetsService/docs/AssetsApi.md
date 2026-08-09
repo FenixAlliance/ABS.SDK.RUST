@@ -462,7 +462,7 @@ No authorization required
 
 ## get_asset_asset_categories
 
-> models::AssetCategoryDtoListEnvelope get_asset_asset_categories(tenant_id)
+> models::AssetCategoryDtoListEnvelope get_asset_asset_categories(tenant_id, asset_category_dto_collection_query_parameters)
 Gets all asset categories
 
 Retrieves all asset categories for the authenticated tenant.
@@ -473,6 +473,7 @@ Retrieves all asset categories for the authenticated tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**asset_category_dto_collection_query_parameters** | Option<[**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -484,7 +485,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -492,7 +493,7 @@ No authorization required
 
 ## get_asset_asset_categories_count
 
-> models::Int32Envelope get_asset_asset_categories_count(tenant_id)
+> models::Int32Envelope get_asset_asset_categories_count(tenant_id, asset_category_dto_collection_query_parameters)
 Gets the count of asset categories
 
 Returns the total number of asset categories for the authenticated tenant.
@@ -503,6 +504,7 @@ Returns the total number of asset categories for the authenticated tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**asset_category_dto_collection_query_parameters** | Option<[**AssetCategoryDtoCollectionQueryParameters**](AssetCategoryDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -514,7 +516,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -585,7 +587,7 @@ No authorization required
 
 ## get_asset_depreciation_records
 
-> models::AssetDepreciationRecordDtoListEnvelope get_asset_depreciation_records(tenant_id, asset_id)
+> models::AssetDepreciationRecordDtoListEnvelope get_asset_depreciation_records(tenant_id, asset_id, asset_depreciation_record_dto_collection_query_parameters)
 Gets depreciation records for a specific asset
 
 Retrieves all depreciation records for the specified asset.
@@ -597,6 +599,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
+**asset_depreciation_record_dto_collection_query_parameters** | Option<[**AssetDepreciationRecordDtoCollectionQueryParameters**](AssetDepreciationRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -608,7 +611,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -616,7 +619,7 @@ No authorization required
 
 ## get_asset_depreciation_records_count
 
-> models::Int32Envelope get_asset_depreciation_records_count(tenant_id, asset_id)
+> models::Int32Envelope get_asset_depreciation_records_count(tenant_id, asset_id, asset_depreciation_record_dto_collection_query_parameters)
 Gets count of depreciation records for a specific asset
 
 Returns the total number of depreciation records for the specified asset.
@@ -628,6 +631,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
+**asset_depreciation_record_dto_collection_query_parameters** | Option<[**AssetDepreciationRecordDtoCollectionQueryParameters**](AssetDepreciationRecordDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -639,7 +643,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -679,7 +683,7 @@ No authorization required
 
 ## get_asset_repairs
 
-> models::AssetRepairDtoListEnvelope get_asset_repairs(tenant_id, asset_id)
+> models::AssetRepairDtoListEnvelope get_asset_repairs(tenant_id, asset_id, asset_repair_dto_collection_query_parameters)
 Gets repairs for a specific asset
 
 Retrieves all repair records for the specified asset.
@@ -691,6 +695,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
+**asset_repair_dto_collection_query_parameters** | Option<[**AssetRepairDtoCollectionQueryParameters**](AssetRepairDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -702,7 +707,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -710,7 +715,7 @@ No authorization required
 
 ## get_asset_repairs_count
 
-> models::Int32Envelope get_asset_repairs_count(tenant_id, asset_id)
+> models::Int32Envelope get_asset_repairs_count(tenant_id, asset_id, asset_repair_dto_collection_query_parameters)
 Gets count of repairs for a specific asset
 
 Returns the total number of repair records for the specified asset.
@@ -722,6 +727,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
+**asset_repair_dto_collection_query_parameters** | Option<[**AssetRepairDtoCollectionQueryParameters**](AssetRepairDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -733,7 +739,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -773,7 +779,7 @@ No authorization required
 
 ## get_asset_transfers
 
-> models::AssetTransferDtoListEnvelope get_asset_transfers(tenant_id, asset_id)
+> models::AssetTransferDtoListEnvelope get_asset_transfers(tenant_id, asset_id, asset_transfer_dto_collection_query_parameters)
 Gets transfers for a specific asset
 
 Retrieves all transfer records for the specified asset.
@@ -785,6 +791,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
+**asset_transfer_dto_collection_query_parameters** | Option<[**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -796,7 +803,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -804,7 +811,7 @@ No authorization required
 
 ## get_asset_transfers_count
 
-> models::Int32Envelope get_asset_transfers_count(tenant_id, asset_id)
+> models::Int32Envelope get_asset_transfers_count(tenant_id, asset_id, asset_transfer_dto_collection_query_parameters)
 Gets count of transfers for a specific asset
 
 Returns the total number of transfer records for the specified asset.
@@ -816,6 +823,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
+**asset_transfer_dto_collection_query_parameters** | Option<[**AssetTransferDtoCollectionQueryParameters**](AssetTransferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -827,7 +835,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -867,7 +875,7 @@ No authorization required
 
 ## get_asset_value_amends
 
-> models::AssetValueAmendDtoListEnvelope get_asset_value_amends(tenant_id, asset_id)
+> models::AssetValueAmendDtoListEnvelope get_asset_value_amends(tenant_id, asset_id, asset_value_amend_dto_collection_query_parameters)
 Gets value amendments for a specific asset
 
 Retrieves all value amendment records for the specified asset.
@@ -879,6 +887,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
+**asset_value_amend_dto_collection_query_parameters** | Option<[**AssetValueAmendDtoCollectionQueryParameters**](AssetValueAmendDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -890,7 +899,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -898,7 +907,7 @@ No authorization required
 
 ## get_asset_value_amends_count
 
-> models::Int32Envelope get_asset_value_amends_count(tenant_id, asset_id)
+> models::Int32Envelope get_asset_value_amends_count(tenant_id, asset_id, asset_value_amend_dto_collection_query_parameters)
 Gets count of value amendments for a specific asset
 
 Returns the total number of value amendment records for the specified asset.
@@ -910,6 +919,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
+**asset_value_amend_dto_collection_query_parameters** | Option<[**AssetValueAmendDtoCollectionQueryParameters**](AssetValueAmendDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -921,7 +931,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -929,7 +939,7 @@ No authorization required
 
 ## get_assets
 
-> models::AssetDtoListEnvelope get_assets(tenant_id)
+> models::AssetDtoListEnvelope get_assets(tenant_id, asset_dto_collection_query_parameters)
 Gets all assets for the current tenant
 
 Retrieves all assets for the authenticated tenant with optional filtering.
@@ -940,6 +950,7 @@ Retrieves all assets for the authenticated tenant with optional filtering.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**asset_dto_collection_query_parameters** | Option<[**AssetDtoCollectionQueryParameters**](AssetDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -951,7 +962,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -959,7 +970,7 @@ No authorization required
 
 ## get_assets_count
 
-> models::Int32Envelope get_assets_count(tenant_id)
+> models::Int32Envelope get_assets_count(tenant_id, asset_dto_collection_query_parameters)
 Gets the count of assets
 
 Returns the total number of assets for the authenticated tenant.
@@ -970,6 +981,7 @@ Returns the total number of assets for the authenticated tenant.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**asset_dto_collection_query_parameters** | Option<[**AssetDtoCollectionQueryParameters**](AssetDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -981,7 +993,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -989,7 +1001,7 @@ No authorization required
 
 ## patch_asset
 
-> models::EmptyEnvelope patch_asset(tenant_id, asset_id, operation)
+> models::EmptyEnvelope patch_asset(tenant_id, asset_id, patch_operation)
 Partially updates an existing asset
 
 Applies a JSON Patch document to an existing asset for the authenticated tenant.
@@ -1001,7 +1013,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1021,7 +1033,7 @@ No authorization required
 
 ## patch_asset_asset_category
 
-> models::EmptyEnvelope patch_asset_asset_category(tenant_id, category_id, operation)
+> models::EmptyEnvelope patch_asset_asset_category(tenant_id, category_id, patch_operation)
 Partially updates an existing asset category
 
 Applies a JSON Patch document to an existing asset category for the authenticated tenant.
@@ -1033,7 +1045,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **category_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1053,7 +1065,7 @@ No authorization required
 
 ## patch_asset_depreciation_record
 
-> models::EmptyEnvelope patch_asset_depreciation_record(tenant_id, asset_id, record_id, operation)
+> models::EmptyEnvelope patch_asset_depreciation_record(tenant_id, asset_id, record_id, patch_operation)
 Partially updates a depreciation record for an asset
 
 Applies a JSON Patch document to an existing depreciation record for the specified asset.
@@ -1066,7 +1078,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
 **record_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1086,7 +1098,7 @@ No authorization required
 
 ## patch_asset_repair
 
-> models::EmptyEnvelope patch_asset_repair(tenant_id, asset_id, repair_id, operation)
+> models::EmptyEnvelope patch_asset_repair(tenant_id, asset_id, repair_id, patch_operation)
 Partially updates a repair for an asset
 
 Applies a JSON Patch document to an existing repair record for the specified asset.
@@ -1099,7 +1111,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
 **repair_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1119,7 +1131,7 @@ No authorization required
 
 ## patch_asset_transfer
 
-> models::EmptyEnvelope patch_asset_transfer(tenant_id, asset_id, transfer_id, operation)
+> models::EmptyEnvelope patch_asset_transfer(tenant_id, asset_id, transfer_id, patch_operation)
 Partially updates a transfer for an asset
 
 Applies a JSON Patch document to an existing transfer record for the specified asset.
@@ -1132,7 +1144,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
 **transfer_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1152,7 +1164,7 @@ No authorization required
 
 ## patch_asset_value_amend
 
-> models::EmptyEnvelope patch_asset_value_amend(tenant_id, asset_id, amend_id, operation)
+> models::EmptyEnvelope patch_asset_value_amend(tenant_id, asset_id, amend_id, patch_operation)
 Partially updates a value amendment for an asset
 
 Applies a JSON Patch document to an existing value amendment record for the specified asset.
@@ -1165,7 +1177,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **asset_id** | **uuid::Uuid** |  | [required] |
 **amend_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

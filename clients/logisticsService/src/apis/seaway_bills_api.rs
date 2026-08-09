@@ -339,7 +339,7 @@ pub async fn get_seaway_bill_by_id_async(configuration: &configuration::Configur
 }
 
 /// Retrieves all lines for a specific seaway bill.
-pub async fn get_seaway_bill_lines_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WaybillLineDtoListEnvelope, Error<GetSeawayBillLinesAsyncError>> {
+pub async fn get_seaway_bill_lines_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, waybill_line_dto_collection_query_parameters: Option<models::WaybillLineDtoCollectionQueryParameters>) -> Result<models::WaybillLineDtoListEnvelope, Error<GetSeawayBillLinesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -357,6 +357,7 @@ pub async fn get_seaway_bill_lines_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&waybill_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -374,7 +375,7 @@ pub async fn get_seaway_bill_lines_async(configuration: &configuration::Configur
 }
 
 /// Returns the count of lines for a specific seaway bill.
-pub async fn get_seaway_bill_lines_count_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSeawayBillLinesCountAsyncError>> {
+pub async fn get_seaway_bill_lines_count_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, waybill_line_dto_collection_query_parameters: Option<models::WaybillLineDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSeawayBillLinesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -392,6 +393,7 @@ pub async fn get_seaway_bill_lines_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&waybill_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -409,7 +411,7 @@ pub async fn get_seaway_bill_lines_count_async(configuration: &configuration::Co
 }
 
 /// Retrieves all seaway bills for the specified tenant.
-pub async fn get_seaway_bills_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SeawayBillDtoListEnvelope, Error<GetSeawayBillsAsyncError>> {
+pub async fn get_seaway_bills_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, seaway_bill_dto_collection_query_parameters: Option<models::SeawayBillDtoCollectionQueryParameters>) -> Result<models::SeawayBillDtoListEnvelope, Error<GetSeawayBillsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -427,6 +429,7 @@ pub async fn get_seaway_bills_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&seaway_bill_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -444,7 +447,7 @@ pub async fn get_seaway_bills_async(configuration: &configuration::Configuration
 }
 
 /// Returns the count of seaway bills for the specified tenant.
-pub async fn get_seaway_bills_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSeawayBillsCountAsyncError>> {
+pub async fn get_seaway_bills_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, seaway_bill_dto_collection_query_parameters: Option<models::SeawayBillDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSeawayBillsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -462,6 +465,7 @@ pub async fn get_seaway_bills_count_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&seaway_bill_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -584,7 +588,7 @@ pub async fn mark_seaway_bill_in_transit_async(configuration: &configuration::Co
 }
 
 /// Partially updates an existing seaway bill using a JSON Patch document.
-pub async fn patch_seaway_bill_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSeawayBillAsyncError>> {
+pub async fn patch_seaway_bill_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSeawayBillAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -602,7 +606,7 @@ pub async fn patch_seaway_bill_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -620,7 +624,7 @@ pub async fn patch_seaway_bill_async(configuration: &configuration::Configuratio
 }
 
 /// Partially updates a line on a seaway bill using a JSON Patch document.
-pub async fn patch_seaway_bill_line_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSeawayBillLineAsyncError>> {
+pub async fn patch_seaway_bill_line_async(configuration: &configuration::Configuration, tenant_id: &str, bill_id: &str, line_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSeawayBillLineAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -638,7 +642,7 @@ pub async fn patch_seaway_bill_line_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

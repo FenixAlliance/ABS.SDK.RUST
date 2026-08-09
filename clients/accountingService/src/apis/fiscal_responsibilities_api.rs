@@ -151,7 +151,7 @@ pub async fn delete_fiscal_responsibility(configuration: &configuration::Configu
 }
 
 /// Retrieves all fiscal responsibilities for the specified fiscal authority.
-pub async fn get_fiscal_responsibilities(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalResponsibilityDtoListEnvelope, Error<GetFiscalResponsibilitiesError>> {
+pub async fn get_fiscal_responsibilities(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_responsibility_dto_collection_query_parameters: Option<models::FiscalResponsibilityDtoCollectionQueryParameters>) -> Result<models::FiscalResponsibilityDtoListEnvelope, Error<GetFiscalResponsibilitiesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -170,6 +170,7 @@ pub async fn get_fiscal_responsibilities(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&fiscal_responsibility_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -187,7 +188,7 @@ pub async fn get_fiscal_responsibilities(configuration: &configuration::Configur
 }
 
 /// Returns the total count of fiscal responsibilities for the specified fiscal authority.
-pub async fn get_fiscal_responsibilities_count(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetFiscalResponsibilitiesCountError>> {
+pub async fn get_fiscal_responsibilities_count(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_responsibility_dto_collection_query_parameters: Option<models::FiscalResponsibilityDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetFiscalResponsibilitiesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -205,6 +206,7 @@ pub async fn get_fiscal_responsibilities_count(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&fiscal_responsibility_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -257,7 +259,7 @@ pub async fn get_fiscal_responsibility(configuration: &configuration::Configurat
 }
 
 /// Partially updates a fiscal responsibility.
-pub async fn patch_fiscal_responsibility_async(configuration: &configuration::Configuration, tenant_id: &str, fiscal_responsibility_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchFiscalResponsibilityAsyncError>> {
+pub async fn patch_fiscal_responsibility_async(configuration: &configuration::Configuration, tenant_id: &str, fiscal_responsibility_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchFiscalResponsibilityAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -275,7 +277,7 @@ pub async fn patch_fiscal_responsibility_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

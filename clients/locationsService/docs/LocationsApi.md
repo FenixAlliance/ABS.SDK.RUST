@@ -178,7 +178,7 @@ No authorization required
 
 ## get_locations_async
 
-> models::LocationDtoIReadOnlyListEnvelope get_locations_async(tenant_id)
+> models::LocationDtoIReadOnlyListEnvelope get_locations_async(tenant_id, location_dto_collection_query_parameters)
 Get Locations
 
 Get all locations with OData query support.
@@ -189,6 +189,7 @@ Get all locations with OData query support.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**location_dto_collection_query_parameters** | Option<[**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -200,7 +201,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -208,7 +209,7 @@ No authorization required
 
 ## get_locations_count_async
 
-> models::Int32Envelope get_locations_count_async(tenant_id)
+> models::Int32Envelope get_locations_count_async(tenant_id, location_dto_collection_query_parameters)
 Get Locations Count
 
 Get the count of locations with OData query support.
@@ -219,6 +220,7 @@ Get the count of locations with OData query support.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
+**location_dto_collection_query_parameters** | Option<[**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -230,7 +232,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -269,7 +271,7 @@ No authorization required
 
 ## get_wallet_locations_async
 
-> models::LocationDtoIReadOnlyListEnvelope get_wallet_locations_async(wallet_id)
+> models::LocationDtoIReadOnlyListEnvelope get_wallet_locations_async(wallet_id, location_dto_collection_query_parameters)
 Get Wallet Locations
 
 Get locations for a specific wallet by ID.
@@ -280,6 +282,7 @@ Get locations for a specific wallet by ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **wallet_id** | **uuid::Uuid** |  | [required] |
+**location_dto_collection_query_parameters** | Option<[**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -291,7 +294,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -299,7 +302,7 @@ No authorization required
 
 ## get_wallet_locations_count_async
 
-> models::Int32Envelope get_wallet_locations_count_async(wallet_id)
+> models::Int32Envelope get_wallet_locations_count_async(wallet_id, location_dto_collection_query_parameters)
 Get Wallet Locations Count
 
 Get the count of locations for a specific wallet by ID.
@@ -310,6 +313,7 @@ Get the count of locations for a specific wallet by ID.
 Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **wallet_id** | **uuid::Uuid** |  | [required] |
+**location_dto_collection_query_parameters** | Option<[**LocationDtoCollectionQueryParameters**](LocationDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -321,7 +325,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -329,7 +333,7 @@ No authorization required
 
 ## patch_location_async
 
-> models::EmptyEnvelope patch_location_async(tenant_id, location_id, operation)
+> models::EmptyEnvelope patch_location_async(tenant_id, location_id, patch_operation)
 Patch a location
 
 Patch a location
@@ -341,7 +345,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **location_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -361,7 +365,7 @@ No authorization required
 
 ## patch_wallet_location_async
 
-> models::EmptyEnvelope patch_wallet_location_async(wallet_id, location_id, operation)
+> models::EmptyEnvelope patch_wallet_location_async(wallet_id, location_id, patch_operation)
 Patch a wallet location
 
 Patch a wallet location
@@ -373,7 +377,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **wallet_id** | **uuid::Uuid** |  | [required] |
 **location_id** | **uuid::Uuid** |  | [required] |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

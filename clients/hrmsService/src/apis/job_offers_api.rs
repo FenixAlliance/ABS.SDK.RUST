@@ -311,7 +311,7 @@ pub async fn get_job_offer_by_id_async(configuration: &configuration::Configurat
 }
 
 /// Retrieves job offers for the specified tenant.
-pub async fn get_job_offers_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::JobOfferDtoListEnvelope, Error<GetJobOffersAsyncError>> {
+pub async fn get_job_offers_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, job_offer_dto_collection_query_parameters: Option<models::JobOfferDtoCollectionQueryParameters>) -> Result<models::JobOfferDtoListEnvelope, Error<GetJobOffersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -329,6 +329,7 @@ pub async fn get_job_offers_async(configuration: &configuration::Configuration, 
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&job_offer_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -346,7 +347,7 @@ pub async fn get_job_offers_async(configuration: &configuration::Configuration, 
 }
 
 /// Counts job offers for the specified tenant.
-pub async fn get_job_offers_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetJobOffersCountAsyncError>> {
+pub async fn get_job_offers_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, job_offer_dto_collection_query_parameters: Option<models::JobOfferDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetJobOffersCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -364,6 +365,7 @@ pub async fn get_job_offers_count_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&job_offer_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -418,7 +420,7 @@ pub async fn get_public_job_offer_by_id_async(configuration: &configuration::Con
 }
 
 /// Retrieves published job offers for the Talent Portal. Anonymous; optionally scoped to a single tenant.
-pub async fn get_public_job_offers_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::JobOfferDtoListEnvelope, Error<GetPublicJobOffersAsyncError>> {
+pub async fn get_public_job_offers_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, job_offer_dto_collection_query_parameters: Option<models::JobOfferDtoCollectionQueryParameters>) -> Result<models::JobOfferDtoListEnvelope, Error<GetPublicJobOffersAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -438,6 +440,7 @@ pub async fn get_public_job_offers_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&job_offer_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -455,7 +458,7 @@ pub async fn get_public_job_offers_async(configuration: &configuration::Configur
 }
 
 /// Counts published job offers for the Talent Portal. Anonymous; optionally scoped to a single tenant.
-pub async fn get_public_job_offers_count_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetPublicJobOffersCountAsyncError>> {
+pub async fn get_public_job_offers_count_async(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, job_offer_dto_collection_query_parameters: Option<models::JobOfferDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetPublicJobOffersCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -475,6 +478,7 @@ pub async fn get_public_job_offers_count_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&job_offer_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -492,7 +496,7 @@ pub async fn get_public_job_offers_count_async(configuration: &configuration::Co
 }
 
 /// Partially updates an existing job offer for the specified tenant.
-pub async fn patch_job_offer_async(configuration: &configuration::Configuration, tenant_id: &str, job_offer_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchJobOfferAsyncError>> {
+pub async fn patch_job_offer_async(configuration: &configuration::Configuration, tenant_id: &str, job_offer_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchJobOfferAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -510,7 +514,7 @@ pub async fn patch_job_offer_async(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

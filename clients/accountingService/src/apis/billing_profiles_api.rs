@@ -174,7 +174,7 @@ pub async fn get_billing_profile_by_id_async(configuration: &configuration::Conf
 }
 
 /// Fetches all billing profiles for a tenant with support for OData queries.
-pub async fn get_billing_profiles_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BillingProfileDtoIReadOnlyListEnvelope, Error<GetBillingProfilesAsyncError>> {
+pub async fn get_billing_profiles_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, billing_profile_dto_collection_query_parameters: Option<models::BillingProfileDtoCollectionQueryParameters>) -> Result<models::BillingProfileDtoIReadOnlyListEnvelope, Error<GetBillingProfilesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -192,6 +192,7 @@ pub async fn get_billing_profiles_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&billing_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -209,7 +210,7 @@ pub async fn get_billing_profiles_async(configuration: &configuration::Configura
 }
 
 /// Returns the number of billing profiles for a tenant, supporting OData filtering.
-pub async fn get_billing_profiles_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetBillingProfilesCountAsyncError>> {
+pub async fn get_billing_profiles_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, billing_profile_dto_collection_query_parameters: Option<models::BillingProfileDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetBillingProfilesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -227,6 +228,7 @@ pub async fn get_billing_profiles_count_async(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&billing_profile_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -244,7 +246,7 @@ pub async fn get_billing_profiles_count_async(configuration: &configuration::Con
 }
 
 /// Partially updates a billing profile.
-pub async fn patch_billing_profile_async(configuration: &configuration::Configuration, tenant_id: &str, billing_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBillingProfileAsyncError>> {
+pub async fn patch_billing_profile_async(configuration: &configuration::Configuration, tenant_id: &str, billing_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBillingProfileAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -262,7 +264,7 @@ pub async fn patch_billing_profile_async(configuration: &configuration::Configur
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

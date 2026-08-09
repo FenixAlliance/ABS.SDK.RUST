@@ -480,7 +480,7 @@ pub async fn get_cost_centre_budget(configuration: &configuration::Configuration
 }
 
 /// Retrieves all cost centre budgets for the specified tenant using OData query options.
-pub async fn get_cost_centre_budgets(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CostCentreBudgetDtoListEnvelope, Error<GetCostCentreBudgetsError>> {
+pub async fn get_cost_centre_budgets(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, cost_centre_budget_dto_collection_query_parameters: Option<models::CostCentreBudgetDtoCollectionQueryParameters>) -> Result<models::CostCentreBudgetDtoListEnvelope, Error<GetCostCentreBudgetsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -498,6 +498,7 @@ pub async fn get_cost_centre_budgets(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&cost_centre_budget_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -550,7 +551,7 @@ pub async fn get_cost_centre_group(configuration: &configuration::Configuration,
 }
 
 /// Retrieves all cost centre groups for the specified tenant using OData query options.
-pub async fn get_cost_centre_groups(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CostCentreGroupDtoListEnvelope, Error<GetCostCentreGroupsError>> {
+pub async fn get_cost_centre_groups(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, cost_centre_group_dto_collection_query_parameters: Option<models::CostCentreGroupDtoCollectionQueryParameters>) -> Result<models::CostCentreGroupDtoListEnvelope, Error<GetCostCentreGroupsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -568,6 +569,7 @@ pub async fn get_cost_centre_groups(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&cost_centre_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -585,7 +587,7 @@ pub async fn get_cost_centre_groups(configuration: &configuration::Configuration
 }
 
 /// Retrieves the count of cost centre groups for the specified tenant using OData query options.
-pub async fn get_cost_centre_groups_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetCostCentreGroupsCountError>> {
+pub async fn get_cost_centre_groups_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, cost_centre_group_dto_collection_query_parameters: Option<models::CostCentreGroupDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetCostCentreGroupsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -603,6 +605,7 @@ pub async fn get_cost_centre_groups_count(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&cost_centre_group_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -620,7 +623,7 @@ pub async fn get_cost_centre_groups_count(configuration: &configuration::Configu
 }
 
 /// Retrieves all cost centres for the specified tenant using OData query options.
-pub async fn get_cost_centres(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CostCentreDtoListEnvelope, Error<GetCostCentresError>> {
+pub async fn get_cost_centres(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, cost_centre_dto_collection_query_parameters: Option<models::CostCentreDtoCollectionQueryParameters>) -> Result<models::CostCentreDtoListEnvelope, Error<GetCostCentresError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -638,6 +641,7 @@ pub async fn get_cost_centres(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&cost_centre_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -655,7 +659,7 @@ pub async fn get_cost_centres(configuration: &configuration::Configuration, tena
 }
 
 /// Retrieves the count of cost centres for the specified tenant using OData query options.
-pub async fn get_cost_centres_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetCostCentresCountError>> {
+pub async fn get_cost_centres_count(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, cost_centre_dto_collection_query_parameters: Option<models::CostCentreDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetCostCentresCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -673,6 +677,7 @@ pub async fn get_cost_centres_count(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&cost_centre_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -690,7 +695,7 @@ pub async fn get_cost_centres_count(configuration: &configuration::Configuration
 }
 
 /// Partially updates an existing cost centre.
-pub async fn patch_cost_centre(configuration: &configuration::Configuration, tenant_id: &str, cost_centre_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCostCentreError>> {
+pub async fn patch_cost_centre(configuration: &configuration::Configuration, tenant_id: &str, cost_centre_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCostCentreError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -708,7 +713,7 @@ pub async fn patch_cost_centre(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -726,7 +731,7 @@ pub async fn patch_cost_centre(configuration: &configuration::Configuration, ten
 }
 
 /// Partially updates an existing cost centre budget.
-pub async fn patch_cost_centre_budget(configuration: &configuration::Configuration, tenant_id: &str, budget_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCostCentreBudgetError>> {
+pub async fn patch_cost_centre_budget(configuration: &configuration::Configuration, tenant_id: &str, budget_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCostCentreBudgetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -744,7 +749,7 @@ pub async fn patch_cost_centre_budget(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -762,7 +767,7 @@ pub async fn patch_cost_centre_budget(configuration: &configuration::Configurati
 }
 
 /// Partially updates an existing cost centre group.
-pub async fn patch_cost_centre_group(configuration: &configuration::Configuration, tenant_id: &str, group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchCostCentreGroupError>> {
+pub async fn patch_cost_centre_group(configuration: &configuration::Configuration, tenant_id: &str, group_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchCostCentreGroupError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -780,7 +785,7 @@ pub async fn patch_cost_centre_group(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

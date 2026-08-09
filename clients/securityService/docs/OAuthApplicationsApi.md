@@ -281,7 +281,7 @@ No authorization required
 
 ## patch_o_auth_application_async
 
-> models::EmptyEnvelope patch_o_auth_application_async(tenant_id, application_id, operation, api_version, x_api_version)
+> models::EmptyEnvelope patch_o_auth_application_async(tenant_id, application_id, patch_operation, api_version, x_api_version)
 Patch an existing OAuth application
 
 Partially updates an existing OAuth application using a JSON Patch document.
@@ -293,7 +293,7 @@ Name | Type | Description  | Required | Notes
 ------------- | ------------- | ------------- | ------------- | -------------
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **application_id** | **String** |  | [required] |
-**operation** | [**Vec<models::Operation>**](Operation.md) |  | [required] |
+**patch_operation** | [**Vec<models::PatchOperation>**](PatchOperation.md) |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
 

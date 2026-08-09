@@ -241,7 +241,7 @@ pub async fn get_fiscal_period(configuration: &configuration::Configuration, ten
 }
 
 /// Retrieves all fiscal periods for the specified fiscal year within a fiscal authority.
-pub async fn get_fiscal_periods(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_year_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::FiscalPeriodDtoListEnvelope, Error<GetFiscalPeriodsError>> {
+pub async fn get_fiscal_periods(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_year_id: &str, authority_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_period_dto_collection_query_parameters: Option<models::FiscalPeriodDtoCollectionQueryParameters>) -> Result<models::FiscalPeriodDtoListEnvelope, Error<GetFiscalPeriodsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -260,6 +260,7 @@ pub async fn get_fiscal_periods(configuration: &configuration::Configuration, te
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&fiscal_period_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -277,7 +278,7 @@ pub async fn get_fiscal_periods(configuration: &configuration::Configuration, te
 }
 
 /// Returns the total count of fiscal periods for the specified fiscal year.
-pub async fn get_fiscal_periods_count(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetFiscalPeriodsCountError>> {
+pub async fn get_fiscal_periods_count(configuration: &configuration::Configuration, tenant_id: &str, fiscal_authority_id: &str, fiscal_year_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, fiscal_period_dto_collection_query_parameters: Option<models::FiscalPeriodDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetFiscalPeriodsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -295,6 +296,7 @@ pub async fn get_fiscal_periods_count(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&fiscal_period_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -347,7 +349,7 @@ pub async fn open_fiscal_period(configuration: &configuration::Configuration, te
 }
 
 /// Partially updates a fiscal period.
-pub async fn patch_fiscal_period_async(configuration: &configuration::Configuration, tenant_id: &str, fiscal_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchFiscalPeriodAsyncError>> {
+pub async fn patch_fiscal_period_async(configuration: &configuration::Configuration, tenant_id: &str, fiscal_period_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchFiscalPeriodAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -365,7 +367,7 @@ pub async fn patch_fiscal_period_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

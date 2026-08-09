@@ -121,6 +121,7 @@ pub mod journals_api;
 pub mod ledger_types_api;
 pub mod ledgers_api;
 pub mod loans_api;
+pub mod posting_executions_api;
 pub mod receipts_api;
 pub mod reports_api;
 pub mod shares_api;

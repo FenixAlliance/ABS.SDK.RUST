@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## count_item_refund_policies_async
 
-> models::Int32Envelope count_item_refund_policies_async(tenant_id, item_id, api_version, x_api_version)
+> models::Int32Envelope count_item_refund_policies_async(tenant_id, item_id, api_version, x_api_version, item_refund_policy_dto_collection_query_parameters)
 Count item refund policies
 
 Counts all refund policies for a specific item.
@@ -28,6 +28,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_refund_policy_dto_collection_query_parameters** | Option<[**ItemRefundPolicyDtoCollectionQueryParameters**](ItemRefundPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -39,7 +40,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -47,7 +48,7 @@ No authorization required
 
 ## get_item_refund_policies_async
 
-> models::ItemRefundPolicyDtoListEnvelope get_item_refund_policies_async(tenant_id, item_id, api_version, x_api_version)
+> models::ItemRefundPolicyDtoListEnvelope get_item_refund_policies_async(tenant_id, item_id, api_version, x_api_version, item_refund_policy_dto_collection_query_parameters)
 Get item refund policies
 
 Retrieves all refund policies for a specific item.
@@ -61,6 +62,7 @@ Name | Type | Description  | Required | Notes
 **item_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_refund_policy_dto_collection_query_parameters** | Option<[**ItemRefundPolicyDtoCollectionQueryParameters**](ItemRefundPolicyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -72,7 +74,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

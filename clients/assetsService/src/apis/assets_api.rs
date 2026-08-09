@@ -800,7 +800,7 @@ pub async fn get_asset(configuration: &configuration::Configuration, tenant_id: 
 }
 
 /// Retrieves all asset categories for the authenticated tenant.
-pub async fn get_asset_asset_categories(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::AssetCategoryDtoListEnvelope, Error<GetAssetAssetCategoriesError>> {
+pub async fn get_asset_asset_categories(configuration: &configuration::Configuration, tenant_id: &str, asset_category_dto_collection_query_parameters: Option<models::AssetCategoryDtoCollectionQueryParameters>) -> Result<models::AssetCategoryDtoListEnvelope, Error<GetAssetAssetCategoriesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -812,6 +812,7 @@ pub async fn get_asset_asset_categories(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -829,7 +830,7 @@ pub async fn get_asset_asset_categories(configuration: &configuration::Configura
 }
 
 /// Returns the total number of asset categories for the authenticated tenant.
-pub async fn get_asset_asset_categories_count(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetAssetAssetCategoriesCountError>> {
+pub async fn get_asset_asset_categories_count(configuration: &configuration::Configuration, tenant_id: &str, asset_category_dto_collection_query_parameters: Option<models::AssetCategoryDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAssetAssetCategoriesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -841,6 +842,7 @@ pub async fn get_asset_asset_categories_count(configuration: &configuration::Con
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -916,7 +918,7 @@ pub async fn get_asset_depreciation_record(configuration: &configuration::Config
 }
 
 /// Retrieves all depreciation records for the specified asset.
-pub async fn get_asset_depreciation_records(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str) -> Result<models::AssetDepreciationRecordDtoListEnvelope, Error<GetAssetDepreciationRecordsError>> {
+pub async fn get_asset_depreciation_records(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, asset_depreciation_record_dto_collection_query_parameters: Option<models::AssetDepreciationRecordDtoCollectionQueryParameters>) -> Result<models::AssetDepreciationRecordDtoListEnvelope, Error<GetAssetDepreciationRecordsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -928,6 +930,7 @@ pub async fn get_asset_depreciation_records(configuration: &configuration::Confi
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_depreciation_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -945,7 +948,7 @@ pub async fn get_asset_depreciation_records(configuration: &configuration::Confi
 }
 
 /// Returns the total number of depreciation records for the specified asset.
-pub async fn get_asset_depreciation_records_count(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str) -> Result<models::Int32Envelope, Error<GetAssetDepreciationRecordsCountError>> {
+pub async fn get_asset_depreciation_records_count(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, asset_depreciation_record_dto_collection_query_parameters: Option<models::AssetDepreciationRecordDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAssetDepreciationRecordsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -957,6 +960,7 @@ pub async fn get_asset_depreciation_records_count(configuration: &configuration:
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_depreciation_record_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1003,7 +1007,7 @@ pub async fn get_asset_repair(configuration: &configuration::Configuration, tena
 }
 
 /// Retrieves all repair records for the specified asset.
-pub async fn get_asset_repairs(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str) -> Result<models::AssetRepairDtoListEnvelope, Error<GetAssetRepairsError>> {
+pub async fn get_asset_repairs(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, asset_repair_dto_collection_query_parameters: Option<models::AssetRepairDtoCollectionQueryParameters>) -> Result<models::AssetRepairDtoListEnvelope, Error<GetAssetRepairsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1015,6 +1019,7 @@ pub async fn get_asset_repairs(configuration: &configuration::Configuration, ten
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_repair_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1032,7 +1037,7 @@ pub async fn get_asset_repairs(configuration: &configuration::Configuration, ten
 }
 
 /// Returns the total number of repair records for the specified asset.
-pub async fn get_asset_repairs_count(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str) -> Result<models::Int32Envelope, Error<GetAssetRepairsCountError>> {
+pub async fn get_asset_repairs_count(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, asset_repair_dto_collection_query_parameters: Option<models::AssetRepairDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAssetRepairsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1044,6 +1049,7 @@ pub async fn get_asset_repairs_count(configuration: &configuration::Configuratio
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_repair_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1090,7 +1096,7 @@ pub async fn get_asset_transfer(configuration: &configuration::Configuration, te
 }
 
 /// Retrieves all transfer records for the specified asset.
-pub async fn get_asset_transfers(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str) -> Result<models::AssetTransferDtoListEnvelope, Error<GetAssetTransfersError>> {
+pub async fn get_asset_transfers(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, asset_transfer_dto_collection_query_parameters: Option<models::AssetTransferDtoCollectionQueryParameters>) -> Result<models::AssetTransferDtoListEnvelope, Error<GetAssetTransfersError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1102,6 +1108,7 @@ pub async fn get_asset_transfers(configuration: &configuration::Configuration, t
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_transfer_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1119,7 +1126,7 @@ pub async fn get_asset_transfers(configuration: &configuration::Configuration, t
 }
 
 /// Returns the total number of transfer records for the specified asset.
-pub async fn get_asset_transfers_count(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str) -> Result<models::Int32Envelope, Error<GetAssetTransfersCountError>> {
+pub async fn get_asset_transfers_count(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, asset_transfer_dto_collection_query_parameters: Option<models::AssetTransferDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAssetTransfersCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1131,6 +1138,7 @@ pub async fn get_asset_transfers_count(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_transfer_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1177,7 +1185,7 @@ pub async fn get_asset_value_amend(configuration: &configuration::Configuration,
 }
 
 /// Retrieves all value amendment records for the specified asset.
-pub async fn get_asset_value_amends(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str) -> Result<models::AssetValueAmendDtoListEnvelope, Error<GetAssetValueAmendsError>> {
+pub async fn get_asset_value_amends(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, asset_value_amend_dto_collection_query_parameters: Option<models::AssetValueAmendDtoCollectionQueryParameters>) -> Result<models::AssetValueAmendDtoListEnvelope, Error<GetAssetValueAmendsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1189,6 +1197,7 @@ pub async fn get_asset_value_amends(configuration: &configuration::Configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_value_amend_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1206,7 +1215,7 @@ pub async fn get_asset_value_amends(configuration: &configuration::Configuration
 }
 
 /// Returns the total number of value amendment records for the specified asset.
-pub async fn get_asset_value_amends_count(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str) -> Result<models::Int32Envelope, Error<GetAssetValueAmendsCountError>> {
+pub async fn get_asset_value_amends_count(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, asset_value_amend_dto_collection_query_parameters: Option<models::AssetValueAmendDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAssetValueAmendsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1218,6 +1227,7 @@ pub async fn get_asset_value_amends_count(configuration: &configuration::Configu
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_value_amend_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1235,7 +1245,7 @@ pub async fn get_asset_value_amends_count(configuration: &configuration::Configu
 }
 
 /// Retrieves all assets for the authenticated tenant with optional filtering.
-pub async fn get_assets(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::AssetDtoListEnvelope, Error<GetAssetsError>> {
+pub async fn get_assets(configuration: &configuration::Configuration, tenant_id: &str, asset_dto_collection_query_parameters: Option<models::AssetDtoCollectionQueryParameters>) -> Result<models::AssetDtoListEnvelope, Error<GetAssetsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1247,6 +1257,7 @@ pub async fn get_assets(configuration: &configuration::Configuration, tenant_id:
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1264,7 +1275,7 @@ pub async fn get_assets(configuration: &configuration::Configuration, tenant_id:
 }
 
 /// Returns the total number of assets for the authenticated tenant.
-pub async fn get_assets_count(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetAssetsCountError>> {
+pub async fn get_assets_count(configuration: &configuration::Configuration, tenant_id: &str, asset_dto_collection_query_parameters: Option<models::AssetDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetAssetsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1276,6 +1287,7 @@ pub async fn get_assets_count(configuration: &configuration::Configuration, tena
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&asset_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1293,7 +1305,7 @@ pub async fn get_assets_count(configuration: &configuration::Configuration, tena
 }
 
 /// Applies a JSON Patch document to an existing asset for the authenticated tenant.
-pub async fn patch_asset(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetError>> {
+pub async fn patch_asset(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1305,7 +1317,7 @@ pub async fn patch_asset(configuration: &configuration::Configuration, tenant_id
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1323,7 +1335,7 @@ pub async fn patch_asset(configuration: &configuration::Configuration, tenant_id
 }
 
 /// Applies a JSON Patch document to an existing asset category for the authenticated tenant.
-pub async fn patch_asset_asset_category(configuration: &configuration::Configuration, tenant_id: &str, category_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetAssetCategoryError>> {
+pub async fn patch_asset_asset_category(configuration: &configuration::Configuration, tenant_id: &str, category_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetAssetCategoryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1335,7 +1347,7 @@ pub async fn patch_asset_asset_category(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1353,7 +1365,7 @@ pub async fn patch_asset_asset_category(configuration: &configuration::Configura
 }
 
 /// Applies a JSON Patch document to an existing depreciation record for the specified asset.
-pub async fn patch_asset_depreciation_record(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, record_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetDepreciationRecordError>> {
+pub async fn patch_asset_depreciation_record(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, record_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetDepreciationRecordError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1365,7 +1377,7 @@ pub async fn patch_asset_depreciation_record(configuration: &configuration::Conf
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1383,7 +1395,7 @@ pub async fn patch_asset_depreciation_record(configuration: &configuration::Conf
 }
 
 /// Applies a JSON Patch document to an existing repair record for the specified asset.
-pub async fn patch_asset_repair(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, repair_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetRepairError>> {
+pub async fn patch_asset_repair(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, repair_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetRepairError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1395,7 +1407,7 @@ pub async fn patch_asset_repair(configuration: &configuration::Configuration, te
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1413,7 +1425,7 @@ pub async fn patch_asset_repair(configuration: &configuration::Configuration, te
 }
 
 /// Applies a JSON Patch document to an existing transfer record for the specified asset.
-pub async fn patch_asset_transfer(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, transfer_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetTransferError>> {
+pub async fn patch_asset_transfer(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, transfer_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetTransferError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1425,7 +1437,7 @@ pub async fn patch_asset_transfer(configuration: &configuration::Configuration, 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1443,7 +1455,7 @@ pub async fn patch_asset_transfer(configuration: &configuration::Configuration, 
 }
 
 /// Applies a JSON Patch document to an existing value amendment record for the specified asset.
-pub async fn patch_asset_value_amend(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, amend_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetValueAmendError>> {
+pub async fn patch_asset_value_amend(configuration: &configuration::Configuration, tenant_id: &str, asset_id: &str, amend_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchAssetValueAmendError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1455,7 +1467,7 @@ pub async fn patch_asset_value_amend(configuration: &configuration::Configuratio
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

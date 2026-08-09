@@ -192,7 +192,7 @@ pub async fn get_marketing_campaign_details_async(configuration: &configuration:
 }
 
 /// Retrieves a collection of marketing campaigns for the specified tenant using OData query options.
-pub async fn get_marketing_campaign_o_data_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<(), Error<GetMarketingCampaignODataAsyncError>> {
+pub async fn get_marketing_campaign_o_data_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, marketing_campaign_dto_collection_query_parameters: Option<models::MarketingCampaignDtoCollectionQueryParameters>) -> Result<(), Error<GetMarketingCampaignODataAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -210,6 +210,7 @@ pub async fn get_marketing_campaign_o_data_async(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&marketing_campaign_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -227,7 +228,7 @@ pub async fn get_marketing_campaign_o_data_async(configuration: &configuration::
 }
 
 /// Returns the count of marketing campaigns for the specified tenant using OData query options.
-pub async fn get_marketing_campaigns_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetMarketingCampaignsCountAsyncError>> {
+pub async fn get_marketing_campaigns_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, marketing_campaign_dto_collection_query_parameters: Option<models::MarketingCampaignDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetMarketingCampaignsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -245,6 +246,7 @@ pub async fn get_marketing_campaigns_count_async(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&marketing_campaign_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -262,7 +264,7 @@ pub async fn get_marketing_campaigns_count_async(configuration: &configuration::
 }
 
 /// Partially updates a marketing campaign by its ID using JSON Patch.
-pub async fn patch_marketing_campaign_async(configuration: &configuration::Configuration, tenant_id: &str, marketingcampaign_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchMarketingCampaignAsyncError>> {
+pub async fn patch_marketing_campaign_async(configuration: &configuration::Configuration, tenant_id: &str, marketingcampaign_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchMarketingCampaignAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -280,7 +282,7 @@ pub async fn patch_marketing_campaign_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

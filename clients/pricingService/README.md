@@ -45,7 +45,6 @@ Class | Method | HTTP request | Description
 *FenixAllianceAbsWebApi* | [**account_manage_download_personal_data_post**](docs/FenixAllianceAbsWebApi.md#account_manage_download_personal_data_post) | **POST** /Account/Manage/DownloadPersonalData | 
 *FenixAllianceAbsWebApi* | [**account_manage_link_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_manage_link_external_login_post) | **POST** /Account/Manage/LinkExternalLogin | 
 *FenixAllianceAbsWebApi* | [**account_perform_external_login_post**](docs/FenixAllianceAbsWebApi.md#account_perform_external_login_post) | **POST** /Account/PerformExternalLogin | 
-*FenixAllianceAbsWebApi* | [**api_v2_ai_service_agents_agent_id_agui_post**](docs/FenixAllianceAbsWebApi.md#api_v2_ai_service_agents_agent_id_agui_post) | **POST** /api/v2/AIService/Agents/{agentId}/agui | 
 *FenixAllianceAbsWebApi* | [**forgot_password_post**](docs/FenixAllianceAbsWebApi.md#forgot_password_post) | **POST** /forgotPassword | 
 *FenixAllianceAbsWebApi* | [**health_get**](docs/FenixAllianceAbsWebApi.md#health_get) | **GET** /health | 
 *FenixAllianceAbsWebApi* | [**hello_get**](docs/FenixAllianceAbsWebApi.md#hello_get) | **GET** /hello | 
@@ -99,10 +98,12 @@ Class | Method | HTTP request | Description
  - [CurrencyId](docs/CurrencyId.md)
  - [DiscountCreateDto](docs/DiscountCreateDto.md)
  - [DiscountDto](docs/DiscountDto.md)
+ - [DiscountDtoCollectionQueryParameters](docs/DiscountDtoCollectionQueryParameters.md)
  - [DiscountDtoEnvelope](docs/DiscountDtoEnvelope.md)
  - [DiscountDtoListEnvelope](docs/DiscountDtoListEnvelope.md)
  - [DiscountListCreateDto](docs/DiscountListCreateDto.md)
  - [DiscountListDto](docs/DiscountListDto.md)
+ - [DiscountListDtoCollectionQueryParameters](docs/DiscountListDtoCollectionQueryParameters.md)
  - [DiscountListDtoEnvelope](docs/DiscountListDtoEnvelope.md)
  - [DiscountListDtoListEnvelope](docs/DiscountListDtoListEnvelope.md)
  - [DiscountListUpdateDto](docs/DiscountListUpdateDto.md)
@@ -118,20 +119,23 @@ Class | Method | HTTP request | Description
  - [ItemPriceCalculationEnvelope](docs/ItemPriceCalculationEnvelope.md)
  - [ItemPriceCreateDto](docs/ItemPriceCreateDto.md)
  - [ItemPriceDto](docs/ItemPriceDto.md)
+ - [ItemPriceDtoCollectionQueryParameters](docs/ItemPriceDtoCollectionQueryParameters.md)
  - [ItemPriceDtoEnvelope](docs/ItemPriceDtoEnvelope.md)
  - [ItemPriceDtoListEnvelope](docs/ItemPriceDtoListEnvelope.md)
  - [ItemPriceUpdateDto](docs/ItemPriceUpdateDto.md)
  - [LoginRequest](docs/LoginRequest.md)
  - [Money](docs/Money.md)
  - [MoneyEnvelope](docs/MoneyEnvelope.md)
- - [Operation](docs/Operation.md)
+ - [PatchOperation](docs/PatchOperation.md)
  - [PriceListCreateDto](docs/PriceListCreateDto.md)
  - [PriceListDto](docs/PriceListDto.md)
+ - [PriceListDtoCollectionQueryParameters](docs/PriceListDtoCollectionQueryParameters.md)
  - [PriceListDtoEnvelope](docs/PriceListDtoEnvelope.md)
  - [PriceListDtoListEnvelope](docs/PriceListDtoListEnvelope.md)
  - [PriceListUpdateDto](docs/PriceListUpdateDto.md)
  - [PricingRuleCreateDto](docs/PricingRuleCreateDto.md)
  - [PricingRuleDto](docs/PricingRuleDto.md)
+ - [PricingRuleDtoCollectionQueryParameters](docs/PricingRuleDtoCollectionQueryParameters.md)
  - [PricingRuleDtoEnvelope](docs/PricingRuleDtoEnvelope.md)
  - [PricingRuleDtoListEnvelope](docs/PricingRuleDtoListEnvelope.md)
  - [PricingRuleUpdateDto](docs/PricingRuleUpdateDto.md)
@@ -141,6 +145,7 @@ Class | Method | HTTP request | Description
  - [ResetPasswordRequest](docs/ResetPasswordRequest.md)
  - [RoundingPolicyCreateDto](docs/RoundingPolicyCreateDto.md)
  - [RoundingPolicyDto](docs/RoundingPolicyDto.md)
+ - [RoundingPolicyDtoCollectionQueryParameters](docs/RoundingPolicyDtoCollectionQueryParameters.md)
  - [RoundingPolicyDtoEnvelope](docs/RoundingPolicyDtoEnvelope.md)
  - [RoundingPolicyDtoListEnvelope](docs/RoundingPolicyDtoListEnvelope.md)
  - [RoundingPolicyUpdateDto](docs/RoundingPolicyUpdateDto.md)

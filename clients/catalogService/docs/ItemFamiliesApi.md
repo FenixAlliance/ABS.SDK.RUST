@@ -82,7 +82,7 @@ No authorization required
 
 ## get_item_families_async
 
-> models::ItemFamilyDtoListEnvelope get_item_families_async(tenant_id, api_version, x_api_version)
+> models::ItemFamilyDtoListEnvelope get_item_families_async(tenant_id, api_version, x_api_version, item_family_dto_collection_query_parameters)
 Get all item families
 
 Retrieves all item families for the specified tenant using OData query options.
@@ -95,6 +95,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_family_dto_collection_query_parameters** | Option<[**ItemFamilyDtoCollectionQueryParameters**](ItemFamilyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -106,7 +107,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -114,7 +115,7 @@ No authorization required
 
 ## get_item_families_count_async
 
-> models::Int32Envelope get_item_families_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_item_families_count_async(tenant_id, api_version, x_api_version, item_family_dto_collection_query_parameters)
 Get item families count
 
 Returns the count of item families for the specified tenant.
@@ -127,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**item_family_dto_collection_query_parameters** | Option<[**ItemFamilyDtoCollectionQueryParameters**](ItemFamilyDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -138,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_item_family_async
 
-> models::EmptyEnvelope patch_item_family_async(tenant_id, item_family_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_item_family_async(tenant_id, item_family_id, api_version, x_api_version, patch_operation)
 Patch an item family
 
 Partially updates an existing item family for the specified tenant using a JSON Patch document.
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **item_family_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

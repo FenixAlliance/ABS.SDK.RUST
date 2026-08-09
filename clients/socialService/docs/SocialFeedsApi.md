@@ -19,7 +19,7 @@ Method | HTTP request | Description
 
 ## create_feed_post_async
 
-> models::SocialFeedPostDtoEnvelope create_feed_post_async(social_profile_id, social_feed_id, api_version, x_api_version, social_feed_post_create_dto)
+> models::StringEnvelope create_feed_post_async(social_profile_id, social_feed_id, api_version, x_api_version, social_feed_post_create_dto)
 Create a social feed post
 
 Creates a new post in a specific social feed.
@@ -37,7 +37,7 @@ Name | Type | Description  | Required | Notes
 
 ### Return type
 
-[**models::SocialFeedPostDtoEnvelope**](SocialFeedPostDtoEnvelope.md)
+[**models::StringEnvelope**](StringEnvelope.md)
 
 ### Authorization
 
@@ -87,7 +87,7 @@ No authorization required
 
 ## get_feed_notifications
 
-> models::SocialFeedDtoListEnvelope get_feed_notifications(social_profile_id, api_version, x_api_version)
+> models::SocialFeedDtoListEnvelope get_feed_notifications(social_profile_id, api_version, x_api_version, social_feed_dto_collection_query_parameters)
 Get social feeds
 
 Retrieves a list of social feeds for the specified social profile.
@@ -100,6 +100,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_feed_dto_collection_query_parameters** | Option<[**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -111,7 +112,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -153,7 +154,7 @@ No authorization required
 
 ## get_feed_posts_async
 
-> models::SocialFeedPostDtoListEnvelope get_feed_posts_async(social_profile_id, social_feed_id, api_version, x_api_version)
+> models::SocialFeedPostDtoListEnvelope get_feed_posts_async(social_profile_id, social_feed_id, api_version, x_api_version, social_feed_post_dto_collection_query_parameters)
 Get social feed posts
 
 Retrieves a list of posts for a specific social feed.
@@ -167,6 +168,7 @@ Name | Type | Description  | Required | Notes
 **social_feed_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_feed_post_dto_collection_query_parameters** | Option<[**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -178,7 +180,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -186,7 +188,7 @@ No authorization required
 
 ## get_feed_posts_count_async
 
-> models::Int32Envelope get_feed_posts_count_async(social_profile_id, social_feed_id, api_version, x_api_version)
+> models::Int32Envelope get_feed_posts_count_async(social_profile_id, social_feed_id, api_version, x_api_version, social_feed_post_dto_collection_query_parameters)
 Count social feed posts
 
 Returns the count of posts for a specific social feed.
@@ -200,6 +202,7 @@ Name | Type | Description  | Required | Notes
 **social_feed_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_feed_post_dto_collection_query_parameters** | Option<[**SocialFeedPostDtoCollectionQueryParameters**](SocialFeedPostDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -211,7 +214,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -252,7 +255,7 @@ No authorization required
 
 ## get_notifications_count_async
 
-> models::Int32Envelope get_notifications_count_async(social_profile_id, api_version, x_api_version)
+> models::Int32Envelope get_notifications_count_async(social_profile_id, api_version, x_api_version, social_feed_dto_collection_query_parameters)
 Count social feeds
 
 Returns the count of social feeds for the specified social profile.
@@ -265,6 +268,7 @@ Name | Type | Description  | Required | Notes
 **social_profile_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**social_feed_dto_collection_query_parameters** | Option<[**SocialFeedDtoCollectionQueryParameters**](SocialFeedDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -276,7 +280,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -284,7 +288,7 @@ No authorization required
 
 ## patch_feed_post_async
 
-> models::EmptyEnvelope patch_feed_post_async(social_profile_id, social_feed_id, feed_post_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_feed_post_async(social_profile_id, social_feed_id, feed_post_id, api_version, x_api_version, patch_operation)
 Patch a social feed post
 
 Partially updates an existing post in a specific social feed using a JSON Patch document.
@@ -299,7 +303,7 @@ Name | Type | Description  | Required | Notes
 **feed_post_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

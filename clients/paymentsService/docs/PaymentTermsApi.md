@@ -115,7 +115,7 @@ No authorization required
 
 ## get_payment_terms_async
 
-> models::PaymentTermDtoIReadOnlyListEnvelope get_payment_terms_async(tenant_id, api_version, x_api_version)
+> models::PaymentTermDtoIReadOnlyListEnvelope get_payment_terms_async(tenant_id, api_version, x_api_version, payment_term_dto_collection_query_parameters)
 Retrieves all payment terms
 
 Gets all payment terms for the current tenant with OData support.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_term_dto_collection_query_parameters** | Option<[**PaymentTermDtoCollectionQueryParameters**](PaymentTermDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_payment_terms_count_async
 
-> models::Int32Envelope get_payment_terms_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_payment_terms_count_async(tenant_id, api_version, x_api_version, payment_term_dto_collection_query_parameters)
 Counts payment terms
 
 Gets the count of payment terms for the current tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**payment_term_dto_collection_query_parameters** | Option<[**PaymentTermDtoCollectionQueryParameters**](PaymentTermDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -179,7 +181,7 @@ No authorization required
 
 ## patch_payment_term_async
 
-> models::EmptyEnvelope patch_payment_term_async(tenant_id, payment_term_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_payment_term_async(tenant_id, payment_term_id, api_version, x_api_version, patch_operation)
 Patch a payment term
 
 Patch a payment term
@@ -193,7 +195,7 @@ Name | Type | Description  | Required | Notes
 **payment_term_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

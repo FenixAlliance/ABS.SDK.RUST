@@ -21,6 +21,12 @@ pub struct TenantDtoListEnvelope {
     pub correlation_id: Option<Option<String>>,
     #[serde(rename = "timestamp", skip_serializing_if = "Option::is_none")]
     pub timestamp: Option<String>,
+    #[serde(rename = "httpStatus", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub http_status: Option<Option<i32>>,
+    #[serde(rename = "errorCode", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub error_code: Option<Option<String>>,
+    #[serde(rename = "validationDetails", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub validation_details: Option<Option<std::collections::HashMap<String, Vec<String>>>>,
     #[serde(rename = "activityId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub activity_id: Option<Option<String>>,
     #[serde(rename = "result", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -34,6 +40,9 @@ impl TenantDtoListEnvelope {
             error_message: None,
             correlation_id: None,
             timestamp: None,
+            http_status: None,
+            error_code: None,
+            validation_details: None,
             activity_id: None,
             result: None,
         }

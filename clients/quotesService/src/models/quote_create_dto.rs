@@ -31,6 +31,8 @@ pub struct QuoteCreateDto {
     pub payment_term_id: Option<Option<String>>,
     #[serde(rename = "organizationId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub organization_id: Option<Option<String>>,
+    #[serde(rename = "receiverTenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
+    pub receiver_tenant_id: Option<Option<String>>,
     #[serde(rename = "firstName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub first_name: Option<Option<String>>,
     #[serde(rename = "lastName", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -111,8 +113,6 @@ pub struct QuoteCreateDto {
     pub cart_id: Option<Option<String>>,
     #[serde(rename = "dealUnitId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub deal_unit_id: Option<Option<String>>,
-    #[serde(rename = "receiverTenantId", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
-    pub receiver_tenant_id: Option<Option<String>>,
     #[serde(rename = "effectiveTo", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
     pub effective_to: Option<Option<String>>,
     #[serde(rename = "effectiveFrom", default, with = "::serde_with::rust::double_option", skip_serializing_if = "Option::is_none")]
@@ -135,6 +135,7 @@ impl QuoteCreateDto {
             individual_id: None,
             payment_term_id: None,
             organization_id: None,
+            receiver_tenant_id: None,
             first_name: None,
             last_name: None,
             company_name: None,
@@ -175,7 +176,6 @@ impl QuoteCreateDto {
             tax_calculation_method: None,
             cart_id: None,
             deal_unit_id: None,
-            receiver_tenant_id: None,
             effective_to: None,
             effective_from: None,
             quote_status: None,

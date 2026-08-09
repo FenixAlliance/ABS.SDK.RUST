@@ -193,7 +193,7 @@ No authorization required
 
 ## get_airway_bill_lines_async
 
-> models::WaybillLineDtoListEnvelope get_airway_bill_lines_async(tenant_id, bill_id, api_version, x_api_version)
+> models::WaybillLineDtoListEnvelope get_airway_bill_lines_async(tenant_id, bill_id, api_version, x_api_version, waybill_line_dto_collection_query_parameters)
 Get airway bill lines
 
 Retrieves all lines for a specific airway bill.
@@ -207,6 +207,7 @@ Name | Type | Description  | Required | Notes
 **bill_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**waybill_line_dto_collection_query_parameters** | Option<[**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -218,7 +219,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -226,7 +227,7 @@ No authorization required
 
 ## get_airway_bill_lines_count_async
 
-> models::Int32Envelope get_airway_bill_lines_count_async(tenant_id, bill_id, api_version, x_api_version)
+> models::Int32Envelope get_airway_bill_lines_count_async(tenant_id, bill_id, api_version, x_api_version, waybill_line_dto_collection_query_parameters)
 Get airway bill lines count
 
 Returns the count of lines for a specific airway bill.
@@ -240,6 +241,7 @@ Name | Type | Description  | Required | Notes
 **bill_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**waybill_line_dto_collection_query_parameters** | Option<[**WaybillLineDtoCollectionQueryParameters**](WaybillLineDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -251,7 +253,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -259,7 +261,7 @@ No authorization required
 
 ## get_airway_bills_async
 
-> models::AirwayBillDtoListEnvelope get_airway_bills_async(tenant_id, api_version, x_api_version)
+> models::AirwayBillDtoListEnvelope get_airway_bills_async(tenant_id, api_version, x_api_version, airway_bill_dto_collection_query_parameters)
 Get all airway bills
 
 Retrieves all airway bills for the specified tenant.
@@ -272,6 +274,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**airway_bill_dto_collection_query_parameters** | Option<[**AirwayBillDtoCollectionQueryParameters**](AirwayBillDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -283,7 +286,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -291,7 +294,7 @@ No authorization required
 
 ## get_airway_bills_count_async
 
-> models::Int32Envelope get_airway_bills_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_airway_bills_count_async(tenant_id, api_version, x_api_version, airway_bill_dto_collection_query_parameters)
 Get airway bills count
 
 Returns the count of airway bills for the specified tenant.
@@ -304,6 +307,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**airway_bill_dto_collection_query_parameters** | Option<[**AirwayBillDtoCollectionQueryParameters**](AirwayBillDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -315,7 +319,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -455,7 +459,7 @@ No authorization required
 
 ## patch_airway_bill_async
 
-> models::EmptyEnvelope patch_airway_bill_async(tenant_id, bill_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_airway_bill_async(tenant_id, bill_id, api_version, x_api_version, patch_operation)
 Patch an airway bill
 
 Partially updates an existing airway bill using a JSON Patch document.
@@ -469,7 +473,7 @@ Name | Type | Description  | Required | Notes
 **bill_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -489,7 +493,7 @@ No authorization required
 
 ## patch_airway_bill_line_async
 
-> models::EmptyEnvelope patch_airway_bill_line_async(tenant_id, bill_id, line_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_airway_bill_line_async(tenant_id, bill_id, line_id, api_version, x_api_version, patch_operation)
 Patch an airway bill line
 
 Partially updates a line on an airway bill using a JSON Patch document.
@@ -504,7 +508,7 @@ Name | Type | Description  | Required | Notes
 **line_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

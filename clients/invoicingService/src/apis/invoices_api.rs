@@ -931,7 +931,7 @@ pub async fn get_extended_invoice(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves a list of extended invoice details for the specified tenant.
-pub async fn get_extended_invoices(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::ExtendedInvoiceDtoListEnvelope, Error<GetExtendedInvoicesError>> {
+pub async fn get_extended_invoices(configuration: &configuration::Configuration, tenant_id: &str, extended_invoice_dto_collection_query_parameters: Option<models::ExtendedInvoiceDtoCollectionQueryParameters>) -> Result<models::ExtendedInvoiceDtoListEnvelope, Error<GetExtendedInvoicesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -943,6 +943,7 @@ pub async fn get_extended_invoices(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -960,7 +961,7 @@ pub async fn get_extended_invoices(configuration: &configuration::Configuration,
 }
 
 /// Retrieves the total count of extended invoices for the specified tenant.
-pub async fn get_extended_invoices_count(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetExtendedInvoicesCountError>> {
+pub async fn get_extended_invoices_count(configuration: &configuration::Configuration, tenant_id: &str, extended_invoice_dto_collection_query_parameters: Option<models::ExtendedInvoiceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetExtendedInvoicesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -972,6 +973,7 @@ pub async fn get_extended_invoices_count(configuration: &configuration::Configur
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&extended_invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1047,7 +1049,7 @@ pub async fn get_invoice_adjustment(configuration: &configuration::Configuration
 }
 
 /// Retrieves the adjustments for the specified invoice.
-pub async fn get_invoice_adjustments(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str) -> Result<models::InvoiceAdjustmentDtoIReadOnlyListEnvelope, Error<GetInvoiceAdjustmentsError>> {
+pub async fn get_invoice_adjustments(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_adjustment_dto_collection_query_parameters: Option<models::InvoiceAdjustmentDtoCollectionQueryParameters>) -> Result<models::InvoiceAdjustmentDtoIReadOnlyListEnvelope, Error<GetInvoiceAdjustmentsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1059,6 +1061,7 @@ pub async fn get_invoice_adjustments(configuration: &configuration::Configuratio
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_adjustment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1076,7 +1079,7 @@ pub async fn get_invoice_adjustments(configuration: &configuration::Configuratio
 }
 
 /// Retrieves the total count of adjustments for the specified invoice.
-pub async fn get_invoice_adjustments_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str) -> Result<models::Int32Envelope, Error<GetInvoiceAdjustmentsCountError>> {
+pub async fn get_invoice_adjustments_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_adjustment_dto_collection_query_parameters: Option<models::InvoiceAdjustmentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetInvoiceAdjustmentsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1088,6 +1091,7 @@ pub async fn get_invoice_adjustments_count(configuration: &configuration::Config
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_adjustment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1134,7 +1138,7 @@ pub async fn get_invoice_line(configuration: &configuration::Configuration, tena
 }
 
 /// Retrieves the taxes applied to the specified invoice line.
-pub async fn get_invoice_line_taxes(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_id: &str) -> Result<models::InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope, Error<GetInvoiceLineTaxesError>> {
+pub async fn get_invoice_line_taxes(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_id: &str, invoice_line_applied_tax_dto_collection_query_parameters: Option<models::InvoiceLineAppliedTaxDtoCollectionQueryParameters>) -> Result<models::InvoiceLineAppliedTaxDtoIReadOnlyListEnvelope, Error<GetInvoiceLineTaxesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1146,6 +1150,7 @@ pub async fn get_invoice_line_taxes(configuration: &configuration::Configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_line_applied_tax_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1163,7 +1168,7 @@ pub async fn get_invoice_line_taxes(configuration: &configuration::Configuration
 }
 
 /// Retrieves the total count of taxes applied to the specified invoice line.
-pub async fn get_invoice_line_taxes_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_id: &str) -> Result<models::Int32Envelope, Error<GetInvoiceLineTaxesCountError>> {
+pub async fn get_invoice_line_taxes_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_id: &str, invoice_line_applied_tax_dto_collection_query_parameters: Option<models::InvoiceLineAppliedTaxDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetInvoiceLineTaxesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1175,6 +1180,7 @@ pub async fn get_invoice_line_taxes_count(configuration: &configuration::Configu
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_line_applied_tax_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1192,7 +1198,7 @@ pub async fn get_invoice_line_taxes_count(configuration: &configuration::Configu
 }
 
 /// Retrieves the invoice lines for the specified invoice.
-pub async fn get_invoice_lines(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, item_id: Option<&str>) -> Result<models::InvoiceLineDtoListEnvelope, Error<GetInvoiceLinesError>> {
+pub async fn get_invoice_lines(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, item_id: Option<&str>, invoice_line_dto_collection_query_parameters: Option<models::InvoiceLineDtoCollectionQueryParameters>) -> Result<models::InvoiceLineDtoListEnvelope, Error<GetInvoiceLinesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1207,6 +1213,7 @@ pub async fn get_invoice_lines(configuration: &configuration::Configuration, ten
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1224,7 +1231,7 @@ pub async fn get_invoice_lines(configuration: &configuration::Configuration, ten
 }
 
 /// Retrieves the total count of invoice lines for the specified invoice.
-pub async fn get_invoice_lines_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str) -> Result<models::Int32Envelope, Error<GetInvoiceLinesCountError>> {
+pub async fn get_invoice_lines_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_dto_collection_query_parameters: Option<models::InvoiceLineDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetInvoiceLinesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1236,6 +1243,7 @@ pub async fn get_invoice_lines_count(configuration: &configuration::Configuratio
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_line_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1253,7 +1261,7 @@ pub async fn get_invoice_lines_count(configuration: &configuration::Configuratio
 }
 
 /// Retrieves the list of payments related to the specified invoice.
-pub async fn get_invoice_payments(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str) -> Result<models::PaymentDtoIReadOnlyListEnvelope, Error<GetInvoicePaymentsError>> {
+pub async fn get_invoice_payments(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::PaymentDtoIReadOnlyListEnvelope, Error<GetInvoicePaymentsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1265,6 +1273,7 @@ pub async fn get_invoice_payments(configuration: &configuration::Configuration, 
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1282,7 +1291,7 @@ pub async fn get_invoice_payments(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves the total count of payments for the specified invoice.
-pub async fn get_invoice_payments_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str) -> Result<models::Int32Envelope, Error<GetInvoicePaymentsCountError>> {
+pub async fn get_invoice_payments_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, payment_dto_collection_query_parameters: Option<models::PaymentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetInvoicePaymentsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1294,6 +1303,7 @@ pub async fn get_invoice_payments_count(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&payment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1340,7 +1350,7 @@ pub async fn get_invoice_reference(configuration: &configuration::Configuration,
 }
 
 /// Retrieves the references for the specified invoice.
-pub async fn get_invoice_references(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str) -> Result<models::InvoiceReferenceDtoIReadOnlyListEnvelope, Error<GetInvoiceReferencesError>> {
+pub async fn get_invoice_references(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_reference_dto_collection_query_parameters: Option<models::InvoiceReferenceDtoCollectionQueryParameters>) -> Result<models::InvoiceReferenceDtoIReadOnlyListEnvelope, Error<GetInvoiceReferencesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1352,6 +1362,7 @@ pub async fn get_invoice_references(configuration: &configuration::Configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_reference_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1369,7 +1380,7 @@ pub async fn get_invoice_references(configuration: &configuration::Configuration
 }
 
 /// Retrieves the total count of references for the specified invoice.
-pub async fn get_invoice_references_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str) -> Result<models::Int32Envelope, Error<GetInvoiceReferencesCountError>> {
+pub async fn get_invoice_references_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_reference_dto_collection_query_parameters: Option<models::InvoiceReferenceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetInvoiceReferencesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1381,6 +1392,7 @@ pub async fn get_invoice_references_count(configuration: &configuration::Configu
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_reference_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1398,7 +1410,7 @@ pub async fn get_invoice_references_count(configuration: &configuration::Configu
 }
 
 /// Retrieves a list of invoices for the specified tenant.
-pub async fn get_invoices(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::InvoiceDtoListEnvelope, Error<GetInvoicesError>> {
+pub async fn get_invoices(configuration: &configuration::Configuration, tenant_id: &str, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::InvoiceDtoListEnvelope, Error<GetInvoicesError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1410,6 +1422,7 @@ pub async fn get_invoices(configuration: &configuration::Configuration, tenant_i
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1427,7 +1440,7 @@ pub async fn get_invoices(configuration: &configuration::Configuration, tenant_i
 }
 
 /// Retrieves the total count of invoices for the specified tenant.
-pub async fn get_invoices_count(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetInvoicesCountError>> {
+pub async fn get_invoices_count(configuration: &configuration::Configuration, tenant_id: &str, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetInvoicesCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1439,6 +1452,7 @@ pub async fn get_invoices_count(configuration: &configuration::Configuration, te
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1456,7 +1470,7 @@ pub async fn get_invoices_count(configuration: &configuration::Configuration, te
 }
 
 /// Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == PurchaseInvoice, filtered by the supplied OData date range.
-pub async fn get_purchase_invoices_sum(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::MoneyEnvelope, Error<GetPurchaseInvoicesSumError>> {
+pub async fn get_purchase_invoices_sum(configuration: &configuration::Configuration, tenant_id: &str, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<GetPurchaseInvoicesSumError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1468,6 +1482,7 @@ pub async fn get_purchase_invoices_sum(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1485,7 +1500,7 @@ pub async fn get_purchase_invoices_sum(configuration: &configuration::Configurat
 }
 
 /// Returns SUM(Invoice.TotalAmountInUSD) for invoices with InvoiceType == SalesInvoice, filtered by the supplied OData date range.
-pub async fn get_sales_invoices_sum(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::MoneyEnvelope, Error<GetSalesInvoicesSumError>> {
+pub async fn get_sales_invoices_sum(configuration: &configuration::Configuration, tenant_id: &str, invoice_dto_collection_query_parameters: Option<models::InvoiceDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<GetSalesInvoicesSumError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1497,6 +1512,7 @@ pub async fn get_sales_invoices_sum(configuration: &configuration::Configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&invoice_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1514,7 +1530,7 @@ pub async fn get_sales_invoices_sum(configuration: &configuration::Configuration
 }
 
 /// Partially updates the specified invoice for the tenant.
-pub async fn patch_invoice(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceError>> {
+pub async fn patch_invoice(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1526,7 +1542,7 @@ pub async fn patch_invoice(configuration: &configuration::Configuration, tenant_
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1544,7 +1560,7 @@ pub async fn patch_invoice(configuration: &configuration::Configuration, tenant_
 }
 
 /// Partially updates the specified adjustment for the invoice.
-pub async fn patch_invoice_adjustment(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_adjustment_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceAdjustmentError>> {
+pub async fn patch_invoice_adjustment(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_adjustment_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceAdjustmentError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1556,7 +1572,7 @@ pub async fn patch_invoice_adjustment(configuration: &configuration::Configurati
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1574,7 +1590,7 @@ pub async fn patch_invoice_adjustment(configuration: &configuration::Configurati
 }
 
 /// Partially updates the specified invoice line.
-pub async fn patch_invoice_line(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceLineError>> {
+pub async fn patch_invoice_line(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceLineError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1586,7 +1602,7 @@ pub async fn patch_invoice_line(configuration: &configuration::Configuration, te
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1604,7 +1620,7 @@ pub async fn patch_invoice_line(configuration: &configuration::Configuration, te
 }
 
 /// Partially updates the specified tax entry for the invoice line.
-pub async fn patch_invoice_line_tax(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_id: &str, invoice_line_tax_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceLineTaxError>> {
+pub async fn patch_invoice_line_tax(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_line_id: &str, invoice_line_tax_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceLineTaxError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1616,7 +1632,7 @@ pub async fn patch_invoice_line_tax(configuration: &configuration::Configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1634,7 +1650,7 @@ pub async fn patch_invoice_line_tax(configuration: &configuration::Configuration
 }
 
 /// Partially updates the specified reference for the invoice.
-pub async fn patch_invoice_reference(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_reference_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceReferenceError>> {
+pub async fn patch_invoice_reference(configuration: &configuration::Configuration, tenant_id: &str, invoice_id: &str, invoice_reference_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchInvoiceReferenceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1646,7 +1662,7 @@ pub async fn patch_invoice_reference(configuration: &configuration::Configuratio
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

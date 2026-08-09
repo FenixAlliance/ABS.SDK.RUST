@@ -184,7 +184,7 @@ pub async fn get_non_fungible_token_by_id_async(configuration: &configuration::C
 }
 
 /// Retrieves all NFTs for the specified tenant.
-pub async fn get_non_fungible_tokens_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::NonFungibleTokenDtoListEnvelope, Error<GetNonFungibleTokensAsyncError>> {
+pub async fn get_non_fungible_tokens_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, non_fungible_token_dto_collection_query_parameters: Option<models::NonFungibleTokenDtoCollectionQueryParameters>) -> Result<models::NonFungibleTokenDtoListEnvelope, Error<GetNonFungibleTokensAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,6 +202,7 @@ pub async fn get_non_fungible_tokens_async(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&non_fungible_token_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -219,7 +220,7 @@ pub async fn get_non_fungible_tokens_async(configuration: &configuration::Config
 }
 
 /// Returns the count of NFTs for the specified tenant.
-pub async fn get_non_fungible_tokens_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetNonFungibleTokensCountAsyncError>> {
+pub async fn get_non_fungible_tokens_count_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, non_fungible_token_dto_collection_query_parameters: Option<models::NonFungibleTokenDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetNonFungibleTokensCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -237,6 +238,7 @@ pub async fn get_non_fungible_tokens_count_async(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&non_fungible_token_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -254,7 +256,7 @@ pub async fn get_non_fungible_tokens_count_async(configuration: &configuration::
 }
 
 /// Patch a non-fungible token
-pub async fn patch_non_fungible_token_async(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchNonFungibleTokenAsyncError>> {
+pub async fn patch_non_fungible_token_async(configuration: &configuration::Configuration, tenant_id: &str, id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchNonFungibleTokenAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -272,7 +274,7 @@ pub async fn patch_non_fungible_token_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

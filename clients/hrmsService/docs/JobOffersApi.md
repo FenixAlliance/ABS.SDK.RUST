@@ -187,7 +187,7 @@ No authorization required
 
 ## get_job_offers_async
 
-> models::JobOfferDtoListEnvelope get_job_offers_async(tenant_id, api_version, x_api_version)
+> models::JobOfferDtoListEnvelope get_job_offers_async(tenant_id, api_version, x_api_version, job_offer_dto_collection_query_parameters)
 Get job offers
 
 Retrieves job offers for the specified tenant.
@@ -200,6 +200,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**job_offer_dto_collection_query_parameters** | Option<[**JobOfferDtoCollectionQueryParameters**](JobOfferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -211,7 +212,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -219,7 +220,7 @@ No authorization required
 
 ## get_job_offers_count_async
 
-> models::Int32Envelope get_job_offers_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_job_offers_count_async(tenant_id, api_version, x_api_version, job_offer_dto_collection_query_parameters)
 Count job offers
 
 Counts job offers for the specified tenant.
@@ -232,6 +233,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**job_offer_dto_collection_query_parameters** | Option<[**JobOfferDtoCollectionQueryParameters**](JobOfferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -243,7 +245,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -284,7 +286,7 @@ No authorization required
 
 ## get_public_job_offers_async
 
-> models::JobOfferDtoListEnvelope get_public_job_offers_async(tenant_id, api_version, x_api_version)
+> models::JobOfferDtoListEnvelope get_public_job_offers_async(tenant_id, api_version, x_api_version, job_offer_dto_collection_query_parameters)
 Get public job offers
 
 Retrieves published job offers for the Talent Portal. Anonymous; optionally scoped to a single tenant.
@@ -297,6 +299,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**job_offer_dto_collection_query_parameters** | Option<[**JobOfferDtoCollectionQueryParameters**](JobOfferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -308,7 +311,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -316,7 +319,7 @@ No authorization required
 
 ## get_public_job_offers_count_async
 
-> models::Int32Envelope get_public_job_offers_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_public_job_offers_count_async(tenant_id, api_version, x_api_version, job_offer_dto_collection_query_parameters)
 Count public job offers
 
 Counts published job offers for the Talent Portal. Anonymous; optionally scoped to a single tenant.
@@ -329,6 +332,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**job_offer_dto_collection_query_parameters** | Option<[**JobOfferDtoCollectionQueryParameters**](JobOfferDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -340,7 +344,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -348,7 +352,7 @@ No authorization required
 
 ## patch_job_offer_async
 
-> models::EmptyEnvelope patch_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_job_offer_async(tenant_id, job_offer_id, api_version, x_api_version, patch_operation)
 Patch a job offer
 
 Partially updates an existing job offer for the specified tenant.
@@ -362,7 +366,7 @@ Name | Type | Description  | Required | Notes
 **job_offer_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

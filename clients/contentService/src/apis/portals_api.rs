@@ -214,7 +214,7 @@ pub async fn bind_web_portal_domain_async(configuration: &configuration::Configu
 }
 
 /// Counts all portals for the specified tenant.
-pub async fn count_portals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountPortalsAsyncError>> {
+pub async fn count_portals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, web_portal_dto_collection_query_parameters: Option<models::WebPortalDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountPortalsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -232,6 +232,7 @@ pub async fn count_portals_async(configuration: &configuration::Configuration, t
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&web_portal_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -388,7 +389,7 @@ pub async fn get_current_web_portal_options_async(configuration: &configuration:
 }
 
 /// Retrieves all portals for the specified tenant.
-pub async fn get_portals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WebPortalDtoListEnvelope, Error<GetPortalsAsyncError>> {
+pub async fn get_portals_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, web_portal_dto_collection_query_parameters: Option<models::WebPortalDtoCollectionQueryParameters>) -> Result<models::WebPortalDtoListEnvelope, Error<GetPortalsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -406,6 +407,7 @@ pub async fn get_portals_async(configuration: &configuration::Configuration, ten
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&web_portal_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -594,7 +596,7 @@ pub async fn get_web_portal_settings_async(configuration: &configuration::Config
 }
 
 /// Initialize the current portal for the current user.
-pub async fn initialize_current_web_portal_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::WebPortalDtoEnvelope, Error<InitializeCurrentWebPortalAsyncError>> {
+pub async fn initialize_current_web_portal_async(configuration: &configuration::Configuration, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ExecutionContextEnvelope, Error<InitializeCurrentWebPortalAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -628,7 +630,7 @@ pub async fn initialize_current_web_portal_async(configuration: &configuration::
 }
 
 /// Partially update a web portal
-pub async fn patch_web_portal_async(configuration: &configuration::Configuration, tenant_id: &str, portal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchWebPortalAsyncError>> {
+pub async fn patch_web_portal_async(configuration: &configuration::Configuration, tenant_id: &str, portal_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchWebPortalAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -646,7 +648,7 @@ pub async fn patch_web_portal_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

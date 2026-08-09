@@ -73,7 +73,7 @@ pub enum UpdatePointOfSaleAsyncError {
 
 
 /// Returns the total count of point of sales for the specified tenant with OData filter support.
-pub async fn count_point_of_sales_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<CountPointOfSalesAsyncError>> {
+pub async fn count_point_of_sales_async(configuration: &configuration::Configuration, tenant_id: &str, point_of_sale_dto_collection_query_parameters: Option<models::PointOfSaleDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountPointOfSalesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -85,6 +85,7 @@ pub async fn count_point_of_sales_async(configuration: &configuration::Configura
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&point_of_sale_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -190,7 +191,7 @@ pub async fn get_point_of_sale_async(configuration: &configuration::Configuratio
 }
 
 /// Retrieves a list of point of sales for the specified tenant with OData query support.
-pub async fn get_point_of_sales_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::PointOfSaleDtoListEnvelope, Error<GetPointOfSalesAsyncError>> {
+pub async fn get_point_of_sales_async(configuration: &configuration::Configuration, tenant_id: &str, point_of_sale_dto_collection_query_parameters: Option<models::PointOfSaleDtoCollectionQueryParameters>) -> Result<models::PointOfSaleDtoListEnvelope, Error<GetPointOfSalesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -202,6 +203,7 @@ pub async fn get_point_of_sales_async(configuration: &configuration::Configurati
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&point_of_sale_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -219,7 +221,7 @@ pub async fn get_point_of_sales_async(configuration: &configuration::Configurati
 }
 
 /// Partially updates an existing point of sale using a JSON Patch document.
-pub async fn patch_point_of_sale_async(configuration: &configuration::Configuration, tenant_id: &str, point_of_sale_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchPointOfSaleAsyncError>> {
+pub async fn patch_point_of_sale_async(configuration: &configuration::Configuration, tenant_id: &str, point_of_sale_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchPointOfSaleAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -231,7 +233,7 @@ pub async fn patch_point_of_sale_async(configuration: &configuration::Configurat
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

@@ -115,7 +115,7 @@ No authorization required
 
 ## get_business_domains_async
 
-> models::BusinessDomainDtoListEnvelope get_business_domains_async(tenant_id, api_version, x_api_version)
+> models::BusinessDomainDtoListEnvelope get_business_domains_async(tenant_id, api_version, x_api_version, business_domain_dto_collection_query_parameters)
 Get business domains
 
 Retrieves business domains for the specified tenant.
@@ -128,6 +128,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**business_domain_dto_collection_query_parameters** | Option<[**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -139,7 +140,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -147,7 +148,7 @@ No authorization required
 
 ## get_business_domains_count_async
 
-> models::Int32Envelope get_business_domains_count_async(tenant_id, api_version, x_api_version)
+> models::Int32Envelope get_business_domains_count_async(tenant_id, api_version, x_api_version, business_domain_dto_collection_query_parameters)
 Get business domains count
 
 Retrieves the count of business domains for the specified tenant.
@@ -160,6 +161,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**business_domain_dto_collection_query_parameters** | Option<[**BusinessDomainDtoCollectionQueryParameters**](BusinessDomainDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -171,7 +173,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

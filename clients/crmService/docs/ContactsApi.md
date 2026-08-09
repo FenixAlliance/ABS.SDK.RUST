@@ -286,7 +286,7 @@ No authorization required
 
 ## get_business_owned_individuals_async
 
-> models::ContactDtoListEnvelope get_business_owned_individuals_async(tenant_id, api_version, x_api_version)
+> models::ContactDtoListEnvelope get_business_owned_individuals_async(tenant_id, api_version, x_api_version, contact_dto_collection_query_parameters)
 Get all contacts of type individual
 
 Get all contacts of type individual
@@ -299,6 +299,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_dto_collection_query_parameters** | Option<[**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -310,7 +311,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -318,7 +319,7 @@ No authorization required
 
 ## get_business_owned_individuals_count_async
 
-> models::ContactDtoListEnvelope get_business_owned_individuals_count_async(tenant_id, api_version, x_api_version)
+> models::ContactDtoListEnvelope get_business_owned_individuals_count_async(tenant_id, api_version, x_api_version, contact_dto_collection_query_parameters)
 Get all contacts of type individual count
 
 Get all contacts of type individual count
@@ -331,6 +332,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_dto_collection_query_parameters** | Option<[**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -342,7 +344,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -383,7 +385,7 @@ No authorization required
 
 ## get_business_owned_organizations_async
 
-> Vec<models::ContactDto> get_business_owned_organizations_async(tenant_id, api_version, x_api_version)
+> Vec<models::ContactDto> get_business_owned_organizations_async(tenant_id, api_version, x_api_version, contact_dto_collection_query_parameters)
 Get all contacts of type organization
 
 Get all contacts of type organization
@@ -396,6 +398,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_dto_collection_query_parameters** | Option<[**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -407,7 +410,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -415,7 +418,7 @@ No authorization required
 
 ## get_business_owned_organizations_count_async
 
-> models::ContactDtoListEnvelope get_business_owned_organizations_count_async(tenant_id, api_version, x_api_version)
+> models::ContactDtoListEnvelope get_business_owned_organizations_count_async(tenant_id, api_version, x_api_version, contact_dto_collection_query_parameters)
 Get all contacts of type organization count
 
 Get all contacts of type organization count
@@ -428,6 +431,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_dto_collection_query_parameters** | Option<[**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -439,7 +443,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -546,7 +550,7 @@ No authorization required
 
 ## get_contact_emails_async
 
-> models::ContactEmailDtoListEnvelope get_contact_emails_async(tenant_id, contact_id, api_version, x_api_version)
+> models::ContactEmailDtoListEnvelope get_contact_emails_async(tenant_id, contact_id, api_version, x_api_version, contact_email_dto_collection_query_parameters)
 Get a contact's email addresses
 
 Get all email addresses for the specified contact.
@@ -560,6 +564,7 @@ Name | Type | Description  | Required | Notes
 **contact_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_email_dto_collection_query_parameters** | Option<[**ContactEmailDtoCollectionQueryParameters**](ContactEmailDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -571,7 +576,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -579,7 +584,7 @@ No authorization required
 
 ## get_contact_emails_count_async
 
-> models::Int32Envelope get_contact_emails_count_async(tenant_id, contact_id, api_version, x_api_version)
+> models::Int32Envelope get_contact_emails_count_async(tenant_id, contact_id, api_version, x_api_version, contact_email_dto_collection_query_parameters)
 Get contact email addresses count
 
 Returns the count of email addresses for the specified contact.
@@ -593,6 +598,7 @@ Name | Type | Description  | Required | Notes
 **contact_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_email_dto_collection_query_parameters** | Option<[**ContactEmailDtoCollectionQueryParameters**](ContactEmailDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -604,7 +610,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -678,7 +684,7 @@ No authorization required
 
 ## get_contacts_async
 
-> models::ContactDtoListEnvelope get_contacts_async(tenant_id, api_version, x_api_version)
+> models::ContactDtoListEnvelope get_contacts_async(tenant_id, api_version, x_api_version, contact_dto_collection_query_parameters)
 Get all business owned contacts
 
 Get all business owned contacts
@@ -691,6 +697,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_dto_collection_query_parameters** | Option<[**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -702,7 +709,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -710,7 +717,7 @@ No authorization required
 
 ## get_contacts_count_async
 
-> models::ContactDtoListEnvelope get_contacts_count_async(tenant_id, api_version, x_api_version)
+> models::ContactDtoListEnvelope get_contacts_count_async(tenant_id, api_version, x_api_version, contact_dto_collection_query_parameters)
 Get all business owned contacts count
 
 Get all business owned contacts count
@@ -723,6 +730,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_dto_collection_query_parameters** | Option<[**ContactDtoCollectionQueryParameters**](ContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -734,7 +742,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -742,7 +750,7 @@ No authorization required
 
 ## get_extended_business_owned_individuals_async
 
-> models::ExtendedContactDtoListEnvelope get_extended_business_owned_individuals_async(tenant_id, api_version, x_api_version)
+> models::ExtendedContactDtoListEnvelope get_extended_business_owned_individuals_async(tenant_id, api_version, x_api_version, extended_contact_dto_collection_query_parameters)
 Get all contacts of type individual
 
 Get all contacts of type individual
@@ -755,6 +763,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**extended_contact_dto_collection_query_parameters** | Option<[**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -766,7 +775,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -774,7 +783,7 @@ No authorization required
 
 ## get_extended_business_owned_organizations_async
 
-> models::ExtendedContactDtoListEnvelope get_extended_business_owned_organizations_async(tenant_id, api_version, x_api_version)
+> models::ExtendedContactDtoListEnvelope get_extended_business_owned_organizations_async(tenant_id, api_version, x_api_version, extended_contact_dto_collection_query_parameters)
 Get all contacts of type organization
 
 Get all contacts of type organization
@@ -787,6 +796,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**extended_contact_dto_collection_query_parameters** | Option<[**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -798,7 +808,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -839,7 +849,7 @@ No authorization required
 
 ## get_extended_contacts_async
 
-> models::ExtendedContactDtoListEnvelope get_extended_contacts_async(tenant_id, api_version, x_api_version)
+> models::ExtendedContactDtoListEnvelope get_extended_contacts_async(tenant_id, api_version, x_api_version, extended_contact_dto_collection_query_parameters)
 Get all business owned contacts
 
 Get all business owned contacts
@@ -852,6 +862,7 @@ Name | Type | Description  | Required | Notes
 **tenant_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**extended_contact_dto_collection_query_parameters** | Option<[**ExtendedContactDtoCollectionQueryParameters**](ExtendedContactDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -863,7 +874,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1036,7 +1047,7 @@ No authorization required
 
 ## get_profiles_for_contact_count_async
 
-> models::Int32Envelope get_profiles_for_contact_count_async(tenant_id, contact_id, api_version, x_api_version)
+> models::Int32Envelope get_profiles_for_contact_count_async(tenant_id, contact_id, api_version, x_api_version, contact_profile_dto_collection_query_parameters)
 Get contact profiles count
 
 Returns the count of profiles for the specified contact.
@@ -1050,6 +1061,7 @@ Name | Type | Description  | Required | Notes
 **contact_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**contact_profile_dto_collection_query_parameters** | Option<[**ContactProfileDtoCollectionQueryParameters**](ContactProfileDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -1061,7 +1073,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1069,7 +1081,7 @@ No authorization required
 
 ## patch_contact_async
 
-> models::EmptyEnvelope patch_contact_async(tenant_id, contact_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_contact_async(tenant_id, contact_id, api_version, x_api_version, patch_operation)
 Patch a contact
 
 Patch a contact
@@ -1083,7 +1095,7 @@ Name | Type | Description  | Required | Notes
 **contact_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 
@@ -1103,7 +1115,7 @@ No authorization required
 
 ## patch_contact_email_async
 
-> patch_contact_email_async(tenant_id, contact_id, email_id, api_version, x_api_version, operation)
+> patch_contact_email_async(tenant_id, contact_id, email_id, api_version, x_api_version, patch_operation)
 Patch a contact email address
 
 Partially updates an existing email address for the specified contact.
@@ -1118,7 +1130,7 @@ Name | Type | Description  | Required | Notes
 **email_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

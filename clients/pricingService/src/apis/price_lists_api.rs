@@ -305,7 +305,7 @@ pub async fn get_price_list_price_async(configuration: &configuration::Configura
 }
 
 /// Gets all price entries for a specific price list with OData support.
-pub async fn get_price_list_prices_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_id: &str, item_id: Option<&str>) -> Result<models::ItemPriceDtoListEnvelope, Error<GetPriceListPricesAsyncError>> {
+pub async fn get_price_list_prices_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_id: &str, item_id: Option<&str>, item_price_dto_collection_query_parameters: Option<models::ItemPriceDtoCollectionQueryParameters>) -> Result<models::ItemPriceDtoListEnvelope, Error<GetPriceListPricesAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -320,6 +320,7 @@ pub async fn get_price_list_prices_async(configuration: &configuration::Configur
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_price_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -337,7 +338,7 @@ pub async fn get_price_list_prices_async(configuration: &configuration::Configur
 }
 
 /// Gets the count of price entries for a specific price list.
-pub async fn get_price_list_prices_count_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_id: &str) -> Result<models::Int32Envelope, Error<GetPriceListPricesCountAsyncError>> {
+pub async fn get_price_list_prices_count_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_id: &str, item_price_dto_collection_query_parameters: Option<models::ItemPriceDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetPriceListPricesCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -349,6 +350,7 @@ pub async fn get_price_list_prices_count_async(configuration: &configuration::Co
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_price_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -366,7 +368,7 @@ pub async fn get_price_list_prices_count_async(configuration: &configuration::Co
 }
 
 /// Gets all price lists for the current tenant with OData support.
-pub async fn get_price_lists_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::PriceListDtoListEnvelope, Error<GetPriceListsAsyncError>> {
+pub async fn get_price_lists_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_dto_collection_query_parameters: Option<models::PriceListDtoCollectionQueryParameters>) -> Result<models::PriceListDtoListEnvelope, Error<GetPriceListsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -378,6 +380,7 @@ pub async fn get_price_lists_async(configuration: &configuration::Configuration,
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&price_list_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -395,7 +398,7 @@ pub async fn get_price_lists_async(configuration: &configuration::Configuration,
 }
 
 /// Gets the count of price lists for the current tenant.
-pub async fn get_price_lists_count_async(configuration: &configuration::Configuration, tenant_id: &str) -> Result<models::Int32Envelope, Error<GetPriceListsCountAsyncError>> {
+pub async fn get_price_lists_count_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_dto_collection_query_parameters: Option<models::PriceListDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetPriceListsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -407,6 +410,7 @@ pub async fn get_price_lists_count_async(configuration: &configuration::Configur
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
+    local_var_req_builder = local_var_req_builder.json(&price_list_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -424,7 +428,7 @@ pub async fn get_price_lists_count_async(configuration: &configuration::Configur
 }
 
 /// Partially updates the specified price list using a JSON Patch document.
-pub async fn patch_price_list_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchPriceListAsyncError>> {
+pub async fn patch_price_list_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchPriceListAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -436,7 +440,7 @@ pub async fn patch_price_list_async(configuration: &configuration::Configuration
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -454,7 +458,7 @@ pub async fn patch_price_list_async(configuration: &configuration::Configuration
 }
 
 /// Partially updates the specified price entry in a price list using a JSON Patch document.
-pub async fn patch_price_list_price_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_id: &str, price_id: &str, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchPriceListPriceAsyncError>> {
+pub async fn patch_price_list_price_async(configuration: &configuration::Configuration, tenant_id: &str, price_list_id: &str, price_id: &str, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchPriceListPriceAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -466,7 +470,7 @@ pub async fn patch_price_list_price_async(configuration: &configuration::Configu
     if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
         local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

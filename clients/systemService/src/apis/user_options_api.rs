@@ -187,7 +187,7 @@ pub async fn get_system_user_option_by_id(configuration: &configuration::Configu
 }
 
 /// Admin endpoint to retrieve options for any user
-pub async fn get_system_user_options(configuration: &configuration::Configuration, user_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::OptionDtoListEnvelope, Error<GetSystemUserOptionsError>> {
+pub async fn get_system_user_options(configuration: &configuration::Configuration, user_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, option_dto_collection_query_parameters: Option<models::OptionDtoCollectionQueryParameters>) -> Result<models::OptionDtoListEnvelope, Error<GetSystemUserOptionsError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -207,6 +207,7 @@ pub async fn get_system_user_options(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&option_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -224,7 +225,7 @@ pub async fn get_system_user_options(configuration: &configuration::Configuratio
 }
 
 /// Admin endpoint to get the count of options for any user
-pub async fn get_system_user_options_count(configuration: &configuration::Configuration, user_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSystemUserOptionsCountError>> {
+pub async fn get_system_user_options_count(configuration: &configuration::Configuration, user_id: &str, portal_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, option_dto_collection_query_parameters: Option<models::OptionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSystemUserOptionsCountError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -244,6 +245,7 @@ pub async fn get_system_user_options_count(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&option_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -261,7 +263,7 @@ pub async fn get_system_user_options_count(configuration: &configuration::Config
 }
 
 /// Admin endpoint to partially update an option for any user using a JSON Patch document
-pub async fn patch_system_user_option(configuration: &configuration::Configuration, user_id: &str, option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSystemUserOptionError>> {
+pub async fn patch_system_user_option(configuration: &configuration::Configuration, user_id: &str, option_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSystemUserOptionError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -278,7 +280,7 @@ pub async fn patch_system_user_option(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

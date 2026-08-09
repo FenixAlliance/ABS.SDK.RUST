@@ -80,7 +80,7 @@ pub enum UpdateBlogPostTagAsyncError {
 
 
 /// Counts all blog post tags for the specified tenant.
-pub async fn count_blog_post_tags_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountBlogPostTagsAsyncError>> {
+pub async fn count_blog_post_tags_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, blog_post_tag_dto_collection_query_parameters: Option<models::BlogPostTagDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountBlogPostTagsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -98,6 +98,7 @@ pub async fn count_blog_post_tags_async(configuration: &configuration::Configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -221,7 +222,7 @@ pub async fn get_blog_post_tag_by_id_async(configuration: &configuration::Config
 }
 
 /// Retrieves all blog post tags for the specified tenant.
-pub async fn get_blog_post_tags_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::BlogPostTagDtoListEnvelope, Error<GetBlogPostTagsAsyncError>> {
+pub async fn get_blog_post_tags_async(configuration: &configuration::Configuration, tenant_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, blog_post_tag_dto_collection_query_parameters: Option<models::BlogPostTagDtoCollectionQueryParameters>) -> Result<models::BlogPostTagDtoListEnvelope, Error<GetBlogPostTagsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -239,6 +240,7 @@ pub async fn get_blog_post_tags_async(configuration: &configuration::Configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&blog_post_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -256,7 +258,7 @@ pub async fn get_blog_post_tags_async(configuration: &configuration::Configurati
 }
 
 /// Partially updates an existing blog post tag for the specified tenant.
-pub async fn patch_blog_post_tag_async(configuration: &configuration::Configuration, tenant_id: &str, blog_post_tag_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchBlogPostTagAsyncError>> {
+pub async fn patch_blog_post_tag_async(configuration: &configuration::Configuration, tenant_id: &str, blog_post_tag_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchBlogPostTagAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -274,7 +276,7 @@ pub async fn patch_blog_post_tag_async(configuration: &configuration::Configurat
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

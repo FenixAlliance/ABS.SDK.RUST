@@ -808,7 +808,7 @@ pub async fn bulk_upsert_stock_items(configuration: &configuration::Configuratio
 }
 
 /// Counts the number of tags associated with a specific stock item.
-pub async fn count_stock_item_tags_by_item_id(configuration: &configuration::Configuration, tenant_id: &str, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountStockItemTagsByItemIdError>> {
+pub async fn count_stock_item_tags_by_item_id(configuration: &configuration::Configuration, tenant_id: &str, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_tag_dto_collection_query_parameters: Option<models::ItemTagDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountStockItemTagsByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -826,6 +826,7 @@ pub async fn count_stock_item_tags_by_item_id(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -843,7 +844,7 @@ pub async fn count_stock_item_tags_by_item_id(configuration: &configuration::Con
 }
 
 /// Counts the number of stock items for a business, optionally filtered by tenant and OData query options.
-pub async fn count_stock_items_by_business(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<CountStockItemsByBusinessError>> {
+pub async fn count_stock_items_by_business(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, catalog_item_dto_collection_query_parameters: Option<models::CatalogItemDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<CountStockItemsByBusinessError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -863,6 +864,7 @@ pub async fn count_stock_items_by_business(configuration: &configuration::Config
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&catalog_item_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1053,7 +1055,7 @@ pub async fn get_stock_item_attachment_by_id(configuration: &configuration::Conf
 }
 
 /// Retrieves all attachments associated with a specific stock item.
-pub async fn get_stock_item_attachments_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemAttachmentDtoListEnvelope, Error<GetStockItemAttachmentsByItemIdError>> {
+pub async fn get_stock_item_attachments_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_attachment_dto_collection_query_parameters: Option<models::ItemAttachmentDtoCollectionQueryParameters>) -> Result<models::ItemAttachmentDtoListEnvelope, Error<GetStockItemAttachmentsByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1070,6 +1072,7 @@ pub async fn get_stock_item_attachments_by_item_id(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_attachment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1189,7 +1192,7 @@ pub async fn get_stock_item_brand_by_id(configuration: &configuration::Configura
 }
 
 /// Retrieves all brands associated with a specific stock item.
-pub async fn get_stock_item_brands_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemBrandDtoListEnvelope, Error<GetStockItemBrandsByItemIdError>> {
+pub async fn get_stock_item_brands_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_brand_dto_collection_query_parameters: Option<models::ItemBrandDtoCollectionQueryParameters>) -> Result<models::ItemBrandDtoListEnvelope, Error<GetStockItemBrandsByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1206,6 +1209,7 @@ pub async fn get_stock_item_brands_by_item_id(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_brand_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1257,7 +1261,7 @@ pub async fn get_stock_item_by_id(configuration: &configuration::Configuration, 
 }
 
 /// Retrieves all categories associated with a specific stock item.
-pub async fn get_stock_item_categories_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemCategoryDtoListEnvelope, Error<GetStockItemCategoriesByItemIdError>> {
+pub async fn get_stock_item_categories_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_category_dto_collection_query_parameters: Option<models::ItemCategoryDtoCollectionQueryParameters>) -> Result<models::ItemCategoryDtoListEnvelope, Error<GetStockItemCategoriesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1274,6 +1278,7 @@ pub async fn get_stock_item_categories_by_item_id(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1325,7 +1330,7 @@ pub async fn get_stock_item_category_by_id(configuration: &configuration::Config
 }
 
 /// Retrieves all Google categories associated with a specific stock item.
-pub async fn get_stock_item_google_categories_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemGoogleCategoryDtoListEnvelope, Error<GetStockItemGoogleCategoriesByItemIdError>> {
+pub async fn get_stock_item_google_categories_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_google_category_dto_collection_query_parameters: Option<models::ItemGoogleCategoryDtoCollectionQueryParameters>) -> Result<models::ItemGoogleCategoryDtoListEnvelope, Error<GetStockItemGoogleCategoriesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1342,6 +1347,7 @@ pub async fn get_stock_item_google_categories_by_item_id(configuration: &configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_google_category_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1427,7 +1433,7 @@ pub async fn get_stock_item_image_by_id(configuration: &configuration::Configura
 }
 
 /// Retrieves all images associated with a specific stock item.
-pub async fn get_stock_item_images_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemImageDtoListEnvelope, Error<GetStockItemImagesByItemIdError>> {
+pub async fn get_stock_item_images_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_image_dto_collection_query_parameters: Option<models::ItemImageDtoCollectionQueryParameters>) -> Result<models::ItemImageDtoListEnvelope, Error<GetStockItemImagesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1444,6 +1450,7 @@ pub async fn get_stock_item_images_by_item_id(configuration: &configuration::Con
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_image_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1563,7 +1570,7 @@ pub async fn get_stock_item_question_by_id(configuration: &configuration::Config
 }
 
 /// Retrieves all questions associated with a specific stock item.
-pub async fn get_stock_item_questions_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemQuestionDtoListEnvelope, Error<GetStockItemQuestionsByItemIdError>> {
+pub async fn get_stock_item_questions_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_question_dto_collection_query_parameters: Option<models::ItemQuestionDtoCollectionQueryParameters>) -> Result<models::ItemQuestionDtoListEnvelope, Error<GetStockItemQuestionsByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1580,6 +1587,7 @@ pub async fn get_stock_item_questions_by_item_id(configuration: &configuration::
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_question_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1597,7 +1605,7 @@ pub async fn get_stock_item_questions_by_item_id(configuration: &configuration::
 }
 
 /// Retrieves all refund policies associated with a specific stock item.
-pub async fn get_stock_item_refund_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemRefundPolicyDtoListEnvelope, Error<GetStockItemRefundPoliciesByItemIdError>> {
+pub async fn get_stock_item_refund_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_refund_policy_dto_collection_query_parameters: Option<models::ItemRefundPolicyDtoCollectionQueryParameters>) -> Result<models::ItemRefundPolicyDtoListEnvelope, Error<GetStockItemRefundPoliciesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1614,6 +1622,7 @@ pub async fn get_stock_item_refund_policies_by_item_id(configuration: &configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_refund_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1665,7 +1674,7 @@ pub async fn get_stock_item_refund_policy_by_id(configuration: &configuration::C
 }
 
 /// Retrieves all return policies associated with a specific stock item.
-pub async fn get_stock_item_return_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemReturnPolicyDtoListEnvelope, Error<GetStockItemReturnPoliciesByItemIdError>> {
+pub async fn get_stock_item_return_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_return_policy_dto_collection_query_parameters: Option<models::ItemReturnPolicyDtoCollectionQueryParameters>) -> Result<models::ItemReturnPolicyDtoListEnvelope, Error<GetStockItemReturnPoliciesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1682,6 +1691,7 @@ pub async fn get_stock_item_return_policies_by_item_id(configuration: &configura
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_return_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1767,7 +1777,7 @@ pub async fn get_stock_item_review_by_id(configuration: &configuration::Configur
 }
 
 /// Retrieves all reviews associated with a specific stock item.
-pub async fn get_stock_item_reviews_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemReviewDtoListEnvelope, Error<GetStockItemReviewsByItemIdError>> {
+pub async fn get_stock_item_reviews_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_review_dto_collection_query_parameters: Option<models::ItemReviewDtoCollectionQueryParameters>) -> Result<models::ItemReviewDtoListEnvelope, Error<GetStockItemReviewsByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1784,6 +1794,7 @@ pub async fn get_stock_item_reviews_by_item_id(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_review_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1801,7 +1812,7 @@ pub async fn get_stock_item_reviews_by_item_id(configuration: &configuration::Co
 }
 
 /// Retrieves all shipping policies associated with a specific stock item.
-pub async fn get_stock_item_shipping_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemShippingPolicyDtoListEnvelope, Error<GetStockItemShippingPoliciesByItemIdError>> {
+pub async fn get_stock_item_shipping_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_shipping_policy_dto_collection_query_parameters: Option<models::ItemShippingPolicyDtoCollectionQueryParameters>) -> Result<models::ItemShippingPolicyDtoListEnvelope, Error<GetStockItemShippingPoliciesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1818,6 +1829,7 @@ pub async fn get_stock_item_shipping_policies_by_item_id(configuration: &configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_shipping_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1904,7 +1916,7 @@ pub async fn get_stock_item_tag_by_id(configuration: &configuration::Configurati
 }
 
 /// Retrieves all tags associated with a specific stock item.
-pub async fn get_stock_item_tags_by_item_id(configuration: &configuration::Configuration, tenant_id: &str, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemTagDtoListEnvelope, Error<GetStockItemTagsByItemIdError>> {
+pub async fn get_stock_item_tags_by_item_id(configuration: &configuration::Configuration, tenant_id: &str, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_tag_dto_collection_query_parameters: Option<models::ItemTagDtoCollectionQueryParameters>) -> Result<models::ItemTagDtoListEnvelope, Error<GetStockItemTagsByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1922,6 +1934,7 @@ pub async fn get_stock_item_tags_by_item_id(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_tag_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -1939,7 +1952,7 @@ pub async fn get_stock_item_tags_by_item_id(configuration: &configuration::Confi
 }
 
 /// Retrieves all tax policies associated with a specific stock item.
-pub async fn get_stock_item_tax_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemTaxPolicyDtoListEnvelope, Error<GetStockItemTaxPoliciesByItemIdError>> {
+pub async fn get_stock_item_tax_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_tax_policy_dto_collection_query_parameters: Option<models::ItemTaxPolicyDtoCollectionQueryParameters>) -> Result<models::ItemTaxPolicyDtoListEnvelope, Error<GetStockItemTaxPoliciesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1956,6 +1969,7 @@ pub async fn get_stock_item_tax_policies_by_item_id(configuration: &configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_tax_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -2042,7 +2056,7 @@ pub async fn get_stock_item_type_by_id(configuration: &configuration::Configurat
 }
 
 /// Retrieves all types associated with a specific stock item.
-pub async fn get_stock_item_types_by_item_id(configuration: &configuration::Configuration, tenant_id: &str, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemTypeDtoListEnvelope, Error<GetStockItemTypesByItemIdError>> {
+pub async fn get_stock_item_types_by_item_id(configuration: &configuration::Configuration, tenant_id: &str, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_type_dto_collection_query_parameters: Option<models::ItemTypeDtoCollectionQueryParameters>) -> Result<models::ItemTypeDtoListEnvelope, Error<GetStockItemTypesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2060,6 +2074,7 @@ pub async fn get_stock_item_types_by_item_id(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_type_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -2077,7 +2092,7 @@ pub async fn get_stock_item_types_by_item_id(configuration: &configuration::Conf
 }
 
 /// Retrieves all warranty policies associated with a specific stock item.
-pub async fn get_stock_item_warranty_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::ItemWarrantyPolicyDtoListEnvelope, Error<GetStockItemWarrantyPoliciesByItemIdError>> {
+pub async fn get_stock_item_warranty_policies_by_item_id(configuration: &configuration::Configuration, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, item_warranty_policy_dto_collection_query_parameters: Option<models::ItemWarrantyPolicyDtoCollectionQueryParameters>) -> Result<models::ItemWarrantyPolicyDtoListEnvelope, Error<GetStockItemWarrantyPoliciesByItemIdError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2094,6 +2109,7 @@ pub async fn get_stock_item_warranty_policies_by_item_id(configuration: &configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&item_warranty_policy_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -2145,7 +2161,7 @@ pub async fn get_stock_item_warranty_policy_by_id(configuration: &configuration:
 }
 
 /// Retrieves the maximum price among all stock items, optionally filtered by tenant and OData query options.
-pub async fn get_stock_items_odata_max_price(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::MoneyEnvelope, Error<GetStockItemsOdataMaxPriceError>> {
+pub async fn get_stock_items_odata_max_price(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, catalog_item_dto_collection_query_parameters: Option<models::CatalogItemDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<GetStockItemsOdataMaxPriceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2165,6 +2181,7 @@ pub async fn get_stock_items_odata_max_price(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&catalog_item_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -2182,7 +2199,7 @@ pub async fn get_stock_items_odata_max_price(configuration: &configuration::Conf
 }
 
 /// Retrieves the minimum price among all stock items, optionally filtered by tenant and OData query options.
-pub async fn get_stock_items_odata_min_price(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::MoneyEnvelope, Error<GetStockItemsOdataMinPriceError>> {
+pub async fn get_stock_items_odata_min_price(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, catalog_item_dto_collection_query_parameters: Option<models::CatalogItemDtoCollectionQueryParameters>) -> Result<models::MoneyEnvelope, Error<GetStockItemsOdataMinPriceError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2202,6 +2219,7 @@ pub async fn get_stock_items_odata_min_price(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&catalog_item_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -2219,7 +2237,7 @@ pub async fn get_stock_items_odata_min_price(configuration: &configuration::Conf
 }
 
 /// Retrieves all stock items, optionally filtered by tenant and OData query options.
-pub async fn get_stock_items_query(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::CatalogItemDtoListEnvelope, Error<GetStockItemsQueryError>> {
+pub async fn get_stock_items_query(configuration: &configuration::Configuration, tenant_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, catalog_item_dto_collection_query_parameters: Option<models::CatalogItemDtoCollectionQueryParameters>) -> Result<models::CatalogItemDtoListEnvelope, Error<GetStockItemsQueryError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2239,6 +2257,7 @@ pub async fn get_stock_items_query(configuration: &configuration::Configuration,
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&catalog_item_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -2256,7 +2275,7 @@ pub async fn get_stock_items_query(configuration: &configuration::Configuration,
 }
 
 /// Partially updates an existing stock item for the specified tenant and item ID.
-pub async fn patch_stock_item(configuration: &configuration::Configuration, tenant_id: &str, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<(), Error<PatchStockItemError>> {
+pub async fn patch_stock_item(configuration: &configuration::Configuration, tenant_id: &str, item_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<(), Error<PatchStockItemError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -2274,7 +2293,7 @@ pub async fn patch_stock_item(configuration: &configuration::Configuration, tena
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;

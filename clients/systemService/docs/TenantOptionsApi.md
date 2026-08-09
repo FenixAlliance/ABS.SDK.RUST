@@ -117,7 +117,7 @@ No authorization required
 
 ## get_system_tenant_options
 
-> models::OptionDtoListEnvelope get_system_tenant_options(tenant_id, portal_id, api_version, x_api_version)
+> models::OptionDtoListEnvelope get_system_tenant_options(tenant_id, portal_id, api_version, x_api_version, option_dto_collection_query_parameters)
 Retrieve a list of tenant options (admin)
 
 Admin endpoint to retrieve options for any tenant
@@ -131,6 +131,7 @@ Name | Type | Description  | Required | Notes
 **portal_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**option_dto_collection_query_parameters** | Option<[**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -142,7 +143,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -150,7 +151,7 @@ No authorization required
 
 ## get_system_tenant_options_count
 
-> models::Int32Envelope get_system_tenant_options_count(tenant_id, portal_id, api_version, x_api_version)
+> models::Int32Envelope get_system_tenant_options_count(tenant_id, portal_id, api_version, x_api_version, option_dto_collection_query_parameters)
 Get the count of tenant options (admin)
 
 Admin endpoint to get the count of options for any tenant
@@ -164,6 +165,7 @@ Name | Type | Description  | Required | Notes
 **portal_id** | Option<**uuid::Uuid**> |  |  |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
+**option_dto_collection_query_parameters** | Option<[**OptionDtoCollectionQueryParameters**](OptionDtoCollectionQueryParameters.md)> |  |  |
 
 ### Return type
 
@@ -175,7 +177,7 @@ No authorization required
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json, application/xml
 - **Accept**: application/json, application/xml
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -183,7 +185,7 @@ No authorization required
 
 ## patch_system_tenant_option
 
-> models::EmptyEnvelope patch_system_tenant_option(tenant_id, option_id, api_version, x_api_version, operation)
+> models::EmptyEnvelope patch_system_tenant_option(tenant_id, option_id, api_version, x_api_version, patch_operation)
 Partially update a tenant option (admin)
 
 Admin endpoint to partially update an option for any tenant using a JSON Patch document
@@ -197,7 +199,7 @@ Name | Type | Description  | Required | Notes
 **option_id** | **uuid::Uuid** |  | [required] |
 **api_version** | Option<**String**> |  |  |
 **x_api_version** | Option<**String**> |  |  |
-**operation** | Option<[**Vec<models::Operation>**](Operation.md)> |  |  |
+**patch_operation** | Option<[**Vec<models::PatchOperation>**](PatchOperation.md)> |  |  |
 
 ### Return type
 

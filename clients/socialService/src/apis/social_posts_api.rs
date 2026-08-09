@@ -15,6 +15,15 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration};
 
 
+/// struct for typed errors of method [`create_social_comment_reaction_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum CreateSocialCommentReactionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`create_social_post_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -51,6 +60,15 @@ pub enum CreateSocialPostReactionAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`delete_social_comment_reaction_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum DeleteSocialCommentReactionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`delete_social_post_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -82,6 +100,33 @@ pub enum DeleteSocialPostCommentAsyncError {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
 pub enum DeleteSocialPostReactionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_social_comment_reaction_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSocialCommentReactionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_social_comment_reactions_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSocialCommentReactionsAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+/// struct for typed errors of method [`get_social_comment_reactions_count_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum GetSocialCommentReactionsCountAsyncError {
     Status403(models::ErrorEnvelope),
     Status401(models::ErrorEnvelope),
     UnknownValue(serde_json::Value),
@@ -204,6 +249,15 @@ pub enum PatchSocialPostAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`update_social_comment_reaction_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UpdateSocialCommentReactionAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
 /// struct for typed errors of method [`update_social_post_async`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
@@ -240,6 +294,52 @@ pub enum UpdateSocialPostReactionAsyncError {
     UnknownValue(serde_json::Value),
 }
 
+/// struct for typed errors of method [`upload_social_post_image_attachment_async`]
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(untagged)]
+pub enum UploadSocialPostImageAttachmentAsyncError {
+    Status403(models::ErrorEnvelope),
+    Status401(models::ErrorEnvelope),
+    Status400(models::ErrorEnvelope),
+    UnknownValue(serde_json::Value),
+}
+
+
+/// Creates a new reaction on a specific social comment.
+pub async fn create_social_comment_reaction_async(configuration: &configuration::Configuration, social_post_id: &str, comment_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_reaction_create_dto: Option<models::SocialReactionCreateDto>) -> Result<models::SocialCommentReactionDtoEnvelope, Error<CreateSocialCommentReactionAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions", local_var_configuration.base_path, socialPostId=crate::apis::urlencode(social_post_id), commentId=crate::apis::urlencode(comment_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("socialProfileId", &social_profile_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&social_reaction_create_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<CreateSocialCommentReactionAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
 
 /// Creates a new social post for the specified social profile.
 pub async fn create_social_post_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_post_create_dto: Option<models::SocialPostCreateDto>) -> Result<models::SocialPostDtoEnvelope, Error<CreateSocialPostAsyncError>> {
@@ -350,7 +450,7 @@ pub async fn create_social_post_comment_async(configuration: &configuration::Con
 }
 
 /// Creates a new reaction on a specific social post.
-pub async fn create_social_post_reaction_async(configuration: &configuration::Configuration, social_post_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_reaction_create_dto: Option<models::SocialReactionCreateDto>) -> Result<models::SocialReactionDtoEnvelope, Error<CreateSocialPostReactionAsyncError>> {
+pub async fn create_social_post_reaction_async(configuration: &configuration::Configuration, social_post_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_reaction_create_dto: Option<models::SocialReactionCreateDto>) -> Result<models::SocialPostReactionDtoEnvelope, Error<CreateSocialPostReactionAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -380,6 +480,41 @@ pub async fn create_social_post_reaction_async(configuration: &configuration::Co
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<CreateSocialPostReactionAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Deletes a reaction from a specific social comment.
+pub async fn delete_social_comment_reaction_async(configuration: &configuration::Configuration, social_post_id: &str, comment_id: &str, reaction_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::EmptyEnvelope, Error<DeleteSocialCommentReactionAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}", local_var_configuration.base_path, socialPostId=crate::apis::urlencode(social_post_id), commentId=crate::apis::urlencode(comment_id), reactionId=crate::apis::urlencode(reaction_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::DELETE, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("socialProfileId", &social_profile_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<DeleteSocialCommentReactionAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -525,6 +660,112 @@ pub async fn delete_social_post_reaction_async(configuration: &configuration::Co
     }
 }
 
+/// Retrieves a specific reaction from a social comment by its ID.
+pub async fn get_social_comment_reaction_async(configuration: &configuration::Configuration, social_post_id: &str, comment_id: &str, reaction_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialCommentReactionDtoEnvelope, Error<GetSocialCommentReactionAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}", local_var_configuration.base_path, socialPostId=crate::apis::urlencode(social_post_id), commentId=crate::apis::urlencode(comment_id), reactionId=crate::apis::urlencode(reaction_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetSocialCommentReactionAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Retrieves a list of reactions for a specific social comment.
+pub async fn get_social_comment_reactions_async(configuration: &configuration::Configuration, social_post_id: &str, comment_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_comment_reaction_dto_collection_query_parameters: Option<models::SocialCommentReactionDtoCollectionQueryParameters>) -> Result<models::SocialCommentReactionDtoListEnvelope, Error<GetSocialCommentReactionsAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions", local_var_configuration.base_path, socialPostId=crate::apis::urlencode(social_post_id), commentId=crate::apis::urlencode(comment_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("socialProfileId", &social_profile_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&social_comment_reaction_dto_collection_query_parameters);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetSocialCommentReactionsAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Returns the count of reactions for a specific social comment.
+pub async fn get_social_comment_reactions_count_async(configuration: &configuration::Configuration, social_post_id: &str, comment_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_comment_reaction_dto_collection_query_parameters: Option<models::SocialCommentReactionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSocialCommentReactionsCountAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/Count", local_var_configuration.base_path, socialPostId=crate::apis::urlencode(social_post_id), commentId=crate::apis::urlencode(comment_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("socialProfileId", &social_profile_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&social_comment_reaction_dto_collection_query_parameters);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<GetSocialCommentReactionsCountAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
 /// Retrieves a specific social post by its ID.
 pub async fn get_social_post_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialPostDtoEnvelope, Error<GetSocialPostAsyncError>> {
     let local_var_configuration = configuration;
@@ -595,7 +836,7 @@ pub async fn get_social_post_attachment_async(configuration: &configuration::Con
 }
 
 /// Retrieves a list of attachments for a specific social post.
-pub async fn get_social_post_attachments_async(configuration: &configuration::Configuration, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialPostAttachmentDtoListEnvelope, Error<GetSocialPostAttachmentsAsyncError>> {
+pub async fn get_social_post_attachments_async(configuration: &configuration::Configuration, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_post_attachment_dto_collection_query_parameters: Option<models::SocialPostAttachmentDtoCollectionQueryParameters>) -> Result<models::SocialPostAttachmentDtoListEnvelope, Error<GetSocialPostAttachmentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -612,6 +853,7 @@ pub async fn get_social_post_attachments_async(configuration: &configuration::Co
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_post_attachment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -629,7 +871,7 @@ pub async fn get_social_post_attachments_async(configuration: &configuration::Co
 }
 
 /// Returns the count of attachments for a specific social post.
-pub async fn get_social_post_attachments_count_async(configuration: &configuration::Configuration, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSocialPostAttachmentsCountAsyncError>> {
+pub async fn get_social_post_attachments_count_async(configuration: &configuration::Configuration, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_post_attachment_dto_collection_query_parameters: Option<models::SocialPostAttachmentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSocialPostAttachmentsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -646,6 +888,7 @@ pub async fn get_social_post_attachments_count_async(configuration: &configurati
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_post_attachment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -698,7 +941,7 @@ pub async fn get_social_post_comment_async(configuration: &configuration::Config
 }
 
 /// Retrieves a list of comments for a specific social post.
-pub async fn get_social_post_comments_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialPostCommentDtoListEnvelope, Error<GetSocialPostCommentsAsyncError>> {
+pub async fn get_social_post_comments_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, parent_comment_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, social_post_comment_dto_collection_query_parameters: Option<models::SocialPostCommentDtoCollectionQueryParameters>) -> Result<models::SocialPostCommentDtoListEnvelope, Error<GetSocialPostCommentsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -707,6 +950,9 @@ pub async fn get_social_post_comments_async(configuration: &configuration::Confi
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("socialProfileId", &social_profile_id.to_string())]);
+    if let Some(ref local_var_str) = parent_comment_id {
+        local_var_req_builder = local_var_req_builder.query(&[("parentCommentId", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }
@@ -716,6 +962,7 @@ pub async fn get_social_post_comments_async(configuration: &configuration::Confi
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_post_comment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -733,7 +980,7 @@ pub async fn get_social_post_comments_async(configuration: &configuration::Confi
 }
 
 /// Returns the count of comments for a specific social post.
-pub async fn get_social_post_comments_count_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSocialPostCommentsCountAsyncError>> {
+pub async fn get_social_post_comments_count_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, parent_comment_id: Option<&str>, api_version: Option<&str>, x_api_version: Option<&str>, social_post_comment_dto_collection_query_parameters: Option<models::SocialPostCommentDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSocialPostCommentsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -742,6 +989,9 @@ pub async fn get_social_post_comments_count_async(configuration: &configuration:
     let mut local_var_req_builder = local_var_client.request(reqwest::Method::GET, local_var_uri_str.as_str());
 
     local_var_req_builder = local_var_req_builder.query(&[("socialProfileId", &social_profile_id.to_string())]);
+    if let Some(ref local_var_str) = parent_comment_id {
+        local_var_req_builder = local_var_req_builder.query(&[("parentCommentId", &local_var_str.to_string())]);
+    }
     if let Some(ref local_var_str) = api_version {
         local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
     }
@@ -751,6 +1001,7 @@ pub async fn get_social_post_comments_count_async(configuration: &configuration:
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_post_comment_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -802,7 +1053,7 @@ pub async fn get_social_post_reaction_async(configuration: &configuration::Confi
 }
 
 /// Retrieves a list of reactions for a specific social post.
-pub async fn get_social_post_reactions_async(configuration: &configuration::Configuration, social_post_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialReactionDtoListEnvelope, Error<GetSocialPostReactionsAsyncError>> {
+pub async fn get_social_post_reactions_async(configuration: &configuration::Configuration, social_post_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_post_reaction_dto_collection_query_parameters: Option<models::SocialPostReactionDtoCollectionQueryParameters>) -> Result<models::SocialReactionDtoListEnvelope, Error<GetSocialPostReactionsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -820,6 +1071,7 @@ pub async fn get_social_post_reactions_async(configuration: &configuration::Conf
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_post_reaction_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -837,7 +1089,7 @@ pub async fn get_social_post_reactions_async(configuration: &configuration::Conf
 }
 
 /// Returns the count of reactions for a specific social post.
-pub async fn get_social_post_reactions_count_async(configuration: &configuration::Configuration, social_post_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSocialPostReactionsCountAsyncError>> {
+pub async fn get_social_post_reactions_count_async(configuration: &configuration::Configuration, social_post_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_post_reaction_dto_collection_query_parameters: Option<models::SocialPostReactionDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSocialPostReactionsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -855,6 +1107,7 @@ pub async fn get_social_post_reactions_count_async(configuration: &configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_post_reaction_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -872,7 +1125,7 @@ pub async fn get_social_post_reactions_count_async(configuration: &configuration
 }
 
 /// Retrieves a list of social posts for the specified social profile.
-pub async fn get_social_posts_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::SocialPostDtoListEnvelope, Error<GetSocialPostsAsyncError>> {
+pub async fn get_social_posts_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_post_dto_collection_query_parameters: Option<models::SocialPostDtoCollectionQueryParameters>) -> Result<models::SocialPostDtoListEnvelope, Error<GetSocialPostsAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -890,6 +1143,7 @@ pub async fn get_social_posts_async(configuration: &configuration::Configuration
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -907,7 +1161,7 @@ pub async fn get_social_posts_async(configuration: &configuration::Configuration
 }
 
 /// Returns the count of social posts for the specified social profile.
-pub async fn get_social_posts_count_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>) -> Result<models::Int32Envelope, Error<GetSocialPostsCountAsyncError>> {
+pub async fn get_social_posts_count_async(configuration: &configuration::Configuration, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_post_dto_collection_query_parameters: Option<models::SocialPostDtoCollectionQueryParameters>) -> Result<models::Int32Envelope, Error<GetSocialPostsCountAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -925,6 +1179,7 @@ pub async fn get_social_posts_count_async(configuration: &configuration::Configu
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
+    local_var_req_builder = local_var_req_builder.json(&social_post_dto_collection_query_parameters);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -942,7 +1197,7 @@ pub async fn get_social_posts_count_async(configuration: &configuration::Configu
 }
 
 /// Partially updates an existing social post by its ID using a JSON Patch document.
-pub async fn patch_social_post_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, operation: Option<Vec<models::Operation>>) -> Result<models::EmptyEnvelope, Error<PatchSocialPostAsyncError>> {
+pub async fn patch_social_post_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, patch_operation: Option<Vec<models::PatchOperation>>) -> Result<models::EmptyEnvelope, Error<PatchSocialPostAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -960,7 +1215,7 @@ pub async fn patch_social_post_async(configuration: &configuration::Configuratio
     if let Some(local_var_param_value) = x_api_version {
         local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
     }
-    local_var_req_builder = local_var_req_builder.json(&operation);
+    local_var_req_builder = local_var_req_builder.json(&patch_operation);
 
     let local_var_req = local_var_req_builder.build()?;
     let local_var_resp = local_var_client.execute(local_var_req).await?;
@@ -972,6 +1227,42 @@ pub async fn patch_social_post_async(configuration: &configuration::Configuratio
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<PatchSocialPostAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Updates an existing reaction on a specific social comment.
+pub async fn update_social_comment_reaction_async(configuration: &configuration::Configuration, social_post_id: &str, comment_id: &str, reaction_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_reaction_update_dto: Option<models::SocialReactionUpdateDto>) -> Result<models::SocialCommentReactionDtoEnvelope, Error<UpdateSocialCommentReactionAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SocialService/SocialPosts/{socialPostId}/Comments/{commentId}/Reactions/{reactionId}", local_var_configuration.base_path, socialPostId=crate::apis::urlencode(social_post_id), commentId=crate::apis::urlencode(comment_id), reactionId=crate::apis::urlencode(reaction_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::PUT, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("socialProfileId", &social_profile_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    local_var_req_builder = local_var_req_builder.json(&social_reaction_update_dto);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UpdateSocialCommentReactionAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
@@ -1086,7 +1377,7 @@ pub async fn update_social_post_comment_async(configuration: &configuration::Con
 }
 
 /// Updates an existing reaction on a specific social post.
-pub async fn update_social_post_reaction_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, reaction_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_reaction_update_dto: Option<models::SocialReactionUpdateDto>) -> Result<models::EmptyEnvelope, Error<UpdateSocialPostReactionAsyncError>> {
+pub async fn update_social_post_reaction_async(configuration: &configuration::Configuration, social_profile_id: &str, social_post_id: &str, reaction_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, social_reaction_update_dto: Option<models::SocialReactionUpdateDto>) -> Result<models::SocialPostReactionDtoEnvelope, Error<UpdateSocialPostReactionAsyncError>> {
     let local_var_configuration = configuration;
 
     let local_var_client = &local_var_configuration.client;
@@ -1116,6 +1407,44 @@ pub async fn update_social_post_reaction_async(configuration: &configuration::Co
         serde_json::from_str(&local_var_content).map_err(Error::from)
     } else {
         let local_var_entity: Option<UpdateSocialPostReactionAsyncError> = serde_json::from_str(&local_var_content).ok();
+        let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
+        Err(Error::ResponseError(local_var_error))
+    }
+}
+
+/// Uploads an image and attaches it to a social post, storing the bytes through the storage spine.
+pub async fn upload_social_post_image_attachment_async(configuration: &configuration::Configuration, social_post_id: &str, social_profile_id: &str, api_version: Option<&str>, x_api_version: Option<&str>, file: Option<std::path::PathBuf>) -> Result<models::SocialPostAttachmentDtoEnvelope, Error<UploadSocialPostImageAttachmentAsyncError>> {
+    let local_var_configuration = configuration;
+
+    let local_var_client = &local_var_configuration.client;
+
+    let local_var_uri_str = format!("{}/api/v2/SocialService/SocialPosts/{socialPostId}/Attachments/Image", local_var_configuration.base_path, socialPostId=crate::apis::urlencode(social_post_id));
+    let mut local_var_req_builder = local_var_client.request(reqwest::Method::POST, local_var_uri_str.as_str());
+
+    local_var_req_builder = local_var_req_builder.query(&[("socialProfileId", &social_profile_id.to_string())]);
+    if let Some(ref local_var_str) = api_version {
+        local_var_req_builder = local_var_req_builder.query(&[("api-version", &local_var_str.to_string())]);
+    }
+    if let Some(ref local_var_user_agent) = local_var_configuration.user_agent {
+        local_var_req_builder = local_var_req_builder.header(reqwest::header::USER_AGENT, local_var_user_agent.clone());
+    }
+    if let Some(local_var_param_value) = x_api_version {
+        local_var_req_builder = local_var_req_builder.header("x-api-version", local_var_param_value.to_string());
+    }
+    let mut local_var_form = reqwest::multipart::Form::new();
+    // TODO: support file upload for 'file' parameter
+    local_var_req_builder = local_var_req_builder.multipart(local_var_form);
+
+    let local_var_req = local_var_req_builder.build()?;
+    let local_var_resp = local_var_client.execute(local_var_req).await?;
+
+    let local_var_status = local_var_resp.status();
+    let local_var_content = local_var_resp.text().await?;
+
+    if !local_var_status.is_client_error() && !local_var_status.is_server_error() {
+        serde_json::from_str(&local_var_content).map_err(Error::from)
+    } else {
+        let local_var_entity: Option<UploadSocialPostImageAttachmentAsyncError> = serde_json::from_str(&local_var_content).ok();
         let local_var_error = ResponseContent { status: local_var_status, content: local_var_content, entity: local_var_entity };
         Err(Error::ResponseError(local_var_error))
     }
